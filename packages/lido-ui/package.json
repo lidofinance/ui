@@ -1,0 +1,13 @@
+{
+  "name": "@lidofinance/lido-ui",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "dependencies": {
+    "@styled-system/button": "1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}

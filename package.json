@@ -1,0 +1,44 @@
+{
+  "name": "lido-ui-components",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "start-storybook -p 5555",
+    "build": "yarn workspaces foreach -p -i -v --exclude lido-ui run g:build",
+    "g:build": "cd $INIT_CWD && babel --root-mode upward src --out-dir dist --ignore '**/*.stories.js','**/*.test.js'",
+    "test": "jest",
+    "test:coverage": "jest coverage"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.13.14",
+    "@babel/core": "7.13.14",
+    "@babel/preset-env": "7.13.12",
+    "@babel/preset-react": "7.13.13",
+    "@storybook/addon-docs": "6.2.2",
+    "@storybook/addons": "^6.2.2",
+    "@storybook/react": "6.2.2",
+    "@storybook/storybook-deployer": "2.8.7",
+    "@storybook/theming": "^6.2.2",
+    "babel-core": "6.26.3",
+    "babel-jest": "26.6.3",
+    "babel-loader": "8.2.2",
+    "babel-plugin-styled-components": "1.12.0",
+    "eslint": "7.23.0",
+    "jest": "26.6.3",
+    "jest-haste-map": "26.6.2",
+    "jest-resolve": "26.6.2",
+    "jest-styled-components": "7.0.3",
+    "prettier": "2.2.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^4.2.3",
+    "webpack": "5.30.0"
+  },
+  "dependencies": {
+    "react-is": "^17.0.2",
+    "styled-components": "^5.2.3"
+  }
+}
