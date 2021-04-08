@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "start-storybook -p 5555",
     "build": "yarn workspaces foreach -p -i -v --exclude lido-ui run g:build",
-    "g:build": "cd $INIT_CWD && babel --root-mode upward src --out-dir dist --ignore '**/*.stories.js','**/*.test.js'",
+    "g:build": "cd $INIT_CWD && rimraf dist && tsc --outDir dist && babel --extensions '.js,.jsx,.ts,.tsx' --root-mode upward src --out-dir dist --ignore '**/*.stories.js','**/*.test.js'",
     "test": "jest",
     "test:coverage": "jest coverage"
   },
@@ -16,6 +16,7 @@
     "@babel/core": "7.13.14",
     "@babel/preset-env": "7.13.12",
     "@babel/preset-react": "7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
     "@storybook/addon-docs": "6.2.5",
     "@storybook/addons": "^6.2.5",
     "@storybook/react": "6.2.5",
@@ -34,6 +35,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-test-renderer": "17.0.2",
+    "rimraf": "^3.0.2",
     "typescript": "^4.2.4",
     "webpack": "5.31.0"
   },
