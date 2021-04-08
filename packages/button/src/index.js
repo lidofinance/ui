@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import theme from 'theme'
-import inject from 'injector'
+import theme from '@lidofinance/theme'
+import inject from '@lidofinance/injector'
 import PropTypes from 'prop-types'
 
 import shouldForwardProp from '@styled-system/should-forward-prop'

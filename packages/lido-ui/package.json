@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "dependencies": {
-    "@styled-system/button": "1.0.0"
+    "@lidofinance/button": "1.0.0"
   },
   "peerDependencies": {
     "react": "^16.0.0",
