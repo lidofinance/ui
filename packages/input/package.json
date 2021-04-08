@@ -18,5 +18,8 @@
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.9"
   }
 }
