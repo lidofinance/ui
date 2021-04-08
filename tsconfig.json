@@ -3,7 +3,7 @@
     "pretty": true,
     "newLine": "LF",
     "declaration": true,
-    "emitDeclarationOnly": true,
+    "noEmit": true,
     "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -23,5 +23,6 @@
     "noUnusedParameters": false,
     "strictFunctionTypes": false
   },
+  "include": ["**/src/*.ts", "**/src/*.tsx"],
   "exclude": ["node_modules"]
 }

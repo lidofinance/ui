@@ -1,7 +1,9 @@
 module.exports = {
   typescript: {
     check: true,
-    checkOptions: {},
+    checkOptions: {
+      formatter: 'codeframe',
+    },
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
@@ -9,6 +11,6 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
-  stories: ['../packages/**/*.stories.(ts|tsx|js|jsx)'],
+  stories: ['../packages/**/*.stories.(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-docs'],
 }
