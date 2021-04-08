@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "pretty": true,
     "newLine": "LF",
     "declaration": true,
     "emitDeclarationOnly": true,
@@ -22,6 +23,5 @@
     "noUnusedParameters": false,
     "strictFunctionTypes": false
   },
-  "include": ["**/src/*.ts", "**/src/*.tsx"],
   "exclude": ["node_modules"]
 }

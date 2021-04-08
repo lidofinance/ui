@@ -4,6 +4,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "src/index.js",
+  "scripts": {
+    "declarations": "tsc"
+  },
   "dependencies": {
     "@lidofinance/injector": "1.0.0",
     "@lidofinance/theme": "1.0.0",

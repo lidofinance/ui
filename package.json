@@ -6,8 +6,12 @@
   ],
   "scripts": {
     "dev": "start-storybook -p 5555",
-    "build": "yarn workspaces foreach -p -i -v --exclude lido-ui run g:build",
-    "g:build": "cd $INIT_CWD && rimraf dist && tsc --outDir dist && babel --extensions '.js,.jsx,.ts,.tsx' --root-mode upward src --out-dir dist --ignore '**/*.stories.js','**/*.test.js'",
+    "build": "yarn run build:clean && yarn run build:declarations && yarn run build:babel",
+    "build:clean": "yarn workspaces foreach -p -i -v --exclude lido-ui run g:clean",
+    "build:declarations": "yarn workspaces foreach -p -i -v --exclude lido-ui run declarations",
+    "build:babel": "yarn workspaces foreach -p -i -v --exclude lido-ui run g:build",
+    "g:clean": "cd $INIT_CWD && rimraf dist",
+    "g:build": "cd $INIT_CWD && babel --extensions '.js,.jsx,.ts,.tsx' --root-mode upward src --out-dir dist",
     "test": "jest",
     "test:coverage": "jest coverage"
   },
