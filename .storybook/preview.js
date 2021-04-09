@@ -1,8 +1,8 @@
 import { themes } from '@storybook/theming'
 
-// or global addParameters
 export const parameters = {
-    docs: {
-        theme: themes.dark,
-    },
+  darkMode: {
+    dark: { ...themes.dark, appBg: 'rgb(42, 42, 42)' },
+    light: { ...themes.normal },
+  },
 }
