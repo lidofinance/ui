@@ -1900,8 +1900,8 @@ __metadata:
     react-is: ^17.0.2
     styled-components: 5.2.3
   peerDependencies:
-    react: ^16.0.0
-    react-dom: ^16.0.0
+    react: 17.0.2
+    react-dom: 17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1919,8 +1919,8 @@ __metadata:
   dependencies:
     "@lidofinance/button": 1.0.0
   peerDependencies:
-    react: ^16.0.0
-    react-dom: ^16.0.0
+    react: 17.0.2
+    react-dom: 17.0.2
   languageName: unknown
   linkType: soft
 
