@@ -18,6 +18,11 @@ const theme = {
     lg: '768px',
     xl: '1024px',
   },
+  dur: {
+    fast: '100ms',
+    med: '150ms',
+    norm: '200ms',
+  }
 }
 
 export default theme

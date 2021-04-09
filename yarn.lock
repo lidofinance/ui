@@ -1411,7 +1411,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.12.7":
+"@babel/preset-typescript@npm:^7.12.7, @babel/preset-typescript@npm:^7.13.0":
   version: 7.13.0
   resolution: "@babel/preset-typescript@npm:7.13.0"
   dependencies:
@@ -1910,6 +1910,22 @@ __metadata:
   resolution: "@lidofinance/injector@workspace:packages/injector"
   dependencies:
     styled-system: ^5.1.5
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/input@workspace:packages/input":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/input@workspace:packages/input"
+  dependencies:
+    "@lidofinance/injector": 1.0.0
+    "@lidofinance/theme": 1.0.0
+    "@styled-system/should-forward-prop": ^5.1.5
+    prop-types: 15.7.2
+    react-is: ^17.0.2
+    styled-components: 5.2.3
+  peerDependencies:
+    react: ^16.0.0
+    react-dom: ^16.0.0
   languageName: unknown
   linkType: soft
 
@@ -10062,6 +10078,7 @@ fsevents@^1.2.7:
     "@babel/core": 7.13.14
     "@babel/preset-env": 7.13.12
     "@babel/preset-react": 7.13.13
+    "@babel/preset-typescript": ^7.13.0
     "@storybook/addon-docs": 6.2.5
     "@storybook/addons": ^6.2.5
     "@storybook/react": 6.2.5
@@ -10081,6 +10098,7 @@ fsevents@^1.2.7:
     react-dom: 17.0.2
     react-is: ^17.0.2
     react-test-renderer: 17.0.2
+    rimraf: ^3.0.2
     styled-components: ^5.2.3
     typescript: ^4.2.4
     webpack: 5.31.0
