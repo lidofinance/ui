@@ -11,5 +11,9 @@ module.exports = {
             statements: 100
         }
     },
-    testPathIgnorePatterns: ['<rootDir>/packages/(?:.+?)/dist/']
+    testPathIgnorePatterns: ['<rootDir>/packages/(?:.+?)/dist/'],
+    transform: {
+        '^.+\\.(js|jsx)$': 'babel-jest',
+        '^.+\\.(ts|tsx)$': 'ts-jest',
+    }
 };
