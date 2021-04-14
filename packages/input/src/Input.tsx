@@ -11,7 +11,7 @@ import {
 
 type Props = {
   action?: React.ReactNode
-  error?: string
+  errorMessage?: string
   successMessage?: React.ReactNode
 
   id?: string
@@ -37,7 +37,7 @@ type Props = {
 function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const {
     action,
-    error,
+    errorMessage,
     successMessage,
     placeholder,
     defaultValue = '',
@@ -54,7 +54,7 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const value = isControlled ? valueProp : valueInternal
   const isPlaceholderFloated =
     isFocused || (value !== '' && value !== undefined)
-  const isWrong = error !== undefined && error !== ''
+  const isWrong = errorMessage !== undefined && errorMessage !== ''
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,7 +104,7 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
         />
         {action && <ActionWrap children={action} />}
       </InputWrapper>
-      {error && <ErrorMessage children={error} />}
+      {errorMessage && <ErrorMessage children={errorMessage} />}
       {successMessage && <SuccessMessage children={successMessage} />}
     </RootWrapper>
   )

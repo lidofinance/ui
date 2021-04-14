@@ -16,7 +16,7 @@ export const withValue = () => (
 export const withError = () => (
   <Input
     placeholder='Email address'
-    error='Error message'
+    errorMessage='Error message'
     defaultValue='alexpro@gmail.com'
   />
 )
