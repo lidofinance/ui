@@ -1,0 +1,6 @@
+{
+  "extends": ["config:base"],
+  "assignees": ["kolyasapphire"],
+  "stabilityDays": 2,
+  "prCreation": "not-pending"
+}

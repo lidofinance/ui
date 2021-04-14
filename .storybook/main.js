@@ -12,5 +12,5 @@ module.exports = {
     },
   },
   stories: ['../packages/**/*.stories.(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-docs'],
+  addons: ['@storybook/addon-docs', 'storybook-dark-mode'],
 }

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+.c0 {
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: inherit;
+  background-color: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: inherit;
+  background-color: #00A3FF;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0:hover {
+  background-color: #009bf2;
+}
+
+.c0:hover {
+  cursor: pointer;
+}
+
+<button
+  className="c0"
+>
+  Test
+</button>
+`;
