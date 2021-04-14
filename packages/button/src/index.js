@@ -26,6 +26,7 @@ const StyledButton = styled('button').withConfig({
   background-color: ${theme.colors.main};
   font-size: 18px;
   font-weight: 500;
+  font-family: inherit;
   line-height: 24px;
   color: #ffffff;
   padding: 16px 20px;
