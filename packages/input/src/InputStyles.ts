@@ -15,6 +15,7 @@ export const InputWrapper = styled.div<InputWrapperProps>`
   display: flex;
   position: relative;
   width: 100%;
+  height: 56px;
   border: 1px solid ${theme.colors.border};
   border-radius: 10px;
   background-color: #ffffff;
@@ -50,7 +51,7 @@ type PlaceholderProps = {
   isFloated?: boolean
 }
 export const Placeholder = styled.div<PlaceholderProps>`
-  padding: 19px 0 17px 0;
+  padding: 18px 0 16px 0;
   position: absolute;
   left: 20px;
   top: 0;
@@ -130,6 +131,6 @@ export const SuccessMessage = styled(Message)`
 
 export const ActionWrap = styled.div`
   flex: 0 0 auto;
-  height: 44px;
+  height: 42px;
   padding: 6px;
 `
