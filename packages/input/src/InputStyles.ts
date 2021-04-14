@@ -23,6 +23,7 @@ export const Placeholder = styled.div<PlaceholderProps>`
   white-space: nowrap;
   font-size: 16px;
   line-height: 20px;
+  font-family: inherit;
   color: #505a7a;
   opacity: 0.5;
   pointer-events: none;
@@ -65,6 +66,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   width: 100%;
   font-size: 16px;
   line-height: 20px;
+  font-family: inherit;
   background: #ffffff;
   border: 1px solid ${theme.colors.border};
   border-radius: 10px;
