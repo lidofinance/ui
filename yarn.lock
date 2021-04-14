@@ -2116,6 +2116,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/text@workspace:packages/text":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/text@workspace:packages/text"
+  dependencies:
+    "@lidofinance/injector": 1.0.0
+    "@lidofinance/theme": 1.0.0
+    "@styled-system/should-forward-prop": ^5.1.5
+    "@types/styled-components": ^5.1.9
+    prop-types: 15.7.2
+    react-is: ^17.0.2
+    styled-components: 5.2.3
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/theme@1.0.0, @lidofinance/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@lidofinance/theme@workspace:packages/theme"
@@ -3314,6 +3331,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:*":
+  version: 3.3.1
+  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
+  dependencies:
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+  checksum: 16ab4c45d4920fa378c8be76554b10061247fc04d2c8af11bdb7d520b3967e9c06d7ad5efd9b0f1657fbc4d095f62c6e1325f03b9141eb1ef2c8095b96fd42f8
+  languageName: node
+  linkType: hard
+
 "@types/html-minifier-terser@npm:^5.0.0":
   version: 5.1.1
   resolution: "@types/html-minifier-terser@npm:5.1.1"
@@ -3521,6 +3548,17 @@ __metadata:
   version: 2.0.0
   resolution: "@types/stack-utils@npm:2.0.0"
   checksum: 662312302e07685c99a1c45c6753eb997b31d2af66e646c5937f62d593a63a111289503d0b06a8d1e6f3922b67fc2ed94889d84653a08861a7fee67b81ce5b92
+  languageName: node
+  linkType: hard
+
+"@types/styled-components@npm:^5.1.9":
+  version: 5.1.9
+  resolution: "@types/styled-components@npm:5.1.9"
+  dependencies:
+    "@types/hoist-non-react-statics": "*"
+    "@types/react": "*"
+    csstype: ^3.0.2
+  checksum: a2ad66350374d45e4a453f09ab7e010eeedeb8ddf90b619106601db5364bad2e196734f92d8b8a240327f6be3e9a1440b874ac73d3733c08f0a40b25fb783e79
   languageName: node
   linkType: hard
 
