@@ -1,10 +1,47 @@
 import styled, { css } from 'styled-components'
 import theme from '@lidofinance/theme'
 
-export const InputWrapper = styled.div`
+export const RootWrapper = styled.div`
   padding-bottom: 26px; // Error space reserving
   position: relative;
   width: 100%;
+`
+
+type InputWrapperProps = {
+  isWrong?: boolean
+  isFocused?: boolean
+}
+export const InputWrapper = styled.div<InputWrapperProps>`
+  display: flex;
+  position: relative;
+  width: 100%;
+  border: 1px solid ${theme.colors.border};
+  border-radius: 10px;
+  background-color: #ffffff;
+  transition: border-color ease ${theme.dur.norm};
+
+  ${(p) =>
+    !p.isFocused &&
+    !p.isWrong &&
+    css`
+      &:hover {
+        border-color: ${theme.colors.borderHover};
+        transition-duration: ${theme.dur.fast};
+      }
+    `}
+
+  ${(p) =>
+    p.isWrong &&
+    css`
+      border-color: ${theme.colors.error};
+    `}
+
+  ${(p) =>
+    p.isFocused &&
+    !p.isWrong &&
+    css`
+      border-color: ${theme.colors.main};
+    `}
 `
 
 type PlaceholderProps = {
@@ -42,7 +79,7 @@ export const Placeholder = styled.div<PlaceholderProps>`
   ${(p) =>
     p.isFloated &&
     css`
-      transform: translateY(-14px) scale(0.75);
+      transform: translateY(-12px) scale(0.75);
     `}
 
   ${(p) =>
@@ -53,10 +90,8 @@ export const Placeholder = styled.div<PlaceholderProps>`
     `}
 `
 
-type InputStyledProps = {
-  isWrong?: boolean
-}
-export const InputStyled = styled.input<InputStyledProps>`
+export const InputStyled = styled.input`
+  flex: 1 1 auto;
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -67,50 +102,34 @@ export const InputStyled = styled.input<InputStyledProps>`
   font-size: 16px;
   line-height: 20px;
   font-family: inherit;
-  background: #ffffff;
-  border: 1px solid ${theme.colors.border};
   border-radius: 10px;
+  border: none;
   cursor: pointer;
-  transition: border-color ease ${theme.dur.norm};
-
-  ${(p) =>
-    p.isWrong &&
-    css`
-      border-color: ${theme.colors.error};
-    `}
-
-  &:hover {
-    border-color: ${(p) => !p.isWrong && theme.colors.borderHover};
-    transition-duration: ${theme.dur.fast};
-  }
 
   &:focus {
     outline: none;
     cursor: text;
-    border-color: ${(p) => !p.isWrong && theme.colors.main};
   }
 `
 
-export const Error = styled.div`
+const Message = styled.div`
   position: absolute;
   top: 64px;
   left: 20px;
   font-size: 12px;
   line-height: 18px;
+`
+
+export const ErrorMessage = styled(Message)`
   color: ${theme.colors.error};
 `
 
-// export const StartIconWrapper = styled.span`
-//   position: absolute;
-//   top: 50%;
-//   left: 16px;
-//   transform: translate(0, -50%);
-//   height: 22px;
-// `
+export const SuccessMessage = styled(Message)`
+  color: ${theme.colors.success};
+`
 
-// export const EndIconWrapper = styled.span`
-//   position: absolute;
-//   top: 50%;
-//   right: 16px;
-//   transform: translate(0, -50%);
-// `
+export const ActionWrap = styled.div`
+  flex: 0 0 auto;
+  height: 44px;
+  padding: 6px;
+`

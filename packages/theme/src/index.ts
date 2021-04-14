@@ -10,6 +10,7 @@ const theme = {
     main: '#00A3FF',
     background: '#F4F6F8',
     error: '#FF564F',
+    success: '#61B75F',
     border: '#d1d8df',
     borderHover: '#b1b7bd',
   },

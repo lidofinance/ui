@@ -68,8 +68,8 @@ const Button = ({ children, isLoading, loadingText, ...rest }) => (
 )
 
 Button.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   loadingText: PropTypes.string,
   isFullWidth: PropTypes.bool,
   leftIcon: PropTypes.func,

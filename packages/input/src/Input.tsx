@@ -1,17 +1,18 @@
 import React, { forwardRef, useCallback, useState } from 'react'
 import {
   Placeholder,
+  RootWrapper,
   InputWrapper,
   InputStyled,
-  Error,
-  // StartIconWrapper,
-  // EndIconWrapper,
+  ErrorMessage,
+  SuccessMessage,
+  ActionWrap,
 } from './InputStyles'
 
 type Props = {
+  action?: React.ReactNode
   error?: string
-  startIcon?: React.ReactNode
-  endIcon?: React.ReactNode
+  successMessage?: React.ReactNode
 
   id?: string
   name?: string
@@ -35,10 +36,10 @@ type Props = {
 
 function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const {
-    placeholder,
-    startIcon,
-    endIcon,
+    action,
     error,
+    successMessage,
+    placeholder,
     defaultValue = '',
     value: valueProp,
     onChange,
@@ -83,29 +84,29 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   )
 
   return (
-    <InputWrapper>
-      {placeholder && (
-        <Placeholder
-          isWrong={isWrong}
-          isFocused={isFocused}
-          isFloated={isPlaceholderFloated}
-        >
-          {placeholder}
-        </Placeholder>
-      )}
-      {/* {startIcon && <StartIconWrapper>{startIcon}</StartIconWrapper>} */}
-      <InputStyled
-        {...inputProps}
-        ref={ref}
-        value={value}
-        isWrong={isWrong}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      />
-      {/* {endIcon && <EndIconWrapper>{endIcon}</EndIconWrapper>} */}
-      {error && <Error>{error}</Error>}
-    </InputWrapper>
+    <RootWrapper>
+      <InputWrapper isWrong={isWrong} isFocused={isFocused}>
+        {placeholder && (
+          <Placeholder
+            isWrong={isWrong}
+            isFocused={isFocused}
+            isFloated={isPlaceholderFloated}
+            children={placeholder}
+          />
+        )}
+        <InputStyled
+          {...inputProps}
+          ref={ref}
+          value={value}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        />
+        {action && <ActionWrap children={action} />}
+      </InputWrapper>
+      {error && <ErrorMessage children={error} />}
+      {successMessage && <SuccessMessage children={successMessage} />}
+    </RootWrapper>
   )
 }
 
