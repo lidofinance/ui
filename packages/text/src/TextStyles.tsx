@@ -1,23 +1,23 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
 import theme from '@lidofinance/theme'
-import { Props, Variants } from './Text'
+import { Props, Sizes } from './Text'
 
 export const variants: {
-  [key in Variants]: FlattenSimpleInterpolation
+  [key in Sizes]: FlattenSimpleInterpolation
 } = {
-  caption: css`
+  sm: css`
     font-size: 12px;
     line-height: 18px;
   `,
-  body16: css`
+  md: css`
     font-size: 16px;
     line-height: 20px;
   `,
-  body18: css`
+  lg: css`
     font-size: 18px;
     line-height: 24px;
   `,
-  body20: css`
+  xl: css`
     font-size: 20px;
     line-height: 26px;
   `,
@@ -29,5 +29,5 @@ export const TextStyle = styled.p<Props>`
   font-size: 16px;
   color: ${theme.colors.text};
 
-  ${(props) => variants[props.variant || 'body16']}
+  ${(props) => variants[props.size || 'md']}
 `

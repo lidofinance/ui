@@ -1,18 +1,18 @@
 import { ReactChild, ReactChildren } from 'react'
 import { TextStyle } from './TextStyles'
 
-enum Variant {
-  caption = 'caption',
-  body16 = 'body16',
-  body18 = 'body18',
-  body20 = 'body20',
+enum Size {
+  sm,
+  md,
+  lg,
+  xl,
 }
 
-export type Variants = keyof typeof Variant
+export type Sizes = keyof typeof Size
 
 export type Props = {
   children?: ReactChild | ReactChildren
-  variant?: Variants
+  size?: Sizes
 }
 
 export default function Text({ children, ...rest }: Props) {
@@ -20,5 +20,5 @@ export default function Text({ children, ...rest }: Props) {
 }
 
 Text.defaultProps = {
-  variant: 'body16',
+  size: 'md',
 }
