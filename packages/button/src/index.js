@@ -26,6 +26,7 @@ const StyledButton = styled('button').withConfig({
   background-color: ${theme.colors.main};
   font-size: 18px;
   font-weight: 500;
+  font-family: inherit;
   line-height: 24px;
   color: #ffffff;
   padding: 16px 20px;
@@ -67,8 +68,8 @@ const Button = ({ children, isLoading, loadingText, ...rest }) => (
 )
 
 Button.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   loadingText: PropTypes.string,
   isFullWidth: PropTypes.bool,
   leftIcon: PropTypes.func,

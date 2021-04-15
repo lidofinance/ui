@@ -2096,6 +2096,7 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
+    "@types/styled-components": ^5.1.9
     prop-types: 15.7.2
     react-is: ^17.0.2
     styled-components: 5.2.3
@@ -7138,9 +7139,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:7.23.0":
-  version: 7.23.0
-  resolution: "eslint@npm:7.23.0"
+"eslint@npm:7.24.0":
+  version: 7.24.0
+  resolution: "eslint@npm:7.24.0"
   dependencies:
     "@babel/code-frame": 7.12.11
     "@eslint/eslintrc": ^0.4.0
@@ -7181,7 +7182,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: f444869506eb0b53fdc6f6f6508b9f5daed51034af0289e6b201f996e7f2d06134f765ef598568269d2a0575dc9da5d3308bd2716f795b789d92e7febb654aab
+  checksum: 8130aacc3698a730ba8fa10ac9e1436151181c34cad265c21c97708e62dba714b6f3cc4cb7a1d343918da3d35a5913505ccf53cfbdc1fa8d62d326b7e35b7aae
   languageName: node
   linkType: hard
 
@@ -10347,7 +10348,7 @@ fsevents@^1.2.7:
     babel-jest: 26.6.3
     babel-loader: 8.2.2
     babel-plugin-styled-components: 1.12.0
-    eslint: 7.23.0
+    eslint: 7.24.0
     jest: 26.6.3
     jest-haste-map: 26.6.2
     jest-resolve: 26.6.2
@@ -10360,9 +10361,9 @@ fsevents@^1.2.7:
     rimraf: 3.0.2
     storybook-dark-mode: 1.0.7
     styled-components: 5.2.3
-    ts-jest: ^26.5.4
+    ts-jest: 26.5.4
     typescript: 4.2.4
-    webpack: 5.31.0
+    webpack: 5.31.2
   languageName: unknown
   linkType: soft
 
@@ -14783,7 +14784,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^26.5.4":
+"ts-jest@npm:26.5.4":
   version: 26.5.4
   resolution: "ts-jest@npm:26.5.4"
   dependencies:
@@ -15626,9 +15627,9 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.31.0":
-  version: 5.31.0
-  resolution: "webpack@npm:5.31.0"
+"webpack@npm:5.31.2":
+  version: 5.31.2
+  resolution: "webpack@npm:5.31.2"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.46
@@ -15658,7 +15659,7 @@ typescript@4.2.4:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: a419dff80c83969a28f0c130f003487a570870b3bde44a3bcca543f5d052b8c6dd5edd0e330251a632c1eb3bc85944fa42fc7159d18abf210c47189f9da56fd9
+  checksum: 954c4b4fad1b5f910100916935881f72fad126c86bfbe7338914e2f34d4b10d1eb03771603a7e84c104f13a21c0b0f670aade7a3053f67a8c3e6d58a3d102845
   languageName: node
   linkType: hard
 
