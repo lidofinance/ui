@@ -10,5 +10,7 @@ jobs:
         uses: actions/setup-node@v2
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Build Components
+        run: yarn build
       - name: Run tests
         run: yarn test

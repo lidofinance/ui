@@ -27,6 +27,8 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn
+      - name: Build Components
+        run: yarn build
       - name: Build Storybook
         run: |
           yarn build-storybook
