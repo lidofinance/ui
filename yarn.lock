@@ -2083,6 +2083,9 @@ __metadata:
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": ^11.2.6
+    "@types/react": ^17
+    "@types/react-dom": ^17
+    "@types/styled-components": ^5
     jest-styled-components: ^7.0.3
     prop-types: 15.7.2
     react: ^17.0.2
@@ -2090,9 +2093,6 @@ __metadata:
     react-is: ^17.0.2
     react-test-renderer: ^17.0.2
     styled-components: 5.2.3
-  peerDependencies:
-    react: 17.0.2
-    react-dom: 17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2100,6 +2100,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/injector@workspace:packages/injector"
   dependencies:
+    "@types/styled-system": ^5.1.11
     styled-system: ^5.1.5
   languageName: unknown
   linkType: soft
@@ -2111,6 +2112,9 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
+    "@types/react": ^17
+    "@types/react-dom": ^17
+    "@types/styled-components": ^5
     prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
@@ -2128,6 +2132,8 @@ __metadata:
   dependencies:
     "@lidofinance/button": 1.0.0
   peerDependencies:
+    "@types/react": ^17
+    "@types/react-dom": ^17
     react: 17.0.2
     react-dom: 17.0.2
   languageName: unknown
@@ -2140,6 +2146,9 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
+    "@types/react": ^17
+    "@types/react-dom": ^17
+    "@types/styled-components": ^5
     prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
@@ -2158,6 +2167,9 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
+    "@types/react": ^17
+    "@types/react-dom": ^17
+    "@types/styled-components": ^5
     prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
@@ -2172,6 +2184,9 @@ __metadata:
 "@lidofinance/theme@1.0.0, @lidofinance/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@lidofinance/theme@workspace:packages/theme"
+  dependencies:
+    "@types/styled-components": ^5
+    styled-components: ^5.2.3
   languageName: unknown
   linkType: soft
 
@@ -3403,6 +3418,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:*":
+  version: 3.3.1
+  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
+  dependencies:
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+  checksum: 2c0778570d9a01d05afabc781b32163f28409bb98f7245c38d5eaf082416fdb73034003f5825eb5e21313044e8d2d9e1f3fe2831e345d3d1b1d20bcd12270719
+  languageName: node
+  linkType: hard
+
 "@types/html-minifier-terser@npm:^5.0.0":
   version: 5.1.1
   resolution: "@types/html-minifier-terser@npm:5.1.1"
@@ -3572,6 +3597,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^17":
+  version: 17.0.3
+  resolution: "@types/react-dom@npm:17.0.3"
+  dependencies:
+    "@types/react": "*"
+  checksum: 102a3ee9ecf96fdd82d37d90860d0b80e160a368117e4e84512c801f8c7f381d7a2b9305f155670f42eab4784d036375cbf16c9905839dd0857e7031ff966803
+  languageName: node
+  linkType: hard
+
 "@types/react-syntax-highlighter@npm:11.0.5":
   version: 11.0.5
   resolution: "@types/react-syntax-highlighter@npm:11.0.5"
@@ -3581,7 +3615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:^17":
   version: 17.0.3
   resolution: "@types/react@npm:17.0.3"
   dependencies:
@@ -3610,6 +3644,26 @@ __metadata:
   version: 2.0.0
   resolution: "@types/stack-utils@npm:2.0.0"
   checksum: b3fbae25b073116977ecb5c67d22f14567b51a7792403b0bf46e5de8f29bde3bd4ec1626afb22065495ca7f1c699c8bd66720050c94b8f8f9bcefbee79d161fd
+  languageName: node
+  linkType: hard
+
+"@types/styled-components@npm:^5":
+  version: 5.1.9
+  resolution: "@types/styled-components@npm:5.1.9"
+  dependencies:
+    "@types/hoist-non-react-statics": "*"
+    "@types/react": "*"
+    csstype: ^3.0.2
+  checksum: 99b5e069a01980b6baec40ecb273bcb51baabbb5ca12905e59d575ab8672e2db1b60a5cf3715214ccf99597d4094aebbaa5d5c54c314332332fe6ec41a19e6c6
+  languageName: node
+  linkType: hard
+
+"@types/styled-system@npm:^5.1.11":
+  version: 5.1.11
+  resolution: "@types/styled-system@npm:5.1.11"
+  dependencies:
+    csstype: ^3.0.2
+  checksum: 656e6de464243ad2a06b019e51786a6ac9b529cb52c6f76ef98a3978d6152802fbaf37b01cb84a157dbe032292f3174c789ae75cedcb34dcf0671b4e09204fb2
   languageName: node
   linkType: hard
 
@@ -14383,7 +14437,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"styled-components@npm:5.2.3":
+"styled-components@npm:5.2.3, styled-components@npm:^5.2.3":
   version: 5.2.3
   resolution: "styled-components@npm:5.2.3"
   dependencies:
