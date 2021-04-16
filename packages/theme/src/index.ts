@@ -10,6 +10,11 @@ const theme = {
     main: '#00A3FF',
     background: '#F4F6F8',
     error: '#FF564F',
+    text: '#0C141D',
+    textSecondary: '#5D6B7B',
+    success: '#61B75F',
+    border: '#d1d8df',
+    borderHover: '#b1b7bd',
   },
   breakpoints: ['360px', '480px', '768px', '1024px'],
   breakpointsObject: {
@@ -22,7 +27,7 @@ const theme = {
     fast: '100ms',
     med: '150ms',
     norm: '200ms',
-  }
+  },
 }
 
 export default theme
