@@ -13,7 +13,9 @@
     "g:clean": "cd $INIT_CWD && rimraf dist",
     "g:build": "cd $INIT_CWD && babel --extensions '.js,.jsx,.ts,.tsx' --root-mode upward src --out-dir dist --ignore '**/*.stories.js','**/*.stories.jsx','**/*.stories.ts','**/*.stories.tsx','**/*.test.js','**/*.test.jsx','**/*.test.ts','**/*.test.tsx'",
     "test": "jest",
-    "test:coverage": "jest coverage"
+    "test:coverage": "jest coverage",
+    "publish": "yarn build && yarn test && yarn publish:submit",
+    "publish:submit": "yarn workspaces foreach -p -i -v -t --exclude lido-ui-components npm publish --tolerate-republish"
   },
   "devDependencies": {
     "@babel/cli": "7.13.14",
