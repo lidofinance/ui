@@ -6,31 +6,7 @@ on:
       - main
 
 jobs:
-  test-components:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - name: Set up node
-        uses: actions/setup-node@v2
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Cache Yarn
-        id: yarn-cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Build Components
-        run: yarn build
-      - name: Run tests
-        run: yarn test
-  build-deploy-storybook:
+  build-test-deploy-storybook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -53,6 +29,8 @@ jobs:
           yarn install --immutable
       - name: Build Components
         run: yarn build
+      - name: Run tests
+        run: yarn test
       - name: Build Storybook
         run: |
           yarn build-storybook
