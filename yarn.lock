@@ -1599,6 +1599,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime-corejs3@npm:^7.10.2":
+  version: 7.13.10
+  resolution: "@babel/runtime-corejs3@npm:7.13.10"
+  dependencies:
+    core-js-pure: ^3.0.0
+    regenerator-runtime: ^0.13.4
+  checksum: 9f88f6dbd800ab70d4c116c9df9aa555f6879ef4e54899a13c20082b57f0cf161397663cfa061c1351162d130bcb60ab52bc87d472ec1314c2d472c5bf04aee4
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
   version: 7.13.10
   resolution: "@babel/runtime@npm:7.13.10"
@@ -2072,8 +2082,13 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
+    "@testing-library/react": ^11.2.6
+    jest-styled-components: ^7.0.3
     prop-types: 15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-is: ^17.0.2
+    react-test-renderer: ^17.0.2
     styled-components: 5.2.3
   peerDependencies:
     react: 17.0.2
@@ -2096,8 +2111,9 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/styled-components": ^5.1.9
     prop-types: 15.7.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-is: ^17.0.2
     styled-components: 5.2.3
   peerDependencies:
@@ -2124,8 +2140,9 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/styled-components": ^5.1.9
     prop-types: 15.7.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-is: ^17.0.2
     styled-components: 5.2.3
   peerDependencies:
@@ -2141,8 +2158,9 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/styled-components": ^5.1.9
     prop-types: 15.7.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-is: ^17.0.2
     styled-components: 5.2.3
   peerDependencies:
@@ -3202,6 +3220,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/dom@npm:^7.28.1":
+  version: 7.30.3
+  resolution: "@testing-library/dom@npm:7.30.3"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/runtime": ^7.12.5
+    "@types/aria-query": ^4.2.0
+    aria-query: ^4.2.2
+    chalk: ^4.1.0
+    dom-accessibility-api: ^0.5.4
+    lz-string: ^1.4.4
+    pretty-format: ^26.6.2
+  checksum: f38429dd481feaf3861b0801457942cdad20a3ec40d0a0dd2761414f42e37d4a39a2c43d373dfb8b2ece659ffc2db0b38949a627b1a1f749f0787a3e85e87e0c
+  languageName: node
+  linkType: hard
+
+"@testing-library/react@npm:^11.2.6":
+  version: 11.2.6
+  resolution: "@testing-library/react@npm:11.2.6"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    "@testing-library/dom": ^7.28.1
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: be64e1c365a34e8fdab0f4178b4df7925423e846f86724cc945528cd90bb3d8faa46427a8e72b2015fa64f481d5b762602d2fa0842310df7fa365fc677dcc1ee
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2"
@@ -3213,6 +3260,13 @@ __metadata:
   version: 1.3.1
   resolution: "@types/anymatch@npm:1.3.1"
   checksum: 1eeb16286102a98eda415e1ade6fb980ff0a001fc21e777af8932001ebbd324d0d2fbbd5ef51c828346ff71847ba00af3f73d1dfea434efb9b72467b8cf0343a
+  languageName: node
+  linkType: hard
+
+"@types/aria-query@npm:^4.2.0":
+  version: 4.2.1
+  resolution: "@types/aria-query@npm:4.2.1"
+  checksum: cf60cc7aa0ed52514e8c7289776de9bb3321217d48f54c95d63e1e1eb9940689c1fd3e39d68da5eaee1541108363f0113007f67d6e32e7fbc983526f08e5f0ce
   languageName: node
   linkType: hard
 
@@ -3346,16 +3400,6 @@ __metadata:
   dependencies:
     "@types/unist": "*"
   checksum: 3e2ec0a56a06cd2fb5474b4ee312b40e70dc82e4e711514b393bb4e5ace2e9912576c9b44c2504bbb46c9b772794be49f1a4c418d01ceac1fafd66d15c158f62
-  languageName: node
-  linkType: hard
-
-"@types/hoist-non-react-statics@npm:*":
-  version: 3.3.1
-  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
-  dependencies:
-    "@types/react": "*"
-    hoist-non-react-statics: ^3.3.0
-  checksum: 2c0778570d9a01d05afabc781b32163f28409bb98f7245c38d5eaf082416fdb73034003f5825eb5e21313044e8d2d9e1f3fe2831e345d3d1b1d20bcd12270719
   languageName: node
   linkType: hard
 
@@ -3566,17 +3610,6 @@ __metadata:
   version: 2.0.0
   resolution: "@types/stack-utils@npm:2.0.0"
   checksum: b3fbae25b073116977ecb5c67d22f14567b51a7792403b0bf46e5de8f29bde3bd4ec1626afb22065495ca7f1c699c8bd66720050c94b8f8f9bcefbee79d161fd
-  languageName: node
-  linkType: hard
-
-"@types/styled-components@npm:^5.1.9":
-  version: 5.1.9
-  resolution: "@types/styled-components@npm:5.1.9"
-  dependencies:
-    "@types/hoist-non-react-statics": "*"
-    "@types/react": "*"
-    csstype: ^3.0.2
-  checksum: 99b5e069a01980b6baec40ecb273bcb51baabbb5ca12905e59d575ab8672e2db1b60a5cf3715214ccf99597d4094aebbaa5d5c54c314332332fe6ec41a19e6c6
   languageName: node
   linkType: hard
 
@@ -4333,6 +4366,16 @@ __metadata:
   dependencies:
     sprintf-js: ~1.0.2
   checksum: 7ca6e45583a28de7258e39e13d81e925cfa25d7d4aacbf806a382d3c02fcb13403a07fb8aeef949f10a7cfe4a62da0e2e807b348a5980554cc28ee573ef95945
+  languageName: node
+  linkType: hard
+
+"aria-query@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "aria-query@npm:4.2.2"
+  dependencies:
+    "@babel/runtime": ^7.10.2
+    "@babel/runtime-corejs3": ^7.10.2
+  checksum: 38401a9a400f26f3dcc24b84997461a16b32869a9893d323602bed8da40a8bcc0243b8d2880e942249a1496cea7a7de769e93d21c0baa439f01e1ee936fed665
   languageName: node
   linkType: hard
 
@@ -6030,7 +6073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js-pure@npm:^3.8.2":
+"core-js-pure@npm:^3.0.0, core-js-pure@npm:^3.8.2":
   version: 3.10.1
   resolution: "core-js-pure@npm:3.10.1"
   checksum: 3352d0613f2168d604e3937b262d6d8b8494cd509d628662bae83139a8a0800b1ca317b897552108466ba4f831af36a816a4b5502660ae29b74c28634bc59efb
@@ -6605,6 +6648,13 @@ __metadata:
   dependencies:
     esutils: ^2.0.2
   checksum: fd7673ca77fe26cd5cba38d816bc72d641f500f1f9b25b83e8ce28827fe2da7ad583a8da26ab6af85f834138cf8dae9f69b0cd6ab925f52ddab1754db44d99ce
+  languageName: node
+  linkType: hard
+
+"dom-accessibility-api@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "dom-accessibility-api@npm:0.5.4"
+  checksum: 1fb22b351984564212b41bd7265ad1288322ad72e7367753f589facaeb98c2e3515502396acf2463f71dbaa1e238d6e006ec144a6217f1cd42e962b9bebd2dee
   languageName: node
   linkType: hard
 
@@ -9941,7 +9991,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-styled-components@npm:7.0.3":
+"jest-styled-components@npm:7.0.3, jest-styled-components@npm:^7.0.3":
   version: 7.0.3
   resolution: "jest-styled-components@npm:7.0.3"
   dependencies:
@@ -10374,7 +10424,6 @@ fsevents@^1.2.7:
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
-    react-test-renderer: 17.0.2
     rimraf: 3.0.2
     storybook-dark-mode: 1.0.7
     styled-components: 5.2.3
@@ -10542,6 +10591,15 @@ fsevents@^1.2.7:
   dependencies:
     yallist: ^4.0.0
   checksum: f97f499f898f23e4585742138a22f22526254fdba6d75d41a1c2526b3b6cc5747ef59c5612ba7375f42aca4f8461950e925ba08c991ead0651b4918b7c978297
+  languageName: node
+  linkType: hard
+
+"lz-string@npm:^1.4.4":
+  version: 1.4.4
+  resolution: "lz-string@npm:1.4.4"
+  bin:
+    lz-string: bin/bin.js
+  checksum: 54e31238a61a84d8f664d9860a9fba7310c5b97a52c444f80543069bc084815eff40b8d4474ae1d93992fdf6c252dca37cf27f6adbeb4dbc3df2f3ac773d0e61
   languageName: node
   linkType: hard
 
@@ -12622,7 +12680,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:17.0.2":
+"react-dom@npm:17.0.2, react-dom@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -12785,7 +12843,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-test-renderer@npm:17.0.2":
+"react-test-renderer@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-test-renderer@npm:17.0.2"
   dependencies:
@@ -12812,7 +12870,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react@npm:17.0.2":
+"react@npm:17.0.2, react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
