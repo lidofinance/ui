@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactChildren } from 'react'
+import { ReactChild, ReactChildren } from 'react'
 import { TextStyle, Variants } from './TextStyles'
 
 enum Size {
