@@ -26,7 +26,6 @@ export const variants: {
 export const TextStyle = styled.p<Props>`
   margin: 0;
   padding: 0;
-  font-size: 16px;
   color: ${theme.colors.text};
 
   ${(props) => variants[props.size || 'md']}
