@@ -1,5 +1,5 @@
 import { ReactChild, ReactChildren } from 'react'
-import { TextStyle } from './TextStyles'
+import { TextStyle, Variants } from './TextStyles'
 
 enum Size {
   sm,
@@ -13,6 +13,7 @@ export type Sizes = keyof typeof Size
 export type Props = {
   children?: ReactChild | ReactChildren
   size?: Sizes
+  variant?: Variants
 }
 
 export default function Text({ children, ...rest }: Props) {
