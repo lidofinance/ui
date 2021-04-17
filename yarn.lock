@@ -2082,16 +2082,16 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@testing-library/react": ^11.2.6
-    "@types/react": ^17
-    "@types/react-dom": ^17
+    "@testing-library/react": 11.2.6
+    "@types/react": 17.0.3
+    "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
-    jest-styled-components: ^7.0.3
+    jest-styled-components: 7.0.3
     prop-types: 15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-is: ^17.0.2
-    react-test-renderer: ^17.0.2
+    react-test-renderer: 17.0.2
     styled-components: 5.2.3
   languageName: unknown
   linkType: soft
@@ -2100,7 +2100,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/injector@workspace:packages/injector"
   dependencies:
-    "@types/styled-system": ^5.1.11
+    "@types/styled-system": 5.1.11
     styled-system: ^5.1.5
   languageName: unknown
   linkType: soft
@@ -2112,8 +2112,8 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/react": ^17
-    "@types/react-dom": ^17
+    "@types/react": 17.0.3
+    "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
     prop-types: 15.7.2
     react: 17.0.2
@@ -2146,8 +2146,8 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/react": ^17
-    "@types/react-dom": ^17
+    "@types/react": 17.0.3
+    "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
     prop-types: 15.7.2
     react: 17.0.2
@@ -2167,8 +2167,8 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/react": ^17
-    "@types/react-dom": ^17
+    "@types/react": 17.0.3
+    "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
     prop-types: 15.7.2
     react: 17.0.2
@@ -2185,8 +2185,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/theme@workspace:packages/theme"
   dependencies:
-    "@types/styled-components": ^5
-    styled-components: ^5.2.3
+    "@types/styled-components": 5.1.9
+    styled-components: 5.2.3
   languageName: unknown
   linkType: soft
 
@@ -3251,7 +3251,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^11.2.6":
+"@testing-library/react@npm:11.2.6":
   version: 11.2.6
   resolution: "@testing-library/react@npm:11.2.6"
   dependencies:
@@ -3597,7 +3597,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17":
+"@types/react-dom@npm:17.0.3":
   version: 17.0.3
   resolution: "@types/react-dom@npm:17.0.3"
   dependencies:
@@ -3615,7 +3615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17":
+"@types/react@npm:*, @types/react@npm:17.0.3":
   version: 17.0.3
   resolution: "@types/react@npm:17.0.3"
   dependencies:
@@ -3647,7 +3647,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:^5":
+"@types/styled-components@npm:5.1.9, @types/styled-components@npm:^5":
   version: 5.1.9
   resolution: "@types/styled-components@npm:5.1.9"
   dependencies:
@@ -3658,7 +3658,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-system@npm:^5.1.11":
+"@types/styled-system@npm:5.1.11":
   version: 5.1.11
   resolution: "@types/styled-system@npm:5.1.11"
   dependencies:
@@ -10045,7 +10045,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-styled-components@npm:7.0.3, jest-styled-components@npm:^7.0.3":
+"jest-styled-components@npm:7.0.3":
   version: 7.0.3
   resolution: "jest-styled-components@npm:7.0.3"
   dependencies:
@@ -12734,7 +12734,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:17.0.2, react-dom@npm:^17.0.2":
+"react-dom@npm:17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -12897,7 +12897,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-test-renderer@npm:^17.0.2":
+"react-test-renderer@npm:17.0.2":
   version: 17.0.2
   resolution: "react-test-renderer@npm:17.0.2"
   dependencies:
@@ -12924,7 +12924,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react@npm:17.0.2, react@npm:^17.0.2":
+"react@npm:17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -14437,7 +14437,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"styled-components@npm:5.2.3, styled-components@npm:^5.2.3":
+"styled-components@npm:5.2.3":
   version: 5.2.3
   resolution: "styled-components@npm:5.2.3"
   dependencies:
