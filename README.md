@@ -2,7 +2,7 @@
 
 > React components for Lido Finance projects.
 
-Check out our storybook at [https://ui.lido.fi](https://ui.lido.fi) (not available yet)
+Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 
 ## Usage
 
