@@ -8,7 +8,7 @@
     "declarations": "tsc"
   },
   "devDependencies": {
-    "@types/styled-components": "^5",
-    "styled-components": "^5.2.3"
+    "@types/styled-components": "5.1.9",
+    "styled-components": "5.2.3"
   }
 }
