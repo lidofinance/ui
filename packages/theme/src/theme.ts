@@ -1,36 +1,44 @@
 import { DefaultTheme } from 'styled-components'
 
+interface Spacings {
+  extraLarge: string
+  large: string
+  medium: string
+  small: string
+  extraSmall: string
+}
+
+interface Colors {
+  main: string
+  background: string
+  error: string
+  text: string
+  textSecondary: string
+  success: string
+  border: string
+  borderHover: string
+}
+
+interface Breakpoints {
+  sm: string
+  md: string
+  lg: string
+  xl: string
+}
+
+interface Durations {
+  fast: string
+  med: string
+  norm: string
+}
+
 declare module 'styled-components' {
   export interface DefaultTheme {
-    spacing: {
-      extraLarge: string
-      large: string
-      medium: string
-      small: string
-      extraSmall: string
-    }
-    colors: {
-      main: string
-      background: string
-      error: string
-      text: string
-      textSecondary: string
-      success: string
-      border: string
-      borderHover: string
-    }
+    spacing: Spacings
+    colors: Colors
     breakpoints: string[]
-    breakpointsObject: {
-      sm: string
-      md: string
-      lg: string
-      xl: string
-    }
-    dur: {
-      fast: string
-      med: string
-      norm: string
-    }
+    breakpointsObject: Breakpoints
+    dur: Durations
   }
 }
 
