@@ -1,5 +1,5 @@
 import Input from './Input'
-import Button from './../../button/src'
+import { Button } from '@lidofinance/button'
 import styled from 'styled-components'
 
 export default {
