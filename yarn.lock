@@ -2083,11 +2083,11 @@ __metadata:
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": 11.2.6
-    "@types/prop-types": ^15.7.3
+    "@types/prop-types": 15.7.3
     "@types/react": 17.0.3
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
-    "@types/styled-system__should-forward-prop": ^5.1.2
+    "@types/styled-system__should-forward-prop": 5.1.2
     jest-styled-components: 7.0.3
     prop-types: 15.7.2
     react: 17.0.2
@@ -3577,7 +3577,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:^15.7.3":
+"@types/prop-types@npm:*, @types/prop-types@npm:15.7.3":
   version: 15.7.3
   resolution: "@types/prop-types@npm:15.7.3"
   checksum: 41831d53c44c9eeafdaf9762bcb4553c13a3bbf990745ed9065a1cc3581b80633113b53fd49b202bf51731b258da5d0a9aa09c9035d5af7f78b0f6bc273f1325
@@ -3600,7 +3600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:17.0.3, @types/react-dom@npm:^17.0.3":
+"@types/react-dom@npm:17.0.3":
   version: 17.0.3
   resolution: "@types/react-dom@npm:17.0.3"
   dependencies:
@@ -3618,7 +3618,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:17.0.3, @types/react@npm:^17.0.3":
+"@types/react@npm:*, @types/react@npm:17.0.3":
   version: 17.0.3
   resolution: "@types/react@npm:17.0.3"
   dependencies:
@@ -3670,7 +3670,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-system__should-forward-prop@npm:^5.1.2":
+"@types/styled-system__should-forward-prop@npm:5.1.2":
   version: 5.1.2
   resolution: "@types/styled-system__should-forward-prop@npm:5.1.2"
   checksum: ba99b5653136058baa9f4a510a6175da5ada14a4f104340979f93bd82c428ef3f733c51101e4f15a934d473d9041887d213516b99209b641ff4e715d2c5b4b60
@@ -10475,8 +10475,8 @@ fsevents@^1.2.7:
     "@storybook/react": 6.2.8
     "@storybook/storybook-deployer": 2.8.7
     "@storybook/theming": 6.2.8
-    "@types/react": ^17.0.3
-    "@types/react-dom": ^17.0.3
+    "@types/react": 17.0.3
+    "@types/react-dom": 17.0.3
     babel-core: 6.26.3
     babel-jest: 26.6.3
     babel-loader: 8.2.2
