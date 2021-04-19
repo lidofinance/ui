@@ -16,5 +16,3 @@ export const loading = () => (
 export const disabled = () => <Button isDisabled>Button</Button>
 
 export const fullWidth = () => <Button isFullWidth>Button</Button>
-
-export const injected = () => <Button bg='red'>Button</Button>
