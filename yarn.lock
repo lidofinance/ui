@@ -2111,6 +2111,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/input@workspace:packages/input"
   dependencies:
+    "@lidofinance/button": "workspace:packages/button"
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
