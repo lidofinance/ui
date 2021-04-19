@@ -2083,9 +2083,11 @@ __metadata:
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": 11.2.6
+    "@types/prop-types": ^15.7.3
     "@types/react": 17.0.3
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
+    "@types/styled-system__should-forward-prop": ^5.1.2
     jest-styled-components: 7.0.3
     prop-types: 15.7.2
     react: 17.0.2
@@ -3574,7 +3576,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*":
+"@types/prop-types@npm:*, @types/prop-types@npm:^15.7.3":
   version: 15.7.3
   resolution: "@types/prop-types@npm:15.7.3"
   checksum: 41831d53c44c9eeafdaf9762bcb4553c13a3bbf990745ed9065a1cc3581b80633113b53fd49b202bf51731b258da5d0a9aa09c9035d5af7f78b0f6bc273f1325
@@ -3664,6 +3666,13 @@ __metadata:
   dependencies:
     csstype: ^3.0.2
   checksum: 656e6de464243ad2a06b019e51786a6ac9b529cb52c6f76ef98a3978d6152802fbaf37b01cb84a157dbe032292f3174c789ae75cedcb34dcf0671b4e09204fb2
+  languageName: node
+  linkType: hard
+
+"@types/styled-system__should-forward-prop@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "@types/styled-system__should-forward-prop@npm:5.1.2"
+  checksum: ba99b5653136058baa9f4a510a6175da5ada14a4f104340979f93bd82c428ef3f733c51101e4f15a934d473d9041887d213516b99209b641ff4e715d2c5b4b60
   languageName: node
   linkType: hard
 
