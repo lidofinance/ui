@@ -4,9 +4,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "src/index.ts",
-  "scripts": {
-    "declarations": "tsc"
-  },
   "dependencies": {
     "styled-system": "^5.1.5"
   },
