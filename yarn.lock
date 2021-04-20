@@ -2083,13 +2083,11 @@ __metadata:
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": 11.2.6
-    "@types/prop-types": 15.7.3
     "@types/react": 17.0.3
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
     "@types/styled-system__should-forward-prop": 5.1.2
     jest-styled-components: 7.0.3
-    prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
     react-is: ^17.0.2
@@ -3470,6 +3468,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:^26.0.22":
+  version: 26.0.22
+  resolution: "@types/jest@npm:26.0.22"
+  dependencies:
+    jest-diff: ^26.0.0
+    pretty-format: ^26.0.0
+  checksum: 8dee3e6778db4c1d4b89f6ecdaa7264fd24b445e567db3eef0efe271b724523827585547baa24f8bedcc8a431e4dffd63555996599f2556ba637e67bae7578cc
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.4, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.6":
   version: 7.0.7
   resolution: "@types/json-schema@npm:7.0.7"
@@ -3577,7 +3585,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:15.7.3":
+"@types/prop-types@npm:*":
   version: 15.7.3
   resolution: "@types/prop-types@npm:15.7.3"
   checksum: 41831d53c44c9eeafdaf9762bcb4553c13a3bbf990745ed9065a1cc3581b80633113b53fd49b202bf51731b258da5d0a9aa09c9035d5af7f78b0f6bc273f1325
@@ -9740,7 +9748,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^26.6.2":
+"jest-diff@npm:^26.0.0, jest-diff@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-diff@npm:26.6.2"
   dependencies:
@@ -10475,6 +10483,7 @@ fsevents@^1.2.7:
     "@storybook/react": 6.2.8
     "@storybook/storybook-deployer": 2.8.7
     "@storybook/theming": 6.2.8
+    "@types/jest": ^26.0.22
     "@types/react": 17.0.3
     "@types/react-dom": 17.0.3
     babel-core: 6.26.3
@@ -12304,7 +12313,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^26.6.2":
+"pretty-format@npm:^26.0.0, pretty-format@npm:^26.6.2":
   version: 26.6.2
   resolution: "pretty-format@npm:26.6.2"
   dependencies:
