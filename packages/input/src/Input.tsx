@@ -1,4 +1,10 @@
-import React, { forwardRef, useCallback, useEffect, useState } from 'react'
+import React, {
+  useRef,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import {
   Placeholder,
   RootWrap,
@@ -9,6 +15,7 @@ import {
   SuccessMessage,
   ActionWrap,
 } from './InputStyles'
+import { useMergeRefs } from 'use-callback-ref'
 
 type Props = {
   icon?: React.ReactNode
@@ -28,6 +35,7 @@ type Props = {
   required?: boolean
   disabled?: boolean
   readonly?: boolean
+  focusOnMount?: boolean
   selectOnFocus?: boolean
   isPlaceholderFloats?: boolean
 
@@ -49,12 +57,14 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
     value: valueProp,
     selectOnFocus,
     isPlaceholderFloats,
+    focusOnMount,
     onChange,
     onFocus,
     onBlur,
     ...inputProps
   } = props
 
+  const localRef = useRef<HTMLInputElement | null>(null)
   const [isFocused, setFocused] = useState(false)
   const [valueInternal, setValueInternal] = useState(defaultValue)
   const isControlled = valueProp !== undefined
@@ -62,6 +72,10 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const isPlaceholderFloated =
     isFocused || (value !== '' && value !== undefined)
   const isWrong = errorMessage !== undefined && errorMessage !== ''
+
+  useEffect(() => {
+    if (focusOnMount && localRef.current) localRef.current.focus()
+  }, [])
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,7 +119,7 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
         )}
         <InputStyled
           {...inputProps}
-          ref={ref}
+          ref={useMergeRefs([localRef, ref])}
           value={value}
           withIcon={Boolean(icon)}
           isPlaceholderFloats={isPlaceholderFloats}

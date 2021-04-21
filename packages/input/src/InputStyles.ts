@@ -164,7 +164,7 @@ const errorAppearing = keyframes`
     opacity: 1;
     transform: none;
   }
-`;
+`
 
 export const ErrorMessage = styled(Message)`
   padding: 6px 10px;
