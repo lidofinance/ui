@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import theme from '@lidofinance/theme'
 
 const colorPlaceholder = 'rgba(39, 56, 82, 0.3)'
@@ -159,17 +159,38 @@ export const InputStyled = styled.input<InputProps>`
 
 const Message = styled.div`
   position: absolute;
-  top: 64px;
-  left: 20px;
   font-size: 12px;
   line-height: 18px;
 `
 
+const errorAppearing = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+`;
+
 export const ErrorMessage = styled(Message)`
-  color: ${theme.colors.error};
+  padding: 6px 10px;
+  top: 60px;
+  left: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: ${theme.colors.error};
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  animation: ${errorAppearing} ${theme.dur.norm} ease 1;
 `
 
 export const SuccessMessage = styled(Message)`
+  top: 64px;
+  left: 20px;
   color: ${theme.colors.success};
 `
 

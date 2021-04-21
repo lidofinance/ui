@@ -53,9 +53,9 @@ const theme: DefaultTheme = {
   colors: {
     main: '#00A3FF',
     background: '#F4F6F8',
-    error: '#FF564F',
+    error: '#E14D4D',
     text: '#0C141D',
-    textSecondary: '#5D6B7B',
+    textSecondary: '#7A8AA0',
     success: '#61B75F',
     border: '#d1d8df',
     borderHover: '#b1b7bd',
