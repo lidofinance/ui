@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useState } from 'react'
+import React, { forwardRef, useCallback, useEffect, useState } from 'react'
 import {
   Placeholder,
   RootWrap,
@@ -28,6 +28,7 @@ type Props = {
   required?: boolean
   disabled?: boolean
   readonly?: boolean
+  selectOnFocus?: boolean
   isPlaceholderFloats?: boolean
 
   onChange?: React.ChangeEventHandler<HTMLInputElement>
@@ -46,6 +47,7 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
     placeholder,
     defaultValue = '',
     value: valueProp,
+    selectOnFocus,
     isPlaceholderFloats,
     onChange,
     onFocus,
@@ -75,9 +77,10 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const handleFocus = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
       setFocused(true)
+      if (selectOnFocus) e.currentTarget.select()
       if (onFocus) onFocus(e)
     },
-    [onFocus]
+    [onFocus, selectOnFocus]
   )
 
   const handleBlur = useCallback(
