@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import theme from '@lidofinance/theme'
 
+const colorPlaceholder = 'rgba(39, 56, 82, 0.3)'
+
 export const RootWrapper = styled.div`
   padding-bottom: 26px; // Error space reserving
   position: relative;
@@ -62,8 +64,7 @@ export const Placeholder = styled.div<PlaceholderProps>`
   font-size: 16px;
   line-height: 20px;
   font-family: inherit;
-  color: #505a7a;
-  opacity: 0.5;
+  color: ${colorPlaceholder};
   pointer-events: none;
   transform-origin: left center;
   transition: transform ease ${theme.dur.fast}, color ease ${theme.dur.norm},
@@ -72,7 +73,6 @@ export const Placeholder = styled.div<PlaceholderProps>`
   ${(p) =>
     p.isFocused &&
     css`
-      opacity: 1;
       color: ${theme.colors.main};
       transition-duration: ${theme.dur.fast};
     `}
@@ -91,25 +91,51 @@ export const Placeholder = styled.div<PlaceholderProps>`
     `}
 `
 
-export const InputStyled = styled.input`
+type InputProps = {
+  isPlaceholderFloats?: boolean
+}
+export const InputStyled = styled.input<InputProps>`
+  padding-left: 20px;
+  padding-right: 20px;
   flex: 1 1 auto;
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: 27px 20px 7px 20px;
   margin: 0;
   outline: none;
   width: 100%;
-  font-size: 16px;
-  line-height: 20px;
+  height: 56px;
   font-family: inherit;
   border-radius: 10px;
   border: none;
   cursor: pointer;
 
+  ${(p) =>
+    p.isPlaceholderFloats
+      ? css`
+          padding-top: 27px;
+          padding-bottom: 7px;
+          font-size: 16px;
+        `
+      : css`
+          font-size: 18px;
+        `}
+
   &:focus {
     outline: none;
     cursor: text;
+  }
+
+  &::placeholder {
+    color: ${colorPlaceholder};
+  }
+
+  &:-ms-input-placeholder {
+    color: ${colorPlaceholder};
+  }
+
+  &::-ms-input-placeholder {
+    color: ${colorPlaceholder};
   }
 `
 

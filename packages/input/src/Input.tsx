@@ -26,6 +26,7 @@ type Props = {
   required?: boolean
   disabled?: boolean
   readonly?: boolean
+  isPlaceholderFloats?: boolean
 
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
@@ -42,6 +43,7 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
     placeholder,
     defaultValue = '',
     value: valueProp,
+    isPlaceholderFloats,
     onChange,
     onFocus,
     onBlur,
@@ -86,7 +88,7 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   return (
     <RootWrapper>
       <InputWrapper isWrong={isWrong} isFocused={isFocused}>
-        {placeholder && (
+        {isPlaceholderFloats && (
           <Placeholder
             isWrong={isWrong}
             isFocused={isFocused}
@@ -98,6 +100,8 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
           {...inputProps}
           ref={ref}
           value={value}
+          isPlaceholderFloats={isPlaceholderFloats}
+          placeholder={!isPlaceholderFloats ? placeholder : undefined}
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}

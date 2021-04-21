@@ -7,7 +7,11 @@ export default {
   title: 'Lido UI/Input',
 }
 
-export const basic = () => <Input placeholder='Email address' />
+export const basic = () => <Input placeholder='Basic' />
+
+export const floatingPlaceholder = () => (
+  <Input placeholder='Email address' isPlaceholderFloats />
+)
 
 export const withValue = () => (
   <Input placeholder='Email address' defaultValue='alexpro@gmail.com' />
