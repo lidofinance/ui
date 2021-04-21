@@ -1,8 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 import theme from '@lidofinance/theme'
 
-const colorPlaceholder = 'rgba(39, 56, 82, 0.3)'
-
 export const RootWrap = styled.div`
   padding-bottom: 26px; // Error space reserving
   position: relative;
@@ -20,8 +18,14 @@ export const RowWrap = styled.div<RowWrapProps>`
   height: 56px;
   border: 1px solid ${theme.colors.border};
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: ${theme.colors.controlBg};
   transition: border-color ease ${theme.dur.norm};
+  border-color: ${(p) =>
+    p.isWrong
+      ? theme.colors.error
+      : p.isFocused
+      ? theme.colors.main
+      : theme.colors.border};
 
   ${(p) =>
     !p.isFocused &&
@@ -31,19 +35,6 @@ export const RowWrap = styled.div<RowWrapProps>`
         border-color: ${theme.colors.borderHover};
         transition-duration: ${theme.dur.fast};
       }
-    `}
-
-  ${(p) =>
-    p.isWrong &&
-    css`
-      border-color: ${theme.colors.error};
-    `}
-
-  ${(p) =>
-    p.isFocused &&
-    !p.isWrong &&
-    css`
-      border-color: ${theme.colors.main};
     `}
 `
 
@@ -75,7 +66,7 @@ export const Placeholder = styled.div<PlaceholderProps>`
   font-size: 16px;
   line-height: 20px;
   font-family: inherit;
-  color: ${colorPlaceholder};
+  color: ${theme.colors.inputPlaceholder};
   pointer-events: none;
   transform-origin: left center;
   transition: transform ease ${theme.dur.fast}, color ease ${theme.dur.norm},
@@ -145,15 +136,15 @@ export const InputStyled = styled.input<InputProps>`
   }
 
   &::placeholder {
-    color: ${colorPlaceholder};
+    color: ${theme.colors.inputPlaceholder};
   }
 
   &:-ms-input-placeholder {
-    color: ${colorPlaceholder};
+    color: ${theme.colors.inputPlaceholder};
   }
 
   &::-ms-input-placeholder {
-    color: ${colorPlaceholder};
+    color: ${theme.colors.inputPlaceholder};
   }
 `
 
@@ -181,11 +172,12 @@ export const ErrorMessage = styled(Message)`
   left: 0;
   color: #fff;
   font-size: 14px;
+  font-weight: 400;
   line-height: 20px;
   background-color: ${theme.colors.error};
   border-radius: 6px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  animation: ${errorAppearing} ${theme.dur.norm} ease 1;
+  animation: ${errorAppearing} ${theme.dur.norm} ${theme.ease.OutBack} 1;
 `
 
 export const SuccessMessage = styled(Message)`
