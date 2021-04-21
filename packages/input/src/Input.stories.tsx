@@ -1,5 +1,6 @@
 import Input from './Input'
 import { Button } from '@lidofinance/button'
+import { IconEth } from './storybook'
 import styled from 'styled-components'
 
 export default {
@@ -8,6 +9,8 @@ export default {
 }
 
 export const basic = () => <Input placeholder='Basic' />
+
+export const withIcon = () => <Input placeholder='Basic' icon={<IconEth />} />
 
 export const floatingPlaceholder = () => (
   <Input placeholder='Email address' isPlaceholderFloats />

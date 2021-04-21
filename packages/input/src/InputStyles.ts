@@ -3,17 +3,17 @@ import theme from '@lidofinance/theme'
 
 const colorPlaceholder = 'rgba(39, 56, 82, 0.3)'
 
-export const RootWrapper = styled.div`
+export const RootWrap = styled.div`
   padding-bottom: 26px; // Error space reserving
   position: relative;
   width: 100%;
 `
 
-type InputWrapperProps = {
+type RowWrapProps = {
   isWrong?: boolean
   isFocused?: boolean
 }
-export const InputWrapper = styled.div<InputWrapperProps>`
+export const RowWrap = styled.div<RowWrapProps>`
   display: flex;
   position: relative;
   width: 100%;
@@ -45,6 +45,17 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     css`
       border-color: ${theme.colors.main};
     `}
+`
+
+export const IconWrap = styled.div`
+  position: absolute;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 100%;
+  pointer-events: none;
 `
 
 type PlaceholderProps = {
@@ -92,11 +103,12 @@ export const Placeholder = styled.div<PlaceholderProps>`
 `
 
 type InputProps = {
+  withIcon?: boolean
   isPlaceholderFloats?: boolean
 }
 export const InputStyled = styled.input<InputProps>`
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
   flex: 1 1 auto;
   display: block;
   width: 100%;
@@ -109,6 +121,12 @@ export const InputStyled = styled.input<InputProps>`
   border-radius: 10px;
   border: none;
   cursor: pointer;
+
+  ${(p) =>
+    p.withIcon &&
+    css`
+      padding-left: 56px;
+    `}
 
   ${(p) =>
     p.isPlaceholderFloats

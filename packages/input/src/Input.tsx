@@ -1,8 +1,9 @@
 import React, { forwardRef, useCallback, useState } from 'react'
 import {
   Placeholder,
-  RootWrapper,
-  InputWrapper,
+  RootWrap,
+  RowWrap,
+  IconWrap,
   InputStyled,
   ErrorMessage,
   SuccessMessage,
@@ -10,6 +11,7 @@ import {
 } from './InputStyles'
 
 type Props = {
+  icon?: React.ReactNode
   action?: React.ReactNode
   errorMessage?: string
   successMessage?: React.ReactNode
@@ -37,6 +39,7 @@ type Props = {
 
 function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const {
+    icon,
     action,
     errorMessage,
     successMessage,
@@ -86,8 +89,9 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   )
 
   return (
-    <RootWrapper>
-      <InputWrapper isWrong={isWrong} isFocused={isFocused}>
+    <RootWrap>
+      <RowWrap isWrong={isWrong} isFocused={isFocused}>
+        {icon && <IconWrap>{icon}</IconWrap>}
         {isPlaceholderFloats && (
           <Placeholder
             isWrong={isWrong}
@@ -100,6 +104,7 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
           {...inputProps}
           ref={ref}
           value={value}
+          withIcon={Boolean(icon)}
           isPlaceholderFloats={isPlaceholderFloats}
           placeholder={!isPlaceholderFloats ? placeholder : undefined}
           onChange={handleChange}
@@ -107,10 +112,10 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
           onBlur={handleBlur}
         />
         {action && <ActionWrap children={action} />}
-      </InputWrapper>
+      </RowWrap>
       {errorMessage && <ErrorMessage children={errorMessage} />}
       {successMessage && <SuccessMessage children={successMessage} />}
-    </RootWrapper>
+    </RootWrap>
   )
 }
 
