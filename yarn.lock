@@ -2075,6 +2075,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lidofinance/button-new@workspace:packages/button-new":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/button-new@workspace:packages/button-new"
+  dependencies:
+    "@lidofinance/injector": 1.0.0
+    "@lidofinance/theme": 1.0.0
+    "@styled-system/should-forward-prop": ^5.1.5
+    "@types/react": 17.0.3
+    "@types/react-dom": 17.0.3
+    "@types/styled-components": ^5
+    prop-types: 15.7.2
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: ^17.0.2
+    styled-components: 5.2.3
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/button@1.0.0, @lidofinance/button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@lidofinance/button@workspace:packages/button"

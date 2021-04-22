@@ -11,6 +11,9 @@ declare module 'styled-components' {
     }
     colors: {
       main: string
+      mainDark: string
+      secondary: string
+      secondaryDark: string
       background: string
       error: string
       text: string
@@ -44,6 +47,9 @@ const theme: DefaultTheme = {
   },
   colors: {
     main: '#00A3FF',
+    mainDark: '#009BF2',
+    secondary: '#273852',
+    secondaryDark: '#212F45',
     background: '#F4F6F8',
     error: '#FF564F',
     text: '#0C141D',
