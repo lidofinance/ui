@@ -19,8 +19,8 @@
     "publish:submit": "yarn workspaces foreach -p -i -v -t --exclude lido-ui-components npm publish --tolerate-republish"
   },
   "devDependencies": {
-    "@babel/cli": "7.13.14",
-    "@babel/core": "7.13.15",
+    "@babel/cli": "7.13.16",
+    "@babel/core": "7.13.16",
     "@babel/preset-env": "7.13.15",
     "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",
