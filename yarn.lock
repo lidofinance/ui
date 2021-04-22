@@ -2085,7 +2085,7 @@ __metadata:
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.3
     "@types/react-dom": 17.0.3
-    "@types/styled-components": ^5
+    "@types/styled-components": 5.1.9
     "@types/styled-system__should-forward-prop": 5.1.2
     jest-styled-components: 7.0.4
     react: 17.0.2
@@ -3468,7 +3468,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^26.0.22":
+"@types/jest@npm:26.0.22":
   version: 26.0.22
   resolution: "@types/jest@npm:26.0.22"
   dependencies:
@@ -10483,7 +10483,7 @@ fsevents@^1.2.7:
     "@storybook/react": 6.2.8
     "@storybook/storybook-deployer": 2.8.7
     "@storybook/theming": 6.2.8
-    "@types/jest": ^26.0.22
+    "@types/jest": 26.0.22
     "@types/react": 17.0.3
     "@types/react-dom": 17.0.3
     babel-core: 6.26.3
