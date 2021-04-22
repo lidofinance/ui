@@ -1,15 +1,24 @@
-import React, { forwardRef, useCallback, useState } from 'react'
+import React, {
+  useRef,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import {
   Placeholder,
-  RootWrapper,
-  InputWrapper,
+  RootWrap,
+  RowWrap,
+  IconWrap,
   InputStyled,
   ErrorMessage,
   SuccessMessage,
   ActionWrap,
 } from './InputStyles'
+import { useMergeRefs } from 'use-callback-ref'
 
 type Props = {
+  icon?: React.ReactNode
   action?: React.ReactNode
   errorMessage?: string
   successMessage?: React.ReactNode
@@ -26,6 +35,9 @@ type Props = {
   required?: boolean
   disabled?: boolean
   readonly?: boolean
+  focusOnMount?: boolean
+  selectOnFocus?: boolean
+  isPlaceholderFloats?: boolean
 
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
@@ -36,18 +48,23 @@ type Props = {
 
 function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const {
+    icon,
     action,
     errorMessage,
     successMessage,
     placeholder,
     defaultValue = '',
     value: valueProp,
+    selectOnFocus,
+    isPlaceholderFloats,
+    focusOnMount,
     onChange,
     onFocus,
     onBlur,
     ...inputProps
   } = props
 
+  const localRef = useRef<HTMLInputElement | null>(null)
   const [isFocused, setFocused] = useState(false)
   const [valueInternal, setValueInternal] = useState(defaultValue)
   const isControlled = valueProp !== undefined
@@ -55,6 +72,10 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const isPlaceholderFloated =
     isFocused || (value !== '' && value !== undefined)
   const isWrong = errorMessage !== undefined && errorMessage !== ''
+
+  useEffect(() => {
+    if (focusOnMount && localRef.current) localRef.current.focus()
+  }, [])
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,9 +91,10 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   const handleFocus = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
       setFocused(true)
+      if (selectOnFocus) e.currentTarget.select()
       if (onFocus) onFocus(e)
     },
-    [onFocus]
+    [onFocus, selectOnFocus]
   )
 
   const handleBlur = useCallback(
@@ -84,9 +106,10 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
   )
 
   return (
-    <RootWrapper>
-      <InputWrapper isWrong={isWrong} isFocused={isFocused}>
-        {placeholder && (
+    <RootWrap>
+      <RowWrap isWrong={isWrong} isFocused={isFocused}>
+        {icon && <IconWrap>{icon}</IconWrap>}
+        {isPlaceholderFloats && (
           <Placeholder
             isWrong={isWrong}
             isFocused={isFocused}
@@ -96,17 +119,20 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
         )}
         <InputStyled
           {...inputProps}
-          ref={ref}
+          ref={useMergeRefs([localRef, ref])}
           value={value}
+          withIcon={Boolean(icon)}
+          isPlaceholderFloats={isPlaceholderFloats}
+          placeholder={!isPlaceholderFloats ? placeholder : undefined}
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
         {action && <ActionWrap children={action} />}
-      </InputWrapper>
+      </RowWrap>
       {errorMessage && <ErrorMessage children={errorMessage} />}
       {successMessage && <SuccessMessage children={successMessage} />}
-    </RootWrapper>
+    </RootWrap>
   )
 }
 
