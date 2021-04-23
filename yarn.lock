@@ -3463,17 +3463,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/estree@npm:*":
+"@types/estree@npm:*, @types/estree@npm:^0.0.47":
   version: 0.0.47
   resolution: "@types/estree@npm:0.0.47"
   checksum: aed5c940436250c25c5e140aa19e7199ba3452e72e1aecc515621507df9e5ed5076ddba84a1684c36d62be841ff3e2bafce8793f16fe6f69d10884449d4461e7
-  languageName: node
-  linkType: hard
-
-"@types/estree@npm:^0.0.46":
-  version: 0.0.46
-  resolution: "@types/estree@npm:0.0.46"
-  checksum: 620f7549c8cf99fe1c91a943a42ae2684c18f6007dc1bd6a439a2bf3204022ab746ffb3be5244c70d43a822beeb3c948216be1a69cb25e79005daeca4ebe5722
   languageName: node
   linkType: hard
 
@@ -7126,13 +7119,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.7.0":
-  version: 5.7.0
-  resolution: "enhanced-resolve@npm:5.7.0"
+"enhanced-resolve@npm:^5.8.0":
+  version: 5.8.0
+  resolution: "enhanced-resolve@npm:5.8.0"
   dependencies:
     graceful-fs: ^4.2.4
     tapable: ^2.2.0
-  checksum: 91916405697c04512e4f29cf0f0dcf10b03751f7b6f51fda72661ddc5c79779d404335f933caa202f5e81f00944fe3a1cf180cc6b53fdaff2c9ce9d0f310f704
+  checksum: a5eb6bf942821bd1614ea509e73cc5e3bd98717692882ce5ee39fecaa7da69ff49ae7e4d1b668247962e7ab5c90609d98582955d5072ff64e02880e014e851f0
   languageName: node
   linkType: hard
 
@@ -10597,7 +10590,7 @@ fsevents@^1.2.7:
     styled-components: 5.2.3
     ts-jest: 26.5.5
     typescript: 4.2.4
-    webpack: 5.33.2
+    webpack: 5.35.0
   languageName: unknown
   linkType: soft
 
@@ -15883,19 +15876,19 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.33.2":
-  version: 5.33.2
-  resolution: "webpack@npm:5.33.2"
+"webpack@npm:5.35.0":
+  version: 5.35.0
+  resolution: "webpack@npm:5.35.0"
   dependencies:
     "@types/eslint-scope": ^3.7.0
-    "@types/estree": ^0.0.46
+    "@types/estree": ^0.0.47
     "@webassemblyjs/ast": 1.11.0
     "@webassemblyjs/wasm-edit": 1.11.0
     "@webassemblyjs/wasm-parser": 1.11.0
     acorn: ^8.0.4
     browserslist: ^4.14.5
     chrome-trace-event: ^1.0.2
-    enhanced-resolve: ^5.7.0
+    enhanced-resolve: ^5.8.0
     es-module-lexer: ^0.4.0
     eslint-scope: ^5.1.1
     events: ^3.2.0
@@ -15915,7 +15908,7 @@ typescript@4.2.4:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 8cfd5992688f4f57d6d1596ca96452323d667e80bafd0d27ee391859bb8965a01a58471297b39a395d976799886932750648c6e75ef53eda47051864b382cd31
+  checksum: f4d27563fe8c51d1bdc9e195f7eb46abc73c9ec05ab508c66d82eca7a55eed385889e95575149ce47840f62a004700cb0cba3cb2fab3dd0eeb28a1f33269c287
   languageName: node
   linkType: hard
 
