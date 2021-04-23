@@ -1,5 +1,5 @@
 export * from '@lidofinance/button'
-export { default as Button } from '@lidofinance/button'
-
+export * from '@lidofinance/select'
 export * from '@lidofinance/input'
-export { default as Input } from '@lidofinance/input'
+export * from '@lidofinance/link'
+export * from '@lidofinance/text'

@@ -1,6 +1,8 @@
 module.exports = {
+  stories: ['../packages/**/*.stories.(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-docs', 'storybook-dark-mode'],
   typescript: {
-    check: true,
+    check: false,
     checkOptions: {
       formatter: 'codeframe',
     },
@@ -11,6 +13,4 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
-  stories: ['../packages/**/*.stories.(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-docs', 'storybook-dark-mode'],
 }
