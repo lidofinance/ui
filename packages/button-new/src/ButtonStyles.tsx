@@ -16,12 +16,14 @@ const sizes: {
     line-height: 22px;
     border-radius: 6px;
     padding: 10px 24px;
+    min-width: 100px;
   `,
   md: css`
     font-size: 18px;
     line-height: 24px;
     border-radius: 10px;
     padding: 16px 44px;
+    min-width: 120px;
   `,
   lg: css`
     font-size: 20px;
@@ -30,6 +32,7 @@ const sizes: {
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
     font-weight: 600;
     padding: 19px 64px;
+    min-width: 160px;
   `,
 }
 
@@ -78,7 +81,6 @@ export const StyledButton = styled.button<ButtonProps>`
   white-space: nowrap;
   overflow: hidden;
   background-color: transparent;
-
 
   :hover {
     cursor: pointer;
