@@ -10590,7 +10590,7 @@ fsevents@^1.2.7:
     styled-components: 5.2.3
     ts-jest: 26.5.5
     typescript: 4.2.4
-    webpack: 5.35.0
+    webpack: 5.35.1
   languageName: unknown
   linkType: soft
 
@@ -15876,9 +15876,9 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.35.0":
-  version: 5.35.0
-  resolution: "webpack@npm:5.35.0"
+"webpack@npm:5.35.1":
+  version: 5.35.1
+  resolution: "webpack@npm:5.35.1"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.47
@@ -15908,7 +15908,7 @@ typescript@4.2.4:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: f4d27563fe8c51d1bdc9e195f7eb46abc73c9ec05ab508c66d82eca7a55eed385889e95575149ce47840f62a004700cb0cba3cb2fab3dd0eeb28a1f33269c287
+  checksum: bb73e559dde58fa1dc7d48dd22d9c1f05aaef461be5e2d48009845bb1bb96db0c967d5dcb623cd7d00c683c3021b3c9187a930654d9ca3e1d22050e3432fa049
   languageName: node
   linkType: hard
 
