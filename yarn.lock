@@ -3554,13 +3554,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:26.0.22":
-  version: 26.0.22
-  resolution: "@types/jest@npm:26.0.22"
+"@types/jest@npm:26.0.23":
+  version: 26.0.23
+  resolution: "@types/jest@npm:26.0.23"
   dependencies:
     jest-diff: ^26.0.0
     pretty-format: ^26.0.0
-  checksum: 8dee3e6778db4c1d4b89f6ecdaa7264fd24b445e567db3eef0efe271b724523827585547baa24f8bedcc8a431e4dffd63555996599f2556ba637e67bae7578cc
+  checksum: 69db26061e6be34de2a440c8a470b651c53ba6ee0057614a278c4f756ff00281f46cc075b24e5bd761f399f175f49d0a5758b50dd921342a8592461548dea29a
   languageName: node
   linkType: hard
 
@@ -10569,7 +10569,7 @@ fsevents@^1.2.7:
     "@storybook/react": 6.2.9
     "@storybook/storybook-deployer": 2.8.7
     "@storybook/theming": 6.2.9
-    "@types/jest": 26.0.22
+    "@types/jest": 26.0.23
     "@types/react": 17.0.3
     "@types/react-dom": 17.0.3
     babel-core: 6.26.3
