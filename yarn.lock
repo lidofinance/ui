@@ -2153,7 +2153,7 @@ __metadata:
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": 11.2.6
-    "@types/react": 17.0.3
+    "@types/react": 17.0.4
     "@types/react-dom": 17.0.3
     "@types/styled-components": 5.1.9
     "@types/styled-system__should-forward-prop": 5.1.2
@@ -2183,7 +2183,7 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/react": 17.0.3
+    "@types/react": 17.0.4
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
     react: 17.0.2
@@ -2220,7 +2220,7 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/react": 17.0.3
+    "@types/react": 17.0.4
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
     prop-types: 15.7.2
@@ -2241,7 +2241,7 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/react": 17.0.3
+    "@types/react": 17.0.4
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
     react: 17.0.2
@@ -2261,7 +2261,7 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
-    "@types/react": 17.0.3
+    "@types/react": 17.0.4
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
     prop-types: 15.7.2
@@ -3712,7 +3712,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:17.0.3":
+"@types/react@npm:*":
   version: 17.0.3
   resolution: "@types/react@npm:17.0.3"
   dependencies:
@@ -3720,6 +3720,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: d29f2a33ed69fae9d9f42f8b39b40352e3209eb821f827d566330adfdffb48d2dc730982356cd50a7fda6171e6bc7deca793f7b105c95fce615a45ab313ecf41
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:17.0.4":
+  version: 17.0.4
+  resolution: "@types/react@npm:17.0.4"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: aad210a65712e3ffe6ee0896d1033d812e64da710810e03bd5643fec0b6a15acd66790120b96ca41f7413cccff062ccca8505135dc95bf5bcd0cbdec80101fa5
   languageName: node
   linkType: hard
 
@@ -10570,7 +10581,7 @@ fsevents@^1.2.7:
     "@storybook/storybook-deployer": 2.8.7
     "@storybook/theming": 6.2.9
     "@types/jest": 26.0.23
-    "@types/react": 17.0.3
+    "@types/react": 17.0.4
     "@types/react-dom": 17.0.3
     babel-core: 6.26.3
     babel-jest: 26.6.3
