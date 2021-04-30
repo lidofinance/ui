@@ -2175,7 +2175,7 @@ __metadata:
     "@styled-system/should-forward-prop": ^5.1.5
     "@types/react": 17.0.4
     "@types/react-dom": 17.0.3
-    "@types/styled-components": ^5.1.9
+    "@types/styled-components": 5.1.9
     prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
@@ -3776,7 +3776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:5.1.9, @types/styled-components@npm:^5, @types/styled-components@npm:^5.1.9":
+"@types/styled-components@npm:5.1.9, @types/styled-components@npm:^5":
   version: 5.1.9
   resolution: "@types/styled-components@npm:5.1.9"
   dependencies:
