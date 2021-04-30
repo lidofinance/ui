@@ -42,7 +42,7 @@ exports[`renders correctly 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 >
   Test
 </button>

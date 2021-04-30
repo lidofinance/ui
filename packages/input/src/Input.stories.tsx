@@ -1,5 +1,6 @@
 import Input from './Input'
-import Button from './../../button/src'
+import { Button } from '@lidofinance/button'
+import { IconEth } from './storybook'
 import styled from 'styled-components'
 
 export default {
@@ -7,7 +8,17 @@ export default {
   title: 'Lido UI/Input',
 }
 
-export const basic = () => <Input placeholder='Email address' />
+export const basic = () => <Input placeholder='Basic' />
+
+export const withIcon = () => <Input placeholder='Basic' icon={<IconEth />} />
+
+export const floatingPlaceholder = () => (
+  <Input placeholder='Email address' isPlaceholderFloats />
+)
+
+export const selectOnFocus = () => (
+  <Input defaultValue='10500' selectOnFocus />
+)
 
 export const withValue = () => (
   <Input placeholder='Email address' defaultValue='alexpro@gmail.com' />

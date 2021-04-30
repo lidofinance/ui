@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-storybook:
+  build-test-deploy-storybook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,9 +26,11 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install Dependencies
         run: |
-          yarn
+          yarn install --immutable
       - name: Build Components
         run: yarn build
+      - name: Run tests
+        run: yarn test
       - name: Build Storybook
         run: |
           yarn build-storybook

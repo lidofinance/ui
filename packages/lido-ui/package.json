@@ -4,9 +4,15 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "dependencies": {
-    "@lidofinance/button": "1.0.0"
+    "@lidofinance/button": "1.0.0",
+    "@lidofinance/input": "1.0.0",
+    "@lidofinance/link": "1.0.0",
+    "@lidofinance/select": "1.0.0",
+    "@lidofinance/text": "1.0.0"
   },
   "peerDependencies": {
+    "@types/react": "^17",
+    "@types/react-dom": "^17",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   }

@@ -2,13 +2,21 @@
 
 > React components for Lido Finance projects.
 
-Check out our storybook at [https://ui.lido.fi](https://ui.lido.fi) (not available yet)
+Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 
 ## Usage
 
 - `yarn dev` - Start Storybook locally to start developing components.
 - `yarn build` - Build all components.
 - `yarn test` - Run tests across components.
+
+## Updating Packages
+
+After modifications to a package, in its folder run:
+
+`yarn version [patch, minor, major]`
+
+That's it. All other packages relying on this package will automatically be updated.
 
 ## Linking
 

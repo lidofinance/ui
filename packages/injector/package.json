@@ -2,8 +2,12 @@
   "name": "@lidofinance/injector",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "module": "src/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
   "dependencies": {
     "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "@types/styled-system": "5.1.11"
   }
 }

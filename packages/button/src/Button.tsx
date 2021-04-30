@@ -1,13 +1,18 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 import theme from '@lidofinance/theme'
 import inject from '@lidofinance/injector'
-import PropTypes from 'prop-types'
 
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-const APPEARANCES = {
-  PRIMARY: 'primary',
+interface ButtonProps {
+  isLoading?: boolean
+  isDisabled?: boolean
+  loadingText?: string
+  isFullWidth?: boolean
+  leftIcon?: React.ReactElement
+  rightIcon?: React.ReactElement
+
+  children: React.ReactElement | string
 }
 
 const StyledButton = styled('button').withConfig({
@@ -61,30 +66,10 @@ const StyledButton = styled('button').withConfig({
     ${inject}
 `
 
-const Button = ({ children, isLoading, loadingText, ...rest }) => (
+const Button = ({ children, isLoading, loadingText, ...rest }: ButtonProps) => (
   <StyledButton {...rest}>
     {loadingText && isLoading ? loadingText : children}
   </StyledButton>
 )
-
-Button.propTypes = {
-  isLoading: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  loadingText: PropTypes.string,
-  isFullWidth: PropTypes.bool,
-  leftIcon: PropTypes.func,
-  rightIcon: PropTypes.func,
-  variant: PropTypes.oneOf(Object.values(APPEARANCES)),
-}
-
-Button.defaultProps = {
-  isLoading: false,
-  isDisabled: false,
-  loadingText: null,
-  isFullWidth: false,
-  leftIcon: null,
-  rightIcon: null,
-  variant: APPEARANCES.PRIMARY,
-}
 
 export default Button
