@@ -2173,8 +2173,12 @@ __metadata:
     "@lidofinance/injector": 1.0.0
     "@lidofinance/theme": 1.0.0
     "@styled-system/should-forward-prop": ^5.1.5
+    "@types/react": 17.0.4
+    "@types/react-dom": 17.0.3
     "@types/styled-components": ^5.1.9
     prop-types: 15.7.2
+    react: 17.0.2
+    react-dom: 17.0.2
     react-is: ^17.0.2
     styled-components: 5.2.3
   peerDependencies:
