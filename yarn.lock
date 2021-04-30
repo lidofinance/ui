@@ -3772,7 +3772,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:5.1.9, @types/styled-components@npm:^5":
+"@types/styled-components@npm:5.1.9, @types/styled-components@npm:^5, @types/styled-components@npm:^5.1.9":
   version: 5.1.9
   resolution: "@types/styled-components@npm:5.1.9"
   dependencies:
