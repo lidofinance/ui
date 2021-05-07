@@ -1,0 +1,31 @@
+{
+  "name": "@lidofinance/icons",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
+  "scripts": {
+    "convert": "node converter/index.js"
+  },
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-is": "^17.0.2"
+  },
+  "devDependencies": {
+    "@storybook/react": "^6.2.9",
+    "@svgr/core": "^5.5.0",
+    "@svgr/plugin-jsx": "^5.5.0",
+    "@svgr/plugin-prettier": "^5.5.0",
+    "@svgr/plugin-svgo": "^5.5.0",
+    "@types/react": "17.0.4",
+    "@types/react-dom": "17.0.3",
+    "@types/rimraf": "^3",
+    "@types/styled-components": "^5",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "rimraf": "^3.0.2",
+    "styled-components": "^5.3.0"
+  },
+  "sideEffects": false
+}
