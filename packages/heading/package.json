@@ -1,8 +1,9 @@
 {
   "name": "@lidofinance/heading",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "module": "src/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "dependencies": {
     "@lidofinance/injector": "1.0.0",
     "@lidofinance/theme": "1.0.0",
