@@ -10771,7 +10771,7 @@ fsevents@^1.2.7:
     react-dom: 17.0.2
     react-is: 17.0.2
     rimraf: 3.0.2
-    storybook-dark-mode: 1.0.7
+    storybook-dark-mode: 1.0.8
     styled-components: 5.3.0
     ts-jest: 26.5.6
     typescript: 4.2.4
@@ -14444,19 +14444,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"storybook-dark-mode@npm:1.0.7":
-  version: 1.0.7
-  resolution: "storybook-dark-mode@npm:1.0.7"
+"storybook-dark-mode@npm:1.0.8":
+  version: 1.0.8
+  resolution: "storybook-dark-mode@npm:1.0.8"
   dependencies:
     fast-deep-equal: ^3.0.0
     memoizerific: ^1.11.3
   peerDependencies:
-    "@storybook/addons": ">= 6.x"
-    "@storybook/api": ">= 6.x"
-    "@storybook/components": ">= 6.x"
-    "@storybook/core-events": ">= 6.x"
-    "@storybook/theming": ">= 6.x"
-  checksum: 037d8cbd31fc6d9f73ee0601e76d8ef0c95be18d7d8e37cbb246779f5ccbfdc423e87926c4a4dfb52efebace80dfa579c66823f4641e4d1d5236a45a92509f82
+    "@storybook/addons": ^6.0.0
+    "@storybook/api": ^6.0.0
+    "@storybook/components": ^6.0.0
+    "@storybook/core-events": ^6.0.0
+    "@storybook/theming": ^6.0.0
+  checksum: 76089b72471df9bfb0433a02780620d96228280280c94911bad5556044e86d82fd6665c64e8d095b6043d2bde83e9373bf731e4b378f39303a5463e3ba7963fe
   languageName: node
   linkType: hard
 
