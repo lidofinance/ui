@@ -1,9 +1,9 @@
 {
   "name": "@lidofinance/theme",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "module": "src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "devDependencies": {
     "@types/styled-components": "5.1.9",
     "styled-components": "5.3.0"
