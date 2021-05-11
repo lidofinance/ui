@@ -1,6 +1,10 @@
 module.exports = {
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-docs', 'storybook-dark-mode'],
+  addons: [
+    '@storybook/addon-docs',
+    '@storybook/addon-essentials',
+    'storybook-dark-mode',
+  ],
   typescript: {
     check: false,
     checkOptions: {
