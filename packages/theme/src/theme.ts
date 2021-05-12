@@ -62,7 +62,7 @@ const theme = {
     InBack: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
     OutBack: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
     InOutBack: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-  }
+  },
 }
 
 type Theme = typeof theme
