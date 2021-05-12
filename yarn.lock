@@ -2298,12 +2298,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lidofinance/accordion@workspace:packages/accordion":
+"@lidofinance/accordion@workspace:*, @lidofinance/accordion@workspace:packages/accordion":
   version: 0.0.0-use.local
   resolution: "@lidofinance/accordion@workspace:packages/accordion"
   dependencies:
-    "@lidofinance/icons": 1.0.0
-    "@lidofinance/theme": 1.0.0
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
@@ -2315,17 +2315,16 @@ __metadata:
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
-    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
 
-"@lidofinance/button@1.0.0, @lidofinance/button@workspace:packages/button":
+"@lidofinance/button@workspace:*, @lidofinance/button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@lidofinance/button@workspace:packages/button"
   dependencies:
-    "@lidofinance/injector": 1.0.0
-    "@lidofinance/theme": 1.0.0
+    "@lidofinance/injector": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
     "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.5
@@ -2335,18 +2334,20 @@ __metadata:
     jest-styled-components: 7.0.4
     react: 17.0.2
     react-dom: 17.0.2
-    react-is: ^17.0.2
-    react-test-renderer: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
 
-"@lidofinance/checkbox@workspace:packages/checkbox":
+"@lidofinance/checkbox@workspace:*, @lidofinance/checkbox@workspace:packages/checkbox":
   version: 0.0.0-use.local
   resolution: "@lidofinance/checkbox@workspace:packages/checkbox"
   dependencies:
-    "@lidofinance/icons": 1.0.0
-    "@lidofinance/theme": 1.0.0
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
@@ -2357,7 +2358,6 @@ __metadata:
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
-    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2366,27 +2366,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/heading@workspace:packages/heading"
   dependencies:
-    "@lidofinance/injector": 1.0.0
-    "@lidofinance/theme": 1.0.0
-    "@styled-system/should-forward-prop": ^5.1.5
+    "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
     "@types/styled-components": 5.1.9
-    prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
-    react-is: ^17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    styled-components: 5.3.0
   languageName: unknown
   linkType: soft
 
-"@lidofinance/icons@1.0.0, @lidofinance/icons@workspace:packages/icons":
+"@lidofinance/icons@workspace:*, @lidofinance/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@lidofinance/icons@workspace:packages/icons"
   dependencies:
+    "@lidofinance/theme": "workspace:*"
     "@storybook/react": ^6.2.9
     "@svgr/core": ^5.5.0
     "@svgr/plugin-jsx": ^5.5.0
@@ -2404,11 +2402,10 @@ __metadata:
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
-    react-is: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@lidofinance/injector@1.0.0, @lidofinance/injector@workspace:packages/injector":
+"@lidofinance/injector@workspace:*, @lidofinance/injector@workspace:packages/injector":
   version: 0.0.0-use.local
   resolution: "@lidofinance/injector@workspace:packages/injector"
   dependencies:
@@ -2417,14 +2414,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/input@1.0.0, @lidofinance/input@workspace:packages/input":
+"@lidofinance/input@workspace:*, @lidofinance/input@workspace:packages/input":
   version: 0.0.0-use.local
   resolution: "@lidofinance/input@workspace:packages/input"
   dependencies:
-    "@lidofinance/button": "workspace:packages/button"
-    "@lidofinance/injector": 1.0.0
-    "@lidofinance/theme": 1.0.0
-    "@styled-system/should-forward-prop": ^5.1.5
+    "@lidofinance/button": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
@@ -2435,6 +2430,7 @@ __metadata:
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    styled-components: 5.3.0
   languageName: unknown
   linkType: soft
 
@@ -2442,45 +2438,46 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/lido-ui@workspace:packages/lido-ui"
   dependencies:
-    "@lidofinance/button": 1.0.0
-    "@lidofinance/input": 1.0.0
-    "@lidofinance/link": 1.0.0
-    "@lidofinance/select": 1.0.0
-    "@lidofinance/text": 1.0.0
-  peerDependencies:
+    "@lidofinance/accordion": "workspace:*"
+    "@lidofinance/button": "workspace:*"
+    "@lidofinance/checkbox": "workspace:*"
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/input": "workspace:*"
+    "@lidofinance/link": "workspace:*"
+    "@lidofinance/loaders": "workspace:*"
+    "@lidofinance/select": "workspace:*"
+    "@lidofinance/text": "workspace:*"
     "@types/react": ^17
     "@types/react-dom": ^17
+  peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
   languageName: unknown
   linkType: soft
 
-"@lidofinance/link@1.0.0, @lidofinance/link@workspace:packages/link":
+"@lidofinance/link@workspace:*, @lidofinance/link@workspace:packages/link":
   version: 0.0.0-use.local
   resolution: "@lidofinance/link@workspace:packages/link"
   dependencies:
-    "@lidofinance/injector": 1.0.0
-    "@lidofinance/theme": 1.0.0
-    "@styled-system/should-forward-prop": ^5.1.5
+    "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
-    prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
-    react-is: ^17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    styled-components: 5.3.0
   languageName: unknown
   linkType: soft
 
-"@lidofinance/loaders@workspace:packages/loaders":
+"@lidofinance/loaders@workspace:*, @lidofinance/loaders@workspace:packages/loaders":
   version: 0.0.0-use.local
   resolution: "@lidofinance/loaders@workspace:packages/loaders"
   dependencies:
-    "@lidofinance/theme": 1.0.0
+    "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
@@ -2491,18 +2488,15 @@ __metadata:
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
-    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
 
-"@lidofinance/select@1.0.0, @lidofinance/select@workspace:packages/select":
+"@lidofinance/select@workspace:*, @lidofinance/select@workspace:packages/select":
   version: 0.0.0-use.local
   resolution: "@lidofinance/select@workspace:packages/select"
   dependencies:
-    "@lidofinance/injector": 1.0.0
-    "@lidofinance/theme": 1.0.0
-    "@styled-system/should-forward-prop": ^5.1.5
+    "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
@@ -2513,35 +2507,42 @@ __metadata:
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    styled-components: 5.3.0
   languageName: unknown
   linkType: soft
 
-"@lidofinance/text@1.0.0, @lidofinance/text@workspace:packages/text":
+"@lidofinance/text@workspace:*, @lidofinance/text@workspace:packages/text":
   version: 0.0.0-use.local
   resolution: "@lidofinance/text@workspace:packages/text"
   dependencies:
-    "@lidofinance/injector": 1.0.0
-    "@lidofinance/theme": 1.0.0
-    "@styled-system/should-forward-prop": ^5.1.5
+    "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
     "@types/styled-components": ^5
+    react: 17.0.2
+    react-dom: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
     prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
-    react-is: ^17.0.2
+    styled-components: 5.3.0
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/theme@workspace:*, @lidofinance/theme@workspace:packages/theme":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/theme@workspace:packages/theme"
+  dependencies:
+    "@types/react": 17.0.5
+    "@types/react-dom": 17.0.3
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
-  languageName: unknown
-  linkType: soft
-
-"@lidofinance/theme@1.0.0, @lidofinance/theme@workspace:packages/theme":
-  version: 0.0.0-use.local
-  resolution: "@lidofinance/theme@workspace:packages/theme"
-  dependencies:
-    "@types/styled-components": 5.1.9
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -4266,6 +4267,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^17":
+  version: 17.0.4
+  resolution: "@types/react-dom@npm:17.0.4"
+  dependencies:
+    "@types/react": "*"
+  checksum: 871ffb0dbd2ee4b73023ae3f32bf9df69549ccfb0d47451769c476a495437c55f198128ecbee8417c41a8fa8762f2153e53f9d4eac1853de5b9ef7b02b9c07f9
+  languageName: node
+  linkType: hard
+
 "@types/react-syntax-highlighter@npm:11.0.5":
   version: 11.0.5
   resolution: "@types/react-syntax-highlighter@npm:11.0.5"
@@ -4286,7 +4296,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.5":
+"@types/react@npm:17.0.5, @types/react@npm:^17":
   version: 17.0.5
   resolution: "@types/react@npm:17.0.5"
   dependencies:
@@ -13208,7 +13218,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.7.2, prop-types@npm:^15.0.0, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -13636,7 +13646,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-is@npm:17.0.2, react-is@npm:^16.12.0 || ^17.0.0, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
+"react-is@npm:17.0.2, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
@@ -13691,18 +13701,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-shallow-renderer@npm:^16.13.1":
-  version: 16.14.1
-  resolution: "react-shallow-renderer@npm:16.14.1"
-  dependencies:
-    object-assign: ^4.1.1
-    react-is: ^16.12.0 || ^17.0.0
-  peerDependencies:
-    react: ^16.0.0 || ^17.0.0
-  checksum: f344c663c48720d19559b4198b1f63ad47a3f11bedc92ede053a6c0706b5209e6110086f3ccc6db04eda9f0d1a415845956ddfb6ce09a922167d4831fcba9314
-  languageName: node
-  linkType: hard
-
 "react-sizeme@npm:^3.0.1":
   version: 3.0.1
   resolution: "react-sizeme@npm:3.0.1"
@@ -13730,20 +13728,6 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ">= 0.14.0"
   checksum: fa03880a887bc0c79c0be25fc35924980d75f684f8d05620272bdfcbb9f119f45bb7f8ddd92b9e944103964a4e094b99750d0b19c992fd86f2ce0b70266e89c3
-  languageName: node
-  linkType: hard
-
-"react-test-renderer@npm:17.0.2":
-  version: 17.0.2
-  resolution: "react-test-renderer@npm:17.0.2"
-  dependencies:
-    object-assign: ^4.1.1
-    react-is: ^17.0.2
-    react-shallow-renderer: ^16.13.1
-    scheduler: ^0.20.2
-  peerDependencies:
-    react: 17.0.2
-  checksum: e6b5c6ed2a0bde2c34f1ab9523ff9bc4c141a271daf730d6b852374e83acc0155d58ab71a318251e953ebfa65b8bebb9c5dce3eba1ccfcbef7cc4e1e8261c401
   languageName: node
   linkType: hard
 

@@ -1,19 +1,21 @@
 import { Story } from '@storybook/react'
-import styled from 'styled-components'
+import { Theme } from '@lidofinance/theme'
+import styled, { useTheme } from 'styled-components'
 import * as components from './index'
 
 type IconVariants = keyof typeof components
 const iconKeys = Object.keys(components) as IconVariants[]
 
 export default {
-  title: 'Lido UI/Icons',
+  title: 'Icons/Icons',
 }
 
 export const Base: Story<{ color: string; type: IconVariants }> = (props) => {
+  const theme: Theme = useTheme()
   const { color, type } = props
   const Component = components[type]
 
-  return <Component style={{ fill: color }} />
+  return <Component style={{ fill: color || theme.colors.text }} />
 }
 
 Base.argTypes = {
@@ -25,7 +27,6 @@ Base.argTypes = {
 }
 
 Base.args = {
-  color: '#000',
   type: 'Document',
 }
 
@@ -41,12 +42,16 @@ const IconListItem = styled.div`
   width: 100px;
   margin: 2px;
   padding: 10px;
-  color: rgb(153, 153, 153);
   border-radius: 4px;
+  color: ${({ theme }) => theme.colors.text};
 
-  &:hover {
-    background: rgba(153, 153, 153, 0.1);
+  svg {
+    fill: currentColor;
   }
+`
+
+const IconListTitle = styled.div`
+  opacity: 0.3;
 `
 
 export const List = () => {
@@ -58,7 +63,7 @@ export const List = () => {
         return (
           <IconListItem key={componentName}>
             <Icon />
-            <div className='title'>{componentName}</div>
+            <IconListTitle>{componentName}</IconListTitle>
           </IconListItem>
         )
       })}

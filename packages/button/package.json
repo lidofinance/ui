@@ -5,10 +5,13 @@
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "dependencies": {
-    "@lidofinance/injector": "1.0.0",
-    "@lidofinance/theme": "1.0.0",
-    "@styled-system/should-forward-prop": "^5.1.5",
-    "react-is": "^17.0.2",
+    "@lidofinance/injector": "workspace:*",
+    "@lidofinance/theme": "workspace:*",
+    "@styled-system/should-forward-prop": "^5.1.5"
+  },
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "styled-components": "5.3.0"
   },
   "devDependencies": {
@@ -20,6 +23,6 @@
     "jest-styled-components": "7.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-test-renderer": "17.0.2"
+    "styled-components": "5.3.0"
   }
 }

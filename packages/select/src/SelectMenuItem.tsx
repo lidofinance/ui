@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import theme from '@lidofinance/theme'
 import { HEIGHT, appearanceStrong } from './SelectStyle'
 import { SelectSize, SelectAppearance } from './types'
 
@@ -14,11 +13,11 @@ const Wrap = styled.div<WrapProps>`
   align-items: center;
   padding-left: 16px;
   padding-right: 16px;
-  color: ${theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   cursor: pointer;
   user-select: none;
   height: ${(p) => HEIGHT[p.size || 'default']}px;
-  transition: background-color ease ${theme.dur.norm};
+  transition: background-color ease ${({ theme }) => theme.dur.norm};
 
   ${(p) =>
     p.appearance === 'strong'
@@ -39,14 +38,14 @@ const Wrap = styled.div<WrapProps>`
 
   &:hover {
     background-color: rgba(0, 163, 255, 0.1);
-    transition-duration: ${theme.dur.fast};
+    transition-duration: ${({ theme }) => theme.dur.fast};
   }
 
   ${(p) =>
     p.isActive &&
     css`
       background-color: rgba(0, 163, 255, 0.1);
-      transition-duration: ${theme.dur.fast};
+      transition-duration: ${({ theme }) => theme.dur.fast};
     `}
 `
 

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 export default {
   component: Input,
-  title: 'Lido UI/Input',
+  title: 'Controls/Input',
 }
 
 export const basic = () => <Input placeholder='Basic' />

@@ -2,7 +2,7 @@ import Heading from '.'
 
 export default {
   component: Heading,
-  title: 'Lido UI/Heading',
+  title: 'Typography/Heading',
 }
 
 export const basic = () => <Heading>Normal Heading</Heading>

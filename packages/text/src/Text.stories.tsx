@@ -2,7 +2,7 @@ import Text from './Text'
 
 export default {
   component: Text,
-  title: 'Lido UI/Text',
+  title: 'Typography/Text',
 }
 
 export const basic = () => <Text>Normal text</Text>

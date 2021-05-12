@@ -1,4 +1,4 @@
-const theme = {
+const themeBase = {
   spacing: {
     extraLarge: '32px',
     large: '24px',
@@ -7,16 +7,9 @@ const theme = {
     extraSmall: '4px',
   },
   colors: {
-    main: '#00A3FF',
-    background: '#F4F6F8',
-    error: '#E14D4D',
-    text: '#0C141D',
-    textSecondary: '#7A8AA0',
+    main: '#00a3ff',
+    error: '#e14d4d',
     success: '#61B75F',
-    border: '#d1d8df',
-    borderHover: '#b1b7bd',
-    controlBg: '#fff',
-    inputPlaceholder: 'rgba(39, 56, 82, 0.3)',
   },
   breakpoints: ['360px', '480px', '768px', '1024px'],
   breakpointsObject: {
@@ -65,10 +58,41 @@ const theme = {
   },
 }
 
-type Theme = typeof theme
+export const themeLight = {
+  ...themeBase,
+  colors: {
+    ...themeBase.colors,
+    background: '#f4f6f8',
+    foreground: '#fff',
 
-declare module 'styled-components' {
-  export interface DefaultTheme extends Theme {}
+    text: '#0c141d',
+    textSecondary: '#7a8aa0',
+
+    border: '#d1d8df',
+    borderHover: '#b1b7bd',
+
+    controlBg: '#fff',
+    inputPlaceholder: 'rgba(39, 56, 82, 0.3)',
+  },
 }
 
-export default theme
+export const themeDark = {
+  ...themeBase,
+  colors: {
+    ...themeBase.colors,
+
+    background: '#1c1c21',
+    foreground: '#34343d',
+
+    text: '#fff',
+    textSecondary: 'rgba(255, 255, 255, .8)',
+
+    border: '#484855',
+    borderHover: '#7a8aa0',
+
+    controlBg: '#2f2f37',
+    inputPlaceholder: 'rgba(255, 255, 255, 0.3)',
+  },
+}
+
+export const themeDefault = themeLight

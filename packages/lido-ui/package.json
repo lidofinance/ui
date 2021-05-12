@@ -4,16 +4,22 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "dependencies": {
-    "@lidofinance/button": "1.0.0",
-    "@lidofinance/input": "1.0.0",
-    "@lidofinance/link": "1.0.0",
-    "@lidofinance/select": "1.0.0",
-    "@lidofinance/text": "1.0.0"
+    "@lidofinance/accordion": "workspace:*",
+    "@lidofinance/button": "workspace:*",
+    "@lidofinance/checkbox": "workspace:*",
+    "@lidofinance/icons": "workspace:*",
+    "@lidofinance/input": "workspace:*",
+    "@lidofinance/link": "workspace:*",
+    "@lidofinance/loaders": "workspace:*",
+    "@lidofinance/select": "workspace:*",
+    "@lidofinance/text": "workspace:*"
   },
   "peerDependencies": {
-    "@types/react": "^17",
-    "@types/react-dom": "^17",
     "react": "17.0.2",
     "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17",
+    "@types/react-dom": "^17"
   }
 }

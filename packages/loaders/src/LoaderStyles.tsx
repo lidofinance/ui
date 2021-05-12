@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components'
-import theme from '@lidofinance/theme'
 import { LoaderColors } from './types'
 
 export const rotation = keyframes`
@@ -17,7 +16,7 @@ export const LoaderStyle = styled.div<{
   line-height: 0;
   width: ${(props) => props.$size}px;
   height: ${(props) => props.$size}px;
-  color: ${(props) => theme.colors[props.$color]};
+  color: ${({ theme, $color }) => theme.colors[$color]};
 `
 
 export const LoaderCircleBgStyle = styled.circle<{ $thickness: number }>`

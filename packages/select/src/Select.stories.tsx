@@ -2,7 +2,7 @@ import { Select } from './'
 
 export default {
   component: Select,
-  title: 'Lido UI/Select',
+  title: 'Controls/Select',
 }
 
 const options = [
