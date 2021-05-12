@@ -16,10 +16,10 @@ const xl = {
 }
 
 const mediaQueries = {
-  sm: `@media screen and (min-width: ${sm.width})`,
-  md: `@media screen and (min-width: ${md.width})`,
-  lg: `@media screen and (min-width: ${lg.width})`,
-  xl: `@media screen and (min-width: ${xl.width})`,
+  sm: `@media screen and (max-width: ${sm.width})`,
+  md: `@media screen and (max-width: ${md.width})`,
+  lg: `@media screen and (max-width: ${lg.width})`,
+  xl: `@media screen and (max-width: ${xl.width})`,
 }
 const breakpoints = { sm, md, lg, xl }
 

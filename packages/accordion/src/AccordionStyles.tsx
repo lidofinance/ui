@@ -8,11 +8,15 @@ export const AccordionStyle = styled.div`
 `
 
 export const AccordionSummaryStyle = styled.div`
-  padding: calc(${({ theme }) => theme.spacing.extraLarge} - 2px)
-    ${({ theme }) => theme.spacing.extraLarge};
+  padding: ${({ theme }) => theme.spacing.extraLarge};
   cursor: pointer;
   display: flex;
+  align-items: center;
   outline: none;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding: ${({ theme }) => theme.spacing.large};
+  }
 `
 
 export const AccordionTitleStyle = styled.div`
@@ -27,7 +31,8 @@ export const AccordionArrowStyle = styled(ArrowBottom)<{ $expanded: boolean }>`
   flex-shrink: 0;
   transform: rotate(${(props) => (props.$expanded ? 180 : 0)}deg);
   transition: transform ${({ theme }) => theme.duration.norm} ease;
-  margin: -2px -2px -2px 10px;
+  margin: -2px;
+  margin-left: ${({ theme }) => theme.spacing.medium};
   fill: ${({ theme }) => theme.colors.textSecondary};
 `
 
@@ -37,6 +42,11 @@ export const AccordionContentStyle = styled.div`
   padding-top: 0;
   font-size: 14px;
   line-height: 20px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding: ${({ theme }) => theme.spacing.large};
+    padding-top: 0;
+  }
 
   p,
   ul,
