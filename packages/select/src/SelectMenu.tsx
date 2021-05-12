@@ -23,7 +23,7 @@ const SelectMenuWrap = styled.div`
   background: ${({ theme }) => theme.colors.controlBg};
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  animation: ${menuAppearing} ${({ theme }) => theme.dur.norm} ease 1;
+  animation: ${menuAppearing} ${({ theme }) => theme.duration.norm} ease 1;
 `
 
 const SelectMenuScroll = styled.div`

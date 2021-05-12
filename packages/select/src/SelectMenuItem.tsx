@@ -17,7 +17,7 @@ const Wrap = styled.div<WrapProps>`
   cursor: pointer;
   user-select: none;
   height: ${(p) => HEIGHT[p.size || 'default']}px;
-  transition: background-color ease ${({ theme }) => theme.dur.norm};
+  transition: background-color ease ${({ theme }) => theme.duration.norm};
 
   ${(p) =>
     p.appearance === 'strong'
@@ -38,14 +38,14 @@ const Wrap = styled.div<WrapProps>`
 
   &:hover {
     background-color: rgba(0, 163, 255, 0.1);
-    transition-duration: ${({ theme }) => theme.dur.fast};
+    transition-duration: ${({ theme }) => theme.duration.fast};
   }
 
   ${(p) =>
     p.isActive &&
     css`
       background-color: rgba(0, 163, 255, 0.1);
-      transition-duration: ${({ theme }) => theme.dur.fast};
+      transition-duration: ${({ theme }) => theme.duration.fast};
     `}
 `
 

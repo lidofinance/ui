@@ -45,7 +45,7 @@ export const Box = styled.div<BoxProps>`
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.border};
   background-color: ${({ theme }) => theme.colors.controlBg};
-  transition: border-color ease ${({ theme }) => theme.dur.norm};
+  transition: border-color ease ${({ theme }) => theme.duration.norm};
   cursor: pointer;
   user-select: none;
   border-color: ${(p) =>
@@ -69,7 +69,7 @@ export const Box = styled.div<BoxProps>`
     css`
       &:hover {
         border-color: ${({ theme }) => theme.colors.borderHover};
-        transition-duration: ${({ theme }) => theme.dur.fast};
+        transition-duration: ${({ theme }) => theme.duration.fast};
       }
     `}
 `
@@ -92,7 +92,7 @@ export const SelectArrow = styled.div<ArrowProps>`
   border-width: 0 3px 3px 3px;
   border-color: transparent transparent ${({ theme }) => theme.colors.text}
     transparent;
-  transition: transform ease ${({ theme }) => theme.dur.norm};
+  transition: transform ease ${({ theme }) => theme.duration.norm};
 
   ${(p) =>
     p.isFocused &&

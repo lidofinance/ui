@@ -18,7 +18,7 @@ export const RowWrap = styled.div<RowWrapProps>`
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.controlBg};
-  transition: border-color ease ${({ theme }) => theme.dur.norm};
+  transition: border-color ease ${({ theme }) => theme.duration.norm};
   border-color: ${(p) =>
     p.isWrong
       ? p.theme.colors.error
@@ -32,7 +32,7 @@ export const RowWrap = styled.div<RowWrapProps>`
     css`
       &:hover {
         border-color: ${({ theme }) => theme.colors.borderHover};
-        transition-duration: ${({ theme }) => theme.dur.fast};
+        transition-duration: ${({ theme }) => theme.duration.fast};
       }
     `}
 `
@@ -68,15 +68,15 @@ export const Placeholder = styled.div<PlaceholderProps>`
   color: ${({ theme }) => theme.colors.inputPlaceholder};
   pointer-events: none;
   transform-origin: left center;
-  transition: transform ease ${({ theme }) => theme.dur.fast},
-    color ease ${({ theme }) => theme.dur.norm},
-    opacity ease ${({ theme }) => theme.dur.norm};
+  transition: transform ease ${({ theme }) => theme.duration.fast},
+    color ease ${({ theme }) => theme.duration.norm},
+    opacity ease ${({ theme }) => theme.duration.norm};
 
   ${(p) =>
     p.isFocused &&
     css`
       color: ${({ theme }) => theme.colors.main};
-      transition-duration: ${({ theme }) => theme.dur.fast};
+      transition-duration: ${({ theme }) => theme.duration.fast};
     `}
 
   ${(p) =>
@@ -179,8 +179,8 @@ export const ErrorMessage = styled(Message)`
   background-color: ${({ theme }) => theme.colors.error};
   border-radius: 6px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  animation: ${errorAppearing} ${({ theme }) => theme.dur.norm}
-    ${({ theme }) => theme.ease.OutBack} 1;
+  animation: ${errorAppearing} ${({ theme }) => theme.duration.norm}
+    ${({ theme }) => theme.ease.outBack} 1;
 `
 
 export const SuccessMessage = styled(Message)`

@@ -26,7 +26,7 @@ export const AccordionTitleStyle = styled.div`
 export const AccordionArrowStyle = styled(ArrowBottom)<{ $expanded: boolean }>`
   flex-shrink: 0;
   transform: rotate(${(props) => (props.$expanded ? 180 : 0)}deg);
-  transition: transform 0.3s ease;
+  transition: transform ${({ theme }) => theme.duration.norm} ease;
   margin: -2px -2px -2px 10px;
   fill: ${({ theme }) => theme.colors.textSecondary};
 `

@@ -1,15 +1,10 @@
-import { DocsContainer } from './components/DocContainer'
 import { WithThemeProvider } from './components/WithThemeProvider'
-import { light, dark } from './themes'
+import themesParameters from './themes'
+import viewportParameters from './viewport'
 
 export const parameters = {
-  docs: {
-    container: DocsContainer,
-  },
-  darkMode: {
-    dark,
-    light,
-  },
+  ...themesParameters,
+  ...viewportParameters,
   controls: { hideNoControlsWarning: true },
 }
 
