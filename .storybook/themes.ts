@@ -12,6 +12,10 @@ const constructor = (base: ThemeVars['base'], theme: Theme): ThemeVars => ({
   appContentBg: theme.colors.background,
   appBorderRadius: 8,
 
+  // Typography
+  fontBase: '"TTCommons", sans-serif',
+
+  // Text
   textColor: theme.colors.text,
 
   // Form
