@@ -7,7 +7,7 @@ type IconVariants = keyof typeof components
 const iconKeys = Object.keys(components) as IconVariants[]
 
 export default {
-  title: 'Icons/Icons',
+  title: 'Images/Icons',
 }
 
 export const Base: Story<{ color: string; type: IconVariants }> = (props) => {
