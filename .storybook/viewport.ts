@@ -1,13 +1,13 @@
 import { themeDefault } from '../packages/theme/dist/esm'
 
-const { breakpoints } = themeDefault
+const { breakpointsMap } = themeDefault
 
-const themeViewports = Object.keys(breakpoints).reduce(
+const themeViewports = Object.keys(breakpointsMap).reduce(
   (viewports, breakpoint) => ({
     ...viewports,
     [breakpoint]: {
       name: breakpoint,
-      styles: breakpoints[breakpoint],
+      styles: breakpointsMap[breakpoint],
     },
   }),
   {}
