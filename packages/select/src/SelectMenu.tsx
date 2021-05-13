@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from 'styled-components'
-import theme from '@lidofinance/theme'
 
 const menuAppearing = keyframes`
   from {
@@ -21,10 +20,10 @@ const SelectMenuWrap = styled.div`
   width: 100%;
   overflow: hidden;
   padding: 1px;
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.controlBg};
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  animation: ${menuAppearing} ${theme.dur.norm} ease 1;
+  animation: ${menuAppearing} ${({ theme }) => theme.duration.norm} ease 1;
 `
 
 const SelectMenuScroll = styled.div`
@@ -32,7 +31,7 @@ const SelectMenuScroll = styled.div`
   overflow-x: hidden;
   width: 100%;
   max-height: 240px;
-  scrollbar-color: ${theme.colors.border} #fff;
+  scrollbar-color: ${({ theme }) => theme.colors.border} #fff;
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
@@ -48,7 +47,7 @@ const SelectMenuScroll = styled.div`
 
   &::-webkit-scrollbar-thumb {
     border-style: solid;
-    border-color: ${theme.colors.border};
+    border-color: ${({ theme }) => theme.colors.border};
     border-radius: 2px;
   }
 `

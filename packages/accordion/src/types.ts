@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+export type { Theme } from '@lidofinance/theme'
 
 export type AccordionProps = {
   defaultExpanded?: boolean
-  summary: ReactNode
+  summary: React.ReactNode
 } & Omit<JSX.IntrinsicElements['div'], 'ref'>

@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components'
-import theme from '@lidofinance/theme'
 import { InlineLoaderColors } from './types'
 
 export const translation = keyframes`
@@ -9,7 +8,7 @@ export const translation = keyframes`
 `
 
 export const InlineLoaderStyle = styled.div<{ $color: InlineLoaderColors }>`
-  --loader-color: ${(props) => theme.colors[props.$color]};
+  --loader-color: ${({ theme, $color }) => theme.colors[$color]};
 
   width: 100%;
   display: inline-block;

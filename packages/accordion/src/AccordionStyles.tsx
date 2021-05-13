@@ -1,22 +1,26 @@
 import styled from 'styled-components'
-import theme from '@lidofinance/theme'
 import { ArrowBottom } from '@lidofinance/icons'
 
 export const AccordionStyle = styled.div`
-  margin: 0 0 ${theme.spacing.small} 0;
-  background: ${theme.colors.controlBg};
+  margin: 0 0 ${({ theme }) => theme.spacing.small} 0;
+  background: ${({ theme }) => theme.colors.foreground};
   border-radius: 20px;
 `
 
 export const AccordionSummaryStyle = styled.div`
-  padding: calc(${theme.spacing.extraLarge} - 2px) ${theme.spacing.extraLarge};
+  padding: ${({ theme }) => theme.spacing.extraLarge};
   cursor: pointer;
   display: flex;
+  align-items: center;
   outline: none;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding: ${({ theme }) => theme.spacing.large};
+  }
 `
 
 export const AccordionTitleStyle = styled.div`
-  color: ${theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   flex-grow: 1;
   font-weight: 600;
   font-size: 16px;
@@ -26,17 +30,23 @@ export const AccordionTitleStyle = styled.div`
 export const AccordionArrowStyle = styled(ArrowBottom)<{ $expanded: boolean }>`
   flex-shrink: 0;
   transform: rotate(${(props) => (props.$expanded ? 180 : 0)}deg);
-  transition: transform 0.3s ease;
-  margin: -2px -2px -2px 10px;
-  fill: ${theme.colors.textSecondary};
+  transition: transform ${({ theme }) => theme.duration.norm} ease;
+  margin: -2px;
+  margin-left: ${({ theme }) => theme.spacing.medium};
+  fill: ${({ theme }) => theme.colors.textSecondary};
 `
 
 export const AccordionContentStyle = styled.div`
-  color: ${theme.colors.textSecondary};
-  padding: ${theme.spacing.extraLarge};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  padding: ${({ theme }) => theme.spacing.extraLarge};
   padding-top: 0;
   font-size: 14px;
   line-height: 20px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding: ${({ theme }) => theme.spacing.large};
+    padding-top: 0;
+  }
 
   p,
   ul,

@@ -4,12 +4,7 @@ import Accordion from './Accordion'
 
 export default {
   component: Accordion,
-  title: 'Lido UI/Accordion',
-  parameters: {
-    backgrounds: {
-      default: 'background',
-    },
-  },
+  title: 'Layout/Accordion',
 }
 
 export const Basic: Story<AccordionProps> = (props) => (

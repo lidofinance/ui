@@ -4,7 +4,7 @@ import Checkbox from './Checkbox'
 
 export default {
   component: Checkbox,
-  title: 'Lido UI/Checkbox',
+  title: 'Controls/Checkbox',
 }
 
 export const Basic: Story<CheckboxProps> = (props) => <Checkbox {...props} />
