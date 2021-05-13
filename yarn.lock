@@ -1976,7 +1976,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-collapsed: ^3.0.2
@@ -1998,7 +1998,7 @@ __metadata:
     "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": 5.1.9
     "@types/styled-system__should-forward-prop": 5.1.2
     jest-styled-components: 7.0.4
@@ -2020,7 +2020,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2038,7 +2038,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2062,7 +2062,7 @@ __metadata:
     "@svgr/plugin-svgo": ^5.5.0
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/rimraf": ^3
     "@types/styled-components": ^5
     react: 17.0.2
@@ -2111,7 +2111,7 @@ __metadata:
     "@lidofinance/button": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": ^5
     react: 17.0.2
     react-dom: 17.0.2
@@ -2152,7 +2152,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": ^5
     react: 17.0.2
     react-dom: 17.0.2
@@ -2171,7 +2171,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2189,7 +2189,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": ^5
     react: 17.0.2
     react-dom: 17.0.2
@@ -2208,7 +2208,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": ^5
     react: 17.0.2
     react-dom: 17.0.2
@@ -2225,7 +2225,7 @@ __metadata:
   resolution: "@lidofinance/theme@workspace:packages/theme"
   dependencies:
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -3948,16 +3948,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:17.0.3":
-  version: 17.0.3
-  resolution: "@types/react-dom@npm:17.0.3"
-  dependencies:
-    "@types/react": "*"
-  checksum: 102a3ee9ecf96fdd82d37d90860d0b80e160a368117e4e84512c801f8c7f381d7a2b9305f155670f42eab4784d036375cbf16c9905839dd0857e7031ff966803
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^17":
+"@types/react-dom@npm:17.0.4, @types/react-dom@npm:^17":
   version: 17.0.4
   resolution: "@types/react-dom@npm:17.0.4"
   dependencies:
@@ -10919,7 +10910,7 @@ fsevents@^1.2.7:
     "@storybook/theming": 6.2.9
     "@types/jest": 26.0.23
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.3
+    "@types/react-dom": 17.0.4
     babel-core: 6.26.3
     babel-jest: 26.6.3
     babel-loader: 8.2.2
@@ -10938,7 +10929,7 @@ fsevents@^1.2.7:
     styled-components: 5.3.0
     ts-jest: 26.5.6
     typescript: 4.2.4
-    webpack: 5.36.2
+    webpack: 5.37.0
   languageName: unknown
   linkType: soft
 
@@ -16345,9 +16336,9 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.36.2":
-  version: 5.36.2
-  resolution: "webpack@npm:5.36.2"
+"webpack@npm:5.37.0":
+  version: 5.37.0
+  resolution: "webpack@npm:5.37.0"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.47
@@ -16377,7 +16368,7 @@ typescript@4.2.4:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: d3830852b98c51c823acf2e630f4d2080e96f584eec1d227dc6f59fe9f452197a0bf36fc2b3adf36ecdd9533df116e1f61e466f8a1c6e0d1a4d1f6efd414f054
+  checksum: d244880ee15028d95c1dc05a0b0d529e45a457572cf8ddb8f250c5ca1daab355fbd25bd3d957613f30a2848a2998793a0726a8a0c269908659b250f7c2b4c1c4
   languageName: node
   linkType: hard
 
