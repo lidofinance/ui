@@ -12,32 +12,33 @@ type InjectedProps = {
 
 const sizes = {
   xs: css`
-    font-size: 14px;
-    line-height: 20px;
-    border-radius: 6px;
-    padding: 6px 16px;
+    line-height: 1em;
+    font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+    border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
+    padding: 9px 16px;
     min-width: 60px;
   `,
   sm: css`
-    font-size: 16px;
-    line-height: 22px;
-    border-radius: 6px;
-    padding: 10px 24px;
+    line-height: 1em;
+    font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
+    border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
+    padding: 14px 24px;
     min-width: 100px;
   `,
   md: css`
-    font-size: 18px;
-    line-height: 24px;
-    border-radius: 10px;
-    padding: 16px 44px;
+    line-height: 1em;
+    font-size: ${({ theme }) => theme.fontSizesMap.md}px;
+    border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
+    padding: 19px 44px;
     min-width: 120px;
   `,
   lg: css`
-    font-size: 20px;
-    line-height: 26px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
-    padding: 19px 64px;
+    line-height: 1em;
+    font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
+    border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
+    box-shadow: ${({ theme }) =>
+      `${theme.boxShadows.md} ${theme.colors.shadowDark}`};
+    padding: 22px 64px;
     min-width: 160px;
   `,
 }
@@ -123,6 +124,7 @@ const variants = {
 }
 
 export const ButtonStyle = styled.button<InjectedProps>`
+  box-sizing: border-box;
   margin: 0;
   border: none;
   outline: none;
@@ -132,6 +134,7 @@ export const ButtonStyle = styled.button<InjectedProps>`
   background: transparent;
   font-family: inherit;
   font-weight: 600;
+  width: ${({ $fullwidth }) => ($fullwidth ? ' 100%' : 'auto')};
 
   :before {
     content: '';
@@ -152,8 +155,6 @@ export const ButtonStyle = styled.button<InjectedProps>`
   :disabled {
     opacity: 0.5;
   }
-
-  ${(props) => props.$fullwidth && 'width: 100%;'}
 
   ${(props) => sizes[props.$size]}
   ${(props) => variants[props.$variant]}

@@ -4,6 +4,7 @@ export const themeLight = {
   ...themeBase,
   colors: {
     ...themeBase.colors,
+
     background: '#f4f6f8',
     foreground: '#fff',
 

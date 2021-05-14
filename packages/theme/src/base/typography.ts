@@ -1,7 +1,8 @@
-const fontSizes = [12, 16, 18, 20, 32, 44, 56]
+const fontSizes = [12, 14, 16, 18, 20, 32, 44, 56]
 
 const fontSizesMap = {
-  xs: 12,
+  xxs: 12,
+  xs: 14,
   sm: 16,
   md: 18,
   lg: 20,
