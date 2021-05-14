@@ -1,67 +1,54 @@
-import styled, { css } from 'styled-components'
+import { ForwardedRef, forwardRef } from 'react'
+import {
+  ButtonStyle,
+  ButtonContentStyle,
+  ButtonLoaderStyle,
+} from './ButtonStyles'
+import { ButtonProps } from './types'
+import { useRipple } from './useRipple'
 
-interface ButtonProps {
-  isLoading?: boolean
-  isDisabled?: boolean
-  loadingText?: string
-  isFullWidth?: boolean
-  leftIcon?: React.ReactElement
-  rightIcon?: React.ReactElement
+const loaderSizes = {
+  xs: 'small',
+  sm: 'small',
+  md: 'medium',
+  lg: 'medium',
+} as const
 
-  children: React.ReactElement | string
+function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
+  const {
+    size = 'md',
+    variant = 'filled',
+    color = 'primary',
+    square = false,
+    fullwidth = false,
+    loading = false,
+    disabled,
+    children,
+    ...rest
+  } = props
+
+  const { handleClick, ripple } = useRipple(props)
+  const loaderSize = loaderSizes[size]
+
+  return (
+    <ButtonStyle
+      $size={size}
+      $variant={variant}
+      $fullwidth={fullwidth}
+      $color={color}
+      $square={square}
+      $loading={loading}
+      onClick={handleClick}
+      disabled={disabled || loading}
+      type='button'
+      ref={ref}
+      {...rest}
+    >
+      <ButtonContentStyle $hidden={loading}>{children}</ButtonContentStyle>
+      {loading && <ButtonLoaderStyle size={loaderSize} />}
+      {ripple}
+    </ButtonStyle>
+  )
 }
 
-const StyledButton = styled.button<ButtonProps>`
-  border: none;
-  outline: none;
-  white-space: nowrap;
-  overflow: hidden;
-  line-height: inherit;
-  background-color: inherit;
-  font-size: inherit;
-  color: inherit;
-  padding: inherit;
-
-  background-color: ${({ theme }) => theme.colors.main};
-  font-size: 18px;
-  font-weight: 500;
-  font-family: inherit;
-  line-height: 24px;
-  color: #ffffff;
-  padding: 16px 20px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  :hover {
-    background-color: #009bf2;
-  }
-
-  :hover {
-    cursor: pointer;
-  }
-
-  ${(props) =>
-    props.isFullWidth &&
-    css`
-      width: 100%;
-    `}
-
-  ${(props) =>
-    props.isDisabled &&
-    css`
-      background-color: #96cbfa;
-      :hover {
-        background-color: #96cbfa;
-      }
-    `}
-`
-
-const Button = ({ children, isLoading, loadingText, ...rest }: ButtonProps) => (
-  <StyledButton {...rest}>
-    {loadingText && isLoading ? loadingText : children}
-  </StyledButton>
-)
-
-export default Button
+export default forwardRef(Button)

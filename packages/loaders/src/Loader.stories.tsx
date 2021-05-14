@@ -22,7 +22,7 @@ Basic.argTypes = {
     description: 'Loader color',
   },
   size: {
-    options: ['large', 'medium'],
+    options: ['large', 'medium', 'small'],
     description: 'Loader size',
     control: 'radio',
   },

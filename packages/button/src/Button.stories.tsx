@@ -1,18 +1,60 @@
+import { Story } from '@storybook/react'
+import { Whitepaper } from '@lidofinance/icons'
+import {
+  ButtonProps,
+  ButtonIconProps,
+  ButtonColor,
+  ButtonSize,
+  ButtonVariant,
+} from './types'
 import Button from './Button'
+import ButtonIcon from './ButtonIcon'
+
+const getOptions = (enumObject: Record<string, string | number>) =>
+  Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
   component: Button,
   title: 'Controls/Button',
+  args: {
+    size: 'md',
+    variant: 'filled',
+    color: 'primary',
+    disabled: false,
+    fullwidth: false,
+    loading: false,
+    children: 'Example',
+  },
+  argTypes: {
+    size: {
+      options: getOptions(ButtonSize),
+      control: 'inline-radio',
+    },
+    variant: {
+      options: getOptions(ButtonVariant),
+      control: 'inline-radio',
+    },
+    color: {
+      options: getOptions(ButtonColor),
+      control: 'inline-radio',
+    },
+  },
 }
 
-export const basic = () => <Button>Button</Button>
+export const Basic: Story<ButtonProps> = (props) => <Button {...props} />
 
-export const loading = () => (
-  <Button isLoading loadingText='Loading...'>
-    Button
-  </Button>
+export const WithIcon: Story<ButtonIconProps> = (props) => (
+  <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 
-export const disabled = () => <Button isDisabled>Button</Button>
+export const Icon: Story<ButtonIconProps> = (props) => (
+  <ButtonIcon icon={<Whitepaper />} {...props} />
+)
 
-export const fullWidth = () => <Button isFullWidth>Button</Button>
+Icon.args = {
+  children: undefined,
+}
+
+Icon.argTypes = {
+  children: { table: { disable: true } },
+}

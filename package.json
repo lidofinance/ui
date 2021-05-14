@@ -5,8 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "start-storybook -p 5555 -s ./.storybook/public",
-    "build-storybook": "build-storybook -s ./.storybook/public",
+    "dev": "start-storybook -p 5555 -s .storybook/public",
+    "build-storybook": "build-storybook -s .storybook/public",
     "build": "yarn run build:clean && yarn run build:declarations && yarn run build:babel:esm && yarn run build:babel:cjs",
     "build:clean": "yarn workspaces foreach -p -i -v --exclude lido-ui-components run g:clean",
     "build:declarations": "yarn workspaces foreach -p -i -v -t --exclude lido-ui-components run g:types",
@@ -24,6 +24,9 @@
   "devDependencies": {
     "@babel/cli": "7.13.16",
     "@babel/core": "7.14.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
     "@babel/preset-env": "7.14.1",
     "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",

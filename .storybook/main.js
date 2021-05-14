@@ -22,4 +22,7 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
+  features: {
+    postcss: false,
+  },
 }
