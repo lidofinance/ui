@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 .c0 {
+  box-sizing: border-box;
   margin: 0;
   border: none;
   outline: none;
@@ -11,10 +12,11 @@ exports[`renders correctly 1`] = `
   background: transparent;
   font-family: inherit;
   font-weight: 600;
+  width: auto;
+  line-height: 1em;
   font-size: 18px;
-  line-height: 24px;
   border-radius: 10px;
-  padding: 16px 44px;
+  padding: 19px 44px;
   min-width: 120px;
   color: white;
   background-color: #00a3ff;
