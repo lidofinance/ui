@@ -2,10 +2,15 @@ import styled from 'styled-components'
 import withStyledSystem from './withStyledSystem'
 import { ThemeProvider, themeDefault } from '@lidofinance/theme'
 import { render } from '@testing-library/react'
+import { createRef, forwardRef, ForwardedRef } from 'react'
 import 'jest-styled-components'
 
 const StyledComponent = withStyledSystem(styled.div``)
-const RegularComponent = withStyledSystem((props: {}) => <div {...props} />)
+const RegularComponent = withStyledSystem(
+  forwardRef((props: {}, ref?: ForwardedRef<HTMLDivElement>) => (
+    <div {...props} ref={ref} />
+  ))
+)
 
 const testComponent = (
   Component: typeof StyledComponent | typeof RegularComponent
@@ -58,6 +63,15 @@ const testComponent = (
     expect(element).toHaveStyleRule('margin', `${theme.space[2]}px`, {
       media: `screen and (min-width:${theme.breakpoints[0]})`,
     })
+  })
+
+  it('forward ref', () => {
+    const ref = createRef()
+    const { container } = render(<Component ref={ref} />)
+    const element = container.firstElementChild
+
+    expect(ref.current).toBeTruthy()
+    expect(element).toBe(ref.current)
   })
 }
 
