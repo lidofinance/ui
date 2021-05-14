@@ -9,7 +9,7 @@ export const ButtonWrapperStyle = styled.span`
 `
 
 export const ButtonIconStyle = styled.span<{ $square: boolean }>`
-  margin: ${({ $square }) => ($square ? '-12px' : '-12px auto')};
+  margin: ${({ $square }) => ($square ? '-12px' : '-12px -6px')};
   line-height: 0;
   flex-shrink: 0;
 
@@ -19,7 +19,7 @@ export const ButtonIconStyle = styled.span<{ $square: boolean }>`
 `
 
 export const ButtonContentStyle = styled.span`
-  margin-left: 4px;
+  margin-left: 10px;
 
   :empty {
     display: none;
