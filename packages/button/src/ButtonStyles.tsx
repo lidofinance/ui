@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
+import { Loader } from '@lidofinance/loaders'
 import { ButtonColors, ButtonSizes, ButtonVariants } from './types'
 
 type InjectedProps = {
@@ -8,6 +9,7 @@ type InjectedProps = {
   $variant: ButtonVariants
   $fullwidth: boolean
   $square: boolean
+  $loading: boolean
   theme: Theme
 }
 
@@ -39,7 +41,7 @@ const sizes = {
     border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
     box-shadow: ${({ theme }) =>
       `${theme.boxShadows.md} ${theme.colors.shadowDark}`};
-    padding: ${({ $square }) => ($square ? '22px' : '2px 64px')};
+    padding: ${({ $square }) => ($square ? '22px' : '22px 64px')};
     min-width: ${({ $square }) => ($square ? '0' : '160px')};
   `,
 }
@@ -154,7 +156,7 @@ export const ButtonStyle = styled.button<InjectedProps>`
   }
 
   :disabled {
-    opacity: 0.5;
+    opacity: ${({ $loading }) => ($loading ? 1 : 0.5)};
   }
 
   ${(props) => sizes[props.$size]}
@@ -177,6 +179,15 @@ export const ButtonRippleStyle = styled.span`
   opacity: 0.4;
 `
 
-export const ButtonContentStyle = styled.span`
+export const ButtonContentStyle = styled.span<{ $hidden: boolean }>`
   position: relative;
+  visibility: ${({ $hidden }) => ($hidden ? 'hidden' : 'visible')};
+`
+
+export const ButtonLoaderStyle = styled(Loader)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: currentColor;
 `

@@ -28,6 +28,7 @@ export type ButtonProps = {
   color?: ButtonColors
   fullwidth?: boolean
   square?: boolean
+  loading?: boolean
 } & Omit<JSX.IntrinsicElements['button'], 'ref' | 'color'>
 
 export type ButtonIconProps = {

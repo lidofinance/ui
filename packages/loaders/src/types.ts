@@ -1,8 +1,9 @@
 import { themeDefault } from '@lidofinance/theme'
 
 export enum LoaderSize {
-  large = 64,
+  small = 18,
   medium = 24,
+  large = 64,
 }
 export type LoaderColors = keyof typeof themeDefault.colors
 export type LoaderSizes = keyof typeof LoaderSize

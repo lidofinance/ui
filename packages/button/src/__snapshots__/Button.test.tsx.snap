@@ -51,6 +51,7 @@ exports[`renders correctly 1`] = `
 
 .c1 {
   position: relative;
+  visibility: visible;
 }
 
 <button

@@ -5,6 +5,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "dependencies": {
+    "@lidofinance/loaders": "workspace:*",
     "@lidofinance/theme": "workspace:*"
   },
   "peerDependencies": {

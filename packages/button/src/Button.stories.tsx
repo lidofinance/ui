@@ -22,6 +22,7 @@ export default {
     color: 'primary',
     disabled: false,
     fullwidth: false,
+    loading: false,
     children: 'Example',
   },
   argTypes: {
