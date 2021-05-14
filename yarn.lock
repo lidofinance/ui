@@ -1989,29 +1989,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/button-new@workspace:packages/button-new":
-  version: 0.0.0-use.local
-  resolution: "@lidofinance/button-new@workspace:packages/button-new"
-  dependencies:
-    "@lidofinance/theme": "workspace:*"
-    "@types/react": 17.0.3
-    "@types/react-dom": 17.0.4
-    "@types/styled-components": ^5
-    react: 17.0.2
-    react-dom: 17.0.2
-    styled-components: 5.3.0
-  peerDependencies:
-    react: 17.0.2
-    react-dom: 17.0.2
-    styled-components: 5.3.0
-  languageName: unknown
-  linkType: soft
-
 "@lidofinance/button@workspace:*, @lidofinance/button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@lidofinance/button@workspace:packages/button"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.4
@@ -2079,7 +2062,7 @@ __metadata:
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.4
     "@types/rimraf": ^3
-    "@types/styled-components": ^5
+    "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
     rimraf: ^3.0.2
@@ -2118,7 +2101,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.4
-    "@types/styled-components": ^5
+    "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
     styled-components: 5.3.0
@@ -2159,7 +2142,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.4
-    "@types/styled-components": ^5
+    "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
     styled-components: 5.3.0
@@ -2196,7 +2179,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.4
-    "@types/styled-components": ^5
+    "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
     styled-components: 5.3.0
@@ -2242,7 +2225,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.4
-    "@types/styled-components": ^5
+    "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
     styled-components: 5.3.0
@@ -4010,17 +3993,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.3":
-  version: 17.0.3
-  resolution: "@types/react@npm:17.0.3"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: d29f2a33ed69fae9d9f42f8b39b40352e3209eb821f827d566330adfdffb48d2dc730982356cd50a7fda6171e6bc7deca793f7b105c95fce615a45ab313ecf41
-  languageName: node
-  linkType: hard
-
 "@types/rimraf@npm:^3":
   version: 3.0.0
   resolution: "@types/rimraf@npm:3.0.0"
@@ -4052,7 +4024,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:5.1.9, @types/styled-components@npm:^5":
+"@types/styled-components@npm:5.1.9":
   version: 5.1.9
   resolution: "@types/styled-components@npm:5.1.9"
   dependencies:

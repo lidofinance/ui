@@ -7,7 +7,7 @@ export const themeLight = {
     background: '#f4f6f8',
     foreground: '#fff',
 
-    text: '#0c141d',
+    text: '#273852',
     textSecondary: '#7a8aa0',
 
     border: '#d1d8df',

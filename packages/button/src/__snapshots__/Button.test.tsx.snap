@@ -2,48 +2,63 @@
 
 exports[`renders correctly 1`] = `
 .c0 {
+  margin: 0;
   border: none;
   outline: none;
   white-space: nowrap;
   overflow: hidden;
-  line-height: inherit;
-  background-color: inherit;
-  font-size: inherit;
-  color: inherit;
-  padding: inherit;
-  background-color: #00a3ff;
-  font-size: 18px;
-  font-weight: 500;
+  position: relative;
+  background: transparent;
   font-family: inherit;
+  font-weight: 600;
+  font-size: 18px;
   line-height: 24px;
-  color: #ffffff;
-  padding: 16px 20px;
-  border-radius: 6px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  border-radius: 10px;
+  padding: 16px 44px;
+  min-width: 120px;
+  color: white;
+  background-color: #00a3ff;
+  -webkit-transition: background-color 100ms ease;
+  transition: background-color 100ms ease;
 }
 
-.c0:hover {
+.c0:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  display: none;
+}
+
+.c0:not(:disabled) {
+  cursor: pointer;
+}
+
+.c0:disabled {
+  opacity: 0.5;
+}
+
+.c0:not(:disabled):hover,
+.c0:focus-visible {
   background-color: #009bf2;
 }
 
-.c0:hover {
-  cursor: pointer;
+.c1 {
+  position: relative;
 }
 
 <button
   class="c0"
+  type="button"
 >
-  Test
+  <span
+    class="c1"
+  >
+    Test
+  </span>
 </button>
 `;
