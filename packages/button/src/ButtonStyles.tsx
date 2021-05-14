@@ -7,39 +7,40 @@ type InjectedProps = {
   $size: ButtonSizes
   $variant: ButtonVariants
   $fullwidth: boolean
+  $square: boolean
   theme: Theme
 }
 
 const sizes = {
-  xs: css`
+  xs: css<InjectedProps>`
     line-height: 1em;
     font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
-    padding: 9px 16px;
-    min-width: 60px;
+    padding: ${({ $square }) => ($square ? '9px' : '9px 16px')};
+    min-width: ${({ $square }) => ($square ? '0' : '60px')};
   `,
-  sm: css`
+  sm: css<InjectedProps>`
     line-height: 1em;
     font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
-    padding: 14px 24px;
-    min-width: 100px;
+    padding: ${({ $square }) => ($square ? '14px' : '14px 24px')};
+    min-width: ${({ $square }) => ($square ? '0' : '100px')};
   `,
-  md: css`
+  md: css<InjectedProps>`
     line-height: 1em;
     font-size: ${({ theme }) => theme.fontSizesMap.md}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
-    padding: 19px 44px;
-    min-width: 120px;
+    padding: ${({ $square }) => ($square ? '19px' : '19px 44px')};
+    min-width: ${({ $square }) => ($square ? '0' : '120px')};
   `,
-  lg: css`
+  lg: css<InjectedProps>`
     line-height: 1em;
     font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
     box-shadow: ${({ theme }) =>
       `${theme.boxShadows.md} ${theme.colors.shadowDark}`};
-    padding: 22px 64px;
-    min-width: 160px;
+    padding: ${({ $square }) => ($square ? '22px' : '2px 64px')};
+    min-width: ${({ $square }) => ($square ? '0' : '160px')};
   `,
 }
 

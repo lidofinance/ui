@@ -8,6 +8,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
     size = 'md',
     variant = 'filled',
     color = 'primary',
+    square = false,
     fullwidth = false,
     children,
     ...rest
@@ -21,6 +22,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
       $variant={variant}
       $fullwidth={fullwidth}
       $color={color}
+      $square={square}
       onClick={handleClick}
       type='button'
       ref={ref}

@@ -1993,6 +1993,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/button@workspace:packages/button"
   dependencies:
+    "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.6

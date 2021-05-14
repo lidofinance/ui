@@ -27,4 +27,9 @@ export type ButtonProps = {
   variant?: ButtonVariants
   color?: ButtonColors
   fullwidth?: boolean
+  square?: boolean
 } & Omit<JSX.IntrinsicElements['button'], 'ref' | 'color'>
+
+export type ButtonIconProps = {
+  icon: React.ReactNode
+} & ButtonProps
