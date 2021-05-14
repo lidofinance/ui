@@ -34,14 +34,7 @@ export const withAction = () => (
   <Input
     placeholder='Email address'
     defaultValue='alexpro@gmail.com'
-    action={
-      <Button
-        style={{ height: 44 }}
-        loadingText=''
-        isLoading={false}
-        children='Subscribe'
-      />
-    }
+    action={<Button size='sm' children='Subscribe' />}
   />
 )
 
