@@ -1993,14 +1993,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/button@workspace:packages/button"
   dependencies:
-    "@lidofinance/injector": "workspace:*"
     "@lidofinance/theme": "workspace:*"
-    "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.4
     "@types/styled-components": 5.1.9
-    "@types/styled-system__should-forward-prop": 5.1.2
     jest-styled-components: 7.0.4
     react: 17.0.2
     react-dom: 17.0.2
@@ -2092,15 +2089,6 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     styled-components: 5.3.0
-  languageName: unknown
-  linkType: soft
-
-"@lidofinance/injector@workspace:*, @lidofinance/injector@workspace:packages/injector":
-  version: 0.0.0-use.local
-  resolution: "@lidofinance/injector@workspace:packages/injector"
-  dependencies:
-    "@types/styled-system": 5.1.11
-    styled-system: ^5.1.5
   languageName: unknown
   linkType: soft
 
@@ -2199,6 +2187,33 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     styled-components: 5.3.0
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/styled-system@workspace:packages/styled-system":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/styled-system@workspace:packages/styled-system"
+  dependencies:
+    "@lidofinance/theme": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@styled-system/should-forward-prop": ^5.1.5
+    "@testing-library/react": 11.2.6
+    "@types/react": 17.0.5
+    "@types/react-dom": 17.0.4
+    "@types/styled-components": 5.1.9
+    "@types/styled-system": 5.1.11
+    "@types/styled-system__should-forward-prop": ^5.1.2
+    jest-styled-components: 7.0.4
+    react: 17.0.2
+    react-dom: 17.0.2
+    styled-components: 5.3.0
+    styled-system: 5.1.5
+  peerDependencies:
+    "@styled-system/should-forward-prop": ^5.1.5
+    react: 17.0.2
+    react-dom: 17.0.2
+    styled-components: 5.3.0
+    styled-system: 5.1.5
   languageName: unknown
   linkType: soft
 
@@ -4028,7 +4043,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-system__should-forward-prop@npm:5.1.2":
+"@types/styled-system__should-forward-prop@npm:^5.1.2":
   version: 5.1.2
   resolution: "@types/styled-system__should-forward-prop@npm:5.1.2"
   checksum: ba99b5653136058baa9f4a510a6175da5ada14a4f104340979f93bd82c428ef3f733c51101e4f15a934d473d9041887d213516b99209b641ff4e715d2c5b4b60
@@ -14970,7 +14985,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"styled-system@npm:^5.1.5":
+"styled-system@npm:5.1.5, styled-system@npm:^5.1.5":
   version: 5.1.5
   resolution: "styled-system@npm:5.1.5"
   dependencies:

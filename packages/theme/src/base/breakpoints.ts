@@ -21,9 +21,12 @@ const mediaQueries = {
   lg: `@media screen and (max-width: ${lg.width})`,
   xl: `@media screen and (max-width: ${xl.width})`,
 }
-const breakpoints = { sm, md, lg, xl }
+
+const breakpoints = [sm.width, md.width, lg.width, xl.width]
+const breakpointsMap = { sm, md, lg, xl }
 
 export default {
   breakpoints,
+  breakpointsMap,
   mediaQueries,
 }

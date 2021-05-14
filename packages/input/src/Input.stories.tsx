@@ -36,7 +36,7 @@ export const withAction = () => (
     defaultValue='alexpro@gmail.com'
     action={
       <Button
-        height={44}
+        style={{ height: 44 }}
         loadingText=''
         isLoading={false}
         children='Subscribe'

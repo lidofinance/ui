@@ -1,7 +1,4 @@
 import styled, { css } from 'styled-components'
-import inject from '@lidofinance/injector'
-
-import shouldForwardProp from '@styled-system/should-forward-prop'
 
 interface ButtonProps {
   isLoading?: boolean
@@ -14,9 +11,7 @@ interface ButtonProps {
   children: React.ReactElement | string
 }
 
-const StyledButton = styled('button').withConfig({
-  shouldForwardProp,
-})`
+const StyledButton = styled.button<ButtonProps>`
   border: none;
   outline: none;
   white-space: nowrap;
@@ -61,8 +56,6 @@ const StyledButton = styled('button').withConfig({
         background-color: #96cbfa;
       }
     `}
-
-    ${inject}
 `
 
 const Button = ({ children, isLoading, loadingText, ...rest }: ButtonProps) => (
