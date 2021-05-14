@@ -1,12 +1,11 @@
-import { themes } from '@storybook/theming'
-import { DocsContainer } from './components/DocContainer'
+import { WithThemeProvider } from './components/WithThemeProvider'
+import themesParameters from './themes'
+import viewportParameters from './viewport'
 
 export const parameters = {
-  docs: {
-    container: DocsContainer,
-  },
-  darkMode: {
-    dark: { ...themes.dark, appBg: 'rgb(42, 42, 42)' },
-    light: { ...themes.normal },
-  },
+  ...themesParameters,
+  ...viewportParameters,
+  controls: { hideNoControlsWarning: true },
 }
+
+export const decorators = [WithThemeProvider]

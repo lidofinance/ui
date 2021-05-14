@@ -1,5 +1,4 @@
-import styled, { css, keyframes } from 'styled-components'
-import theme from '@lidofinance/theme'
+import styled, { css } from 'styled-components'
 import { SelectSize, SelectAppearance } from './types'
 
 export const HEIGHT: Record<SelectSize, number> = {
@@ -41,20 +40,20 @@ export const Box = styled.div<BoxProps>`
   align-items: center;
   padding: 0 16px;
   font-family: inherit;
-  color: ${theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   height: ${(p) => HEIGHT[p.size || 'default']}px;
   border-radius: 10px;
-  border: 1px solid ${theme.colors.border};
-  background-color: ${theme.colors.controlBg};
-  transition: border-color ease ${theme.dur.norm};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background-color: ${({ theme }) => theme.colors.controlBg};
+  transition: border-color ease ${({ theme }) => theme.duration.norm};
   cursor: pointer;
   user-select: none;
   border-color: ${(p) =>
     p.isWrong
-      ? theme.colors.error
+      ? p.theme.colors.error
       : p.isFocused
-      ? theme.colors.main
-      : theme.colors.border};
+      ? p.theme.colors.main
+      : p.theme.colors.border};
 
   ${(p) =>
     p.appearance === 'strong'
@@ -69,14 +68,14 @@ export const Box = styled.div<BoxProps>`
     !p.isWrong &&
     css`
       &:hover {
-        border-color: ${theme.colors.borderHover};
-        transition-duration: ${theme.dur.fast};
+        border-color: ${({ theme }) => theme.colors.borderHover};
+        transition-duration: ${({ theme }) => theme.duration.fast};
       }
     `}
 `
 
 export const Placeholder = styled.div`
-  color: ${theme.colors.inputPlaceholder};
+  color: ${({ theme }) => theme.colors.inputPlaceholder};
 `
 
 type ArrowProps = {
@@ -91,8 +90,9 @@ export const SelectArrow = styled.div<ArrowProps>`
   height: 0;
   border-style: solid;
   border-width: 0 3px 3px 3px;
-  border-color: transparent transparent ${theme.colors.text} transparent;
-  transition: transform ease ${theme.dur.norm};
+  border-color: transparent transparent ${({ theme }) => theme.colors.text}
+    transparent;
+  transition: transform ease ${({ theme }) => theme.duration.norm};
 
   ${(p) =>
     p.isFocused &&

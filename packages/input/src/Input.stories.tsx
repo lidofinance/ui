@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 export default {
   component: Input,
-  title: 'Lido UI/Input',
+  title: 'Controls/Input',
 }
 
 export const basic = () => <Input placeholder='Basic' />
@@ -16,9 +16,7 @@ export const floatingPlaceholder = () => (
   <Input placeholder='Email address' isPlaceholderFloats />
 )
 
-export const selectOnFocus = () => (
-  <Input defaultValue='10500' selectOnFocus />
-)
+export const selectOnFocus = () => <Input defaultValue='10500' selectOnFocus />
 
 export const withValue = () => (
   <Input placeholder='Email address' defaultValue='alexpro@gmail.com' />

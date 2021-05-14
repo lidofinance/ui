@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist",
+    "rootDir": "./src",
+    "outDir": "./dist/esm",
     "noEmit": false,
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": true
   },
   "exclude": ["node_modules", "dist", "**/*.stories.*", "**/*.test.*"],
   "include": ["src/**/*"]

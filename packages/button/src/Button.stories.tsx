@@ -2,7 +2,7 @@ import Button from './Button'
 
 export default {
   component: Button,
-  title: 'Lido UI/Button',
+  title: 'Controls/Button',
 }
 
 export const basic = () => <Button>Button</Button>

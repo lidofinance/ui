@@ -5,7 +5,7 @@ import styled, {
   FlattenSimpleInterpolation,
   ThemedStyledProps,
 } from 'styled-components'
-import theme from '@lidofinance/theme'
+import { themeDefault } from '@lidofinance/theme'
 import { ButtonProps, Color, Size, Variant } from './types'
 
 const sizes: {
@@ -39,8 +39,8 @@ const sizes: {
 const colors: {
   [key in Color]: string
 } = {
-  primary: theme.colors.main,
-  secondary: theme.colors.secondary,
+  primary: themeDefault.colors.main,
+  secondary: themeDefault.colors.secondary,
 }
 
 const variants: {
@@ -55,9 +55,9 @@ const variants: {
       :hover {
         background-color: ${(props) =>
           props.color === 'primary'
-            ? theme.colors.mainDark
+            ? themeDefault.colors.mainHover
             : props.color === 'secondary'
-            ? theme.colors.secondaryDark
+            ? themeDefault.colors.secondaryHover
             : null};
       }
     }

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import theme from '@lidofinance/theme'
 import inject from '@lidofinance/injector'
 
 import shouldForwardProp from '@styled-system/should-forward-prop'
@@ -28,7 +27,7 @@ const StyledButton = styled('button').withConfig({
   color: inherit;
   padding: inherit;
 
-  background-color: ${theme.colors.main};
+  background-color: ${({ theme }) => theme.colors.main};
   font-size: 18px;
   font-weight: 500;
   font-family: inherit;
