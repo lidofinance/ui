@@ -52,7 +52,7 @@ export const Box = styled.div<BoxProps>`
     p.isWrong
       ? p.theme.colors.error
       : p.isFocused
-      ? p.theme.colors.main
+      ? p.theme.colors.primary
       : p.theme.colors.border};
 
   ${(p) =>

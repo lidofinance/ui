@@ -1,29 +1,29 @@
 import { Story } from '@storybook/react'
-import { LoaderProps, LoaderColors } from './types'
-import { themeDefault } from '@lidofinance/theme'
+import { LoaderProps, LoaderColor, LoaderSize } from './types'
 import Loader from './Loader'
+
+const getOptions = (enumObject: Record<string, string | number>) =>
+  Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
   component: Loader,
   title: 'Loaders/Loader',
+  args: {
+    color: 'primary',
+    size: 'medium',
+  },
+  argTypes: {
+    color: {
+      options: getOptions(LoaderColor),
+      control: 'inline-radio',
+      description: 'Loader color',
+    },
+    size: {
+      options: getOptions(LoaderSize),
+      control: 'inline-radio',
+      description: 'Loader size',
+    },
+  },
 }
 
 export const Basic: Story<LoaderProps> = (props) => <Loader {...props} />
-
-Basic.args = {
-  color: 'main',
-  size: 'medium',
-}
-
-Basic.argTypes = {
-  color: {
-    options: Object.keys(themeDefault.colors) as LoaderColors[],
-    control: 'select',
-    description: 'Loader color',
-  },
-  size: {
-    options: ['large', 'medium', 'small'],
-    description: 'Loader size',
-    control: 'radio',
-  },
-}

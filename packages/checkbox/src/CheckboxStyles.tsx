@@ -14,7 +14,7 @@ export const CheckboxIconStyle = styled(Check)`
   width: 24px;
   border-radius: 4px;
   transition: box-shadow 0.1s ease, background-color 0.1s ease;
-  fill: #fff;
+  fill: ${({ theme }) => theme.colors.primaryContrast};
 `
 
 export const CheckboxInputStyle = styled.input`
@@ -42,7 +42,7 @@ export const CheckboxInputStyle = styled.input`
   }
 
   &:checked + ${CheckboxIconStyle} {
-    background-color: ${({ theme }) => theme.colors.main};
+    background-color: ${({ theme }) => theme.colors.primary};
     box-shadow: none;
 
     path {
@@ -56,7 +56,7 @@ export const CheckboxInputStyle = styled.input`
   }
 
   &:focus-visible + ${CheckboxIconStyle} {
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.main};
+    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.primary};
   }
 
   &:focus-visible:checked + ${CheckboxIconStyle} {

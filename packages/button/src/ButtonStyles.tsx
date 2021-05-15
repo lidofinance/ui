@@ -48,15 +48,23 @@ const sizes = {
 
 const getMainColor = (props: InjectedProps) => {
   const colorsMap = {
-    primary: props.theme.colors.main,
+    primary: props.theme.colors.primary,
     secondary: props.theme.colors.secondary,
+  }
+  return colorsMap[props.$color]
+}
+
+const getContrastColor = (props: InjectedProps) => {
+  const colorsMap = {
+    primary: props.theme.colors.primaryContrast,
+    secondary: props.theme.colors.secondaryContrast,
   }
   return colorsMap[props.$color]
 }
 
 const getHoverColor = (props: InjectedProps) => {
   const colorsMap = {
-    primary: props.theme.colors.mainHover,
+    primary: props.theme.colors.primaryHover,
     secondary: props.theme.colors.secondaryHover,
   }
   return colorsMap[props.$color]
@@ -64,7 +72,7 @@ const getHoverColor = (props: InjectedProps) => {
 
 const variants = {
   filled: css`
-    color: white;
+    color: ${getContrastColor};
     background-color: ${getMainColor};
     transition: background-color ${({ theme }) => theme.duration.fast} ease;
 
@@ -86,7 +94,7 @@ const variants = {
     :not(:disabled):hover,
     :focus-visible {
       background-color: ${getHoverColor};
-      color: white;
+      color: ${getContrastColor};
     }
   `,
   text: css`

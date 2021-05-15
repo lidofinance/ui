@@ -1,29 +1,29 @@
 import { Story } from '@storybook/react'
-import { InlineLoaderProps, InlineLoaderColors } from './types'
-import { themeLight, themeDark, themeDefault } from '@lidofinance/theme'
+import { InlineLoaderProps, InlineLoaderColor } from './types'
 import styled from 'styled-components'
 import InlineLoader from './InlineLoader'
+
+const getOptions = (enumObject: Record<string, string | number>) =>
+  Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
   component: InlineLoader,
   title: 'Loaders/InlineLoader',
+  args: {
+    color: 'text',
+  },
+  argTypes: {
+    color: {
+      options: getOptions(InlineLoaderColor),
+      control: 'inline-radio',
+      description: 'Background color (component has opacity)',
+    },
+  },
 }
 
 export const Basic: Story<InlineLoaderProps> = (props) => (
   <InlineLoader {...props} />
 )
-
-Basic.args = {
-  color: 'text',
-}
-
-Basic.argTypes = {
-  color: {
-    options: Object.keys(themeDefault.colors) as InlineLoaderColors[],
-    control: 'select',
-    description: 'Background color (component has opacity)',
-  },
-}
 
 const RowStyle = styled.div`
   display: flex;

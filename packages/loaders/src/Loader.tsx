@@ -7,7 +7,7 @@ import {
 } from './LoaderStyles'
 
 function Loader(props: LoaderProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { size = 'medium', thickness = 3, color = 'main', ...rest } = props
+  const { size = 'medium', thickness = 3, color = 'primary', ...rest } = props
 
   const pxSize = LoaderSize[size]
   const center = pxSize / 2

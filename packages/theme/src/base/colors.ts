@@ -1,9 +1,7 @@
 const colors = {
-  main: '#00a3ff',
-  mainHover: '#009bf2',
-
-  secondary: '#273852',
-  secondaryHover: '#212f45',
+  primary: '#00a3ff',
+  primaryHover: '#009bf2',
+  primaryContrast: '#fff',
 
   error: '#e14d4d',
   success: '#61b75f',
