@@ -1,12 +1,9 @@
-import React from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { LinkStyle } from './LinkStyles'
+import { LinkProps } from './types'
 
-type Props = React.AnchorHTMLAttributes<HTMLAnchorElement>
-
-export default function Link({ children, ...props }: Props) {
-  return (
-    <LinkStyle target='_blank' rel='noopener' {...props}>
-      {children}
-    </LinkStyle>
-  )
+function Link(props: LinkProps, ref?: ForwardedRef<HTMLAnchorElement>) {
+  return <LinkStyle target='_blank' rel='noopener' ref={ref} {...props} />
 }
+
+export default forwardRef(Link)
