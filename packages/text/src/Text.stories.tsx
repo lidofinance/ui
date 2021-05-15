@@ -1,15 +1,31 @@
+import { Story } from '@storybook/react'
 import Text from './Text'
+import { TextProps, TextColor, TextSize } from './types'
+
+const getOptions = (enumObject: Record<string, string | number>) =>
+  Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
   component: Text,
   title: 'Typography/Text',
+  args: {
+    children: 'Example Text',
+    color: 'text',
+    size: 'md',
+  },
+  argTypes: {
+    children: {
+      control: 'text',
+    },
+    color: {
+      options: getOptions(TextColor),
+      control: 'inline-radio',
+    },
+    size: {
+      options: getOptions(TextSize),
+      control: 'inline-radio',
+    },
+  },
 }
 
-export const basic = () => <Text>Normal text</Text>
-export const small = () => <Text size='sm'>12px text</Text>
-export const medium = () => <Text size='md'>16px text</Text>
-export const large = () => <Text size='lg'>18px text</Text>
-export const extraLarge = () => <Text size='xl'>20px text</Text>
-export const variantColor = () => (
-  <Text variant='textSecondary'>Secondary color</Text>
-)
+export const Basic: Story<TextProps> = (props) => <Text {...props} />

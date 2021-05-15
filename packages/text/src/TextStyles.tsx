@@ -1,34 +1,43 @@
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
-import { themeDefault } from '@lidofinance/theme'
-import { Props, Sizes } from './Text'
+import styled, { css } from 'styled-components'
+import { Theme } from '@lidofinance/theme'
+import { TextColors, TextSizes } from './types'
 
-export const sizes: {
-  [key in Sizes]: FlattenSimpleInterpolation
-} = {
+export const sizes = {
   sm: css`
-    font-size: 12px;
-    line-height: 18px;
+    font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
+    line-height: 1.5em;
   `,
   md: css`
-    font-size: 16px;
-    line-height: 20px;
+    font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
+    line-height: 1.25em;
   `,
   lg: css`
-    font-size: 18px;
-    line-height: 24px;
+    font-size: ${({ theme }) => theme.fontSizesMap.md}px;
+    line-height: 1.33em;
   `,
   xl: css`
-    font-size: 20px;
-    line-height: 26px;
+    font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
+    line-height: 1.3em;
   `,
 }
 
-export type Variants = keyof typeof themeDefault.colors
+type InjectedProps = {
+  $color: TextColors
+  $size: TextSizes
+  theme: Theme
+}
 
-export const TextStyle = styled.p<Props>`
+const getTextColor = (props: InjectedProps) => {
+  const colorsMap = {
+    text: props.theme.colors.text,
+    secondary: props.theme.colors.textSecondary,
+  }
+  return colorsMap[props.$color]
+}
+
+export const TextStyle = styled.p<InjectedProps>`
   margin: 0;
   padding: 0;
-  color: ${(props) => props.theme.colors[props.variant || 'text']};
-
-  ${(props) => sizes[props.size || 'md']}
+  color: ${getTextColor};
+  ${(props) => sizes[props.$size]}
 `
