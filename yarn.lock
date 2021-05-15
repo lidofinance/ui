@@ -2393,6 +2393,7 @@ __metadata:
   resolution: "@lidofinance/heading@workspace:packages/heading"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.4
     "@types/styled-components": 5.1.9

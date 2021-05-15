@@ -1,31 +1,58 @@
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
-import { themeDefault } from '@lidofinance/theme'
-import { Props, Sizes } from './Heading'
+import styled, { css } from 'styled-components'
+import { Theme } from '@lidofinance/theme'
+import { HeadingColors, HeadingSizes } from './types'
 
-export const sizes: {
-  [key in Sizes]: FlattenSimpleInterpolation
-} = {
+export const sizes = {
   sm: css`
-    font-size: 32px;
-    line-height: 38px;
+    font-size: ${({ theme }) => theme.fontSizesMap.xl}px;
+    line-height: 1.2em;
   `,
   md: css`
-    font-size: 44px;
-    line-height: 52px;
+    font-size: ${({ theme }) => theme.fontSizesMap.xxl}px;
+    line-height: 1.2em;
   `,
   lg: css`
-    font-size: 56px;
-    line-height: 64px;
+    font-size: ${({ theme }) => theme.fontSizesMap.xxxl}px;
+    line-height: 1.2em;
   `,
 }
 
-export type Variants = keyof typeof themeDefault.colors
+type InjectedProps = {
+  $color: HeadingColors
+  theme: Theme
+}
 
-export const HeadingStyle = styled.p<Props>`
+const getHeadingColor = (props: InjectedProps) => {
+  const colorsMap = {
+    text: props.theme.colors.text,
+    secondary: props.theme.colors.textSecondary,
+  }
+  return colorsMap[props.$color]
+}
+
+const commonCSS = css`
   margin: 0;
   padding: 0;
-  font-weight: 500;
-  color: ${(props) => props.theme.colors[props.variant || 'text']};
+  font-weight: 600;
+  color: ${getHeadingColor};
+`
 
-  ${(props) => sizes[props.size || 'md']}
+export const HeadingStyle = styled.div<InjectedProps & { $size: HeadingSizes }>`
+  ${commonCSS}
+  ${(props) => sizes[props.$size]}
+`
+
+export const H1Style = styled.h1<InjectedProps>`
+  ${commonCSS}
+  ${sizes.lg}
+`
+
+export const H2Style = styled.h2<InjectedProps>`
+  ${commonCSS}
+  ${sizes.md}
+`
+
+export const H3Style = styled.h3<InjectedProps>`
+  ${commonCSS}
+  ${sizes.sm}
 `
