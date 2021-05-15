@@ -2332,7 +2332,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-collapsed: ^3.0.2
@@ -2355,7 +2355,7 @@ __metadata:
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     jest-styled-components: 7.0.4
     react: 17.0.2
@@ -2376,7 +2376,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2394,7 +2394,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2418,7 +2418,7 @@ __metadata:
     "@svgr/plugin-svgo": ^5.5.0
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/rimraf": ^3
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2438,7 +2438,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2458,7 +2458,7 @@ __metadata:
     "@lidofinance/button": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2486,7 +2486,7 @@ __metadata:
     "@lidofinance/select": "workspace:*"
     "@lidofinance/text": "workspace:*"
     "@types/react": ^17
-    "@types/react-dom": ^17
+    "@types/react-dom": 17.0.5
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
@@ -2499,7 +2499,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2518,7 +2518,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2536,7 +2536,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2558,7 +2558,7 @@ __metadata:
     "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/react": 11.2.6
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     "@types/styled-system": 5.1.11
     "@types/styled-system__should-forward-prop": ^5.1.2
@@ -2582,7 +2582,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -2599,7 +2599,7 @@ __metadata:
   resolution: "@lidofinance/theme@workspace:packages/theme"
   dependencies:
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -4322,12 +4322,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:17.0.4, @types/react-dom@npm:^17":
-  version: 17.0.4
-  resolution: "@types/react-dom@npm:17.0.4"
+"@types/react-dom@npm:17.0.5":
+  version: 17.0.5
+  resolution: "@types/react-dom@npm:17.0.5"
   dependencies:
     "@types/react": "*"
-  checksum: 871ffb0dbd2ee4b73023ae3f32bf9df69549ccfb0d47451769c476a495437c55f198128ecbee8417c41a8fa8762f2153e53f9d4eac1853de5b9ef7b02b9c07f9
+  checksum: ff301198c621864e1ee6c566285dc5cdc9eb5d881ca7fe7fcb8ebf29afe0357ffb7f77e401ab81ff444c64ff1375f653eeb28f04cd088a361915dee31cb3f4a8
   languageName: node
   linkType: hard
 
@@ -11287,7 +11287,7 @@ fsevents@^1.2.7:
     "@storybook/theming": 6.2.9
     "@types/jest": 26.0.23
     "@types/react": 17.0.5
-    "@types/react-dom": 17.0.4
+    "@types/react-dom": 17.0.5
     babel-core: 6.26.3
     babel-jest: 26.6.3
     babel-loader: 8.2.2
