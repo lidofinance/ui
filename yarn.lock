@@ -2388,7 +2388,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/divider@workspace:packages/divider":
+"@lidofinance/divider@workspace:*, @lidofinance/divider@workspace:packages/divider":
   version: 0.0.0-use.local
   resolution: "@lidofinance/divider@workspace:packages/divider"
   dependencies:
@@ -2498,6 +2498,7 @@ __metadata:
     "@lidofinance/accordion": "workspace:*"
     "@lidofinance/button": "workspace:*"
     "@lidofinance/checkbox": "workspace:*"
+    "@lidofinance/divider": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/identicon": "workspace:*"
     "@lidofinance/input": "workspace:*"
