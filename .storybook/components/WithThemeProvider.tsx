@@ -9,9 +9,5 @@ export const WithThemeProvider = (Story) => {
   const isDarkMode = useDarkMode()
   const theme = isDarkMode ? themeDark : themeLight
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Story />
-    </ThemeProvider>
-  )
+  return <ThemeProvider theme={theme}>{Story()}</ThemeProvider>
 }

@@ -8,14 +8,14 @@ export const AccordionStyle = styled.div`
 `
 
 export const AccordionSummaryStyle = styled.div`
-  padding: ${({ theme }) => theme.spaceMap.xl}px;
+  padding: 30px ${({ theme }) => theme.spaceMap.xxl}px;
   cursor: pointer;
   display: flex;
   align-items: center;
   outline: none;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding: ${({ theme }) => theme.spaceMap.lg}px;
+    padding: 30px ${({ theme }) => theme.spaceMap.lg}px;
   }
 `
 
@@ -38,7 +38,7 @@ export const AccordionArrowStyle = styled(ArrowBottom)<{ $expanded: boolean }>`
 
 export const AccordionContentStyle = styled.div`
   color: ${({ theme }) => theme.colors.textSecondary};
-  padding: ${({ theme }) => theme.spaceMap.xl}px;
+  padding: ${({ theme }) => theme.spaceMap.xxl}px;
   padding-top: 0;
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
   line-height: 1.5em;

@@ -12,6 +12,8 @@ export const themeLight = {
     background: '#f4f6f8',
     foreground: '#fff',
 
+    overlay: 'rgba(0, 0, 0, 0.5)',
+
     text: '#273852',
     textSecondary: '#7a8aa0',
 
@@ -34,6 +36,8 @@ export const themeDark = {
 
     background: '#1c1c21',
     foreground: '#34343d',
+
+    overlay: 'rgba(0, 0, 0, 0.5)',
 
     text: '#fff',
     textSecondary: 'rgba(255, 255, 255, .8)',

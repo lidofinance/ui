@@ -7,7 +7,7 @@
   "dependencies": {
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/theme": "workspace:*",
-    "react-collapsed": "^3.0.2"
+    "react-collapsed": "3.0.2"
   },
   "peerDependencies": {
     "react": "17.0.2",
