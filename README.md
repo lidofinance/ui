@@ -8,6 +8,7 @@ Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 
 - `yarn dev` - Start Storybook locally to start developing components.
 - `yarn build` - Build all components.
+- `yarn build:package package_name` - Build `package_name` component.
 - `yarn test` - Run tests across components.
 
 ## Updating Packages
