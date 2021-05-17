@@ -533,7 +533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-class-properties@npm:^7.12.1, @babel/plugin-proposal-class-properties@npm:^7.13.0":
+"@babel/plugin-proposal-class-properties@npm:7.13.0, @babel/plugin-proposal-class-properties@npm:^7.12.1, @babel/plugin-proposal-class-properties@npm:^7.13.0":
   version: 7.13.0
   resolution: "@babel/plugin-proposal-class-properties@npm:7.13.0"
   dependencies:
@@ -819,7 +819,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-private-methods@npm:^7.12.1, @babel/plugin-proposal-private-methods@npm:^7.13.0":
+"@babel/plugin-proposal-private-methods@npm:7.13.0, @babel/plugin-proposal-private-methods@npm:^7.12.1, @babel/plugin-proposal-private-methods@npm:^7.13.0":
   version: 7.13.0
   resolution: "@babel/plugin-proposal-private-methods@npm:7.13.0"
   dependencies:
@@ -831,7 +831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-private-property-in-object@npm:^7.14.0":
+"@babel/plugin-proposal-private-property-in-object@npm:7.14.0, @babel/plugin-proposal-private-property-in-object@npm:^7.14.0":
   version: 7.14.0
   resolution: "@babel/plugin-proposal-private-property-in-object@npm:7.14.0"
   dependencies:
@@ -2432,19 +2432,19 @@ __metadata:
   resolution: "@lidofinance/icons@workspace:packages/icons"
   dependencies:
     "@lidofinance/theme": "workspace:*"
-    "@storybook/react": ^6.2.9
-    "@svgr/core": ^5.5.0
-    "@svgr/plugin-jsx": ^5.5.0
-    "@svgr/plugin-prettier": ^5.5.0
-    "@svgr/plugin-svgo": ^5.5.0
+    "@storybook/react": 6.2.9
+    "@svgr/core": 5.5.0
+    "@svgr/plugin-jsx": 5.5.0
+    "@svgr/plugin-prettier": 5.5.0
+    "@svgr/plugin-svgo": 5.5.0
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
-    "@types/rimraf": ^3
+    "@types/rimraf": 3.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
-    rimraf: ^3.0.2
+    rimraf: 3.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
@@ -2507,7 +2507,7 @@ __metadata:
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/select": "workspace:*"
     "@lidofinance/text": "workspace:*"
-    "@types/react": ^17
+    "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
   peerDependencies:
     react: 17.0.2
@@ -2578,13 +2578,13 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
-    "@styled-system/should-forward-prop": ^5.1.5
+    "@styled-system/should-forward-prop": 5.1.5
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
     "@types/styled-system": 5.1.11
-    "@types/styled-system__should-forward-prop": ^5.1.2
+    "@types/styled-system__should-forward-prop": 5.1.2
     jest-styled-components: 7.0.4
     react: 17.0.2
     react-dom: 17.0.2
@@ -3004,7 +3004,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:^6.2.9":
+"@storybook/addon-essentials@npm:6.2.9":
   version: 6.2.9
   resolution: "@storybook/addon-essentials@npm:6.2.9"
   dependencies:
@@ -3545,7 +3545,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:6.2.9, @storybook/react@npm:^6.2.9":
+"@storybook/react@npm:6.2.9":
   version: 6.2.9
   resolution: "@storybook/react@npm:6.2.9"
   dependencies:
@@ -3810,7 +3810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@styled-system/should-forward-prop@npm:^5.1.5":
+"@styled-system/should-forward-prop@npm:5.1.5":
   version: 5.1.5
   resolution: "@styled-system/should-forward-prop@npm:5.1.5"
   dependencies:
@@ -3921,7 +3921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/core@npm:^5.5.0":
+"@svgr/core@npm:5.5.0":
   version: 5.5.0
   resolution: "@svgr/core@npm:5.5.0"
   dependencies:
@@ -3941,7 +3941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-jsx@npm:^5.5.0":
+"@svgr/plugin-jsx@npm:5.5.0, @svgr/plugin-jsx@npm:^5.5.0":
   version: 5.5.0
   resolution: "@svgr/plugin-jsx@npm:5.5.0"
   dependencies:
@@ -3953,7 +3953,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-prettier@npm:^5.5.0":
+"@svgr/plugin-prettier@npm:5.5.0":
   version: 5.5.0
   resolution: "@svgr/plugin-prettier@npm:5.5.0"
   dependencies:
@@ -3963,7 +3963,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-svgo@npm:^5.5.0":
+"@svgr/plugin-svgo@npm:5.5.0":
   version: 5.5.0
   resolution: "@svgr/plugin-svgo@npm:5.5.0"
   dependencies:
@@ -3987,6 +3987,19 @@ __metadata:
     lz-string: ^1.4.4
     pretty-format: ^26.6.2
   checksum: f38429dd481feaf3861b0801457942cdad20a3ec40d0a0dd2761414f42e37d4a39a2c43d373dfb8b2ece659ffc2db0b38949a627b1a1f749f0787a3e85e87e0c
+  languageName: node
+  linkType: hard
+
+"@testing-library/react@npm:11.2.6":
+  version: 11.2.6
+  resolution: "@testing-library/react@npm:11.2.6"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    "@testing-library/dom": ^7.28.1
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: be64e1c365a34e8fdab0f4178b4df7925423e846f86724cc945528cd90bb3d8faa46427a8e72b2015fa64f481d5b762602d2fa0842310df7fa365fc677dcc1ee
   languageName: node
   linkType: hard
 
@@ -4364,7 +4377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:17.0.5, @types/react@npm:^17":
+"@types/react@npm:*, @types/react@npm:17.0.5":
   version: 17.0.5
   resolution: "@types/react@npm:17.0.5"
   dependencies:
@@ -4375,7 +4388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/rimraf@npm:^3":
+"@types/rimraf@npm:3.0.0":
   version: 3.0.0
   resolution: "@types/rimraf@npm:3.0.0"
   dependencies:
@@ -4426,7 +4439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-system__should-forward-prop@npm:^5.1.2":
+"@types/styled-system__should-forward-prop@npm:5.1.2":
   version: 5.1.2
   resolution: "@types/styled-system__should-forward-prop@npm:5.1.2"
   checksum: ba99b5653136058baa9f4a510a6175da5ada14a4f104340979f93bd82c428ef3f733c51101e4f15a934d473d9041887d213516b99209b641ff4e715d2c5b4b60
@@ -11297,14 +11310,14 @@ fsevents@^1.2.7:
   dependencies:
     "@babel/cli": 7.13.16
     "@babel/core": 7.14.2
-    "@babel/plugin-proposal-class-properties": ^7.13.0
-    "@babel/plugin-proposal-private-methods": ^7.13.0
-    "@babel/plugin-proposal-private-property-in-object": ^7.14.0
+    "@babel/plugin-proposal-class-properties": 7.13.0
+    "@babel/plugin-proposal-private-methods": 7.13.0
+    "@babel/plugin-proposal-private-property-in-object": 7.14.0
     "@babel/preset-env": 7.14.2
     "@babel/preset-react": 7.13.13
     "@babel/preset-typescript": 7.13.0
     "@storybook/addon-docs": 6.2.9
-    "@storybook/addon-essentials": ^6.2.9
+    "@storybook/addon-essentials": 6.2.9
     "@storybook/addons": 6.2.9
     "@storybook/react": 6.2.9
     "@storybook/storybook-deployer": 2.8.8
