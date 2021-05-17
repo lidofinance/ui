@@ -2394,7 +2394,7 @@ __metadata:
   dependencies:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
-    "@testing-library/react": 11.2.6
+    "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
     "@types/styled-components": 5.1.9
@@ -3987,19 +3987,6 @@ __metadata:
     lz-string: ^1.4.4
     pretty-format: ^26.6.2
   checksum: f38429dd481feaf3861b0801457942cdad20a3ec40d0a0dd2761414f42e37d4a39a2c43d373dfb8b2ece659ffc2db0b38949a627b1a1f749f0787a3e85e87e0c
-  languageName: node
-  linkType: hard
-
-"@testing-library/react@npm:11.2.6":
-  version: 11.2.6
-  resolution: "@testing-library/react@npm:11.2.6"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^7.28.1
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: be64e1c365a34e8fdab0f4178b4df7925423e846f86724cc945528cd90bb3d8faa46427a8e72b2015fa64f481d5b762602d2fa0842310df7fa365fc677dcc1ee
   languageName: node
   linkType: hard
 
