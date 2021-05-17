@@ -13,6 +13,7 @@
     "@lidofinance/input": "workspace:*",
     "@lidofinance/link": "workspace:*",
     "@lidofinance/loaders": "workspace:*",
+    "@lidofinance/modal": "workspace:*",
     "@lidofinance/select": "workspace:*",
     "@lidofinance/text": "workspace:*"
   },
