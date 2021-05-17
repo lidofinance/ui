@@ -21,12 +21,13 @@ export default {
 }
 
 export const Basic: Story<ModalProps> = (props) => {
+  const { onClose } = props
   const [state, setState] = useState(false)
   const handleOpen = useCallback(() => setState(true), [])
   const handleClose = useCallback(() => {
     setState(false)
-    props.onClose?.()
-  }, [])
+    onClose?.()
+  }, [onClose])
 
   return (
     <>

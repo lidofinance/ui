@@ -9,7 +9,7 @@ function Heading(props: HeadingProps, ref?: ForwardedRef<HTMLDivElement>) {
 
 export default forwardRef(Heading)
 
-export const H1 = forwardRef(function (
+export const H1 = forwardRef(function H1(
   props: HProps<'h1'>,
   ref?: ForwardedRef<HTMLHeadingElement>
 ) {
@@ -17,7 +17,7 @@ export const H1 = forwardRef(function (
   return <H1Style $color={color} ref={ref} {...rest} />
 })
 
-export const H2 = forwardRef(function (
+export const H2 = forwardRef(function H2(
   props: HProps<'h2'>,
   ref?: ForwardedRef<HTMLHeadingElement>
 ) {
@@ -25,7 +25,7 @@ export const H2 = forwardRef(function (
   return <H2Style $color={color} ref={ref} {...rest} />
 })
 
-export const H3 = forwardRef(function (
+export const H3 = forwardRef(function H3(
   props: HProps<'h3'>,
   ref?: ForwardedRef<HTMLHeadingElement>
 ) {

@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react'
 import { Select } from './'
 
 export default {
@@ -11,9 +12,11 @@ const options = [
   { label: 'Three', value: 'three' },
 ]
 
-export const basic = () => <Select placeholder='Select' options={options} />
+export const Basic: Story = () => (
+  <Select placeholder='Select' options={options} />
+)
 
-export const smallStrong = () => (
+export const SmallStrong: Story = () => (
   <Select
     size='small'
     appearance='strong'

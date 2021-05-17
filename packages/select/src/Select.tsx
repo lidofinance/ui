@@ -192,10 +192,11 @@ function SelectRaw(props: Props, ref: React.Ref<HTMLInputElement>) {
               key={`${i}-${option.value}`}
               size={size}
               appearance={appearance}
-              children={option.label}
               isActive={i === activeIdx}
               onMouseDown={() => handleClickOption(i)}
-            />
+            >
+              {option.label}
+            </SelectMenuItem>
           ))}
         </SelectMenu>
       )}

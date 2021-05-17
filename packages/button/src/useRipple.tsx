@@ -2,7 +2,12 @@ import React, { useCallback, useState } from 'react'
 import { ButtonProps } from './types'
 import { ButtonRippleStyle } from './ButtonStyles'
 
-export const useRipple = ({ onClick }: ButtonProps) => {
+type UseRipple = (props: ButtonProps) => {
+  ripple: React.ReactNode
+  handleClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+}
+
+export const useRipple: UseRipple = ({ onClick }) => {
   const [ripple, setRipple] = useState<React.ReactNode | null>(null)
 
   const handleClick = useCallback(
@@ -31,7 +36,7 @@ export const useRipple = ({ onClick }: ButtonProps) => {
       setRipple(<ButtonRippleStyle style={style} key={event.timeStamp} />)
       onClick?.(event)
     },
-    []
+    [onClick]
   )
 
   return {

@@ -7,9 +7,12 @@ import 'jest-styled-components'
 
 const StyledComponent = withStyledSystem(styled.div``)
 const RegularComponent = withStyledSystem(
-  forwardRef((props: {}, ref?: ForwardedRef<HTMLDivElement>) => (
-    <div {...props} ref={ref} />
-  ))
+  forwardRef(function Regular(
+    props: React.HTMLAttributes<HTMLDivElement>,
+    ref?: ForwardedRef<HTMLDivElement>
+  ) {
+    return <div {...props} ref={ref} />
+  })
 )
 
 const testComponent = (

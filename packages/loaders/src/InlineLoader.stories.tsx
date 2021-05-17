@@ -37,7 +37,7 @@ const RowStyle = styled.div`
   }
 `
 
-export const WithText = () => (
+export const WithText: Story = () => (
   <>
     <RowStyle>
       <div>First row</div>
