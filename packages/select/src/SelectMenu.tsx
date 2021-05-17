@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const menuAppearing = keyframes`
   from {
@@ -57,7 +57,7 @@ type Props = {
   optionsRef?: React.Ref<HTMLDivElement>
 }
 
-export function SelectMenu({ children, optionsRef }: Props) {
+export function SelectMenu({ children, optionsRef }: Props): JSX.Element {
   return (
     <SelectMenuWrap>
       <SelectMenuScroll ref={optionsRef}>{children}</SelectMenuScroll>

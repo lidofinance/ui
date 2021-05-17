@@ -1,4 +1,7 @@
-import styled, { AnyStyledComponent } from 'styled-components'
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import styled, { AnyStyledComponent, StyledComponent } from 'styled-components'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   compose,
@@ -20,7 +23,16 @@ function withStyledSystem<
   C extends
     | AnyStyledComponent
     | (keyof JSX.IntrinsicElements | React.ComponentType<any>)
->(Component: C) {
+>(
+  Component: C
+): StyledComponent<
+  C,
+  any,
+  {
+    [x: string]: {}
+  } & StyledSystemProps,
+  never
+> {
   return styled(Component).withConfig({ shouldForwardProp })<StyledSystemProps>(
     compose(
       space,

@@ -75,7 +75,7 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
 
   useEffect(() => {
     if (focusOnMount && localRef.current) localRef.current.focus()
-  }, [])
+  }, [focusOnMount])
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,8 +114,9 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
             isWrong={isWrong}
             isFocused={isFocused}
             isFloated={isPlaceholderFloated}
-            children={placeholder}
-          />
+          >
+            {placeholder}
+          </Placeholder>
         )}
         <InputStyled
           {...inputProps}
@@ -128,10 +129,10 @@ function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
-        {action && <ActionWrap children={action} />}
+        {action && <ActionWrap>{action}</ActionWrap>}
       </RowWrap>
-      {errorMessage && <ErrorMessage children={errorMessage} />}
-      {successMessage && <SuccessMessage children={successMessage} />}
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+      {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
     </RootWrap>
   )
 }

@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react'
 import Input from './Input'
 import { Button } from '@lidofinance/button'
 import { IconEth } from './storybook'
@@ -8,21 +9,25 @@ export default {
   title: 'Controls/Input',
 }
 
-export const basic = () => <Input placeholder='Basic' />
+export const Basic: Story = () => <Input placeholder='Basic' />
 
-export const withIcon = () => <Input placeholder='Basic' icon={<IconEth />} />
+export const WithIcon: Story = () => (
+  <Input placeholder='Basic' icon={<IconEth />} />
+)
 
-export const floatingPlaceholder = () => (
+export const FloatingPlaceholder: Story = () => (
   <Input placeholder='Email address' isPlaceholderFloats />
 )
 
-export const selectOnFocus = () => <Input defaultValue='10500' selectOnFocus />
+export const SelectOnFocus: Story = () => (
+  <Input defaultValue='10500' selectOnFocus />
+)
 
-export const withValue = () => (
+export const WithValue: Story = () => (
   <Input placeholder='Email address' defaultValue='alexpro@gmail.com' />
 )
 
-export const withError = () => (
+export const WithError: Story = () => (
   <Input
     placeholder='Email address'
     errorMessage='Error message'
@@ -30,11 +35,11 @@ export const withError = () => (
   />
 )
 
-export const withAction = () => (
+export const WithAction: Story = () => (
   <Input
     placeholder='Email address'
     defaultValue='alexpro@gmail.com'
-    action={<Button size='sm' children='Subscribe' />}
+    action={<Button size='sm'>Subscribe</Button>}
   />
 )
 
@@ -47,11 +52,11 @@ const SuccessAction = styled.div`
   line-height: 44px;
 `
 
-export const withSuccessAction = () => (
+export const WithSuccessAction: Story = () => (
   <Input
     placeholder='Email address'
     defaultValue='alexpro@gmail.com'
-    action={<SuccessAction children='Subscribed' />}
+    action={<SuccessAction>Subscribed</SuccessAction>}
     successMessage='Thank you for subscribing! We will notify you once we kick off our platform.'
   />
 )

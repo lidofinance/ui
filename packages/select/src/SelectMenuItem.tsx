@@ -73,7 +73,7 @@ export function SelectMenuItem({
   icon,
   children,
   onMouseDown,
-}: Props) {
+}: Props): JSX.Element {
   return (
     <Wrap
       size={size}

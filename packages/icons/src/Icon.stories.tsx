@@ -54,22 +54,20 @@ const IconListTitle = styled.div`
   opacity: 0.3;
 `
 
-export const List = () => {
-  return (
-    <IconList>
-      {iconKeys.map((componentName) => {
-        const Icon = components[componentName]
+export const List: Story = () => (
+  <IconList>
+    {iconKeys.map((componentName) => {
+      const Icon = components[componentName]
 
-        return (
-          <IconListItem key={componentName}>
-            <Icon />
-            <IconListTitle>{componentName}</IconListTitle>
-          </IconListItem>
-        )
-      })}
-    </IconList>
-  )
-}
+      return (
+        <IconListItem key={componentName}>
+          <Icon />
+          <IconListTitle>{componentName}</IconListTitle>
+        </IconListItem>
+      )
+    })}
+  </IconList>
+)
 
 const SocialList = styled.div`
   display: flex;
@@ -87,7 +85,7 @@ const SocialListItem = styled.div`
   }
 `
 
-export const Social = () => {
+export const Social: Story = () => {
   const { Facebook, Twitter, Linkedin, Email } = components
 
   return (

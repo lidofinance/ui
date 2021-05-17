@@ -13,8 +13,8 @@ export const Basic: Story<AccordionProps> = (props) => (
     assets or maintaining staking infrastructure. Users of these protocols can
     deposit staking tokens and receive tradable liquid tokens in return. The DAO
     controlled smart contract then stakes tokens with DAO-picked staking
-    providers. Users' deposited funds are controlled by the DAO, staking
-    providers never have direct access to the users' assets.
+    providers. Users&#39; deposited funds are controlled by the DAO, staking
+    providers never have direct access to the users&#39; assets.
   </Accordion>
 )
 
@@ -32,7 +32,7 @@ Basic.argTypes = {
   },
 }
 
-export const List = () => (
+export const List: Story = () => (
   <>
     <Accordion summary='What is Liquid Staking?'>
       <p>
@@ -40,8 +40,8 @@ export const List = () => (
         locking assets or maintaining staking infrastructure. Users of these
         protocols can deposit staking tokens and receive tradable liquid tokens
         in return. The DAO controlled smart contract then stakes tokens with
-        DAO-picked staking providers. Users' deposited funds are controlled by
-        the DAO, staking providers never have direct access to the users'
+        DAO-picked staking providers. Users&#39; deposited funds are controlled
+        by the DAO, staking providers never have direct access to the users&#39;
         assets.
       </p>
     </Accordion>

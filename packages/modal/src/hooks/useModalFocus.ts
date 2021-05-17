@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { FOCUSABLE_ELEMENTS } from '../constants'
 
-export const useModalFocus = () => {
+export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
   const initialActive = useRef<Element | null>(document.activeElement)
   const modalRef = useRef<HTMLDivElement>(null)
 
@@ -13,7 +13,7 @@ export const useModalFocus = () => {
 
   useEffect(() => {
     return focusInitialActive
-  }, [])
+  }, [focusInitialActive])
 
   useEffect(() => {
     const isFocusInside = !!modalRef.current?.contains(document.activeElement)
@@ -34,7 +34,7 @@ export const useModalFocus = () => {
 
   const handleRetainFocus = useCallback(
     (event: KeyboardEvent) => {
-      let focusableNodes = getFocusableNodes()
+      const focusableNodes = getFocusableNodes()
 
       if (focusableNodes.length === 0) return
 
