@@ -5,7 +5,7 @@ import { themeLight, themeDark, Theme } from '../packages/theme/dist/esm'
 const constructor = (base: ThemeVars['base'], theme: Theme): ThemeVars => ({
   base,
 
-  colorPrimary: theme.colors.main,
+  colorPrimary: theme.colors.primary,
 
   // UI
   appBg: theme.colors.background,

@@ -40,12 +40,12 @@ const testComponent = (
     const theme = themeDefault
     const { container } = render(
       <ThemeProvider theme={theme}>
-        <Component color='main' fontSize={1} margin={2} />
+        <Component color='primary' fontSize={1} margin={2} />
       </ThemeProvider>
     )
     const element = container.firstElementChild
 
-    expect(element).toHaveStyleRule('color', theme.colors.main)
+    expect(element).toHaveStyleRule('color', theme.colors.primary)
     expect(element).toHaveStyleRule('font-size', `${theme.fontSizes[1]}px`)
     expect(element).toHaveStyleRule('margin', `${theme.space[2]}px`)
   })

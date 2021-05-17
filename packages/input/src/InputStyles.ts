@@ -23,7 +23,7 @@ export const RowWrap = styled.div<RowWrapProps>`
     p.isWrong
       ? p.theme.colors.error
       : p.isFocused
-      ? p.theme.colors.main
+      ? p.theme.colors.primary
       : p.theme.colors.border};
 
   ${(p) =>
@@ -75,7 +75,7 @@ export const Placeholder = styled.div<PlaceholderProps>`
   ${(p) =>
     p.isFocused &&
     css`
-      color: ${({ theme }) => theme.colors.main};
+      color: ${({ theme }) => theme.colors.primary};
       transition-duration: ${({ theme }) => theme.duration.fast};
     `}
 

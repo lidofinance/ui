@@ -29,7 +29,7 @@ export const Space: Story<Props> = (props) => (
 )
 
 export const Color: Story<Props> = (props) => (
-  <Example {...props} color='main' />
+  <Example {...props} color='primary' />
 )
 
 export const Typography: Story<Props> = (props) => (

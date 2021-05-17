@@ -1,25 +1,10 @@
-import { ReactChild, ReactChildren } from 'react'
-import { TextStyle, Variants } from './TextStyles'
+import { ForwardedRef, forwardRef } from 'react'
+import { TextStyle } from './TextStyles'
+import { TextProps } from './types'
 
-enum Size {
-  sm,
-  md,
-  lg,
-  xl,
+function Text(props: TextProps, ref?: ForwardedRef<HTMLParagraphElement>) {
+  const { size = 'md', color = 'text', ...rest } = props
+  return <TextStyle $size={size} $color={color} ref={ref} {...rest} />
 }
 
-export type Sizes = keyof typeof Size
-
-export type Props = {
-  children?: ReactChild | ReactChildren
-  size?: Sizes
-  variant?: Variants
-}
-
-export default function Text({ children, ...rest }: Props) {
-  return <TextStyle {...rest}>{children}</TextStyle>
-}
-
-Text.defaultProps = {
-  size: 'md',
-}
+export default forwardRef(Text)

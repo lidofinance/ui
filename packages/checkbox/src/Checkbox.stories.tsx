@@ -5,12 +5,29 @@ import Checkbox from './Checkbox'
 export default {
   component: Checkbox,
   title: 'Controls/Checkbox',
+  args: {
+    disabled: false,
+  },
+  argTypes: {
+    onChange: {
+      action: 'change',
+      table: { disable: true },
+    },
+  },
 }
 
-export const Basic: Story<CheckboxProps> = (props) => <Checkbox {...props} />
-
-export const Disabled: Story<CheckboxProps> = (props) => (
-  <>
-    <Checkbox disabled {...props} /> <Checkbox disabled checked {...props} />
-  </>
+export const Uncontrolled: Story<CheckboxProps> = (props) => (
+  <Checkbox {...props} />
 )
+
+Uncontrolled.args = {
+  defaultChecked: false,
+}
+
+export const Controlled: Story<CheckboxProps> = (props) => {
+  return <Checkbox {...props} />
+}
+
+Controlled.args = {
+  checked: true,
+}

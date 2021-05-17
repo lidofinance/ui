@@ -5,6 +5,10 @@ export const themeLight = {
   colors: {
     ...themeBase.colors,
 
+    secondary: '#273852',
+    secondaryHover: '#212f45',
+    secondaryContrast: '#fff',
+
     background: '#f4f6f8',
     foreground: '#fff',
 
@@ -23,6 +27,10 @@ export const themeDark = {
   ...themeBase,
   colors: {
     ...themeBase.colors,
+
+    secondary: 'rgba(255, 255, 255, .8)',
+    secondaryHover: '#fff',
+    secondaryContrast: '#273852',
 
     background: '#1c1c21',
     foreground: '#34343d',
