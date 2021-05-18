@@ -5,6 +5,6 @@ const colors = {
 
   error: '#e14d4d',
   success: '#61b75f',
-}
+} as const
 
 export default { colors }

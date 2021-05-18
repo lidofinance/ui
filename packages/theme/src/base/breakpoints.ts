@@ -1,19 +1,22 @@
 const sm = {
   width: '360px',
   height: '640px',
-}
+} as const
+
 const md = {
   width: '480px',
   height: '800px',
-}
+} as const
+
 const lg = {
   width: '768px',
   height: '1024px',
-}
+} as const
+
 const xl = {
   width: '1024px',
   height: '1366px',
-}
+} as const
 
 const mediaQueries = {
   sm: `@media screen and (max-width: ${sm.width})`,

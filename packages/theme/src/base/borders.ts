@@ -1,4 +1,4 @@
-const borderRadiuses = [4, 6, 8, 10, 12]
+const borderRadiuses = [4, 6, 8, 10, 12] as const
 
 const borderRadiusesMap = {
   xs: 4,
@@ -6,7 +6,7 @@ const borderRadiusesMap = {
   md: 8,
   lg: 10,
   xl: 20,
-}
+} as const
 
 export default {
   borderRadiuses,
