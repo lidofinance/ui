@@ -1,3 +1,4 @@
+import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
 export enum DividerType {
@@ -15,7 +16,11 @@ export enum DividerIndent {
 }
 export type DividerIndents = keyof typeof DividerIndent
 
-export type DividerProps = {
-  type?: DividerTypes
-  indents?: DividerIndents
-} & Omit<JSX.IntrinsicElements['div'], 'ref'>
+export type DividerProps = LidoComponentProps<
+  'div',
+  {
+    type?: DividerTypes
+    indents?: DividerIndents
+    children?: never
+  }
+>

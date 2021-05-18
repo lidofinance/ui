@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { IdenticonProps, IdenticonBadgeProps } from './types'
 import Identicon from './Identicon'
 import IdenticonBadge from './IdenticonBadge'
@@ -16,7 +16,7 @@ export default {
       control: { type: 'range', min: 4, max: 64, step: 4 },
     },
   },
-}
+} as Meta
 
 export const Basic: Story<IdenticonProps> = (props) => <Identicon {...props} />
 

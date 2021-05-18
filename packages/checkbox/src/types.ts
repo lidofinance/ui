@@ -1,5 +1,10 @@
+import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
-export type CheckboxProps = {
-  wrapperRef?: React.RefObject<HTMLLabelElement>
-} & Omit<JSX.IntrinsicElements['input'], 'ref'>
+export type CheckboxProps = LidoComponentProps<
+  'input',
+  {
+    wrapperRef?: React.RefObject<HTMLLabelElement>
+    children?: never
+  }
+>

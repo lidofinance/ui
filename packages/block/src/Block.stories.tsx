@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { BlockProps, BlockColor, BlockVariant } from './types'
 import Block from './Block'
 
@@ -23,6 +23,6 @@ export default {
       control: 'inline-radio',
     },
   },
-}
+} as Meta
 
 export const Basic: Story<BlockProps> = (props) => <Block {...props} />

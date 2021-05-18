@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import Text from './Text'
 import { TextProps, TextColor, TextSize } from './types'
 
@@ -26,6 +26,6 @@ export default {
       control: 'inline-radio',
     },
   },
-}
+} as Meta
 
 export const Basic: Story<TextProps> = (props) => <Text {...props} />

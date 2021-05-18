@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import Link from './Link'
 import { LinkProps } from './types'
 
@@ -9,6 +9,6 @@ export default {
     children: 'Lido',
     href: 'https://lido.fi',
   },
-}
+} as Meta
 
 export const Basic: Story<LinkProps> = (props) => <Link {...props} />

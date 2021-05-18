@@ -1,3 +1,4 @@
+import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
 export enum ContainerSize {
@@ -6,6 +7,9 @@ export enum ContainerSize {
 }
 export type ContainerSizes = keyof typeof ContainerSize
 
-export type ContainerProps = {
-  size?: ContainerSizes
-} & Omit<JSX.IntrinsicElements['div'], 'ref'>
+export type ContainerProps = LidoComponentProps<
+  'div',
+  {
+    size?: ContainerSizes
+  }
+>

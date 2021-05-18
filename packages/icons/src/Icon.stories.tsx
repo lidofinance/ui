@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { Theme } from '@lidofinance/theme'
 import styled, { useTheme } from 'styled-components'
 import * as components from './index'
@@ -8,7 +8,7 @@ const iconKeys = Object.keys(components) as IconVariants[]
 
 export default {
   title: 'Images/Icons',
-}
+} as Meta
 
 export const Base: Story<{ color: string; type: IconVariants }> = (props) => {
   const theme: Theme = useTheme()

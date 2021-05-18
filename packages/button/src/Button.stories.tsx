@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { Whitepaper } from '@lidofinance/icons'
 import {
   ButtonProps,
@@ -39,7 +39,7 @@ export default {
       control: 'inline-radio',
     },
   },
-}
+} as Meta
 
 export const Basic: Story<ButtonProps> = (props) => <Button {...props} />
 

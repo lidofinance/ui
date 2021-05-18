@@ -1974,6 +1974,7 @@ __metadata:
   dependencies:
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -1997,6 +1998,7 @@ __metadata:
   resolution: "@lidofinance/block@workspace:packages/block"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2021,6 +2023,7 @@ __metadata:
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
@@ -2046,6 +2049,7 @@ __metadata:
   dependencies:
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2068,6 +2072,7 @@ __metadata:
   resolution: "@lidofinance/container@workspace:packages/container"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
@@ -2091,6 +2096,7 @@ __metadata:
   resolution: "@lidofinance/divider@workspace:packages/divider"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
@@ -2114,6 +2120,7 @@ __metadata:
   resolution: "@lidofinance/heading@workspace:packages/heading"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2164,6 +2171,7 @@ __metadata:
   resolution: "@lidofinance/identicon@workspace:packages/identicon"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2225,6 +2233,7 @@ __metadata:
     "@lidofinance/select": "workspace:*"
     "@lidofinance/stack": "workspace:*"
     "@lidofinance/text": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
@@ -2240,6 +2249,7 @@ __metadata:
   resolution: "@lidofinance/link@workspace:packages/link"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2262,6 +2272,7 @@ __metadata:
   resolution: "@lidofinance/loaders@workspace:packages/loaders"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2286,6 +2297,7 @@ __metadata:
     "@lidofinance/button": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
@@ -2334,6 +2346,7 @@ __metadata:
   dependencies:
     "@lidofinance/block": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2386,6 +2399,7 @@ __metadata:
   resolution: "@lidofinance/text@workspace:packages/text"
   dependencies:
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2406,6 +2420,26 @@ __metadata:
 "@lidofinance/theme@workspace:*, @lidofinance/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@lidofinance/theme@workspace:packages/theme"
+  dependencies:
+    "@types/react": 17.0.5
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/utils@workspace:*, @lidofinance/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/utils@workspace:packages/utils"
   dependencies:
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5

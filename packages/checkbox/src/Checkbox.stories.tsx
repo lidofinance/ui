@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { CheckboxProps } from './types'
 import Checkbox from './Checkbox'
 
@@ -14,7 +14,7 @@ export default {
       table: { disable: true },
     },
   },
-}
+} as Meta
 
 export const Uncontrolled: Story<CheckboxProps> = (props) => (
   <Checkbox {...props} />

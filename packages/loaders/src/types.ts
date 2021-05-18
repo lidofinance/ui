@@ -1,3 +1,4 @@
+import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
 export enum LoaderSize {
@@ -15,11 +16,14 @@ export enum LoaderColor {
 }
 export type LoaderColors = keyof typeof LoaderColor
 
-export type LoaderProps = {
-  size?: LoaderSizes
-  color?: LoaderColors
-  thickness?: number
-} & Omit<JSX.IntrinsicElements['div'], 'ref' | 'children' | 'size' | 'color'>
+export type LoaderProps = LidoComponentProps<
+  'div',
+  {
+    size?: LoaderSizes
+    color?: LoaderColors
+    thickness?: number
+  }
+>
 
 export enum InlineLoaderColor {
   text,
@@ -27,6 +31,9 @@ export enum InlineLoaderColor {
   foreground,
 }
 export type InlineLoaderColors = keyof typeof InlineLoaderColor
-export type InlineLoaderProps = {
-  color?: InlineLoaderColors
-} & Omit<JSX.IntrinsicElements['div'], 'ref' | 'children' | 'color'>
+export type InlineLoaderProps = LidoComponentProps<
+  'div',
+  {
+    color?: InlineLoaderColors
+  }
+>

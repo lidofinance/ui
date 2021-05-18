@@ -1,3 +1,4 @@
+import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
 export enum ButtonSize {
@@ -22,14 +23,18 @@ export enum ButtonColor {
 }
 export type ButtonColors = keyof typeof ButtonColor
 
-export type ButtonProps = {
-  size?: ButtonSizes
-  variant?: ButtonVariants
-  color?: ButtonColors
-  fullwidth?: boolean
-  square?: boolean
-  loading?: boolean
-} & Omit<JSX.IntrinsicElements['button'], 'ref' | 'color'>
+export type ButtonProps = LidoComponentProps<
+  'button',
+  {
+    size?: ButtonSizes
+    variant?: ButtonVariants
+    color?: ButtonColors
+    fullwidth?: boolean
+    square?: boolean
+    loading?: boolean
+    as?: never
+  }
+>
 
 export type ButtonIconProps = {
   icon: React.ReactNode
