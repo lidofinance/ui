@@ -1,3 +1,5 @@
+import { LidoComponentProps } from '@lidofinance/utils'
+
 export enum HeadingColor {
   text,
   secondary,
@@ -11,11 +13,18 @@ export enum HeadingSize {
 }
 export type HeadingSizes = keyof typeof HeadingSize
 
-export type HeadingProps = {
-  color?: HeadingColors
-  size?: HeadingSizes
-} & Omit<JSX.IntrinsicElements['div'], 'ref'>
+export type HeadingProps = LidoComponentProps<
+  'div',
+  {
+    color?: HeadingColors
+    size?: HeadingSizes
+  }
+>
 
-export type HProps<T extends 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'> = {
-  color?: HeadingColor
-} & Omit<JSX.IntrinsicElements[T], 'ref'>
+export type HProps<T extends 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'> =
+  LidoComponentProps<
+    T,
+    {
+      color?: HeadingColors
+    }
+  >

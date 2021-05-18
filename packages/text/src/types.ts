@@ -1,3 +1,5 @@
+import { LidoComponentProps } from '@lidofinance/utils'
+
 export enum TextColor {
   text,
   secondary,
@@ -12,7 +14,10 @@ export enum TextSize {
 }
 export type TextSizes = keyof typeof TextSize
 
-export type TextProps = {
-  color?: TextColors
-  size?: TextSizes
-} & Omit<JSX.IntrinsicElements['p'], 'ref'>
+export type TextProps = LidoComponentProps<
+  'p',
+  {
+    color?: TextColors
+    size?: TextSizes
+  }
+>

@@ -8,6 +8,7 @@
     "@lidofinance/button": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/theme": "workspace:*",
+    "@lidofinance/utils": "workspace:*",
     "use-callback-ref": "1.2.5"
   },
   "peerDependencies": {

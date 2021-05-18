@@ -1,1 +1,4 @@
-export type LinkProps = Omit<JSX.IntrinsicElements['a'], 'ref'>
+import { LidoComponentProps } from '@lidofinance/utils'
+export type { Theme } from '@lidofinance/theme'
+
+export type LinkProps = LidoComponentProps<'a'>

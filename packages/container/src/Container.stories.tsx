@@ -42,10 +42,10 @@ Base.argTypes = {
 
 export const PageLayout: Story = () => (
   <>
-    <Container size='full'>
+    <Container as='header' size='full'>
       <StyledDiv>Header</StyledDiv>
     </Container>
-    <Container size='content'>
+    <Container as='main' size='content'>
       <StyledDiv
         style={{
           margin: '20px 0',
@@ -55,7 +55,7 @@ export const PageLayout: Story = () => (
         Content
       </StyledDiv>
     </Container>
-    <Container size='full'>
+    <Container as='footer' size='full'>
       <StyledDiv>Footer</StyledDiv>
     </Container>
   </>

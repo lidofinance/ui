@@ -6,7 +6,8 @@
   "types": "dist/esm/index.d.ts",
   "dependencies": {
     "@lidofinance/loaders": "workspace:*",
-    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/theme": "workspace:*",
+    "@lidofinance/utils": "workspace:*"
   },
   "peerDependencies": {
     "react": "17.0.2",

@@ -1,3 +1,4 @@
+import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
 export enum BlockVariant {
@@ -12,7 +13,10 @@ export enum BlockColor {
 }
 export type BlockColors = keyof typeof BlockColor
 
-export type BlockProps = {
-  color?: BlockColors
-  variant?: BlockVariants
-} & Omit<JSX.IntrinsicElements['div'], 'ref'>
+export type BlockProps = LidoComponentProps<
+  'div',
+  {
+    color?: BlockColors
+    variant?: BlockVariants
+  }
+>
