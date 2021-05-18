@@ -1992,6 +1992,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/block@workspace:*, @lidofinance/block@workspace:packages/block":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/block@workspace:packages/block"
+  dependencies:
+    "@lidofinance/theme": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@types/react": 17.0.5
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/button@workspace:*, @lidofinance/button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@lidofinance/button@workspace:packages/button"
@@ -2166,6 +2188,7 @@ __metadata:
   resolution: "@lidofinance/lido-ui@workspace:packages/lido-ui"
   dependencies:
     "@lidofinance/accordion": "workspace:*"
+    "@lidofinance/block": "workspace:*"
     "@lidofinance/button": "workspace:*"
     "@lidofinance/checkbox": "workspace:*"
     "@lidofinance/divider": "workspace:*"
@@ -2176,6 +2199,7 @@ __metadata:
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/modal": "workspace:*"
     "@lidofinance/select": "workspace:*"
+    "@lidofinance/stack": "workspace:*"
     "@lidofinance/text": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
@@ -2272,6 +2296,29 @@ __metadata:
     react-is: 17.0.2
     styled-components: 5.3.0
     use-callback-ref: 1.2.5
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/stack@workspace:*, @lidofinance/stack@workspace:packages/stack":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/stack@workspace:packages/stack"
+  dependencies:
+    "@lidofinance/block": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@types/react": 17.0.5
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
