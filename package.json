@@ -16,7 +16,7 @@
     "g:types": "cd $INIT_CWD && tsc",
     "test": "jest",
     "test:coverage": "jest coverage",
-    "publish:submit": "yarn workspaces foreach -piv --topological-dev --exclude lido-ui-components npm publish --tolerate-republish",
+    "publish:submit": "yarn workspaces foreach -piv --topological-dev --exclude lido-ui-components npm publish --access public --tolerate-republish",
     "lint": "eslint --ext ts,tsx,js,jsx --ignore-path .gitignore .",
     "postinstall": "husky install"
   },
