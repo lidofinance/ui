@@ -26,7 +26,7 @@ export const themeLight = {
     controlBg: '#fff',
     inputPlaceholder: 'rgba(39, 56, 82, 0.3)',
   },
-}
+} as const
 
 export const themeDark = {
   ...themeBase,
@@ -54,6 +54,6 @@ export const themeDark = {
     controlBg: '#2f2f37',
     inputPlaceholder: 'rgba(255, 255, 255, 0.3)',
   },
-}
+} as const
 
 export const themeDefault = themeLight

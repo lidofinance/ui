@@ -4,6 +4,6 @@ const boxShadows = {
   lg: '0px 8px 24px 0px',
   xl: '0px 8px 32px 0px',
   xxl: '0px 8px 44px 0px',
-}
+} as const
 
 export default { boxShadows }

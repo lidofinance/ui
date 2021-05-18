@@ -2063,6 +2063,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/container@workspace:*, @lidofinance/container@workspace:packages/container":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/container@workspace:packages/container"
+  dependencies:
+    "@lidofinance/theme": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@testing-library/react": 11.2.7
+    "@types/react": 17.0.5
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/divider@workspace:*, @lidofinance/divider@workspace:packages/divider":
   version: 0.0.0-use.local
   resolution: "@lidofinance/divider@workspace:packages/divider"
@@ -2191,6 +2214,7 @@ __metadata:
     "@lidofinance/block": "workspace:*"
     "@lidofinance/button": "workspace:*"
     "@lidofinance/checkbox": "workspace:*"
+    "@lidofinance/container": "workspace:*"
     "@lidofinance/divider": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/identicon": "workspace:*"

@@ -8,6 +8,7 @@
     "@lidofinance/block": "workspace:*",
     "@lidofinance/button": "workspace:*",
     "@lidofinance/checkbox": "workspace:*",
+    "@lidofinance/container": "workspace:*",
     "@lidofinance/divider": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/identicon": "workspace:*",
