@@ -5,9 +5,6 @@ const colors = {
 
   error: '#e14d4d',
   success: '#61b75f',
-
-  shadowLight: 'rgba(0, 0, 0, .1)',
-  shadowDark: 'rgba(0, 0, 0, .25)',
 }
 
 export default { colors }

@@ -1,12 +1,11 @@
 {
-  "name": "@lidofinance/identicon",
+  "name": "@lidofinance/block",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "dependencies": {
-    "@lidofinance/theme": "workspace:*",
-    "react-jazzicon": "0.1.3"
+    "@lidofinance/theme": "workspace:*"
   },
   "peerDependencies": {
     "react": "17.0.2",

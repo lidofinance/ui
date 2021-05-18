@@ -43,5 +43,6 @@
     "react": {
       "version": "detect"
     }
-  }
+  },
+  "ignorePatterns": ["!.storybook"]
 }
