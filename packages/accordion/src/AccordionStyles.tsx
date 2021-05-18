@@ -8,14 +8,16 @@ export const AccordionStyle = styled.div`
 `
 
 export const AccordionSummaryStyle = styled.div`
-  padding: 30px ${({ theme }) => theme.spaceMap.xxl}px;
+  padding: ${({ theme }) => theme.spaceMap.lg}px
+    ${({ theme }) => theme.spaceMap.xxl}px;
   cursor: pointer;
   display: flex;
   align-items: center;
   outline: none;
+  min-height: 40px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding: 30px ${({ theme }) => theme.spaceMap.lg}px;
+    padding: ${({ theme }) => theme.spaceMap.lg}px;
   }
 `
 
