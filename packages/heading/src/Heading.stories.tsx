@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import Heading, { H1, H2, H3 } from './Heading'
 import { HeadingProps, HeadingColor, HeadingSize, HProps } from './types'
 
@@ -21,7 +21,7 @@ export default {
       control: 'inline-radio',
     },
   },
-}
+} as Meta
 
 export const Basic: Story<HeadingProps> = (props) => <Heading {...props} />
 

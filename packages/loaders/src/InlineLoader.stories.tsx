@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { InlineLoaderProps, InlineLoaderColor } from './types'
 import styled from 'styled-components'
 import InlineLoader from './InlineLoader'
@@ -19,7 +19,7 @@ export default {
       description: 'Background color (component has opacity)',
     },
   },
-}
+} as Meta
 
 export const Basic: Story<InlineLoaderProps> = (props) => (
   <InlineLoader {...props} />

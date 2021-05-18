@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { DividerIndent, DividerProps, DividerType, DividerTypes } from './types'
 import Divider from './Divider'
 import styled from 'styled-components'
@@ -23,7 +23,7 @@ export default {
       control: 'inline-radio',
     },
   },
-}
+} as Meta
 
 const Wrapper = styled.div<{ $type?: DividerTypes }>`
   color: ${({ theme }) => theme.colors.text};

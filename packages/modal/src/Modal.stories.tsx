@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { ModalProps } from './types'
 import { Button } from '@lidofinance/button'
 import Modal from './Modal'
@@ -18,7 +18,7 @@ export default {
       table: { disable: true },
     },
   },
-}
+} as Meta
 
 export const Basic: Story<ModalProps> = (props) => {
   const { onClose } = props

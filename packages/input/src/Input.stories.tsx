@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import Input from './Input'
 import { Button } from '@lidofinance/button'
 import { IconEth } from './storybook'
@@ -7,7 +7,7 @@ import styled from 'styled-components'
 export default {
   component: Input,
   title: 'Controls/Input',
-}
+} as Meta
 
 export const Basic: Story = () => <Input placeholder='Basic' />
 

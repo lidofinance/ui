@@ -1,10 +1,10 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { Select } from './'
 
 export default {
   component: Select,
   title: 'Controls/Select',
-}
+} as Meta
 
 const options = [
   { label: 'One', value: 'one' },

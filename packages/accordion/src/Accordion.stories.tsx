@@ -1,11 +1,11 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { AccordionProps } from './types'
 import Accordion from './Accordion'
 
 export default {
   component: Accordion,
   title: 'Layout/Accordion',
-}
+} as Meta
 
 export const Basic: Story<AccordionProps> = (props) => (
   <Accordion {...props}>
