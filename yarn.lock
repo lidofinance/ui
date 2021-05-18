@@ -1977,14 +1977,17 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-collapsed: 3.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2000,14 +2003,17 @@ __metadata:
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     jest-styled-components: 7.0.4
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2021,13 +2027,16 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2041,13 +2050,16 @@ __metadata:
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2060,13 +2072,16 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2084,15 +2099,18 @@ __metadata:
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/rimraf": 3.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     rimraf: 3.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2104,14 +2122,17 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     react-jazzicon: 0.1.3
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2125,14 +2146,17 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
     use-callback-ref: 1.2.5
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2155,9 +2179,11 @@ __metadata:
     "@lidofinance/text": "workspace:*"
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2169,13 +2195,16 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2188,13 +2217,16 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2210,14 +2242,17 @@ __metadata:
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
     use-callback-ref: 1.2.5
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2230,14 +2265,17 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
     use-callback-ref: 1.2.5
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2252,18 +2290,21 @@ __metadata:
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     "@types/styled-system": 5.1.11
     "@types/styled-system__should-forward-prop": 5.1.2
     jest-styled-components: 7.0.4
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
     styled-system: 5.1.5
   peerDependencies:
     "@styled-system/should-forward-prop": 5.1.5
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
     styled-system: 5.1.5
   languageName: unknown
@@ -2277,13 +2318,16 @@ __metadata:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -2294,13 +2338,16 @@ __metadata:
   dependencies:
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: 17.0.2
     styled-components: 5.3.0
   languageName: unknown
   linkType: soft
@@ -4022,6 +4069,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: ff301198c621864e1ee6c566285dc5cdc9eb5d881ca7fe7fcb8ebf29afe0357ffb7f77e401ab81ff444c64ff1375f653eeb28f04cd088a361915dee31cb3f4a8
+  languageName: node
+  linkType: hard
+
+"@types/react-is@npm:17.0.0":
+  version: 17.0.0
+  resolution: "@types/react-is@npm:17.0.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: 2247edb164295ae86d856fd1ed7ee7423e6089b03e683232796f0e0210c47e7189792b039e70527faaf79a6d791a39ff96eb946f58c7a9754c03fdbac3add1c6
   languageName: node
   linkType: hard
 
@@ -11354,6 +11410,7 @@ fsevents@^1.2.7:
     "@types/jest": 26.0.23
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
     "@typescript-eslint/eslint-plugin": 4.23.0
     "@typescript-eslint/parser": 4.23.0
     babel-core: 6.26.3
