@@ -1,7 +1,7 @@
-import { Children, ForwardedRef, forwardRef } from 'react'
-import { StackStyle, StackItemStyle } from './StackStyles'
+import { ForwardedRef, forwardRef } from 'react'
+import { StackProvider } from './StackProvider'
+import { StackStyle } from './StackStyles'
 import { StackProps } from './types'
-import { isElement } from 'react-is'
 
 function Stack(props: StackProps, ref?: ForwardedRef<HTMLDivElement>) {
   const {
@@ -24,13 +24,7 @@ function Stack(props: StackProps, ref?: ForwardedRef<HTMLDivElement>) {
       ref={ref}
       {...rest}
     >
-      {Children.map(children, (child) =>
-        isElement(child) ? (
-          <StackItemStyle $spacing={spacing}>{child}</StackItemStyle>
-        ) : (
-          child
-        )
-      )}
+      <StackProvider spacing={spacing}>{children}</StackProvider>
     </StackStyle>
   )
 }

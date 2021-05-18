@@ -24,11 +24,3 @@ export const StackStyle = styled.div<{
   margin: ${({ $spacing, theme }) =>
     $spacing ? -theme.spaceMap[$spacing] / 2 : 0}px;
 `
-
-export const StackItemStyle = styled.div<{
-  $spacing?: StackSpacings
-  theme: Theme
-}>`
-  margin: ${({ $spacing, theme }) =>
-    $spacing ? theme.spaceMap[$spacing] / 2 : 0}px;
-`

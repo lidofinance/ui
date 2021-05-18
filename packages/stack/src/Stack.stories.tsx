@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { Block } from '@lidofinance/block'
 import {
   StackAlign,
@@ -13,6 +13,7 @@ import {
 import Stack from './Stack'
 import HStack from './HStack'
 import VStack from './VStack'
+import StackItem from './StackItem'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -44,23 +45,29 @@ export default {
       control: 'inline-radio',
     },
   },
-}
+} as Meta
 
 export const Basic: Story<StackProps> = (props) => (
   <Stack {...props}>
-    <Block>First</Block>
-    <Block>
-      First
-      <br />
-      Second
-    </Block>
-    <Block>
-      First
-      <br />
-      Second
-      <br />
-      Third
-    </Block>
+    <StackItem>
+      <Block>First</Block>
+    </StackItem>
+    <StackItem>
+      <Block>
+        First
+        <br />
+        Second
+      </Block>
+    </StackItem>
+    <StackItem>
+      <Block>
+        First
+        <br />
+        Second
+        <br />
+        Third
+      </Block>
+    </StackItem>
   </Stack>
 )
 
@@ -77,19 +84,25 @@ Basic.argTypes = {
 
 export const Horizontal: Story<HStackProps> = (props) => (
   <HStack {...props}>
-    <Block>First</Block>
-    <Block>
-      First
-      <br />
-      Second
-    </Block>
-    <Block>
-      First
-      <br />
-      Second
-      <br />
-      Third
-    </Block>
+    <StackItem>
+      <Block>First</Block>
+    </StackItem>
+    <StackItem>
+      <Block>
+        First
+        <br />
+        Second
+      </Block>
+    </StackItem>
+    <StackItem>
+      <Block>
+        First
+        <br />
+        Second
+        <br />
+        Third
+      </Block>
+    </StackItem>
   </HStack>
 )
 
@@ -97,20 +110,51 @@ Horizontal.args = { reverse: false }
 
 export const Vertical: Story<VStackProps> = (props) => (
   <VStack {...props}>
-    <Block>First</Block>
-    <Block>
-      First
-      <br />
-      Second
-    </Block>
-    <Block>
-      First
-      <br />
-      Second
-      <br />
-      Third
-    </Block>
+    <StackItem>
+      <Block>First</Block>
+    </StackItem>
+    <StackItem>
+      <Block>
+        First
+        <br />
+        Second
+      </Block>
+    </StackItem>
+    <StackItem>
+      <Block>
+        First
+        <br />
+        Second
+        <br />
+        Third
+      </Block>
+    </StackItem>
   </VStack>
 )
 
 Vertical.args = { reverse: false }
+
+export const Grid: Story<HStackProps> = (props) => (
+  <HStack {...props}>
+    <StackItem basis='50%'>
+      <Block />
+    </StackItem>
+    <StackItem basis='50%'>
+      <Block />
+    </StackItem>
+    <StackItem basis='25%'>
+      <Block />
+    </StackItem>
+    <StackItem basis='25%'>
+      <Block />
+    </StackItem>
+    <StackItem basis='25%'>
+      <Block />
+    </StackItem>
+    <StackItem basis='25%'>
+      <Block />
+    </StackItem>
+  </HStack>
+)
+
+Grid.args = { reverse: false }

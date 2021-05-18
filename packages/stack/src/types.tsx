@@ -55,6 +55,12 @@ export type StackProps = {
   spacing?: StackSpacings
 } & Omit<JSX.IntrinsicElements['div'], 'ref' | 'align'>
 
+export type StackItemProps = {
+  grow?: number
+  shrink?: number
+  basis?: string
+} & Omit<JSX.IntrinsicElements['div'], 'ref'>
+
 export type HStackProps = {
   reverse?: boolean
 } & Omit<StackProps, 'direction'>
