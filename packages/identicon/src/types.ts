@@ -11,6 +11,13 @@ export type IdenticonProps = LidoComponentProps<
   }
 >
 
+export enum IdenticonBadgeColor {
+  background,
+  accent,
+}
+export type IdenticonBadgeColors = keyof typeof IdenticonBadgeColor
+
 export type IdenticonBadgeProps = {
   symbols?: number
+  color?: IdenticonBadgeColors
 } & IdenticonProps

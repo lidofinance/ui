@@ -10,6 +10,7 @@ function IdenticonBadge(
 ) {
   const {
     symbols = 3,
+    color = 'background',
     diameter,
     address,
     paperStyles,
@@ -19,7 +20,7 @@ function IdenticonBadge(
   const identiconProps = { address, diameter, paperStyles, svgStyles }
 
   return (
-    <IdenticonBadgeStyle {...rest} ref={ref}>
+    <IdenticonBadgeStyle $color={color} {...rest} ref={ref}>
       <IdenticonAddressStyle>
         {trimAddress(address, symbols)}
       </IdenticonAddressStyle>
