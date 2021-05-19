@@ -132,6 +132,23 @@ const variants = {
       }
     }
   `,
+  translucent: css`
+    color: ${getMainColor};
+
+    :before {
+      display: block;
+      background-color: ${getMainColor};
+      transition: opacity ${({ theme }) => theme.duration.fast} ease;
+      opacity: 0.1;
+    }
+
+    :not(:disabled):hover,
+    :focus-visible {
+      :before {
+        opacity: 0.2;
+      }
+    }
+  `,
 }
 
 export const ButtonStyle = styled.button<InjectedProps>`

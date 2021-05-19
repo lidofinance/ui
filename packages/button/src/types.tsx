@@ -14,6 +14,7 @@ export enum ButtonVariant {
   outlined,
   text,
   ghost,
+  translucent,
 }
 export type ButtonVariants = keyof typeof ButtonVariant
 
