@@ -17,7 +17,7 @@
     "test": "jest",
     "test:coverage": "jest coverage",
     "publish:submit": "yarn workspaces foreach -piv --topological-dev --exclude lido-ui-components npm publish --access public --tolerate-republish",
-    "lint": "eslint --ext ts,tsx,js,jsx --ignore-path .gitignore .",
+    "lint": "eslint --ext ts,tsx,js,jsx .",
     "postinstall": "husky install"
   },
   "devDependencies": {
@@ -70,11 +70,19 @@
   },
   "lint-staged": {
     "./**/*.{ts,tsx,js,jsx}": [
-      "eslint --ignore-path .gitignore --max-warnings=0",
+      "eslint --max-warnings=0",
       "jest --bail --findRelatedTests"
     ],
     "./**/*.{ts,tsx,js,jsx,md,json}": [
       "prettier --write"
     ]
+  },
+  "homepage": "https://github.com/lidofinance/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lidofinance/ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lidofinance/ui/issues"
   }
 }

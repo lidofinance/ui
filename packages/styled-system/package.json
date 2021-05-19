@@ -1,16 +1,36 @@
 {
   "name": "@lidofinance/styled-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
-  "peerDependencies": {
+  "license": "MIT",
+  "homepage": "https://github.com/lidofinance/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lidofinance/ui.git",
+    "directory": "packages/styled-system"
+  },
+  "bugs": {
+    "url": "https://github.com/lidofinance/ui/issues"
+  },
+  "keywords": [
+    "lido",
+    "lidofinance",
+    "styled-components",
+    "component",
+    "react-component",
+    "react"
+  ],
+  "dependencies": {
     "@styled-system/should-forward-prop": "5.1.5",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-is": "17.0.2",
-    "styled-components": "5.3.0",
     "styled-system": "5.1.5"
+  },
+  "peerDependencies": {
+    "react": "16 || 17",
+    "react-dom": "16 || 17",
+    "react-is": "16 || 17",
+    "styled-components": "5"
   },
   "devDependencies": {
     "@lidofinance/theme": "workspace:*",

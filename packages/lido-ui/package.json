@@ -1,8 +1,27 @@
 {
   "name": "@lidofinance/lido-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "license": "MIT",
+  "homepage": "https://github.com/lidofinance/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lidofinance/ui.git",
+    "directory": "packages/lido-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/lidofinance/ui/issues"
+  },
+  "keywords": [
+    "lido",
+    "lidofinance",
+    "styled-components",
+    "component",
+    "react-component",
+    "react"
+  ],
   "dependencies": {
     "@lidofinance/accordion": "workspace:*",
     "@lidofinance/block": "workspace:*",
@@ -20,15 +39,5 @@
     "@lidofinance/stack": "workspace:*",
     "@lidofinance/text": "workspace:*",
     "@lidofinance/utils": "workspace:*"
-  },
-  "peerDependencies": {
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-is": "17.0.2"
-  },
-  "devDependencies": {
-    "@types/react": "17.0.5",
-    "@types/react-dom": "17.0.5",
-    "@types/react-is": "17.0.0"
   }
 }
