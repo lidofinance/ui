@@ -4,6 +4,7 @@ export type { Theme } from '@lidofinance/theme'
 export enum ContainerSize {
   full,
   content,
+  tight,
 }
 export type ContainerSizes = keyof typeof ContainerSize
 
