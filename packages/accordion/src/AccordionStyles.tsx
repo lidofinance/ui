@@ -4,7 +4,7 @@ import { ArrowBottom } from '@lidofinance/icons'
 export const AccordionStyle = styled.div`
   margin: 0 0 ${({ theme }) => theme.spaceMap.sm}px 0;
   background: ${({ theme }) => theme.colors.foreground};
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
 `
 
 export const AccordionSummaryStyle = styled.div`
@@ -15,6 +15,7 @@ export const AccordionSummaryStyle = styled.div`
   align-items: center;
   outline: none;
   min-height: 40px;
+  box-sizing: content-box;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     padding: ${({ theme }) => theme.spaceMap.lg}px;
