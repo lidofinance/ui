@@ -3,24 +3,26 @@ import { ContainerSizes } from './types'
 
 const sizes = {
   full: css`
-    width: calc(100% - 240px);
-
-    ${({ theme }) => theme.mediaQueries.lg} {
-      max-width: 496px;
-      width: 100%;
-    }
+    max-width: 1424px;
   `,
   content: css`
-    width: 100%;
-    max-width: 496px;
+    max-width: 960px;
+  `,
+  tight: css`
+    max-width: 560px;
   `,
 }
 
 export const ContainerStyle = styled.div<{ $size: ContainerSizes }>`
-  padding: 0 ${({ theme }) => theme.spaceMap.lg}px;
   box-sizing: border-box;
   margin: 0 auto;
   min-width: 320px;
+  width: 100%;
+  padding: 0 ${({ theme }) => theme.spaceMap.xxl}px;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    padding: 0 ${({ theme }) => theme.spaceMap.lg}px;
+  }
 
   ${({ $size }) => sizes[$size]}
 `
