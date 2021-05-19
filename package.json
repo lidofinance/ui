@@ -76,5 +76,13 @@
     "./**/*.{ts,tsx,js,jsx,md,json}": [
       "prettier --write"
     ]
+  },
+  "homepage": "https://github.com/lidofinance/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lidofinance/ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lidofinance/ui/issues"
   }
 }

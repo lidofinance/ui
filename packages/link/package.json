@@ -5,6 +5,15 @@
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "license": "MIT",
+  "homepage": "https://github.com/lidofinance/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lidofinance/ui.git",
+    "directory": "packages/link"
+  },
+  "bugs": {
+    "url": "https://github.com/lidofinance/ui/issues"
+  },
   "dependencies": {
     "@lidofinance/theme": "workspace:*",
     "@lidofinance/utils": "workspace:*"
