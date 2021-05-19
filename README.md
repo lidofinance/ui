@@ -10,6 +10,7 @@ Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 - `yarn build` - Build all components.
 - `yarn build:package package_name` - Build `package_name` component.
 - `yarn test` - Run tests across components.
+- `yarn lint` - Run eslint across components.
 
 ## Updating Packages
 
