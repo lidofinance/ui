@@ -14,6 +14,14 @@
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
   },
+  "keywords": [
+    "lido",
+    "lidofinance",
+    "styled-components",
+    "component",
+    "react-component",
+    "react"
+  ],
   "dependencies": {
     "@lidofinance/theme": "workspace:*",
     "@lidofinance/utils": "workspace:*",
