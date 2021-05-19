@@ -22,15 +22,5 @@
     "@lidofinance/stack": "workspace:*",
     "@lidofinance/text": "workspace:*",
     "@lidofinance/utils": "workspace:*"
-  },
-  "peerDependencies": {
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-is": "17.0.2"
-  },
-  "devDependencies": {
-    "@types/react": "17.0.5",
-    "@types/react-dom": "17.0.5",
-    "@types/react-is": "17.0.0"
   }
 }
