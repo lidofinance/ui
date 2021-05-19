@@ -6,7 +6,7 @@ function InlineLoader(
   props: InlineLoaderProps,
   ref?: ForwardedRef<HTMLDivElement>
 ) {
-  const { color = 'text', ...rest } = props
+  const { color, ...rest } = props
   const heightAdjuster = <>&nbsp;</>
 
   return (

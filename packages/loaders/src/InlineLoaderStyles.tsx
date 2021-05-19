@@ -7,12 +7,13 @@ export const translation = keyframes`
   }
 `
 
-export const InlineLoaderStyle = styled.div<{ $color: InlineLoaderColors }>`
-  --loader-color: ${({ theme, $color }) => theme.colors[$color]};
+export const InlineLoaderStyle = styled.span<{ $color?: InlineLoaderColors }>`
+  --loader-color: ${({ theme, $color }) =>
+    $color ? theme.colors[$color] : 'currentColor'};
 
   width: 100%;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   border-radius: 1000px;
   position: relative;
   overflow: hidden;
