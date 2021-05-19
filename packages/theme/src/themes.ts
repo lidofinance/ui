@@ -9,7 +9,7 @@ export const themeLight = {
     secondaryHover: '#212f45',
     secondaryContrast: '#fff',
 
-    background: '#f4f6f8',
+    background: '#f2f4f6',
     foreground: '#fff',
 
     overlay: 'rgba(0, 0, 0, 0.5)',

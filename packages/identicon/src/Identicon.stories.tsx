@@ -1,8 +1,14 @@
 import { Story, Meta } from '@storybook/react'
-import { IdenticonProps, IdenticonBadgeProps } from './types'
+import {
+  IdenticonProps,
+  IdenticonBadgeProps,
+  IdenticonBadgeColor,
+} from './types'
 import Identicon from './Identicon'
 import IdenticonBadge from './IdenticonBadge'
-import styled from 'styled-components'
+
+const getOptions = (enumObject: Record<string, string | number>) =>
+  Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
   component: Identicon,
@@ -20,25 +26,21 @@ export default {
 
 export const Basic: Story<IdenticonProps> = (props) => <Identicon {...props} />
 
-const BadgeWrapper = styled.div`
-  padding: 6px;
-  border-radius: 6px;
-  background: ${({ theme }) => theme.colors.foreground};
-  display: inline-flex;
-`
-
 export const Badge: Story<IdenticonBadgeProps> = (props) => (
-  <BadgeWrapper>
-    <IdenticonBadge {...props} />
-  </BadgeWrapper>
+  <IdenticonBadge {...props} />
 )
 
 Badge.args = {
   symbols: 3,
+  color: 'background',
 }
 
 Badge.argTypes = {
   symbols: {
     control: { type: 'range', min: 0, max: 21, step: 1 },
+  },
+  color: {
+    options: getOptions(IdenticonBadgeColor),
+    control: 'inline-radio',
   },
 }
