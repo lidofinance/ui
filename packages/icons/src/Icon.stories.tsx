@@ -44,10 +44,6 @@ const IconListItem = styled.div`
   padding: 10px;
   border-radius: 4px;
   color: ${({ theme }) => theme.colors.text};
-
-  svg {
-    fill: currentColor;
-  }
 `
 
 const IconListTitle = styled.div`

@@ -7,7 +7,14 @@ export const ArrowBottom = React.forwardRef(function ArrowBottom(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -22,7 +29,14 @@ export const ArrowLeft = React.forwardRef(function ArrowLeft(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -37,7 +51,14 @@ export const ArrowRight = React.forwardRef(function ArrowRight(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -52,7 +73,14 @@ export const ArrowTop = React.forwardRef(function ArrowTop(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -67,7 +95,14 @@ export const CheckLarge = React.forwardRef(function CheckLarge(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -82,7 +117,14 @@ export const Check = React.forwardRef(function Check(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -97,7 +139,14 @@ export const Close = React.forwardRef(function Close(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path d='M17.707 7.707a1 1 0 00-1.414-1.414L12 10.586 7.707 6.293a1 1 0 00-1.414 1.414L10.586 12l-4.293 4.293a1 1 0 101.414 1.414L12 13.414l4.293 4.293a1 1 0 001.414-1.414L13.414 12l4.293-4.293z' />
     </svg>
   )
@@ -108,7 +157,14 @@ export const Copy = React.forwardRef(function Copy(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -123,7 +179,14 @@ export const Deposit = React.forwardRef(function Deposit(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -138,7 +201,14 @@ export const Document = React.forwardRef(function Document(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -153,7 +223,14 @@ export const Email = React.forwardRef(function Email(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -168,12 +245,42 @@ export const Email = React.forwardRef(function Email(
   )
 })
 
+export const Eth = React.forwardRef(function Eth(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path opacity={0.6} d='M11.999 3.75v6.098l5.248 2.303-5.248-8.401z' />
+      <path d='M11.999 3.75L6.75 12.151l5.249-2.303V3.75z' />
+      <path opacity={0.6} d='M11.999 16.103v4.143l5.251-7.135L12 16.103z' />
+      <path d='M11.999 20.246v-4.144L6.75 13.111l5.249 7.135z' />
+      <path opacity={0.2} d='M11.999 15.144l5.248-2.993-5.248-2.301v5.294z' />
+      <path opacity={0.6} d='M6.75 12.151l5.249 2.993V9.85l-5.249 2.3z' />
+    </svg>
+  )
+})
+
 export const External = React.forwardRef(function External(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -188,7 +295,14 @@ export const Facebook = React.forwardRef(function Facebook(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -203,7 +317,14 @@ export const Lightning = React.forwardRef(function Lightning(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -218,7 +339,14 @@ export const Linkedin = React.forwardRef(function Linkedin(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path d='M8.537 6.632C8.517 5.705 7.854 5 6.779 5 5.703 5 5 5.705 5 6.632c0 .907.682 1.632 1.738 1.632h.02c1.096 0 1.779-.725 1.779-1.632zm-.206 2.922H5.188V19H8.33V9.554zm7.719-.222c2.07 0 3.62 1.35 3.62 4.252V19h-3.144v-5.054c0-1.27-.455-2.135-1.593-2.135-.868 0-1.386.584-1.613 1.148-.083.202-.104.483-.104.766V19h-3.144s.042-8.56 0-9.446h3.145v1.338c.417-.643 1.164-1.56 2.833-1.56z' />
     </svg>
   )
@@ -229,7 +357,14 @@ export const Lock = React.forwardRef(function Lock(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -244,7 +379,14 @@ export const Package = React.forwardRef(function Package(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -259,7 +401,14 @@ export const Plus = React.forwardRef(function Plus(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -274,7 +423,14 @@ export const Question = React.forwardRef(function Question(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path d='M12.188 9.109a1.455 1.455 0 00-1.618.95.727.727 0 01-1.372-.482 2.91 2.91 0 015.653.97c0 1.112-.826 1.847-1.415 2.24a5.64 5.64 0 01-1.262.63.735.735 0 01-.922-.46.727.727 0 01.46-.92c.322-.113.633-.271.917-.46.502-.335.767-.69.767-1.032a1.454 1.454 0 00-1.208-1.436zM12 15.636a.727.727 0 100-1.454.727.727 0 000 1.454z' />
       <path
         fillRule='evenodd'
@@ -285,12 +441,53 @@ export const Question = React.forwardRef(function Question(
   )
 })
 
+export const Solana = React.forwardRef(function Solana(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        d='M17.129 9.033a.442.442 0 01-.314.132H5.695c-.393 0-.592-.48-.318-.764l1.824-1.89a.441.441 0 01.318-.136H18.68c.396 0 .594.485.314.768l-1.865 1.89zm0 8.44a.447.447 0 01-.314.129H5.695a.438.438 0 01-.318-.745l1.824-1.843a.447.447 0 01.318-.132H18.68c.396 0 .594.472.314.748l-1.865 1.843zm0-6.716a.447.447 0 00-.314-.128H5.695a.438.438 0 00-.318.745l1.824 1.842a.446.446 0 00.318.132H18.68a.438.438 0 00.314-.748l-1.865-1.843z'
+        fill='url(#prefix__prefix__paint0_linear)'
+      />
+      <defs>
+        <linearGradient
+          id='prefix__prefix__paint0_linear'
+          x1={6.263}
+          y1={17.906}
+          x2={18.092}
+          y2={6.077}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#CF41E8' />
+          <stop offset={1} stopColor='#10F2B0' />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+})
+
 export const Twitter = React.forwardRef(function Twitter(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -305,7 +502,14 @@ export const Validators = React.forwardRef(function Validators(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -320,7 +524,14 @@ export const Whitepaper = React.forwardRef(function Whitepaper(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'

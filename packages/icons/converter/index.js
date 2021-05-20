@@ -75,6 +75,9 @@ const convertFiles = async () => {
           svgo: true,
           typescript: true,
           svgoConfig,
+          svgProps: {
+            fill: 'currentColor',
+          },
           plugins: [svgrSvgo, svgrJsx, svgrPrettier],
           template: require('./template.component.js'),
         },
