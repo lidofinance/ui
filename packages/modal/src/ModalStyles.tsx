@@ -24,7 +24,7 @@ export const ModalHeaderStyle = styled.div<{ $short: boolean }>`
   font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
   line-height: 1.3em;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.md} {
     padding: ${({ theme }) => theme.spaceMap.xl}px
       ${({ theme }) => theme.spaceMap.lg}px;
   }
@@ -50,7 +50,7 @@ export const ModalCloseStyle = styled(ButtonIcon).attrs({
   margin: 0 -10px 0 -22px;
   border-radius: 50%;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.md} {
     margin: 0 0 0 -32px;
   }
 `
@@ -59,7 +59,7 @@ export const ModalContentStyle = styled.div`
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
   padding-top: 0;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.md} {
     padding: ${({ theme }) => theme.spaceMap.lg}px;
     padding-top: 0;
   }
