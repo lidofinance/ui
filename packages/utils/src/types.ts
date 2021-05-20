@@ -7,6 +7,7 @@ export type LidoComponentProps<
   Omit<
     JSX.IntrinsicElements[T] & {
       as?: keyof JSX.IntrinsicElements
+      forwardedAs?: keyof JSX.IntrinsicElements
     },
     'ref' | keyof Props
   >

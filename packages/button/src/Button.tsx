@@ -22,6 +22,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
     square = false,
     fullwidth = false,
     loading = false,
+    onClick,
     disabled,
     children,
     ...rest
