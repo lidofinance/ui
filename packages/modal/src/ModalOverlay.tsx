@@ -21,6 +21,8 @@ function ModalOverlay(
 
   const handleKeyDown = useEscape(props)
 
+  if (!ModalRoot) return null
+
   return ReactDOM.createPortal(
     <ModalPortalStyle>
       <ModalOverlayStyle
