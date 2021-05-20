@@ -21,10 +21,9 @@ export const themeLight = {
     textSecondary: '#7a8aa0',
 
     border: '#d1d8df',
-    borderHover: '#b1b7bd',
+    borderHover: '#bcc8d4',
 
     controlBg: '#fff',
-    inputPlaceholder: 'rgba(39, 56, 82, 0.3)',
   },
 } as const
 
@@ -52,7 +51,6 @@ export const themeDark = {
     borderHover: '#7a8aa0',
 
     controlBg: '#2f2f37',
-    inputPlaceholder: 'rgba(255, 255, 255, 0.3)',
   },
 } as const
 

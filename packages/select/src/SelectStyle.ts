@@ -75,7 +75,8 @@ export const Box = styled.div<BoxProps>`
 `
 
 export const Placeholder = styled.div`
-  color: ${({ theme }) => theme.colors.inputPlaceholder};
+  color: ${({ theme }) => theme.colors.text};
+  opacity: 0.3;
 `
 
 type ArrowProps = {

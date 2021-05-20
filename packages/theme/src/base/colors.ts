@@ -8,7 +8,10 @@ const colors = {
   accentDarken: '#1f1f25',
 
   error: '#e14d4d',
+  errorContrast: '#fff',
+
   success: '#61b75f',
+  successContrast: '#fff',
 } as const
 
 export default { colors }

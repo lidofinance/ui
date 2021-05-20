@@ -1,62 +1,144 @@
 import { Story, Meta } from '@storybook/react'
-import Input from './Input'
+import { Eth, Solana } from '@lidofinance/icons'
 import { Button } from '@lidofinance/button'
-import { IconEth } from './storybook'
+import { Identicon } from '@lidofinance/identicon'
+import Input from './Input'
 import styled from 'styled-components'
+import { InputProps, InputType } from './types'
+import { useState } from 'react'
+
+const getOptions = (enumObject: Record<string, string | number>) =>
+  Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
   component: Input,
   title: 'Controls/Input',
+  args: {
+    disabled: false,
+  },
+  argTypes: {
+    onChange: {
+      action: 'change',
+      table: { disable: true },
+    },
+  },
 } as Meta
 
-export const Basic: Story = () => <Input placeholder='Basic' />
+export const Basic: Story<InputProps> = (props) => <Input {...props} />
 
-export const WithIcon: Story = () => (
-  <Input placeholder='Basic' icon={<IconEth />} />
-)
+Basic.args = {
+  placeholder: 'Amount',
+  type: 'text',
+}
 
-export const FloatingPlaceholder: Story = () => (
-  <Input placeholder='Email address' isPlaceholderFloats />
-)
+Basic.argTypes = {
+  type: {
+    options: getOptions(InputType),
+    control: 'inline-radio',
+  },
+}
 
-export const SelectOnFocus: Story = () => (
-  <Input defaultValue='10500' selectOnFocus />
-)
+export const Label: Story<InputProps> = (props) => <Input {...props} />
 
-export const WithValue: Story = () => (
-  <Input placeholder='Email address' defaultValue='alexpro@gmail.com' />
-)
+Label.args = {
+  label: 'Email address',
+}
 
-export const WithError: Story = () => (
-  <Input
-    placeholder='Email address'
-    errorMessage='Error message'
-    defaultValue='alexpro@gmail.com'
-  />
-)
-
-export const WithAction: Story = () => (
-  <Input
-    placeholder='Email address'
-    defaultValue='alexpro@gmail.com'
-    action={<Button size='sm'>Subscribe</Button>}
-  />
-)
-
-const SuccessAction = styled.div`
-  padding: 0 10px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #61b75f;
-  line-height: 44px;
+const EthIcon = styled(Eth)`
+  fill: ${({ theme }) => theme.colors.text};
 `
 
-export const WithSuccessAction: Story = () => (
+const MaxButton = () => (
+  <Button
+    variant='translucent'
+    size='xs'
+    css={`
+      margin-right: -4px;
+    `}
+  >
+    MAX
+  </Button>
+)
+
+export const WithDecorators: Story<InputProps> = (props) => (
+  <>
+    <Input
+      leftDecorator={<EthIcon />}
+      rightDecorator={<MaxButton />}
+      {...props}
+    />
+    <Input
+      leftDecorator={<Solana />}
+      rightDecorator={<MaxButton />}
+      {...props}
+    />
+  </>
+)
+
+WithDecorators.args = {
+  placeholder: 'Amount',
+}
+
+export const WithIdenticon: Story<InputProps> = (props) => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Input
+      {...props}
+      value={value}
+      onChange={(event) => {
+        setValue(event.currentTarget.value)
+        props.onChange?.(event)
+      }}
+      rightDecorator={<Identicon address={String(value ?? '')} />}
+    />
+  )
+}
+
+WithIdenticon.args = {
+  placeholder: 'Ethereum address',
+}
+
+export const WithButton: Story<InputProps> = (props) => (
   <Input
-    placeholder='Email address'
-    defaultValue='alexpro@gmail.com'
-    action={<SuccessAction>Subscribed</SuccessAction>}
-    successMessage='Thank you for subscribing! We will notify you once we kick off our platform.'
+    rightDecorator={
+      <Button
+        size='sm'
+        css={`
+          margin-right: -10px;
+        `}
+      >
+        Subscribe
+      </Button>
+    }
+    {...props}
   />
 )
+
+WithButton.args = {
+  label: 'Email address',
+}
+
+export const WithError: Story<InputProps> = (props) => <Input {...props} />
+
+WithError.args = {
+  defaultValue: 'info@lido.',
+  label: 'Email address',
+  error: 'Email is invalid',
+}
+
+const Success = styled.span`
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.success};
+`
+
+export const WithSuccess: Story<InputProps> = (props) => (
+  <Input rightDecorator={<Success>Subscribed</Success>} {...props} />
+)
+
+WithSuccess.args = {
+  disabled: true,
+  defaultValue: 'info@lido.fi',
+  success:
+    'Thank you for subscribing! We will notify you once we kick off our platform.',
+}

@@ -168,6 +168,22 @@ export const Email = React.forwardRef(function Email(
   )
 })
 
+export const Eth = React.forwardRef(function Eth(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+      <path opacity={0.6} d='M11.999 3.75v6.098l5.248 2.303-5.248-8.401z' />
+      <path d='M11.999 3.75L6.75 12.151l5.249-2.303V3.75z' />
+      <path opacity={0.6} d='M11.999 16.103v4.143l5.251-7.135L12 16.103z' />
+      <path d='M11.999 20.246v-4.144L6.75 13.111l5.249 7.135z' />
+      <path opacity={0.2} d='M11.999 15.144l5.248-2.993-5.248-2.301v5.294z' />
+      <path opacity={0.6} d='M6.75 12.151l5.249 2.993V9.85l-5.249 2.3z' />
+    </svg>
+  )
+})
+
 export const External = React.forwardRef(function External(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
@@ -281,6 +297,33 @@ export const Question = React.forwardRef(function Question(
         clipRule='evenodd'
         d='M4 12a8 8 0 1116 0 8 8 0 01-16 0zm8-6.545a6.545 6.545 0 100 13.09 6.545 6.545 0 000-13.09z'
       />
+    </svg>
+  )
+})
+
+export const Solana = React.forwardRef(function Solana(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg width={24} height={24} viewBox='0 0 24 24' ref={svgRef} {...props}>
+      <path
+        d='M17.129 9.033a.442.442 0 01-.314.132H5.695c-.393 0-.592-.48-.318-.764l1.824-1.89a.441.441 0 01.318-.136H18.68c.396 0 .594.485.314.768l-1.865 1.89zm0 8.44a.447.447 0 01-.314.129H5.695a.438.438 0 01-.318-.745l1.824-1.843a.447.447 0 01.318-.132H18.68c.396 0 .594.472.314.748l-1.865 1.843zm0-6.716a.447.447 0 00-.314-.128H5.695a.438.438 0 00-.318.745l1.824 1.842a.446.446 0 00.318.132H18.68a.438.438 0 00.314-.748l-1.865-1.843z'
+        fill='url(#prefix__prefix__paint0_linear)'
+      />
+      <defs>
+        <linearGradient
+          id='prefix__prefix__paint0_linear'
+          x1={6.263}
+          y1={17.906}
+          x2={18.092}
+          y2={6.077}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#CF41E8' />
+          <stop offset={1} stopColor='#10F2B0' />
+        </linearGradient>
+      </defs>
     </svg>
   )
 })

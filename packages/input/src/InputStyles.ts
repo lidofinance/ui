@@ -1,196 +1,167 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
+import { InputMessageVariants } from './types'
 
-export const RootWrap = styled.div`
-  padding-bottom: 26px; // Error space reserving
-  position: relative;
-  width: 100%;
-`
-
-type RowWrapProps = {
-  isWrong?: boolean
-  isFocused?: boolean
-}
-export const RowWrap = styled.div<RowWrapProps>`
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 56px;
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.controlBg};
-  transition: border-color ease ${({ theme }) => theme.duration.norm};
-  border-color: ${(p) =>
-    p.isWrong
-      ? p.theme.colors.error
-      : p.isFocused
-      ? p.theme.colors.primary
-      : p.theme.colors.border};
-
-  ${(p) =>
-    !p.isFocused &&
-    !p.isWrong &&
-    css`
-      &:hover {
-        border-color: ${({ theme }) => theme.colors.borderHover};
-        transition-duration: ${({ theme }) => theme.duration.fast};
-      }
-    `}
-`
-
-export const IconWrap = styled.div`
+export const InputLabelStyle = styled.span`
   position: absolute;
-  left: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 100%;
-  pointer-events: none;
-`
-
-type PlaceholderProps = {
-  isWrong?: boolean
-  isFocused?: boolean
-  isFloated?: boolean
-}
-export const Placeholder = styled.div<PlaceholderProps>`
-  padding: 18px 0 16px 0;
-  position: absolute;
-  left: 20px;
-  top: 0;
-  right: 20px;
+  left: 0;
+  top: 50%;
+  font-size: 1em;
+  line-height: 1.25em;
+  margin: -0.625em 0 0 0;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 16px;
-  line-height: 20px;
-  font-family: inherit;
-  color: ${({ theme }) => theme.colors.inputPlaceholder};
-  pointer-events: none;
-  transform-origin: left center;
-  transition: transform ease ${({ theme }) => theme.duration.fast},
-    color ease ${({ theme }) => theme.duration.norm},
-    opacity ease ${({ theme }) => theme.duration.norm};
-
-  ${(p) =>
-    p.isFocused &&
-    css`
-      color: ${({ theme }) => theme.colors.primary};
-      transition-duration: ${({ theme }) => theme.duration.fast};
-    `}
-
-  ${(p) =>
-    p.isFloated &&
-    css`
-      transform: translateY(-12px) scale(0.75);
-    `}
-
-  ${(p) =>
-    p.isWrong &&
-    css`
-      opacity: 1;
-      color: ${({ theme }) => theme.colors.error};
-    `}
+  max-width: 100%;
+  color: inherit;
+  transform-origin: 0% 100%;
+  transform: translateY(-14px) scale(0.75);
+  transition: transform ${({ theme }) => theme.duration.fast} ease;
+  color: ${({ theme }) => theme.colors.primary};
 `
 
-type InputProps = {
-  withIcon?: boolean
-  isPlaceholderFloats?: boolean
-}
-export const InputStyled = styled.input<InputProps>`
-  padding-left: 16px;
-  padding-right: 16px;
-  flex: 1 1 auto;
-  display: block;
-  width: 100%;
+const statesCSS = css`
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.borderHover};
+  }
+
+  &:focus-within {
+    border-color: ${({ theme }) => theme.colors.primary};
+  }
+`
+
+const errorCSS = css`
+  &,
+  &:hover,
+  &:focus-within {
+    border-color: ${({ theme }) => theme.colors.error};
+  }
+
+  ${InputLabelStyle} {
+    color: ${({ theme }) => theme.colors.error};
+  }
+`
+
+export const InputWrapperStyle = styled.label<{
+  $error: boolean
+  $disabled: boolean
+}>`
+  position: relative;
+  display: inline-flex;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: ${({ theme }) => theme.colors.controlBg};
+  border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
+  align-items: stretch;
   box-sizing: border-box;
-  margin: 0;
-  outline: none;
   width: 100%;
-  height: 56px;
+  padding: 0 15px;
+  margin-bottom: 40px;
+  cursor: text;
+  transition: border-color ${({ theme }) => theme.duration.fast} ease;
+
+  ${({ $disabled }) => ($disabled ? '' : statesCSS)}
+  ${({ $error }) => ($error ? errorCSS : '')}
+`
+
+export const InputContentStyle = styled.span`
+  padding: 17px 0;
+  font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+`
+
+const labeledCSS = css`
+  &:not(:focus):placeholder-shown {
+    & + ${InputLabelStyle} {
+      transform: scale(1);
+      opacity: 0.3;
+      color: ${({ theme }) => theme.colors.text};
+    }
+
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+`
+
+export const InputStyle = styled.input<{ $labeled: boolean }>`
+  width: 100%;
   font-family: inherit;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+  font-size: 1em;
+  line-height: 1.25em;
+  padding: 0;
+  border-radius: 0px;
   background: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  position: relative;
+  top: ${({ $labeled }) => ($labeled ? 8 : 0)}px;
   color: ${({ theme }) => theme.colors.text};
 
-  ${(p) =>
-    p.withIcon &&
-    css`
-      padding-left: 56px;
-    `}
-
-  ${(p) =>
-    p.isPlaceholderFloats
-      ? css`
-          padding-top: 27px;
-          padding-bottom: 7px;
-          font-size: 16px;
-        `
-      : css`
-          font-size: 18px;
-        `}
-
-  &:focus {
-    outline: none;
-    cursor: text;
+  &:disabled {
+    color: ${({ theme }) => theme.colors.textSecondary};
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.inputPlaceholder};
+    color: ${({ theme }) => theme.colors.text};
+    transition: opacity ${({ theme }) => theme.duration.fast} ease;
+    opacity: 0.3;
   }
 
-  &:-ms-input-placeholder {
-    color: ${({ theme }) => theme.colors.inputPlaceholder};
+  &:-webkit-autofill {
+    box-shadow: 0 0 0 100px ${({ theme }) => theme.colors.controlBg} inset !important;
   }
 
-  &::-ms-input-placeholder {
-    color: ${({ theme }) => theme.colors.inputPlaceholder};
-  }
+  ${({ $labeled }) => ($labeled ? labeledCSS : '')}
 `
 
-const Message = styled.div`
+const messageVariants = {
+  error: css`
+    background: ${({ theme }) => theme.colors.error};
+    color: ${({ theme }) => theme.colors.errorContrast};
+    box-shadow: ${({ theme }) =>
+      `${theme.boxShadows.sm} ${theme.colors.shadowLight}`};
+  `,
+  success: css`
+    color: ${({ theme }) => theme.colors.success};
+  `,
+}
+
+export const InputMessageStyle = styled.span<{
+  $variant: InputMessageVariants
+}>`
+  left: -1px;
   position: absolute;
-  font-size: 12px;
-  line-height: 18px;
-`
-
-const errorAppearing = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-10px) scale(0.6);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-`
-
-export const ErrorMessage = styled(Message)`
+  margin-top: 5px;
+  top: 100%;
+  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+  border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
+  line-height: 1.4em;
   padding: 6px 10px;
-  top: 60px;
-  left: 0;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  background-color: ${({ theme }) => theme.colors.error};
-  border-radius: 6px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  animation: ${errorAppearing} ${({ theme }) => theme.duration.norm}
-    ${({ theme }) => theme.ease.outBack} 1;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  max-width: calc(100% + 2px);
+
+  ${({ $variant }) => messageVariants[$variant]}
 `
 
-export const SuccessMessage = styled(Message)`
-  top: 64px;
-  left: 20px;
-  color: ${({ theme }) => theme.colors.success};
+const decoratorCSS = css`
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: default;
+  display: flex;
+  align-items: center;
 `
 
-export const ActionWrap = styled.div`
-  flex: 0 0 auto;
-  height: 42px;
-  padding: 6px;
+export const InputLeftDecoratorStyle = styled.span`
+  ${decoratorCSS}
+  padding-right: 16px;
+`
+
+export const InputRightDecoratorStyle = styled.span`
+  ${decoratorCSS}
+  padding-left: 16px;
 `
