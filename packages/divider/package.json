@@ -35,7 +35,7 @@
   "devDependencies": {
     "@storybook/react": "6.2.9",
     "@testing-library/react": "11.2.7",
-    "@types/react": "17.0.5",
+    "@types/react": "17.0.6",
     "@types/react-dom": "17.0.5",
     "@types/react-is": "17.0.0",
     "@types/styled-components": "5.1.9",
