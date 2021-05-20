@@ -17,7 +17,7 @@ export const AccordionSummaryStyle = styled.div`
   min-height: 40px;
   box-sizing: content-box;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.md} {
     padding: ${({ theme }) => theme.spaceMap.lg}px;
   }
 `
@@ -46,7 +46,7 @@ export const AccordionContentStyle = styled.div`
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
   line-height: 1.5em;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.md} {
     padding: ${({ theme }) => theme.spaceMap.lg}px;
     padding-top: 0;
   }

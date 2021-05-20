@@ -199,6 +199,7 @@ export const ButtonRippleStyle = styled.span`
   position: absolute;
   border-radius: 50%;
   transform: scale(0);
+  pointer-events: none;
   animation: ${ripple} 0.8s linear;
   background-color: currentColor;
   opacity: 0.4;
@@ -206,6 +207,7 @@ export const ButtonRippleStyle = styled.span`
 
 export const ButtonContentStyle = styled.span<{ $hidden: boolean }>`
   position: relative;
+  pointer-events: none;
   visibility: ${({ $hidden }) => ($hidden ? 'hidden' : 'visible')};
 `
 
@@ -215,4 +217,5 @@ export const ButtonLoaderStyle = styled(Loader)`
   left: 50%;
   transform: translate(-50%, -50%);
   color: currentColor;
+  pointer-events: none;
 `

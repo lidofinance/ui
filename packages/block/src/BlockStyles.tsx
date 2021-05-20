@@ -35,12 +35,12 @@ const variants = {
 
 export const BlockStyle = styled.div<InjectedProps>`
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
-  line-height: 1.5em;
+  line-height: 1.4em;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
   margin: 0;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.md} {
     padding: ${({ theme }) => theme.spaceMap.lg}px;
   }
 
