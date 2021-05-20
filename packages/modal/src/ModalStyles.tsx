@@ -4,7 +4,7 @@ import { ButtonIcon } from '@lidofinance/button'
 
 export const ModalStyle = styled.div<{ $center: boolean }>`
   text-align: ${({ $center }) => ($center ? 'center' : 'left')};
-  width: 368px;
+  width: 432px;
   max-width: 100%;
   color: ${({ theme }) => theme.colors.text};
   background: ${({ theme }) => theme.colors.foreground};
