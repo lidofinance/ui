@@ -1,139 +1,73 @@
-import React, {
-  useRef,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import {
-  Placeholder,
-  RootWrap,
-  RowWrap,
-  IconWrap,
-  InputStyled,
-  ErrorMessage,
-  SuccessMessage,
-  ActionWrap,
+  InputWrapperStyle,
+  InputContentStyle,
+  InputStyle,
+  InputLabelStyle,
+  InputLeftDecoratorStyle,
+  InputRightDecoratorStyle,
+  InputMessageStyle,
 } from './InputStyles'
-import { useMergeRefs } from 'use-callback-ref'
+import { InputProps } from './types'
 
-type Props = {
-  icon?: React.ReactNode
-  action?: React.ReactNode
-  errorMessage?: string
-  successMessage?: React.ReactNode
-
-  id?: string
-  name?: string
-  type?: string
-  value?: string
-  defaultValue?: string
-  placeholder?: string
-  autoComplete?: string
-  maxLength?: number
-
-  required?: boolean
-  disabled?: boolean
-  readonly?: boolean
-  focusOnMount?: boolean
-  selectOnFocus?: boolean
-  isPlaceholderFloats?: boolean
-
-  onChange?: React.ChangeEventHandler<HTMLInputElement>
-  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
-  onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>
-  onFocus?: React.FocusEventHandler<HTMLInputElement>
-  onBlur?: React.FocusEventHandler<HTMLInputElement>
-}
-
-function Input(props: Props, ref: React.Ref<HTMLInputElement>) {
+function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
   const {
-    icon,
-    action,
-    errorMessage,
-    successMessage,
-    placeholder,
-    defaultValue = '',
-    value: valueProp,
-    selectOnFocus,
-    isPlaceholderFloats,
-    focusOnMount,
-    onChange,
-    onFocus,
-    onBlur,
-    ...inputProps
+    label,
+    error,
+    success,
+    placeholder = ' ',
+    leftDecorator,
+    rightDecorator,
+    className,
+    style,
+    wrapperRef,
+    ...rest
   } = props
 
-  const localRef = useRef<HTMLInputElement | null>(null)
-  const [isFocused, setFocused] = useState(false)
-  const [valueInternal, setValueInternal] = useState(defaultValue)
-  const isControlled = valueProp !== undefined
-  const value = isControlled ? valueProp : valueInternal
-  const isPlaceholderFloated =
-    isFocused || (value !== '' && value !== undefined)
-  const isWrong = errorMessage !== undefined && errorMessage !== ''
+  const { id, disabled = false } = props
+  const wrapperProps = { className, style }
 
-  useEffect(() => {
-    if (focusOnMount && localRef.current) localRef.current.focus()
-  }, [focusOnMount])
-
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (isControlled) {
-        if (onChange) onChange(e)
-      } else {
-        setValueInternal(e.currentTarget.value)
-      }
-    },
-    [isControlled, onChange]
-  )
-
-  const handleFocus = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      setFocused(true)
-      if (selectOnFocus) e.currentTarget.select()
-      if (onFocus) onFocus(e)
-    },
-    [onFocus, selectOnFocus]
-  )
-
-  const handleBlur = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      setFocused(false)
-      if (onBlur) onBlur(e)
-    },
-    [onBlur]
-  )
+  const hasLabel = !!label
+  const hasError = !!error
+  const hasSuccess = !!success && !error
+  const hasLeftDecorator = !!leftDecorator
+  const hasRightDecorator = !!rightDecorator
 
   return (
-    <RootWrap>
-      <RowWrap isWrong={isWrong} isFocused={isFocused}>
-        {icon && <IconWrap>{icon}</IconWrap>}
-        {isPlaceholderFloats && (
-          <Placeholder
-            isWrong={isWrong}
-            isFocused={isFocused}
-            isFloated={isPlaceholderFloated}
-          >
-            {placeholder}
-          </Placeholder>
-        )}
-        <InputStyled
-          {...inputProps}
-          ref={useMergeRefs([localRef, ref])}
-          value={value}
-          withIcon={Boolean(icon)}
-          isPlaceholderFloats={isPlaceholderFloats}
-          placeholder={!isPlaceholderFloats ? placeholder : undefined}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+    <InputWrapperStyle
+      $error={hasError}
+      $disabled={disabled}
+      htmlFor={id}
+      ref={wrapperRef}
+      {...wrapperProps}
+    >
+      {hasLeftDecorator && (
+        <InputLeftDecoratorStyle>{leftDecorator}</InputLeftDecoratorStyle>
+      )}
+
+      <InputContentStyle>
+        <InputStyle
+          $labeled={hasLabel}
+          placeholder={placeholder}
+          aria-invalid={hasError}
+          type='text'
+          ref={ref}
+          {...rest}
         />
-        {action && <ActionWrap>{action}</ActionWrap>}
-      </RowWrap>
-      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-      {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
-    </RootWrap>
+        {hasLabel && <InputLabelStyle>{label}</InputLabelStyle>}
+      </InputContentStyle>
+
+      {hasError && (
+        <InputMessageStyle $variant='error'>{error}</InputMessageStyle>
+      )}
+      {hasSuccess && (
+        <InputMessageStyle $variant='success'>{success}</InputMessageStyle>
+      )}
+
+      {hasRightDecorator && (
+        <InputRightDecoratorStyle>{rightDecorator}</InputRightDecoratorStyle>
+      )}
+    </InputWrapperStyle>
   )
 }
 
