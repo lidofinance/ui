@@ -1,13 +1,17 @@
-const ModalRoot = ((): HTMLElement => {
-  let modalRoot = document.getElementById('modal-root')
+const ModalRoot = ((): HTMLElement | null => {
+  try {
+    let modalRoot = document.getElementById('modal-root')
 
-  if (!modalRoot) {
-    modalRoot = document.createElement('div')
-    modalRoot.id = 'modal-root'
-    document.body.append(modalRoot)
+    if (!modalRoot) {
+      modalRoot = document.createElement('div')
+      modalRoot.id = 'modal-root'
+      document.body.append(modalRoot)
+    }
+
+    return modalRoot
+  } catch (error) {
+    return null
   }
-
-  return modalRoot
 })()
 
 export default ModalRoot
