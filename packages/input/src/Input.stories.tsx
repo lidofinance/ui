@@ -27,7 +27,9 @@ export default {
 export const Basic: Story<InputProps> = (props) => <Input {...props} />
 
 Basic.args = {
+  active: false,
   placeholder: 'Amount',
+  label: '',
   type: 'text',
 }
 

@@ -1,23 +1,11 @@
 import styled, { css } from 'styled-components'
 import { InputMessageVariants } from './types'
-
-export const InputLabelStyle = styled.span`
-  position: absolute;
-  left: 0;
-  top: 50%;
-  font-size: 1em;
-  line-height: 1.25em;
-  margin: -0.625em 0 0 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  color: inherit;
-  transform-origin: 0% 100%;
-  transform: translateY(-14px) scale(0.75);
-  transition: transform ${({ theme }) => theme.duration.fast} ease;
-  color: ${({ theme }) => theme.colors.primary};
-`
+import {
+  labelEmptyValueCSS,
+  labelFocusCSS,
+  labelErrorCSS,
+  InputLabelStyle,
+} from './LabelStyles'
 
 const statesCSS = css`
   &:hover {
@@ -26,6 +14,22 @@ const statesCSS = css`
 
   &:focus-within {
     border-color: ${({ theme }) => theme.colors.primary};
+
+    ${InputLabelStyle} {
+      ${labelFocusCSS}
+    }
+  }
+`
+
+const activeCSS = css`
+  &,
+  &:hover,
+  &:focus-within {
+    border-color: ${({ theme }) => theme.colors.primary};
+
+    ${InputLabelStyle} {
+      ${labelFocusCSS}
+    }
   }
 `
 
@@ -34,15 +38,16 @@ const errorCSS = css`
   &:hover,
   &:focus-within {
     border-color: ${({ theme }) => theme.colors.error};
-  }
 
-  ${InputLabelStyle} {
-    color: ${({ theme }) => theme.colors.error};
+    ${InputLabelStyle} {
+      ${labelErrorCSS}
+    }
   }
 `
 
 export const InputWrapperStyle = styled.label<{
   $error: boolean
+  $active: boolean
   $disabled: boolean
 }>`
   position: relative;
@@ -57,8 +62,11 @@ export const InputWrapperStyle = styled.label<{
   margin-bottom: 40px;
   cursor: text;
   transition: border-color ${({ theme }) => theme.duration.fast} ease;
+  color: ${({ theme }) => theme.colors.text};
 
   ${({ $disabled }) => ($disabled ? '' : statesCSS)}
+
+  ${({ $active }) => ($active ? activeCSS : '')}
   ${({ $error }) => ($error ? errorCSS : '')}
 `
 
@@ -73,9 +81,7 @@ export const InputContentStyle = styled.span`
 const labeledCSS = css`
   &:not(:focus):placeholder-shown {
     & + ${InputLabelStyle} {
-      transform: scale(1);
-      opacity: 0.3;
-      color: ${({ theme }) => theme.colors.text};
+      ${labelEmptyValueCSS}
     }
 
     &::placeholder {
@@ -104,9 +110,9 @@ export const InputStyle = styled.input<{ $labeled: boolean }>`
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.textSecondary};
     transition: opacity ${({ theme }) => theme.duration.fast} ease;
-    opacity: 0.3;
+    opacity: 0.5;
   }
 
   &:-webkit-autofill {

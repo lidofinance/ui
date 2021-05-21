@@ -3,11 +3,11 @@ import {
   InputWrapperStyle,
   InputContentStyle,
   InputStyle,
-  InputLabelStyle,
   InputLeftDecoratorStyle,
   InputRightDecoratorStyle,
   InputMessageStyle,
 } from './InputStyles'
+import { InputLabelStyle } from './LabelStyles'
 import { InputProps } from './types'
 
 function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
@@ -15,12 +15,14 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
     label,
     error,
     success,
+    active = false,
     placeholder = ' ',
     leftDecorator,
     rightDecorator,
     className,
     style,
     wrapperRef,
+    children,
     ...rest
   } = props
 
@@ -36,6 +38,7 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
   return (
     <InputWrapperStyle
       $error={hasError}
+      $active={active}
       $disabled={disabled}
       htmlFor={id}
       ref={wrapperRef}

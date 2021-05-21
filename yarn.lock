@@ -2382,10 +2382,37 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/popup-menu@workspace:*, @lidofinance/popup-menu@workspace:packages/popup-menu":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/popup-menu@workspace:packages/popup-menu"
+  dependencies:
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@types/react": 17.0.6
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/select@workspace:*, @lidofinance/select@workspace:packages/select":
   version: 0.0.0-use.local
   resolution: "@lidofinance/select@workspace:packages/select"
   dependencies:
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/input": "workspace:*"
+    "@lidofinance/popup-menu": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.6
@@ -2396,7 +2423,6 @@ __metadata:
     react-dom: 17.0.2
     react-is: 17.0.2
     styled-components: 5.3.0
-    use-callback-ref: 1.2.5
   peerDependencies:
     react: 16 || 17
     react-dom: 16 || 17

@@ -27,6 +27,7 @@ export type InputProps = LidoComponentProps<
     leftDecorator?: React.ReactNode
     rightDecorator?: React.ReactNode
     type?: InputTypes
+    active?: boolean
     wrapperRef?: React.RefObject<HTMLLabelElement>
     as?: never
   }
