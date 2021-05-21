@@ -69,7 +69,7 @@ const testComponent = (
   })
 
   it('forward ref', () => {
-    const ref = createRef()
+    const ref = createRef<HTMLDivElement>()
     const { container } = render(<Component ref={ref} />)
     const element = container.firstElementChild
 
