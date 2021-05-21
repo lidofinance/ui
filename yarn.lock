@@ -2059,7 +2059,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/box@workspace:packages/box":
+"@lidofinance/box@workspace:*, @lidofinance/box@workspace:packages/box":
   version: 0.0.0-use.local
   resolution: "@lidofinance/box@workspace:packages/box"
   dependencies:
@@ -2182,7 +2182,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/heading@workspace:packages/heading":
+"@lidofinance/heading@workspace:*, @lidofinance/heading@workspace:packages/heading":
   version: 0.0.0-use.local
   resolution: "@lidofinance/heading@workspace:packages/heading"
   dependencies:
@@ -2289,10 +2289,12 @@ __metadata:
   dependencies:
     "@lidofinance/accordion": "workspace:*"
     "@lidofinance/block": "workspace:*"
+    "@lidofinance/box": "workspace:*"
     "@lidofinance/button": "workspace:*"
     "@lidofinance/checkbox": "workspace:*"
     "@lidofinance/container": "workspace:*"
     "@lidofinance/divider": "workspace:*"
+    "@lidofinance/heading": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/identicon": "workspace:*"
     "@lidofinance/input": "workspace:*"
@@ -2302,6 +2304,7 @@ __metadata:
     "@lidofinance/select": "workspace:*"
     "@lidofinance/stack": "workspace:*"
     "@lidofinance/text": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
   languageName: unknown
   linkType: soft

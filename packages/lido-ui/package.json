@@ -25,10 +25,12 @@
   "dependencies": {
     "@lidofinance/accordion": "workspace:*",
     "@lidofinance/block": "workspace:*",
+    "@lidofinance/box": "workspace:*",
     "@lidofinance/button": "workspace:*",
     "@lidofinance/checkbox": "workspace:*",
     "@lidofinance/container": "workspace:*",
     "@lidofinance/divider": "workspace:*",
+    "@lidofinance/heading": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/identicon": "workspace:*",
     "@lidofinance/input": "workspace:*",
@@ -38,6 +40,7 @@
     "@lidofinance/select": "workspace:*",
     "@lidofinance/stack": "workspace:*",
     "@lidofinance/text": "workspace:*",
+    "@lidofinance/theme": "workspace:*",
     "@lidofinance/utils": "workspace:*"
   }
 }
