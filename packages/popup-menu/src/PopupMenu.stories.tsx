@@ -9,7 +9,7 @@ const getOptions = (enumObject: Record<string, string | number>) =>
 
 export default {
   component: PopupMenu,
-  title: 'Controls/PopupMenu',
+  title: 'Dialogs/PopupMenu',
 } as Meta
 
 export const Basic: Story<PopupMenuProps> = (props) => (
@@ -35,16 +35,8 @@ export const Icons: Story<PopupMenuProps> = (props) => (
   <PopupMenu {...props}>
     <PopupMenuItem leftDecorator={<Eth />}>Ethereum (ETH)</PopupMenuItem>
     <PopupMenuItem leftDecorator={<Steth />}>Lido (STETH)</PopupMenuItem>
-    <PopupMenuItem leftDecorator={<Solana />}>Solana (SOL)</PopupMenuItem>
-  </PopupMenu>
-)
-
-export const Disabled: Story<PopupMenuProps> = (props) => (
-  <PopupMenu {...props}>
-    <PopupMenuItem disabled leftDecorator={<Eth />}>
-      Ethereum (ETH)
+    <PopupMenuItem disabled leftDecorator={<Solana />}>
+      Solana (SOL)
     </PopupMenuItem>
-    <PopupMenuItem leftDecorator={<Steth />}>Lido (STETH)</PopupMenuItem>
-    <PopupMenuItem leftDecorator={<Solana />}>Solana (SOL)</PopupMenuItem>
   </PopupMenu>
 )

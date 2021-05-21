@@ -8,6 +8,8 @@ export const PopupMenuStyle = styled.div`
   background: ${({ theme }) => theme.colors.foreground};
   color: ${({ theme }) => theme.colors.text};
   border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
+  overflow: auto;
+  overflow-x: hidden;
   box-shadow: ${({ theme }) =>
     `${theme.boxShadows.xs} ${theme.colors.shadowLight}`};
 

@@ -40,11 +40,8 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
     transition: opacity ${({ theme }) => theme.duration.fast} ease;
   }
 
-  &:focus,
-  &:hover {
-    &:not(:disabled):before {
-      opacity: 0.1;
-    }
+  &:focus:not(:disabled):before {
+    opacity: 0.1;
   }
 `
 

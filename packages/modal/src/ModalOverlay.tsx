@@ -1,12 +1,17 @@
 import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
+import {
+  useMergeRefs,
+  useInterceptFocus,
+  useAutoFocus,
+} from '@lidofinance/hooks'
 import { ModalOverlayProps } from './types'
 import {
   ModalPortalStyle,
   ModalOverlayStyle,
   ModalContentStyle,
 } from './ModalOverlayStyles'
-import { useEscape, useModalFocus, useModalRefs } from './hooks'
+import { useEscape, useModalFocus } from './hooks'
 import ModalRoot from './ModalRoot'
 
 function ModalOverlay(
@@ -16,8 +21,10 @@ function ModalOverlay(
   const { onClose, onKeyDown, ...rest } = props
   const closable = !!onClose
 
-  const autoFocusRef = useModalFocus()
-  const contentRef = useModalRefs([externalRef, autoFocusRef])
+  useInterceptFocus()
+  const autoFocusRef = useAutoFocus()
+  const controlRef = useModalFocus()
+  const contentRef = useMergeRefs([autoFocusRef, controlRef, externalRef])
 
   const handleKeyDown = useEscape(props)
 

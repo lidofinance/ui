@@ -2205,6 +2205,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/hooks@workspace:*, @lidofinance/hooks@workspace:packages/hooks":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/hooks@workspace:packages/hooks"
+  dependencies:
+    "@types/react": 17.0.6
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+    use-callback-ref: 1.2.5
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/icons@workspace:*, @lidofinance/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@lidofinance/icons@workspace:packages/icons"
@@ -2295,12 +2316,14 @@ __metadata:
     "@lidofinance/container": "workspace:*"
     "@lidofinance/divider": "workspace:*"
     "@lidofinance/heading": "workspace:*"
+    "@lidofinance/hooks": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/identicon": "workspace:*"
     "@lidofinance/input": "workspace:*"
     "@lidofinance/link": "workspace:*"
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/modal": "workspace:*"
+    "@lidofinance/popup-menu": "workspace:*"
     "@lidofinance/select": "workspace:*"
     "@lidofinance/stack": "workspace:*"
     "@lidofinance/text": "workspace:*"
@@ -2360,6 +2383,7 @@ __metadata:
   resolution: "@lidofinance/modal@workspace:packages/modal"
   dependencies:
     "@lidofinance/button": "workspace:*"
+    "@lidofinance/hooks": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
@@ -2373,7 +2397,6 @@ __metadata:
     react-dom: 17.0.2
     react-is: 17.0.2
     styled-components: 5.3.0
-    use-callback-ref: 1.2.5
   peerDependencies:
     react: 16 || 17
     react-dom: 16 || 17
@@ -2386,6 +2409,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/popup-menu@workspace:packages/popup-menu"
   dependencies:
+    "@lidofinance/hooks": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"

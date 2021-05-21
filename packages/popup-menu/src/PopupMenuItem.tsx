@@ -25,7 +25,13 @@ function PopupMenuItem(
   const hasRightDecorator = !!rightDecorator
 
   return (
-    <PopupMenuItemStyle $active={active} {...rest} ref={ref}>
+    <PopupMenuItemStyle
+      $active={active}
+      role='option'
+      aria-selected={active}
+      {...rest}
+      ref={ref}
+    >
       {hasLeftDecorator && (
         <PopupMenuItemLeftDecoratorStyle>
           {leftDecorator}
