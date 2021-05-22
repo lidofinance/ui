@@ -1,15 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react'
-import { FOCUSABLE_ELEMENTS } from '../constants'
+import { FOCUSABLE_ELEMENTS } from './constants'
 
 export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
   const modalRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const isFocusInside = !!modalRef.current?.contains(document.activeElement)
-    if (isFocusInside) return
-
-    modalRef.current?.focus()
-  }, [modalRef])
 
   const getFocusableNodes = useCallback(() => {
     const nodes =

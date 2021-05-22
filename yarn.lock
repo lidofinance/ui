@@ -2405,6 +2405,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/popover@workspace:packages/popover":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/popover@workspace:packages/popover"
+  dependencies:
+    "@lidofinance/button": "workspace:*"
+    "@lidofinance/hooks": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@types/react": 17.0.6
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/popup-menu@workspace:*, @lidofinance/popup-menu@workspace:packages/popup-menu":
   version: 0.0.0-use.local
   resolution: "@lidofinance/popup-menu@workspace:packages/popup-menu"

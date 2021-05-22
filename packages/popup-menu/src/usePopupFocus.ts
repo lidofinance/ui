@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import { FOCUSABLE_ELEMENTS } from './constants'
 import { PopupMenuProps } from './types'
 
@@ -7,8 +7,9 @@ export const usePopupFocus = <T extends HTMLDivElement>(
 ): {
   ref: React.RefObject<T>
   handleMouseMove: React.MouseEventHandler<T>
+  handleKeyDown: React.KeyboardEventHandler<T>
 } => {
-  const { onMouseMove } = props
+  const { onMouseMove, onKeyDown } = props
   const ref = useRef<T>(null)
 
   const getFocusableNodes = useCallback(() => {
@@ -22,7 +23,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
   }, [])
 
   const handleFocusTo = useCallback(
-    (event: KeyboardEvent, offset = 1) => {
+    (event: React.KeyboardEvent<T>, offset = 1) => {
       const focusableNodes = getFocusableNodes()
 
       if (focusableNodes.length === 0) return
@@ -52,6 +53,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
   const handleMouseMove: React.MouseEventHandler<T> = useCallback(
     (event) => {
       onMouseMove?.(event)
+
       const { target } = event
       if (!(target instanceof HTMLElement)) return
 
@@ -70,16 +72,20 @@ export const usePopupFocus = <T extends HTMLDivElement>(
     [getFocusableNodes, onMouseMove]
   )
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+  const handleKeyDown: React.KeyboardEventHandler<T> = useCallback(
+    (event) => {
+      onKeyDown?.(event)
+
       if (event.code === 'Tab') event.preventDefault()
       if (event.code === 'ArrowDown') handleFocusTo(event, +1)
       if (event.code === 'ArrowUp') handleFocusTo(event, -1)
-    }
+    },
+    [handleFocusTo, onKeyDown]
+  )
 
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [handleFocusTo])
-
-  return { ref, handleMouseMove }
+  return {
+    ref,
+    handleMouseMove,
+    handleKeyDown,
+  }
 }

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { PopupMenuItemStyle } from './PopupMenuItemStyles'
 
 export const PopupMenuStyle = styled.div`
+  outline: none;
   box-sizing: border-box;
   border: 1px solid transparent;
   margin: ${({ theme }) => theme.spaceMap.xs}px 0 0 0;

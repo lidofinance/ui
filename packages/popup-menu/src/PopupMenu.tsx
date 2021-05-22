@@ -17,12 +17,18 @@ function PopupMenu(
 
   useInterceptFocus()
   const autoFocusRef = useAutoFocus()
-  const { ref: controlRef, handleMouseMove } = usePopupFocus(props)
+  const {
+    ref: controlRef,
+    handleMouseMove,
+    handleKeyDown,
+  } = usePopupFocus(props)
   const popupRef = useMergeRefs([autoFocusRef, controlRef, externalRef])
 
   return (
     <PopupMenuStyle
       onMouseMove={handleMouseMove}
+      onKeyDown={handleKeyDown}
+      tabIndex={-1}
       role='listbox'
       {...rest}
       ref={popupRef}
