@@ -7,9 +7,8 @@ export type SelectHandleChange = (value: OptionValue) => void
 
 export type SelectProps = Omit<
   InputProps,
-  'type' | 'wrapperRef' | 'readonly' | 'onChange' | 'value' | 'defaultValue'
+  'type' | 'readonly' | 'onChange' | 'value' | 'defaultValue'
 > & {
-  wrapperRef?: React.RefObject<HTMLDivElement>
   value?: OptionValue
   defaultValue?: OptionValue
   onChange: SelectHandleChange

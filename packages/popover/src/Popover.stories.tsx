@@ -39,21 +39,6 @@ export default {
 } as Meta
 
 export const Basic: Story<PopoverProps> = (props) => {
-  const anchorRef = useRef<HTMLButtonElement>(null)
-
-  return (
-    <>
-      <Button size='sm' ref={anchorRef}>
-        Anchor
-      </Button>
-      <Popover {...props} anchorRef={anchorRef}>
-        Popover
-      </Popover>
-    </>
-  )
-}
-
-export const Interactive: Story<PopoverProps> = (props) => {
   const { onClose } = props
 
   const [state, setState] = useState(false)

@@ -4,6 +4,7 @@ import { PopoverPlacements } from './types'
 export const calculatePosition = (
   anchorRect: DOMRect,
   popoverRect: DOMRect,
+  wrapperRect: DOMRect,
   placement: PopoverPlacements
 ): CSSProperties => {
   const position: CSSProperties = {}
@@ -67,6 +68,9 @@ export const calculatePosition = (
       position.top = anchorRect.bottom
       break
   }
+
+  position.top -= wrapperRect.top
+  position.left -= wrapperRect.left
 
   return position
 }

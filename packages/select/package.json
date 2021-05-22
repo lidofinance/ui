@@ -23,10 +23,12 @@
     "react"
   ],
   "dependencies": {
+    "@lidofinance/hooks": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/input": "workspace:*",
     "@lidofinance/popup-menu": "workspace:*",
-    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/theme": "workspace:*",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "peerDependencies": {
     "react": "16 || 17",
@@ -40,6 +42,7 @@
     "@types/react": "17.0.6",
     "@types/react-dom": "17.0.5",
     "@types/react-is": "17.0.0",
+    "@types/resize-observer-browser": "^0.1.5",
     "@types/styled-components": "5.1.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",

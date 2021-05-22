@@ -11,17 +11,30 @@ function PopoverRoot(
   props: PopoverRootProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
-  const { wrapperRef, anchorRef, placement, backdrop = true, ...rest } = props
+  const {
+    wrapperRef: externalWrapperRef,
+    anchorRef,
+    placement,
+    backdrop = true,
+    ...rest
+  } = props
 
   useEscape(props.onClose)
   const { ref: outsidePopoverRef } = useOutsideClick(props.onClose)
-  const { popoverRef: positionPopoverRef, style } = usePopoverPosition(props)
+
+  const {
+    popoverRef: positionPopoverRef,
+    wrapperRef: positionWrapperRef,
+    style,
+  } = usePopoverPosition(props)
 
   const popoverRef = useMergeRefs([
     positionPopoverRef,
     outsidePopoverRef,
     externalRef,
   ])
+
+  const wrapperRef = useMergeRefs([positionWrapperRef, externalWrapperRef])
 
   if (!modalRoot) return null
 

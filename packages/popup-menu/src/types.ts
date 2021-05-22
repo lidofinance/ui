@@ -1,4 +1,5 @@
 import { LidoComponentProps } from '@lidofinance/utils'
+import { PopoverProps } from '@lidofinance/popover'
 export type { Theme } from '@lidofinance/theme'
 
 export enum PopupMenuSize {
@@ -7,12 +8,9 @@ export enum PopupMenuSize {
 }
 export type PopupMenuSizes = keyof typeof PopupMenuSize
 
-export type PopupMenuProps = LidoComponentProps<
-  'div',
-  {
-    size?: PopupMenuSizes
-  }
->
+export type PopupMenuProps = {
+  size?: PopupMenuSizes
+} & PopoverProps
 
 export type PopupMenuItemProps = LidoComponentProps<
   'button',

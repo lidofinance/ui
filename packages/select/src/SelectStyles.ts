@@ -1,5 +1,7 @@
 import styled from 'styled-components'
+import { Input } from '@lidofinance/input'
 import { ArrowBottom } from '@lidofinance/icons'
+import { SelectProps } from './types'
 
 export const SelectArrowStyle = styled(ArrowBottom)<{ $opened: boolean }>`
   transform: rotate(${(props) => (props.$opened ? 180 : 0)}deg);
@@ -7,21 +9,14 @@ export const SelectArrowStyle = styled(ArrowBottom)<{ $opened: boolean }>`
   fill: ${({ theme }) => theme.colors.textSecondary};
 `
 
-export const SelectWrapperStyle = styled.div<{ $disabled: boolean }>`
-  margin-bottom: 40px;
-
+export const SelectWrapperStyle = styled(Input)<SelectProps>`
   &,
-  .input-wrapper,
   input {
     user-select: none;
-    cursor: ${({ $disabled }) => ($disabled ? 'default' : 'pointer')};
+    cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 
     &::selection {
       background: transparent;
     }
-  }
-
-  .input-wrapper {
-    margin: 0;
   }
 `

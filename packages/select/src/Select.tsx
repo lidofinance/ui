@@ -1,15 +1,14 @@
-import { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef, useRef } from 'react'
 import { SelectArrowStyle, SelectWrapperStyle } from './SelectStyles'
-import { Input } from '@lidofinance/input'
+import { useMergeRefs } from '@lidofinance/hooks'
 import { PopupMenu } from '@lidofinance/popup-menu'
 import { SelectProps } from './types'
 import { useSelect } from './useSelect'
+import { useSelectWidth } from './useSelectWidth'
 
 function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
   const {
-    className,
-    style,
-    wrapperRef,
+    wrapperRef: externalWrapperRef,
     value,
     defaultValue,
     children,
@@ -17,27 +16,37 @@ function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
     ...rest
   } = props
 
-  const { disabled = false } = props
-  const wrapperProps = { className, style }
-
-  const { opened, options, title, handleClick, handleKeyDown } =
+  const { opened, options, title, handleClick, handleClose, handleKeyDown } =
     useSelect(props)
+  const { selectRef, width } = useSelectWidth(opened)
+
+  const anchorRef = useRef<HTMLLabelElement>(null)
+  const wrapperRef = useMergeRefs([anchorRef, selectRef, externalWrapperRef])
 
   return (
-    <SelectWrapperStyle $disabled={disabled} {...wrapperProps} ref={wrapperRef}>
-      <Input
+    <>
+      <SelectWrapperStyle
         className='input-wrapper'
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         active={opened}
         value={title}
         rightDecorator={<SelectArrowStyle $opened={opened} />}
+        wrapperRef={wrapperRef}
         {...rest}
         ref={ref}
         readOnly
       />
-      {opened && <PopupMenu>{options}</PopupMenu>}
-    </SelectWrapperStyle>
+      {opened && (
+        <PopupMenu
+          anchorRef={anchorRef}
+          style={{ minWidth: width }}
+          onClose={handleClose}
+        >
+          {options}
+        </PopupMenu>
+      )}
+    </>
   )
 }
 
