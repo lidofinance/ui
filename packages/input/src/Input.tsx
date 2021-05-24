@@ -3,11 +3,11 @@ import {
   InputWrapperStyle,
   InputContentStyle,
   InputStyle,
-  InputLabelStyle,
   InputLeftDecoratorStyle,
   InputRightDecoratorStyle,
   InputMessageStyle,
 } from './InputStyles'
+import { InputLabelStyle } from './LabelStyles'
 import { InputProps } from './types'
 
 function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
@@ -15,19 +15,23 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
     label,
     error,
     success,
+    active = false,
+    fullwidth = false,
     placeholder = ' ',
     leftDecorator,
     rightDecorator,
     className,
     style,
+    variant = 'default',
     wrapperRef,
+    children,
     ...rest
   } = props
 
   const { id, disabled = false } = props
   const wrapperProps = { className, style }
 
-  const hasLabel = !!label
+  const hasLabel = !!label && variant === 'default'
   const hasError = !!error
   const hasSuccess = !!success && !error
   const hasLeftDecorator = !!leftDecorator
@@ -36,7 +40,9 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
   return (
     <InputWrapperStyle
       $error={hasError}
+      $active={active}
       $disabled={disabled}
+      $fullwidth={fullwidth}
       htmlFor={id}
       ref={wrapperRef}
       {...wrapperProps}
@@ -45,7 +51,7 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
         <InputLeftDecoratorStyle>{leftDecorator}</InputLeftDecoratorStyle>
       )}
 
-      <InputContentStyle>
+      <InputContentStyle $variant={variant}>
         <InputStyle
           $labeled={hasLabel}
           placeholder={placeholder}

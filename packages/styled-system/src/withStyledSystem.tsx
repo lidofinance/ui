@@ -28,6 +28,9 @@ import {
 import { StyledSystemProps } from './types'
 import React from 'react'
 
+type MergePropsWithSS<T extends object> = Omit<T, keyof StyledSystemProps> &
+  StyledSystemProps
+
 function withStyledSystem<
   C extends AnyStyledComponent,
   T extends object = DefaultTheme,
@@ -38,8 +41,7 @@ function withStyledSystem<
 ): StyledComponent<
   StyledComponentInnerComponent<C>,
   T,
-  Omit<O & StyledComponentInnerOtherProps<C>, keyof StyledSystemProps> &
-    StyledSystemProps,
+  MergePropsWithSS<O & StyledComponentInnerOtherProps<C>>,
   A | StyledComponentInnerAttrs<C>
 >
 
@@ -48,14 +50,7 @@ function withStyledSystem<
   T extends object = DefaultTheme,
   O extends object = {},
   A extends keyof any = never
->(
-  Component: C
-): StyledComponent<
-  C,
-  T,
-  Omit<O, keyof StyledSystemProps> & StyledSystemProps,
-  A
->
+>(Component: C): StyledComponent<C, T, MergePropsWithSS<O>, A>
 
 function withStyledSystem(Component: any) {
   return styled(Component).withConfig<{}>({

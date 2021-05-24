@@ -1,4 +1,3 @@
-export * from './Select'
-export * from './SelectMenu'
-export * from './SelectStyle'
+export { default as Select } from './Select'
+export { default as Option } from './Option'
 export * from './types'

@@ -1,6 +1,6 @@
 {
   "name": "@lidofinance/modal",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -24,10 +24,10 @@
   ],
   "dependencies": {
     "@lidofinance/button": "workspace:*",
+    "@lidofinance/hooks": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/theme": "workspace:*",
-    "@lidofinance/utils": "workspace:*",
-    "use-callback-ref": "1.2.5"
+    "@lidofinance/utils": "workspace:*"
   },
   "peerDependencies": {
     "react": "16 || 17",

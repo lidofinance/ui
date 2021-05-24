@@ -18,6 +18,12 @@ export enum InputType {
 }
 export type InputTypes = keyof typeof InputType
 
+export enum InputVariant {
+  small,
+  default,
+}
+export type InputVariants = keyof typeof InputVariant
+
 export type InputProps = LidoComponentProps<
   'input',
   {
@@ -27,7 +33,17 @@ export type InputProps = LidoComponentProps<
     leftDecorator?: React.ReactNode
     rightDecorator?: React.ReactNode
     type?: InputTypes
+    variant?: InputVariants
+    active?: boolean
+    fullwidth?: boolean
     wrapperRef?: React.RefObject<HTMLLabelElement>
     as?: never
+  }
+>
+
+export type InputGroupProps = LidoComponentProps<
+  'span',
+  {
+    fullwidth?: boolean
   }
 >

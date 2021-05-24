@@ -12,7 +12,7 @@ yarn add @lidofinance/select
 ## Usage
 
 ```ts
-import { Select } from '@lidofinance/select'
+import { Select, Option } from '@lidofinance/select'
 ```
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)

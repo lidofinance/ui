@@ -2059,7 +2059,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/box@workspace:packages/box":
+"@lidofinance/box@workspace:*, @lidofinance/box@workspace:packages/box":
   version: 0.0.0-use.local
   resolution: "@lidofinance/box@workspace:packages/box"
   dependencies:
@@ -2182,7 +2182,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/heading@workspace:packages/heading":
+"@lidofinance/heading@workspace:*, @lidofinance/heading@workspace:packages/heading":
   version: 0.0.0-use.local
   resolution: "@lidofinance/heading@workspace:packages/heading"
   dependencies:
@@ -2197,6 +2197,27 @@ __metadata:
     react-dom: 17.0.2
     react-is: 17.0.2
     styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/hooks@workspace:*, @lidofinance/hooks@workspace:packages/hooks":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/hooks@workspace:packages/hooks"
+  dependencies:
+    "@types/react": 17.0.6
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+    use-callback-ref: 1.2.5
   peerDependencies:
     react: 16 || 17
     react-dom: 16 || 17
@@ -2289,19 +2310,24 @@ __metadata:
   dependencies:
     "@lidofinance/accordion": "workspace:*"
     "@lidofinance/block": "workspace:*"
+    "@lidofinance/box": "workspace:*"
     "@lidofinance/button": "workspace:*"
     "@lidofinance/checkbox": "workspace:*"
     "@lidofinance/container": "workspace:*"
     "@lidofinance/divider": "workspace:*"
+    "@lidofinance/heading": "workspace:*"
+    "@lidofinance/hooks": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/identicon": "workspace:*"
     "@lidofinance/input": "workspace:*"
     "@lidofinance/link": "workspace:*"
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/modal": "workspace:*"
+    "@lidofinance/popup-menu": "workspace:*"
     "@lidofinance/select": "workspace:*"
     "@lidofinance/stack": "workspace:*"
     "@lidofinance/text": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -2357,6 +2383,7 @@ __metadata:
   resolution: "@lidofinance/modal@workspace:packages/modal"
   dependencies:
     "@lidofinance/button": "workspace:*"
+    "@lidofinance/hooks": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
@@ -2370,7 +2397,58 @@ __metadata:
     react-dom: 17.0.2
     react-is: 17.0.2
     styled-components: 5.3.0
-    use-callback-ref: 1.2.5
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/popover@workspace:*, @lidofinance/popover@workspace:packages/popover":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/popover@workspace:packages/popover"
+  dependencies:
+    "@lidofinance/button": "workspace:*"
+    "@lidofinance/hooks": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@types/react": 17.0.6
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/popup-menu@workspace:*, @lidofinance/popup-menu@workspace:packages/popup-menu":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/popup-menu@workspace:packages/popup-menu"
+  dependencies:
+    "@lidofinance/button": "workspace:*"
+    "@lidofinance/hooks": "workspace:*"
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/popover": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@types/react": 17.0.6
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/styled-components": 5.1.9
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
   peerDependencies:
     react: 16 || 17
     react-dom: 16 || 17
@@ -2383,17 +2461,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/select@workspace:packages/select"
   dependencies:
+    "@lidofinance/hooks": "workspace:*"
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/input": "workspace:*"
+    "@lidofinance/popup-menu": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.6
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
+    "@types/resize-observer-browser": ^0.1.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
+    resize-observer-polyfill: ^1.5.1
     styled-components: 5.3.0
-    use-callback-ref: 1.2.5
   peerDependencies:
     react: 16 || 17
     react-dom: 16 || 17
@@ -4274,6 +4357,13 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: dd687a9620d90cc7b9e50ed06ec73beb589fcb7ddfec7b166307af79cee7c521c1f2f1084ffd4ad6eaf7c937cfa446cc0b03cc3cd18e85e952501da2f2e0e0c3
+  languageName: node
+  linkType: hard
+
+"@types/resize-observer-browser@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "@types/resize-observer-browser@npm:0.1.5"
+  checksum: 6a7ee5f26158a39fd07ab3b6b177f4ff1446237264c6d1fa9e5951c6e7576c29de03c890e1ad0e812a25c5d3527410301e88c516637414f2f45b3a98a10f83da
   languageName: node
   linkType: hard
 
@@ -14612,6 +14702,13 @@ fsevents@^1.2.7:
   version: 2.0.0
   resolution: "require-main-filename@npm:2.0.0"
   checksum: e9e294695fea08b076457e9ddff854e81bffbe248ed34c1eec348b7abbd22a0d02e8d75506559e2265e96978f3c4720bd77a6dad84755de8162b357eb6c778c7
+  languageName: node
+  linkType: hard
+
+"resize-observer-polyfill@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "resize-observer-polyfill@npm:1.5.1"
+  checksum: 57e7f79489867b00ba43c9c051524a5c8f162a61d5547e99333549afc23e15c44fd43f2f318ea0261ea98c0eb3158cca261e6f48d66e1ed1cd1f340a43977094
   languageName: node
   linkType: hard
 

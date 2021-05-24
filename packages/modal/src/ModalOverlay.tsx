@@ -1,13 +1,19 @@
 import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
+import {
+  useMergeRefs,
+  useInterceptFocus,
+  useAutoFocus,
+  useEscape,
+} from '@lidofinance/hooks'
+import { modalRoot } from '@lidofinance/utils'
 import { ModalOverlayProps } from './types'
 import {
   ModalPortalStyle,
   ModalOverlayStyle,
   ModalContentStyle,
 } from './ModalOverlayStyles'
-import { useEscape, useModalFocus, useModalRefs } from './hooks'
-import ModalRoot from './ModalRoot'
+import { useModalFocus } from './useModalFocus'
 
 function ModalOverlay(
   props: ModalOverlayProps,
@@ -16,12 +22,14 @@ function ModalOverlay(
   const { onClose, onKeyDown, ...rest } = props
   const closable = !!onClose
 
-  const autoFocusRef = useModalFocus()
-  const contentRef = useModalRefs([externalRef, autoFocusRef])
+  useInterceptFocus()
+  useEscape(props.onClose)
 
-  const handleKeyDown = useEscape(props)
+  const autoFocusRef = useAutoFocus()
+  const controlRef = useModalFocus()
+  const contentRef = useMergeRefs([autoFocusRef, controlRef, externalRef])
 
-  if (!ModalRoot) return null
+  if (!modalRoot) return null
 
   return ReactDOM.createPortal(
     <ModalPortalStyle>
@@ -32,14 +40,13 @@ function ModalOverlay(
       />
       <ModalContentStyle
         tabIndex={-1}
-        onKeyDown={handleKeyDown}
         role='dialog'
         aria-modal='true'
         ref={contentRef}
         {...rest}
       />
     </ModalPortalStyle>,
-    ModalRoot
+    modalRoot
   )
 }
 

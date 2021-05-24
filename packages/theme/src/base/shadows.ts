@@ -1,4 +1,5 @@
 const boxShadows = {
+  xs: '0px 4px 8px 0px',
   sm: '0px 4px 12px 0px',
   md: '0px 4px 16px 0px',
   lg: '0px 8px 24px 0px',
