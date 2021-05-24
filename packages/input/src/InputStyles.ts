@@ -9,11 +9,12 @@ import {
 
 const statesCSS = css`
   &:hover {
+    z-index: 1;
     border-color: ${({ theme }) => theme.colors.borderHover};
   }
 
   &:focus-within {
-    z-index: 1;
+    z-index: 2;
     border-color: ${({ theme }) => theme.colors.primary};
 
     ${InputLabelStyle} {
@@ -26,7 +27,7 @@ const activeCSS = css`
   &,
   &:hover,
   &:focus-within {
-    z-index: 1;
+    z-index: 2;
     border-color: ${({ theme }) => theme.colors.primary};
 
     ${InputLabelStyle} {
