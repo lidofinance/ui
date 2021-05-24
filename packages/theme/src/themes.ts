@@ -25,7 +25,7 @@ export const themeLight = {
 
     controlBg: '#fff',
   },
-} as const
+}
 
 export const themeDark = {
   ...themeBase,
@@ -52,6 +52,6 @@ export const themeDark = {
 
     controlBg: '#2f2f37',
   },
-} as const
+}
 
 export const themeDefault = themeLight
