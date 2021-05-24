@@ -7,7 +7,7 @@ export const PopoverWrapperStyle = styled.div<{ $backdrop: boolean }>`
   left: 0;
   margin: 0;
   padding: 0;
-  width: ${({ $backdrop }) => ($backdrop ? '100%' : '0px')};
+  width: 100%;
   height: ${({ $backdrop }) => ($backdrop ? '100%' : '0px')};
 `
 
