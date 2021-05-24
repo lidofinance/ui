@@ -1,10 +1,11 @@
 import { Story, Meta } from '@storybook/react'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
+import { InputGroup, Input } from '@lidofinance/input'
 import { SelectProps } from './types'
 import Select from './Select'
 import SelectIcon from './SelectIcon'
 import Option from './Option'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 export default {
   component: Select,
@@ -93,6 +94,35 @@ OnlyIcon.argTypes = {
   fullwidth: {
     table: { disable: true },
   },
+}
+
+export const WithInput: Story<SelectProps> = (props) => {
+  const { fullwidth, disabled } = props
+  const [value, setValue] = useState<keyof typeof iconsMap>('eth')
+  const ref = useRef<HTMLSpanElement>(null)
+
+  return (
+    <InputGroup fullwidth={fullwidth} ref={ref}>
+      <SelectIcon
+        {...props}
+        anchorRef={ref}
+        icon={iconsMap[value]}
+        value={value}
+        onChange={(value) => setValue(value as keyof typeof iconsMap)}
+      >
+        <Option leftDecorator={iconsMap.eth} value='eth'>
+          Ethereum (ETH)
+        </Option>
+        <Option leftDecorator={iconsMap.steth} value='steth'>
+          Lido (STETH)
+        </Option>
+        <Option leftDecorator={iconsMap.sol} value='sol'>
+          Solana (SOL)
+        </Option>
+      </SelectIcon>
+      <Input fullwidth={fullwidth} disabled={disabled} placeholder='Amount' />
+    </InputGroup>
+  )
 }
 
 export const Small: Story<SelectProps> = (props) => (

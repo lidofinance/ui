@@ -1,30 +1,27 @@
-import { useCallback, useState, useEffect, useRef } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 
-export const useSelectWidth = <T extends HTMLLabelElement>(
-  opened: boolean
-): {
-  selectRef: React.RefObject<T>
-  width?: number
-} => {
-  const selectRef = useRef<T>(null)
+export const useSelectWidth = <T extends HTMLElement>(
+  opened: boolean,
+  anchorRef: React.RefObject<T | null>
+): number | undefined => {
   const [width, setWidth] = useState<number>()
 
   const updateWidth = useCallback(() => {
-    if (!selectRef.current) return
-    const rect = selectRef.current.getBoundingClientRect()
+    if (!anchorRef.current) return
+    const rect = anchorRef.current.getBoundingClientRect()
 
     setWidth(rect.width)
-  }, [])
+  }, [anchorRef])
 
   useEffect(() => {
-    if (!opened || !selectRef.current) return
+    if (!opened || !anchorRef.current) return
 
     const observer = new ResizeObserver(updateWidth)
-    observer.observe(selectRef.current)
+    observer.observe(anchorRef.current)
 
     return (): void => observer.disconnect()
-  }, [opened, updateWidth])
+  }, [opened, anchorRef, updateWidth])
 
-  return { width, selectRef }
+  return width
 }

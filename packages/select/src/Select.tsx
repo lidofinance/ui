@@ -21,12 +21,14 @@ function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
   } = props
 
   const { disabled } = props
+
+  const localAnchorRef = useRef<HTMLLabelElement>(null)
+  const wrapperRef = useMergeRefs([localAnchorRef, externalWrapperRef])
+  const anchorRef = externalAnchorRef || localAnchorRef
+
   const { opened, options, title, handleClick, handleClose, handleKeyDown } =
     useSelect(props)
-  const { selectRef, width } = useSelectWidth(opened)
-
-  const anchorRef = useRef<HTMLLabelElement>(null)
-  const wrapperRef = useMergeRefs([anchorRef, selectRef, externalWrapperRef])
+  const width = useSelectWidth(opened, anchorRef)
 
   return (
     <>
@@ -48,7 +50,7 @@ function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
       {opened && (
         <PopupMenu
           variant={variant}
-          anchorRef={externalAnchorRef || anchorRef}
+          anchorRef={anchorRef}
           style={{ minWidth: width }}
           onClose={handleClose}
         >

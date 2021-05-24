@@ -40,3 +40,10 @@ export type InputProps = LidoComponentProps<
     as?: never
   }
 >
+
+export type InputGroupProps = LidoComponentProps<
+  'span',
+  {
+    fullwidth?: boolean
+  }
+>
