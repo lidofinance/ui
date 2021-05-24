@@ -33,7 +33,6 @@ function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
   return (
     <>
       <SelectWrapperStyle
-        className='input-wrapper'
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         active={opened}
