@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { InputMessageVariants } from './types'
+import { InputMessageVariants, InputVariants } from './types'
 import {
   labelEmptyValueCSS,
   labelFocusCSS,
@@ -49,6 +49,7 @@ export const InputWrapperStyle = styled.label<{
   $error: boolean
   $active: boolean
   $disabled: boolean
+  $fullwidth: boolean
 }>`
   position: relative;
   display: inline-flex;
@@ -57,12 +58,12 @@ export const InputWrapperStyle = styled.label<{
   border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
   align-items: stretch;
   box-sizing: border-box;
-  width: 100%;
   padding: 0 15px;
   margin-bottom: 40px;
-  cursor: text;
+  cursor: ${({ $disabled }) => ($disabled ? 'default' : 'text')};
   transition: border-color ${({ theme }) => theme.duration.fast} ease;
   color: ${({ theme }) => theme.colors.text};
+  width: ${({ $fullwidth }) => ($fullwidth ? '100%' : 'auto')};
 
   ${({ $disabled }) => ($disabled ? '' : statesCSS)}
 
@@ -70,12 +71,22 @@ export const InputWrapperStyle = styled.label<{
   ${({ $error }) => ($error ? errorCSS : '')}
 `
 
-export const InputContentStyle = styled.span`
-  padding: 17px 0;
+const contentVariants = {
+  default: css`
+    padding: 17px 0;
+  `,
+  small: css`
+    padding: 9px 0;
+  `,
+}
+
+export const InputContentStyle = styled.span<{ $variant: InputVariants }>`
   font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
   display: flex;
   flex-grow: 1;
   position: relative;
+
+  ${({ $variant }) => contentVariants[$variant]};
 `
 
 const labeledCSS = css`
@@ -157,7 +168,7 @@ export const InputMessageStyle = styled.span<{
 const decoratorCSS = css`
   flex-grow: 0;
   flex-shrink: 0;
-  cursor: default;
+  cursor: inherit;
   display: flex;
   align-items: center;
 `

@@ -1,10 +1,10 @@
 import { Story, Meta } from '@storybook/react'
-import { Eth, Solana } from '@lidofinance/icons'
+import { Eth } from '@lidofinance/icons'
 import { Button } from '@lidofinance/button'
 import { Identicon } from '@lidofinance/identicon'
 import Input from './Input'
 import styled from 'styled-components'
-import { InputProps, InputType } from './types'
+import { InputProps, InputType, InputVariant } from './types'
 import { useState } from 'react'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -15,6 +15,8 @@ export default {
   title: 'Controls/Input',
   args: {
     disabled: false,
+    fullwidth: false,
+    active: false,
   },
   argTypes: {
     onChange: {
@@ -27,7 +29,6 @@ export default {
 export const Basic: Story<InputProps> = (props) => <Input {...props} />
 
 Basic.args = {
-  active: false,
   placeholder: 'Amount',
   label: '',
   type: 'text',
@@ -36,6 +37,20 @@ Basic.args = {
 Basic.argTypes = {
   type: {
     options: getOptions(InputType),
+    control: 'inline-radio',
+  },
+}
+
+export const Small: Story<InputProps> = (props) => <Input {...props} />
+
+Small.args = {
+  variant: 'small',
+  placeholder: 'Amount',
+}
+
+Small.argTypes = {
+  variant: {
+    options: getOptions(InputVariant),
     control: 'inline-radio',
   },
 }
@@ -63,18 +78,11 @@ const MaxButton = () => (
 )
 
 export const WithDecorators: Story<InputProps> = (props) => (
-  <>
-    <Input
-      leftDecorator={<EthIcon />}
-      rightDecorator={<MaxButton />}
-      {...props}
-    />
-    <Input
-      leftDecorator={<Solana />}
-      rightDecorator={<MaxButton />}
-      {...props}
-    />
-  </>
+  <Input
+    leftDecorator={<EthIcon />}
+    rightDecorator={<MaxButton />}
+    {...props}
+  />
 )
 
 WithDecorators.args = {
@@ -118,12 +126,14 @@ export const WithButton: Story<InputProps> = (props) => (
 )
 
 WithButton.args = {
+  fullwidth: true,
   label: 'Email address',
 }
 
 export const WithError: Story<InputProps> = (props) => <Input {...props} />
 
 WithError.args = {
+  fullwidth: true,
   defaultValue: 'info@lido.',
   label: 'Email address',
   error: 'Email is invalid',
@@ -139,6 +149,7 @@ export const WithSuccess: Story<InputProps> = (props) => (
 )
 
 WithSuccess.args = {
+  fullwidth: true,
   disabled: true,
   defaultValue: 'info@lido.fi',
   success:

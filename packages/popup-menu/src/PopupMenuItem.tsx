@@ -19,7 +19,7 @@ function PopupMenuItem(
     children,
     ...rest
   } = props
-  const { size = 'medium' } = usePopupMenuContext()
+  const { variant = 'default' } = usePopupMenuContext()
 
   const hasLeftDecorator = !!leftDecorator
   const hasRightDecorator = !!rightDecorator
@@ -38,7 +38,7 @@ function PopupMenuItem(
         </PopupMenuItemLeftDecoratorStyle>
       )}
 
-      <PopupMenuItemContentStyle $size={size}>
+      <PopupMenuItemContentStyle $variant={variant}>
         {children}
       </PopupMenuItemContentStyle>
 

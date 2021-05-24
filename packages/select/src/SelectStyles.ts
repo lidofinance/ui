@@ -1,12 +1,15 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Input } from '@lidofinance/input'
-import { ArrowBottom } from '@lidofinance/icons'
 import { SelectProps } from './types'
 
-export const SelectArrowStyle = styled(ArrowBottom)<{ $opened: boolean }>`
-  transform: rotate(${(props) => (props.$opened ? 180 : 0)}deg);
-  transition: transform ${({ theme }) => theme.duration.norm} ease;
-  fill: ${({ theme }) => theme.colors.textSecondary};
+const smallCSS = css`
+  input {
+    font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
+    line-height: 1.7em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
 `
 
 export const SelectWrapperStyle = styled(Input)<SelectProps>`
@@ -19,4 +22,11 @@ export const SelectWrapperStyle = styled(Input)<SelectProps>`
       background: transparent;
     }
   }
+
+  input {
+    appearance: none;
+    overflow: hidden;
+  }
+
+  ${({ variant }) => (variant === 'small' ? smallCSS : '')}
 `

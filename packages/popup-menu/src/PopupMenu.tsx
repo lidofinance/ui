@@ -13,7 +13,7 @@ function PopupMenu(
   props: PopupMenuProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
-  const { size, children, ...rest } = props
+  const { variant, children, ...rest } = props
 
   useInterceptFocus()
   const autoFocusRef = useAutoFocus()
@@ -33,7 +33,7 @@ function PopupMenu(
       {...rest}
       ref={popupRef}
     >
-      <PopupMenuProvider size={size}>{children}</PopupMenuProvider>
+      <PopupMenuProvider variant={variant}>{children}</PopupMenuProvider>
     </PopupMenuStyle>
   )
 }

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { PopupMenuSizes } from './types'
+import { PopupMenuVariants } from './types'
 
 export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
   text-align: left;
@@ -19,6 +19,7 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
   outline: none;
   cursor: pointer;
   padding: 0 15px;
+  margin: 0;
   position: relative;
 
   &:disabled {
@@ -45,30 +46,31 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
   }
 `
 
-const sizes = {
+const variants = {
   small: css`
     padding: 12px 0;
     font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
     line-height: 1.35em;
-    font-family: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     font-weight: 700;
   `,
-  medium: css`
+  default: css`
     padding: 18px 0;
     font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
     line-height: 1.25em;
   `,
 }
 
-export const PopupMenuItemContentStyle = styled.span<{ $size: PopupMenuSizes }>`
+export const PopupMenuItemContentStyle = styled.span<{
+  $variant: PopupMenuVariants
+}>`
   position: relative;
   padding: 18px 0;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  ${({ $size }) => sizes[$size]}
+  ${({ $variant }) => variants[$variant]}
 `
 
 const decoratorCSS = css`

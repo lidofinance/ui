@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
 import { SelectProps } from './types'
 import Select from './Select'
+import SelectIcon from './SelectIcon'
 import Option from './Option'
 import { useState } from 'react'
 
@@ -10,6 +11,7 @@ export default {
   title: 'Controls/Select',
   args: {
     disabled: false,
+    fullwidth: false,
   },
   argTypes: {
     onChange: {
@@ -63,3 +65,40 @@ export const Icons: Story<SelectProps> = (props) => {
     </Select>
   )
 }
+
+export const OnlyIcon: Story<SelectProps> = (props) => {
+  const [value, setValue] = useState<keyof typeof iconsMap>('eth')
+
+  return (
+    <SelectIcon
+      {...props}
+      icon={iconsMap[value]}
+      value={value}
+      onChange={(value) => setValue(value as keyof typeof iconsMap)}
+    >
+      <Option leftDecorator={iconsMap.eth} value='eth'>
+        Ethereum (ETH)
+      </Option>
+      <Option leftDecorator={iconsMap.steth} value='steth'>
+        Lido (STETH)
+      </Option>
+      <Option leftDecorator={iconsMap.sol} value='sol'>
+        Solana (SOL)
+      </Option>
+    </SelectIcon>
+  )
+}
+
+OnlyIcon.argTypes = {
+  fullwidth: {
+    table: { disable: true },
+  },
+}
+
+export const Small: Story<SelectProps> = (props) => (
+  <Select {...props} variant='small' arrow='small' value={1}>
+    <Option value={1}>First</Option>
+    <Option value={2}>Second</Option>
+    <Option value={3}>Third</Option>
+  </Select>
+)

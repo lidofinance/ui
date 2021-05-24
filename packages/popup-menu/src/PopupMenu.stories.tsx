@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { useCallback, useRef, useState } from 'react'
 import { Button } from '@lidofinance/button'
-import { PopupMenuProps, PopupMenuSize } from './types'
+import { PopupMenuProps, PopupMenuVariant } from './types'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
 import PopupMenu from './PopupMenu'
 import PopupMenuItem from './PopupMenuItem'
@@ -13,24 +13,24 @@ export default {
   component: PopupMenu,
   title: 'Dialogs/PopupMenu',
   args: {
-    size: 'medium',
+    variant: 'default',
   },
   argTypes: {
-    size: {
-      options: getOptions(PopupMenuSize),
+    variant: {
+      options: getOptions(PopupMenuVariant),
       control: 'inline-radio',
     },
   },
 } as Meta
 
-export const Basic: Story<PopupMenuProps> = (props) => {
+const usePopup = (props: PopupMenuProps) => {
   const { onClose } = props
 
   const [state, setState] = useState(false)
   const anchorRef = useRef<HTMLButtonElement>(null)
 
-  const handleToggle = useCallback(() => {
-    setState((state) => !state)
+  const handleOpen = useCallback(() => {
+    setState(true)
   }, [])
 
   const handleClose = useCallback(() => {
@@ -38,9 +38,44 @@ export const Basic: Story<PopupMenuProps> = (props) => {
     onClose?.()
   }, [onClose])
 
+  return {
+    state,
+    anchorRef,
+    handleOpen,
+    handleClose,
+  }
+}
+
+export const Basic: Story<PopupMenuProps> = (props) => {
+  const { state, anchorRef, handleOpen, handleClose } = usePopup(props)
+
   return (
     <>
-      <Button size='sm' onClick={handleToggle} ref={anchorRef}>
+      <Button size='sm' onClick={handleOpen} ref={anchorRef}>
+        Open Menu
+      </Button>
+      {state && (
+        <PopupMenu
+          {...props}
+          style={{ width: 200 }}
+          onClose={handleClose}
+          anchorRef={anchorRef}
+        >
+          <PopupMenuItem onClick={handleClose}>Ethereum (ETH)</PopupMenuItem>
+          <PopupMenuItem onClick={handleClose}>Lido (STETH)</PopupMenuItem>
+          <PopupMenuItem disabled>Solana (SOL)</PopupMenuItem>
+        </PopupMenu>
+      )}
+    </>
+  )
+}
+
+export const Icons: Story<PopupMenuProps> = (props) => {
+  const { state, anchorRef, handleOpen, handleClose } = usePopup(props)
+
+  return (
+    <>
+      <Button size='sm' onClick={handleOpen} ref={anchorRef}>
         Open Menu
       </Button>
       {state && (
