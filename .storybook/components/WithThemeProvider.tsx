@@ -5,6 +5,13 @@ import {
   themeDark,
   ThemeProvider,
 } from '../../packages/theme/dist/esm'
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    color: ${({ theme }) => theme.colors.text};
+  }
+`
 
 export const WithThemeProvider: BaseDecorators<JSX.Element>[number] = (
   Story
@@ -14,6 +21,7 @@ export const WithThemeProvider: BaseDecorators<JSX.Element>[number] = (
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Story />
     </ThemeProvider>
   )

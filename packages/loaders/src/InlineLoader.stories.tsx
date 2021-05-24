@@ -29,7 +29,6 @@ const RowStyle = styled.div`
   display: flex;
   max-width: 300px;
   margin: 10px 0;
-  color: ${({ theme }) => theme.colors.text};
 
   & > div {
     flex-grow: 1;

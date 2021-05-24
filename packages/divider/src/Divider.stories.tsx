@@ -26,7 +26,6 @@ export default {
 } as Meta
 
 const Wrapper = styled.div<{ $type?: DividerTypes }>`
-  color: ${({ theme }) => theme.colors.text};
   flex-direction: ${({ $type }) => ($type === 'vertical' ? 'row' : 'column')};
   display: flex;
 `

@@ -10,7 +10,6 @@ const StyledDiv = styled.div`
   width: 100px;
   height: 100px;
   border: 2px solid;
-  color: ${({ theme }) => theme.colors.text};
 `
 const Example = withStyledSystem(StyledDiv)
 Example.displayName = 'Example'
