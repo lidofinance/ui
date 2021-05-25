@@ -32,8 +32,12 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
   const wrapperProps = { className, style }
 
   const hasLabel = !!label && variant === 'default'
+
   const hasError = !!error
+  const hasErrorMessage = hasError && typeof error !== 'boolean'
   const hasSuccess = !!success && !error
+  const hasSuccessMessage = hasSuccess && typeof success !== 'boolean'
+
   const hasLeftDecorator = !!leftDecorator
   const hasRightDecorator = !!rightDecorator
 
@@ -63,11 +67,15 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
         {hasLabel && <InputLabelStyle>{label}</InputLabelStyle>}
       </InputContentStyle>
 
-      {hasError && (
-        <InputMessageStyle $variant='error'>{error}</InputMessageStyle>
+      {hasErrorMessage && (
+        <InputMessageStyle $variant='error' $bordered>
+          {error}
+        </InputMessageStyle>
       )}
-      {hasSuccess && (
-        <InputMessageStyle $variant='success'>{success}</InputMessageStyle>
+      {hasSuccessMessage && (
+        <InputMessageStyle $variant='success' $bordered>
+          {success}
+        </InputMessageStyle>
       )}
 
       {hasRightDecorator && (

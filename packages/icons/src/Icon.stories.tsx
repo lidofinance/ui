@@ -27,7 +27,7 @@ Base.argTypes = {
 }
 
 Base.args = {
-  type: 'Document',
+  type: 'History',
 }
 
 const IconList = styled.div`

@@ -62,7 +62,6 @@ export const InputWrapperStyle = styled.label<{
   align-items: stretch;
   box-sizing: border-box;
   padding: 0 15px;
-  margin-bottom: 40px;
   cursor: ${({ $disabled }) => ($disabled ? 'default' : 'text')};
   transition: border-color ${({ theme }) => theme.duration.fast} ease;
   color: ${({ theme }) => theme.colors.text};
@@ -150,10 +149,11 @@ const messageVariants = {
 
 export const InputMessageStyle = styled.span<{
   $variant: InputMessageVariants
+  $bordered?: boolean
 }>`
-  left: -1px;
+  margin-top: ${({ $bordered }) => ($bordered ? 5 : 6)}px;
+  left: ${({ $bordered }) => ($bordered ? -1 : 0)}px;
   position: absolute;
-  margin-top: 5px;
   top: 100%;
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
@@ -163,7 +163,7 @@ export const InputMessageStyle = styled.span<{
   overflow: hidden;
   box-sizing: border-box;
   text-overflow: ellipsis;
-  max-width: calc(100% + 2px);
+  max-width: ${({ $bordered }) => ($bordered ? 'calc(100% + 2px)' : '100%')};
 
   ${({ $variant }) => messageVariants[$variant]}
 `
