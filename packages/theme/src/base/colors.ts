@@ -5,10 +5,13 @@ const colors = {
 
   accent: '#27272e',
   accentContrast: '#fff',
-  accentDarken: '#1f1f25',
+  accentDarken: 'rgba(0, 0, 0, .2)',
 
   error: '#e14d4d',
   errorContrast: '#fff',
+
+  warning: '#ffac2f',
+  warningContrast: '#fff',
 
   success: '#61b75f',
   successContrast: '#fff',

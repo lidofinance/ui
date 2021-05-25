@@ -2,8 +2,13 @@ import styled from 'styled-components'
 
 export const InputGroupStyle = styled.span<{ $fullwidth: boolean }>`
   display: inline-flex;
-  margin-bottom: 40px;
+  position: relative;
   width: ${({ $fullwidth }) => ($fullwidth ? '100%' : 'auto')};
+`
+
+export const InputGroupContentStyle = styled.span`
+  display: flex;
+  width: 100%;
 
   & > * {
     border-radius: 0px;

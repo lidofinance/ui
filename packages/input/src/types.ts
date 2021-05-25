@@ -28,8 +28,8 @@ export type InputProps = LidoComponentProps<
   'input',
   {
     label?: React.ReactNode
-    error?: React.ReactNode
-    success?: React.ReactNode
+    error?: React.ReactNode | boolean
+    success?: React.ReactNode | boolean
     leftDecorator?: React.ReactNode
     rightDecorator?: React.ReactNode
     type?: InputTypes
@@ -45,5 +45,7 @@ export type InputGroupProps = LidoComponentProps<
   'span',
   {
     fullwidth?: boolean
+    error?: React.ReactNode
+    success?: React.ReactNode
   }
 >

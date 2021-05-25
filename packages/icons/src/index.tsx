@@ -196,28 +196,6 @@ export const Deposit = React.forwardRef(function Deposit(
   )
 })
 
-export const Document = React.forwardRef(function Document(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>
-) {
-  return (
-    <svg
-      width={24}
-      height={24}
-      viewBox='0 0 24 24'
-      fill='currentColor'
-      ref={svgRef}
-      {...props}
-    >
-      <path
-        fillRule='evenodd'
-        clipRule='evenodd'
-        d='M20 8.94a.887.887 0 00-.25-.64l-6-6c-.198-.186-.406-.3-.69-.3H7a3 3 0 00-3 3v14a3 3 0 003 3h10a3 3 0 003-3V8.94zm-6-3.53L16.59 8H14V5.41zM17 20a1 1 0 001-1v-9h-5a1 1 0 01-1-1V4H7a1 1 0 00-1 1v14a1 1 0 001 1h10z'
-      />
-    </svg>
-  )
-})
-
 export const Email = React.forwardRef(function Email(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
@@ -312,7 +290,7 @@ export const Facebook = React.forwardRef(function Facebook(
   )
 })
 
-export const Lightning = React.forwardRef(function Lightning(
+export const History = React.forwardRef(function History(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
@@ -328,7 +306,7 @@ export const Lightning = React.forwardRef(function Lightning(
       <path
         fillRule='evenodd'
         clipRule='evenodd'
-        d='M18.988 9.05a1 1 0 01.89.55 1 1 0 01-.08 1.04l-8 11a1 1 0 01-1.81-.59v-6h-5a1 1 0 01-.89-.64 1 1 0 01.08-1l8-11a1 1 0 011.12-.36 1 1 0 01.69 1v6h5zm-7 5v3.92l5-6.92h-4a1 1 0 01-1-1V6.13l-5 6.92h4a1 1 0 011 1z'
+        d='M20 8.94a.887.887 0 00-.25-.64l-6-6c-.198-.186-.406-.3-.69-.3H7a3 3 0 00-3 3v14a3 3 0 003 3h10a3 3 0 003-3V8.94zm-6-3.53L16.59 8H14V5.41zM17 20a1 1 0 001-1v-9h-5a1 1 0 01-1-1V4H7a1 1 0 00-1 1v14a1 1 0 001 1h10z'
       />
     </svg>
   )
@@ -369,28 +347,6 @@ export const Lock = React.forwardRef(function Lock(
         fillRule='evenodd'
         clipRule='evenodd'
         d='M17 7v2a3 3 0 013 3v7a3 3 0 01-3 3H7a3 3 0 01-3-3v-7a3 3 0 013-3V7a5 5 0 0110 0zm-6 7a1 1 0 112 0v3a1 1 0 11-2 0v-3zM9 7a3 3 0 116 0v2H9V7zm8 13a1 1 0 001-1v-7a1 1 0 00-1-1H7a1 1 0 00-1 1v7a1 1 0 001 1h10z'
-      />
-    </svg>
-  )
-})
-
-export const Package = React.forwardRef(function Package(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>
-) {
-  return (
-    <svg
-      width={24}
-      height={24}
-      viewBox='0 0 24 24'
-      fill='currentColor'
-      ref={svgRef}
-      {...props}
-    >
-      <path
-        fillRule='evenodd'
-        clipRule='evenodd'
-        d='M1 16.757a3.026 3.026 0 001.653 2.698l8 4a3 3 0 002.684 0l8-4A3 3 0 0023 16.77V7.23a3.026 3.026 0 00-1.665-2.686L13.337.546a3 3 0 00-2.684 0l-8 4A3.026 3.026 0 001 7.243v9.514zm20 .013a1 1 0 01-.555.895h-.002L13 21.388v-9.769l8-4v9.152zM19.77 5.998l-7.327-3.664a1 1 0 00-.896 0L9.226 3.495 17 7.382l2.77-1.384zM6.99 4.613L4.226 5.995 12 9.882 14.764 8.5 6.99 4.613zM3 7.618l8 4v9.774l-7.45-3.725h-.001a1 1 0 01-.549-.9V7.618z'
       />
     </svg>
   )
@@ -471,6 +427,28 @@ export const Solana = React.forwardRef(function Solana(
           <stop offset={1} stopColor='#10F2B0' />
         </linearGradient>
       </defs>
+    </svg>
+  )
+})
+
+export const Stake = React.forwardRef(function Stake(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M18.988 9.05a1 1 0 01.89.55 1 1 0 01-.08 1.04l-8 11a1 1 0 01-1.81-.59v-6h-5a1 1 0 01-.89-.64 1 1 0 01.08-1l8-11a1 1 0 011.12-.36 1 1 0 01.69 1v6h5zm-7 5v3.92l5-6.92h-4a1 1 0 01-1-1V6.13l-5 6.92h4a1 1 0 011 1z'
+      />
     </svg>
   )
 })
@@ -578,6 +556,71 @@ export const Whitepaper = React.forwardRef(function Whitepaper(
         fillRule='evenodd'
         clipRule='evenodd'
         d='M20 8.94a.865.865 0 00-.25-.64l-6-6c-.176-.166-.472-.3-.7-.3H7a3 3 0 00-3 3v14a3 3 0 003 3h10a3 3 0 003-3V8.94zM10 10H9a1 1 0 010-2h1a1 1 0 110 2zm-2 3a1 1 0 011-1h6a1 1 0 110 2H9a1 1 0 01-1-1zm8.59-5L14 5.41V7a1 1 0 001 1h1.59zM18 19a1 1 0 01-1 1H7a1 1 0 01-1-1V5a1 1 0 011-1h5v3a3 3 0 003 3h3v9zM8 17a1 1 0 011-1h6a1 1 0 110 2H9a1 1 0 01-1-1z'
+      />
+    </svg>
+  )
+})
+
+export const Wrap = React.forwardRef(function Wrap(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M1 16.757a3.026 3.026 0 001.653 2.698l8 4a3 3 0 002.684 0l8-4A3 3 0 0023 16.77V7.23a3.026 3.026 0 00-1.665-2.686L13.337.546a3 3 0 00-2.684 0l-8 4A3.026 3.026 0 001 7.243v9.514zm20 .013a1 1 0 01-.555.895h-.002L13 21.388v-9.769l8-4v9.152zM19.77 5.998l-7.327-3.664a1 1 0 00-.896 0L9.226 3.495 17 7.382l2.77-1.384zM6.99 4.613L4.226 5.995 12 9.882 14.764 8.5 6.99 4.613zM3 7.618l8 4v9.774l-7.45-3.725h-.001a1 1 0 01-.549-.9V7.618z'
+      />
+    </svg>
+  )
+})
+
+export const Wsteth = React.forwardRef(function Wsteth(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={20}
+      height={20}
+      viewBox='0 0 20 20'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <rect width={20} height={20} rx={2} ry={2} fill='#00A3FF' />
+      <path
+        d='M5.898 9.29l-.112.17a4.824 4.824 0 00.678 6.1 5.036 5.036 0 003.534 1.434l-4.1-7.705z'
+        fill='#fff'
+      />
+      <path
+        opacity={0.6}
+        d='M9.997 11.63l-4.1-2.34 4.1 7.704v-5.363zm4.105-2.34l.112.17a4.823 4.823 0 01-.678 6.1 5.036 5.036 0 01-3.534 1.434l4.1-7.705z'
+        fill='#fff'
+      />
+      <path
+        opacity={0.2}
+        d='M10.002 11.63l4.1-2.34-4.1 7.704v-5.363zm.001-5.23v4.038l3.531-2.018-3.531-2.02z'
+        fill='#fff'
+      />
+      <path
+        opacity={0.6}
+        d='M10.003 6.4L6.469 8.42l3.534 2.018V6.4z'
+        fill='#fff'
+      />
+      <path d='M10.003 3.002L6.469 8.42l3.534-2.027V3.002z' fill='#fff' />
+      <path
+        opacity={0.6}
+        d='M10.003 6.394l3.534 2.027-3.534-5.422v3.395z'
+        fill='#fff'
       />
     </svg>
   )

@@ -75,10 +75,11 @@ export const usePopupFocus = <T extends HTMLDivElement>(
   const handleKeyDown: React.KeyboardEventHandler<T> = useCallback(
     (event) => {
       onKeyDown?.(event)
+      const code = event.code ?? event.key
 
-      if (event.code === 'Tab') event.preventDefault()
-      if (event.code === 'ArrowDown') handleFocusTo(event, +1)
-      if (event.code === 'ArrowUp') handleFocusTo(event, -1)
+      if (code === 'Tab') event.preventDefault()
+      if (code === 'ArrowDown') handleFocusTo(event, +1)
+      if (code === 'ArrowUp') handleFocusTo(event, -1)
     },
     [handleFocusTo, onKeyDown]
   )

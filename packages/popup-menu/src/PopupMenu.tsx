@@ -13,7 +13,7 @@ function PopupMenu(
   props: PopupMenuProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
-  const { variant, children, ...rest } = props
+  const { variant, children, onKeyDown, onMouseMove, ...rest } = props
 
   useInterceptFocus()
   const autoFocusRef = useAutoFocus()

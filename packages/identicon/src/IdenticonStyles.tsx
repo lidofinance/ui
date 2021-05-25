@@ -23,8 +23,6 @@ export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
 
 export const IdenticonAddressStyle = styled.div`
   font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
   margin: 0 6px;
 
   &:empty {
