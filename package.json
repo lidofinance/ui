@@ -1,5 +1,6 @@
 {
   "name": "lido-ui-components",
+  "version": "0.0.0-semantic-release",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -16,7 +17,6 @@
     "g:types": "cd $INIT_CWD && tsc",
     "test": "jest",
     "test:coverage": "jest coverage",
-    "publish:submit": "yarn workspaces foreach -piv --topological-dev --exclude lido-ui-components npm publish --access public --tolerate-republish",
     "lint": "eslint --ext ts,tsx,js,jsx .",
     "postinstall": "husky install"
   },
@@ -29,6 +29,9 @@
     "@babel/preset-env": "7.14.2",
     "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",
+    "@qiwi/multi-semantic-release": "^3.14.2",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "@storybook/addon-docs": "6.2.9",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addons": "6.2.9",
