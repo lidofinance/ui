@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import { ModalProps } from './types'
 import { Button } from '@lidofinance/button'
 import Modal from './Modal'
+import ModalExtra from './ModalExtra'
 import { useCallback, useState } from 'react'
 
 export default {
@@ -33,6 +34,31 @@ export const Basic: Story<ModalProps> = (props) => {
     <>
       <Button onClick={handleOpen}>Show modal</Button>
       {state && <Modal {...props} onClose={handleClose} />}
+    </>
+  )
+}
+
+export const ExtraContent: Story<ModalProps> = (props) => {
+  const { onClose, children, ...rest } = props
+  const [state, setState] = useState(false)
+  const handleOpen = useCallback(() => setState(true), [])
+  const handleClose = useCallback(() => {
+    setState(false)
+    onClose?.()
+  }, [onClose])
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Show modal</Button>
+      {state && (
+        <Modal
+          {...rest}
+          onClose={handleClose}
+          extra={<ModalExtra>Extra content</ModalExtra>}
+        >
+          {children}
+        </Modal>
+      )}
     </>
   )
 }

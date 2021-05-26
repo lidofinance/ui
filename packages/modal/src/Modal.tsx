@@ -2,6 +2,7 @@ import { ForwardedRef, forwardRef } from 'react'
 
 import {
   ModalStyle,
+  ModalBaseStyle,
   ModalHeaderStyle,
   ModalTitleStyle,
   ModalCloseStyle,
@@ -11,7 +12,7 @@ import { ModalProps } from './types'
 import ModalOverlay from './ModalOverlay'
 
 function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { children, title, center = false, ...rest } = props
+  const { children, title, center = false, extra, ...rest } = props
   const { onClose } = props
 
   const closable = !!onClose
@@ -20,11 +21,14 @@ function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
   return (
     <ModalOverlay {...rest} ref={ref}>
       <ModalStyle $center={center}>
-        <ModalHeaderStyle $short={untitled}>
-          <ModalTitleStyle $center={center}>{title}</ModalTitleStyle>
-          {closable && <ModalCloseStyle onClick={onClose} />}
-        </ModalHeaderStyle>
-        <ModalContentStyle>{children}</ModalContentStyle>
+        <ModalBaseStyle>
+          <ModalHeaderStyle $short={untitled}>
+            <ModalTitleStyle $center={center}>{title}</ModalTitleStyle>
+            {closable && <ModalCloseStyle onClick={onClose} />}
+          </ModalHeaderStyle>
+          <ModalContentStyle>{children}</ModalContentStyle>
+        </ModalBaseStyle>
+        {extra}
       </ModalStyle>
     </ModalOverlay>
   )
