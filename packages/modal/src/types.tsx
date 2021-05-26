@@ -10,5 +10,8 @@ export type ModalOverlayProps = LidoComponentProps<
 
 export type ModalProps = {
   title?: React.ReactNode
+  extra?: React.ReactNode
   center?: boolean
 } & Omit<ModalOverlayProps, 'title'>
+
+export type ModalExtraProps = LidoComponentProps<'div'>

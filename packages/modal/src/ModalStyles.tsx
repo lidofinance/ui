@@ -3,14 +3,20 @@ import { Close } from '@lidofinance/icons'
 import { ButtonIcon } from '@lidofinance/button'
 
 export const ModalStyle = styled.div<{ $center: boolean }>`
-  text-align: ${({ $center }) => ($center ? 'center' : 'left')};
   width: 432px;
   max-width: 100%;
-  color: ${({ theme }) => theme.colors.text};
-  background: ${({ theme }) => theme.colors.foreground};
+  text-align: ${({ $center }) => ($center ? 'center' : 'left')};
   border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
   box-shadow: ${({ theme }) =>
     `${theme.boxShadows.xxl} ${theme.colors.shadowDark}`};
+`
+
+export const ModalBaseStyle = styled.div`
+  color: ${({ theme }) => theme.colors.text};
+  background: ${({ theme }) => theme.colors.foreground};
+  border-radius: inherit;
+  position: relative;
+  z-index: 1;
 `
 
 export const ModalHeaderStyle = styled.div<{ $short: boolean }>`
