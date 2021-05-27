@@ -2643,7 +2643,7 @@ __metadata:
     "@types/react": 17.0.6
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
-    "@types/resize-observer-browser": ^0.1.5
+    "@types/resize-observer-browser": 0.1.5
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
@@ -5002,7 +5002,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/resize-observer-browser@npm:^0.1.5":
+"@types/resize-observer-browser@npm:0.1.5":
   version: 0.1.5
   resolution: "@types/resize-observer-browser@npm:0.1.5"
   checksum: 6a7ee5f26158a39fd07ab3b6b177f4ff1446237264c6d1fa9e5951c6e7576c29de03c890e1ad0e812a25c5d3527410301e88c516637414f2f45b3a98a10f83da
