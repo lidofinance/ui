@@ -42,6 +42,7 @@
     "@lidofinance/popup-menu": "workspace:*",
     "@lidofinance/select": "workspace:*",
     "@lidofinance/stack": "workspace:*",
+    "@lidofinance/styled-system": "workspace:*",
     "@lidofinance/text": "workspace:*",
     "@lidofinance/theme": "workspace:*",
     "@lidofinance/tooltip": "workspace:*",
