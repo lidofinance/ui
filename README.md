@@ -12,13 +12,11 @@ Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 - `yarn test` - Run tests across components.
 - `yarn lint` - Run eslint across components.
 
-## Updating Packages
+## Publishing
 
-After modifications to a package, in its folder run:
+Packages are automatically published to npm when you push to master. The publication is based on [semantic-release](https://github.com/semantic-release/semantic-release) and [@qiwi/multi-semantic-release](https://github.com/qiwi/multi-semantic-release).
 
-`yarn version [patch, minor, major]`
-
-That's it. All other packages relying on this package will automatically be updated.
+For correct version detection, please follow the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ## Linking
 
