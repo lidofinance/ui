@@ -2,9 +2,7 @@ name: publish
 on:
   push:
     branches:
-      - main
-    paths:
-      - 'packages/**'
+      - release
 
 jobs:
   publish:
