@@ -1,6 +1,6 @@
 {
   "name": "@lidofinance/identicon",
-  "version": "1.0.3",
+  "version": "0.0.0-semantic-release",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
