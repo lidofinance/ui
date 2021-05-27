@@ -21,7 +21,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<ModalProps> = (props) => {
+const useModal = (props: ModalProps) => {
   const { onClose } = props
   const [state, setState] = useState(false)
   const handleOpen = useCallback(() => setState(true), [])
@@ -29,6 +29,12 @@ export const Basic: Story<ModalProps> = (props) => {
     setState(false)
     onClose?.()
   }, [onClose])
+
+  return { state, handleOpen, handleClose }
+}
+
+export const Basic: Story<ModalProps> = (props) => {
+  const { state, handleOpen, handleClose } = useModal(props)
 
   return (
     <>
@@ -39,24 +45,31 @@ export const Basic: Story<ModalProps> = (props) => {
 }
 
 export const ExtraContent: Story<ModalProps> = (props) => {
-  const { onClose, children, ...rest } = props
-  const [state, setState] = useState(false)
-  const handleOpen = useCallback(() => setState(true), [])
-  const handleClose = useCallback(() => {
-    setState(false)
-    onClose?.()
-  }, [onClose])
+  const { state, handleOpen, handleClose } = useModal(props)
 
   return (
     <>
       <Button onClick={handleOpen}>Show modal</Button>
       {state && (
         <Modal
-          {...rest}
+          {...props}
           onClose={handleClose}
           extra={<ModalExtra>Extra content</ModalExtra>}
-        >
-          {children}
+        />
+      )}
+    </>
+  )
+}
+
+export const WithScroll: Story<ModalProps> = (props) => {
+  const { state, handleOpen, handleClose } = useModal(props)
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Show modal</Button>
+      {state && (
+        <Modal {...props} onClose={handleClose}>
+          <div style={{ height: '150vh' }}>{props.children}</div>
         </Modal>
       )}
     </>

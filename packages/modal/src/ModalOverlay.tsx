@@ -5,15 +5,17 @@ import {
   useInterceptFocus,
   useAutoFocus,
   useEscape,
+  useLockScroll,
 } from '@lidofinance/hooks'
 import { modalRoot } from '@lidofinance/utils'
 import { ModalOverlayProps } from './types'
 import {
   ModalPortalStyle,
-  ModalOverlayStyle,
+  ModalOverflowStyle,
   ModalContentStyle,
 } from './ModalOverlayStyles'
 import { useModalFocus } from './useModalFocus'
+import { useModalClose } from './useModalClose'
 
 function ModalOverlay(
   props: ModalOverlayProps,
@@ -23,28 +25,33 @@ function ModalOverlay(
   const closable = !!onClose
 
   useInterceptFocus()
-  useEscape(props.onClose)
+  useEscape(onClose)
+  useLockScroll()
 
   const autoFocusRef = useAutoFocus()
   const controlRef = useModalFocus()
-  const contentRef = useMergeRefs([autoFocusRef, controlRef, externalRef])
+  const { ref: closeRef, handleClick } = useModalClose(onClose)
+
+  const mergedRef = useMergeRefs([
+    autoFocusRef,
+    controlRef,
+    closeRef,
+    externalRef,
+  ])
 
   if (!modalRoot) return null
 
   return ReactDOM.createPortal(
-    <ModalPortalStyle>
-      <ModalOverlayStyle
-        $closable={closable}
-        onClick={onClose}
-        aria-hidden='true'
-      />
-      <ModalContentStyle
-        tabIndex={-1}
-        role='dialog'
-        aria-modal='true'
-        ref={contentRef}
-        {...rest}
-      />
+    <ModalPortalStyle $closable={closable} onClick={handleClick}>
+      <ModalOverflowStyle>
+        <ModalContentStyle
+          tabIndex={-1}
+          role='dialog'
+          aria-modal='true'
+          ref={mergedRef}
+          {...rest}
+        />
+      </ModalOverflowStyle>
     </ModalPortalStyle>,
     modalRoot
   )
