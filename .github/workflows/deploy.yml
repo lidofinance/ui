@@ -1,4 +1,4 @@
-name: deploy-storybook
+name: deploy
 
 on:
   push:
@@ -6,11 +6,13 @@ on:
       - main
 
 jobs:
-  build-test-deploy-storybook:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup Node
         uses: actions/setup-node@v2
       - name: Get yarn cache directory path
@@ -33,6 +35,11 @@ jobs:
         run: yarn build
       - name: Run tests
         run: yarn test
+      - name: Publish to NPM
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn multi-semantic-release --deps.bump=override --deps.release=patch
       - name: Build Storybook
         run: |
           yarn build-storybook
