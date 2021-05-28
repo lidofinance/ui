@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect, useState, CSSProperties } from 'react'
 import { useWindowSize } from '@lidofinance/hooks'
 import { PopoverProps } from './types'
-import { INITIAL_STYLE } from './constants'
+import { INITIAL_STYLE, DEFAULT_PLACEMENT } from './constants'
 import { calculatePosition } from './calculatePosition'
 
 export const usePopoverPosition = <
@@ -14,7 +14,7 @@ export const usePopoverPosition = <
   wrapperRef: React.RefObject<W>
   style: CSSProperties
 } => {
-  const { placement = 'bottomLeft', anchorRef } = props
+  const { placement = DEFAULT_PLACEMENT, anchorRef } = props
 
   const popoverRef = useRef<P>(null)
   const wrapperRef = useRef<W>(null)

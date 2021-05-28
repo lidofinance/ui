@@ -46,16 +46,15 @@ function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
         ref={ref}
         readOnly
       />
-      {opened && (
-        <PopupMenu
-          variant={variant}
-          anchorRef={anchorRef}
-          style={{ minWidth: width }}
-          onClose={handleClose}
-        >
-          {options}
-        </PopupMenu>
-      )}
+      <PopupMenu
+        open={opened}
+        variant={variant}
+        anchorRef={anchorRef}
+        style={{ minWidth: width }}
+        onClose={handleClose}
+      >
+        {options}
+      </PopupMenu>
     </>
   )
 }

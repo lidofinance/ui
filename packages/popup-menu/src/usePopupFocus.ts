@@ -1,4 +1,5 @@
 import { useCallback, useRef } from 'react'
+import { useInterceptFocus } from '@lidofinance/hooks'
 import { FOCUSABLE_ELEMENTS } from './constants'
 import { PopupMenuProps } from './types'
 
@@ -8,6 +9,8 @@ export const usePopupFocus = <T extends HTMLDivElement>(
   ref: React.RefObject<T>
   handleMouseMove: React.MouseEventHandler<T>
   handleKeyDown: React.KeyboardEventHandler<T>
+  handleEnter: () => void
+  handleExit: () => void
 } => {
   const { onMouseMove, onKeyDown } = props
   const ref = useRef<T>(null)
@@ -84,9 +87,21 @@ export const usePopupFocus = <T extends HTMLDivElement>(
     [handleFocusTo, onKeyDown]
   )
 
+  const [interceptFocus, restoreFocus] = useInterceptFocus()
+
+  const handleEnter = useCallback(() => {
+    if (ref.current) interceptFocus(ref.current)
+  }, [interceptFocus])
+
+  const handleExit = useCallback(() => {
+    restoreFocus()
+  }, [restoreFocus])
+
   return {
     ref,
     handleMouseMove,
     handleKeyDown,
+    handleEnter,
+    handleExit,
   }
 }

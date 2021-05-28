@@ -1,14 +1,9 @@
 import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
-import {
-  useMergeRefs,
-  useInterceptFocus,
-  useAutoFocus,
-  useEscape,
-  useLockScroll,
-} from '@lidofinance/hooks'
+import { useMergeRefs, useEscape, useLockScroll } from '@lidofinance/hooks'
 import { modalRoot } from '@lidofinance/utils'
-import { ModalOverlayProps } from './types'
+import { Transition } from 'react-transition-group'
+import { ModalOverlayInnerProps, ModalOverlayProps } from './types'
 import {
   ModalPortalStyle,
   ModalOverflowStyle,
@@ -16,43 +11,90 @@ import {
 } from './ModalOverlayStyles'
 import { useModalFocus } from './useModalFocus'
 import { useModalClose } from './useModalClose'
+import { DEFAULT_DURATION } from './constants'
 
-function ModalOverlay(
-  props: ModalOverlayProps,
+const ModalOverlayInner = forwardRef(function ModalOverlayInner(
+  props: ModalOverlayInnerProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
-  const { onClose, onKeyDown, ...rest } = props
+  const { onClose, duration, transitionStatus, ...rest } = props
   const closable = !!onClose
 
-  useInterceptFocus()
   useEscape(onClose)
   useLockScroll()
 
-  const autoFocusRef = useAutoFocus()
   const controlRef = useModalFocus()
   const { ref: closeRef, handleClick } = useModalClose(onClose)
 
-  const mergedRef = useMergeRefs([
-    autoFocusRef,
-    controlRef,
-    closeRef,
-    externalRef,
-  ])
+  const mergedRef = useMergeRefs([controlRef, closeRef, externalRef])
 
-  if (!modalRoot) return null
-
-  return ReactDOM.createPortal(
-    <ModalPortalStyle $closable={closable} onClick={handleClick}>
+  return (
+    <ModalPortalStyle
+      $closable={closable}
+      $duration={duration}
+      $transition={transitionStatus}
+      onClick={handleClick}
+    >
       <ModalOverflowStyle>
         <ModalContentStyle
           tabIndex={-1}
           role='dialog'
           aria-modal='true'
           ref={mergedRef}
+          $transition={transitionStatus}
+          $duration={duration}
           {...rest}
         />
       </ModalOverflowStyle>
-    </ModalPortalStyle>,
+    </ModalPortalStyle>
+  )
+})
+
+function ModalOverlay(
+  props: ModalOverlayProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
+  const {
+    open,
+    duration = DEFAULT_DURATION,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited,
+    ...rest
+  } = props
+
+  const transitionProps = {
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited,
+  }
+
+  if (!modalRoot) return null
+
+  return ReactDOM.createPortal(
+    <Transition
+      in={open}
+      timeout={duration}
+      mountOnEnter
+      unmountOnExit
+      appear
+      {...transitionProps}
+    >
+      {(status) => (
+        <ModalOverlayInner
+          duration={duration}
+          transitionStatus={status}
+          ref={ref}
+          {...rest}
+        />
+      )}
+    </Transition>,
     modalRoot
   )
 }

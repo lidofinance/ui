@@ -27,7 +27,8 @@
     "@lidofinance/hooks": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/theme": "workspace:*",
-    "@lidofinance/utils": "workspace:*"
+    "@lidofinance/utils": "workspace:*",
+    "react-transition-group": "4"
   },
   "peerDependencies": {
     "react": "16 || 17",
@@ -42,6 +43,7 @@
     "@types/react": "17.0.8",
     "@types/react-dom": "17.0.5",
     "@types/react-is": "17.0.0",
+    "@types/react-transition-group": "4.4.1",
     "@types/styled-components": "5.1.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",

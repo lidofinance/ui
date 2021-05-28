@@ -1,10 +1,11 @@
 import { ForwardedRef, forwardRef } from 'react'
+import { DEFAULT_PLACEMENT } from './constants'
 
 import { PopoverStyle } from './PopoverStyles'
 import { PopoverProps } from './types'
 
 function Popover(props: PopoverProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { placement = 'bottomLeft', offset = 'xs', ...rest } = props
+  const { placement = DEFAULT_PLACEMENT, offset = 'xs', ...rest } = props
 
   return (
     <PopoverStyle $offset={offset} placement={placement} {...rest} ref={ref} />

@@ -1,4 +1,3 @@
-export * from './useAutoFocus'
 export * from './useEscape'
 export * from './useInterceptFocus'
 export * from './useLockScroll'

@@ -1,9 +1,5 @@
 import { ForwardedRef, forwardRef } from 'react'
-import {
-  useMergeRefs,
-  useInterceptFocus,
-  useAutoFocus,
-} from '@lidofinance/hooks'
+import { useMergeRefs } from '@lidofinance/hooks'
 import { PopupMenuProvider } from './PopupMenuProvider'
 import { PopupMenuStyle } from './PopupMenuStyles'
 import { PopupMenuProps } from './types'
@@ -15,19 +11,21 @@ function PopupMenu(
 ) {
   const { variant, children, onKeyDown, onMouseMove, ...rest } = props
 
-  useInterceptFocus()
-  const autoFocusRef = useAutoFocus()
   const {
     ref: controlRef,
     handleMouseMove,
     handleKeyDown,
+    handleEnter,
+    handleExit,
   } = usePopupFocus(props)
-  const popupRef = useMergeRefs([autoFocusRef, controlRef, externalRef])
+  const popupRef = useMergeRefs([controlRef, externalRef])
 
   return (
     <PopupMenuStyle
       onMouseMove={handleMouseMove}
       onKeyDown={handleKeyDown}
+      onEnter={handleEnter}
+      onExit={handleExit}
       tabIndex={-1}
       role='listbox'
       {...rest}
