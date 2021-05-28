@@ -3,21 +3,18 @@ import { Transition } from 'react-transition-group'
 import { DEFAULT_DURATION } from './constants'
 import { TransitionWrapperProps, TransitionInnerProps } from './types'
 
+type WrappedProps<T> = Omit<T, keyof TransitionInnerProps> &
+  TransitionWrapperProps
+
 export default function withTransition<
   P extends TransitionInnerProps,
   E extends HTMLElement
 >(
   Component: React.ComponentType<P>
 ): React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<
-    Omit<P, keyof TransitionInnerProps> & TransitionWrapperProps
-  > &
-    React.RefAttributes<E>
+  React.PropsWithoutRef<WrappedProps<P>> & React.RefAttributes<E>
 > {
-  function Wrapped(
-    props: Omit<P, keyof TransitionInnerProps> & TransitionWrapperProps,
-    ref: ForwardedRef<E>
-  ) {
+  function Wrapped(props: WrappedProps<P>, ref: ForwardedRef<E>) {
     const {
       in: state = false,
       timeout = DEFAULT_DURATION,
