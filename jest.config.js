@@ -13,7 +13,13 @@ module.exports = {
   },
   testPathIgnorePatterns: ['<rootDir>/packages/(?:.+?)/dist/'],
   transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest',
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.((js|ts)x?)$': 'babel-jest',
   },
+
+  /*
+   * TODO: replace 'jasmine2' with 'circus' after the next jest release (27.0.2 or higher)
+   * issue: https://github.com/facebook/jest/issues/11452
+   */
+  testRunner: 'jasmine2',
+  testEnvironment: 'jsdom',
 }
