@@ -9,4 +9,3 @@ export const INITIAL_STYLE: CSSProperties = {
 }
 
 export const DEFAULT_PLACEMENT = 'bottomLeft'
-export const DEFAULT_DURATION = 150

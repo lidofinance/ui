@@ -1,36 +1,25 @@
 import { LidoComponentProps } from '@lidofinance/utils'
 import {
-  TransitionStatus,
-  TransitionProps,
-} from 'react-transition-group/Transition'
+  TransitionWrapperProps,
+  TransitionInnerProps,
+} from '@lidofinance/transition'
 export type { Theme } from '@lidofinance/theme'
 
-export type ModalOverlayInnerProps = LidoComponentProps<
+export type ModalOverlayOwnProps = LidoComponentProps<
   'div',
   {
-    duration: number
-    transitionStatus: TransitionStatus
     onClose?: () => void
   }
 >
 
-type TransitionEvents = Pick<
-  TransitionProps,
-  'onEnter' | 'onEntering' | 'onEntered' | 'onExit' | 'onExiting' | 'onExited'
->
-
-export type ModalOverlayProps = Omit<
-  ModalOverlayInnerProps,
-  'transitionStatus' | 'duration'
-> & {
-  open?: boolean
-  duration?: number
-} & TransitionEvents
+export type ModalOverlayProps = ModalOverlayOwnProps & TransitionWrapperProps
+export type ModalOverlayInnerProps = ModalOverlayOwnProps & TransitionInnerProps
 
 export type ModalProps = {
   title?: React.ReactNode
   extra?: React.ReactNode
   center?: boolean
-} & Omit<ModalOverlayProps, 'title'>
+  open?: boolean
+} & Omit<ModalOverlayProps, 'title' | 'in'>
 
 export type ModalExtraProps = LidoComponentProps<'div'>

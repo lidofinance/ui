@@ -4,7 +4,7 @@ import { PopoverProps, PopoverPlacement, PopoverOffset } from './types'
 
 import Popover from './Popover'
 import { useCallback, useRef, useState } from 'react'
-import { DEFAULT_DURATION, DEFAULT_PLACEMENT } from './constants'
+import { DEFAULT_PLACEMENT } from './constants'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -18,7 +18,6 @@ export default {
   args: {
     backdrop: true,
     offset: 'xs',
-    duration: DEFAULT_DURATION,
     placement: DEFAULT_PLACEMENT,
   },
   argTypes: {
@@ -28,9 +27,6 @@ export default {
     offset: {
       options: getOptions(PopoverOffset),
       control: 'inline-radio',
-    },
-    duration: {
-      control: { type: 'range', min: 0, max: 500, step: 50 },
     },
     placement: {
       options: getOptions(PopoverPlacement),

@@ -1,8 +1,8 @@
 import { LidoComponentProps } from '@lidofinance/utils'
 import {
-  TransitionStatus,
-  TransitionProps,
-} from 'react-transition-group/Transition'
+  TransitionWrapperProps,
+  TransitionInnerProps,
+} from '@lidofinance/transition'
 export type { Theme } from '@lidofinance/theme'
 
 export enum PopoverOffset {
@@ -33,32 +33,22 @@ export enum PopoverPlacement {
 }
 export type PopoverPlacements = keyof typeof PopoverPlacement
 
-export type PopoverRootInnerProps = LidoComponentProps<
+export type PopoverRootOwnProps = LidoComponentProps<
   'div',
   {
     wrapperRef?: React.RefObject<HTMLDivElement>
     anchorRef: React.RefObject<HTMLElement | null>
     placement?: PopoverPlacements
     backdrop?: boolean
-    duration: number
-    transitionStatus: TransitionStatus
     onClose?: () => void
   }
 >
 
-type TransitionEvents = Pick<
-  TransitionProps,
-  'onEnter' | 'onEntering' | 'onEntered' | 'onExit' | 'onExiting' | 'onExited'
->
-
-export type PopoverRootProps = Omit<
-  PopoverRootInnerProps,
-  'transitionStatus' | 'duration'
-> & {
-  open?: boolean
-  duration?: number
-} & TransitionEvents
+export type PopoverRootProps = PopoverRootOwnProps & TransitionWrapperProps
+export type PopoverRootInnerProps = PopoverRootOwnProps & TransitionInnerProps
 
 export type PopoverProps = {
+  as?: never
   offset?: PopoverOffsets
-} & PopoverRootProps
+  open?: boolean
+} & Omit<PopoverRootProps, 'in'>

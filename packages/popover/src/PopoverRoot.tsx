@@ -1,14 +1,14 @@
 import ReactDOM from 'react-dom'
 import { ForwardedRef, forwardRef } from 'react'
 import { modalRoot } from '@lidofinance/utils'
-import { Transition } from 'react-transition-group'
 import { useMergeRefs, useOutsideClick, useEscape } from '@lidofinance/hooks'
+import { withTransition } from '@lidofinance/transition'
 import { usePopoverPosition } from './usePopoverPosition'
 import { PopoverWrapperStyle, PopoverRootStyle } from './PopoverRootStyles'
-import { PopoverRootInnerProps, PopoverRootProps } from './types'
-import { DEFAULT_DURATION, DEFAULT_PLACEMENT } from './constants'
+import { PopoverRootInnerProps } from './types'
+import { DEFAULT_PLACEMENT } from './constants'
 
-const PopoverRootInner = forwardRef(function PopoverRootInner(
+function PopoverRoot(
   props: PopoverRootInnerProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
@@ -40,7 +40,9 @@ const PopoverRootInner = forwardRef(function PopoverRootInner(
 
   const wrapperRef = useMergeRefs([positionWrapperRef, externalWrapperRef])
 
-  return (
+  if (!modalRoot) return null
+
+  return ReactDOM.createPortal(
     <PopoverWrapperStyle $backdrop={backdrop} ref={wrapperRef}>
       <PopoverRootStyle
         {...rest}
@@ -50,57 +52,9 @@ const PopoverRootInner = forwardRef(function PopoverRootInner(
         style={style}
         ref={popoverRef}
       />
-    </PopoverWrapperStyle>
-  )
-})
-
-function PopoverRoot(
-  props: PopoverRootProps,
-  ref?: ForwardedRef<HTMLDivElement>
-) {
-  const {
-    open,
-    duration = DEFAULT_DURATION,
-    onEnter,
-    onEntering,
-    onEntered,
-    onExit,
-    onExiting,
-    onExited,
-    ...rest
-  } = props
-
-  const transitionProps = {
-    onEnter,
-    onEntering,
-    onEntered,
-    onExit,
-    onExiting,
-    onExited,
-  }
-
-  if (!modalRoot) return null
-
-  return ReactDOM.createPortal(
-    <Transition
-      in={open}
-      timeout={duration}
-      mountOnEnter
-      unmountOnExit
-      appear
-      {...transitionProps}
-    >
-      {(status) => (
-        <PopoverRootInner
-          duration={duration}
-          transitionStatus={status}
-          ref={ref}
-          {...rest}
-        />
-      )}
-    </Transition>,
+    </PopoverWrapperStyle>,
     modalRoot
   )
 }
 
-export default forwardRef(PopoverRoot)
+export default withTransition(forwardRef(PopoverRoot))

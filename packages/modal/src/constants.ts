@@ -11,5 +11,3 @@ export const FOCUSABLE_ELEMENTS = [
   '[contenteditable]',
   '[tabindex]:not([tabindex^="-"])',
 ]
-
-export const DEFAULT_DURATION = 150

@@ -1,9 +1,9 @@
-import { TransitionStatus } from 'react-transition-group'
 import styled, { css } from 'styled-components'
+import { TransitionInnerProps } from '@lidofinance/transition'
 
 type TransitionProps = {
   $duration: number
-  $transition: TransitionStatus
+  $transition: TransitionInnerProps['transitionStatus']
 }
 
 export const PopoverWrapperStyle = styled.div<{ $backdrop: boolean }>`

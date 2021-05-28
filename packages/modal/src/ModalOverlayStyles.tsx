@@ -1,9 +1,9 @@
-import { TransitionStatus } from 'react-transition-group'
 import styled from 'styled-components'
+import { TransitionInnerProps } from '@lidofinance/transition'
 
 type TransitionProps = {
   $duration: number
-  $transition: TransitionStatus
+  $transition: TransitionInnerProps['transitionStatus']
 }
 
 const getOpacity = ({ $transition }: TransitionProps) => {

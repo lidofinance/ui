@@ -2502,6 +2502,7 @@ __metadata:
     "@lidofinance/text": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/tooltip": "workspace:*"
+    "@lidofinance/transition": "workspace:*"
     "@lidofinance/utils": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -2560,18 +2561,17 @@ __metadata:
     "@lidofinance/hooks": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/transition": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
-    "@types/react-transition-group": 4.4.1
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
-    react-transition-group: 4
     styled-components: 5.3.0
   peerDependencies:
     react: 16 || 17
@@ -2588,17 +2588,16 @@ __metadata:
     "@lidofinance/button": "workspace:*"
     "@lidofinance/hooks": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/transition": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
-    "@types/react-transition-group": 4.4.1
     "@types/styled-components": 5.1.9
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
-    react-transition-group: 4
     styled-components: 5.3.0
   peerDependencies:
     react: 16 || 17
@@ -2781,6 +2780,26 @@ __metadata:
     react-dom: 16 || 17
     react-is: 16 || 17
     styled-components: 5
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/transition@workspace:*, @lidofinance/transition@workspace:packages/transition":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/transition@workspace:packages/transition"
+  dependencies:
+    "@storybook/react": 6.2.9
+    "@types/react": 17.0.8
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/react-transition-group": 4.4.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    react-transition-group: 4
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
   languageName: unknown
   linkType: soft
 

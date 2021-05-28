@@ -1,9 +1,9 @@
 import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { useMergeRefs, useEscape, useLockScroll } from '@lidofinance/hooks'
+import { withTransition } from '@lidofinance/transition'
 import { modalRoot } from '@lidofinance/utils'
-import { Transition } from 'react-transition-group'
-import { ModalOverlayInnerProps, ModalOverlayProps } from './types'
+import { ModalOverlayInnerProps } from './types'
 import {
   ModalPortalStyle,
   ModalOverflowStyle,
@@ -11,9 +11,8 @@ import {
 } from './ModalOverlayStyles'
 import { useModalFocus } from './useModalFocus'
 import { useModalClose } from './useModalClose'
-import { DEFAULT_DURATION } from './constants'
 
-const ModalOverlayInner = forwardRef(function ModalOverlayInner(
+function ModalOverlay(
   props: ModalOverlayInnerProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
@@ -28,7 +27,9 @@ const ModalOverlayInner = forwardRef(function ModalOverlayInner(
 
   const mergedRef = useMergeRefs([controlRef, closeRef, externalRef])
 
-  return (
+  if (!modalRoot) return null
+
+  return ReactDOM.createPortal(
     <ModalPortalStyle
       $closable={closable}
       $duration={duration}
@@ -46,57 +47,9 @@ const ModalOverlayInner = forwardRef(function ModalOverlayInner(
           {...rest}
         />
       </ModalOverflowStyle>
-    </ModalPortalStyle>
-  )
-})
-
-function ModalOverlay(
-  props: ModalOverlayProps,
-  ref?: ForwardedRef<HTMLDivElement>
-) {
-  const {
-    open,
-    duration = DEFAULT_DURATION,
-    onEnter,
-    onEntering,
-    onEntered,
-    onExit,
-    onExiting,
-    onExited,
-    ...rest
-  } = props
-
-  const transitionProps = {
-    onEnter,
-    onEntering,
-    onEntered,
-    onExit,
-    onExiting,
-    onExited,
-  }
-
-  if (!modalRoot) return null
-
-  return ReactDOM.createPortal(
-    <Transition
-      in={open}
-      timeout={duration}
-      mountOnEnter
-      unmountOnExit
-      appear
-      {...transitionProps}
-    >
-      {(status) => (
-        <ModalOverlayInner
-          duration={duration}
-          transitionStatus={status}
-          ref={ref}
-          {...rest}
-        />
-      )}
-    </Transition>,
+    </ModalPortalStyle>,
     modalRoot
   )
 }
 
-export default forwardRef(ModalOverlay)
+export default withTransition(forwardRef(ModalOverlay))
