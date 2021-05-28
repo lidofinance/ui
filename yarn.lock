@@ -2190,7 +2190,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2214,7 +2214,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2238,7 +2238,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2264,7 +2264,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2289,7 +2289,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2313,7 +2313,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2337,7 +2337,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2360,7 +2360,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2380,7 +2380,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/hooks@workspace:packages/hooks"
   dependencies:
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2408,7 +2408,7 @@ __metadata:
     "@svgr/plugin-prettier": 5.5.0
     "@svgr/plugin-svgo": 5.5.0
     "@testing-library/react": 11.2.7
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/rimraf": 3.0.0
@@ -2432,7 +2432,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2459,7 +2459,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2513,7 +2513,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2536,7 +2536,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2563,7 +2563,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2588,7 +2588,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2615,7 +2615,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2641,7 +2641,7 @@ __metadata:
     "@lidofinance/popup-menu": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/resize-observer-browser": 0.1.5
@@ -2667,7 +2667,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2691,7 +2691,7 @@ __metadata:
     "@storybook/react": 6.2.9
     "@styled-system/should-forward-prop": 5.1.5
     "@testing-library/react": 11.2.7
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2718,7 +2718,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2738,7 +2738,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/theme@workspace:packages/theme"
   dependencies:
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2764,7 +2764,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -2784,7 +2784,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/utils@workspace:packages/utils"
   dependencies:
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
@@ -4960,14 +4960,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.6":
-  version: 17.0.6
-  resolution: "@types/react@npm:17.0.6"
+"@types/react@npm:17.0.8":
+  version: 17.0.8
+  resolution: "@types/react@npm:17.0.8"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: dd687a9620d90cc7b9e50ed06ec73beb589fcb7ddfec7b166307af79cee7c521c1f2f1084ffd4ad6eaf7c937cfa446cc0b03cc3cd18e85e952501da2f2e0e0c3
+  checksum: 6398dc200623dbf213747f3a1cf9f3c3bcac29b519e49c9fcb81d2665dadb21155c485381cddbb04b483a5bf3ddddefaff1a1a6ef4fa5080b1b9b144c789673e
   languageName: node
   linkType: hard
 
@@ -13184,7 +13184,7 @@ fsevents@^1.2.7:
     "@storybook/storybook-deployer": 2.8.8
     "@storybook/theming": 6.2.9
     "@types/jest": 26.0.23
-    "@types/react": 17.0.6
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-is": 17.0.0
     "@typescript-eslint/eslint-plugin": 4.25.0
