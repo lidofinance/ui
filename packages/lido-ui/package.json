@@ -49,5 +49,7 @@
     "@lidofinance/transition": "workspace:*",
     "@lidofinance/utils": "workspace:*"
   },
-  "private": false
+  "publishConfig": {
+    "access": "public"
+  }
 }
