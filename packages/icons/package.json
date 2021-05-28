@@ -49,5 +49,6 @@
     "rimraf": "3.0.2",
     "styled-components": "5.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "private": false
 }
