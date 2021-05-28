@@ -1,6 +1,18 @@
 import styled from 'styled-components'
+import { TransitionInnerProps } from '@lidofinance/transition'
 
-export const ModalPortalStyle = styled.div<{ $closable: boolean }>`
+type TransitionProps = {
+  $duration: number
+  $transition: TransitionInnerProps['transitionStatus']
+}
+
+const getOpacity = ({ $transition }: TransitionProps) => {
+  return ['exiting', 'exited'].includes($transition) ? 0 : 1
+}
+
+export const ModalPortalStyle = styled.div<
+  { $closable: boolean } & TransitionProps
+>`
   position: fixed;
   top: 0;
   right: 0;
@@ -9,6 +21,8 @@ export const ModalPortalStyle = styled.div<{ $closable: boolean }>`
   z-index: 300;
   background: ${({ theme }) => theme.colors.overlay};
   cursor: ${({ $closable }) => ($closable ? 'pointer' : 'default')};
+  transition: opacity ${({ $duration }) => $duration}ms ease;
+  opacity: ${getOpacity};
 `
 
 export const ModalOverflowStyle = styled.div`
@@ -20,13 +34,27 @@ export const ModalOverflowStyle = styled.div`
   z-index: 2;
   overflow: auto;
   overflow-x: hidden;
-  box-sizing: border-box;
   display: flex;
 `
 
-export const ModalContentStyle = styled.div`
+const getTransform = ({ $transition }: TransitionProps) => {
+  return ['exiting', 'exited'].includes($transition)
+    ? 'translateY(6px)'
+    : 'translateY(0)'
+}
+
+export const ModalContentStyle = styled.div<TransitionProps>`
+  box-sizing: border-box;
+  max-width: 100%;
   padding: ${({ theme }) => theme.spaceMap.lg}px;
   outline: none;
   margin: auto;
   cursor: default;
+  transition: transform ${({ $duration }) => $duration}ms ease-out;
+  transform: ${getTransform};
+  pointer-events: none;
+
+  & > * {
+    pointer-events: auto;
+  }
 `

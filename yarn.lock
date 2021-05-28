@@ -1562,7 +1562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7":
   version: 7.14.0
   resolution: "@babel/runtime@npm:7.14.0"
   dependencies:
@@ -2545,6 +2545,7 @@ __metadata:
     "@lidofinance/text": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/tooltip": "workspace:*"
+    "@lidofinance/transition": "workspace:*"
     "@lidofinance/utils": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -2603,6 +2604,7 @@ __metadata:
     "@lidofinance/hooks": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/transition": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
@@ -2629,6 +2631,7 @@ __metadata:
     "@lidofinance/button": "workspace:*"
     "@lidofinance/hooks": "workspace:*"
     "@lidofinance/theme": "workspace:*"
+    "@lidofinance/transition": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
@@ -2820,6 +2823,26 @@ __metadata:
     react-dom: 16 || 17
     react-is: 16 || 17
     styled-components: 5
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/transition@workspace:*, @lidofinance/transition@workspace:packages/transition":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/transition@workspace:packages/transition"
+  dependencies:
+    "@storybook/react": 6.2.9
+    "@types/react": 17.0.8
+    "@types/react-dom": 17.0.5
+    "@types/react-is": 17.0.0
+    "@types/react-transition-group": 4.4.1
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    react-transition-group: 4
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
   languageName: unknown
   linkType: soft
 
@@ -4989,6 +5012,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 8f4dce3eb5c70178c5ec2f7434983d632d02a0371a80c31ea012e37a2b8b2174bee482c3b85764333cbe3bcba9132b95307e23ac56d05d490e485e371bdcea46
+  languageName: node
+  linkType: hard
+
+"@types/react-transition-group@npm:4.4.1":
+  version: 4.4.1
+  resolution: "@types/react-transition-group@npm:4.4.1"
+  dependencies:
+    "@types/react": "*"
+  checksum: feb4baddd598b27a9a267028c22484a89edb99a5bb3fd0112a92e402bf15d5371924fc3572d9567f5d8aa6fc1757ef48a52b2545345415f8bd41eadfd18b80b9
   languageName: node
   linkType: hard
 
@@ -8796,6 +8828,16 @@ __metadata:
   dependencies:
     utila: ~0.4
   checksum: ea52fe303f5392e48dea563abef0e6fb3a478b8dbe3c599e99bb5d53981c6c38fc4944e56bb92a8ead6bb989d10b7914722ae11febbd2fd0910e33b9fc4aaa77
+  languageName: node
+  linkType: hard
+
+"dom-helpers@npm:^5.0.1":
+  version: 5.2.1
+  resolution: "dom-helpers@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": ^7.8.7
+    csstype: ^3.0.2
+  checksum: 863ba9e086f7093df3376b43e74ce4422571d404fc9828bf2c56140963d5edf0e56160f9b2f3bb61b282c07f8fc8134f023c98fd684bddcb12daf7b0f14d951c
   languageName: node
   linkType: hard
 
@@ -16607,6 +16649,21 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: c474e955ff20bb14c6a1d4b8b24e0d4b0247850eb6222c4f8722e59bf1bd4c545624334e2ef808e98c8297831e75e348067d37e1354c535112599b9aea1c4c74
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:4":
+  version: 4.4.1
+  resolution: "react-transition-group@npm:4.4.1"
+  dependencies:
+    "@babel/runtime": ^7.5.5
+    dom-helpers: ^5.0.1
+    loose-envify: ^1.4.0
+    prop-types: ^15.6.2
+  peerDependencies:
+    react: ">=16.6.0"
+    react-dom: ">=16.6.0"
+  checksum: 0bcd8af483709832e318dcef84c26ebddeb866bf4f58010286367ef0c1e7c5106e00cfc65688b9102414cb3d572c63909c2eb7ea972b4420fc70a78c10b6e8ad
   languageName: node
   linkType: hard
 

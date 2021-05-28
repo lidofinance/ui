@@ -11,4 +11,5 @@ export const TooltipPopoverStyle = styled(Popover)`
   border-radius: ${({ theme }) => theme.borderRadiusesMap.md}px;
   box-shadow: ${({ theme }) =>
     `${theme.boxShadows.sm} ${theme.colors.shadowLight}`};
+  pointer-events: none;
 `

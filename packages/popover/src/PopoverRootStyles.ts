@@ -1,4 +1,10 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { TransitionInnerProps } from '@lidofinance/transition'
+
+type TransitionProps = {
+  $duration: number
+  $transition: TransitionInnerProps['transitionStatus']
+}
 
 export const PopoverWrapperStyle = styled.div<{ $backdrop: boolean }>`
   position: absolute;
@@ -11,9 +17,42 @@ export const PopoverWrapperStyle = styled.div<{ $backdrop: boolean }>`
   height: ${({ $backdrop }) => ($backdrop ? '100%' : '0px')};
 `
 
-export const PopoverRootStyle = styled.div`
+const visibleCSS = css`
+  opacity: 1;
+
+  &[data-placement] {
+    transform: translate(0, 0);
+  }
+`
+
+const hiddenCSS = css`
+  opacity: 0;
+
+  &[data-placement^='top'] {
+    transform: translateY(6px);
+  }
+  &[data-placement^='right'] {
+    transform: translateX(-6px);
+  }
+  &[data-placement^='bottom'] {
+    transform: translateY(-6px);
+  }
+  &[data-placement^='left'] {
+    transform: translateX(6px);
+  }
+`
+
+const getTransitionCSS = ({ $transition }: TransitionProps) => {
+  return ['exiting', 'exited'].includes($transition) ? hiddenCSS : visibleCSS
+}
+
+export const PopoverRootStyle = styled.div<TransitionProps>`
   box-sizing: border-box;
   position: absolute;
   margin: 0;
   padding: 0;
+  transition: opacity ${({ $duration }) => $duration}ms ease;
+  transition-property: opacity, transform;
+
+  ${getTransitionCSS}
 `

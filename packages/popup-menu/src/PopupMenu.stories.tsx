@@ -54,18 +54,17 @@ export const Basic: Story<PopupMenuProps> = (props) => {
       <Button size='sm' onClick={handleOpen} ref={anchorRef}>
         Open Menu
       </Button>
-      {state && (
-        <PopupMenu
-          {...props}
-          style={{ width: 200 }}
-          onClose={handleClose}
-          anchorRef={anchorRef}
-        >
-          <PopupMenuItem onClick={handleClose}>Ethereum (ETH)</PopupMenuItem>
-          <PopupMenuItem onClick={handleClose}>Lido (STETH)</PopupMenuItem>
-          <PopupMenuItem onClick={handleClose}>Solana (SOL)</PopupMenuItem>
-        </PopupMenu>
-      )}
+      <PopupMenu
+        {...props}
+        open={state}
+        style={{ width: 200 }}
+        onClose={handleClose}
+        anchorRef={anchorRef}
+      >
+        <PopupMenuItem onClick={handleClose}>Ethereum (ETH)</PopupMenuItem>
+        <PopupMenuItem onClick={handleClose}>Lido (STETH)</PopupMenuItem>
+        <PopupMenuItem onClick={handleClose}>Solana (SOL)</PopupMenuItem>
+      </PopupMenu>
     </>
   )
 }
@@ -78,24 +77,23 @@ export const Icons: Story<PopupMenuProps> = (props) => {
       <Button size='sm' onClick={handleOpen} ref={anchorRef}>
         Open Menu
       </Button>
-      {state && (
-        <PopupMenu
-          {...props}
-          style={{ width: 200 }}
-          onClose={handleClose}
-          anchorRef={anchorRef}
-        >
-          <PopupMenuItem onClick={handleClose} leftDecorator={<Eth />}>
-            Ethereum (ETH)
-          </PopupMenuItem>
-          <PopupMenuItem onClick={handleClose} leftDecorator={<Steth />}>
-            Lido (STETH)
-          </PopupMenuItem>
-          <PopupMenuItem onClick={handleClose} leftDecorator={<Solana />}>
-            Solana (SOL)
-          </PopupMenuItem>
-        </PopupMenu>
-      )}
+      <PopupMenu
+        {...props}
+        open={state}
+        style={{ width: 200 }}
+        onClose={handleClose}
+        anchorRef={anchorRef}
+      >
+        <PopupMenuItem onClick={handleClose} leftDecorator={<Eth />}>
+          Ethereum (ETH)
+        </PopupMenuItem>
+        <PopupMenuItem onClick={handleClose} leftDecorator={<Steth />}>
+          Lido (STETH)
+        </PopupMenuItem>
+        <PopupMenuItem onClick={handleClose} leftDecorator={<Solana />}>
+          Solana (SOL)
+        </PopupMenuItem>
+      </PopupMenu>
     </>
   )
 }
@@ -108,18 +106,17 @@ export const WithDisabled: Story<PopupMenuProps> = (props) => {
       <Button size='sm' onClick={handleOpen} ref={anchorRef}>
         Open Menu
       </Button>
-      {state && (
-        <PopupMenu
-          {...props}
-          style={{ width: 200 }}
-          onClose={handleClose}
-          anchorRef={anchorRef}
-        >
-          <PopupMenuItem onClick={handleClose}>Ethereum (ETH)</PopupMenuItem>
-          <PopupMenuItem onClick={handleClose}>Lido (STETH)</PopupMenuItem>
-          <PopupMenuItem disabled>Solana (SOL)</PopupMenuItem>
-        </PopupMenu>
-      )}
+      <PopupMenu
+        {...props}
+        open={state}
+        style={{ width: 200 }}
+        onClose={handleClose}
+        anchorRef={anchorRef}
+      >
+        <PopupMenuItem onClick={handleClose}>Ethereum (ETH)</PopupMenuItem>
+        <PopupMenuItem onClick={handleClose}>Lido (STETH)</PopupMenuItem>
+        <PopupMenuItem disabled>Solana (SOL)</PopupMenuItem>
+      </PopupMenu>
     </>
   )
 }

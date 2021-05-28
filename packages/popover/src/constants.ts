@@ -7,3 +7,5 @@ export const INITIAL_STYLE: CSSProperties = {
   opacity: 0,
   pointerEvents: 'none',
 }
+
+export const DEFAULT_PLACEMENT = 'bottomLeft'

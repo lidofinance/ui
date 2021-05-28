@@ -2,25 +2,29 @@ import ReactDOM from 'react-dom'
 import { ForwardedRef, forwardRef } from 'react'
 import { modalRoot } from '@lidofinance/utils'
 import { useMergeRefs, useOutsideClick, useEscape } from '@lidofinance/hooks'
+import { withTransition } from '@lidofinance/transition'
 import { usePopoverPosition } from './usePopoverPosition'
-
 import { PopoverWrapperStyle, PopoverRootStyle } from './PopoverRootStyles'
-import { PopoverRootProps } from './types'
+import { PopoverRootInnerProps } from './types'
+import { DEFAULT_PLACEMENT } from './constants'
 
 function PopoverRoot(
-  props: PopoverRootProps,
+  props: PopoverRootInnerProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
   const {
-    wrapperRef: externalWrapperRef,
     anchorRef,
-    placement,
+    wrapperRef: externalWrapperRef,
+    placement = DEFAULT_PLACEMENT,
     backdrop = true,
+    transitionStatus,
+    duration,
     ...rest
   } = props
 
-  useEscape(props.onClose)
-  const { ref: outsidePopoverRef } = useOutsideClick(props.onClose)
+  const { onClose } = props
+  useEscape(onClose)
+  const { ref: outsidePopoverRef } = useOutsideClick(onClose)
 
   const {
     popoverRef: positionPopoverRef,
@@ -40,10 +44,17 @@ function PopoverRoot(
 
   return ReactDOM.createPortal(
     <PopoverWrapperStyle $backdrop={backdrop} ref={wrapperRef}>
-      <PopoverRootStyle {...rest} style={style} ref={popoverRef} />
+      <PopoverRootStyle
+        {...rest}
+        $transition={transitionStatus}
+        $duration={duration}
+        data-placement={placement}
+        style={style}
+        ref={popoverRef}
+      />
     </PopoverWrapperStyle>,
     modalRoot
   )
 }
 
-export default forwardRef(PopoverRoot)
+export default withTransition(forwardRef(PopoverRoot))

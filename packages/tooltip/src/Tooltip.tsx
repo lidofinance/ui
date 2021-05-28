@@ -34,16 +34,15 @@ function Tooltip(props: TooltipProps, ref?: ForwardedRef<HTMLDivElement>) {
           child.props.onMouseLeave?.(event)
         },
       })}
-      {state && (
-        <TooltipPopoverStyle
-          backdrop={false}
-          anchorRef={anchorRef}
-          ref={ref}
-          {...rest}
-        >
-          {title}
-        </TooltipPopoverStyle>
-      )}
+      <TooltipPopoverStyle
+        open={state}
+        backdrop={false}
+        anchorRef={anchorRef}
+        ref={ref}
+        {...rest}
+      >
+        {title}
+      </TooltipPopoverStyle>
     </>
   )
 }

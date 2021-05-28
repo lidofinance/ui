@@ -4,6 +4,7 @@ import { PopoverProps, PopoverPlacement, PopoverOffset } from './types'
 
 import Popover from './Popover'
 import { useCallback, useRef, useState } from 'react'
+import { DEFAULT_PLACEMENT } from './constants'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -17,7 +18,7 @@ export default {
   args: {
     backdrop: true,
     offset: 'xs',
-    placement: 'bottomLeft',
+    placement: DEFAULT_PLACEMENT,
   },
   argTypes: {
     backdrop: {
@@ -58,11 +59,14 @@ export const Basic: Story<PopoverProps> = (props) => {
       <Button size='sm' onClick={handleToggle} ref={anchorRef}>
         Open Popover
       </Button>
-      {state && (
-        <Popover {...props} onClose={handleClose} anchorRef={anchorRef}>
-          Popover
-        </Popover>
-      )}
+      <Popover
+        {...props}
+        open={state}
+        onClose={handleClose}
+        anchorRef={anchorRef}
+      >
+        Popover
+      </Popover>
     </>
   )
 }

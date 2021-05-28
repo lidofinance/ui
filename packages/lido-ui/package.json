@@ -46,6 +46,7 @@
     "@lidofinance/text": "workspace:*",
     "@lidofinance/theme": "workspace:*",
     "@lidofinance/tooltip": "workspace:*",
+    "@lidofinance/transition": "workspace:*",
     "@lidofinance/utils": "workspace:*"
   }
 }

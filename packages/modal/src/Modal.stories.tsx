@@ -39,7 +39,7 @@ export const Basic: Story<ModalProps> = (props) => {
   return (
     <>
       <Button onClick={handleOpen}>Show modal</Button>
-      {state && <Modal {...props} onClose={handleClose} />}
+      <Modal {...props} open={state} onClose={handleClose} />
     </>
   )
 }
@@ -50,13 +50,12 @@ export const ExtraContent: Story<ModalProps> = (props) => {
   return (
     <>
       <Button onClick={handleOpen}>Show modal</Button>
-      {state && (
-        <Modal
-          {...props}
-          onClose={handleClose}
-          extra={<ModalExtra>Extra content</ModalExtra>}
-        />
-      )}
+      <Modal
+        {...props}
+        open={state}
+        onClose={handleClose}
+        extra={<ModalExtra>Extra content</ModalExtra>}
+      />
     </>
   )
 }
@@ -67,11 +66,9 @@ export const WithScroll: Story<ModalProps> = (props) => {
   return (
     <>
       <Button onClick={handleOpen}>Show modal</Button>
-      {state && (
-        <Modal {...props} onClose={handleClose}>
-          <div style={{ height: '150vh' }}>{props.children}</div>
-        </Modal>
-      )}
+      <Modal {...props} open={state} onClose={handleClose}>
+        <div style={{ height: '150vh' }}>{props.children}</div>
+      </Modal>
     </>
   )
 }

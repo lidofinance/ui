@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react'
+import { useInterceptFocus } from '@lidofinance/hooks'
 import { FOCUSABLE_ELEMENTS } from './constants'
 
 export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
@@ -50,6 +51,15 @@ export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [handleRetainFocus])
+
+  const [interceptFocus, restoreFocus] = useInterceptFocus()
+
+  useEffect(() => {
+    if (!modalRef.current) return
+
+    interceptFocus(modalRef.current)
+    return restoreFocus
+  }, [interceptFocus, restoreFocus])
 
   return modalRef
 }

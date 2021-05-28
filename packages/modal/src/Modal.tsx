@@ -12,14 +12,14 @@ import { ModalProps } from './types'
 import ModalOverlay from './ModalOverlay'
 
 function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { children, title, center = false, extra, ...rest } = props
+  const { children, title, center = false, extra, open, ...rest } = props
   const { onClose } = props
 
   const closable = !!onClose
   const untitled = !title
 
   return (
-    <ModalOverlay {...rest} ref={ref}>
+    <ModalOverlay in={open} {...rest} ref={ref}>
       <ModalStyle $center={center}>
         <ModalBaseStyle>
           <ModalHeaderStyle $short={untitled}>

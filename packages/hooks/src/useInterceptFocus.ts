@@ -1,15 +1,24 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useRef } from 'react'
 
-export const useInterceptFocus = (): void => {
-  const initialActiveElement = useRef<Element | null>(document.activeElement)
+export const useInterceptFocus = (): [
+  (node: HTMLElement) => void,
+  () => void
+] => {
+  const savedElement = useRef<Element | null>(null)
 
-  const focusInitialActive = useCallback(() => {
-    if (initialActiveElement.current instanceof HTMLElement) {
-      initialActiveElement.current.focus()
-    }
+  const restoreFocus = useCallback(() => {
+    if (!(savedElement.current instanceof HTMLElement)) return
+    savedElement.current.focus()
   }, [])
 
-  useEffect(() => {
-    return focusInitialActive
-  }, [focusInitialActive])
+  const interceptFocus = useCallback((node: HTMLElement) => {
+    savedElement.current = document.activeElement
+
+    const isFocusInside = node.contains(document.activeElement)
+    if (isFocusInside) return
+
+    node.focus()
+  }, [])
+
+  return [interceptFocus, restoreFocus]
 }

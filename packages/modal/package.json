@@ -27,6 +27,7 @@
     "@lidofinance/hooks": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/theme": "workspace:*",
+    "@lidofinance/transition": "workspace:*",
     "@lidofinance/utils": "workspace:*"
   },
   "peerDependencies": {
