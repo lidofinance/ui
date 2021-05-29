@@ -1634,7 +1634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^12.1.4":
+"@commitlint/cli@npm:12.1.4":
   version: 12.1.4
   resolution: "@commitlint/cli@npm:12.1.4"
   dependencies:
@@ -1653,7 +1653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^12.1.4":
+"@commitlint/config-conventional@npm:12.1.4":
   version: 12.1.4
   resolution: "@commitlint/config-conventional@npm:12.1.4"
   dependencies:
@@ -3320,7 +3320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/multi-semantic-release@npm:^3.14.2":
+"@qiwi/multi-semantic-release@npm:3.14.2":
   version: 3.14.2
   resolution: "@qiwi/multi-semantic-release@npm:3.14.2"
   dependencies:
@@ -13423,9 +13423,9 @@ fsevents@^1.2.7:
     "@babel/preset-env": 7.14.2
     "@babel/preset-react": 7.13.13
     "@babel/preset-typescript": 7.13.0
-    "@commitlint/cli": ^12.1.4
-    "@commitlint/config-conventional": ^12.1.4
-    "@qiwi/multi-semantic-release": ^3.14.2
+    "@commitlint/cli": 12.1.4
+    "@commitlint/config-conventional": 12.1.4
+    "@qiwi/multi-semantic-release": 3.14.2
     "@storybook/addon-docs": 6.2.9
     "@storybook/addon-essentials": 6.2.9
     "@storybook/addons": 6.2.9
