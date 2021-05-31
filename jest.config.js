@@ -15,11 +15,5 @@ module.exports = {
   transform: {
     '^.+\\.((js|ts)x?)$': 'babel-jest',
   },
-
-  /*
-   * TODO: replace 'jasmine2' with 'circus' after the next jest release (27.0.2 or higher)
-   * issue: https://github.com/facebook/jest/issues/11452
-   */
-  testRunner: 'jasmine2',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
 }

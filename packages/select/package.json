@@ -28,7 +28,7 @@
     "@lidofinance/input": "workspace:*",
     "@lidofinance/popup-menu": "workspace:*",
     "@lidofinance/theme": "workspace:*",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "1.5.1"
   },
   "peerDependencies": {
     "react": "16 || 17",
