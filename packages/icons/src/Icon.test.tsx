@@ -5,7 +5,7 @@ type ComponentName = keyof typeof components
 
 describe('icons', () => {
   Object.keys(components)
-    .filter((key) => typeof components[key] === 'object')
+    .filter((key) => typeof components[key as ComponentName] === 'object')
     .map((iconName) => {
       const Icon = components[iconName as ComponentName]
 
