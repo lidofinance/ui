@@ -4,21 +4,23 @@ import type {
   TransitionActions,
 } from 'react-transition-group/Transition'
 
-export type TransitionWrapperProps = Pick<
-  TransitionProps,
-  | 'in'
-  | 'mountOnEnter'
-  | 'unmountOnExit'
-  | 'timeout'
-  | 'addEndListener'
-  | 'onEnter'
-  | 'onEntering'
-  | 'onEntered'
-  | 'onExit'
-  | 'onExiting'
-  | 'onExited'
-> &
-  Pick<TransitionActions, 'appear' | 'enter' | 'exit'>
+export type TransitionWrapperProps = Partial<
+  Pick<
+    TransitionProps,
+    | 'in'
+    | 'mountOnEnter'
+    | 'unmountOnExit'
+    | 'timeout'
+    | 'addEndListener'
+    | 'onEnter'
+    | 'onEntering'
+    | 'onEntered'
+    | 'onExit'
+    | 'onExiting'
+    | 'onExited'
+  > &
+    Pick<TransitionActions, 'appear' | 'enter' | 'exit'>
+>
 
 export type TransitionInnerProps = {
   duration: number
