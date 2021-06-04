@@ -2192,7 +2192,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2216,7 +2216,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2240,7 +2240,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2266,7 +2266,7 @@ __metadata:
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     jest-styled-components: 7.0.4
@@ -2291,7 +2291,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2315,7 +2315,7 @@ __metadata:
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2339,7 +2339,7 @@ __metadata:
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2362,7 +2362,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2382,7 +2382,7 @@ __metadata:
   resolution: "@lidofinance/hooks@workspace:packages/hooks"
   dependencies:
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2410,7 +2410,7 @@ __metadata:
     "@svgr/plugin-svgo": 5.5.0
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/rimraf": 3.0.0
     "@types/styled-components": 5.1.9
@@ -2434,7 +2434,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2461,7 +2461,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2516,7 +2516,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2539,7 +2539,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2567,7 +2567,7 @@ __metadata:
     "@storybook/react": 6.2.9
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2593,7 +2593,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2620,7 +2620,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2646,7 +2646,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/resize-observer-browser": 0.1.5
     "@types/styled-components": 5.1.9
@@ -2672,7 +2672,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2696,7 +2696,7 @@ __metadata:
     "@styled-system/should-forward-prop": 5.1.5
     "@testing-library/react": 11.2.7
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     "@types/styled-system": 5.1.11
@@ -2723,7 +2723,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2743,7 +2743,7 @@ __metadata:
   resolution: "@lidofinance/theme@workspace:packages/theme"
   dependencies:
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2769,7 +2769,7 @@ __metadata:
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -2790,7 +2790,7 @@ __metadata:
   dependencies:
     "@storybook/react": 6.2.9
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/react-transition-group": 4.4.1
     react: 17.0.2
@@ -2809,7 +2809,7 @@ __metadata:
   resolution: "@lidofinance/utils@workspace:packages/utils"
   dependencies:
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@types/styled-components": 5.1.9
     react: 17.0.2
@@ -4946,12 +4946,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:17.0.5":
-  version: 17.0.5
-  resolution: "@types/react-dom@npm:17.0.5"
+"@types/react-dom@npm:17.0.6":
+  version: 17.0.6
+  resolution: "@types/react-dom@npm:17.0.6"
   dependencies:
     "@types/react": "*"
-  checksum: ff301198c621864e1ee6c566285dc5cdc9eb5d881ca7fe7fcb8ebf29afe0357ffb7f77e401ab81ff444c64ff1375f653eeb28f04cd088a361915dee31cb3f4a8
+  checksum: cc167c24a77cef2be8dcabd1bbe8b95c0d713b943b2f1c8a1468c8009c50daad51a46859a217a8383b89bb4ea499937d405699ce8db164f70c871f9d22d703f0
   languageName: node
   linkType: hard
 
@@ -13333,7 +13333,7 @@ fsevents@^1.2.7:
     "@storybook/theming": 6.2.9
     "@types/jest": 26.0.23
     "@types/react": 17.0.8
-    "@types/react-dom": 17.0.5
+    "@types/react-dom": 17.0.6
     "@types/react-is": 17.0.0
     "@typescript-eslint/eslint-plugin": 4.25.0
     "@typescript-eslint/parser": 4.25.0
