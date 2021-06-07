@@ -35,11 +35,11 @@ function Tooltip(props: TooltipProps, ref?: ForwardedRef<HTMLDivElement>) {
         },
       })}
       <TooltipPopoverStyle
+        {...rest}
         open={state}
         backdrop={false}
         anchorRef={anchorRef}
         ref={ref}
-        {...rest}
       >
         {title}
       </TooltipPopoverStyle>
