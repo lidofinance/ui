@@ -218,6 +218,24 @@ export const Deposit = React.forwardRef(function Deposit(
   )
 })
 
+export const Edit = React.forwardRef(function Edit(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path d='M7.414 14.586l5.657-5.657 2.121 2.121-5.656 5.657-2.475.354.353-2.475zm6.364-6.364l1.06-1.06a1 1 0 011.415 0l.707.706a1 1 0 010 1.414l-1.06 1.061-2.122-2.121z' />
+    </svg>
+  )
+})
+
 export const Email = React.forwardRef(function Email(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
