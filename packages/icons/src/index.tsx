@@ -352,6 +352,79 @@ export const History = React.forwardRef(function History(
   )
 })
 
+export const Ldo = React.forwardRef(function Ldo(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        d='M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11z'
+        fill='#F69988'
+      />
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M12.005 4.223l3.859 6.025-3.859 2.244-3.858-2.244 3.858-6.025zm-2.677 5.74l2.677-4.18 2.677 4.18-2.677 1.557-2.677-1.557z'
+        fill='#fff'
+      />
+      <path
+        d='M12 13.816l-4.477-2.603-.122.191a5.433 5.433 0 00.74 6.78 5.467 5.467 0 007.718 0 5.432 5.432 0 00.74-6.78l-.122-.19L12 13.816z'
+        fill='#fff'
+      />
+    </svg>
+  )
+})
+
+export const Ldopl = React.forwardRef(function Ldopl(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        d='M7.078 11.148l-.135.206a5.788 5.788 0 00.814 7.32 6.043 6.043 0 004.24 1.72l-4.92-9.246z'
+        fill='#D219B8'
+      />
+      <path
+        opacity={0.6}
+        d='M11.997 13.958l-4.92-2.81 4.92 9.246v-6.436zm4.925-2.81l.134.206a5.788 5.788 0 01-.813 7.32 6.043 6.043 0 01-4.24 1.72l4.92-9.246z'
+        fill='#D219B8'
+      />
+      <path
+        opacity={0.2}
+        d='M12.002 13.958l4.92-2.81-4.92 9.246v-6.436zm.001-6.278v4.847l4.238-2.422-4.238-2.425z'
+        fill='#D219B8'
+      />
+      <path
+        opacity={0.6}
+        d='M12.003 7.68l-4.24 2.425 4.24 2.422V7.68z'
+        fill='#D219B8'
+      />
+      <path d='M12.003 3.604l-4.24 6.502 4.24-2.431V3.604z' fill='#D219B8' />
+      <path
+        opacity={0.6}
+        d='M12.003 7.674l4.241 2.432-4.24-6.506v4.074z'
+        fill='#D219B8'
+      />
+    </svg>
+  )
+})
+
 export const Light = React.forwardRef(function Light(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
