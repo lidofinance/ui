@@ -23,6 +23,7 @@
     "react"
   ],
   "dependencies": {
+    "@lidofinance/hooks": "workspace:*",
     "react-transition-group": "4"
   },
   "peerDependencies": {
