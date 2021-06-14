@@ -6,7 +6,7 @@ import type {
 
 export type TransitionWrapperProps = Partial<
   Pick<
-    TransitionProps,
+    TransitionProps<HTMLElement>,
     | 'in'
     | 'mountOnEnter'
     | 'unmountOnExit'

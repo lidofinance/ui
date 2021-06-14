@@ -1,5 +1,8 @@
 module.exports = {
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
+  reactOptions: {
+    strictMode: true,
+  },
   addons: [
     '@storybook/addon-docs',
     {

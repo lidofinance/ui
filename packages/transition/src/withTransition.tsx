@@ -1,4 +1,5 @@
 import React, { ForwardedRef, forwardRef } from 'react'
+import { useMergeRefs } from '@lidofinance/hooks'
 import { Transition } from 'react-transition-group'
 import { DEFAULT_DURATION } from './constants'
 import { TransitionWrapperProps, TransitionInnerProps } from './types'
@@ -14,7 +15,7 @@ export default function withTransition<
 ): React.ForwardRefExoticComponent<
   React.PropsWithoutRef<WrappedProps<P>> & React.RefAttributes<E>
 > {
-  function Wrapped(props: WrappedProps<P>, ref: ForwardedRef<E>) {
+  function Wrapped(props: WrappedProps<P>, externalRef: ForwardedRef<E>) {
     const {
       in: state = false,
       timeout = DEFAULT_DURATION,
@@ -50,8 +51,10 @@ export default function withTransition<
       onExited,
     }
 
+    const ref = useMergeRefs([externalRef])
+
     return (
-      <Transition {...transitionProps}>
+      <Transition {...transitionProps} nodeRef={ref}>
         {(status) => (
           <Component
             {...(rest as P)}
