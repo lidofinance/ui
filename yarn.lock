@@ -14826,7 +14826,7 @@ fsevents@^1.2.7:
     styled-components: 5.3.0
     tslib: 2.3.0
     typescript: 4.3.2
-    webpack: 5.38.1
+    webpack: 5.39.0
     yarn-workspaces-list: 0.2.0
   languageName: unknown
   linkType: soft
@@ -21430,9 +21430,9 @@ typescript@4.3.2:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.38.1":
-  version: 5.38.1
-  resolution: "webpack@npm:5.38.1"
+"webpack@npm:5.39.0":
+  version: 5.39.0
+  resolution: "webpack@npm:5.39.0"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.47
@@ -21462,7 +21462,7 @@ typescript@4.3.2:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 631f0e838dd83f2f735f047a161daba2dd58b1550af5bcbe2df4ad25cfc3d836a48d038cf2ded3669ff2e1f6db58fa38866abe8c537b8fea32bda86e1223cb4f
+  checksum: 1acff2bcc06d6e47bc66708ea7970e72baa2f0fd866219ae0962e2dec38baeb2aaa4767b3622d9516bab4395153e3a53e799c15536d88d3ffae71be462d68a07
   languageName: node
   linkType: hard
 
