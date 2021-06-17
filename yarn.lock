@@ -129,16 +129,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.14.5":
-  version: 7.14.5
-  resolution: "@babel/core@npm:7.14.5"
+"@babel/core@npm:7.14.6":
+  version: 7.14.6
+  resolution: "@babel/core@npm:7.14.6"
   dependencies:
     "@babel/code-frame": ^7.14.5
     "@babel/generator": ^7.14.5
     "@babel/helper-compilation-targets": ^7.14.5
     "@babel/helper-module-transforms": ^7.14.5
-    "@babel/helpers": ^7.14.5
-    "@babel/parser": ^7.14.5
+    "@babel/helpers": ^7.14.6
+    "@babel/parser": ^7.14.6
     "@babel/template": ^7.14.5
     "@babel/traverse": ^7.14.5
     "@babel/types": ^7.14.5
@@ -148,7 +148,7 @@ __metadata:
     json5: ^2.1.2
     semver: ^6.3.0
     source-map: ^0.5.0
-  checksum: a8bc444be2a2fd620cd634a0c41ec87994c8bf8f67746f46e1fd015ea3cb0ebb0ba3ee7a387c07d7c5dded98f1f280df8ebc5a5ff5b216a1978cbd36ae012fa7
+  checksum: 6ede604d8de7a103c087b96a58548a3d27efb9e53de6ecc84f4b4ca947cd91f02b0289fc04557b04eb6e31243dbeabdcdb8fd520a1780f284333f56eb1b58913
   languageName: node
   linkType: hard
 
@@ -697,14 +697,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.14.5":
-  version: 7.14.5
-  resolution: "@babel/helpers@npm:7.14.5"
+"@babel/helpers@npm:^7.14.6":
+  version: 7.14.6
+  resolution: "@babel/helpers@npm:7.14.6"
   dependencies:
     "@babel/template": ^7.14.5
     "@babel/traverse": ^7.14.5
     "@babel/types": ^7.14.5
-  checksum: 5357b3cb9dbd7f3f031168abe8981ad30b2dd173d5dcfc2216af6f8d03081a37bd5accc526596da61e48c20cd6ceba8af61f1a8e7f4d2bcf8521051d214a7246
+  checksum: fe4e73975b062a8b8b95f499f4ac1064c9a53d4ee83cc273c2420250f6a46b59f1f5e35050d41ebe04efd7885a28ceea6f4f16d8eb091e24622f2a4a5eb20f23
   languageName: node
   linkType: hard
 
@@ -745,6 +745,15 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: 9fdcf174d9e9ab76b242a837307d5c513dc530f6080d0dd1b93d5e0338e80f0b8d71cc6afebd33f9ac22cf51d0427709efab8f3377757be56d5e58fe0b9d68ef
+  languageName: node
+  linkType: hard
+
+"@babel/parser@npm:^7.14.6":
+  version: 7.14.6
+  resolution: "@babel/parser@npm:7.14.6"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: 104482e07971a78a3d68a0c329b1303981a272f55a510d39c93dac3c293f207ec863329046abc5d8bb86db58c49670cc607654793470a87ccd386544c2ccf298
   languageName: node
   linkType: hard
 
@@ -14771,7 +14780,7 @@ fsevents@^1.2.7:
   resolution: "lido-ui-components@workspace:."
   dependencies:
     "@babel/cli": 7.14.5
-    "@babel/core": 7.14.5
+    "@babel/core": 7.14.6
     "@babel/plugin-proposal-class-properties": 7.14.5
     "@babel/plugin-proposal-private-methods": 7.14.5
     "@babel/plugin-proposal-private-property-in-object": 7.14.5
