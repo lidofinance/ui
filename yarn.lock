@@ -5474,9 +5474,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/storybook-deployer@npm:2.8.8":
-  version: 2.8.8
-  resolution: "@storybook/storybook-deployer@npm:2.8.8"
+"@storybook/storybook-deployer@npm:2.8.10":
+  version: 2.8.10
+  resolution: "@storybook/storybook-deployer@npm:2.8.10"
   dependencies:
     git-url-parse: ^11.1.2
     glob: ^7.1.3
@@ -5486,7 +5486,7 @@ __metadata:
   bin:
     storybook-to-aws-s3: bin/storybook_to_aws_s3
     storybook-to-ghpages: bin/storybook_to_ghpages
-  checksum: be6734e01e459d01fe0da0e39d01557b6a53cec90d50162121a42b3f72284c5d374e0279ef31109233aadd6783edd2cf79af8562712164e4e2ec4e9f7c0f7007
+  checksum: cbeff7556c7a9a955286d828b3b8dd1dbcddd1fb48a64793cfadafa0e2c927f915a557085e104e08b6fd3e56c05c26167dbda59f470b94637fc7d181311f61a7
   languageName: node
   linkType: hard
 
@@ -14796,7 +14796,7 @@ fsevents@^1.2.7:
     "@storybook/addon-essentials": 6.2.9
     "@storybook/addons": 6.2.9
     "@storybook/react": 6.2.9
-    "@storybook/storybook-deployer": 2.8.8
+    "@storybook/storybook-deployer": 2.8.10
     "@storybook/theming": 6.2.9
     "@types/babel__plugin-transform-runtime": 7.9.1
     "@types/jest": 26.0.23
