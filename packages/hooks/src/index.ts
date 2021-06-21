@@ -1,3 +1,4 @@
+export * from './useBreakpoint'
 export * from './useEscape'
 export * from './useInterceptFocus'
 export * from './useLockScroll'

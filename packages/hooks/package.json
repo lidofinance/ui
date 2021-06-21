@@ -23,6 +23,7 @@
     "react"
   ],
   "dependencies": {
+    "@lidofinance/theme": "workspace:*",
     "use-callback-ref": "1.2.5"
   },
   "peerDependencies": {
