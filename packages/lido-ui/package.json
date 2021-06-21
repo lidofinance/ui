@@ -29,6 +29,7 @@
     "@lidofinance/button": "workspace:*",
     "@lidofinance/checkbox": "workspace:*",
     "@lidofinance/container": "workspace:*",
+    "@lidofinance/data-table": "workspace:*",
     "@lidofinance/divider": "workspace:*",
     "@lidofinance/heading": "workspace:*",
     "@lidofinance/hooks": "workspace:*",
