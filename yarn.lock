@@ -3507,6 +3507,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/data-table@workspace:packages/data-table":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/data-table@workspace:packages/data-table"
+  dependencies:
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/loaders": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/tooltip": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.2.9
+    "@testing-library/react": 11.2.7
+    "@types/react": 17.0.11
+    "@types/react-dom": 17.0.8
+    "@types/react-is": 17.0.1
+    "@types/styled-components": 5.1.10
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/divider@workspace:*, @lidofinance/divider@workspace:packages/divider":
   version: 0.0.0-use.local
   resolution: "@lidofinance/divider@workspace:packages/divider"
