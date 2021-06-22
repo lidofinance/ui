@@ -8,8 +8,9 @@
   "scripts": {
     "dev": "start-storybook -p 5555 -s .storybook/public",
     "build-storybook": "build-storybook -s .storybook/public",
-    "build": "rollup -c",
+    "build": "yarn combine && rollup -c",
     "build:dev": "rollup -c -w",
+    "combine": "node ./combinePackages.js",
     "test": "jest",
     "test:coverage": "jest coverage",
     "lint": "eslint --ext ts,tsx,js,jsx .",
@@ -82,7 +83,8 @@
     ],
     "./**/*.{ts,tsx,js,jsx,md,json}": [
       "prettier --write"
-    ]
+    ],
+    "*": "yarn combine"
   },
   "homepage": "https://github.com/lidofinance/ui",
   "repository": {
