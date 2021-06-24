@@ -90,6 +90,52 @@ export const ArrowTop = React.forwardRef(function ArrowTop(
   )
 })
 
+export const Beth = React.forwardRef(function Beth(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        d='M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11z'
+        fill='#010101'
+      />
+      <path
+        d='M7.898 11.29l-.112.17a4.824 4.824 0 00.678 6.1 5.036 5.036 0 003.534 1.434l-4.1-7.705z'
+        fill='#4BDB4B'
+      />
+      <path
+        opacity={0.6}
+        d='M11.997 13.63l-4.1-2.34 4.1 7.704v-5.363zm4.105-2.34l.112.17a4.823 4.823 0 01-.678 6.1 5.036 5.036 0 01-3.534 1.434l4.1-7.705z'
+        fill='#4BDB4B'
+      />
+      <path
+        opacity={0.2}
+        d='M12.002 13.63l4.1-2.34-4.1 7.704v-5.363zm.001-5.23v4.038l3.531-2.018-3.531-2.02z'
+        fill='#4BDB4B'
+      />
+      <path
+        opacity={0.6}
+        d='M12.003 8.4l-3.534 2.02 3.534 2.018V8.4z'
+        fill='#4BDB4B'
+      />
+      <path d='M12.003 5.002L8.469 10.42l3.534-2.027V5.002z' fill='#4BDB4B' />
+      <path
+        opacity={0.6}
+        d='M12.003 8.394l3.534 2.027-3.534-5.422v3.395z'
+        fill='#4BDB4B'
+      />
+    </svg>
+  )
+})
+
 export const CheckLarge = React.forwardRef(function CheckLarge(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
