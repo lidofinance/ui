@@ -130,6 +130,11 @@ export const InputStyle = styled.input<{ $labeled: boolean }>`
 
   &:-webkit-autofill {
     box-shadow: 0 0 0 100px ${({ theme }) => theme.colors.controlBg} inset !important;
+    color: ${({ theme }) => theme.colors.text} !important;
+  }
+
+  &:-internal-autofill-selected {
+    color: ${({ theme }) => theme.colors.text} !important;
   }
 
   ${({ $labeled }) => ($labeled ? labeledCSS : '')}
