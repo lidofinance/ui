@@ -3447,7 +3447,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@testing-library/react": 11.2.7
+    "@testing-library/react": 12.0.0
     "@types/jest": 26.0.23
     "@types/react": 17.0.11
     "@types/react-dom": 17.0.8
@@ -3497,7 +3497,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@testing-library/react": 11.2.7
+    "@testing-library/react": 12.0.0
     "@types/react": 17.0.11
     "@types/react-dom": 17.0.8
     "@types/react-is": 17.0.1
@@ -3524,7 +3524,7 @@ __metadata:
     "@lidofinance/tooltip": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@testing-library/react": 11.2.7
+    "@testing-library/react": 12.0.0
     "@types/react": 17.0.11
     "@types/react-dom": 17.0.8
     "@types/react-is": 17.0.1
@@ -3548,7 +3548,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@testing-library/react": 11.2.7
+    "@testing-library/react": 12.0.0
     "@types/react": 17.0.11
     "@types/react-dom": 17.0.8
     "@types/react-is": 17.0.1
@@ -3620,7 +3620,7 @@ __metadata:
     "@svgr/plugin-jsx": 5.5.0
     "@svgr/plugin-prettier": 5.5.0
     "@svgr/plugin-svgo": 5.5.0
-    "@testing-library/react": 11.2.7
+    "@testing-library/react": 12.0.0
     "@types/jest": 26.0.23
     "@types/react": 17.0.11
     "@types/react-dom": 17.0.8
@@ -3779,7 +3779,7 @@ __metadata:
     "@lidofinance/transition": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.2.9
-    "@testing-library/react": 11.2.7
+    "@testing-library/react": 12.0.0
     "@types/react": 17.0.11
     "@types/react-dom": 17.0.8
     "@types/react-is": 17.0.1
@@ -3908,7 +3908,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.2.9
     "@styled-system/should-forward-prop": 5.1.5
-    "@testing-library/react": 11.2.7
+    "@testing-library/react": 12.0.0
     "@types/jest": 26.0.23
     "@types/react": 17.0.11
     "@types/react-dom": 17.0.8
@@ -5841,32 +5841,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^7.28.1":
-  version: 7.30.3
-  resolution: "@testing-library/dom@npm:7.30.3"
+"@testing-library/dom@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@testing-library/dom@npm:8.0.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/runtime": ^7.12.5
     "@types/aria-query": ^4.2.0
     aria-query: ^4.2.2
     chalk: ^4.1.0
-    dom-accessibility-api: ^0.5.4
+    dom-accessibility-api: ^0.5.6
     lz-string: ^1.4.4
-    pretty-format: ^26.6.2
-  checksum: f38429dd481feaf3861b0801457942cdad20a3ec40d0a0dd2761414f42e37d4a39a2c43d373dfb8b2ece659ffc2db0b38949a627b1a1f749f0787a3e85e87e0c
+    pretty-format: ^27.0.2
+  checksum: 72ee7eed463d94eaa9cce274c5545f3a5dc8e778e125ff7abb08daea16a3e42a7edeab307c6c96bc0079e03c2ccaa210fb591cb2070b8ad40421f8d9070d7593
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:11.2.7":
-  version: 11.2.7
-  resolution: "@testing-library/react@npm:11.2.7"
+"@testing-library/react@npm:12.0.0":
+  version: 12.0.0
+  resolution: "@testing-library/react@npm:12.0.0"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^7.28.1
+    "@testing-library/dom": ^8.0.0
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 64e07cb96e40dbdbd3c46a09c47bed14446b30efafaa65a5d4fed5a7553878990cda108578f2b114422a775f31c635d51fd50b752f6163ddd6b8474e0e5fc2ce
+  checksum: 07f0ba4092f7cd3232c2c61329353b2f2fa65388fc58666780be80f99f75daaf897a09a9897ac53f213d7b2d57e3cecb8127fd940da8cfd4275fa4a281e5b32c
   languageName: node
   linkType: hard
 
@@ -10133,10 +10133,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-accessibility-api@npm:^0.5.4":
-  version: 0.5.4
-  resolution: "dom-accessibility-api@npm:0.5.4"
-  checksum: 1fb22b351984564212b41bd7265ad1288322ad72e7367753f589facaeb98c2e3515502396acf2463f71dbaa1e238d6e006ec144a6217f1cd42e962b9bebd2dee
+"dom-accessibility-api@npm:^0.5.6":
+  version: 0.5.6
+  resolution: "dom-accessibility-api@npm:0.5.6"
+  checksum: 900eee86c0065ea13a52524093ebf79513d89cc04f1f423d5f5e1641d9d3d41714d271d78ea9827f47013642f222fe515ec3658f51fd82c981512f0a83ba9708
   languageName: node
   linkType: hard
 
