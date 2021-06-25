@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@lidofinance/theme": "workspace:*",
-    "@storybook/react": "6.2.9",
+    "@storybook/react": "6.3.0",
     "@styled-system/should-forward-prop": "5.1.5",
     "@testing-library/react": "12.0.0",
     "@types/jest": "26.0.23",
