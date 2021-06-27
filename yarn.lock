@@ -15048,7 +15048,7 @@ fsevents@^1.2.7:
     react-dom: 17.0.2
     react-is: 17.0.2
     rimraf: 3.0.2
-    rollup: 2.52.2
+    rollup: 2.52.3
     rollup-plugin-delete: 2.0.0
     rollup-plugin-typescript2: 0.30.0
     storybook-dark-mode: 1.0.8
@@ -18935,9 +18935,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rollup@npm:2.52.2":
-  version: 2.52.2
-  resolution: "rollup@npm:2.52.2"
+"rollup@npm:2.52.3":
+  version: 2.52.3
+  resolution: "rollup@npm:2.52.3"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -18945,7 +18945,7 @@ resolve@^2.0.0-next.3:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 77c0bacaef739a98af1fb0a034fdefa428f7a00725271f54fd448a1748a5ff9b52eddabb0fd3337f8d608c2e41d66e5cd85df4999fc754ec8cb5b9b54cc62f2f
+  checksum: 859558c369a80b2bd3d5912df7f0caa235476c25227ea18664c6ef99f4e86de36634fd216d39d76185968ea77f8de36526a36a2ba060871b6b676bfaf497ab25
   languageName: node
   linkType: hard
 
