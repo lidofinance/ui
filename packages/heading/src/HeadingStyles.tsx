@@ -5,15 +5,15 @@ import { HeadingColors, HeadingSizes } from './types'
 export const sizes = {
   sm: css`
     font-size: ${({ theme }) => theme.fontSizesMap.xl}px;
-    line-height: 1.2em;
+    line-height: 1.3em;
   `,
   md: css`
     font-size: ${({ theme }) => theme.fontSizesMap.xxl}px;
-    line-height: 1.2em;
+    line-height: 1.3em;
   `,
   lg: css`
     font-size: ${({ theme }) => theme.fontSizesMap.xxxl}px;
-    line-height: 1.2em;
+    line-height: 1.3em;
   `,
 }
 
@@ -33,7 +33,7 @@ const getHeadingColor = (props: InjectedProps) => {
 const commonCSS = css`
   margin: 0;
   padding: 0;
-  font-weight: 600;
+  font-weight: 800;
   color: ${getHeadingColor};
 `
 

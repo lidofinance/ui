@@ -1,10 +1,6 @@
 import { BaseDecorators } from '@storybook/addons'
 import { useDarkMode } from 'storybook-dark-mode'
-import {
-  themeLight,
-  themeDark,
-  ThemeProvider,
-} from '../../packages/theme/dist/esm'
+import { themeLight, themeDark, ThemeProvider } from '../../packages/theme/src'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`

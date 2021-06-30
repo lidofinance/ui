@@ -34,8 +34,8 @@ const variants = {
 }
 
 export const BlockStyle = styled.div<InjectedProps>`
-  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
-  line-height: 1.4em;
+  font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
+  line-height: 1.6em;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
   margin: 0;

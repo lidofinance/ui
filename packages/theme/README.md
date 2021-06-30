@@ -11,7 +11,7 @@ yarn add @lidofinance/theme
 
 ## Usage
 
-```ts
+```tsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider, themeLight, themeDark } from '@lidofinance/theme'

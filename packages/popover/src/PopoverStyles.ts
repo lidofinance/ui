@@ -23,6 +23,8 @@ const getOffset = (props: InjectedProps): string => {
 export const PopoverStyle = styled(PopoverRoot)`
   background: ${({ theme }) => theme.colors.foreground};
   color: ${({ theme }) => theme.colors.text};
+  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+  line-height: 1.5em;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
   box-shadow: ${({ theme }) =>
     `${theme.boxShadows.xs} ${theme.colors.shadowLight}`};

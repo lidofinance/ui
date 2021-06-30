@@ -47,7 +47,7 @@ const IconListItem = styled.div`
 `
 
 const IconListTitle = styled.div`
-  opacity: 0.3;
+  opacity: 0.5;
 `
 
 export const List: Story = () => (

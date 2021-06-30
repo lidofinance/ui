@@ -13,7 +13,8 @@ const constructor = (base: ThemeVars['base'], theme: Theme): ThemeVars => ({
   appBorderRadius: 8,
 
   // Typography
-  fontBase: '"Poppins", sans-serif',
+  fontBase:
+    'Manrope, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
 
   // Text
   textColor: theme.colors.text,

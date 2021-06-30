@@ -57,8 +57,8 @@ const variants = {
   `,
   default: css`
     padding: 18px 0;
-    font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
-    line-height: 1.25em;
+    font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+    line-height: 1.4em;
   `,
 }
 

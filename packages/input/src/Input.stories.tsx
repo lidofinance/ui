@@ -140,7 +140,8 @@ WithError.args = {
 }
 
 const Success = styled.span`
-  font-weight: 500;
+  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
   color: ${({ theme }) => theme.colors.success};
 `
 

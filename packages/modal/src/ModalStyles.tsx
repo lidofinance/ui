@@ -5,6 +5,8 @@ import { ButtonIcon } from '@lidofinance/button'
 export const ModalStyle = styled.div<{ $center: boolean }>`
   width: 432px;
   max-width: 100%;
+  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+  line-height: 1.5em;
   text-align: ${({ $center }) => ($center ? 'center' : 'left')};
   border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
   box-shadow: ${({ theme }) =>
@@ -27,7 +29,7 @@ export const ModalHeaderStyle = styled.div<{ $short: boolean }>`
   margin-bottom: ${({ $short, theme }) => ($short ? -theme.spaceMap.md : 0)}px;
   padding: ${({ theme }) => theme.spaceMap.xl}px
     ${({ theme }) => theme.spaceMap.xxl}px;
-  font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
+  font-size: ${({ theme }) => theme.fontSizesMap.md}px;
   line-height: 1.3em;
 
   ${({ theme }) => theme.mediaQueries.md} {
@@ -37,9 +39,9 @@ export const ModalHeaderStyle = styled.div<{ $short: boolean }>`
 `
 
 export const ModalTitleStyle = styled.div<{ $center: boolean }>`
-  font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
-  line-height: 1.3em;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSizesMap.md}px;
+  line-height: 1.4em;
+  font-weight: 800;
   margin-right: auto;
   padding-right: 32px;
   padding-left: ${({ $center }) => ($center ? '32px' : '0px')};

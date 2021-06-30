@@ -3,21 +3,29 @@ import { Theme } from '@lidofinance/theme'
 import { TextColors, TextSizes } from './types'
 
 export const sizes = {
-  sm: css`
+  xxs: css`
     font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
     line-height: 1.5em;
   `,
-  md: css`
+  xs: css`
+    font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+    line-height: 1.5em;
+  `,
+  sm: css`
     font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
-    line-height: 1.25em;
+    line-height: 1.5em;
+  `,
+  md: css`
+    font-size: ${({ theme }) => theme.fontSizesMap.md}px;
+    line-height: 1.5em;
   `,
   lg: css`
-    font-size: ${({ theme }) => theme.fontSizesMap.md}px;
-    line-height: 1.33em;
+    font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
+    line-height: 1.4em;
   `,
   xl: css`
-    font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
-    line-height: 1.3em;
+    font-size: ${({ theme }) => theme.fontSizesMap.xl}px;
+    line-height: 1.4em;
   `,
 }
 
