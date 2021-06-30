@@ -16,32 +16,32 @@ type InjectedProps = {
 const sizes = {
   xs: css<InjectedProps>`
     line-height: 1em;
-    font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+    font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
-    padding: ${({ $square }) => ($square ? '9px' : '9px 16px')};
+    padding: ${({ $square }) => ($square ? '10px' : '10px 16px')};
     min-width: ${({ $square }) => ($square ? '0' : '60px')};
   `,
   sm: css<InjectedProps>`
     line-height: 1em;
-    font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
+    font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
-    padding: ${({ $square }) => ($square ? '14px' : '14px 24px')};
+    padding: ${({ $square }) => ($square ? '15px' : '15px 24px')};
     min-width: ${({ $square }) => ($square ? '0' : '100px')};
   `,
   md: css<InjectedProps>`
     line-height: 1em;
-    font-size: ${({ theme }) => theme.fontSizesMap.md}px;
+    font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
-    padding: ${({ $square }) => ($square ? '19px' : '19px 44px')};
+    padding: ${({ $square }) => ($square ? '20px' : '20px 44px')};
     min-width: ${({ $square }) => ($square ? '0' : '120px')};
   `,
   lg: css<InjectedProps>`
     line-height: 1em;
-    font-size: ${({ theme }) => theme.fontSizesMap.lg}px;
+    font-size: ${({ theme }) => theme.fontSizesMap.md}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
     box-shadow: ${({ theme }) =>
       `${theme.boxShadows.md} ${theme.colors.shadowDark}`};
-    padding: ${({ $square }) => ($square ? '22px' : '22px 64px')};
+    padding: ${({ $square }) => ($square ? '23px' : '23px 64px')};
     min-width: ${({ $square }) => ($square ? '0' : '160px')};
   `,
 }
@@ -161,7 +161,7 @@ export const ButtonStyle = styled.button<InjectedProps>`
   position: relative;
   background: transparent;
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 800;
   width: ${({ $fullwidth }) => ($fullwidth ? ' 100%' : 'auto')};
 
   :before {

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import {
   DocsContainer as BaseContainer,
   DocsContainerProps,
-} from '@storybook/addon-docs/blocks'
+} from '@storybook/addon-docs'
 import { useDarkMode } from 'storybook-dark-mode'
 import { light, dark } from '../themes'
 

@@ -7,6 +7,8 @@ export enum TextColor {
 export type TextColors = keyof typeof TextColor
 
 export enum TextSize {
+  xxs,
+  xs,
   sm,
   md,
   lg,

@@ -7,9 +7,9 @@ const fontSizesMap = {
   sm: 16,
   md: 18,
   lg: 20,
-  xl: 32,
-  xxl: 44,
-  xxxl: 56,
+  xl: 30,
+  xxl: 40,
+  xxxl: 50,
 } as const
 
 export default {

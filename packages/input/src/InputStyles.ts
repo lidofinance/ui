@@ -83,7 +83,7 @@ const contentVariants = {
 }
 
 export const InputContentStyle = styled.span<{ $variant: InputVariants }>`
-  font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
+  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
   display: flex;
   flex-grow: 1;
   position: relative;
@@ -107,7 +107,7 @@ export const InputStyle = styled.input<{ $labeled: boolean }>`
   width: 100%;
   font-family: inherit;
   font-size: 1em;
-  line-height: 1.25em;
+  line-height: 1.4em;
   padding: 0;
   border-radius: 0px;
   background: transparent;
@@ -160,9 +160,9 @@ export const InputMessageStyle = styled.span<{
   left: ${({ $bordered }) => ($bordered ? -1 : 0)}px;
   position: absolute;
   top: 100%;
-  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+  line-height: 1.6em;
+  font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
-  line-height: 1.4em;
   padding: 6px 10px;
   white-space: nowrap;
   overflow: hidden;
