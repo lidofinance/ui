@@ -6324,7 +6324,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/estree@npm:*, @types/estree@npm:^0.0.47":
+"@types/estree@npm:*":
   version: 0.0.47
   resolution: "@types/estree@npm:0.0.47"
   checksum: aed5c940436250c25c5e140aa19e7199ba3452e72e1aecc515621507df9e5ed5076ddba84a1684c36d62be841ff3e2bafce8793f16fe6f69d10884449d4461e7
@@ -6335,6 +6335,13 @@ __metadata:
   version: 0.0.39
   resolution: "@types/estree@npm:0.0.39"
   checksum: 412fb5b9868f2c418126451821833414189b75cc6bf84361156feed733e3d92ec220b9d74a89e52722e03d5e241b2932732711b7497374a404fad49087adc248
+  languageName: node
+  linkType: hard
+
+"@types/estree@npm:^0.0.48":
+  version: 0.0.48
+  resolution: "@types/estree@npm:0.0.48"
+  checksum: 5062c9a65d3b4020df54741ec7e697ad516bb446a1f8823bd7990544cf6221ab6facf8dd7ad1c79753a5dde5ecb6a9bc4ffcaa1123dba1119566887732cc39fb
   languageName: node
   linkType: hard
 
@@ -15239,7 +15246,7 @@ fsevents@^1.2.7:
     styled-components: 5.3.0
     tslib: 2.3.0
     typescript: 4.3.4
-    webpack: 5.40.0
+    webpack: 5.41.1
     yarn-workspaces-list: 0.2.0
   languageName: unknown
   linkType: soft
@@ -21881,12 +21888,12 @@ typescript@4.3.4:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.40.0":
-  version: 5.40.0
-  resolution: "webpack@npm:5.40.0"
+"webpack@npm:5.41.1":
+  version: 5.41.1
+  resolution: "webpack@npm:5.41.1"
   dependencies:
     "@types/eslint-scope": ^3.7.0
-    "@types/estree": ^0.0.47
+    "@types/estree": ^0.0.48
     "@webassemblyjs/ast": 1.11.0
     "@webassemblyjs/wasm-edit": 1.11.0
     "@webassemblyjs/wasm-parser": 1.11.0
@@ -21913,7 +21920,7 @@ typescript@4.3.4:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 19b8e0bfb9c6f16de1baa97aa820da1bbd2032c78bb6c76dcda37844ec422d3ac82bdd6d65934c853a99fa60a9af0a8ab255cefe51f4262395aff0d6a37c7ccf
+  checksum: fabf0c937a0496c2e7be12a3889af213745c93f7eefcd9507472b41b2f68be510daaf356ed4dac556671612e206712d1969dc584a28c6d6be7acd25c0da035d5
   languageName: node
   linkType: hard
 
