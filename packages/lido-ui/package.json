@@ -51,6 +51,7 @@
     "@lidofinance/utils": "workspace:*"
   },
   "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
     "access": "public"
   }
 }
