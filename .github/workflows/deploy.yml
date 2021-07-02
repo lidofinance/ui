@@ -39,7 +39,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn multi-semantic-release --deps.bump=override --deps.release=patch
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          yarn multi-semantic-release --deps.bump=override --deps.release=patch
       - name: Build Storybook
         run: |
           yarn build-storybook
