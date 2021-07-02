@@ -48,7 +48,6 @@
     "styled-components": "5.3.0"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
     "access": "public"
   }
 }
