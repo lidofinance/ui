@@ -8,6 +8,7 @@ import { ButtonProps } from './types'
 import { useRipple } from './useRipple'
 
 const loaderSizes = {
+  xxs: 'small',
   xs: 'small',
   sm: 'small',
   md: 'medium',

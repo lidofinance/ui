@@ -8,7 +8,7 @@ const smallCSS = css`
     line-height: 1.7em;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
   }
 `
 

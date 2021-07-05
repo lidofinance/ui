@@ -47,5 +47,6 @@ export const TextStyle = styled.p<InjectedProps>`
   margin: 0;
   padding: 0;
   color: ${getTextColor};
+  font-weight: 500;
   ${(props) => sizes[props.$size]}
 `

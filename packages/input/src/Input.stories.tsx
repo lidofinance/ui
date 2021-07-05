@@ -68,7 +68,7 @@ const EthIcon = styled(Eth)`
 const MaxButton = () => (
   <Button
     variant='translucent'
-    size='xs'
+    size='xxs'
     css={`
       margin-right: -4px;
     `}

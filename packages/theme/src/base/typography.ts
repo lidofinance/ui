@@ -1,4 +1,4 @@
-const fontSizes = [10, 12, 14, 16, 18, 20, 32, 44, 56] as const
+const fontSizes = [10, 12, 14, 16, 18, 20, 26, 32, 40, 50] as const
 
 const fontSizesMap = {
   xxxs: 10,
@@ -7,9 +7,10 @@ const fontSizesMap = {
   sm: 16,
   md: 18,
   lg: 20,
-  xl: 30,
-  xxl: 40,
-  xxxl: 50,
+  xl: 26,
+  xxl: 32,
+  xxxl: 40,
+  xxxxl: 50,
 } as const
 
 export default {

@@ -53,12 +53,13 @@ const variants = {
     line-height: 1.35em;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
   `,
   default: css`
     padding: 18px 0;
     font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
     line-height: 1.4em;
+    font-weight: 500;
   `,
 }
 
