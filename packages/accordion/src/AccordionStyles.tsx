@@ -27,7 +27,7 @@ export const AccordionTitleStyle = styled.div`
   flex-grow: 1;
   font-weight: 800;
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
-  line-height: 1.4em;
+  line-height: 1.6em;
 `
 
 export const AccordionArrowStyle = styled(ArrowBottom)<{ $expanded: boolean }>`
@@ -43,6 +43,7 @@ export const AccordionContentStyle = styled.div`
   color: ${({ theme }) => theme.colors.textSecondary};
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
   padding-top: 0;
+  font-weight: 500;
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   line-height: 1.6em;
 
@@ -54,7 +55,7 @@ export const AccordionContentStyle = styled.div`
   p,
   ul,
   ol {
-    margin: 0 0 1.5em 0;
+    margin: 0 0 1.6em 0;
 
     &:last-child {
       margin-bottom: 0;

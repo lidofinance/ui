@@ -2,6 +2,7 @@ import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
 export enum ButtonSize {
+  xxs,
   xs,
   sm,
   md,

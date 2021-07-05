@@ -14,9 +14,9 @@ exports[`renders correctly 1`] = `
   font-weight: 800;
   width: auto;
   line-height: 1em;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 10px;
-  padding: 20px 44px;
+  padding: 21px 44px;
   min-width: 120px;
   color: #fff;
   background-color: #00a3ff;
