@@ -1,6 +1,5 @@
 {
   "extends": ["config:base", "schedule:weekdays"],
-  "assignees": ["kolyasapphire"],
   "stabilityDays": 2,
   "prCreation": "not-pending",
   "timezone": "Europe/Moscow"
