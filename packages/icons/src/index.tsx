@@ -574,6 +574,28 @@ export const Question = React.forwardRef(function Question(
   )
 })
 
+export const Referral = React.forwardRef(function Referral(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M14.92 15.48A4 4 0 0118 14a4 4 0 11-4 4c.004-.239.027-.476.07-.71l-5.28-2.43a4 4 0 110-5.72l5.28-2.43a4 4 0 11.85 1.81l-5.1 2.35a3.64 3.64 0 010 2.26l5.1 2.35zM20 6a2 2 0 10-4 0 2 2 0 004 0zM6 14a2 2 0 110-4 2 2 0 010 4zm10 4a2 2 0 104 0 2 2 0 00-4 0z'
+      />
+    </svg>
+  )
+})
+
 export const Solana = React.forwardRef(function Solana(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
