@@ -7,22 +7,31 @@ export const useBreakpoint = (
 ): boolean => {
   const theme = useTheme()
   const maxWidth = theme.breakpointsMap[breakpoint].width
-  const [isBreakpoint, seIsBreakpoint] = useState(false)
+
+  const [isBreakpoint, seIsBreakpoint] = useState(() => {
+    try {
+      return window.matchMedia(`(max-width: ${maxWidth})`).matches
+    } catch (error) {
+      return false
+    }
+  })
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return
+    try {
+      const mql = window.matchMedia(`(max-width: ${maxWidth})`)
 
-    const mql = window.matchMedia(`(max-width: ${maxWidth})`)
+      const setMobileFromQuery = ({ matches }: { matches: boolean }) => {
+        seIsBreakpoint(matches)
+      }
 
-    const setMobileFromQuery = ({ matches }: { matches: boolean }) => {
-      seIsBreakpoint(matches)
-    }
+      mql.addEventListener('change', setMobileFromQuery)
+      setMobileFromQuery(mql)
 
-    mql.addEventListener('change', setMobileFromQuery)
-    setMobileFromQuery(mql)
-
-    return () => {
-      mql.removeEventListener('change', setMobileFromQuery)
+      return () => {
+        mql.removeEventListener('change', setMobileFromQuery)
+      }
+    } catch (error) {
+      return
     }
   }, [maxWidth])
 
