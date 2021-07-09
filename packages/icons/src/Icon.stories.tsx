@@ -69,10 +69,10 @@ const SocialList = styled.div`
   display: flex;
 `
 
-const SocialListItem = styled.div`
-  background: ${(props) => props.color};
+const SocialListItem = styled.div<{ $color: string }>`
+  background: ${({ $color }) => $color};
   line-height: 0;
-  border-radius: 50%;
+  border-radius: 6px;
   margin: 4px;
   padding: 4px;
 
@@ -82,20 +82,23 @@ const SocialListItem = styled.div`
 `
 
 export const Social: Story = () => {
-  const { Facebook, Twitter, Linkedin, Email } = components
+  const { Facebook, Twitter, Linkedin, Email, Telegram } = components
 
   return (
     <SocialList>
-      <SocialListItem color='#3B5998'>
+      <SocialListItem $color='#3B5998'>
         <Facebook />
       </SocialListItem>
-      <SocialListItem color='#55ACEE'>
+      <SocialListItem $color='linear-gradient(203.2deg, #37AEE2 21.67%, #1E96C8 70%)'>
+        <Telegram />
+      </SocialListItem>
+      <SocialListItem $color='#55ACEE'>
         <Twitter />
       </SocialListItem>
-      <SocialListItem color='#007BB5'>
+      <SocialListItem $color='#007BB5'>
         <Linkedin />
       </SocialListItem>
-      <SocialListItem color='#5392A0'>
+      <SocialListItem $color='#52A573;'>
         <Email />
       </SocialListItem>
     </SocialList>

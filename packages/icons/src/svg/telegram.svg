@@ -1,0 +1,11 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.06644 18.3332C8.54809 18.3332 8.63617 18.1375 8.4574 17.6439L6.93311 12.6273L18.6664 5.6665" fill="#C8DAEA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.06689 18.3335C9.46689 18.3335 9.64363 18.1505 9.86689 17.9335L12.0002 15.8591L9.33916 14.2544" fill="#A9C9DD"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.33863 14.2547L15.7866 19.0185C16.5224 19.4245 17.0535 19.2143 17.2368 18.3354L19.8614 5.96699C20.1301 4.88963 19.4507 4.40099 18.7468 4.72056L3.33484 10.6634C2.28283 11.0853 2.28896 11.6722 3.14308 11.9338L7.09815 13.1682L16.2545 7.39154C16.6868 7.12942 17.0835 7.27034 16.7579 7.55932" fill="url(#telegram-icon-gradient)"/>
+<defs>
+<linearGradient id="telegram-icon-gradient" x1="9.99703" y1="11.9828" x2="11.7066" y2="17.5128" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EFF7FC"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+</defs>
+</svg>

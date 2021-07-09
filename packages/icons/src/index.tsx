@@ -611,11 +611,11 @@ export const Solana = React.forwardRef(function Solana(
     >
       <path
         d='M17.129 9.033a.442.442 0 01-.314.132H5.695c-.393 0-.592-.48-.318-.764l1.824-1.89a.441.441 0 01.318-.136H18.68c.396 0 .594.485.314.768l-1.865 1.89zm0 8.44a.447.447 0 01-.314.129H5.695a.438.438 0 01-.318-.745l1.824-1.843a.447.447 0 01.318-.132H18.68c.396 0 .594.472.314.748l-1.865 1.843zm0-6.716a.447.447 0 00-.314-.128H5.695a.438.438 0 00-.318.745l1.824 1.842a.446.446 0 00.318.132H18.68a.438.438 0 00.314-.748l-1.865-1.843z'
-        fill='url(#prefix__prefix__paint0_linear)'
+        fill='url(#prefix__prefix__solana-icon-gradient)'
       />
       <defs>
         <linearGradient
-          id='prefix__prefix__paint0_linear'
+          id='prefix__prefix__solana-icon-gradient'
           x1={6.263}
           y1={17.906}
           x2={18.092}
@@ -690,6 +690,54 @@ export const Steth = React.forwardRef(function Steth(
         d='M12.003 7.674l4.241 2.432-4.24-6.506v4.074z'
         fill='#00A3FF'
       />
+    </svg>
+  )
+})
+
+export const Telegram = React.forwardRef(function Telegram(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M9.066 18.333c-.518 0-.43-.195-.609-.69l-1.524-5.016 11.733-6.96'
+        fill='#C8DAEA'
+      />
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M9.067 18.334c.4 0 .577-.183.8-.4L12 15.858l-2.66-1.605'
+        fill='#A9C9DD'
+      />
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M9.339 14.255l6.448 4.763c.735.406 1.266.196 1.45-.683L19.86 5.967c.27-1.077-.41-1.566-1.114-1.246L3.335 10.663c-1.052.422-1.046 1.01-.192 1.27l3.955 1.235 9.157-5.776c.432-.263.829-.122.503.167'
+        fill='url(#prefix__prefix__telegram-icon-gradient)'
+      />
+      <defs>
+        <linearGradient
+          id='prefix__prefix__telegram-icon-gradient'
+          x1={9.997}
+          y1={11.983}
+          x2={11.707}
+          y2={17.513}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#EFF7FC' />
+          <stop offset={1} stopColor='#fff' />
+        </linearGradient>
+      </defs>
     </svg>
   )
 })
