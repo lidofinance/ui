@@ -1,13 +1,25 @@
 import styled, { css } from 'styled-components'
+import { InputColors } from './types'
 
-export const labelEmptyValueCSS = css`
-  color: ${({ theme }) => theme.colors.textSecondary};
+const colors = {
+  default: css`
+    color: ${({ theme }) => theme.colors.textSecondary};
+  `,
+  accent: css`
+    color: ${({ theme }) => theme.colors.accentContrastSecondary};
+  `,
+}
+
+export const labelEmptyValueCSS = css<{ $color: InputColors }>`
+  ${({ $color }) => colors[$color]}
+
   transform: scale(1);
   opacity: 0.5;
 `
 
-export const labelFilledValueCSS = css`
-  color: ${({ theme }) => theme.colors.textSecondary};
+export const labelFilledValueCSS = css<{ $color: InputColors }>`
+  ${({ $color }) => colors[$color]}
+
   transform: translateY(-14px) scale(0.75);
   opacity: 1;
 `

@@ -1,7 +1,9 @@
 module.exports = {
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
   reactOptions: {
-    strictMode: true,
+    // FIXME: replace with true
+    // https://github.com/lidofinance/ui/issues/198
+    strictMode: false,
   },
   addons: [
     '@storybook/addon-docs',

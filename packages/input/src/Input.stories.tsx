@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import { Eth } from '@lidofinance/icons'
+import { Block } from '@lidofinance/block'
 import { Button } from '@lidofinance/button'
 import { Identicon } from '@lidofinance/identicon'
 import Input from './Input'
@@ -155,4 +156,43 @@ WithSuccess.args = {
   defaultValue: 'info@lido.fi',
   success:
     'Thank you for subscribing! We will notify you once we kick off our platform.',
+}
+
+export const AccentColor: Story<InputProps> = (props) => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Block
+      color='accent'
+      css={`
+        display: flex;
+        background: linear-gradient(60deg, #413e58 20%, #30363f 100%);
+      `}
+    >
+      <Input
+        {...props}
+        value={value}
+        onChange={(event) => {
+          setValue(event.currentTarget.value)
+          props.onChange?.(event)
+        }}
+        rightDecorator={<Identicon address={String(value ?? '')} />}
+        color='accent'
+      />
+      <Button
+        css={`
+          margin-left: 12px;
+          flex-shrink: 0;
+        `}
+      >
+        Calculate
+      </Button>
+    </Block>
+  )
+}
+
+AccentColor.args = {
+  fullwidth: true,
+  label: '',
+  placeholder: 'Ethereum address',
 }
