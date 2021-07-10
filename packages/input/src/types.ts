@@ -24,6 +24,12 @@ export enum InputVariant {
 }
 export type InputVariants = keyof typeof InputVariant
 
+export enum InputColor {
+  default,
+  accent,
+}
+export type InputColors = keyof typeof InputColor
+
 export type InputProps = LidoComponentProps<
   'input',
   {
@@ -34,6 +40,7 @@ export type InputProps = LidoComponentProps<
     rightDecorator?: React.ReactNode
     type?: InputTypes
     variant?: InputVariants
+    color?: InputColors
     active?: boolean
     fullwidth?: boolean
     wrapperRef?: React.RefObject<HTMLLabelElement>

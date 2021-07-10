@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { InputMessageVariants, InputVariants } from './types'
+import { InputMessageVariants, InputVariants, InputColors } from './types'
 import {
   labelEmptyValueCSS,
   labelFocusCSS,
@@ -10,7 +10,6 @@ import {
 const statesCSS = css`
   &:hover {
     z-index: 1;
-    border-color: ${({ theme }) => theme.colors.borderHover};
   }
 
   &:focus-within {
@@ -48,25 +47,56 @@ const errorCSS = css`
   }
 `
 
+const wrapperColors = {
+  default: css<{ $disabled: boolean }>`
+    background: ${({ theme }) => theme.colors.controlBg};
+    border-color: ${({ theme }) => theme.colors.border};
+    color: ${({ theme }) => theme.colors.text};
+
+    ${({ $disabled, theme }) =>
+      $disabled
+        ? `background: ${theme.colors.background};`
+        : `
+          &:hover {
+            border-color: ${theme.colors.borderHover};
+          }
+    `};
+  `,
+  accent: css<{ $disabled: boolean }>`
+    background: ${({ theme }) => theme.colors.accentControlBg};
+    border-color: ${({ theme }) => theme.colors.accentBorder};
+    color: ${({ theme }) => theme.colors.accentContrast};
+
+    ${({ $disabled, theme }) =>
+      $disabled
+        ? ''
+        : `
+          &:hover {
+            border-color: ${theme.colors.accentBorderHover};
+          }
+    `};
+  `,
+}
+
 export const InputWrapperStyle = styled.label<{
   $error: boolean
   $active: boolean
   $disabled: boolean
   $fullwidth: boolean
+  $color: InputColors
 }>`
   position: relative;
   display: inline-flex;
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  background: ${({ theme }) => theme.colors.controlBg};
+  border: 1px solid;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
   align-items: stretch;
   box-sizing: border-box;
   padding: 0 15px;
   cursor: ${({ $disabled }) => ($disabled ? 'default' : 'text')};
   transition: border-color ${({ theme }) => theme.duration.fast} ease;
-  color: ${({ theme }) => theme.colors.text};
   width: ${({ $fullwidth }) => ($fullwidth ? '100%' : 'auto')};
 
+  ${({ $color }) => wrapperColors[$color]};
   ${({ $disabled }) => ($disabled ? '' : statesCSS)}
 
   ${({ $active }) => ($active ? activeCSS : '')}
@@ -104,7 +134,54 @@ const labeledCSS = css`
   }
 `
 
-export const InputStyle = styled.input<{ $labeled: boolean }>`
+const inputColors = {
+  default: css`
+    color: ${({ theme }) => theme.colors.text};
+
+    &:disabled {
+      color: ${({ theme }) => theme.colors.textSecondary};
+    }
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.textSecondary};
+    }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 100px ${({ theme }) => theme.colors.controlBg} inset !important;
+      color: ${({ theme }) => theme.colors.text} !important;
+    }
+
+    &:-internal-autofill-selected {
+      color: ${({ theme }) => theme.colors.text} !important;
+    }
+  `,
+  accent: css`
+    color: ${({ theme }) => theme.colors.accentContrast};
+
+    &:disabled {
+      color: ${({ theme }) => theme.colors.accentContrastSecondary};
+    }
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.accentContrastSecondary};
+    }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 100px ${({ theme }) => theme.colors.accentControlBg}
+        inset !important;
+      color: ${({ theme }) => theme.colors.accentContrast} !important;
+    }
+
+    &:-internal-autofill-selected {
+      color: ${({ theme }) => theme.colors.accentContrast} !important;
+    }
+  `,
+}
+
+export const InputStyle = styled.input<{
+  $labeled: boolean
+  $color: InputColors
+}>`
   width: 100%;
   font-family: inherit;
   font-weight: 500;
@@ -118,27 +195,13 @@ export const InputStyle = styled.input<{ $labeled: boolean }>`
   outline: none;
   position: relative;
   top: ${({ $labeled }) => ($labeled ? 8 : 0)}px;
-  color: ${({ theme }) => theme.colors.text};
-
-  &:disabled {
-    color: ${({ theme }) => theme.colors.textSecondary};
-  }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.textSecondary};
     transition: opacity ${({ theme }) => theme.duration.fast} ease;
     opacity: 0.5;
   }
 
-  &:-webkit-autofill {
-    box-shadow: 0 0 0 100px ${({ theme }) => theme.colors.controlBg} inset !important;
-    color: ${({ theme }) => theme.colors.text} !important;
-  }
-
-  &:-internal-autofill-selected {
-    color: ${({ theme }) => theme.colors.text} !important;
-  }
-
+  ${({ $color }) => inputColors[$color]}
   ${({ $labeled }) => ($labeled ? labeledCSS : '')}
 `
 

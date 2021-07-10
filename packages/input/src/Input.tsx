@@ -23,6 +23,7 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
     className,
     style,
     variant = 'default',
+    color = 'default',
     wrapperRef,
     children,
     ...rest
@@ -47,6 +48,7 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
       $active={active}
       $disabled={disabled}
       $fullwidth={fullwidth}
+      $color={color}
       htmlFor={id}
       ref={wrapperRef}
       {...wrapperProps}
@@ -58,13 +60,14 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
       <InputContentStyle $variant={variant}>
         <InputStyle
           $labeled={hasLabel}
+          $color={color}
           placeholder={placeholder}
           aria-invalid={hasError}
           type='text'
           ref={ref}
           {...rest}
         />
-        {hasLabel && <InputLabelStyle>{label}</InputLabelStyle>}
+        {hasLabel && <InputLabelStyle $color={color}>{label}</InputLabelStyle>}
       </InputContentStyle>
 
       {hasErrorMessage && (
