@@ -1,21 +1,21 @@
 const sm = {
-  width: '360px',
-  height: '640px',
+  width: '359px',
+  height: '639px',
 } as const
 
 const md = {
-  width: '480px',
-  height: '800px',
+  width: '479px',
+  height: '799px',
 } as const
 
 const lg = {
-  width: '768px',
-  height: '1024px',
+  width: '767px',
+  height: '1023px',
 } as const
 
 const xl = {
-  width: '1024px',
-  height: '1366px',
+  width: '1023px',
+  height: '1365px',
 } as const
 
 const mediaQueries = {
