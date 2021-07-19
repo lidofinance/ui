@@ -4896,13 +4896,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__plugin-transform-runtime@npm:7.9.1":
-  version: 7.9.1
-  resolution: "@types/babel__plugin-transform-runtime@npm:7.9.1"
-  checksum: 4273f096adea8c69c32add15dd195aa858a81f7e072606eec2c5246d85d58faad9cf4276c1ed227965944f579f8b28ac6d2448dc8c781e1f182c30c35ee89f84
-  languageName: node
-  linkType: hard
-
 "@types/babel__template@npm:*":
   version: 7.4.0
   resolution: "@types/babel__template@npm:7.4.0"
@@ -13818,7 +13811,6 @@ fsevents@^1.2.7:
     "@storybook/react": 6.3.2
     "@storybook/storybook-deployer": 2.8.10
     "@storybook/theming": 6.3.2
-    "@types/babel__plugin-transform-runtime": 7.9.1
     "@types/jest": 26.0.23
     "@types/react": 17.0.13
     "@types/react-dom": 17.0.8
