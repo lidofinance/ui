@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ac5ae037-2e95-4705-9651-3dfeb57f31e1" name="Default Changelist" comment="feat: logo as part of ui lib">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/ui.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/src/LidoLogo.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/src/LidoLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/src/LidoLogoStyles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/src/lido-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/lido-logo/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/components/DocContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/components/DocContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/components/WithThemeProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/components/WithThemeProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/themes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/themes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/viewport.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/viewport.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combinePackages.js" beforeDir="false" afterPath="$PROJECT_DIR$/combinePackages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commitlint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/commitlint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/accordion/src/Accordion.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/accordion/src/Accordion.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/accordion/src/Accordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/accordion/src/Accordion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/accordion/src/AccordionStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/accordion/src/AccordionStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/accordion/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/accordion/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/accordion/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/accordion/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/accordion/src/useExpanded.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/accordion/src/useExpanded.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/block/src/Block.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/block/src/Block.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/block/src/Block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/block/src/Block.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/block/src/BlockStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/block/src/BlockStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/block/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/block/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/block/src/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/block/src/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/box/src/Box.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/box/src/Box.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/box/src/Box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/box/src/Box.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/box/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/box/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/Button.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/Button.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/Button.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/Button.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/ButtonIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/ButtonIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/ButtonIconStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/ButtonIconStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/ButtonStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/ButtonStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/button/src/useRipple.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/button/src/useRipple.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/checkbox/src/Checkbox.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/checkbox/src/Checkbox.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/checkbox/src/Checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/checkbox/src/Checkbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/checkbox/src/CheckboxStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/checkbox/src/CheckboxStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/checkbox/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/checkbox/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/checkbox/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/checkbox/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/container/src/Container.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/container/src/Container.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/container/src/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/container/src/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/container/src/ContainerStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/container/src/ContainerStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/container/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/container/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/container/src/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/container/src/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/data-table/src/DataTable.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/data-table/src/DataTable.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/data-table/src/DataTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/data-table/src/DataTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/data-table/src/DataTableStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/data-table/src/DataTableStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/data-table/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/data-table/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/data-table/src/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/data-table/src/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/divider/src/Divider.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/divider/src/Divider.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/divider/src/Divider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/divider/src/Divider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/divider/src/DividerStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/divider/src/DividerStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/divider/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/divider/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/divider/src/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/divider/src/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/heading/src/Heading.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/heading/src/Heading.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/heading/src/Heading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/heading/src/Heading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/heading/src/HeadingStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/heading/src/HeadingStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/heading/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/heading/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/heading/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/heading/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/hooks/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/hooks/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/hooks/src/useBreakpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/hooks/src/useBreakpoint.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/hooks/src/useEscape.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/hooks/src/useEscape.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/hooks/src/useInterceptFocus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/hooks/src/useInterceptFocus.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/hooks/src/useLockScroll.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/hooks/src/useLockScroll.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/hooks/src/useMergeRefs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/hooks/src/useMergeRefs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/hooks/src/useOutsideClick.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/hooks/src/useOutsideClick.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/hooks/src/useWindowSize.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/hooks/src/useWindowSize.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/icons/converter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/icons/converter/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/icons/converter/template.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/icons/converter/template.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/icons/converter/template.index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/icons/converter/template.index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/icons/src/Icon.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/icons/src/Icon.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/icons/src/Icon.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/icons/src/Icon.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/icons/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/icons/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/identicon/src/Identicon.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/identicon/src/Identicon.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/identicon/src/Identicon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/identicon/src/Identicon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/identicon/src/IdenticonBadge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/identicon/src/IdenticonBadge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/identicon/src/IdenticonStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/identicon/src/IdenticonStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/identicon/src/declarations.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/identicon/src/declarations.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/identicon/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/identicon/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/identicon/src/trimAddress.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/identicon/src/trimAddress.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/identicon/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/identicon/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/Input.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/Input.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/InputGroup.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/InputGroup.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/InputGroup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/InputGroup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/InputGroupStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/InputGroupStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/InputStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/InputStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/LabelStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/LabelStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/input/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/input/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/lido-ui/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/lido-ui/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/link/src/Link.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/link/src/Link.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/link/src/Link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/link/src/Link.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/link/src/LinkStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/link/src/LinkStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/link/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/link/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/link/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/link/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/loaders/src/InlineLoader.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/loaders/src/InlineLoader.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/loaders/src/InlineLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/loaders/src/InlineLoader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/loaders/src/InlineLoaderStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/loaders/src/InlineLoaderStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/loaders/src/Loader.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/loaders/src/Loader.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/loaders/src/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/loaders/src/Loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/loaders/src/LoaderStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/loaders/src/LoaderStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/loaders/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/loaders/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/loaders/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/loaders/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/Modal.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/Modal.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/Modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/ModalExtra.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/ModalExtra.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/ModalExtraStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/ModalExtraStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/ModalOverlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/ModalOverlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/ModalOverlayStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/ModalOverlayStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/ModalStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/ModalStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/useModalClose.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/useModalClose.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/modal/src/useModalFocus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/modal/src/useModalFocus.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/Popover.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/Popover.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/Popover.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/Popover.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/PopoverRoot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/PopoverRoot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/PopoverRootStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/PopoverRootStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/PopoverStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/PopoverStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/calculatePosition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/calculatePosition.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popover/src/usePopoverPosition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popover/src/usePopoverPosition.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenu.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenu.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenuItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenuItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenuItemStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenuItemStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenuProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenuProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenuStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/PopupMenuStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/popup-menu/src/usePopupFocus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/popup-menu/src/usePopupFocus.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/Option.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/Option.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/Select.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/Select.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/Select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/Select.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/SelectArrow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/SelectArrow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/SelectArrowStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/SelectArrowStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/SelectIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/SelectIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/SelectIconStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/SelectIconStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/SelectStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/SelectStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/useSelect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/useSelect.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/select/src/useSelectWidth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/select/src/useSelectWidth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/HStack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/HStack.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/Stack.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/Stack.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/Stack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/Stack.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/StackItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/StackItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/StackItemStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/StackItemStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/StackProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/StackProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/StackStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/StackStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/VStack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/VStack.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stack/src/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stack/src/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/styled-system/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/styled-system/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/styled-system/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/styled-system/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/styled-system/src/withStyledSystem.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/styled-system/src/withStyledSystem.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/styled-system/src/withStyledSystem.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/styled-system/src/withStyledSystem.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/styled-system/src/withStyledSystem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/styled-system/src/withStyledSystem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/text/src/Text.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/text/src/Text.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/text/src/Text.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/text/src/Text.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/text/src/TextStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/text/src/TextStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/text/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/text/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/text/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/text/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/base/borders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/base/borders.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/base/breakpoints.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/base/breakpoints.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/base/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/base/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/base/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/base/shadows.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/base/shadows.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/base/spacing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/base/spacing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/base/transitions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/base/transitions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/base/typography.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/base/typography.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/fonts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/fonts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/provider.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/provider.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/themes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/themes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/theme/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/theme/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/tooltip/src/Tooltip.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tooltip/src/Tooltip.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/tooltip/src/Tooltip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tooltip/src/Tooltip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/tooltip/src/TooltipStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tooltip/src/TooltipStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/tooltip/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tooltip/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/tooltip/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tooltip/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/transition/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/transition/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/transition/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/transition/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/transition/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/transition/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/transition/src/withTransition.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/transition/src/withTransition.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/src/modalRoot.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/src/modalRoot.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/rollup.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1vXTCzTkKJlbp9ajBrXodle1uYA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="ts.external.directory.path" value="yarn:package.json:typescript" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac5ae037-2e95-4705-9651-3dfeb57f31e1" name="Default Changelist" comment="" />
+      <created>1626707316287</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626707316287</updated>
+      <workItem from="1626707323452" duration="327000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: logo as part of ui lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: logo as part of ui lib" />
+  </component>
+</project>
