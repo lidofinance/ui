@@ -1,9 +1,10 @@
-import { forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { LidoLogoStyles } from './LidoLogoStyles'
+import { LidoLogoProps } from './types'
 
-function LidoLogo() {
+function LidoLogo(props: LidoLogoProps, ref?: ForwardedRef<HTMLDivElement>) {
   return (
-    <LidoLogoStyles>
+    <LidoLogoStyles {...props} ref={ref}>
       <svg
         width='89'
         height='20'
