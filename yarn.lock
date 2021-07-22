@@ -2524,7 +2524,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/lido-logo@workspace:packages/lido-logo":
+"@lidofinance/lido-logo@workspace:*, @lidofinance/lido-logo@workspace:packages/lido-logo":
   version: 0.0.0-use.local
   resolution: "@lidofinance/lido-logo@workspace:packages/lido-logo"
   dependencies:
@@ -2564,6 +2564,7 @@ __metadata:
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/identicon": "workspace:*"
     "@lidofinance/input": "workspace:*"
+    "@lidofinance/lido-logo": "workspace:*"
     "@lidofinance/link": "workspace:*"
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/modal": "workspace:*"
