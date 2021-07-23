@@ -6,7 +6,7 @@ Part of [Lido UI Components](https://github.com/lidofinance/ui/#readme)
 ## Install
 
 ```bash
-yarn add @lidofinance/block
+yarn add @lidofinance/lido-logo
 ```
 
 ## Usage
