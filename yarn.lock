@@ -2547,6 +2547,7 @@ __metadata:
     "@lidofinance/popover": "workspace:*"
     "@lidofinance/popup-menu": "workspace:*"
     "@lidofinance/select": "workspace:*"
+    "@lidofinance/service-page": "workspace:*"
     "@lidofinance/stack": "workspace:*"
     "@lidofinance/styled-system": "workspace:*"
     "@lidofinance/text": "workspace:*"
@@ -2712,7 +2713,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/service-page@workspace:packages/service-page":
+"@lidofinance/service-page@workspace:*, @lidofinance/service-page@workspace:packages/service-page":
   version: 0.0.0-use.local
   resolution: "@lidofinance/service-page@workspace:packages/service-page"
   dependencies:
