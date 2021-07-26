@@ -2287,7 +2287,7 @@ __metadata:
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.1
     "@types/styled-components": 5.1.11
-    jest-styled-components: 7.0.4
+    jest-styled-components: 7.0.5
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2775,7 +2775,7 @@ __metadata:
     "@types/styled-components": 5.1.11
     "@types/styled-system": 5.1.12
     "@types/styled-system__should-forward-prop": 5.1.2
-    jest-styled-components: 7.0.4
+    jest-styled-components: 7.0.5
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -8826,15 +8826,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "css@npm:2.2.4"
+"css@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "css@npm:3.0.0"
   dependencies:
-    inherits: ^2.0.3
+    inherits: ^2.0.4
     source-map: ^0.6.1
-    source-map-resolve: ^0.5.2
-    urix: ^0.1.0
-  checksum: a35d483c5ccc04bcde3b1e7393d58ad3eee1dd6956df0f152de38e46a17c0ee193c30eec6b1e59831ad0e74599385732000e95987fcc9cb2b16c6d951bae49e1
+    source-map-resolve: ^0.6.0
+  checksum: 4273ac816ddf99b99acb9c1d1a27d86d266a533cc01118369d941d8e8a78277a83cad3315e267a398c509d930fbb86504e193ea1ebc620a4a4212e06fe76e8be
   languageName: node
   linkType: hard
 
@@ -13355,14 +13354,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-styled-components@npm:7.0.4":
-  version: 7.0.4
-  resolution: "jest-styled-components@npm:7.0.4"
+"jest-styled-components@npm:7.0.5":
+  version: 7.0.5
+  resolution: "jest-styled-components@npm:7.0.5"
   dependencies:
-    css: ^2.2.4
+    css: ^3.0.0
   peerDependencies:
     styled-components: ">= 5"
-  checksum: c7620d3e72c4e42401a1d5ce4503e2cb0ad19b35e3310d50c0e4938f849faf500067920ef0d379947f0c861e1c2eddd78afb413524e9112fc7b0a0787db26c4f
+  checksum: fef9f261dd59d6d095c1bc43da5ba5faaf87ca73dff20ff10e38f70201c35c60f6347836581c087bab6a8b26de29adc4cd657fdf2a28cf98609b2452a7368549
   languageName: node
   linkType: hard
 
@@ -14035,7 +14034,7 @@ fsevents@^1.2.7:
     jest-haste-map: 27.0.6
     jest-resolve: 27.0.6
     jest-runner: 27.0.6
-    jest-styled-components: 7.0.4
+    jest-styled-components: 7.0.5
     lint-staged: 11.0.0
     prettier: 2.3.2
     react: 17.0.2
@@ -18548,7 +18547,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"source-map-resolve@npm:^0.5.0, source-map-resolve@npm:^0.5.2":
+"source-map-resolve@npm:^0.5.0":
   version: 0.5.3
   resolution: "source-map-resolve@npm:0.5.3"
   dependencies:
@@ -18558,6 +18557,16 @@ resolve@^2.0.0-next.3:
     source-map-url: ^0.4.0
     urix: ^0.1.0
   checksum: c73fa44ac00783f025f6ad9e038ab1a2e007cd6a6b86f47fe717c3d0765b4a08d264f6966f3bd7cd9dbcd69e4832783d5472e43247775b2a550d6f2155d24bae
+  languageName: node
+  linkType: hard
+
+"source-map-resolve@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "source-map-resolve@npm:0.6.0"
+  dependencies:
+    atob: ^2.1.2
+    decode-uri-component: ^0.2.0
+  checksum: fe503b9e5dac1c54be835282fcfec10879434e7b3ee08a9774f230299c724a8d403484d9531276d1670c87390e0e4d1d3f92b14cca6e4a2445ea3016b786ecd4
   languageName: node
   linkType: hard
 
