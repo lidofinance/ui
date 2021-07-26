@@ -2210,7 +2210,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-collapsed: 3.0.2
@@ -2234,7 +2234,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2258,7 +2258,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2285,7 +2285,7 @@ __metadata:
     "@types/jest": 26.0.24
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     jest-styled-components: 7.0.4
     react: 17.0.2
@@ -2310,7 +2310,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2334,7 +2334,7 @@ __metadata:
     "@testing-library/react": 12.0.0
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2361,7 +2361,7 @@ __metadata:
     "@testing-library/react": 12.0.0
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2385,7 +2385,7 @@ __metadata:
     "@testing-library/react": 12.0.0
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2408,7 +2408,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2429,7 +2429,7 @@ __metadata:
     "@lidofinance/theme": "workspace:*"
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2458,7 +2458,7 @@ __metadata:
     "@types/jest": 26.0.24
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/rimraf": 3.0.1
     "@types/styled-components": 5.1.11
     react: 17.0.2
@@ -2482,7 +2482,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2510,7 +2510,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2533,7 +2533,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2590,7 +2590,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2613,7 +2613,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2641,7 +2641,7 @@ __metadata:
     "@testing-library/react": 12.0.0
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2667,7 +2667,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2694,7 +2694,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2720,7 +2720,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/resize-observer-browser": 0.1.6
     "@types/styled-components": 5.1.11
     react: 17.0.2
@@ -2746,7 +2746,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2771,7 +2771,7 @@ __metadata:
     "@types/jest": 26.0.24
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     "@types/styled-system": 5.1.12
     "@types/styled-system__should-forward-prop": 5.1.2
@@ -2798,7 +2798,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2819,7 +2819,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2845,7 +2845,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -2867,7 +2867,7 @@ __metadata:
     "@storybook/react": 6.3.2
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/react-transition-group": 4.4.2
     react: 17.0.2
     react-dom: 17.0.2
@@ -2886,7 +2886,7 @@ __metadata:
   dependencies:
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@types/styled-components": 5.1.11
     react: 17.0.2
     react-dom: 17.0.2
@@ -5257,12 +5257,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-is@npm:17.0.1":
-  version: 17.0.1
-  resolution: "@types/react-is@npm:17.0.1"
+"@types/react-is@npm:17.0.2":
+  version: 17.0.2
+  resolution: "@types/react-is@npm:17.0.2"
   dependencies:
     "@types/react": "*"
-  checksum: 81437cb5f7696c175fffef2e18360e0a878d1a5edeec5c9832c2075583c6cacaea074e468859d7e3de06f401fb1289c9b07dd7de21d46d4f71490b55bb111d6a
+  checksum: ecd4f59e66858ebf13988c13de32e0f1753e9f0ec9a330bbf99c7c8ec75d3b52ad01965a7912c463615c0498965c1f17ea8a1a06606cf8edeb4b723f7ab74879
   languageName: node
   linkType: hard
 
@@ -13849,7 +13849,7 @@ fsevents@^1.2.7:
     "@types/jest": 26.0.24
     "@types/react": 17.0.14
     "@types/react-dom": 17.0.9
-    "@types/react-is": 17.0.1
+    "@types/react-is": 17.0.2
     "@typescript-eslint/eslint-plugin": 4.28.3
     "@typescript-eslint/parser": 4.28.3
     babel-core: 6.26.3
