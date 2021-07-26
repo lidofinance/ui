@@ -24,6 +24,7 @@ export const themeLight = {
 
     border: '#d1d8df',
     borderHover: '#bcc8d4',
+    borderLight: '#dfe5eb',
 
     controlBg: '#fff',
   },
@@ -53,6 +54,7 @@ export const themeDark = {
 
     border: '#484855',
     borderHover: '#7a8aa0',
+    borderLight: '#484855',
 
     controlBg: '#2f2f37',
   },
