@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { ServicePageStyle } from './ServicePageStyles'
+import { ServicePageStyle, ServicePageInsideStyle } from './ServicePageStyles'
 import { H1 } from '@lidofinance/heading'
 import { Text } from '@lidofinance/text'
 import { ServicePageProps } from './types'
@@ -11,8 +11,10 @@ function ServicePage(
   const { title, children, ...rest } = props
   return (
     <ServicePageStyle {...rest} ref={ref}>
-      <H1>{title}</H1>
-      <Text color='secondary'>{children}</Text>
+      <ServicePageInsideStyle>
+        <H1>{title}</H1>
+        <Text color='secondary'>{children}</Text>
+      </ServicePageInsideStyle>
     </ServicePageStyle>
   )
 }
