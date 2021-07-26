@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/lidofinance/ui.git",
-    "directory": "packages/box"
+    "directory": "packages/service-page"
   },
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
