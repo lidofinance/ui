@@ -7036,7 +7036,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-styled-components@npm:1.13.1, babel-plugin-styled-components@npm:>= 1.12.0":
+"babel-plugin-styled-components@npm:1.13.2":
+  version: 1.13.2
+  resolution: "babel-plugin-styled-components@npm:1.13.2"
+  dependencies:
+    "@babel/helper-annotate-as-pure": ^7.0.0
+    "@babel/helper-module-imports": ^7.0.0
+    babel-plugin-syntax-jsx: ^6.18.0
+    lodash: ^4.17.11
+  peerDependencies:
+    styled-components: ">= 2"
+  checksum: c37e68b574dc69b0b140c25cd766b664cb369c7ceb8a3b2df9a78788ebc1aa609d181995b565570ee168e2a59e499c158b9d7c00f498d2e9323bfe00bfa1da86
+  languageName: node
+  linkType: hard
+
+"babel-plugin-styled-components@npm:>= 1.12.0":
   version: 1.13.1
   resolution: "babel-plugin-styled-components@npm:1.13.1"
   dependencies:
@@ -14021,7 +14035,7 @@ fsevents@^1.2.7:
     babel-core: 6.26.3
     babel-jest: 27.0.6
     babel-loader: 8.2.2
-    babel-plugin-styled-components: 1.13.1
+    babel-plugin-styled-components: 1.13.2
     eslint: 7.31.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-jsx-a11y: 6.4.1
