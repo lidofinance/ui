@@ -38,7 +38,7 @@ import { Button } from '@lidofinance/lido-ui'
 
 - `yarn dev` - Start Storybook locally to start developing components.
 - `yarn build` - Build all components.
-- `yarn build:package package_name` - Build `package_name` component.
+- `yarn build:package package_name` - Build `package_name` component **(not working now, use `yarn build`)**.
 - `yarn test` - Run tests across components.
 - `yarn lint` - Run eslint across components.
 

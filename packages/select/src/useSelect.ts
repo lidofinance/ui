@@ -98,7 +98,7 @@ export const useSelect: UseSelect = (props) => {
     return { values, options }
   }, [localValue, children, handleChange])
 
-  const selectedTitle = localValue ? values.get(localValue) : null
+  const selectedTitle = localValue != null ? values.get(localValue) : null
   const defaultTitle = String(localValue ?? '')
   const title = selectedTitle ?? defaultTitle
 

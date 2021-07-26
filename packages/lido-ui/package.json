@@ -36,6 +36,7 @@
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/identicon": "workspace:*",
     "@lidofinance/input": "workspace:*",
+    "@lidofinance/lido-logo": "workspace:*",
     "@lidofinance/link": "workspace:*",
     "@lidofinance/loaders": "workspace:*",
     "@lidofinance/modal": "workspace:*",
