@@ -2524,6 +2524,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/lido-logo@workspace:*, @lidofinance/lido-logo@workspace:packages/lido-logo":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/lido-logo@workspace:packages/lido-logo"
+  dependencies:
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.3.2
+    "@types/react": 17.0.14
+    "@types/react-dom": 17.0.9
+    "@types/react-is": 17.0.1
+    "@types/styled-components": 5.1.11
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/lido-ui@workspace:packages/lido-ui":
   version: 0.0.0-use.local
   resolution: "@lidofinance/lido-ui@workspace:packages/lido-ui"
@@ -2541,6 +2564,7 @@ __metadata:
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/identicon": "workspace:*"
     "@lidofinance/input": "workspace:*"
+    "@lidofinance/lido-logo": "workspace:*"
     "@lidofinance/link": "workspace:*"
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/modal": "workspace:*"
