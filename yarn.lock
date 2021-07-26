@@ -2937,6 +2937,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/service-page@workspace:packages/service-page"
   dependencies:
+    "@lidofinance/heading": "workspace:*"
     "@lidofinance/styled-system": "workspace:*"
     "@lidofinance/text": "workspace:*"
     "@lidofinance/theme": "workspace:*"

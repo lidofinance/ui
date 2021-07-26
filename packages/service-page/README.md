@@ -1,4 +1,4 @@
-# Box Component
+# Service Page Component
 
 React component for Lido Finance projects.
 Part of [Lido UI Components](https://github.com/lidofinance/ui/#readme)
