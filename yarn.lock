@@ -3674,9 +3674,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:13.0.0":
-  version: 13.0.0
-  resolution: "@rollup/plugin-node-resolve@npm:13.0.0"
+"@rollup/plugin-node-resolve@npm:13.0.4":
+  version: 13.0.4
+  resolution: "@rollup/plugin-node-resolve@npm:13.0.4"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     "@types/resolve": 1.17.1
@@ -3686,7 +3686,7 @@ __metadata:
     resolve: ^1.19.0
   peerDependencies:
     rollup: ^2.42.0
-  checksum: c0237e65f50d593efc176e07a2ddf734918bc7344f739fe2254a3bfaa4be37c6d4787d045ab79d741811d3658f7e8bbb1484e6aa25bbb9fe2a3c33472b3f371d
+  checksum: 9013d3b2c2e5a31be12e74fdf1ade209d3ce8c52cc47c2bb724ba67727efec7275a4e987874c5b6d6a3f9f25c5364df95bfba5b2f8b874a9dbb33c3fcb927731
   languageName: node
   linkType: hard
 
@@ -14262,7 +14262,7 @@ fsevents@^1.2.7:
     "@commitlint/config-conventional": 13.1.0
     "@qiwi/multi-semantic-release": 3.15.0
     "@rollup/plugin-babel": 5.3.0
-    "@rollup/plugin-node-resolve": 13.0.0
+    "@rollup/plugin-node-resolve": 13.0.4
     "@storybook/addon-docs": 6.3.5
     "@storybook/addon-essentials": 6.3.5
     "@storybook/addons": 6.3.5
