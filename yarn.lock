@@ -3617,7 +3617,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/multi-semantic-release@npm:^3.15.0":
+"@qiwi/multi-semantic-release@npm:3.15.0":
   version: 3.15.0
   resolution: "@qiwi/multi-semantic-release@npm:3.15.0"
   dependencies:
@@ -14289,7 +14289,7 @@ fsevents@^1.2.7:
     "@babel/preset-typescript": 7.14.5
     "@commitlint/cli": 13.1.0
     "@commitlint/config-conventional": 13.1.0
-    "@qiwi/multi-semantic-release": ^3.15.0
+    "@qiwi/multi-semantic-release": 3.15.0
     "@rollup/plugin-babel": 5.3.0
     "@rollup/plugin-node-resolve": 13.0.4
     "@storybook/addon-docs": 6.3.5
