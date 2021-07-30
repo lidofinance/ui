@@ -1,6 +1,9 @@
 import { ToastContainer as SourceToastContainer } from 'react-toastify'
+import { injectStyle } from 'react-toastify/dist/inject-style'
+
 import styled from 'styled-components'
-import 'react-toastify/dist/ReactToastify.css'
+
+injectStyle()
 
 export const ToastContainer = styled(SourceToastContainer).attrs({
   draggable: false,
@@ -11,9 +14,8 @@ export const ToastContainer = styled(SourceToastContainer).attrs({
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    bottom: ${({ theme }) => theme.spaceMap.lg}px;
-    left: ${({ theme }) => theme.spaceMap.lg}px;
   }
+
   .Toastify {
     &__toast {
       box-sizing: border-box;
@@ -24,7 +26,7 @@ export const ToastContainer = styled(SourceToastContainer).attrs({
         `${theme.boxShadows.xs} ${theme.colors.shadowLight}`};
       margin: ${({ theme }) => theme.spaceMap.xs}px 0 0 0;
       max-width: 360px;
-      min-height: 0px;
+      min-height: 0;
       padding: ${({ theme }) => theme.spaceMap.sm}px
         ${({ theme }) => theme.spaceMap.md}px;
       font-size: ${({ theme }) => theme.fontSizesMap.xs}px;

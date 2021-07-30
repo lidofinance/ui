@@ -1,5 +1,5 @@
 import { LidoComponentProps } from '@lidofinance/utils'
-import { ToastOptions } from 'react-toastify'
+import { ToastOptions, toast } from 'react-toastify'
 
 export type ToastProps = LidoComponentProps<
   'div',
@@ -8,3 +8,7 @@ export type ToastProps = LidoComponentProps<
     options?: ToastOptions
   }
 >
+
+export const ToastPosition = toast.POSITION
+
+export type ToastPositions = keyof typeof ToastPosition

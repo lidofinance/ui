@@ -3062,7 +3062,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/toast@workspace:packages/toast"
   dependencies:
+    "@lidofinance/accordion": "workspace:*"
     "@lidofinance/button": "workspace:*"
+    "@lidofinance/loaders": "workspace:*"
     "@lidofinance/styled-system": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
