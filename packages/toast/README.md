@@ -17,7 +17,7 @@ For example will use `ToastDefault`, also you can use `ToastError`, `ToastSucces
 import { ToastContainer, ToastDefault } from '@lidofinance/toast'
 
 function ExampleToast() {
-  const notifyDefault = () => ToastDefault({ text: '🚀🚀🚀 Wow so easy!' })
+  const notifyDefault = () => ToastDefault('🚀🚀🚀 Wow so easy!')
 
   return (
     <>

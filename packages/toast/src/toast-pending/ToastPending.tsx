@@ -1,15 +1,15 @@
-import { toast, ToastContent } from 'react-toastify'
+import { toast, ToastContent, ToastOptions } from 'react-toastify'
 import {
   ToastPendingLoaderStyle,
   ToastPendingStyle,
   ToastPendingTextStyle,
 } from './ToastPendingStyles'
 import { TOASTS_PENDING_OPTIONS } from '../toastsDefaultOptions'
-import { ToastProps } from '../types'
 
-export function ToastPending(props: ToastProps): ToastContent {
-  const { text, options } = props
-
+export function ToastPending(
+  text: string,
+  options: ToastOptions
+): ToastContent {
   return toast(
     <ToastPendingStyle>
       <ToastPendingLoaderStyle />

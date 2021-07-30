@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { ToastProps, ToastPosition } from './types'
+import { ToastPosition } from './types'
 import { Button } from '@lidofinance/button'
 import { Accordion } from '@lidofinance/accordion'
 import { ToastContainer } from './ToastContainer'
@@ -30,8 +30,9 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<ToastProps> = (props) => {
-  const notifyDefault = () => ToastDefault(props)
+export const Basic: Story = (props) => {
+  const { text, ...options } = props
+  const notifyDefault = () => ToastDefault(text, options)
 
   return (
     <>
@@ -49,8 +50,9 @@ export const Basic: Story<ToastProps> = (props) => {
   )
 }
 
-export const Error: Story<ToastProps> = (props) => {
-  const notifyError = () => ToastError(props)
+export const Error: Story = (props) => {
+  const { text, ...options } = props
+  const notifyError = () => ToastError(text, options)
 
   return (
     <>
@@ -62,8 +64,9 @@ export const Error: Story<ToastProps> = (props) => {
   )
 }
 
-export const Success: Story<ToastProps> = (props) => {
-  const notifySuccess = () => ToastSuccess(props)
+export const Success: Story = (props) => {
+  const { text, ...options } = props
+  const notifySuccess = () => ToastSuccess(text, options)
 
   return (
     <>
@@ -75,8 +78,9 @@ export const Success: Story<ToastProps> = (props) => {
   )
 }
 
-export const Info: Story<ToastProps> = (props) => {
-  const notifyInfo = () => ToastInfo(props)
+export const Info: Story = (props) => {
+  const { text, ...options } = props
+  const notifyInfo = () => ToastInfo(text, options)
 
   return (
     <>
@@ -88,8 +92,9 @@ export const Info: Story<ToastProps> = (props) => {
   )
 }
 
-export const Pending: Story<ToastProps> = (props) => {
-  const notifyPending = () => ToastPending(props)
+export const Pending: Story = (props) => {
+  const { text, ...options } = props
+  const notifyPending = () => ToastPending(text, options)
 
   return (
     <>
@@ -101,8 +106,9 @@ export const Pending: Story<ToastProps> = (props) => {
   )
 }
 
-export const EthereumError: Story<ToastProps> = (props) => {
-  const notifyEthereumError = () => ToastEthereumError(props)
+export const EthereumError: Story = (props) => {
+  const { ...options } = props
+  const notifyEthereumError = () => ToastEthereumError(options)
 
   return (
     <>

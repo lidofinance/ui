@@ -28,7 +28,6 @@
     "@lidofinance/loaders": "workspace:*",
     "@lidofinance/styled-system": "workspace:*",
     "@lidofinance/theme": "workspace:*",
-    "@lidofinance/utils": "workspace:*",
     "react-toastify": "7.0.4"
   },
   "peerDependencies": {

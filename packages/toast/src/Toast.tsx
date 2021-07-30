@@ -1,29 +1,26 @@
-import { toast, ToastContent } from 'react-toastify'
+import { toast, ToastContent, ToastOptions } from 'react-toastify'
 import {
   TOASTS_DEFAULT_OPTIONS,
   TOASTS_ERROR_OPTIONS,
   TOASTS_INFO_OPTIONS,
   TOASTS_SUCCESS_OPTIONS,
 } from './toastsDefaultOptions'
-import { ToastProps } from './types'
 import { ToastPending } from './toast-pending/ToastPending'
 
 export { ToastPending }
 
-export function ToastDefault(props: ToastProps): ToastContent {
-  const { text, ...options } = props
-
+export function ToastDefault(
+  text: string,
+  options: ToastOptions
+): ToastContent {
   return toast(text, { ...TOASTS_DEFAULT_OPTIONS, ...options })
 }
 
-export function ToastError(props: ToastProps): ToastContent {
-  const { text, ...options } = props
-
+export function ToastError(text: string, options: ToastOptions): ToastContent {
   return toast.error(text, { ...TOASTS_ERROR_OPTIONS, ...options })
 }
 
-export function ToastEthereumError(props: ToastProps): ToastContent {
-  const { ...options } = props
+export function ToastEthereumError(options: ToastOptions): ToastContent {
   const text = 'Something went wrong while retrieving data from Ethereum'
   const toastId = 'ethereum-network-error'
 
@@ -31,20 +28,16 @@ export function ToastEthereumError(props: ToastProps): ToastContent {
     options.toastId = toastId
   }
 
-  return ToastError({
-    text,
-    options,
-  })
+  return ToastError(text, options)
 }
 
-export function ToastInfo(props: ToastProps): ToastContent {
-  const { text, ...options } = props
-
+export function ToastInfo(text: string, options: ToastOptions): ToastContent {
   return toast(text, { ...TOASTS_INFO_OPTIONS, ...options })
 }
 
-export function ToastSuccess(props: ToastProps): ToastContent {
-  const { text, ...options } = props
-
+export function ToastSuccess(
+  text: string,
+  options: ToastOptions
+): ToastContent {
   return toast.success(text, { ...TOASTS_SUCCESS_OPTIONS, ...options })
 }
