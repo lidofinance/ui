@@ -3,7 +3,9 @@ import { injectStyle } from 'react-toastify/dist/inject-style'
 
 import styled from 'styled-components'
 
-injectStyle()
+if (typeof window !== 'undefined') {
+  injectStyle()
+}
 
 export const ToastContainer = styled(SourceToastContainer).attrs({
   draggable: false,
