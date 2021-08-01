@@ -95,7 +95,7 @@ export const ToastContainer = styled(SourceToastContainer).attrs({
       border-radius: ${({ theme }) => theme.borderRadiusesMap.md}px;
       box-shadow: ${({ theme }) =>
         `${theme.boxShadows.xs} ${theme.colors.shadowLight}`};
-      margin: ${({ theme }) => theme.spaceMap.xs}px 0 0 0;
+      margin: ${({ theme }) => theme.spaceMap.xs}px 0;
       max-width: 360px;
       min-height: 0;
       padding: ${({ theme }) => theme.spaceMap.sm}px
