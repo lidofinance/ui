@@ -16,6 +16,75 @@ export const ToastContainer = styled(SourceToastContainer).attrs({
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media screen and (max-width: 480px) {
+      max-width: calc(100vw - ${({ theme }) => 2 * theme.spaceMap.sm}px);
+    }
+
+    &.Toastify__toast-container {
+      &--top-left {
+        top: ${({ theme }) => theme.spaceMap.lg}px;
+        left: ${({ theme }) => theme.spaceMap.lg}px;
+
+        @media screen and (max-width: 480px) {
+          top: ${({ theme }) => theme.spaceMap.sm}px;
+          left: ${({ theme }) => theme.spaceMap.sm}px;
+        }
+      }
+      &--top-center {
+        top: ${({ theme }) => theme.spaceMap.lg}px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media screen and (max-width: 480px) {
+          top: ${({ theme }) => theme.spaceMap.sm}px;
+          left: 45%;
+          transform: translateX(-40%);
+        }
+      }
+      &--top-right {
+        top: ${({ theme }) => theme.spaceMap.lg}px;
+        right: ${({ theme }) => theme.spaceMap.lg}px;
+        left: auto;
+
+        @media screen and (max-width: 480px) {
+          top: ${({ theme }) => theme.spaceMap.sm}px;
+          right: ${({ theme }) => theme.spaceMap.sm}px;
+          transform: none;
+        }
+      }
+      &--bottom-left {
+        bottom: ${({ theme }) => theme.spaceMap.lg}px;
+        left: ${({ theme }) => theme.spaceMap.lg}px;
+
+        @media screen and (max-width: 480px) {
+          bottom: ${({ theme }) => theme.spaceMap.sm}px;
+          left: ${({ theme }) => theme.spaceMap.sm}px;
+        }
+      }
+      &--bottom-center {
+        bottom: ${({ theme }) => theme.spaceMap.lg}px;
+        transform: translateX(-50%);
+        left: 50%;
+
+        @media screen and (max-width: 480px) {
+          bottom: ${({ theme }) => theme.spaceMap.sm}px;
+          left: 45%;
+          transform: translateX(-40%);
+        }
+      }
+      &--bottom-right {
+        bottom: ${({ theme }) => theme.spaceMap.lg}px;
+        right: ${({ theme }) => theme.spaceMap.lg}px;
+        left: auto;
+
+        @media screen and (max-width: 480px) {
+          bottom: ${({ theme }) => theme.spaceMap.sm}px;
+          right: ${({ theme }) => theme.spaceMap.sm}px;
+          transform: none;
+        }
+      }
+    }
   }
 
   .Toastify {
