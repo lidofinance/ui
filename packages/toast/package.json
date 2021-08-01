@@ -23,7 +23,6 @@
     "react"
   ],
   "dependencies": {
-    "@lidofinance/styled-system": "workspace:*",
     "@lidofinance/loaders": "workspace:*",
     "@lidofinance/theme": "workspace:*",
     "react-toastify": "7.0.4"

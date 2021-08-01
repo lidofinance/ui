@@ -3065,7 +3065,6 @@ __metadata:
     "@lidofinance/accordion": "workspace:*"
     "@lidofinance/button": "workspace:*"
     "@lidofinance/loaders": "workspace:*"
-    "@lidofinance/styled-system": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.3.5
     "@types/react": 17.0.15
