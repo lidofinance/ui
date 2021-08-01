@@ -6,6 +6,7 @@ import { topologicallySort, listWorkspaces } from 'yarn-workspaces-list'
 import typescript from 'rollup-plugin-typescript2'
 import del from 'rollup-plugin-delete'
 import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 import { babel } from '@rollup/plugin-babel'
 
 const excludedWorkspaces = ['.']
@@ -67,6 +68,11 @@ export default async () => {
           exclude: 'node_modules/**',
           babelHelpers: 'bundled',
           extensions,
+        }),
+        commonjs({
+          namedExports: {
+            './.yarn/react-toastify/dist/inject-style.js': ['injectStyle'],
+          },
         }),
       ],
       external,
