@@ -9,7 +9,6 @@ import {
   ToastSuccess,
   ToastInfo,
   ToastPending,
-  ToastEthereumError,
 } from './Toast'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -100,22 +99,6 @@ export const Pending: Story = (props) => {
     <>
       <Button onClick={notifyPending} size='xs'>
         Show pending notify!
-      </Button>
-      <ToastContainer />
-    </>
-  )
-}
-
-export const EthereumError: Story = (props) => {
-  const { ...options } = props
-  const notifyEthereumError = () => ToastEthereumError(options)
-
-  return (
-    <>
-      <Accordion summary='IMPORTANT'>You do not use text control!</Accordion>
-
-      <Button onClick={notifyEthereumError} size='xs'>
-        Show ethereum error notify!
       </Button>
       <ToastContainer />
     </>

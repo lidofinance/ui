@@ -20,17 +20,6 @@ export function ToastError(text: string, options: ToastOptions): ToastContent {
   return toast.error(text, { ...TOASTS_ERROR_OPTIONS, ...options })
 }
 
-export function ToastEthereumError(options: ToastOptions): ToastContent {
-  const text = 'Something went wrong while retrieving data from Ethereum'
-  const toastId = 'ethereum-network-error'
-
-  if (options && options?.toastId) {
-    options.toastId = toastId
-  }
-
-  return ToastError(text, options)
-}
-
 export function ToastInfo(text: string, options: ToastOptions): ToastContent {
   return toast(text, { ...TOASTS_INFO_OPTIONS, ...options })
 }
