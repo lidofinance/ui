@@ -7,7 +7,7 @@ import {
 } from './toastsDefaultOptions'
 import { ToastPending } from './toast-pending/ToastPending'
 
-export { ToastPending }
+export { ToastPending, toast }
 
 export function ToastDefault(
   text: string,

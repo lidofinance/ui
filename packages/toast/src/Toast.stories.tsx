@@ -4,6 +4,7 @@ import { Button } from '@lidofinance/button'
 import { Accordion } from '@lidofinance/accordion'
 import { ToastContainer } from './ToastContainer'
 import {
+  toast,
   ToastError,
   ToastDefault,
   ToastSuccess,
@@ -94,11 +95,17 @@ export const Info: Story = (props) => {
 export const Pending: Story = (props) => {
   const { text, ...options } = props
   const notifyPending = () => ToastPending(text, options)
+  const dismissAll = () => toast.dismiss()
 
   return (
     <>
       <Button onClick={notifyPending} size='xs'>
         Show pending notify!
+      </Button>
+      <br />
+      <br />
+      <Button onClick={dismissAll} size='xs' variant='translucent'>
+        Dismiss all
       </Button>
       <ToastContainer />
     </>
