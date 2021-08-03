@@ -104,3 +104,84 @@ export const Social: Story = () => {
     </SocialList>
   )
 }
+
+export const CryptoCurrencies: Story = () => {
+  const { Eth, Weth, Steth, Wsteth, Beth, Ldo, Ldopl, Solana, Stsol, Terra } =
+    components
+  const iconKeys = Object.keys({
+    Eth,
+    Weth,
+    Steth,
+    Wsteth,
+    Beth,
+    Ldo,
+    Ldopl,
+    Solana,
+    Stsol,
+    Terra,
+  }) as IconVariants[]
+
+  return (
+    <IconList>
+      {iconKeys.map((componentName) => {
+        const Icon = components[componentName]
+
+        return (
+          <IconListItem key={componentName}>
+            <Icon />
+            <IconListTitle>{componentName}</IconListTitle>
+          </IconListItem>
+        )
+      })}
+    </IconList>
+  )
+}
+
+export const CryptoWallets: Story = () => {
+  const { MetaMask, WalletConnect, CoinbaseWallet, Ledger } = components
+  const iconKeys = Object.keys({
+    MetaMask,
+    WalletConnect,
+    CoinbaseWallet,
+    Ledger,
+  }) as IconVariants[]
+
+  return (
+    <IconList>
+      {iconKeys.map((componentName) => {
+        const Icon = components[componentName]
+
+        return (
+          <IconListItem key={componentName}>
+            <Icon />
+            <IconListTitle>{componentName}</IconListTitle>
+          </IconListItem>
+        )
+      })}
+    </IconList>
+  )
+}
+
+export const CryptoExchanges: Story = () => {
+  const { Curve, Uniswap, OneInch } = components
+  const iconKeys = Object.keys({
+    Curve,
+    Uniswap,
+    OneInch,
+  }) as IconVariants[]
+
+  return (
+    <IconList>
+      {iconKeys.map((componentName) => {
+        const Icon = components[componentName]
+
+        return (
+          <IconListItem key={componentName}>
+            <Icon />
+            <IconListTitle>{componentName}</IconListTitle>
+          </IconListItem>
+        )
+      })}
+    </IconList>
+  )
+}
