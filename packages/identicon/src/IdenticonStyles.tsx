@@ -22,11 +22,28 @@ export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
 `
 
 export const IdenticonAddressStyle = styled.div`
+  position: relative;
+  display: inline-block;
   font-weight: 500;
   margin: 0 6px;
 
   &:empty {
     display: none;
+  }
+
+  & > .trimmed {
+    user-select: none;
+    pointer-events: none;
+  }
+
+  & > .full {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: transparent;
   }
 `
 

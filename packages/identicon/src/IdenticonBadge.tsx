@@ -22,7 +22,8 @@ function IdenticonBadge(
   return (
     <IdenticonBadgeStyle $color={color} {...rest} ref={ref}>
       <IdenticonAddressStyle>
-        {trimAddress(address, symbols)}
+        <span className='full'>{address}</span>
+        <span className='trimmed'>{trimAddress(address, symbols)}</span>
       </IdenticonAddressStyle>
       <Identicon {...identiconProps} />
     </IdenticonBadgeStyle>
