@@ -30,23 +30,28 @@ export enum InputColor {
 }
 export type InputColors = keyof typeof InputColor
 
+type CommonProps = {
+  label?: React.ReactNode
+  error?: React.ReactNode | boolean
+  success?: React.ReactNode | boolean
+  variant?: InputVariants
+  color?: InputColors
+  active?: boolean
+  fullwidth?: boolean
+  wrapperRef?: React.RefObject<HTMLLabelElement>
+  as?: never
+}
+
 export type InputProps = LidoComponentProps<
   'input',
-  {
-    label?: React.ReactNode
-    error?: React.ReactNode | boolean
-    success?: React.ReactNode | boolean
+  CommonProps & {
+    type?: InputTypes
     leftDecorator?: React.ReactNode
     rightDecorator?: React.ReactNode
-    type?: InputTypes
-    variant?: InputVariants
-    color?: InputColors
-    active?: boolean
-    fullwidth?: boolean
-    wrapperRef?: React.RefObject<HTMLLabelElement>
-    as?: never
   }
 >
+
+export type TextareaProps = LidoComponentProps<'textarea', CommonProps>
 
 export type InputGroupProps = LidoComponentProps<
   'span',

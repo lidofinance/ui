@@ -205,6 +205,12 @@ export const InputStyle = styled.input<{
   ${({ $labeled }) => ($labeled ? labeledCSS : '')}
 `
 
+export const TextareaStyle = styled(InputStyle).attrs({
+  as: 'textarea',
+})`
+  resize: none;
+`
+
 const messageVariants = {
   error: css`
     background: ${({ theme }) => theme.colors.error};

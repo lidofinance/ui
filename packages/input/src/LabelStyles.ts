@@ -50,3 +50,7 @@ export const InputLabelStyle = styled.span`
   transition-property: transform, opacity, color;
   ${labelFilledValueCSS};
 `
+
+export const TextareaLabelStyle = styled(InputLabelStyle)`
+  top: 27px;
+`
