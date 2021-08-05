@@ -4,6 +4,7 @@ import { ModalButtonSizes } from './types'
 
 type InjectedProps = {
   $size: ModalButtonSizes
+  $activate: boolean
   $fullwidth: boolean
   $square: boolean
   $loading: boolean
@@ -50,28 +51,28 @@ const sizes = {
   `,
 }
 
-const logoSizes = {
-  xxs: css<InjectedProps>`
-    height: 18px;
-    width: 18px;
-  `,
-  xs: css<InjectedProps>`
-    height: 18px;
-    width: 18px;
-  `,
-  sm: css<InjectedProps>`
-    height: 25px;
-    width: 25px;
-  `,
-  md: css<InjectedProps>`
-    height: 32px;
-    width: 32px;
-  `,
-  lg: css<InjectedProps>`
-    height: 36px;
-    width: 36px;
-  `,
-}
+// const logoSizes = {
+//   xxs: css<InjectedProps>`
+//     height: 18px;
+//     width: 18px;
+//   `,
+//   xs: css<InjectedProps>`
+//     height: 18px;
+//     width: 18px;
+//   `,
+//   sm: css<InjectedProps>`
+//     height: 25px;
+//     width: 25px;
+//   `,
+//   md: css<InjectedProps>`
+//     height: 32px;
+//     width: 32px;
+//   `,
+//   lg: css<InjectedProps>`
+//     height: 36px;
+//     width: 36px;
+//   `,
+// }
 
 export const ModalButtonStyle = styled.button<InjectedProps>`
   box-sizing: border-box;
@@ -82,9 +83,16 @@ export const ModalButtonStyle = styled.button<InjectedProps>`
   overflow: hidden;
   position: relative;
 
-  width: ${({ $fullwidth }) => ($fullwidth ? ' 100%' : 'auto')};
+  border: ${({ $activate, theme }) =>
+    $activate
+      ? `1px solid ${theme.colors.primary}`
+      : `1px solid ${theme.colors.background}`};
 
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ $activate, theme }) =>
+    $activate ? 'rgba(0, 163, 255, 0.1);' : theme.colors.background};
+
+  width: ${({ $fullwidth }) => ($fullwidth ? '100%' : 'auto')};
+
   font-family: inherit;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.text};
@@ -145,8 +153,4 @@ export const ModalButtonContentStyle = styled.span<{ $hidden: boolean }>`
   position: relative;
   pointer-events: none;
   visibility: ${({ $hidden }) => ($hidden ? 'hidden' : 'visible')};
-
-  svg {
-    ${(props) => logoSizes[props.$size]}
-  }
 `

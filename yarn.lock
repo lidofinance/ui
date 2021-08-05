@@ -2831,6 +2831,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/modal-button@workspace:packages/modal-button"
   dependencies:
+    "@lidofinance/container": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"

@@ -1,5 +1,9 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { ModalButtonStyle, ModalButtonContentStyle } from './ModalButtonStyles'
+import {
+  ModalButtonStyle,
+  ModalButtonContentStyle,
+  // ModalButtonContentSvgStyle,
+} from './ModalButtonStyles'
 import { ModalButtonIconProps } from './types'
 
 function ModalButton(
@@ -8,6 +12,7 @@ function ModalButton(
 ) {
   const {
     size = 'md',
+    activate = false,
     square = false,
     fullwidth = false,
     loading = false,
@@ -21,9 +26,11 @@ function ModalButton(
   return (
     <ModalButtonStyle
       $size={size}
+      $activate={activate}
       $fullwidth={fullwidth}
       $square={square}
       $loading={loading}
+      onClick={onClick}
       disabled={disabled || loading}
       type='button'
       ref={ref}
