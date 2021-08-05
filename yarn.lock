@@ -2422,6 +2422,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/address@workspace:*, @lidofinance/address@workspace:packages/address":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/address@workspace:packages/address"
+  dependencies:
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.3.5
+    "@types/react": 17.0.15
+    "@types/react-dom": 17.0.9
+    "@types/react-is": 17.0.2
+    "@types/styled-components": 5.1.11
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    react-jazzicon: 0.1.3
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/block@workspace:*, @lidofinance/block@workspace:packages/block":
   version: 0.0.0-use.local
   resolution: "@lidofinance/block@workspace:packages/block"
@@ -2749,6 +2773,7 @@ __metadata:
   resolution: "@lidofinance/lido-ui@workspace:packages/lido-ui"
   dependencies:
     "@lidofinance/accordion": "workspace:*"
+    "@lidofinance/address": "workspace:*"
     "@lidofinance/block": "workspace:*"
     "@lidofinance/box": "workspace:*"
     "@lidofinance/button": "workspace:*"

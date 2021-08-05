@@ -1,4 +1,5 @@
 export * from '@lidofinance/accordion'
+export * from '@lidofinance/address'
 export * from '@lidofinance/block'
 export * from '@lidofinance/box'
 export * from '@lidofinance/button'
