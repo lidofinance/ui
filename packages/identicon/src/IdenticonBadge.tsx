@@ -1,8 +1,10 @@
 import { ForwardedRef, forwardRef } from 'react'
+
+import { Address } from '@lidofinance/address'
+
 import { IdenticonBadgeProps } from './types'
-import { IdenticonBadgeStyle, IdenticonAddressStyle } from './IdenticonStyles'
+import { IdenticonBadgeStyle } from './IdenticonStyles'
 import Identicon from './Identicon'
-import { trimAddress } from './trimAddress'
 
 function IdenticonBadge(
   props: IdenticonBadgeProps,
@@ -21,10 +23,7 @@ function IdenticonBadge(
 
   return (
     <IdenticonBadgeStyle $color={color} {...rest} ref={ref}>
-      <IdenticonAddressStyle>
-        <span className='full'>{address}</span>
-        <span className='trimmed'>{trimAddress(address, symbols)}</span>
-      </IdenticonAddressStyle>
+      <Address address={address} symbols={symbols} />
       <Identicon {...identiconProps} />
     </IdenticonBadgeStyle>
   )

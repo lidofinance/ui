@@ -23,6 +23,7 @@
     "react"
   ],
   "dependencies": {
+    "@lidofinance/address": "workspace:*",
     "@lidofinance/theme": "workspace:*",
     "@lidofinance/utils": "workspace:*",
     "react-jazzicon": "0.1.3"
