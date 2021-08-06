@@ -138,12 +138,15 @@ export const CryptoCurrencies: Story = () => {
 }
 
 export const CryptoWallets: Story = () => {
-  const { MetaMask, WalletConnect, CoinbaseWallet, Ledger } = components
+  const { MetaMask, WalletConnect, Coinbase, Ledger, Trust, Imtoken } =
+    components
   const iconKeys = Object.keys({
     MetaMask,
     WalletConnect,
-    CoinbaseWallet,
+    Coinbase,
     Ledger,
+    Trust,
+    Imtoken,
   }) as IconVariants[]
 
   return (
@@ -163,9 +166,8 @@ export const CryptoWallets: Story = () => {
 }
 
 export const CryptoExchanges: Story = () => {
-  const { Curve, Uniswap, OneInch } = components
+  const { Uniswap, OneInch } = components
   const iconKeys = Object.keys({
-    Curve,
     Uniswap,
     OneInch,
   }) as IconVariants[]
