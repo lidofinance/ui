@@ -4,11 +4,6 @@ export const AddressStyle = styled.div`
   position: relative;
   display: inline-block;
   font-weight: 500;
-  margin: 0 6px;
-
-  &:empty {
-    display: none;
-  }
 `
 
 export const AddressFullStyle = styled.span`

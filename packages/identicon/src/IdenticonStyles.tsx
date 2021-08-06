@@ -15,6 +15,7 @@ const colors = {
 export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
   border-radius: 1000px;
   padding: 4px;
+  margin: 0 6px;
   display: inline-flex;
   align-items: center;
 

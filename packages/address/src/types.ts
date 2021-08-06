@@ -4,6 +4,6 @@ export type AddressProps = LidoComponentProps<
   'div',
   {
     address: string
-    symbols: number
+    symbols?: number
   }
 >

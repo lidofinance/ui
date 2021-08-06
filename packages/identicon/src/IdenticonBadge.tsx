@@ -23,7 +23,7 @@ function IdenticonBadge(
 
   return (
     <IdenticonBadgeStyle $color={color} {...rest} ref={ref}>
-      <Address address={address} symbols={symbols} />
+      {symbols > 0 ? <Address address={address} symbols={symbols} /> : ''}
       <Identicon {...identiconProps} />
     </IdenticonBadgeStyle>
   )
