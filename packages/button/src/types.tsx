@@ -22,6 +22,9 @@ export type ButtonVariants = keyof typeof ButtonVariant
 export enum ButtonColor {
   primary,
   secondary,
+  warning,
+  error,
+  success,
 }
 export type ButtonColors = keyof typeof ButtonColor
 
