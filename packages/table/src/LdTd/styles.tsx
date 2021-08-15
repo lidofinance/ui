@@ -15,7 +15,7 @@ const getMainColor = (props: InjectedProps) => {
     error: props.theme.colors.error,
     success: props.theme.colors.success,
   }
-  return colorsMap[props.$color]
+  return colorsMap[props.$textColor]
 }
 
 const getAlign = {

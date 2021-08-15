@@ -19,7 +19,7 @@ export default {
     layout: 'centered',
   },
   args: {
-    textColor: 'primary',
+    textColor: 'secondary',
     align: 'left',
   },
   argTypes: {
