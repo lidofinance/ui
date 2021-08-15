@@ -46,6 +46,7 @@
     "@lidofinance/service-page": "workspace:*",
     "@lidofinance/stack": "workspace:*",
     "@lidofinance/styled-system": "workspace:*",
+    "@lidofinance/table": "workspace:*",
     "@lidofinance/text": "workspace:*",
     "@lidofinance/theme": "workspace:*",
     "@lidofinance/toast": "workspace:*",
