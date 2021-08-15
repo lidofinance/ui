@@ -39,7 +39,7 @@ export const Base: Story<LdTdProps> = (props) => {
     <LdTable style={{ width: 600, padding: '20px' }}>
       <LdThead>
         <LdTr>
-          <LdTh {...props}>Date | Type</LdTh>
+          <LdTh>Date | Type</LdTh>
           <LdTh {...props}>Change</LdTh>
           <LdTh {...props}>Balance</LdTh>
           <LdTh {...props}>APR</LdTh>
@@ -47,7 +47,7 @@ export const Base: Story<LdTdProps> = (props) => {
       </LdThead>
       <LdTbody>
         <LdTr>
-          <LdTd {...props}>
+          <LdTd>
             01-13-2021
             <br />
             Stake
@@ -64,7 +64,7 @@ export const Base: Story<LdTdProps> = (props) => {
           <LdTd {...props}>2.4%</LdTd>
         </LdTr>
         <LdTr>
-          <LdTd {...props}>
+          <LdTd>
             01-13-2021
             <br />
             Stake
@@ -83,7 +83,7 @@ export const Base: Story<LdTdProps> = (props) => {
       </LdTbody>
       <LdTfoot>
         <LdTr>
-          <LdTh {...props}>Date | Type</LdTh>
+          <LdTh>Date | Type</LdTh>
           <LdTh {...props}>Change</LdTh>
           <LdTh {...props}>Balance</LdTh>
           <LdTh {...props}>APR</LdTh>
