@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
-import { Aligns, TextColors, Theme } from '../types'
+import { LdTableAligns, LdTableTextColors, Theme } from '../types'
 
 type InjectedProps = {
-  $align: Aligns
-  $textColor: TextColors
+  $align: LdTableAligns
+  $textColor: LdTableTextColors
   theme: Theme
 }
 

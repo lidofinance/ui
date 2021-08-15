@@ -7,7 +7,7 @@ import LdTr from './LdTr'
 import LdTd from './LdTd'
 import LdTh from './LdTh'
 
-import { LdTdProps, TextColor, Align } from './types'
+import { LdTdProps, LdTableTextColor, LdTableAlign } from './types'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -24,11 +24,11 @@ export default {
   },
   argTypes: {
     textColor: {
-      options: getOptions(TextColor),
+      options: getOptions(LdTableTextColor),
       control: 'inline-radio',
     },
     align: {
-      options: getOptions(Align),
+      options: getOptions(LdTableAlign),
       control: 'inline-radio',
     },
   },

@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components'
-import { Aligns, TextColors, Theme } from '../types'
+import { LdTableAligns, Theme } from '../types'
 
 type InjectedProps = {
-  $align: Aligns
-  $textColor: TextColors
+  $align: LdTableAligns
   theme: Theme
 }
 
@@ -19,7 +18,7 @@ const getAlign = {
   `,
 }
 
-export const LdThStyle = styled.div`
+export const LdThStyle = styled.div<InjectedProps>`
   display: table-cell;
   flex: 1;
   padding: ${({ theme }) => theme.spaceMap.md}px
