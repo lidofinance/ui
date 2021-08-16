@@ -23,5 +23,5 @@ export type ModalButtonProps = LidoComponentProps<
 >
 
 export type ModalButtonIconProps = {
-  icon: React.ReactNode
+  icon: React.ReactElement
 } & ModalButtonProps

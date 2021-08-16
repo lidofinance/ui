@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Story, Meta } from '@storybook/react'
 import { Eth, Terra } from '@lidofinance/icons'
 import { Container } from '@lidofinance/container'
+import { Accordion } from '@lidofinance/accordion'
 
 import { ModalButtonProps, ModalButtonSize } from './types'
 import ModalButton from './ModalButton'
@@ -35,19 +36,46 @@ Basic.argTypes = {
   },
 }
 
-const StyledDiv = styled.div`
-  background: ${({ theme }) => theme.colors.foreground};
-  padding: ${({ theme }) => `${theme.spaceMap.xxl}px`};
-`
+export const ManulIconSize: Story<ModalButtonProps> = (props) => {
+  return (
+    <>
+      <Accordion summary='Manual size'>
+        You can set manual width and/or height of ModalButton (size props of
+        ModalButton does not affect to the icon): use width and height props.
+      </Accordion>
+      <ModalButton icon={<Eth width={128} height={128} />} {...props} />
+    </>
+  )
+}
 
-const StyledMarginBottom = styled.div`
-  margin-bottom: ${({ theme }) => `${theme.spaceMap.sm}px`};
-`
+ManulIconSize.args = {
+  size: 'md',
+  activate: false,
+  disabled: false,
+  fullwidth: false,
+  children: 'Ethereum',
+}
+
+ManulIconSize.argTypes = {
+  size: {
+    options: getOptions(ModalButtonSize),
+    control: 'inline-radio',
+  },
+}
 
 export const ChooseNetwork: Story = () => {
   const ETHEREUM = 'Ethereum'
   const TERRA = 'Terra'
   const [curButtonIndex, setCurButtonIndex] = useState(ETHEREUM)
+
+  const StyledDiv = styled.div`
+    background: ${({ theme }) => theme.colors.foreground};
+    padding: ${({ theme }) => `${theme.spaceMap.xxl}px`};
+  `
+
+  const StyledMarginBottom = styled.div`
+    margin-bottom: ${({ theme }) => `${theme.spaceMap.sm}px`};
+  `
 
   return (
     <Container as='header' size='tight'>

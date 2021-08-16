@@ -33,6 +33,7 @@
     "styled-components": "5"
   },
   "devDependencies": {
+    "@lidofinance/accordion": "workspace:*",
     "@lidofinance/container": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@storybook/react": "6.3.5",
