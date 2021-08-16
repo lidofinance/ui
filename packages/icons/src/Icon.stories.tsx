@@ -57,7 +57,7 @@ export const List: Story = () => (
 
       return (
         <IconListItem key={componentName}>
-          <Icon />
+          <Icon width={24} height={24} />
           <IconListTitle>{componentName}</IconListTitle>
         </IconListItem>
       )
@@ -128,7 +128,7 @@ export const CryptoCurrencies: Story = () => {
 
         return (
           <IconListItem key={componentName}>
-            <Icon />
+            <Icon width={24} height={24} />
             <IconListTitle>{componentName}</IconListTitle>
           </IconListItem>
         )
@@ -156,7 +156,7 @@ export const CryptoWallets: Story = () => {
 
         return (
           <IconListItem key={componentName}>
-            <Icon />
+            <Icon width={24} height={24} />
             <IconListTitle>{componentName}</IconListTitle>
           </IconListItem>
         )
@@ -179,7 +179,7 @@ export const CryptoExchanges: Story = () => {
 
         return (
           <IconListItem key={componentName}>
-            <Icon />
+            <Icon width={24} height={24} />
             <IconListTitle>{componentName}</IconListTitle>
           </IconListItem>
         )

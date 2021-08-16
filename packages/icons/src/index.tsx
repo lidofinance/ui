@@ -203,7 +203,14 @@ export const Coinbase = React.forwardRef(function Coinbase(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={40} height={40} fill='currentColor' ref={svgRef} {...props}>
+    <svg
+      width={40}
+      height={40}
+      viewBox='0 0 40 40'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <circle cx={20} cy={20} r={15} fill='#fff' />
       <path
         fillRule='evenodd'
@@ -618,7 +625,14 @@ export const MetaMask = React.forwardRef(function MetaMask(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={40} height={40} fill='currentColor' ref={svgRef} {...props}>
+    <svg
+      width={40}
+      height={40}
+      viewBox='0 0 40 40'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         d='M34.413 4.457l-12.492 9.278 2.31-5.474 10.182-3.804z'
         fill='#E2761B'
@@ -1067,7 +1081,14 @@ export const Trust = React.forwardRef(function Trust(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={40} height={40} fill='currentColor' ref={svgRef} {...props}>
+    <svg
+      width={40}
+      height={40}
+      viewBox='0 0 40 40'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -1156,7 +1177,14 @@ export const WalletConnect = React.forwardRef(function WalletConnect(
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
-    <svg width={40} height={25} fill='currentColor' ref={svgRef} {...props}>
+    <svg
+      width={40}
+      height={25}
+      viewBox='0 0 40 25'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
       <path
         d='M8.192 4.834c6.522-6.385 17.095-6.385 23.617 0l.784.769a.805.805 0 010 1.156l-2.685 2.629a.424.424 0 01-.59 0l-1.08-1.058c-4.55-4.454-11.926-4.454-16.475 0l-1.157 1.133a.424.424 0 01-.59 0L7.33 6.833a.805.805 0 010-1.155l.861-.844zm29.17 5.437l2.389 2.34a.805.805 0 010 1.155l-10.775 10.55a.848.848 0 01-1.18 0l-7.648-7.487a.212.212 0 00-.295 0l-7.647 7.487a.848.848 0 01-1.181 0L.25 13.766a.805.805 0 010-1.156l2.39-2.34a.848.848 0 011.18 0l7.648 7.488c.081.08.213.08.295 0l7.647-7.487a.848.848 0 011.18 0l7.648 7.487c.082.08.214.08.295 0l7.647-7.487a.848.848 0 011.181 0z'
         fill='#3B99FC'
