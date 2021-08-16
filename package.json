@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "start-storybook -p 5555 -s .storybook/public",
     "build-storybook": "build-storybook -s .storybook/public",
-    "build": "yarn combine && rollup -c",
+    "build": "yarn combine && rollup -c --max-old-space-size=1024",
     "build:dev": "rollup -c -w",
     "combine": "node ./combinePackages.js",
     "test": "jest",
