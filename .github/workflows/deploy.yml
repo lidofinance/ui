@@ -1,13 +1,16 @@
 name: deploy
 
 on:
+  workflow_dispatch:
   push:
-    branches:
+      branches:
       - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -17,20 +20,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Cache Yarn
-        id: yarn-cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
       - name: Install Dependencies
-        run: |
-          yarn install --immutable
+        run: yarn install --immutable
       - name: Run lint
         run: yarn lint
       - name: Build Components
@@ -45,8 +37,7 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           yarn multi-semantic-release --deps.bump=override --deps.release=patch
       - name: Build Storybook
-        run: |
-          yarn build-storybook
+        run: yarn build-storybook
       - name: Deploy Storybook
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
