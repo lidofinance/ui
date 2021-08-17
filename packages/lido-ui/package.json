@@ -41,6 +41,7 @@
     "@lidofinance/loaders": "workspace:*",
     "@lidofinance/modal": "workspace:*",
     "@lidofinance/modal-button": "workspace:*",
+    "@lidofinance/modal-content": "workspace:*",
     "@lidofinance/popover": "workspace:*",
     "@lidofinance/popup-menu": "workspace:*",
     "@lidofinance/select": "workspace:*",

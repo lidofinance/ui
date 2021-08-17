@@ -2766,6 +2766,7 @@ __metadata:
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/modal": "workspace:*"
     "@lidofinance/modal-button": "workspace:*"
+    "@lidofinance/modal-content": "workspace:*"
     "@lidofinance/popover": "workspace:*"
     "@lidofinance/popup-menu": "workspace:*"
     "@lidofinance/select": "workspace:*"
@@ -2834,6 +2835,36 @@ __metadata:
     "@lidofinance/accordion": "workspace:*"
     "@lidofinance/container": "workspace:*"
     "@lidofinance/icons": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.3.5
+    "@testing-library/react": 12.0.0
+    "@types/jest": 26.0.24
+    "@types/react": 17.0.15
+    "@types/react-dom": 17.0.9
+    "@types/react-is": 17.0.2
+    "@types/styled-components": 5.1.11
+    jest-styled-components: 7.0.5
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
+"@lidofinance/modal-content@workspace:*, @lidofinance/modal-content@workspace:packages/modal-content":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/modal-content@workspace:packages/modal-content"
+  dependencies:
+    "@lidofinance/button": "workspace:*"
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/loaders": "workspace:*"
+    "@lidofinance/modal": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.3.5
