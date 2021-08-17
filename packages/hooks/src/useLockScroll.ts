@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect } from 'react'
+import { useCallback, useLayoutEffect, useEffect } from 'react'
 
 const getScrollbarSize = (): number => {
   const tempDiv = document.createElement('div')
@@ -42,8 +42,12 @@ const setStyleProperty = (
   }
 }
 
-export const useLockScroll = (element: HTMLElement = document.body): void => {
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+
+export const useLockScroll = (target?: HTMLElement): void => {
   const lockScroll = useCallback(() => {
+    const element = target ?? document.body
     if (!isVerticalScroll(element)) return
 
     const previousValues = {
@@ -63,9 +67,9 @@ export const useLockScroll = (element: HTMLElement = document.body): void => {
     }
 
     return unlockScroll
-  }, [element])
+  }, [target])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const unlockScroll = lockScroll()
     return unlockScroll
   }, [lockScroll])
