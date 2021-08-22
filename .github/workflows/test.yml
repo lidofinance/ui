@@ -1,8 +1,14 @@
 name: test
-on: pull_request
+
+on:
+  workflow_dispatch:
+  pull_request:
+
 jobs:
   test-components:
     runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -10,17 +16,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Cache Yarn
-        id: yarn-cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
       - name: Run lint
