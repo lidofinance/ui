@@ -2601,7 +2601,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-collapsed: 3.0.2
     react-dom: 17.0.2
@@ -2625,7 +2625,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2649,7 +2649,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2676,7 +2676,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     jest-styled-components: 7.0.5
     react: 17.0.2
     react-dom: 17.0.2
@@ -2701,7 +2701,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2725,7 +2725,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2752,7 +2752,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2776,7 +2776,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2799,7 +2799,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2820,7 +2820,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2850,7 +2850,7 @@ __metadata:
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
     "@types/rimraf": 3.0.1
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2873,7 +2873,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2901,7 +2901,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2924,7 +2924,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -2983,7 +2983,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3006,7 +3006,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3034,7 +3034,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3060,7 +3060,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3087,7 +3087,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3114,7 +3114,7 @@ __metadata:
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
     "@types/resize-observer-browser": 0.1.6
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3141,7 +3141,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3165,7 +3165,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3190,7 +3190,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     "@types/styled-system": 5.1.13
     "@types/styled-system__should-forward-prop": 5.1.2
     jest-styled-components: 7.0.5
@@ -3217,7 +3217,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3238,7 +3238,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3263,7 +3263,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3290,7 +3290,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -3331,7 +3331,7 @@ __metadata:
     "@types/react": 17.0.15
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/styled-components": 5.1.11
+    "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -6007,14 +6007,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:5.1.11":
-  version: 5.1.11
-  resolution: "@types/styled-components@npm:5.1.11"
+"@types/styled-components@npm:5.1.12":
+  version: 5.1.12
+  resolution: "@types/styled-components@npm:5.1.12"
   dependencies:
     "@types/hoist-non-react-statics": "*"
     "@types/react": "*"
     csstype: ^3.0.2
-  checksum: 6e32fe79e524b5e3c720eaa0e5a6d7c0347ba373925493f99fb2c204cb9b60e33da5d060721a6c1d5d0f7a7dbda73e82db392489917d9be92ddafd3b6bc8d28e
+  checksum: f7ea1edbcd6ed24f7223f8f311bd33e3f1b832783a8e7fb6e180b9e6b5e57d72cd864b8cab8f334d047a6823589e086707c430a3de9d1c3e262ed49afc368a15
   languageName: node
   linkType: hard
 
