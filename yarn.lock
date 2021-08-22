@@ -2849,7 +2849,7 @@ __metadata:
     "@types/react": 17.0.19
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/rimraf": 3.0.1
+    "@types/rimraf": 3.0.2
     "@types/styled-components": 5.1.12
     react: 17.0.2
     react-dom: 17.0.2
@@ -5976,13 +5976,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/rimraf@npm:3.0.1":
-  version: 3.0.1
-  resolution: "@types/rimraf@npm:3.0.1"
+"@types/rimraf@npm:3.0.2":
+  version: 3.0.2
+  resolution: "@types/rimraf@npm:3.0.2"
   dependencies:
     "@types/glob": "*"
     "@types/node": "*"
-  checksum: 7c921220715d969c365b4fa37de9d0578aaf0ff78d445d4d13035cfc5edee76f392b9356291af5176cded5f0482370ef40608e55d502054059bf16425c39e868
+  checksum: b47fa302f46434cba704d20465861ad250df79467d3d289f9d6490d3aeeb41e8cb32dd80bd1a8fd833d1e185ac719fbf9be12e05ad9ce9be094d8ee8f1405347
   languageName: node
   linkType: hard
 
