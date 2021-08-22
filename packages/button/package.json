@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@lidofinance/icons": "workspace:*",
-    "@storybook/react": "6.3.5",
+    "@storybook/react": "6.3.7",
     "@testing-library/react": "12.0.0",
     "@types/jest": "27.0.1",
     "@types/react": "17.0.19",
