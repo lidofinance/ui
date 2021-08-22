@@ -598,6 +598,24 @@ export const Linkedin = React.forwardRef(function Linkedin(
   )
 })
 
+export const LockSmall = React.forwardRef(function LockSmall(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path d='M12 6a3.129 3.129 0 00-3.125 3.125V11H8.25C7.56 11 7 11.56 7 12.25V17c0 .69.56 1 1.25 1h7.5c.69 0 1.25-.31 1.25-1v-4.75c0-.69-.56-1.25-1.25-1.25h-.625V9.125A3.129 3.129 0 0012 6zm-1.875 3.125c0-1.034.841-1.875 1.875-1.875s1.875.841 1.875 1.875V11h-3.75V9.125zm2.5 5.702v.798a.625.625 0 11-1.25 0v-.798a1.245 1.245 0 01.354-2.298 1.25 1.25 0 011.521 1.221c0 .462-.252.86-.625 1.077z' />
+    </svg>
+  )
+})
+
 export const Lock = React.forwardRef(function Lock(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>

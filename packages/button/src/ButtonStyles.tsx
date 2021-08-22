@@ -57,6 +57,9 @@ const getMainColor = (props: InjectedProps) => {
   const colorsMap = {
     primary: props.theme.colors.primary,
     secondary: props.theme.colors.secondary,
+    warning: props.theme.colors.warning,
+    error: props.theme.colors.error,
+    success: props.theme.colors.success,
   }
   return colorsMap[props.$color]
 }
@@ -65,6 +68,9 @@ const getContrastColor = (props: InjectedProps) => {
   const colorsMap = {
     primary: props.theme.colors.primaryContrast,
     secondary: props.theme.colors.secondaryContrast,
+    warning: props.theme.colors.warningContrast,
+    error: props.theme.colors.errorContrast,
+    success: props.theme.colors.successContrast,
   }
   return colorsMap[props.$color]
 }
@@ -73,6 +79,9 @@ const getHoverColor = (props: InjectedProps) => {
   const colorsMap = {
     primary: props.theme.colors.primaryHover,
     secondary: props.theme.colors.secondaryHover,
+    warning: props.theme.colors.warningHover,
+    error: props.theme.colors.errorHover,
+    success: props.theme.colors.successHover,
   }
   return colorsMap[props.$color]
 }
