@@ -3,7 +3,7 @@ import { ForwardedRef, forwardRef } from 'react'
 import { Address } from '@lidofinance/address'
 
 import { IdenticonBadgeProps } from './types'
-import { IdenticonBadgeStyle } from './IdenticonStyles'
+import { IdenticonBadgeStyle, AddressWrapperStyle } from './IdenticonStyles'
 import Identicon from './Identicon'
 
 function IdenticonBadge(
@@ -23,7 +23,13 @@ function IdenticonBadge(
 
   return (
     <IdenticonBadgeStyle $color={color} {...rest} ref={ref}>
-      {symbols > 0 ? <Address address={address} symbols={symbols} /> : ''}
+      {symbols > 0 ? (
+        <AddressWrapperStyle>
+          <Address address={address} symbols={symbols} />
+        </AddressWrapperStyle>
+      ) : (
+        ''
+      )}
       <Identicon {...identiconProps} />
     </IdenticonBadgeStyle>
   )

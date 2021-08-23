@@ -28,3 +28,7 @@ export const IdenticonStyle = styled.div`
   line-height: 0;
   display: inline-block;
 `
+
+export const AddressWrapperStyle = styled.div`
+  padding-right: 6px;
+`
