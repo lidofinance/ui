@@ -29,15 +29,6 @@ export const IdenticonStyle = styled.div`
   display: inline-block;
 `
 
-const paddingLeft = {
-  background: css``,
-  accent: css`
-    padding-left: 6px;
-  `,
-}
-
 export const AddressWrapperStyle = styled.div<{ $color: IdenticonBadgeColors }>`
-  padding-right: 6px;
-
-  ${({ $color }) => paddingLeft[$color]}
+  padding: 0 6px;
 `

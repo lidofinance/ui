@@ -24,7 +24,7 @@ function IdenticonBadge(
   return (
     <IdenticonBadgeStyle $color={color} {...rest} ref={ref}>
       {symbols > 0 ? (
-        <AddressWrapperStyle $color={color}>
+        <AddressWrapperStyle>
           <Address address={address} symbols={symbols} />
         </AddressWrapperStyle>
       ) : (
