@@ -9,6 +9,7 @@ const colors = {
   accent: css`
     background: ${({ theme }) => theme.colors.accentDarken};
     color: ${({ theme }) => theme.colors.accentContrast};
+    padding-left: 12px;
   `,
 }
 
