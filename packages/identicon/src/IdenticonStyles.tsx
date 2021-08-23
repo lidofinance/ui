@@ -9,7 +9,6 @@ const colors = {
   accent: css`
     background: ${({ theme }) => theme.colors.accentDarken};
     color: ${({ theme }) => theme.colors.accentContrast};
-    padding-left: 12px;
   `,
 }
 
@@ -30,6 +29,15 @@ export const IdenticonStyle = styled.div`
   display: inline-block;
 `
 
-export const AddressWrapperStyle = styled.div`
+const paddingLeft = {
+  background: css``,
+  accent: css`
+    padding-left: 6px;
+  `,
+}
+
+export const AddressWrapperStyle = styled.div<{ $color: IdenticonBadgeColors }>`
   padding-right: 6px;
+
+  ${({ $color }) => paddingLeft[$color]}
 `

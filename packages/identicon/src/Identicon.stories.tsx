@@ -37,7 +37,7 @@ Badge.args = {
 
 Badge.argTypes = {
   symbols: {
-    control: { type: 'range', min: 2, max: 21, step: 1 },
+    control: { type: 'range', min: 0, max: 21, step: 1 },
   },
   color: {
     options: getOptions(IdenticonBadgeColor),
