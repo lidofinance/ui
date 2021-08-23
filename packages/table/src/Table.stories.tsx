@@ -1,20 +1,20 @@
 import { Story, Meta } from '@storybook/react'
-import LdTable from './LdTable'
-import LdThead from './LdThead'
-import LdTbody from './LdTbody'
-import LdTfoot from './LdTfoot'
-import LdTr from './LdTr'
-import LdTd from './LdTd'
-import LdTh from './LdTh'
+import Table from './Table'
+import Thead from './Thead'
+import Tbody from './Tbody'
+import Tfoot from './Tfoot'
+import Tr from './Tr'
+import Td from './Td'
+import Th from './Th'
 
-import { LdTdProps, LdTableTextColor, LdTableAlign } from './types'
+import { TdProps, TableTextColor, TableAlign } from './types'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
-  component: LdTable,
-  title: 'Table/LdTable',
+  component: Table,
+  title: 'Table/Table',
   parameters: {
     layout: 'centered',
   },
@@ -24,71 +24,71 @@ export default {
   },
   argTypes: {
     textColor: {
-      options: getOptions(LdTableTextColor),
+      options: getOptions(TableTextColor),
       control: 'inline-radio',
     },
     align: {
-      options: getOptions(LdTableAlign),
+      options: getOptions(TableAlign),
       control: 'inline-radio',
     },
   },
 } as Meta
 
-export const Base: Story<LdTdProps> = (props) => {
+export const Base: Story<TdProps> = (props) => {
   return (
-    <LdTable style={{ width: 600, padding: '20px' }}>
-      <LdThead>
-        <LdTr>
-          <LdTh>Date | Type</LdTh>
-          <LdTh {...props}>Change</LdTh>
-          <LdTh {...props}>Balance</LdTh>
-          <LdTh {...props}>APR</LdTh>
-        </LdTr>
-      </LdThead>
-      <LdTbody>
-        <LdTr>
-          <LdTd>
+    <Table style={{ width: 600, padding: '20px' }}>
+      <Thead>
+        <Tr>
+          <Th>Date | Type</Th>
+          <Th {...props}>Change</Th>
+          <Th {...props}>Balance</Th>
+          <Th {...props}>APR</Th>
+        </Tr>
+      </Thead>
+      <Tbody>
+        <Tr>
+          <Td>
             01-13-2021
             <br />
             Stake
-          </LdTd>
-          <LdTd {...props}>
+          </Td>
+          <Td {...props}>
             + 0.000007452
             <br />+ $0.02
-          </LdTd>
-          <LdTd {...props}>
+          </Td>
+          <Td {...props}>
             10.00038581
             <br />
             $18,912.80
-          </LdTd>
-          <LdTd {...props}>2.4%</LdTd>
-        </LdTr>
-        <LdTr>
-          <LdTd>
+          </Td>
+          <Td {...props}>2.4%</Td>
+        </Tr>
+        <Tr>
+          <Td>
             01-13-2021
             <br />
             Stake
-          </LdTd>
-          <LdTd {...props}>
+          </Td>
+          <Td {...props}>
             + 0.000007452
             <br />+ $0.02
-          </LdTd>
-          <LdTd {...props}>
+          </Td>
+          <Td {...props}>
             10.00038581
             <br />
             $18,912.80
-          </LdTd>
-          <LdTd {...props}>2.4%</LdTd>
-        </LdTr>
-      </LdTbody>
-      <LdTfoot>
-        <LdTr>
-          <LdTh>Date | Type</LdTh>
-          <LdTh {...props}>Change</LdTh>
-          <LdTh {...props}>Balance</LdTh>
-          <LdTh {...props}>APR</LdTh>
-        </LdTr>
-      </LdTfoot>
-    </LdTable>
+          </Td>
+          <Td {...props}>2.4%</Td>
+        </Tr>
+      </Tbody>
+      <Tfoot>
+        <Tr>
+          <Th>Date | Type</Th>
+          <Th {...props}>Change</Th>
+          <Th {...props}>Balance</Th>
+          <Th {...props}>APR</Th>
+        </Tr>
+      </Tfoot>
+    </Table>
   )
 }

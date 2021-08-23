@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
-import { LdTableAligns, LdTableTextColors, Theme } from '../types'
+import { TableAligns, TableTextColors, Theme } from '../types'
 
 type InjectedProps = {
-  $align: LdTableAligns
-  $textColor: LdTableTextColors
+  $align: TableAligns
+  $textColor: TableTextColors
   theme: Theme
 }
 
@@ -30,7 +30,7 @@ const getAlign = {
   `,
 }
 
-export const LdTdStyle = styled.div<InjectedProps>`
+export const TdStyle = styled.div<InjectedProps>`
   display: table-cell;
   flex: 1;
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};

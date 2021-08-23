@@ -1,37 +1,37 @@
 import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
-export enum LdTableAlign {
+export enum TableAlign {
   left,
   center,
   right,
 }
-export type LdTableAligns = keyof typeof LdTableAlign
+export type TableAligns = keyof typeof TableAlign
 
-export enum LdTableTextColor {
+export enum TableTextColor {
   primary,
   secondary,
   warning,
   error,
   success,
 }
-export type LdTableTextColors = keyof typeof LdTableTextColor
+export type TableTextColors = keyof typeof TableTextColor
 
-export type LdTableProps = LidoComponentProps<'div'>
-export type LdTheadProps = LidoComponentProps<'div'>
-export type LdTbodyProps = LidoComponentProps<'div'>
-export type LdTfootProps = LidoComponentProps<'div'>
-export type LdTrProps = LidoComponentProps<'div'>
-export type LdThProps = LidoComponentProps<
+export type TableProps = LidoComponentProps<'div'>
+export type TheadProps = LidoComponentProps<'div'>
+export type TbodyProps = LidoComponentProps<'div'>
+export type TfootProps = LidoComponentProps<'div'>
+export type TrProps = LidoComponentProps<'div'>
+export type ThProps = LidoComponentProps<
   'div',
   {
-    align?: LdTableAligns
+    align?: TableAligns
   }
 >
-export type LdTdProps = LidoComponentProps<
+export type TdProps = LidoComponentProps<
   'div',
   {
-    align?: LdTableAligns
-    textColor?: LdTableTextColors
+    align?: TableAligns
+    textColor?: TableTextColors
   }
 >

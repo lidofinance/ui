@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LdTrStyle = styled.div`
+export const TrStyle = styled.div`
   display: flex;
 
   font-weight: 500;
