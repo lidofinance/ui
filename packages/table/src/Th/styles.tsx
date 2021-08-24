@@ -22,10 +22,18 @@ export const ThStyle = styled.th<InjectedProps>`
   border-top: 1px solid ${({ theme }) => theme.colors.borderLight};
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
 
-  padding: ${({ theme }) => theme.spaceMap.md}px;
+  padding: 7px 18px;
 
   font-weight: 800;
   color: ${({ theme }) => theme.colors.text};
 
   ${(props) => getAlign[props.$align]}
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
 `
