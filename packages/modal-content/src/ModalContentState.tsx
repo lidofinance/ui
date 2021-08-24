@@ -7,7 +7,7 @@ import {
 } from './ModalContentStateStyles'
 
 import { Loader } from '@lidofinance/loaders'
-import { Check, Close } from '@lidofinance/icons'
+import { Success, Error } from '@lidofinance/icons'
 
 function ModalContentState(
   props: ModalContentStateProps,
@@ -21,10 +21,10 @@ function ModalContentState(
       stateContent = <Loader size={'large'} />
       break
     case ModalContentStateEnum[ModalContentStateEnum.success]:
-      stateContent = <Check color={'green'} width={64} height={64} />
+      stateContent = <Success color={'green'} width={64} height={64} />
       break
     case ModalContentStateEnum[ModalContentStateEnum.error]:
-      stateContent = <Close color={'red'} width={64} height={64} />
+      stateContent = <Error color={'red'} width={64} height={64} />
       break
     default:
       break

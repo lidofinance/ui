@@ -23,7 +23,7 @@ export const Basic: Story<ModalButtonProps> = (props) => (
 
 Basic.args = {
   size: 'md',
-  activate: false,
+  active: false,
   disabled: false,
   fullwidth: false,
   children: 'Ethereum',
@@ -50,7 +50,7 @@ export const ManulIconSize: Story<ModalButtonProps> = (props) => {
 
 ManulIconSize.args = {
   size: 'md',
-  activate: false,
+  active: false,
   disabled: false,
   fullwidth: false,
   children: 'Ethereum',
@@ -86,7 +86,7 @@ export const ChooseNetwork: Story = () => {
           <ModalButton
             icon={<Eth />}
             size='sm'
-            activate={curButtonIndex === ETHEREUM}
+            active={curButtonIndex === ETHEREUM}
             fullwidth={true}
             onClick={() => setCurButtonIndex(ETHEREUM)}
           >
@@ -97,7 +97,7 @@ export const ChooseNetwork: Story = () => {
         <ModalButton
           icon={<Terra />}
           size='sm'
-          activate={curButtonIndex === TERRA}
+          active={curButtonIndex === TERRA}
           fullwidth={true}
           onClick={() => setCurButtonIndex(TERRA)}
         >

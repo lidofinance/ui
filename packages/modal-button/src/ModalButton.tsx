@@ -13,7 +13,7 @@ function ModalButton(
 ) {
   const {
     size = 'md',
-    activate = false,
+    active = false,
     square = false,
     fullwidth = false,
     loading = false,
@@ -54,7 +54,7 @@ function ModalButton(
   return (
     <ModalButtonStyle
       $size={size}
-      $activate={activate}
+      active={active}
       $fullwidth={fullwidth}
       $square={square}
       $loading={loading}

@@ -14,7 +14,7 @@ export type ModalButtonProps = LidoComponentProps<
   'button',
   {
     size?: ModalButtonSizes
-    activate?: boolean
+    active?: boolean
     fullwidth?: boolean
     square?: boolean
     loading?: boolean
