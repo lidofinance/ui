@@ -2,7 +2,6 @@ import { Story, Meta } from '@storybook/react'
 import Table from './Table'
 import Thead from './Thead'
 import Tbody from './Tbody'
-import Tfoot from './Tfoot'
 import Tr from './Tr'
 import Td from './Td'
 import Th from './Th'
@@ -36,7 +35,7 @@ export default {
 
 export const Base: Story<TdProps> = (props) => {
   return (
-    <Table style={{ width: 600, padding: '20px' }}>
+    <Table style={{ width: 600 }}>
       <Thead>
         <Tr>
           <Th>Date | Type</Th>
@@ -81,14 +80,6 @@ export const Base: Story<TdProps> = (props) => {
           <Td {...props}>2.4%</Td>
         </Tr>
       </Tbody>
-      <Tfoot>
-        <Tr>
-          <Th>Date | Type</Th>
-          <Th {...props}>Change</Th>
-          <Th {...props}>Balance</Th>
-          <Th {...props}>APR</Th>
-        </Tr>
-      </Tfoot>
     </Table>
   )
 }

@@ -1,3 +1,3 @@
 import styled from 'styled-components'
 
-export const TableStyle = styled.div``
+export const TableStyle = styled.table``

@@ -30,21 +30,11 @@ const getAlign = {
   `,
 }
 
-export const TdStyle = styled.div<InjectedProps>`
-  display: table-cell;
-  flex: 1;
+export const TdStyle = styled.td<InjectedProps>`
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
-  padding: ${({ theme }) => theme.spaceMap.xxl}px;
+  padding: ${({ theme }) => theme.spaceMap.md}px;
 
   color: ${getMainColor};
 
   ${(props) => getAlign[props.$align]}
-
-  &:first-child {
-    padding-left: 0;
-  }
-
-  &:last-child {
-    padding-right: 0;
-  }
 `

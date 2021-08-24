@@ -18,11 +18,11 @@ const getAlign = {
   `,
 }
 
-export const ThStyle = styled.div<InjectedProps>`
-  display: table-cell;
-  flex: 1;
-  padding: ${({ theme }) => theme.spaceMap.md}px
-    ${({ theme }) => theme.spaceMap.xxl}px;
+export const ThStyle = styled.th<InjectedProps>`
+  border-top: 1px solid ${({ theme }) => theme.colors.borderLight};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
+
+  padding: ${({ theme }) => theme.spaceMap.md}px;
 
   font-weight: 800;
   color: ${({ theme }) => theme.colors.text};

@@ -1,3 +1,3 @@
 import styled from 'styled-components'
 
-export const TfootStyle = styled.div``
+export const TfootStyle = styled.tfoot``
