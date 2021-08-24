@@ -6,7 +6,8 @@ import { Eth, Terra } from '@lidofinance/icons'
 import { Container } from '@lidofinance/container'
 import { Accordion } from '@lidofinance/accordion'
 
-import { ModalButtonProps, ModalButtonSize } from './types'
+import { ButtonProps, ButtonSize } from '@lidofinance/button'
+
 import ModalButton from './ModalButton'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -17,7 +18,7 @@ export default {
   title: 'Dialogs/ModalButton',
 } as Meta
 
-export const Basic: Story<ModalButtonProps> = (props) => (
+export const Basic: Story<ButtonProps> = (props) => (
   <ModalButton icon={<Eth />} {...props} />
 )
 
@@ -26,17 +27,18 @@ Basic.args = {
   active: false,
   disabled: false,
   fullwidth: false,
+  loading: false,
   children: 'Ethereum',
 }
 
 Basic.argTypes = {
   size: {
-    options: getOptions(ModalButtonSize),
+    options: getOptions(ButtonSize),
     control: 'inline-radio',
   },
 }
 
-export const ManulIconSize: Story<ModalButtonProps> = (props) => {
+export const ManulIconSize: Story<ButtonProps> = (props) => {
   return (
     <>
       <Accordion summary='Manual size'>
@@ -53,12 +55,13 @@ ManulIconSize.args = {
   active: false,
   disabled: false,
   fullwidth: false,
+  loading: false,
   children: 'Ethereum',
 }
 
 ManulIconSize.argTypes = {
   size: {
-    options: getOptions(ModalButtonSize),
+    options: getOptions(ButtonSize),
     control: 'inline-radio',
   },
 }

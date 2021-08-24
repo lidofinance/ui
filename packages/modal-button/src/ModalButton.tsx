@@ -3,70 +3,59 @@ import React, { ForwardedRef, forwardRef } from 'react'
 import {
   ModalButtonStyle,
   ModalButtonContentStyle,
-  // ModalButtonContentSvgStyle,
+  ButtonLoaderStyle,
 } from './ModalButtonStyles'
 import { ModalButtonIconProps } from './types'
+
+const loaderSizes = {
+  xxs: 'small',
+  xs: 'small',
+  sm: 'small',
+  md: 'medium',
+  lg: 'medium',
+} as const
+
+const iconSize = {
+  xxs: {
+    width: '16px',
+    height: '16px',
+  },
+  xs: {
+    width: '24px',
+    height: '24px',
+  },
+  sm: {
+    width: '32px',
+    height: '32px',
+  },
+  md: {
+    width: '48px',
+    height: '48px',
+  },
+  lg: {
+    width: '64px',
+    height: '64px',
+  },
+}
 
 function ModalButton(
   props: ModalButtonIconProps,
   ref?: ForwardedRef<HTMLButtonElement>
 ) {
-  const {
-    size = 'md',
-    active = false,
-    square = false,
-    fullwidth = false,
-    loading = false,
-    onClick,
-    disabled,
-    children,
-    icon,
-    ...rest
-  } = props
+  const { size = 'md', loading = false, children, icon } = props
 
-  const iconSize = {
-    xxs: {
-      width: '16px',
-      height: '16px',
-    },
-    xs: {
-      width: '24px',
-      height: '24px',
-    },
-    sm: {
-      width: '32px',
-      height: '32px',
-    },
-    md: {
-      width: '48px',
-      height: '48px',
-    },
-    lg: {
-      width: '64px',
-      height: '64px',
-    },
-  }
+  const loaderSize = loaderSizes[size]
 
   const AdaptiveIconProps =
     icon.props.width || icon.props.height ? icon.props : { ...iconSize[size] }
   const AdaptiveIcon = React.cloneElement(icon, AdaptiveIconProps)
 
   return (
-    <ModalButtonStyle
-      $size={size}
-      active={active}
-      $fullwidth={fullwidth}
-      $square={square}
-      $loading={loading}
-      onClick={onClick}
-      disabled={disabled || loading}
-      type='button'
-      ref={ref}
-      {...rest}
-    >
+    <ModalButtonStyle type='button' ref={ref} {...props}>
       <ModalButtonContentStyle $hidden={loading}>
         {children} {AdaptiveIcon}
       </ModalButtonContentStyle>
+      {loading && <ButtonLoaderStyle size={loaderSize} />}
     </ModalButtonStyle>
   )
 }

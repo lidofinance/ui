@@ -3026,8 +3026,10 @@ __metadata:
   resolution: "@lidofinance/modal-button@workspace:packages/modal-button"
   dependencies:
     "@lidofinance/accordion": "workspace:*"
+    "@lidofinance/button": "workspace:*"
     "@lidofinance/container": "workspace:*"
     "@lidofinance/icons": "workspace:*"
+    "@lidofinance/loaders": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.3.7

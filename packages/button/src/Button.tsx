@@ -23,6 +23,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
     square = false,
     fullwidth = false,
     loading = false,
+    active = false,
     onClick,
     disabled,
     children,
@@ -40,6 +41,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
       $color={color}
       $square={square}
       $loading={loading}
+      active={active}
       onClick={handleClick}
       disabled={disabled || loading}
       type='button'

@@ -23,6 +23,8 @@
     "react"
   ],
   "dependencies": {
+    "@lidofinance/button": "workspace:*",
+    "@lidofinance/loaders": "workspace:*",
     "@lidofinance/theme": "workspace:*",
     "@lidofinance/utils": "workspace:*"
   },
