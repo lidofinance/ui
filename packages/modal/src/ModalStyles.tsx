@@ -22,9 +22,13 @@ export const ModalBaseStyle = styled.div`
   z-index: 1;
 `
 
-export const ModalHeaderStyle = styled.div<{ $short: boolean }>`
+export const ModalHeaderStyle = styled.div<{
+  $short: boolean
+  $withTitleIcon: boolean
+}>`
   display: flex;
-  align-items: center;
+  align-items: ${({ $withTitleIcon }) =>
+    $withTitleIcon ? 'flex-start' : 'center'};
   min-height: 32px;
   margin: 0;
   margin-bottom: ${({ $short, theme }) => ($short ? -theme.spaceMap.md : 0)}px;
@@ -39,14 +43,32 @@ export const ModalHeaderStyle = styled.div<{ $short: boolean }>`
   }
 `
 
-export const ModalTitleStyle = styled.div<{ $center: boolean }>`
+export const ModalTitleStyle = styled.div<{
+  $center: boolean
+  $withTitleIcon: boolean
+}>`
   font-size: ${({ theme }) => theme.fontSizesMap.md}px;
   line-height: 1.5em;
   font-weight: 800;
   margin-right: auto;
   padding-right: 32px;
   padding-left: ${({ $center }) => ($center ? '32px' : '0px')};
+  padding-top: ${({ $withTitleIcon }) => ($withTitleIcon ? '40px' : '0')};
+  margin-bottom: -20px;
   flex-grow: 1;
+
+  ${({ $center, $withTitleIcon }) =>
+    $center &&
+    $withTitleIcon &&
+    `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `}
+`
+
+export const ModalTitleIconStyle = styled.div`
+  padding-bottom: ${({ theme }) => theme.spaceMap.xl}px;
 `
 
 export const ModalCloseStyle = styled(ButtonIcon).attrs({

@@ -17,6 +17,7 @@ export type ModalOverlayInnerProps = ModalOverlayOwnProps & TransitionInnerProps
 
 export type ModalProps = {
   title?: React.ReactNode
+  titleIcon?: React.ReactNode
   extra?: React.ReactNode
   center?: boolean
   open?: boolean

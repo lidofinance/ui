@@ -50,7 +50,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
     >
       <ButtonContentStyle $hidden={loading}>{children}</ButtonContentStyle>
       {loading && <ButtonLoaderStyle size={loaderSize} />}
-      {ripple}
+      {!active && ripple}
     </ButtonStyle>
   )
 }

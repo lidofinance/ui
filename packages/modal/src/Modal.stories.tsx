@@ -1,6 +1,10 @@
 import { Story, Meta } from '@storybook/react'
 import { ModalProps } from './types'
 import { Button } from '@lidofinance/button'
+import { Loader } from '@lidofinance/loaders'
+import { Text } from '@lidofinance/text'
+import { Link } from '@lidofinance/link'
+import { Error, Success } from '@lidofinance/icons'
 import Modal from './Modal'
 import ModalExtra from './ModalExtra'
 import { useCallback, useState } from 'react'
@@ -71,4 +75,114 @@ export const WithScroll: Story<ModalProps> = (props) => {
       </Modal>
     </>
   )
+}
+
+export const LoadingStateInModal: Story<ModalProps> = (props) => {
+  const { state, handleOpen, handleClose } = useModal(props)
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Show loading modal</Button>
+
+      <Modal
+        {...props}
+        titleIcon={<Loader size={'large'} />}
+        open={state}
+        onClose={handleClose}
+      >
+        <Text color='secondary' size='xxs'>
+          Staking 10 ETH. You will receive 10 stETH
+        </Text>
+        <br />
+        <Text color='secondary' size='xxs'>
+          Confirm this transaction in your wallet
+        </Text>
+      </Modal>
+    </>
+  )
+}
+
+LoadingStateInModal.args = {
+  title: 'You are now staking 10 ETH',
+  center: true,
+}
+
+LoadingStateInModal.argTypes = {
+  children: {
+    table: {
+      disable: true,
+    },
+  },
+}
+
+export const SuccessStateInModal: Story<ModalProps> = (props) => {
+  const { state, handleOpen, handleClose } = useModal(props)
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Show success modal</Button>
+
+      <Modal
+        {...props}
+        titleIcon={<Success color={'green'} width={64} height={64} />}
+        open={state}
+        onClose={handleClose}
+      >
+        <Text color='secondary' size='xxs'>
+          Staking operation was successful
+        </Text>
+        <br />
+        <Link href={'https://etherscan.io/'}>View on Etherscan</Link>
+      </Modal>
+    </>
+  )
+}
+
+SuccessStateInModal.args = {
+  title: 'Your new balance is 10 stETH',
+  center: true,
+}
+
+SuccessStateInModal.argTypes = {
+  children: {
+    table: {
+      disable: true,
+    },
+  },
+}
+
+export const ErrorStateInModal: Story<ModalProps> = (props) => {
+  const { state, handleOpen, handleClose } = useModal(props)
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Show error modal</Button>
+
+      <Modal
+        {...props}
+        titleIcon={<Error color={'red'} width={64} height={64} />}
+        open={state}
+        onClose={handleClose}
+      >
+        <Text color='secondary' size='xxs'>
+          Staking operation was not successful
+        </Text>
+        <br />
+        <Link href={'#'}>Retry</Link>
+      </Modal>
+    </>
+  )
+}
+
+ErrorStateInModal.args = {
+  title: 'Something went wrong',
+  center: true,
+}
+
+ErrorStateInModal.argTypes = {
+  children: {
+    table: {
+      disable: true,
+    },
+  },
 }
