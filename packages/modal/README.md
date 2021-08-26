@@ -12,7 +12,7 @@ yarn add @lidofinance/modal
 ## Usage
 
 ```ts
-import { Modal } from '@lidofinance/modal'
+import { Modal, ModalButton } from '@lidofinance/modal'
 ```
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
