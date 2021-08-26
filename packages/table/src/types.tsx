@@ -17,19 +17,19 @@ export enum TableTextColor {
 }
 export type TableTextColors = keyof typeof TableTextColor
 
-export type TableProps = LidoComponentProps<'div'>
-export type TheadProps = LidoComponentProps<'div'>
-export type TbodyProps = LidoComponentProps<'div'>
-export type TfootProps = LidoComponentProps<'div'>
-export type TrProps = LidoComponentProps<'div'>
+export type TableProps = LidoComponentProps<'table'>
+export type TheadProps = LidoComponentProps<'thead'>
+export type TbodyProps = LidoComponentProps<'tbody'>
+export type TfootProps = LidoComponentProps<'tfoot'>
+export type TrProps = LidoComponentProps<'tr'>
 export type ThProps = LidoComponentProps<
-  'div',
+  'th',
   {
     align?: TableAligns
   }
 >
 export type TdProps = LidoComponentProps<
-  'div',
+  'td',
   {
     align?: TableAligns
     textColor?: TableTextColors
