@@ -3,7 +3,7 @@ import { TableProps } from '../types'
 
 import { TableStyle } from './styles'
 
-function Table(props: TableProps, ref?: ForwardedRef<HTMLDivElement>) {
+function Table(props: TableProps, ref?: ForwardedRef<HTMLTableElement>) {
   return <TableStyle ref={ref} {...props} />
 }
 

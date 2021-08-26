@@ -3,7 +3,7 @@ import { TfootProps } from '../types'
 
 import { TfootStyle } from './styles'
 
-function Tfoot(props: TfootProps, ref?: ForwardedRef<HTMLDivElement>) {
+function Tfoot(props: TfootProps, ref?: ForwardedRef<HTMLTableSectionElement>) {
   return <TfootStyle ref={ref} {...props} />
 }
 
