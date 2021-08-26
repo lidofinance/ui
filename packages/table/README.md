@@ -12,7 +12,7 @@ yarn add @lidofinance/table
 ## Usage
 
 ```ts
-import { LdTable, LdTr, LdTh, LdTd } from '@lidofinance/table'
+import { Table, Tr, Th, Td } from '@lidofinance/table'
 ```
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
