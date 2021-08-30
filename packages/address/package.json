@@ -1,5 +1,5 @@
 {
-  "name": "@lidofinance/identicon",
+  "name": "@lidofinance/address",
   "version": "0.0.0-semantic-release",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/lidofinance/ui.git",
-    "directory": "packages/identicon"
+    "directory": "packages/address"
   },
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
@@ -23,10 +23,8 @@
     "react"
   ],
   "dependencies": {
-    "@lidofinance/address": "workspace:*",
     "@lidofinance/theme": "workspace:*",
-    "@lidofinance/utils": "workspace:*",
-    "react-jazzicon": "0.1.3"
+    "@lidofinance/utils": "workspace:*"
   },
   "peerDependencies": {
     "react": "16 || 17",

@@ -15,19 +15,11 @@ const colors = {
 export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
   border-radius: 1000px;
   padding: 4px;
+  margin: 0 6px;
   display: inline-flex;
   align-items: center;
 
   ${({ $color }) => colors[$color]}
-`
-
-export const IdenticonAddressStyle = styled.div`
-  font-weight: 500;
-  margin: 0 6px;
-
-  &:empty {
-    display: none;
-  }
 `
 
 export const IdenticonStyle = styled.div`
@@ -35,4 +27,8 @@ export const IdenticonStyle = styled.div`
   overflow: hidden;
   line-height: 0;
   display: inline-block;
+`
+
+export const AddressWrapperStyle = styled.div`
+  padding: 0 6px;
 `

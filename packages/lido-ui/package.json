@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "@lidofinance/accordion": "workspace:*",
+    "@lidofinance/address": "workspace:*",
     "@lidofinance/block": "workspace:*",
     "@lidofinance/box": "workspace:*",
     "@lidofinance/button": "workspace:*",
