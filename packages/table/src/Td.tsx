@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TdProps } from '../types'
+import { TdProps } from './types'
 
 import { TdStyle } from './styles'
 

@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TfootProps } from '../types'
+import { TfootProps } from './types'
 
 import { TfootStyle } from './styles'
 

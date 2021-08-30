@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { ThProps } from '../types'
+import { ThProps } from './types'
 
 import { ThStyle } from './styles'
 

@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TbodyProps } from '../types'
+import { TbodyProps } from './types'
 
 import { TbodyStyle } from './styles'
 

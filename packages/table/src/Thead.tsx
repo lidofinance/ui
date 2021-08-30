@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TheadProps } from '../types'
+import { TheadProps } from './types'
 
 import { TheadStyle } from './styles'
 
