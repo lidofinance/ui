@@ -16,9 +16,7 @@ export const ModalButtonStyle = styled(Button)`
 
   :not(:disabled):hover,
   :focus-visible {
-    border: 1px solid ${({ theme }) => theme.colors.primary};
-    background-color: ${({ active, theme }) =>
-      active ? 'rgba(0, 163, 255, 0.1);' : theme.colors.background};
+    background-color: rgba(0, 163, 255, 0.1);
     color: ${({ theme }) => theme.colors.text};
   }
 `
