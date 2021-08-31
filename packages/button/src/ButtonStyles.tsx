@@ -10,6 +10,7 @@ type InjectedProps = {
   $fullwidth: boolean
   $square: boolean
   $loading: boolean
+  $active: boolean
   theme: Theme
 }
 

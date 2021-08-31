@@ -37,6 +37,7 @@ export type ButtonProps = LidoComponentProps<
     fullwidth?: boolean
     square?: boolean
     loading?: boolean
+    active?: boolean
     as?: never
   }
 >

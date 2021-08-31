@@ -3,7 +3,7 @@ import {
   TransitionWrapperProps,
   TransitionInnerProps,
 } from '@lidofinance/transition'
-export type { Theme } from '@lidofinance/theme'
+import { ButtonProps } from '@lidofinance/button'
 
 export type ModalOverlayOwnProps = LidoComponentProps<
   'div',
@@ -17,9 +17,14 @@ export type ModalOverlayInnerProps = ModalOverlayOwnProps & TransitionInnerProps
 
 export type ModalProps = {
   title?: React.ReactNode
+  titleIcon?: React.ReactNode
   extra?: React.ReactNode
   center?: boolean
   open?: boolean
 } & Omit<ModalOverlayProps, 'title' | 'in'>
 
 export type ModalExtraProps = LidoComponentProps<'div'>
+
+export type ModalButtonIconProps = {
+  icon: React.ReactElement
+} & ButtonProps
