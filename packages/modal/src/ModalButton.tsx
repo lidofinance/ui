@@ -1,19 +1,7 @@
 import React, { ForwardedRef, forwardRef } from 'react'
 
-import {
-  ModalButtonStyle,
-  ModalButtonContentStyle,
-  ButtonLoaderStyle,
-} from './ModalButtonStyles'
+import { ModalButtonStyle, ModalButtonContentStyle } from './ModalButtonStyles'
 import { ModalButtonIconProps } from './types'
-
-const loaderSizes = {
-  xxs: 'small',
-  xs: 'small',
-  sm: 'small',
-  md: 'medium',
-  lg: 'medium',
-} as const
 
 const iconSize = {
   xxs: {
@@ -44,15 +32,19 @@ function ModalButton(
 ) {
   const { size = 'md', loading = false, children, icon } = props
 
-  const loaderSize = loaderSizes[size]
-
   const AdaptiveIconProps =
     icon.props.width || icon.props.height ? icon.props : { ...iconSize[size] }
   const AdaptiveIcon = React.cloneElement(icon, AdaptiveIconProps)
 
   return (
-    <ModalButtonStyle type='button' size={size} loading={loading} ref={ref} {...props}>
-      <ModalButtonContentStyle $hidden={loading}>
+    <ModalButtonStyle
+      type='button'
+      size={size}
+      loading={loading}
+      ref={ref}
+      {...props}
+    >
+      <ModalButtonContentStyle>
         {children} {AdaptiveIcon}
       </ModalButtonContentStyle>
     </ModalButtonStyle>

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { Button } from '@lidofinance/button'
-import { Loader } from '@lidofinance/loaders'
 
 export const ModalButtonStyle = styled(Button)`
   border: ${({ active, theme }) =>
