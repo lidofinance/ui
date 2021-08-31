@@ -41,7 +41,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
       $color={color}
       $square={square}
       $loading={loading}
-      active={active}
+      $active={active}
       onClick={handleClick}
       disabled={disabled || loading}
       type='button'
