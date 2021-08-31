@@ -51,11 +51,10 @@ function ModalButton(
   const AdaptiveIcon = React.cloneElement(icon, AdaptiveIconProps)
 
   return (
-    <ModalButtonStyle type='button' ref={ref} {...props}>
+    <ModalButtonStyle type='button' size={size} loading={loading} ref={ref} {...props}>
       <ModalButtonContentStyle $hidden={loading}>
         {children} {AdaptiveIcon}
       </ModalButtonContentStyle>
-      {loading && <ButtonLoaderStyle size={loaderSize} />}
     </ModalButtonStyle>
   )
 }
