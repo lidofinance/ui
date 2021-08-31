@@ -3,7 +3,7 @@ import {
   TransitionWrapperProps,
   TransitionInnerProps,
 } from '@lidofinance/transition'
-import { ButtonProps } from '../../button'
+import { ButtonProps } from '@lidofinance/button'
 
 export type ModalOverlayOwnProps = LidoComponentProps<
   'div',
