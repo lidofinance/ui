@@ -21,23 +21,9 @@ export const ModalButtonStyle = styled(Button)`
   }
 `
 
-export const ModalButtonContentStyle = styled.span<{ $hidden: boolean }>`
+export const ModalButtonContentStyle = styled.span`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  position: relative;
-  pointer-events: none;
-
-  visibility: ${({ $hidden }) => ($hidden ? 'hidden' : 'visible')};
-`
-
-export const ButtonLoaderStyle = styled(Loader)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  color: ${({ theme }) => theme.colors.primary};
 `
