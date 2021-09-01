@@ -1,6 +1,4 @@
 {
-  "extends": ["config:base", "schedule:weekdays"],
-  "stabilityDays": 2,
-  "prCreation": "not-pending",
-  "timezone": "Europe/Moscow"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>lidofinance/renovate-config"]
 }
