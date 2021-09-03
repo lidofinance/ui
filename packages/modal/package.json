@@ -25,7 +25,7 @@
   "dependencies": {
     "@lidofinance/button": "workspace:*",
     "@lidofinance/hooks": "workspace:*",
-    "@lidofinance/loaders": "workspace:*",
+    "@lidofinance/icons": "workspace:*",
     "@lidofinance/theme": "workspace:*",
     "@lidofinance/transition": "workspace:*",
     "@lidofinance/utils": "workspace:*"
@@ -37,9 +37,8 @@
     "styled-components": "5"
   },
   "devDependencies": {
-    "@lidofinance/button": "workspace:*",
-    "@lidofinance/icons": "workspace:*",
     "@lidofinance/link": "workspace:*",
+    "@lidofinance/loaders": "workspace:*",
     "@lidofinance/text": "workspace:*",
     "@storybook/react": "6.3.7",
     "@testing-library/react": "12.0.0",
