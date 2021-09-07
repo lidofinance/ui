@@ -1,16 +1,14 @@
+import { toast } from 'react-toastify'
 import { Story, Meta } from '@storybook/react'
 import { ToastPosition } from './types'
 import { Button } from '@lidofinance/button'
 import { Accordion } from '@lidofinance/accordion'
 import { ToastContainer } from './ToastContainer'
-import {
-  toast,
-  ToastError,
-  ToastDefault,
-  ToastSuccess,
-  ToastInfo,
-  ToastPending,
-} from './Toast'
+import { ToastDefault } from './ToastDefault'
+import { ToastError } from './ToastError'
+import { ToastInfo } from './ToastInfo'
+import { ToastPending } from './ToastPending'
+import { ToastSuccess } from './ToastSuccess'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

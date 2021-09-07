@@ -304,7 +304,7 @@ export const ToastContainer = styled(SourceToastContainer).attrs({
 
     &.Toastify__toast-container {
       z-index: 9999;
-      -webkit-transform: translateZ(9999px);
+      transform: translateZ(9999px);
       position: fixed;
       padding: 4px;
       box-sizing: border-box;
@@ -460,8 +460,8 @@ export const ToastContainer = styled(SourceToastContainer).attrs({
     //  color: #aaa;
     //}
     &__toast--info {
-      background-color: ${({ theme }) => theme.colors.success};
-      color: ${({ theme }) => theme.colors.successContrast};
+      background-color: ${({ theme }) => theme.colors.accent};
+      color: ${({ theme }) => theme.colors.accentContrast};
     }
     &__toast--error {
       background-color: ${({ theme }) => theme.colors.error};
