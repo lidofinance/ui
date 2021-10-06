@@ -4,7 +4,7 @@ import { TOASTS_DEFAULT_OPTIONS } from './toastsDefaultOptions'
 
 export function ToastDefault(
   content: ToastContent,
-  options: ToastOptions
+  options?: ToastOptions
 ): ReactText {
   return toast(content, { ...TOASTS_DEFAULT_OPTIONS, ...options })
 }

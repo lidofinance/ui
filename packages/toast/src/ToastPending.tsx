@@ -9,7 +9,7 @@ import { TOASTS_PENDING_OPTIONS } from './toastsDefaultOptions'
 
 export function ToastPending(
   content: ToastContent,
-  options: ToastOptions
+  options?: ToastOptions
 ): ReactText {
   return toast(
     <ToastPendingStyle>

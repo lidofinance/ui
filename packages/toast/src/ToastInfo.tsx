@@ -4,7 +4,7 @@ import { TOASTS_INFO_OPTIONS } from './toastsDefaultOptions'
 
 export function ToastInfo(
   content: ToastContent,
-  options: ToastOptions
+  options?: ToastOptions
 ): ReactText {
   return toast.info(content, { ...TOASTS_INFO_OPTIONS, ...options })
 }

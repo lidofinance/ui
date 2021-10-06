@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify'
+import { toast } from './index'
 import { Story, Meta } from '@storybook/react'
 import { ToastPosition } from './types'
 import { Button } from '@lidofinance/button'
