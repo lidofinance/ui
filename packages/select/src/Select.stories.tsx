@@ -45,7 +45,6 @@ const iconsMap = {
 }
 
 export const Icons: Story<SelectProps> = (props) => {
-  // use
   const [value, setValue] = useState<keyof typeof iconsMap>('eth')
 
   return (
