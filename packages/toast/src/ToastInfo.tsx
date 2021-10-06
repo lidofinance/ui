@@ -6,5 +6,5 @@ export function ToastInfo(
   content: ToastContent,
   options?: ToastOptions
 ): ReactText {
-  return toast.info(content, { ...TOASTS_INFO_OPTIONS, ...options })
+  return toast.info(content, { ...TOASTS_INFO_OPTIONS, ...(options || {}) })
 }

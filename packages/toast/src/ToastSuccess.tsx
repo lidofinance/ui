@@ -6,5 +6,8 @@ export function ToastSuccess(
   content: ToastContent,
   options?: ToastOptions
 ): ReactText {
-  return toast.success(content, { ...TOASTS_SUCCESS_OPTIONS, ...options })
+  return toast.success(content, {
+    ...TOASTS_SUCCESS_OPTIONS,
+    ...(options || {}),
+  })
 }

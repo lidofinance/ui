@@ -6,5 +6,5 @@ export function ToastError(
   content: ToastContent,
   options?: ToastOptions
 ): ReactText {
-  return toast.error(content, { ...TOASTS_ERROR_OPTIONS, ...options })
+  return toast.error(content, { ...TOASTS_ERROR_OPTIONS, ...(options || {}) })
 }

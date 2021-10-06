@@ -16,6 +16,6 @@ export function ToastPending(
       <ToastPendingLoaderStyle />
       <ToastPendingTextStyle>{content}</ToastPendingTextStyle>
     </ToastPendingStyle>,
-    { ...TOASTS_PENDING_OPTIONS, ...options }
+    { ...TOASTS_PENDING_OPTIONS, ...(options || {}) }
   )
 }

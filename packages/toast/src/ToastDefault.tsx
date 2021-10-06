@@ -6,5 +6,5 @@ export function ToastDefault(
   content: ToastContent,
   options?: ToastOptions
 ): ReactText {
-  return toast(content, { ...TOASTS_DEFAULT_OPTIONS, ...options })
+  return toast(content, { ...TOASTS_DEFAULT_OPTIONS, ...(options || {}) })
 }
