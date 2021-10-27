@@ -2,6 +2,7 @@ const colors = {
   primary: '#00a3ff',
   primaryHover: '#009bf2',
   primaryContrast: '#fff',
+  primaryVisited: '#4bbeff',
 
   accent: '#27272e',
   accentContrast: '#fff',

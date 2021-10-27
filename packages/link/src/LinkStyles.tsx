@@ -7,4 +7,8 @@ export const LinkStyle = styled.a`
   :hover {
     color: ${({ theme }) => theme.colors.primaryHover};
   }
+
+  :visited {
+    color: ${({ theme }) => theme.colors.primaryVisited};
+  }
 `
