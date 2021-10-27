@@ -39,7 +39,7 @@ const IconListItem = styled.div`
   text-align: center;
   font-size: 13px;
   line-height: 15px;
-  width: 100px;
+  width: 120px;
   margin: 2px;
   padding: 10px;
   border-radius: 4px;
@@ -138,15 +138,39 @@ export const CryptoCurrencies: Story = () => {
 }
 
 export const CryptoWallets: Story = () => {
-  const { MetaMask, WalletConnect, Coinbase, Ledger, Trust, Imtoken } =
-    components
-  const iconKeys = Object.keys({
+  const {
     MetaMask,
+    MetaMaskCircle,
+    MetaMaskCircleInversion,
     WalletConnect,
+    WalletConnectCircle,
     Coinbase,
     Ledger,
+    LedgerCircle,
+    LedgerCircleInversion,
     Trust,
+    TrustCircle,
     Imtoken,
+    ImtokenCircle,
+    MathWalletCircle,
+    MathWalletCircleInversion,
+  } = components
+  const iconKeys = Object.keys({
+    MetaMask,
+    MetaMaskCircle,
+    MetaMaskCircleInversion,
+    WalletConnect,
+    WalletConnectCircle,
+    Coinbase,
+    Ledger,
+    LedgerCircle,
+    LedgerCircleInversion,
+    Trust,
+    TrustCircle,
+    Imtoken,
+    ImtokenCircle,
+    MathWalletCircle,
+    MathWalletCircleInversion,
   }) as IconVariants[]
 
   return (
