@@ -154,6 +154,7 @@ export const CryptoWallets: Story = () => {
     ImtokenCircle,
     MathWalletCircle,
     MathWalletCircleInversion,
+    Coin98Circle,
   } = components
   const iconKeys = Object.keys({
     MetaMask,
@@ -171,6 +172,7 @@ export const CryptoWallets: Story = () => {
     ImtokenCircle,
     MathWalletCircle,
     MathWalletCircleInversion,
+    Coin98Circle,
   }) as IconVariants[]
 
   return (

@@ -39,7 +39,7 @@ const upperFirst = (string) => {
 
 const convertToPascalCase = (name) => {
   return name
-    .match(/([a-z]+)/gi)
+    .match(/([a-z0-9]+)/gi)
     .map(upperFirst)
     .join('')
 }

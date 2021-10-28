@@ -198,7 +198,7 @@ export const Close = React.forwardRef(function Close(
   )
 })
 
-export const CoinCircle = React.forwardRef(function CoinCircle(
+export const Coin98Circle = React.forwardRef(function Coin98Circle(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
