@@ -41,6 +41,8 @@ import { Button } from '@lidofinance/lido-ui'
 - `yarn test` - Run tests across components.
 - `yarn lint` - Run eslint across components.
 
+### Initial setup
+
 1. To get started, install the dependencies:
 
 ```
@@ -57,6 +59,29 @@ yarn build
 
 ```
 yarn dev
+```
+
+### Adding a new package
+
+#### Add files
+
+1. Add a new package directory into the `packages` dir.
+2. Add `package.json`, check other packages to find out what you can copy from their `package.json` files.
+3. Fill in correctly the `name` field in the `package.json`.
+4. Add `README.md` and `LICENSE.txt`. You can copy `tsconfig.json` and `.npmignore` from other packages.
+5. Add the `src` directory, where the package's code will be placed.
+
+#### Run commands in the following order
+
+```
+yarn combine
+```
+
+It triggers a script, which updates the main `lido-ui` package. The script finds all packages, including the new one,
+and adds them to dependencies of `lido-ui` and to exports in its index file.
+
+```
+yarn install && yarn build
 ```
 
 ## Publishing
