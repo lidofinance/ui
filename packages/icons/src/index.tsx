@@ -1629,6 +1629,29 @@ export const WalletConnect = React.forwardRef(function WalletConnect(
   )
 })
 
+export const Wallet = React.forwardRef(function Wallet(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M17.4 7.6h.9a2.7 2.7 0 012.7 2.7v7.2a2.7 2.7 0 01-2.7 2.7H5.7A2.7 2.7 0 013 17.5V6.7A2.7 2.7 0 015.7 4h9a2.7 2.7 0 012.7 2.7v.9zm-2.7-1.8h-9a.9.9 0 100 1.8h9.9v-.9a.9.9 0 00-.9-.9zm4.5 9h-.9a.9.9 0 110-1.8h.9v1.8zm-.9-3.6h.9v-.9a.9.9 0 00-.9-.9H5.7a2.7 2.7 0 01-.9-.153V17.5a.9.9 0 00.9.9h12.6a.9.9 0 00.9-.9v-.9h-.9a2.7 2.7 0 010-5.4z'
+        fill='#7A8AA0'
+      />
+    </svg>
+  )
+})
+
 export const Weth = React.forwardRef(function Weth(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
