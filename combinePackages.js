@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const { listWorkspaces } = require('yarn-workspaces-list')
+const { listWorkspaces } = require('@lidofinance/yarn-workspaces-list')
 
 const excludedWorkspaces = ['.', 'packages/lido-ui']
 

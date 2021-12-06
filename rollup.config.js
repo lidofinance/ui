@@ -2,7 +2,10 @@ import path from 'path'
 import fs from 'fs'
 import tslib from 'tslib'
 import ts from 'typescript'
-import { topologicallySort, listWorkspaces } from 'yarn-workspaces-list'
+import {
+  topologicallySort,
+  listWorkspaces,
+} from '@lidofinance/yarn-workspaces-list'
 import typescript from 'rollup-plugin-typescript2'
 import del from 'rollup-plugin-delete'
 import resolve from '@rollup/plugin-node-resolve'
