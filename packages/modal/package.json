@@ -41,7 +41,7 @@
     "@lidofinance/loaders": "workspace:*",
     "@lidofinance/text": "workspace:*",
     "@storybook/react": "6.3.7",
-    "@testing-library/react": "12.0.0",
+    "@testing-library/react": "12.1.2",
     "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",
     "@types/react-is": "17.0.2",
