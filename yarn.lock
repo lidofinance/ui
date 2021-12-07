@@ -4409,7 +4409,7 @@ __metadata:
     "@types/react": 17.0.19
     "@types/react-dom": 17.0.9
     "@types/react-is": 17.0.2
-    "@types/react-transition-group": 4.4.2
+    "@types/react-transition-group": 4.4.4
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
@@ -7232,12 +7232,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-transition-group@npm:4.4.2":
-  version: 4.4.2
-  resolution: "@types/react-transition-group@npm:4.4.2"
+"@types/react-transition-group@npm:4.4.4":
+  version: 4.4.4
+  resolution: "@types/react-transition-group@npm:4.4.4"
   dependencies:
     "@types/react": "*"
-  checksum: 35523ef25ae5bbf68793a52e9b996f8c7c337e0d10650bc964c26929547b062509c955f55e76651bcf604560594783f60c4bfcee290a263845f9e43eb0ab0d1e
+  checksum: 86e9ff9731798e12bc2afe0304678918769633b531dcf6397f86af81718fb7930ef8648e894eeb3718fc6eab6eb885cfb9b82a44d1d74e10951ee11ebc4643ae
   languageName: node
   linkType: hard
 
