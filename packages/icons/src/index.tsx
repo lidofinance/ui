@@ -707,6 +707,469 @@ export const LedgerCircle = React.forwardRef(function LedgerCircle(
   )
 })
 
+export const LedgerConfirm = React.forwardRef(function LedgerConfirm(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={354}
+      height={43}
+      viewBox='0 0 354 43'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <rect
+        x={58}
+        y={6}
+        width={238}
+        height={36}
+        rx={5}
+        fill='#F6F7FB'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M83 24a7 7 0 10-14 0 7 7 0 0014 0z'
+        fill='#F6F7FB'
+        stroke='#172340'
+      />
+      <path
+        d='M81 24a5 5 0 10-10 0 5 5 0 0010 0z'
+        fill='#136BFF'
+        fillOpacity={0.15}
+      />
+      <path
+        d='M76 19.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z'
+        stroke='#136BFF'
+        strokeOpacity={0.35}
+      />
+      <path d='M77 24a1 1 0 10-2 0 1 1 0 002 0z' fill='#136BFF' />
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M76 0c.276 0 .5.138.5.308v23.384c0 .17-.224.308-.5.308s-.5-.138-.5-.308V.308c0-.17.224-.308.5-.308z'
+        fill='url(#prefix__prefix__paint0_linear_10116:2145)'
+      />
+      <rect
+        x={96.597}
+        y={10.597}
+        width={60.807}
+        height={26.807}
+        rx={3.403}
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={1.193}
+      />
+      <path
+        d='M168 24c0-9.941 8.059-18 18-18h105.046A4.954 4.954 0 01296 10.954v26.092A4.954 4.954 0 01291.046 42H186c-9.941 0-18-8.059-18-18z'
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M193 24a7 7 0 10-14 0 7 7 0 0014 0z'
+        fill='#F6F7FB'
+        stroke='#172340'
+      />
+      <path
+        d='M191 24a5 5 0 10-10 0 5 5 0 0010 0z'
+        fill='#136BFF'
+        fillOpacity={0.15}
+      />
+      <path
+        d='M186 19.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z'
+        stroke='#136BFF'
+        strokeOpacity={0.35}
+      />
+      <path d='M187 24a1 1 0 10-2 0 1 1 0 002 0z' fill='#136BFF' />
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M186 0c.276 0 .5.138.5.308v23.384c0 .17-.224.308-.5.308s-.5-.138-.5-.308V.308c0-.17.224-.308.5-.308z'
+        fill='url(#prefix__prefix__paint1_linear_10116:2145)'
+      />
+      <path
+        d='M44 21a3 3 0 013-3h9.613c.766 0 1.387.62 1.387 1.387v9.226C58 29.38 57.38 30 56.613 30H47a3 3 0 01-3-3v-6z'
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M34.5 22.387c0-1.042.845-1.887 1.887-1.887h6.42c.383 0 .693.31.693.693v5.614c0 .383-.31.693-.693.693h-6.42a1.887 1.887 0 01-1.887-1.887v-3.226z'
+        fill='#fff'
+        stroke='#172340'
+      />
+      <path
+        d='M.5 22.5h34v3H.5v-3z'
+        fill='url(#prefix__prefix__paint2_linear_10116:2145)'
+        stroke='url(#prefix__prefix__paint3_linear_10116:2145)'
+      />
+      <defs>
+        <linearGradient
+          id='prefix__prefix__paint0_linear_10116:2145'
+          x1={76.5}
+          y1={0.308}
+          x2={76.5}
+          y2={23.692}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#136BFF' stopOpacity={0} />
+          <stop offset={1} stopColor='#136BFF' />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint1_linear_10116:2145'
+          x1={186.5}
+          y1={0.308}
+          x2={186.5}
+          y2={23.692}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#136BFF' stopOpacity={0} />
+          <stop offset={1} stopColor='#136BFF' />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint2_linear_10116:2145'
+          x1={35.473}
+          y1={24}
+          x2={0}
+          y2={24}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#fff' />
+          <stop offset={1} stopColor='#fff' stopOpacity={0} />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint3_linear_10116:2145'
+          x1={35}
+          y1={26}
+          x2={2.838}
+          y2={26}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#172340' />
+          <stop offset={1} stopColor='#172340' stopOpacity={0} />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+})
+
+export const LedgerFail = React.forwardRef(function LedgerFail(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={354}
+      height={38}
+      viewBox='0 0 354 38'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <rect
+        x={58}
+        y={1}
+        width={238}
+        height={36}
+        rx={5}
+        fill='#F6F7FB'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M83 19a7 7 0 10-14 0 7 7 0 0014 0z'
+        fill='#F6F7FB'
+        stroke='#172340'
+      />
+      <rect
+        x={96.597}
+        y={5.597}
+        width={60.807}
+        height={26.807}
+        rx={3.403}
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={1.193}
+      />
+      <path
+        d='M122.199 23.801a.679.679 0 00.96 0l3.841-3.84 3.841 3.84a.679.679 0 10.96-.96L127.96 19l3.841-3.84a.68.68 0 00-.96-.961L127 18.039l-3.841-3.84a.679.679 0 10-.96.96L126.04 19l-3.841 3.84a.68.68 0 000 .961z'
+        fill='#E14D4D'
+      />
+      <path
+        d='M168 19c0-9.941 8.059-18 18-18h105.046A4.954 4.954 0 01296 5.954v26.092A4.954 4.954 0 01291.046 37H186c-9.941 0-18-8.059-18-18z'
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M193 19a7 7 0 10-14 0 7 7 0 0014 0z'
+        fill='#F6F7FB'
+        stroke='#172340'
+      />
+      <path
+        d='M44 16a3 3 0 013-3h9.613c.766 0 1.387.62 1.387 1.387v9.226C58 24.38 57.38 25 56.613 25H47a3 3 0 01-3-3v-6z'
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M34.5 17.387c0-1.042.845-1.887 1.887-1.887h6.42c.383 0 .693.31.693.693v5.614c0 .383-.31.693-.693.693h-6.42a1.887 1.887 0 01-1.887-1.887v-3.226z'
+        fill='#fff'
+        stroke='#172340'
+      />
+      <path
+        d='M.5 17.5h34v3H.5v-3z'
+        fill='url(#prefix__prefix__paint0_linear_10549_10810)'
+        stroke='url(#prefix__prefix__paint1_linear_10549_10810)'
+      />
+      <defs>
+        <linearGradient
+          id='prefix__prefix__paint0_linear_10549_10810'
+          x1={35.473}
+          y1={19}
+          x2={0}
+          y2={19}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#fff' />
+          <stop offset={1} stopColor='#fff' stopOpacity={0} />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint1_linear_10549_10810'
+          x1={35}
+          y1={21}
+          x2={2.838}
+          y2={21}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#172340' />
+          <stop offset={1} stopColor='#172340' stopOpacity={0} />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+})
+
+export const LedgerLoading = React.forwardRef(function LedgerLoading(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={354}
+      height={38}
+      viewBox='0 0 354 38'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <rect
+        x={58}
+        y={1}
+        width={238}
+        height={36}
+        rx={5}
+        fill='#F6F7FB'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M83 19a7 7 0 10-14 0 7 7 0 0014 0z'
+        fill='#F6F7FB'
+        stroke='#172340'
+      />
+      <rect
+        x={96.597}
+        y={5.597}
+        width={60.807}
+        height={26.807}
+        rx={3.403}
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={1.193}
+      />
+      <circle
+        opacity={0.1}
+        cx={127}
+        cy={19}
+        r={6}
+        stroke='#00A3FF'
+        strokeWidth={2}
+      />
+      <path
+        d='M131.555 22.905A6 6 0 00127 13'
+        stroke='#00A3FF'
+        strokeWidth={2}
+        strokeLinecap='round'
+      >
+        <animateTransform
+          attributeName='transform'
+          attributeType='XML'
+          type='rotate'
+          from='0 127 19'
+          to='360 127 19'
+          dur='1s'
+          repeatCount='indefinite'
+        />
+      </path>
+      <path
+        d='M168 19c0-9.941 8.059-18 18-18h105.046A4.954 4.954 0 01296 5.954v26.092A4.954 4.954 0 01291.046 37H186c-9.941 0-18-8.059-18-18z'
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M193 19a7 7 0 10-14 0 7 7 0 0014 0z'
+        fill='#F6F7FB'
+        stroke='#172340'
+      />
+      <path
+        d='M44 16a3 3 0 013-3h9.613c.766 0 1.387.62 1.387 1.387v9.226C58 24.38 57.38 25 56.613 25H47a3 3 0 01-3-3v-6z'
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M34.5 17.387c0-1.042.845-1.887 1.887-1.887h6.42c.383 0 .693.31.693.693v5.614c0 .383-.31.693-.693.693h-6.42a1.887 1.887 0 01-1.887-1.887v-3.226z'
+        fill='#fff'
+        stroke='#172340'
+      />
+      <path
+        d='M.5 17.5h34v3H.5v-3z'
+        fill='url(#prefix__prefix__paint0_linear_10116:2259)'
+        stroke='url(#prefix__prefix__paint1_linear_10116:2259)'
+      />
+      <defs>
+        <linearGradient
+          id='prefix__prefix__paint0_linear_10116:2259'
+          x1={35.473}
+          y1={19}
+          x2={0}
+          y2={19}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#fff' />
+          <stop offset={1} stopColor='#fff' stopOpacity={0} />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint1_linear_10116:2259'
+          x1={35}
+          y1={21}
+          x2={2.838}
+          y2={21}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#172340' />
+          <stop offset={1} stopColor='#172340' stopOpacity={0} />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+})
+
+export const LedgerSuccess = React.forwardRef(function LedgerSuccess(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={354}
+      height={38}
+      viewBox='0 0 354 38'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <rect
+        x={58}
+        y={1}
+        width={238}
+        height={36}
+        rx={5}
+        fill='#F6F7FB'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M83 19a7 7 0 10-14 0 7 7 0 0014 0z'
+        fill='#F6F7FB'
+        stroke='#172340'
+      />
+      <rect
+        x={96.597}
+        y={5.597}
+        width={60.807}
+        height={26.807}
+        rx={3.403}
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={1.193}
+      />
+      <path
+        d='M132 15l-6.875 6.875L122 18.75'
+        stroke='#61B75F'
+        strokeWidth={2}
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M168 19c0-9.941 8.059-18 18-18h105.046A4.954 4.954 0 01296 5.954v26.092A4.954 4.954 0 01291.046 37H186c-9.941 0-18-8.059-18-18z'
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M193 19a7 7 0 10-14 0 7 7 0 0014 0z'
+        fill='#F6F7FB'
+        stroke='#172340'
+      />
+      <path
+        d='M44 16a3 3 0 013-3h9.613c.766 0 1.387.62 1.387 1.387v9.226C58 24.38 57.38 25 56.613 25H47a3 3 0 01-3-3v-6z'
+        fill='#fff'
+        stroke='#172340'
+        strokeWidth={2}
+      />
+      <path
+        d='M34.5 17.387c0-1.042.845-1.887 1.887-1.887h6.42c.383 0 .693.31.693.693v5.614c0 .383-.31.693-.693.693h-6.42a1.887 1.887 0 01-1.887-1.887v-3.226z'
+        fill='#fff'
+        stroke='#172340'
+      />
+      <path
+        d='M.5 17.5h34v3H.5v-3z'
+        fill='url(#prefix__prefix__paint0_linear_10116:2189)'
+        stroke='url(#prefix__prefix__paint1_linear_10116:2189)'
+      />
+      <defs>
+        <linearGradient
+          id='prefix__prefix__paint0_linear_10116:2189'
+          x1={35.473}
+          y1={19}
+          x2={0}
+          y2={19}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#fff' />
+          <stop offset={1} stopColor='#fff' stopOpacity={0} />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint1_linear_10116:2189'
+          x1={35}
+          y1={21}
+          x2={2.838}
+          y2={21}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#172340' />
+          <stop offset={1} stopColor='#172340' stopOpacity={0} />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+})
+
 export const Ledger = React.forwardRef(function Ledger(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
