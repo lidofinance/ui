@@ -40,7 +40,7 @@
     "@types/jest": "27.0.1",
     "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",
-    "@types/react-is": "17.0.2",
+    "@types/react-is": "17.0.3",
     "@types/styled-components": "5.1.12",
     "jest-styled-components": "7.0.5",
     "react": "17.0.2",
