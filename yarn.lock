@@ -5057,9 +5057,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/multi-semantic-release@npm:3.15.0":
-  version: 3.15.0
-  resolution: "@qiwi/multi-semantic-release@npm:3.15.0"
+"@qiwi/multi-semantic-release@npm:3.17.1":
+  version: 3.17.1
+  resolution: "@qiwi/multi-semantic-release@npm:3.17.1"
   dependencies:
     "@manypkg/get-packages": ^1.1.1
     blork: ^9.3.0
@@ -5081,7 +5081,7 @@ __metadata:
     tempy: ^1.0.1
   bin:
     multi-semantic-release: bin/cli.js
-  checksum: a908a343bb38c4cc54ad0610e1a014b67c859b900f7c046e897f337b8251f46394ada7a05606f4234e4f8f57fc71128243b304842b0427ade8527d0adebac7ae
+  checksum: f2ac8a813bb04b412498d675c3975381129b5cafa591367377e40cb7dc96eb290b1d94cbdae8021839bd3a815834dd16225e03d690930eb88c1cd9327a10da0a
   languageName: node
   linkType: hard
 
@@ -16977,7 +16977,7 @@ fsevents@^1.2.7:
     "@commitlint/cli": 13.1.0
     "@commitlint/config-conventional": 13.1.0
     "@lidofinance/yarn-workspaces-list": 0.1.1
-    "@qiwi/multi-semantic-release": 3.15.0
+    "@qiwi/multi-semantic-release": 3.17.1
     "@rollup/plugin-babel": 5.3.0
     "@rollup/plugin-node-resolve": 13.0.4
     "@storybook/addon-docs": 6.3.7
