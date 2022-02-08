@@ -5,8 +5,8 @@ export enum THEME {
   dark = 'dark',
 }
 
-export const useSystemTheme = (): THEME => {
-  const [systemTheme, setSystemTheme] = useState(THEME.light)
+export const useSystemTheme = (): THEME | undefined => {
+  const [systemTheme, setSystemTheme] = useState<THEME>()
 
   useEffect(() => {
     const mql = window.matchMedia('(prefers-color-scheme: dark)')
