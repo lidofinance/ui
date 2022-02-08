@@ -4,6 +4,10 @@
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 
+## Breaking Changes
+
+`useSystemTheme` hook will no longer return light theme as a fallback when system theme was not identified. A check needs to be added after upgrading.
+
 ## Getting Started
 
 Simply add `lido-ui` to your dependencies:
