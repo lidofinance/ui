@@ -35,7 +35,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-          yarn multi-semantic-release --deps.bump=override --deps.release=patch --sequential-init
+          yarn multi-semantic-release --deps.bump=satisfy --deps.release=inherit --sequential-init
       - name: Build Storybook
         run: yarn build-storybook
       - name: Deploy Storybook
