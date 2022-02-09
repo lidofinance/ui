@@ -4385,7 +4385,7 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-is: 17.0.2
-    react-toastify: 7.0.4
+    react-toastify: 8.1.1
     styled-components: 5.3.0
   peerDependencies:
     react: 16 || 17
@@ -21154,15 +21154,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-toastify@npm:7.0.4":
-  version: 7.0.4
-  resolution: "react-toastify@npm:7.0.4"
+"react-toastify@npm:8.1.1":
+  version: 8.1.1
+  resolution: "react-toastify@npm:8.1.1"
   dependencies:
     clsx: ^1.1.1
   peerDependencies:
     react: ">=16"
     react-dom: ">=16"
-  checksum: 63bedc8f03016b0960ea5b6d101181464ec16cf44240229210119e9db3b344dd59c4df3df23832803b136a225a9671096027131fee9b072f0eb87cd8e38f742d
+  checksum: 0b9d13e290f35f302db91a1bf17de2a03964910311e86379b2105ead0cb65473377e9a3780480df4122f9a0e6a269e723158dd6f5f8f9c0220e715af8b469857
   languageName: node
   linkType: hard
 

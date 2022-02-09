@@ -25,7 +25,7 @@
   "dependencies": {
     "@lidofinance/loaders": "workspace:*",
     "@lidofinance/theme": "workspace:*",
-    "react-toastify": "7.0.4"
+    "react-toastify": "8.1.1"
   },
   "peerDependencies": {
     "react": "16 || 17",
