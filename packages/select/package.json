@@ -39,7 +39,7 @@
   "devDependencies": {
     "@lidofinance/icons": "workspace:*",
     "@storybook/react": "6.3.7",
-    "@types/react": "17.0.19",
+    "@types/react": "17.0.39",
     "@types/react-dom": "17.0.9",
     "@types/react-is": "17.0.2",
     "@types/resize-observer-browser": "0.1.6",
