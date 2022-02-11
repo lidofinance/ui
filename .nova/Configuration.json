@@ -1,4 +1,5 @@
 {
-  "apexskier.eslint.config.eslintPath" : ".yarn\/sdks\/eslint\/lib",
-  "apexskier.typescript.config.tslibPath" : ".yarn\/sdks\/typescript\/lib"
+  "apexskier.eslint.config.eslintPath": ".yarn/sdks/eslint/lib",
+  "apexskier.typescript.config.tslibPath": ".yarn/sdks/typescript/lib",
+  "index.ignored_file_patterns": [".yarn"]
 }
