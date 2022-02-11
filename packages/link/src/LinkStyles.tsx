@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { LinkProps } from './types'
 
 export const LinkStyle = styled.a`
   text-decoration: none;
@@ -8,7 +9,11 @@ export const LinkStyle = styled.a`
     color: ${({ theme }) => theme.colors.primaryHover};
   }
 
-  :visited {
-    color: ${({ theme }) => theme.colors.primaryVisited};
-  }
+  ${(props: LinkProps) =>
+    props.fadeVisited &&
+    css`
+      :visited {
+        color: ${({ theme }) => theme.colors.primaryVisited};
+      }
+    `}
 `
