@@ -8,6 +8,12 @@ export default {
   args: {
     children: 'Lido',
     href: 'https://lido.fi',
+    fadeVisited: false,
+  },
+  argTypes: {
+    fadeVisited: {
+      description: 'Fade visited links',
+    },
   },
 } as Meta
 
