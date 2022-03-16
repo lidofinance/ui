@@ -16,6 +16,7 @@ const svgoConfig = {
     { removeScriptElement: true },
     { removeViewBox: false },
     { removeTitle: false },
+    { removeUnknownsAndDefaults: false },
     {
       removeAttrs: {
         attrs: [
