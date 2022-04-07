@@ -19,6 +19,7 @@ export default {
   title: 'Dialogs/Modal',
   args: {
     title: 'Modal Title',
+    subtitle: '',
     children: 'Modal content',
     center: false,
   },
@@ -31,15 +32,18 @@ export default {
 } as Meta
 
 const useModal = (props: ModalProps) => {
-  const { onClose } = props
+  const { onClose, onBack } = props
   const [state, setState] = useState(false)
   const handleOpen = useCallback(() => setState(true), [])
   const handleClose = useCallback(() => {
     setState(false)
     onClose?.()
   }, [onClose])
+  const handleBack = useCallback(() => {
+    onBack?.()
+  }, [onBack])
 
-  return { state, handleOpen, handleClose }
+  return { state, handleOpen, handleClose, handleBack }
 }
 
 export const Basic: Story<ModalProps> = (props) => {
@@ -64,6 +68,22 @@ export const ExtraContent: Story<ModalProps> = (props) => {
         open={state}
         onClose={handleClose}
         extra={<ModalExtra>Extra content</ModalExtra>}
+      />
+    </>
+  )
+}
+
+export const WithBackButton: Story<ModalProps> = (props) => {
+  const { state, handleOpen, handleClose, handleBack } = useModal(props)
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Show modal</Button>
+      <Modal
+        {...props}
+        open={state}
+        onClose={handleClose}
+        onBack={handleBack}
       />
     </>
   )
@@ -95,9 +115,6 @@ export const LoadingStateInModal: Story<ModalProps> = (props) => {
         open={state}
         onClose={handleClose}
       >
-        <Text color='secondary' size='xxs'>
-          Staking 10 ETH. You will receive 10 stETH
-        </Text>
         <br />
         <Text color='secondary' size='xxs'>
           Confirm this transaction in your wallet
@@ -109,6 +126,7 @@ export const LoadingStateInModal: Story<ModalProps> = (props) => {
 
 LoadingStateInModal.args = {
   title: 'You are now staking 10 ETH',
+  subtitle: 'Staking 10 ETH. You will receive 10 stETH',
   center: true,
 }
 
@@ -133,9 +151,6 @@ export const SuccessStateInModal: Story<ModalProps> = (props) => {
         open={state}
         onClose={handleClose}
       >
-        <Text color='secondary' size='xxs'>
-          Staking operation was successful
-        </Text>
         <br />
         <Link href={'https://etherscan.io/'}>View on Etherscan</Link>
       </Modal>
@@ -145,6 +160,7 @@ export const SuccessStateInModal: Story<ModalProps> = (props) => {
 
 SuccessStateInModal.args = {
   title: 'Your new balance is 10 stETH',
+  subtitle: 'Staking operation was successful',
   center: true,
 }
 
@@ -169,9 +185,6 @@ export const ErrorStateInModal: Story<ModalProps> = (props) => {
         open={state}
         onClose={handleClose}
       >
-        <Text color='secondary' size='xxs'>
-          Staking operation was not successful
-        </Text>
         <br />
         <Link href={'#'}>Retry</Link>
       </Modal>
@@ -181,6 +194,7 @@ export const ErrorStateInModal: Story<ModalProps> = (props) => {
 
 ErrorStateInModal.args = {
   title: 'Something went wrong',
+  subtitle: 'Staking operation was not successful',
   center: true,
 }
 
