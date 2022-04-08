@@ -6,8 +6,11 @@ import {
   ModalHeaderStyle,
   ModalTitleStyle,
   ModalTitleIconStyle,
+  ModalTitleTextStyle,
   ModalCloseStyle,
   ModalContentStyle,
+  ModalBackStyle,
+  ModalSubtitleStyle,
 } from './ModalStyles'
 import { ModalProps } from './types'
 import ModalOverlay from './ModalOverlay'
@@ -17,43 +20,45 @@ function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
     children,
     title,
     titleIcon,
+    subtitle,
     center = false,
     extra,
     open,
     ...rest
   } = props
-  const { onClose } = props
+  const { onClose, onBack } = props
 
-  const closable = !!onClose
-  const untitled = !title
+  const withTitleIcon = !!titleIcon
+  const withSubtitle = !!subtitle
+  const withCloseButton = !!onClose
+  const withBackButton = !!onBack
 
-  let modalHeader
-  if (titleIcon) {
-    modalHeader = (
-      <ModalHeaderStyle $short={untitled} $withTitleIcon={true}>
-        <ModalTitleStyle $center={center} $withTitleIcon={true}>
-          <ModalTitleIconStyle>{titleIcon}</ModalTitleIconStyle>
-          {title}
-        </ModalTitleStyle>
-        {closable && <ModalCloseStyle onClick={onClose} />}
-      </ModalHeaderStyle>
-    )
-  } else {
-    modalHeader = (
-      <ModalHeaderStyle $short={untitled} $withTitleIcon={false}>
-        <ModalTitleStyle $center={center} $withTitleIcon={false}>
-          {title}
-        </ModalTitleStyle>
-        {closable && <ModalCloseStyle onClick={onClose} />}
-      </ModalHeaderStyle>
-    )
-  }
+  const modalHeader = (
+    <ModalHeaderStyle $short={!title}>
+      {withBackButton && <ModalBackStyle onClick={onBack} />}
+      <ModalTitleStyle
+        $center={center}
+        $withTitleIcon={withTitleIcon}
+        $withCloseButton={withCloseButton}
+        $withBackButton={withBackButton}
+      >
+        {withTitleIcon && (
+          <ModalTitleIconStyle $center={center}>
+            {titleIcon}
+          </ModalTitleIconStyle>
+        )}
+        <ModalTitleTextStyle>{title}</ModalTitleTextStyle>
+      </ModalTitleStyle>
+      {withCloseButton && <ModalCloseStyle onClick={onClose} />}
+    </ModalHeaderStyle>
+  )
 
   return (
     <ModalOverlay in={open} {...rest} ref={ref}>
       <ModalStyle $center={center}>
         <ModalBaseStyle>
           {modalHeader}
+          {withSubtitle && <ModalSubtitleStyle>{subtitle}</ModalSubtitleStyle>}
           <ModalContentStyle>{children}</ModalContentStyle>
         </ModalBaseStyle>
         {extra}

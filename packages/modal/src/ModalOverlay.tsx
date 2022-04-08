@@ -16,7 +16,7 @@ function ModalOverlay(
   props: ModalOverlayInnerProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
-  const { onClose, duration, transitionStatus, ...rest } = props
+  const { onClose, onBack, duration, transitionStatus, ...rest } = props
   const closable = !!onClose
 
   useEscape(onClose)
