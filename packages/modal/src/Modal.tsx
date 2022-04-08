@@ -42,7 +42,7 @@ function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
         $withCloseButton={withCloseButton}
         $withBackButton={withBackButton}
       >
-        {!!titleIcon && (
+        {withTitleIcon && (
           <ModalTitleIconStyle $center={center}>
             {titleIcon}
           </ModalTitleIconStyle>
