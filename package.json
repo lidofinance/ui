@@ -30,6 +30,7 @@
     "@lidofinance/yarn-workspaces-list": "0.1.1",
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-node-resolve": "13.0.4",
+    "@semrel-extra/npm": "1.2.0",
     "@storybook/addon-docs": "6.3.7",
     "@storybook/addon-essentials": "6.3.7",
     "@storybook/addons": "6.3.7",

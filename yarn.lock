@@ -5264,6 +5264,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@semrel-extra/npm@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@semrel-extra/npm@npm:1.2.0"
+  checksum: ce899b2976323833695c1adba88bcc0698042a6234e0ce0742a081db23bc444215d6703d949c975beb796dad9112762b0c65d289aa6f7e0a872301fda0a9d4dd
+  languageName: node
+  linkType: hard
+
 "@sinonjs/commons@npm:^1.7.0":
   version: 1.8.3
   resolution: "@sinonjs/commons@npm:1.8.3"
@@ -17208,6 +17215,7 @@ fsevents@^1.2.7:
     "@lidofinance/yarn-workspaces-list": 0.1.1
     "@rollup/plugin-babel": 5.3.0
     "@rollup/plugin-node-resolve": 13.0.4
+    "@semrel-extra/npm": 1.2.0
     "@storybook/addon-docs": 6.3.7
     "@storybook/addon-essentials": 6.3.7
     "@storybook/addons": 6.3.7
