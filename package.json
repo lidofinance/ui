@@ -14,7 +14,9 @@
     "test": "jest",
     "test:coverage": "jest coverage",
     "lint": "eslint --ext ts,tsx,js,jsx .",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "release": "multi-semantic-release --deps.bump=satisfy --deps.release=inherit",
+    "release:dry": "yarn release --dry-run"
   },
   "devDependencies": {
     "@babel/cli": "7.14.8",
