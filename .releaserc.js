@@ -5,5 +5,4 @@ module.exports = {
     '@semantic-release/release-notes-generator',
     '@semrel-extra/npm',
   ],
-  verifyConditions: [],
 }
