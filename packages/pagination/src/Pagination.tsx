@@ -1,7 +1,9 @@
 import React from 'react'
 import { css } from 'styled-components'
 
-import { ArrowLeft, ArrowRight, Box, ButtonIcon } from '@lidofinance/lido-ui'
+import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
+import { ButtonIcon } from '@lidofinance/button'
+import { Box } from '@lidofinance/box'
 
 type SiblingsCount = 0 | 1
 
@@ -22,7 +24,7 @@ const arrayPusher = () => {
   }
 }
 
-const numberSort = (a, b) => a - b
+const numberSort = (a: number, b: number) => a - b
 
 const range = (start: number, end: number) => {
   const length = end - start + 1
@@ -124,6 +126,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   return (
     <Box
       display='flex'
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       css={css`
         gap: 8px;
       `}

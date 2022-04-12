@@ -4048,6 +4048,7 @@ __metadata:
     "@lidofinance/link": "workspace:*"
     "@lidofinance/loaders": "workspace:*"
     "@lidofinance/modal": "workspace:*"
+    "@lidofinance/pagination": "workspace:*"
     "@lidofinance/popover": "workspace:*"
     "@lidofinance/popup-menu": "workspace:*"
     "@lidofinance/select": "workspace:*"
@@ -4141,10 +4142,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/pagination@workspace:packages/pagination":
+"@lidofinance/pagination@workspace:*, @lidofinance/pagination@workspace:packages/pagination":
   version: 0.0.0-use.local
   resolution: "@lidofinance/pagination@workspace:packages/pagination"
   dependencies:
+    "@lidofinance/box": "workspace:*"
+    "@lidofinance/button": "workspace:*"
+    "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.3.7
