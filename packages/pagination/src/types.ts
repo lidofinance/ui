@@ -1,4 +1,11 @@
-// import { LidoComponentProps } from '@lidofinance/utils'
-// export type { Theme } from '@lidofinance/theme'
-//
-// export type LinkProps = LidoComponentProps<'a'> & { fadeVisited?: boolean }
+import { LidoComponentProps } from '@lidofinance/utils/dist/esm'
+
+export type SiblingsCount = 0 | 1
+
+export type PaginationProps = LidoComponentProps<
+  'div',
+  {
+    siblingCount?: SiblingsCount
+    onItemClick?: () => void
+  }
+>
