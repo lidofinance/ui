@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { css } from 'styled-components'
 
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
@@ -8,12 +8,33 @@ import { PaginationProps, PaginationItemProps } from './types'
 import getShowingPages from './getShowingPages'
 import PaginationItem from './PaginationItem'
 
+const getActiveItem = (length: number, activeItem: number): number => {
+  const isActiveNotInRange: boolean = activeItem >= length || activeItem < 0
+
+  if (!activeItem || isActiveNotInRange) {
+    return 1 // default active item will be the first one
+  }
+
+  return activeItem
+}
+
 const Pagination: React.FC<PaginationProps> = (props) => {
-  const { siblingCount = 1, onItemClick, pagesCount } = props
+  const { onItemClick, pagesCount, activePage = 1, siblingCount } = props
 
-  const showingPages = getShowingPages(pagesCount, 5, siblingCount)
+  const [currentPage, setCurrPage] = useState(
+    getActiveItem(pagesCount, activePage)
+  )
 
-  const currentPage = 5
+  if (pagesCount <= 0) {
+    return null
+  }
+
+  const showingPages = getShowingPages(pagesCount, currentPage, siblingCount)
+
+  const onPageItemClick = (page: number, e: React.MouseEvent) => {
+    onItemClick(page, e)
+    setCurrPage(page)
+  }
 
   return (
     <Box
@@ -26,18 +47,18 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     >
       <PaginationItem icon={<ArrowLeft />} />
 
-      {showingPages.map((page) => {
+      {showingPages.map((page, index) => {
         const isDisabled = page === '...'
         const variant: PaginationItemProps['variant'] =
           page === currentPage ? 'active' : 'default'
 
         return (
           <PaginationItem
-            key={page}
+            key={`${page}${index}`}
             icon={page}
             variant={variant}
             disabled={isDisabled}
-            onClick={onItemClick}
+            onClick={onPageItemClick.bind(null, page)}
           />
         )
       })}

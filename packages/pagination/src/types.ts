@@ -1,13 +1,16 @@
-import { LidoComponentProps } from '@lidofinance/utils/dist/esm'
+import { LidoComponentProps } from '@lidofinance/utils'
 
 export type SiblingsCount = 0 | 1
+
+export type onItemClick = (index: number, e?: React.MouseEvent) => void
 
 export type PaginationProps = LidoComponentProps<
   'div',
   {
     pagesCount: number
+    activePage?: number
+    onItemClick: onItemClick
     siblingCount?: SiblingsCount
-    onItemClick?: () => void
   }
 >
 
