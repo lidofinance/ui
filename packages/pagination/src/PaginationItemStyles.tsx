@@ -45,6 +45,7 @@ export const PaginationItemStyle = styled.button<InjectedProps>`
   ${({ $variant }) => variantColors[$variant]}
 
   :disabled {
+    border-color: ${({ theme }) => theme.colors.border};
     color: ${({ theme }) => theme.colors.textSecondary};
     cursor: unset;
   }
