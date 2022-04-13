@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { css } from 'styled-components'
 
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
@@ -25,11 +25,14 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     getActiveItem(pagesCount, activePage)
   )
 
+  const showingPages = useMemo<(string | number)[]>(
+    () => getShowingPages(pagesCount, currentPage, siblingCount),
+    [pagesCount, currentPage, siblingCount]
+  )
+
   if (pagesCount <= 0) {
     return null
   }
-
-  const showingPages = getShowingPages(pagesCount, currentPage, siblingCount)
 
   const onPageItemClick = (page: number, e: React.MouseEvent) => {
     onItemClick(page, e)
