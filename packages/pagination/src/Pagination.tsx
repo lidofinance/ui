@@ -39,6 +39,22 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     setCurrPage(page)
   }
 
+  const onPreviousClick = () => {
+    if (currentPage === 1) {
+      return // disabled
+    }
+
+    setCurrPage(currentPage - 1)
+  }
+
+  const onNextClick = () => {
+    if (currentPage === pagesCount) {
+      return // disabled
+    }
+
+    setCurrPage(currentPage + 1)
+  }
+
   return (
     <Box
       display='flex'
@@ -48,7 +64,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         gap: 8px;
       `}
     >
-      <PaginationItem icon={<ArrowLeft />} />
+      <PaginationItem
+        disabled={currentPage === 1}
+        icon={<ArrowLeft />}
+        onClick={onPreviousClick}
+      />
 
       {showingPages.map((page, index) => {
         const isDisabled = page === '...'
@@ -66,7 +86,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         )
       })}
 
-      <PaginationItem icon={<ArrowRight />} />
+      <PaginationItem
+        disabled={currentPage === pagesCount}
+        icon={<ArrowRight />}
+        onClick={onNextClick}
+      />
     </Box>
   )
 }
