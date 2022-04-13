@@ -9,9 +9,7 @@ import {
 } from './types'
 import Button from './Button'
 import ButtonIcon from './ButtonIcon'
-
-const getOptions = (enumObject: Record<string, string | number>) =>
-  Object.values(enumObject).filter((value) => typeof value === 'string')
+import { getOptionsFromEnum } from '@lidofinance/utils'
 
 export default {
   component: Button,
@@ -27,15 +25,15 @@ export default {
   },
   argTypes: {
     size: {
-      options: getOptions(ButtonSize),
+      options: getOptionsFromEnum(ButtonSize),
       control: 'inline-radio',
     },
     variant: {
-      options: getOptions(ButtonVariant),
+      options: getOptionsFromEnum(ButtonVariant),
       control: 'inline-radio',
     },
     color: {
-      options: getOptions(ButtonColor),
+      options: getOptionsFromEnum(ButtonColor),
       control: 'inline-radio',
     },
   },

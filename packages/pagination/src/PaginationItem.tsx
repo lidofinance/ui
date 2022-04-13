@@ -24,7 +24,7 @@ const variantColors = {
   `,
 }
 
-enum PageItemVariant {
+export enum PageItemVariant {
   default,
   active,
 }
@@ -61,13 +61,18 @@ const PaginationItemStyle = styled.button<InjectedProps>`
   ${({ $variant }) => variantColors[$variant]}
 
   :disabled {
-    opacity: 0.5;
+    color: ${({ theme }) => theme.colors.textSecondary};
+    cursor: unset;
   }
 `
 
 const PaginationItem: React.FC<PaginationItemProps> = (props) => {
-  const { icon, variant = 'default' } = props
-  return <PaginationItemStyle $variant={variant}>{icon}</PaginationItemStyle>
+  const { icon, variant = 'default', ...rest } = props
+  return (
+    <PaginationItemStyle $variant={variant} {...rest}>
+      {icon}
+    </PaginationItemStyle>
+  )
 }
 
 export default PaginationItem
