@@ -27,27 +27,17 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       <PaginationItem icon={<ArrowLeft />} />
 
       {showingPages.map((page) => {
-        let props: Partial<PaginationItemProps> = {}
-        if (page === '...') {
-          props = {
-            variant: 'default',
-            disabled: true,
-          }
-        }
-
-        if (page === currentPage) {
-          props = {
-            variant: 'active',
-            disabled: false,
-          }
-        }
+        const isDisabled = page === '...'
+        const variant: PaginationItemProps['variant'] =
+          page === currentPage ? 'active' : 'default'
 
         return (
           <PaginationItem
             key={page}
             icon={page}
+            variant={variant}
+            disabled={isDisabled}
             onClick={onItemClick}
-            {...props}
           />
         )
       })}
