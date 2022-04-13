@@ -2,14 +2,18 @@ import React from 'react'
 import { css } from 'styled-components'
 
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
-import { ButtonIcon } from '@lidofinance/button'
 import { Box } from '@lidofinance/box'
 
 import { PaginationProps } from './types'
 import getShowingPages from './getShowingPages'
+import PaginationItem, { PaginationItemProps } from './PaginationItem'
 
 const Pagination: React.FC<PaginationProps> = (props) => {
-  const { siblingCount = 1, onItemClick } = props
+  const { siblingCount = 1, onItemClick, pagesCount } = props
+
+  const showingPages = getShowingPages(pagesCount, 5, siblingCount)
+
+  const currentPage = 5
 
   return (
     <Box
@@ -20,30 +24,35 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         gap: 8px;
       `}
     >
-      <ButtonIcon
-        color='secondary'
-        icon={<ArrowLeft />}
-        size='xs'
-        variant='outlined'
-      />
+      <PaginationItem icon={<ArrowLeft />} />
 
-      {getShowingPages(10, siblingCount).map((page) => (
-        <ButtonIcon
-          key={page}
-          color='primary'
-          icon={page}
-          size='xs'
-          variant='outlined'
-          onClick={onItemClick}
-        />
-      ))}
+      {showingPages.map((page) => {
+        let props: Partial<PaginationItemProps> = {}
+        if (page === '...') {
+          props = {
+            variant: 'default',
+            disabled: true,
+          }
+        }
 
-      <ButtonIcon
-        color='secondary'
-        icon={<ArrowRight />}
-        size='xs'
-        variant='outlined'
-      />
+        if (page === currentPage) {
+          props = {
+            variant: 'active',
+            disabled: false,
+          }
+        }
+
+        return (
+          <PaginationItem
+            key={page}
+            icon={page}
+            onClick={onItemClick}
+            {...props}
+          />
+        )
+      })}
+
+      <PaginationItem icon={<ArrowRight />} />
     </Box>
   )
 }
