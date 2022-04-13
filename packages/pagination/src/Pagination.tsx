@@ -4,9 +4,9 @@ import { css } from 'styled-components'
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
 import { Box } from '@lidofinance/box'
 
-import { PaginationProps } from './types'
+import { PaginationProps, PaginationItemProps } from './types'
 import getShowingPages from './getShowingPages'
-import PaginationItem, { PaginationItemProps } from './PaginationItem'
+import PaginationItem from './PaginationItem'
 
 const Pagination: React.FC<PaginationProps> = (props) => {
   const { siblingCount = 1, onItemClick, pagesCount } = props

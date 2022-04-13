@@ -10,3 +10,18 @@ export type PaginationProps = LidoComponentProps<
     onItemClick?: () => void
   }
 >
+
+export enum PaginationItemVariant {
+  default,
+  active,
+}
+
+export type PaginationItemVariants = keyof typeof PaginationItemVariant
+
+export type PaginationItemProps = LidoComponentProps<
+  'button',
+  {
+    variant?: PaginationItemVariants
+    icon: React.ReactNode
+  }
+>
