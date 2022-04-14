@@ -46,38 +46,39 @@ const getShowingPages = (
   const pusher = arrayPusher()
   pusher(firstPages, firstPage)
 
+  // see getShowingPages.test.ts for full example
   let siblings
   switch (true) {
     case firstPage === currPage:
-      siblings = [0, 1, 1 + siblingCount]
+      siblings = [0, 1, 1 + siblingCount] //currPage=1 => [1. 2, 3?]
       break
 
     case lastPage === currPage:
-      siblings = [-siblingCount - 1, -1, 0]
+      siblings = [-siblingCount - 1, -1, 0] // currPage=10 => [?8, 9, 10]
       break
 
     case siblingCount === 1 && currPage - firstPage === 3:
-      siblings = [-2, -1, 0, 1]
+      siblings = [-2, -1, 0, 1] // currPage=4 => [2, 3, 4, 5]
       break
 
     case siblingCount === 1 && lastPage - currPage === 3:
-      siblings = [-1, 0, 1, 2]
+      siblings = [-1, 0, 1, 2] // currPage=7 => [6, 7, 8, 9]
       break
 
     case siblingCount === 1:
-      siblings = [-1, 0, 1]
+      siblings = [-1, 0, 1] // currPage=5 => [4, 5, 6]
       break
 
     case siblingCount === 0 && currPage - firstPage === 2:
-      siblings = [-1, 0]
+      siblings = [-1, 0] // currPage=3 => [1, 2, 3]
       break
 
     case siblingCount === 0 && lastPage - currPage === 2:
-      siblings = [0, 1]
+      siblings = [0, 1] // currPage=8 => [8, 9]
       break
 
     default:
-      siblings = [0]
+      siblings = [0] // no siblings
       break
   }
 
