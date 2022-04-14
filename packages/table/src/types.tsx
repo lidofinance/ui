@@ -14,6 +14,7 @@ export enum TableTextColor {
   warning,
   error,
   success,
+  default,
 }
 export type TableTextColors = keyof typeof TableTextColor
 

@@ -19,6 +19,7 @@ const getMainColorTd = (props: InjectedPropsTd) => {
     warning: props.theme.colors.warning,
     error: props.theme.colors.error,
     success: props.theme.colors.success,
+    default: props.theme.colors.text,
   }
   return colorsMap[props.$textColor]
 }
@@ -94,7 +95,7 @@ export const ThStyle = styled.th<InjectedPropsTdTh>`
 
   padding: 7px 18px;
 
-  font-weight: 800;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
 
   ${(props) => getAlign[props.$align]}
