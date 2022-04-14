@@ -1,6 +1,6 @@
 import { SiblingsCount } from './types'
 
-const arrayPusher = () => {
+export const arrayPusher = () => {
   const innerArray: unknown[] = []
 
   return (arr: unknown[], element: unknown) => {
@@ -13,9 +13,9 @@ const arrayPusher = () => {
   }
 }
 
-const numberSort = (a: number, b: number) => a - b
+export const numberSort = (a: number, b: number) => a - b
 
-const range = (start: number, end: number) => {
+export const range = (start: number, end: number) => {
   const length = end - start + 1
   return Array.from({ length }, (_, i) => start + i)
 }
@@ -25,6 +25,10 @@ const getShowingPages = (
   currPage = 1,
   siblingCount: SiblingsCount = 1
 ): (string | number)[] => {
+  if (!pagesCount) {
+    return []
+  }
+
   const showingPagesCount = siblingCount === 1 ? 7 : 5
   if (pagesCount <= showingPagesCount) {
     return range(1, pagesCount)
