@@ -178,7 +178,7 @@ export const ButtonStyle = styled.button<InjectedProps>`
   position: relative;
   background: transparent;
   font-family: inherit;
-  font-weight: 800;
+  font-weight: 400;
   width: ${({ $fullwidth }) => ($fullwidth ? ' 100%' : 'auto')};
 
   :before {

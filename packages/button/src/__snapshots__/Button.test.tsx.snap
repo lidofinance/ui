@@ -11,7 +11,7 @@ exports[`renders correctly 1`] = `
   position: relative;
   background: transparent;
   font-family: inherit;
-  font-weight: 800;
+  font-weight: 400;
   width: auto;
   line-height: 1em;
   font-size: 14px;
