@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
 import { Box } from '@lidofinance/box'
@@ -17,6 +17,11 @@ const getActiveItem = (length: number, activeItem: number): number => {
 
   return activeItem
 }
+
+const PaginationBlock = styled(Box)`
+  display: flex;
+  gap: 8px;
+`
 
 const Pagination: React.FC<PaginationProps> = (props) => {
   const { onItemClick, pagesCount, activePage = 1, siblingCount } = props
@@ -56,14 +61,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   }
 
   return (
-    <Box
-      display='flex'
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      css={css`
-        gap: 8px;
-      `}
-    >
+    <PaginationBlock>
       <PaginationItem
         disabled={currentPage === 1}
         icon={<ArrowLeft />}
@@ -91,7 +89,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         icon={<ArrowRight />}
         onClick={onNextClick}
       />
-    </Box>
+    </PaginationBlock>
   )
 }
 
