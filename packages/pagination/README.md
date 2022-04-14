@@ -6,13 +6,13 @@ Part of [Lido UI Components](https://github.com/lidofinance/ui/#readme)
 ## Install
 
 ```bash
-yarn add @lidofinance/link
+yarn add @lidofinance/pagination
 ```
 
 ## Usage
 
 ```ts
-import { Pagination } from '@lidofinance/link'
+import { Pagination } from '@lidofinance/pagination'
 ```
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
