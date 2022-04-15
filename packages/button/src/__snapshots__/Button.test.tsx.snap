@@ -11,10 +11,10 @@ exports[`renders correctly 1`] = `
   position: relative;
   background: transparent;
   font-family: inherit;
-  font-weight: 400;
+  font-weight: 700;
   width: auto;
   line-height: 1em;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 10px;
   padding: 21px 44px;
   min-width: 120px;

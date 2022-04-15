@@ -1,6 +1,6 @@
 const colors = {
   primary: '#00a3ff',
-  primaryHover: '#4BBEFF',
+  primaryHover: '#009bf2',
   primaryContrast: '#fff',
   primaryVisited: '#4bbeff',
 
