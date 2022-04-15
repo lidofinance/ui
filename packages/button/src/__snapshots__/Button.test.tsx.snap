@@ -46,7 +46,7 @@ exports[`renders correctly 1`] = `
 
 .c0:not(:disabled):hover,
 .c0:focus-visible {
-  background-color: #009bf2;
+  background-color: #4BBEFF;
 }
 
 .c1 {
