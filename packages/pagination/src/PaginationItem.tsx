@@ -1,9 +1,9 @@
 import React from 'react'
 import { PaginationItemStyle } from './PaginationItemStyles'
-import { PaginationItemProps } from './types'
+import { PaginationItemProps, PaginationItemVariant } from './types'
 
 const PaginationItem: React.FC<PaginationItemProps> = (props) => {
-  const { icon, variant = 'default', ...rest } = props
+  const { icon, variant = PaginationItemVariant.default, ...rest } = props
   return (
     <PaginationItemStyle $variant={variant} {...rest}>
       {icon}

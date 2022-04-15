@@ -1,23 +1,23 @@
 import styled, { css } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { PaginationItemVariants } from './types'
+import { PaginationItemVariant } from './types'
 
 type InjectedProps = {
-  $variant: PaginationItemVariants
+  $variant: PaginationItemVariant
   theme: Theme
 }
 
 const variantColors = {
-  active: css`
+  [PaginationItemVariant.active]: css`
     border-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.primary};
 
     :not(:disabled):hover {
-      border-color: ${({ theme }) => theme.colors.primaryHover};
-      color: ${({ theme }) => theme.colors.primaryHover};
+      border-color: ${({ theme }) => theme.colors.primaryVisited};
+      color: ${({ theme }) => theme.colors.primaryVisited};
     }
   `,
-  default: css`
+  [PaginationItemVariant.default]: css`
     border-color: ${({ theme }) => theme.colors.border};
     color: ${({ theme }) => theme.colors.text};
 

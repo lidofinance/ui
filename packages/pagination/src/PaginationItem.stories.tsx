@@ -1,7 +1,6 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { getOptionsFromEnum } from '@lidofinance/utils'
 import { PaginationItemVariant, PaginationItemProps } from './types'
 import PaginationItem from './PaginationItem'
 
@@ -9,13 +8,13 @@ export default {
   component: PaginationItem,
   title: 'Pagination/PaginationItem',
   args: {
-    variant: 'default',
+    variant: PaginationItemVariant.default,
     disabled: false,
     icon: '2',
   },
   argTypes: {
     variant: {
-      options: getOptionsFromEnum(PaginationItemVariant),
+      options: PaginationItemVariant,
       control: 'inline-radio',
     },
   },

@@ -4,7 +4,11 @@ import styled from 'styled-components'
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
 import { Box } from '@lidofinance/box'
 
-import { PaginationProps, PaginationItemProps } from './types'
+import {
+  PaginationProps,
+  PaginationItemProps,
+  PaginationItemVariant,
+} from './types'
 import getShowingPages from './getShowingPages'
 import PaginationItem from './PaginationItem'
 
@@ -71,7 +75,9 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       {showingPages.map((page, index) => {
         const isDisabled = page === '...'
         const variant: PaginationItemProps['variant'] =
-          page === currentPage ? 'active' : 'default'
+          page === currentPage
+            ? PaginationItemVariant.active
+            : PaginationItemVariant.default
 
         return (
           <PaginationItem

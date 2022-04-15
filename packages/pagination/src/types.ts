@@ -15,16 +15,14 @@ export type PaginationProps = LidoComponentProps<
 >
 
 export enum PaginationItemVariant {
-  default,
-  active,
+  default = 'default',
+  active = 'active',
 }
-
-export type PaginationItemVariants = keyof typeof PaginationItemVariant
 
 export type PaginationItemProps = LidoComponentProps<
   'button',
   {
-    variant?: PaginationItemVariants
+    variant?: PaginationItemVariant
     icon: React.ReactNode
   }
 >
