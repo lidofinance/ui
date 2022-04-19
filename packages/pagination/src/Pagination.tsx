@@ -81,7 +81,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
         return (
           <PaginationItem
-            key={`${page}${index}`}
+            key={page === '...' ? `${page}${index}` : page}
             icon={page}
             variant={variant}
             disabled={isDisabled}

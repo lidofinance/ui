@@ -38,7 +38,7 @@ const sizes = {
   `,
   md: css<InjectedProps>`
     line-height: 1em;
-    font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
+    font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
     padding: ${({ $square }) => ($square ? '21px' : '21px 44px')};
     min-width: ${({ $square }) => ($square ? '0' : '120px')};
