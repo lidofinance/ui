@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { TextColors, TextSizes } from './types'
+import { TextColors, TextProps, TextSizes } from './types'
 
 export const sizes = {
   xxs: css`
@@ -30,23 +30,52 @@ export const sizes = {
 }
 
 type InjectedProps = {
-  $color: TextColors
-  $size: TextSizes
+  color: TextColors
+  size: TextSizes
   theme: Theme
-}
+} & Omit<TextProps, 'color' | 'size'>
 
 const getTextColor = (props: InjectedProps) => {
+  const {
+    theme: { colors },
+    color,
+  } = props
+
   const colorsMap = {
-    text: props.theme.colors.text,
-    secondary: props.theme.colors.textSecondary,
+    default: colors.text,
+    secondary: colors.textSecondary,
+    primary: colors.primary,
+    warning: colors.warning,
+    error: colors.error,
+    success: colors.success,
   }
-  return colorsMap[props.$color]
+
+  return colorsMap[color]
+}
+
+const getTextDecoration = (props: InjectedProps) => {
+  const { underline, strikeThrough } = props
+
+  switch (true) {
+    case underline:
+      return 'underline'
+
+    case strikeThrough:
+      return 'line-through'
+
+    default:
+      return 'none'
+  }
 }
 
 export const TextStyle = styled.p<InjectedProps>`
-  margin: 0;
-  padding: 0;
-  color: ${getTextColor};
-  font-weight: 500;
-  ${(props) => sizes[props.$size]}
+  ${({ strong, italic, size }) => css`
+    font-style: ${italic ? 'italic' : 'normal'};
+    font-weight: ${strong ? 700 : 400};
+    margin: 0;
+    padding: 0;
+    color: ${getTextColor};
+    text-decoration: ${getTextDecoration};
+    ${sizes[size]}
+  `}
 `

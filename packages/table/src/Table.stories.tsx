@@ -18,7 +18,7 @@ export default {
     layout: 'centered',
   },
   args: {
-    textColor: 'secondary',
+    textColor: 'default',
     align: 'left',
   },
   argTypes: {
@@ -46,7 +46,7 @@ export const Base: Story<TdProps> = (props) => {
       </Thead>
       <Tbody>
         <Tr>
-          <Td>
+          <Td {...props}>
             01-13-2021
             <br />
             Stake
@@ -63,7 +63,7 @@ export const Base: Story<TdProps> = (props) => {
           <Td {...props}>2.4%</Td>
         </Tr>
         <Tr>
-          <Td>
+          <Td {...props}>
             01-13-2021
             <br />
             Stake

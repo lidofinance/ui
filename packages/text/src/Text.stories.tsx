@@ -10,8 +10,12 @@ export default {
   title: 'Typography/Text',
   args: {
     children: 'Example Text',
-    color: 'text',
+    color: 'default',
     size: 'md',
+    underline: false,
+    strikeThrough: false,
+    strong: false,
+    italic: false,
   },
   argTypes: {
     children: {

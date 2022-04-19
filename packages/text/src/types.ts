@@ -1,8 +1,12 @@
 import { LidoComponentProps } from '@lidofinance/utils'
 
 export enum TextColor {
-  text,
+  default,
   secondary,
+  primary,
+  warning,
+  error,
+  success,
 }
 export type TextColors = keyof typeof TextColor
 
@@ -21,5 +25,9 @@ export type TextProps = LidoComponentProps<
   {
     color?: TextColors
     size?: TextSizes
+    underline?: boolean
+    strikeThrough?: boolean
+    strong?: boolean
+    italic?: boolean
   }
 >

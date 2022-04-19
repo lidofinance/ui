@@ -31,7 +31,7 @@ const sizes = {
   `,
   sm: css<InjectedProps>`
     line-height: 1em;
-    font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
+    font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
     padding: ${({ $square }) => ($square ? '16px' : '16px 24px')};
     min-width: ${({ $square }) => ($square ? '0' : '100px')};
@@ -178,7 +178,7 @@ export const ButtonStyle = styled.button<InjectedProps>`
   position: relative;
   background: transparent;
   font-family: inherit;
-  font-weight: 800;
+  font-weight: 700;
   width: ${({ $fullwidth }) => ($fullwidth ? ' 100%' : 'auto')};
 
   :before {

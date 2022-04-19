@@ -20,7 +20,7 @@ const colors = {
   warningHover: '#f0a431',
   warningContrast: '#fff',
 
-  success: '#61b75f',
+  success: '#53BA95',
   successHover: '#5dae5e',
   successContrast: '#fff',
 } as const
