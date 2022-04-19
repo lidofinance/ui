@@ -4,7 +4,7 @@ import getShowingPages, {
   arrayPusher,
 } from './getShowingPages'
 
-describe('getShowingPages при siblingCount=1', () => {
+describe('getShowingPages at siblingCount=1', () => {
   describe('pagesCount > 7', () => {
     const pagesCount = 10
     const givens = [
@@ -85,7 +85,7 @@ describe('getShowingPages при siblingCount=1', () => {
   })
 })
 
-describe('getShowingPages при siblingCount=0', () => {
+describe('getShowingPages at siblingCount=0', () => {
   describe('pagesCount > 5', () => {
     const pagesCount = 10
     const givens = [
@@ -176,7 +176,7 @@ describe('range function', () => {
 })
 
 describe('arrayPusher', () => {
-  test('Добавление 5 элементов', () => {
+  test('Adding 5 elements', () => {
     const pusher = arrayPusher()
 
     const pages = []
@@ -193,7 +193,7 @@ describe('arrayPusher', () => {
     expect(pages).toEqual([1, 2, 10, 8, 5])
   })
 
-  test('Добавление несколько ...', () => {
+  test('Adding several ellipsis (...)', () => {
     const pusher = arrayPusher()
 
     const pages = []
@@ -210,7 +210,7 @@ describe('arrayPusher', () => {
 })
 
 describe('numberSort', () => {
-  test('Сортировка номеров', () => {
+  test('Sorting number array', () => {
     const received = [10, 20, 8, 9]
     received.sort(numberSort)
 
