@@ -19,5 +19,6 @@ export type BlockProps = LidoComponentProps<
   {
     color?: BlockColors
     variant?: BlockVariants
+    paddingLess?: boolean
   }
 >

@@ -5,6 +5,7 @@ import { BlockVariants, BlockColors } from './types'
 type InjectedProps = {
   $variant: BlockVariants
   $color: BlockColors
+  $paddingLess: boolean
   theme: Theme
 }
 
@@ -33,17 +34,22 @@ const variants = {
   `,
 }
 
+const paddings = css`
+  padding: ${({ theme }) => theme.spaceMap.xxl}px;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: ${({ theme }) => theme.spaceMap.lg}px;
+  }
+`
+
 export const BlockStyle = styled.div<InjectedProps>`
   font-weight: 500;
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   line-height: 1.6em;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
-  padding: ${({ theme }) => theme.spaceMap.xxl}px;
   margin: 0;
 
-  ${({ theme }) => theme.mediaQueries.md} {
-    padding: ${({ theme }) => theme.spaceMap.lg}px;
-  }
+  ${({ $paddingLess }) => !$paddingLess && paddings}
 
   ${({ $variant }) => variants[$variant]}
   ${({ $color }) => colors[$color]}

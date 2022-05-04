@@ -12,6 +12,7 @@ export default {
     children: 'Example content',
     variant: 'flat',
     color: 'foreground',
+    paddingLess: false,
   },
   argTypes: {
     variant: {
