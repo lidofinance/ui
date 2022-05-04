@@ -3,10 +3,11 @@ import { Check } from '@lidofinance/icons'
 
 export const CheckboxWrapperStyle = styled.label`
   flex-shrink: 0;
-  display: inline-block;
+  display: inline-flex;
   position: relative;
   overflow: hidden;
   line-height: 0;
+  align-items: center;
 `
 
 export const CheckboxIconStyle = styled(Check)`

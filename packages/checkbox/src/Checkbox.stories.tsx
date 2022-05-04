@@ -31,3 +31,11 @@ export const Controlled: Story<CheckboxProps> = (props) => {
 Controlled.args = {
   checked: true,
 }
+
+export const WithLabel: Story<CheckboxProps> = (props) => {
+  return <Checkbox {...props} />
+}
+
+WithLabel.args = {
+  label: 'Label',
+}

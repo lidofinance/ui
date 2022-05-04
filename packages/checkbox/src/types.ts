@@ -6,5 +6,6 @@ export type CheckboxProps = LidoComponentProps<
   {
     wrapperRef?: React.RefObject<HTMLLabelElement>
     children?: never
+    label?: string
   }
 >
