@@ -113,7 +113,7 @@ const contentVariants = {
 }
 
 export const InputContentStyle = styled.span<{ $variant: InputVariants }>`
-  font-weight: 500;
+  font-weight: 400;
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
   display: flex;
   flex-grow: 1;
@@ -184,7 +184,7 @@ export const InputStyle = styled.input<{
 }>`
   width: 100%;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1em;
   line-height: 1.43em;
   padding: 0;
@@ -232,7 +232,7 @@ export const InputMessageStyle = styled.span<{
   position: absolute;
   top: 100%;
   line-height: 1.6em;
-  font-weight: 500;
+  font-weight: 400;
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
   padding: 6px 10px;

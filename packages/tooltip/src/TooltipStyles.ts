@@ -7,7 +7,7 @@ export const TooltipPopoverStyle = styled(Popover)`
   color: ${({ theme }) => theme.colors.accentContrast};
   font-size: ${({ theme }) => theme.fontSizesMap.xxxs}px;
   line-height: 1.8em;
-  font-weight: 500;
+  font-weight: 400;
   max-width: 256px;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.md}px;
   box-shadow: ${({ theme }) =>

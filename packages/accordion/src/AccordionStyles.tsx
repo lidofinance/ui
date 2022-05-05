@@ -43,7 +43,7 @@ export const AccordionContentStyle = styled.div`
   color: ${({ theme }) => theme.colors.textSecondary};
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
   padding-top: 0;
-  font-weight: 500;
+  font-weight: 400;
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   line-height: 1.6em;
 

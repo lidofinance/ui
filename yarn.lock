@@ -3782,7 +3782,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/checkbox@workspace:packages/checkbox"
   dependencies:
+    "@lidofinance/box": "workspace:*"
     "@lidofinance/icons": "workspace:*"
+    "@lidofinance/text": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.3.7

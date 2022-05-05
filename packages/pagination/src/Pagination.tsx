@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
@@ -38,6 +38,10 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     () => getShowingPages(pagesCount, currentPage, siblingCount),
     [pagesCount, currentPage, siblingCount]
   )
+
+  useEffect(() => {
+    setCurrPage((page) => (page !== activePage ? activePage : page))
+  }, [activePage])
 
   if (pagesCount <= 0) {
     return null

@@ -67,7 +67,7 @@ export const TheadStyle = styled.thead`
 export const TfootStyle = styled.tfoot``
 
 export const TrStyle = styled.tr`
-  font-weight: 500;
+  font-weight: 400;
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   line-height: 1.6em;
 `

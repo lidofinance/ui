@@ -59,7 +59,7 @@ const variants = {
     padding: 18px 0;
     font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
     line-height: 1.4em;
-    font-weight: 500;
+    font-weight: 400;
   `,
 }
 
