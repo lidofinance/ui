@@ -25,7 +25,7 @@ export const PopoverStyle = styled(PopoverRoot)`
   color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
   line-height: 1.5em;
-  font-weight: 500;
+  font-weight: 400;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
   box-shadow: ${({ theme }) =>
     `${theme.boxShadows.xs} ${theme.colors.shadowLight}`};

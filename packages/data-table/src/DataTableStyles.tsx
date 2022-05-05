@@ -6,7 +6,7 @@ export const DataTableStyle = styled.div``
 export const DataTableRowStyle = styled.div`
   display: flex;
   margin: ${({ theme }) => theme.spaceMap.md}px 0;
-  font-weight: 500;
+  font-weight: 400;
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   line-height: 1.6em;
 

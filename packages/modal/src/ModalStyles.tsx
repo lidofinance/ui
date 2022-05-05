@@ -9,7 +9,7 @@ export const ModalStyle = styled.div<{ $center: boolean }>`
   }) => css`
     width: 432px;
     max-width: 100%;
-    font-weight: 500;
+    font-weight: 400;
     font-size: ${fontSizesMap.xs}px;
     line-height: 1.5em;
     text-align: ${$center ? 'center' : 'left'};
