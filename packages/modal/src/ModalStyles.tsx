@@ -36,7 +36,7 @@ export const ModalHeaderStyle = styled.div<{
     align-items: flex-start;
     min-height: 32px;
     margin-bottom: ${$short ? -spaceMap.md : 0}px;
-    padding: ${spaceMap.xl}px;
+    padding: ${spaceMap.xl}px ${spaceMap.xxl}px;
     font-size: ${fontSizesMap.md}px;
     line-height: 1.5em;
 
@@ -65,13 +65,12 @@ export const ModalTitleStyle = styled.div<{
     margin-left: ${$center && !$withBackButton ? spaceMap.xxl : '0'}px;
     margin-right: ${$center && !$withCloseButton ? spaceMap.xxl : '0'}px;
     padding-top: ${$withTitleIcon ? spaceMap.sm : '0'}px;
-    padding-left: ${spaceMap.sm}px;
+    padding-left: 0;
     padding-right: ${spaceMap.sm}px;
     flex-grow: 1;
     align-self: center;
 
     ${mediaQueries.md} {
-      padding-left: ${spaceMap.xs}px;
       padding-right: ${spaceMap.xs}px;
     }
   `}
@@ -99,10 +98,7 @@ export const ModalSubtitleStyle = styled.div`
     font-weight: 400;
     line-height: 24px;
     margin-top: -${spaceMap.xl}px;
-    padding-top: 0;
-    padding-bottom: ${spaceMap.sm}px;
-    padding-left: ${spaceMap.xxl}px;
-    padding-right: ${spaceMap.xxl}px;
+    padding: 0 ${spaceMap.xxl}px ${spaceMap.sm}px;
 
     ${mediaQueries.md} {
       padding-left: ${spaceMap.xl}px;
@@ -113,12 +109,10 @@ export const ModalSubtitleStyle = styled.div`
 
 export const ModalContentStyle = styled.div`
   ${({ theme: { spaceMap, mediaQueries } }) => css`
-    padding: ${spaceMap.xxl}px;
-    padding-top: 0;
+    padding: 0 ${spaceMap.xxl}px ${spaceMap.xxl}px;
 
     ${mediaQueries.md} {
-      padding: ${spaceMap.xl}px;
-      padding-top: 0;
+      padding: 0 ${spaceMap.lg}px ${spaceMap.lg}px;
     }
   `}
 `
@@ -129,6 +123,7 @@ export const ModalCloseStyle = styled(ButtonIcon).attrs({
   variant: 'ghost',
   size: 'xs',
 })`
+  margin: 0 -10px 0 0;
   color: ${({ theme }) => theme.colors.textSecondary};
   flex-shrink: 0;
   border-radius: 50%;
@@ -140,9 +135,11 @@ export const ModalBackStyle = styled(ButtonIcon).attrs({
   variant: 'ghost',
   size: 'xs',
 })`
-  color: ${({ theme }) => theme.colors.textSecondary};
-  flex-shrink: 0;
-  margin: 0;
-  border-radius: 50%;
-  background: transparent !important;
+  ${({ theme: { colors, spaceMap } }) => css`
+    color: ${colors.textSecondary};
+    flex-shrink: 0;
+    margin: 0 ${spaceMap.sm}px 0 -6px;
+    border-radius: 50%;
+    background: transparent !important;
+  `}
 `
