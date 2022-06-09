@@ -22,8 +22,9 @@ export const themeLight = {
     text: '#273852',
     textSecondary: '#7a8aa0',
 
-    border: '#d1d8df',
-    borderHover: '#bcc8d4',
+    border: 'rgba(0, 10, 61, 0.12)',
+    borderActive: 'rgba(0, 10, 61, 0.48)',
+    borderHover: 'rgba(0, 10, 61, 0.24)',
     borderLight: '#dfe5eb',
 
     controlBg: '#fff',
@@ -52,8 +53,9 @@ export const themeDark = {
     text: '#fff',
     textSecondary: 'rgba(255, 255, 255, .8)',
 
-    border: '#484855',
-    borderHover: '#7a8aa0',
+    border: 'rgba(255, 255, 255, 0.12)',
+    borderActive: 'rgba(255, 255, 255, 0.48)',
+    borderHover: 'rgba(255, 255, 255, 0.24)',
     borderLight: '#484855',
 
     controlBg: '#2f2f37',

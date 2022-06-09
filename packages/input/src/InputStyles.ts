@@ -14,7 +14,7 @@ const statesCSS = css`
 
   &:focus-within {
     z-index: 2;
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.borderActive};
 
     ${InputLabelStyle} {
       ${labelFocusCSS}
@@ -27,7 +27,7 @@ const activeCSS = css`
   &:hover,
   &:focus-within {
     z-index: 2;
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.borderActive};
 
     ${InputLabelStyle} {
       ${labelFocusCSS}
@@ -188,7 +188,7 @@ export const InputStyle = styled.input<{
   font-size: 1em;
   line-height: 1.43em;
   padding: 0;
-  border-radius: 0px;
+  border-radius: 0;
   background: transparent;
   box-shadow: none;
   border: none;
