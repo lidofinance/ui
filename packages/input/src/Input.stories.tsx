@@ -118,6 +118,7 @@ export const WithButton: Story<InputProps> = (props) => (
         css={`
           margin-right: -10px;
         `}
+        disabled={props.disabled}
       >
         Subscribe
       </Button>
