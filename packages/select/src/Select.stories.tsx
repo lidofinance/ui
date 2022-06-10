@@ -1,11 +1,14 @@
 import { Story, Meta } from '@storybook/react'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
-import { InputGroup, Input } from '@lidofinance/input'
+import { InputGroup, Input, InputColor } from '@lidofinance/input'
 import { SelectProps } from './types'
 import Select from './Select'
 import SelectIcon from './SelectIcon'
 import Option from './Option'
 import { useRef, useState } from 'react'
+
+const getOptions = (enumObject: Record<string, string | number>) =>
+  Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
   component: Select,
@@ -97,7 +100,7 @@ OnlyIcon.argTypes = {
 }
 
 export const WithInput: Story<SelectProps> = (props) => {
-  const { fullwidth, disabled } = props
+  const { fullwidth, disabled, color } = props
   const [value, setValue] = useState<keyof typeof iconsMap>('eth')
   const ref = useRef<HTMLSpanElement>(null)
 
@@ -120,9 +123,21 @@ export const WithInput: Story<SelectProps> = (props) => {
           Solana (SOL)
         </Option>
       </SelectIcon>
-      <Input fullwidth={fullwidth} disabled={disabled} placeholder='Amount' />
+      <Input
+        fullwidth={fullwidth}
+        disabled={disabled}
+        color={color}
+        placeholder='Amount'
+      />
     </InputGroup>
   )
+}
+
+WithInput.argTypes = {
+  color: {
+    options: getOptions(InputColor),
+    control: 'inline-radio',
+  },
 }
 
 export const Small: Story<SelectProps> = (props) => (

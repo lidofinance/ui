@@ -65,11 +65,11 @@ const wrapperColors = {
   accent: css<{ $disabled: boolean }>`
     background: ${({ theme }) => theme.colors.accentControlBg};
     border-color: ${({ theme }) => theme.colors.accentBorder};
-    color: ${({ theme }) => theme.colors.accentContrast};
+    color: ${({ theme }) => theme.colors.accentText};
 
     ${({ $disabled, theme }) =>
       $disabled
-        ? ''
+        ? `background: ${theme.colors.controlBg};`
         : `
           &:hover {
             border-color: ${theme.colors.accentBorderHover};
@@ -156,14 +156,17 @@ const inputColors = {
     }
   `,
   accent: css`
-    color: ${({ theme }) => theme.colors.accentContrast};
+    color: ${({ theme }) => theme.colors.accentText};
+    opacity: 1;
 
     &:disabled {
-      color: ${({ theme }) => theme.colors.accentContrastSecondary};
+      color: ${({ theme }) => theme.colors.accentText};
+      opacity: 0.5;
     }
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors.accentContrastSecondary};
+      color: ${({ theme }) => theme.colors.accentText};
+      opacity: 0.5;
     }
 
     &:-webkit-autofill {

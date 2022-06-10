@@ -5,7 +5,7 @@ import { Button } from '@lidofinance/button'
 import { Identicon } from '@lidofinance/identicon'
 import Input from './Input'
 import styled from 'styled-components'
-import { InputProps, InputType, InputVariant } from './types'
+import { InputProps, InputType, InputVariant, InputColor } from './types'
 import { useState } from 'react'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -40,6 +40,10 @@ Basic.argTypes = {
     options: getOptions(InputType),
     control: 'inline-radio',
   },
+  color: {
+    options: getOptions(InputColor),
+    control: 'inline-radio',
+  },
 }
 
 export const Small: Story<InputProps> = (props) => <Input {...props} />
@@ -60,6 +64,12 @@ export const Label: Story<InputProps> = (props) => <Input {...props} />
 
 Label.args = {
   label: 'Email address',
+}
+Label.argTypes = {
+  color: {
+    options: getOptions(InputColor),
+    control: 'inline-radio',
+  },
 }
 
 const EthIcon = styled(Eth)`
@@ -88,6 +98,12 @@ export const WithDecorators: Story<InputProps> = (props) => (
 
 WithDecorators.args = {
   placeholder: 'Amount',
+}
+WithDecorators.argTypes = {
+  color: {
+    options: getOptions(InputColor),
+    control: 'inline-radio',
+  },
 }
 
 export const WithIdenticon: Story<InputProps> = (props) => {
@@ -131,6 +147,12 @@ WithButton.args = {
   fullwidth: true,
   label: 'Email address',
 }
+WithButton.argTypes = {
+  color: {
+    options: getOptions(InputColor),
+    control: 'inline-radio',
+  },
+}
 
 export const WithError: Story<InputProps> = (props) => <Input {...props} />
 
@@ -139,6 +161,12 @@ WithError.args = {
   defaultValue: 'info@lido.',
   label: 'Email address',
   error: 'Email is invalid',
+}
+WithError.argTypes = {
+  color: {
+    options: getOptions(InputColor),
+    control: 'inline-radio',
+  },
 }
 
 const Success = styled.span`
