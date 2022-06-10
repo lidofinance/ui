@@ -201,7 +201,6 @@ export const InputStyle = styled.input<{
 
   &::placeholder {
     transition: opacity ${({ theme }) => theme.duration.fast} ease;
-    opacity: 0.5;
   }
 
   ${({ $color }) => inputColors[$color]}
