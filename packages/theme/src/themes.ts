@@ -56,7 +56,7 @@ export const themeDark = {
 
     text: '#fff',
     textSecondary: 'rgba(255, 255, 255, .8)',
-    accentText: '#273852',
+    accentText: '#fff',
 
     border: 'rgba(255, 255, 255, 0.12)',
     borderActive: 'rgba(255, 255, 255, 0.48)',
