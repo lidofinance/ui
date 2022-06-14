@@ -14,7 +14,7 @@ const statesCSS = css`
 
   &:focus-within {
     z-index: 2;
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.borderActive};
 
     ${InputLabelStyle} {
       ${labelFocusCSS}
@@ -27,7 +27,7 @@ const activeCSS = css`
   &:hover,
   &:focus-within {
     z-index: 2;
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.borderActive};
 
     ${InputLabelStyle} {
       ${labelFocusCSS}
@@ -65,11 +65,11 @@ const wrapperColors = {
   accent: css<{ $disabled: boolean }>`
     background: ${({ theme }) => theme.colors.accentControlBg};
     border-color: ${({ theme }) => theme.colors.accentBorder};
-    color: ${({ theme }) => theme.colors.accentContrast};
+    color: ${({ theme }) => theme.colors.accentText};
 
     ${({ $disabled, theme }) =>
       $disabled
-        ? ''
+        ? `background: ${theme.colors.controlBg};`
         : `
           &:hover {
             border-color: ${theme.colors.accentBorderHover};
@@ -156,14 +156,17 @@ const inputColors = {
     }
   `,
   accent: css`
-    color: ${({ theme }) => theme.colors.accentContrast};
+    color: ${({ theme }) => theme.colors.accentText};
+    opacity: 1;
 
     &:disabled {
-      color: ${({ theme }) => theme.colors.accentContrastSecondary};
+      color: ${({ theme }) => theme.colors.accentText};
+      opacity: 0.5;
     }
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors.accentContrastSecondary};
+      color: ${({ theme }) => theme.colors.accentText};
+      opacity: 0.5;
     }
 
     &:-webkit-autofill {
@@ -188,7 +191,7 @@ export const InputStyle = styled.input<{
   font-size: 1em;
   line-height: 1.43em;
   padding: 0;
-  border-radius: 0px;
+  border-radius: 0;
   background: transparent;
   box-shadow: none;
   border: none;
@@ -198,7 +201,6 @@ export const InputStyle = styled.input<{
 
   &::placeholder {
     transition: opacity ${({ theme }) => theme.duration.fast} ease;
-    opacity: 0.5;
   }
 
   ${({ $color }) => inputColors[$color]}

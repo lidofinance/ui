@@ -12,7 +12,7 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
   font-size: inherit;
   line-height: inherit;
   background: transparent;
-  border-radius: 0px;
+  border-radius: 0;
   color: ${({ theme }) => theme.colors.text};
   border: none;
   box-shadow: none;
@@ -36,13 +36,13 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
     left: 0;
     pointer-events: none;
     border-radius: inherit;
-    opacity: ${({ $active }) => ($active ? 0.1 : 0)};
-    background: ${({ theme }) => theme.colors.primary};
+    opacity: ${({ $active }) => ($active ? 0.04 : 0)};
+    background: ${({ theme }) => theme.colors.popupMenuItemBgActiveHover};
     transition: opacity ${({ theme }) => theme.duration.fast} ease;
   }
 
   &:focus:not(:disabled):before {
-    opacity: 0.1;
+    opacity: 0.04;
   }
 `
 
