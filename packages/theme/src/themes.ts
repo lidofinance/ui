@@ -32,6 +32,8 @@ export const themeLight = {
 
     controlBg: '#fff',
     accentControlBg: 'rgba(239, 242, 246, 0.56)',
+
+    popupMenuItemBgActiveHover: '#000a3d',
   },
 }
 
@@ -67,6 +69,8 @@ export const themeDark = {
 
     controlBg: '#2f2f37',
     accentControlBg: 'rgba(39, 39, 46, 0.56)',
+
+    popupMenuItemBgActiveHover: '#fff',
   },
 }
 
