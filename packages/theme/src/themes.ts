@@ -27,7 +27,7 @@ export const themeLight = {
     borderActive: 'rgba(0, 10, 61, 0.48)',
     borderHover: 'rgba(0, 10, 61, 0.24)',
     borderLight: '#dfe5eb',
-    accentBorder: 'rgba(0, 10, 61, 0.12);',
+    accentBorder: 'rgba(0, 10, 61, 0.12)',
     accentBorderHover: 'rgba(0, 10, 61, 0.24)',
 
     controlBg: '#fff',
