@@ -5,6 +5,7 @@ import {
   labelFocusCSS,
   labelErrorCSS,
   InputLabelStyle,
+  labelWarningCSS,
 } from './LabelStyles'
 
 const statesCSS = css`
@@ -47,6 +48,18 @@ const errorCSS = css`
   }
 `
 
+const warningCSS = css`
+  &,
+  &:hover,
+  &:focus-within {
+    border-color: ${({ theme }) => theme.colors.warning};
+
+    ${InputLabelStyle} {
+      ${labelWarningCSS}
+    }
+  }
+`
+
 const wrapperColors = {
   default: css<{ $disabled: boolean }>`
     background: ${({ theme }) => theme.colors.controlBg};
@@ -80,6 +93,7 @@ const wrapperColors = {
 
 export const InputWrapperStyle = styled.label<{
   $error: boolean
+  $warning: boolean
   $active: boolean
   $disabled: boolean
   $fullwidth: boolean
@@ -100,6 +114,7 @@ export const InputWrapperStyle = styled.label<{
   ${({ $disabled }) => ($disabled ? '' : statesCSS)}
 
   ${({ $active }) => ($active ? activeCSS : '')}
+  ${({ $warning }) => ($warning ? warningCSS : '')}
   ${({ $error }) => ($error ? errorCSS : '')}
 `
 
@@ -215,6 +230,12 @@ const messageVariants = {
   error: css`
     background: ${({ theme }) => theme.colors.error};
     color: ${({ theme }) => theme.colors.errorContrast};
+    box-shadow: ${({ theme }) =>
+      `${theme.boxShadows.sm} ${theme.colors.shadowLight}`};
+  `,
+  warning: css`
+    background: ${({ theme }) => theme.colors.warning};
+    color: ${({ theme }) => theme.colors.warningContrast};
     box-shadow: ${({ theme }) =>
       `${theme.boxShadows.sm} ${theme.colors.shadowLight}`};
   `,

@@ -14,6 +14,7 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
   const {
     label,
     error,
+    warning,
     success,
     active = false,
     fullwidth = false,
@@ -36,6 +37,8 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
 
   const hasError = !!error
   const hasErrorMessage = hasError && typeof error !== 'boolean'
+  const hasWarning = !hasError && !!warning // `error` overrides `warning`
+  const hasWarningMessage = hasWarning && typeof warning !== 'boolean'
   const hasSuccess = !!success && !error
   const hasSuccessMessage = hasSuccess && typeof success !== 'boolean'
 
@@ -45,6 +48,7 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
   return (
     <InputWrapperStyle
       $error={hasError}
+      $warning={hasWarning}
       $active={active}
       $disabled={disabled}
       $fullwidth={fullwidth}
@@ -73,6 +77,11 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
       {hasErrorMessage && (
         <InputMessageStyle $variant='error' $bordered>
           {error}
+        </InputMessageStyle>
+      )}
+      {hasWarningMessage && (
+        <InputMessageStyle $variant='warning' $bordered>
+          {warning}
         </InputMessageStyle>
       )}
       {hasSuccessMessage && (
