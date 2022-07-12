@@ -169,6 +169,15 @@ WithError.argTypes = {
   },
 }
 
+export const WithWarning: Story<InputProps> = (props) => <Input {...props} />
+
+WithWarning.args = {
+  fullwidth: true,
+  defaultValue: '10',
+  label: 'Token amount',
+  warning: 'Amount may be insufficient.',
+}
+
 const Success = styled.span`
   font-weight: 600;
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;

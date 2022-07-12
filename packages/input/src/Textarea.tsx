@@ -12,6 +12,7 @@ function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
   const {
     label,
     error,
+    warning,
     success,
     active = false,
     fullwidth = false,
@@ -32,12 +33,15 @@ function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
 
   const hasError = !!error
   const hasErrorMessage = hasError && typeof error !== 'boolean'
+  const hasWarning = !hasError && !!warning // `error` overrides `warning`
+  const hasWarningMessage = hasWarning && typeof warning !== 'boolean'
   const hasSuccess = !!success && !error
   const hasSuccessMessage = hasSuccess && typeof success !== 'boolean'
 
   return (
     <InputWrapperStyle
       $error={hasError}
+      $warning={hasWarning}
       $active={active}
       $disabled={disabled}
       $fullwidth={fullwidth}
@@ -63,6 +67,11 @@ function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
       {hasErrorMessage && (
         <InputMessageStyle $variant='error' $bordered>
           {error}
+        </InputMessageStyle>
+      )}
+      {hasWarningMessage && (
+        <InputMessageStyle $variant='warning' $bordered>
+          {warning}
         </InputMessageStyle>
       )}
       {hasSuccessMessage && (

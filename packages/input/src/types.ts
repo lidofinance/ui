@@ -1,8 +1,10 @@
 import { LidoComponentProps } from '@lidofinance/utils'
+import React from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum InputMessageVariant {
   error,
+  warning,
   success,
 }
 export type InputMessageVariants = keyof typeof InputMessageVariant
@@ -33,6 +35,7 @@ export type InputColors = keyof typeof InputColor
 type CommonProps = {
   label?: React.ReactNode
   error?: React.ReactNode | boolean
+  warning?: React.ReactNode | boolean
   success?: React.ReactNode | boolean
   variant?: InputVariants
   color?: InputColors
