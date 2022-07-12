@@ -33,6 +33,10 @@ export const labelErrorCSS = css`
   color: ${({ theme }) => theme.colors.error};
 `
 
+export const labelWarningCSS = css`
+  color: ${({ theme }) => theme.colors.warning};
+`
+
 export const InputLabelStyle = styled.span`
   position: absolute;
   left: 0;
