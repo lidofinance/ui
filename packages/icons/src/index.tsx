@@ -2587,6 +2587,36 @@ export const Wallet = React.forwardRef(function Wallet(
   )
 })
 
+export const Warning = React.forwardRef(function Warning(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={64}
+      height={64}
+      viewBox='0 0 64 64'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M32 61.867c16.495 0 29.867-13.372 29.867-29.867S48.495 2.133 32 2.133 2.133 15.505 2.133 32 15.505 61.867 32 61.867zM32 64c17.673 0 32-14.327 32-32C64 14.327 49.673 0 32 0 14.327 0 0 14.327 0 32c0 17.673 14.327 32 32 32z'
+        fill='#EC8600'
+      />
+      <circle cx={32} cy={43} r={1} fill='#EC8600' />
+      <path
+        d='M32 20v15'
+        stroke='#EC8600'
+        strokeWidth={2}
+        strokeLinecap='round'
+      />
+    </svg>
+  )
+})
+
 export const Weth = React.forwardRef(function Weth(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
