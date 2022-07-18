@@ -21,3 +21,4 @@ storybook-static
 !.yarn/versions
 .pnp.*
 .idea/
+.vscode/
