@@ -40,6 +40,7 @@
     "@lidofinance/lido-logo": "workspace:*",
     "@lidofinance/link": "workspace:*",
     "@lidofinance/loaders": "workspace:*",
+    "@lidofinance/main-menu": "workspace:*",
     "@lidofinance/modal": "workspace:*",
     "@lidofinance/pagination": "workspace:*",
     "@lidofinance/popover": "workspace:*",
