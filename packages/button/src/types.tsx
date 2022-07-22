@@ -39,6 +39,7 @@ export type ButtonProps = LidoComponentProps<
     loading?: boolean
     active?: boolean
     as?: never
+    href?: string
   }
 >
 
