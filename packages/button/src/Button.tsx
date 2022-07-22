@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import {
   ButtonStyle,
   ButtonContentStyle,
@@ -27,6 +27,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
     onClick,
     disabled,
     children,
+    href,
     ...rest
   } = props
 
@@ -35,6 +36,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
 
   return (
     <ButtonStyle
+      as={(href ? 'a' : 'button') as React.ElementType}
       $size={size}
       $variant={variant}
       $fullwidth={fullwidth}
@@ -46,6 +48,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
       disabled={disabled || loading}
       type='button'
       ref={ref}
+      href={href}
       {...rest}
     >
       <ButtonContentStyle $hidden={loading}>{children}</ButtonContentStyle>
