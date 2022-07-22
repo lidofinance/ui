@@ -36,7 +36,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
 
   return (
     <ButtonStyle
-      as={(href ? 'a' : 'button') as React.ElementType}
+      as={href ? ('a' as React.ElementType) : undefined}
       $size={size}
       $variant={variant}
       $fullwidth={fullwidth}
