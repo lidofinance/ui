@@ -28,7 +28,7 @@ export enum ButtonColor {
 }
 export type ButtonColors = keyof typeof ButtonColor
 
-export type ButtonProps = LidoComponentProps<
+export type ButtonButtonProps = LidoComponentProps<
   'button',
   {
     size?: ButtonSizes
@@ -39,9 +39,26 @@ export type ButtonProps = LidoComponentProps<
     loading?: boolean
     active?: boolean
     as?: never
-    href?: string
+    href?: never | undefined
   }
 >
+
+type ButtonLinkProps = LidoComponentProps<
+  'a',
+  {
+    size?: ButtonSizes
+    variant?: ButtonVariants
+    color?: ButtonColors
+    fullwidth?: boolean
+    square?: boolean
+    loading?: boolean
+    active?: boolean
+    as?: never
+    href: string
+  }
+>
+
+export type ButtonProps = ButtonButtonProps | ButtonLinkProps
 
 export type ButtonIconProps = {
   icon: React.ReactNode

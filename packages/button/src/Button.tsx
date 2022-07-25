@@ -4,7 +4,7 @@ import {
   ButtonContentStyle,
   ButtonLoaderStyle,
 } from './ButtonStyles'
-import { ButtonProps } from './types'
+import { ButtonButtonProps, ButtonProps } from './types'
 import { useRipple } from './useRipple'
 
 const loaderSizes = {
@@ -15,7 +15,10 @@ const loaderSizes = {
   lg: 'medium',
 } as const
 
-function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
+function Button(
+  props: ButtonProps,
+  ref?: ForwardedRef<HTMLButtonElement | HTMLLinkElement>
+) {
   const {
     size = 'md',
     variant = 'filled',
@@ -29,7 +32,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
     children,
     href,
     ...rest
-  } = props
+  } = props as ButtonButtonProps
 
   const { handleClick, ripple } = useRipple(props)
   const loaderSize = loaderSizes[size]
