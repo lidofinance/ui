@@ -17,7 +17,7 @@ const loaderSizes = {
 
 function Button(
   props: ButtonProps,
-  ref?: ForwardedRef<HTMLButtonElement | HTMLLinkElement>
+  ref?: ForwardedRef<HTMLButtonElement | HTMLAnchorElement>
 ) {
   const {
     size = 'md',

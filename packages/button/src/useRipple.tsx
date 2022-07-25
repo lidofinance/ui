@@ -11,7 +11,10 @@ export const useRipple: UseRipple = ({ onClick }) => {
   const [ripple, setRipple] = useState<React.ReactNode | null>(null)
 
   const handleClick = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    (
+      event: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
+        React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
       const button = event.currentTarget
       const rect = button.getBoundingClientRect()
       const diameter = Math.max(button.clientWidth, button.clientHeight)
