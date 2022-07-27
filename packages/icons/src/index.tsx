@@ -858,6 +858,124 @@ export const Eth = React.forwardRef(function Eth(
   )
 })
 
+export const Exodus = React.forwardRef(function Exodus(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={48}
+      height={48}
+      viewBox='0 0 48 48'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        d='M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24z'
+        fill='#1E1C32'
+      />
+      <g clipPath='url(#prefix__prefix__clip0_12052_1670)'>
+        <path
+          d='M38.755 17.375L25.98 9v4.683l8.195 5.326-.964 3.05H25.98v3.881h7.231l.964 3.051-8.195 5.326V39l12.775-8.35-2.089-6.637 2.09-6.637z'
+          fill='url(#prefix__prefix__paint0_linear_12052_1670)'
+        />
+        <path
+          d='M14.865 25.94h7.205v-3.881h-7.232l-.937-3.051 8.169-5.326V9L9.294 17.375l2.09 6.637-2.09 6.637L22.096 39v-4.683l-8.195-5.326.964-3.05z'
+          fill='url(#prefix__prefix__paint1_linear_12052_1670)'
+        />
+        <mask
+          id='prefix__a'
+          maskUnits='userSpaceOnUse'
+          x={9}
+          y={8}
+          width={30}
+          height={31}
+        >
+          <path
+            d='M38.755 17.375L25.98 9v4.683l8.195 5.326-.964 3.05H25.98v3.881h7.231l.964 3.051-8.195 5.326V39l12.775-8.35-2.089-6.637 2.09-6.637z'
+            fill='url(#prefix__prefix__paint2_linear_12052_1670)'
+          />
+          <path
+            d='M14.865 25.94h7.205v-3.881h-7.232l-.937-3.051 8.169-5.326V9L9.294 17.375l2.09 6.637-2.09 6.637L22.096 39v-4.683l-8.195-5.326.964-3.05z'
+            fill='url(#prefix__prefix__paint3_linear_12052_1670)'
+          />
+        </mask>
+        <g mask='url(#prefix__a)'>
+          <path
+            d='M38.56 8.999H9.31v30h29.25v-30z'
+            fill='url(#prefix__prefix__paint4_linear_12052_1670)'
+          />
+        </g>
+      </g>
+      <defs>
+        <linearGradient
+          id='prefix__prefix__paint0_linear_12052_1670'
+          x1={34.622}
+          y1={41.062}
+          x2={26.065}
+          y2={5.704}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#0B46F9' />
+          <stop offset={1} stopColor='#BBFBE0' />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint1_linear_12052_1670'
+          x1={34.622}
+          y1={41.062}
+          x2={26.065}
+          y2={5.704}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#0B46F9' />
+          <stop offset={1} stopColor='#BBFBE0' />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint2_linear_12052_1670'
+          x1={34.622}
+          y1={41.062}
+          x2={26.065}
+          y2={5.704}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#0B46F9' />
+          <stop offset={1} stopColor='#BBFBE0' />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint3_linear_12052_1670'
+          x1={34.622}
+          y1={41.062}
+          x2={26.065}
+          y2={5.704}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#0B46F9' />
+          <stop offset={1} stopColor='#BBFBE0' />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint4_linear_12052_1670'
+          x1={11.185}
+          y1={15.749}
+          x2={25.997}
+          y2={26.811}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop offset={0.12} stopColor='#8952FF' stopOpacity={0.87} />
+          <stop offset={1} stopColor='#DABDFF' stopOpacity={0} />
+        </linearGradient>
+        <clipPath id='prefix__prefix__clip0_12052_1670'>
+          <path
+            fill='#fff'
+            transform='translate(9.196 8.999)'
+            d='M0 0h29.609v30H0z'
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  )
+})
+
 export const External = React.forwardRef(function External(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>
@@ -2027,6 +2145,63 @@ export const OneInch = React.forwardRef(function OneInch(
         d='M11.181 12.908c.182.151.363.423.151.817-.12.212-.302.181-.575.06-.363-.181-2.542-1.452-4.509-2.754 2.24.787 4.51 1.635 4.872 1.816l.061.06z'
         fill='#fff'
       />
+    </svg>
+  )
+})
+
+export const OperaWallet = React.forwardRef(function OperaWallet(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={48}
+      height={48}
+      viewBox='0 0 48 48'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        d='M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24z'
+        fill='#F2F5FF'
+      />
+      <path
+        d='M19.326 32.001c-1.57-1.853-2.587-4.593-2.657-7.668v-.669c.07-3.074 1.086-5.814 2.657-7.668 2.036-2.645 5.065-4.322 8.446-4.322 2.08 0 4.026.635 5.69 1.74a14.143 14.143 0 00-9.41-3.614L24 9.799c-7.843 0-14.2 6.358-14.2 14.2 0 7.615 5.995 13.83 13.523 14.183a14.149 14.149 0 0010.14-3.597c-1.664 1.104-3.61 1.74-5.69 1.74-3.382 0-6.41-1.678-8.447-4.323z'
+        fill='url(#prefix__prefix__paint0_linear_12052_1639)'
+      />
+      <path
+        d='M19.325 15.997c1.303-1.538 2.987-2.466 4.826-2.466 4.133 0 7.484 4.687 7.484 10.468s-3.35 10.468-7.485 10.468c-1.838 0-3.522-.928-4.824-2.465 2.037 2.645 5.065 4.322 8.447 4.322 2.08 0 4.027-.634 5.69-1.738A14.165 14.165 0 0038.2 24c0-4.206-1.83-7.985-4.735-10.585-1.666-1.105-3.612-1.74-5.693-1.74-3.381 0-6.41 1.678-8.447 4.323z'
+        fill='url(#prefix__prefix__paint1_linear_12052_1639)'
+      />
+      <defs>
+        <linearGradient
+          id='prefix__prefix__paint0_linear_12052_1639'
+          x1={21.632}
+          y1={10.262}
+          x2={21.632}
+          y2={37.785}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop offset={0.3} stopColor='#FF1B2D' />
+          <stop offset={0.438} stopColor='#FA1A2C' />
+          <stop offset={0.594} stopColor='#ED1528' />
+          <stop offset={0.758} stopColor='#D60E21' />
+          <stop offset={0.927} stopColor='#B70519' />
+          <stop offset={1} stopColor='#A70014' />
+        </linearGradient>
+        <linearGradient
+          id='prefix__prefix__paint1_linear_12052_1639'
+          x1={28.762}
+          y1={11.884}
+          x2={28.762}
+          y2={36.227}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#9C0000' />
+          <stop offset={0.7} stopColor='#FF4B4B' />
+        </linearGradient>
+      </defs>
     </svg>
   )
 })
