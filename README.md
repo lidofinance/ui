@@ -1,4 +1,4 @@
-# Lido UI Components
+# Lido UI Components &emsp;❤️
 
 > React components for Lido Finance projects.
 
