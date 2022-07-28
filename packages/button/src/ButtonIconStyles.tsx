@@ -6,6 +6,7 @@ export const ButtonWrapperStyle = styled.span`
   justify-content: center;
   min-height: 1em;
   min-width: 1em;
+  overflow: hidden;
 `
 
 export const ButtonIconStyle = styled.span<{ $square: boolean }>`
