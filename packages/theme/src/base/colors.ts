@@ -16,7 +16,7 @@ const colors = {
   errorHover: '#d44c4d',
   errorContrast: '#fff',
 
-  warning: '#ffac2f',
+  warning: '#EC8600',
   warningHover: '#f0a431',
   warningContrast: '#fff',
 
