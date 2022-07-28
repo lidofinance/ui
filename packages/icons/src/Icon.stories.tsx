@@ -181,12 +181,12 @@ export const CryptoWallets: Story = () => {
     MathWalletCircleInversion,
     Coin98Circle,
     Ambire,
+    Zengo,
     Blochainwallet,
     BlochainwalletInversion,
     Exodus,
     OperaWallet,
     Unstoppabledomains,
-    Zengo,
   }) as IconVariants[]
 
   return (
