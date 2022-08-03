@@ -39,8 +39,9 @@ jobs:
           yarn release
       - name: Build Storybook
         run: yarn build-storybook
-      - name: Deploy Storybook
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+
+      - name: Deploy to GitHub Pages
+        uses: lidofinance/github-pages-action@v1
         with:
           branch: gh-pages
           folder: storybook-static
