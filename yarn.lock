@@ -3804,6 +3804,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/chip@workspace:packages/chip":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/chip@workspace:packages/chip"
+  dependencies:
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@lidofinance/utils": "workspace:*"
+    "@storybook/react": 6.3.7
+    "@types/react": 17.0.19
+    "@types/react-dom": 17.0.9
+    "@types/react-is": 17.0.2
+    "@types/styled-components": 5.1.12
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/container@workspace:*, @lidofinance/container@workspace:packages/container":
   version: 0.0.0-use.local
   resolution: "@lidofinance/container@workspace:packages/container"
