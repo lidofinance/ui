@@ -3924,7 +3924,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/icons@workspace:*, @lidofinance/icons@workspace:^, @lidofinance/icons@workspace:packages/icons":
+"@lidofinance/icons@workspace:*, @lidofinance/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@lidofinance/icons@workspace:packages/icons"
   dependencies:
@@ -4118,7 +4118,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lidofinance/main-menu@workspace:packages/main-menu"
   dependencies:
-    "@lidofinance/icons": "workspace:^"
+    "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@lidofinance/utils": "workspace:*"
     "@storybook/react": 6.3.7
