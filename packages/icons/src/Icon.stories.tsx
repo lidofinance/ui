@@ -163,6 +163,7 @@ export const CryptoWallets: Story = () => {
     Unstoppabledomains,
     Zengo,
     Gamestop,
+    XdefiWallet,
   } = components
   const iconKeys = Object.keys({
     MetaMask,
@@ -189,6 +190,7 @@ export const CryptoWallets: Story = () => {
     OperaWallet,
     Unstoppabledomains,
     Gamestop,
+    XdefiWallet,
   }) as IconVariants[]
 
   return (
