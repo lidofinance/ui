@@ -29,7 +29,6 @@
   "peerDependencies": {
     "react": "16 || 17",
     "react-dom": "16 || 17",
-    "react-is": "16 || 17",
     "styled-components": "5"
   },
   "devDependencies": {
