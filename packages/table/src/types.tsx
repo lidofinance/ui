@@ -18,15 +18,46 @@ export enum TableTextColor {
 }
 export type TableTextColors = keyof typeof TableTextColor
 
+export enum TrHighlight {
+  positive,
+  negative,
+  warning,
+}
+export type TrHighlights = keyof typeof TrHighlight
+
+export enum ThSortDir {
+  ASC,
+  DESC,
+}
+export type ThSortDirs = keyof typeof ThSortDir
+
+export enum ThTdVariant {
+  string,
+  icon,
+}
+export type ThTdVariants = keyof typeof ThTdVariant
+
 export type TableProps = LidoComponentProps<'table'>
-export type TheadProps = LidoComponentProps<'thead'>
+export type TheadProps = LidoComponentProps<
+  'thead',
+  {
+    sticky?: boolean
+  }
+>
 export type TbodyProps = LidoComponentProps<'tbody'>
 export type TfootProps = LidoComponentProps<'tfoot'>
-export type TrProps = LidoComponentProps<'tr'>
+export type TrProps = LidoComponentProps<
+  'tr',
+  {
+    highlight?: TrHighlights
+  }
+>
 export type ThProps = LidoComponentProps<
   'th',
   {
     align?: TableAligns
+    sortDir?: ThSortDirs
+    variant?: ThTdVariants
   }
 >
 export type TdProps = LidoComponentProps<
@@ -34,5 +65,7 @@ export type TdProps = LidoComponentProps<
   {
     align?: TableAligns
     textColor?: TableTextColors
+    variant?: ThTdVariants
+    numeric?: boolean
   }
 >
