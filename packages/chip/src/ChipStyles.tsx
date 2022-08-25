@@ -17,7 +17,7 @@ const ChipVariantsStyle = {
   `,
   gray: css`
     background: ${({ theme }) => theme.colors.shadowLight};
-    color: ${({ theme }) => theme.colors.primaryHover};
+    color: ${({ theme }) => theme.colors.textSecondary};
   `,
   warning: css`
     background: ${({ theme }) => theme.colors.warning};
@@ -39,24 +39,4 @@ export const ChipWrapperStyle = styled.div<InjectedPropsTr>`
 
   cursor: ${({ $interactive }) => ($interactive ? 'pointer' : 'auto')};
   ${({ $variant }) => ChipVariantsStyle[$variant]}
-`
-
-const decoratorCSS = css`
-  flex-grow: 0;
-  flex-shrink: 0;
-  cursor: inherit;
-  display: flex;
-  align-items: center;
-`
-
-export const ChipLeftDecoratorStyle = styled.span`
-  ${decoratorCSS}
-  padding-right: 8px;
-  margin: -0.2em 0;
-`
-
-export const ChipRightDecoratorStyle = styled.span`
-  ${decoratorCSS}
-  padding-left: 8px;
-  margin: -0.2em 0;
 `

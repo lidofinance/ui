@@ -1,5 +1,4 @@
 import { Story, Meta } from '@storybook/react'
-import { Question, ArrowTop } from '@lidofinance/icons'
 import { ChipProps, ChipVariant } from './types'
 import Chip from './Chip'
 
@@ -24,15 +23,6 @@ export default {
 
 export const Basic: Story<ChipProps> = (props, options) => (
   <Chip
-    {...props}
-    onClick={options.args.interactive ? () => void 0 : undefined}
-  />
-)
-
-export const WithDecorators: Story<ChipProps> = (props, options) => (
-  <Chip
-    leftDecorator={<ArrowTop />}
-    rightDecorator={<Question />}
     {...props}
     onClick={options.args.interactive ? () => void 0 : undefined}
   />

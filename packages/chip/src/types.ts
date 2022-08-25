@@ -16,7 +16,5 @@ export type ChipProps = LidoComponentProps<
     wrapperRef?: React.RefObject<HTMLLabelElement>
     children?: never
     variant?: ChipVariants
-    leftDecorator?: React.ReactNode
-    rightDecorator?: React.ReactNode
   }
 >
