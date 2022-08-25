@@ -76,7 +76,7 @@ export const Base: Story<TdProps> = (props, options) => {
                 highlight={isShowTrHighlights && TrHighlight[index % 3]}
               >
                 <Td {...props} onClick={() => void 0}>
-                  01-13-2021 01-13-2021
+                  01-13-2021
                   <br />
                   Stake
                 </Td>
