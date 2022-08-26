@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
       - name: Set up node
         uses: actions/setup-node@v2
         with:
@@ -19,6 +23,8 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
       - name: Run lint
         run: yarn lint
       - name: Build Components
