@@ -29,6 +29,10 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
     children,
     ...rest
   } = props
+  /*
+  this line is fine, but the following is not
+  if (something) {
+  */
 
   const { id, disabled = false } = props
   const wrapperProps = { className, style }
