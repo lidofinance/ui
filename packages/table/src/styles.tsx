@@ -64,8 +64,6 @@ export const ThTdContentStyle = styled.div`
 
 const TdThVariants = {
   string: css`
-    max-width: 0;
-
     ${ThTdContentStyle} {
       white-space: nowrap;
       overflow: hidden;
