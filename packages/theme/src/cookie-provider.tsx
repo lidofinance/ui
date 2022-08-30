@@ -26,6 +26,7 @@ export type ThemeProviderProps = {
 }
 
 export const CookieThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+  // TODO: via COOKIE_THEME_MANUAL_KEY
   const cookieLidoThemeManual = document.cookie.replace(
     /(?:(?:^|.*;\s*)lido-theme-manual\s*=\s*([^;]*).*$)|^.*$/,
     '$1'
