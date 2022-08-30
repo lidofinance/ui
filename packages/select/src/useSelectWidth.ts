@@ -1,5 +1,4 @@
-import { useCallback, useState, useEffect } from 'react'
-import ResizeObserver from 'resize-observer-polyfill'
+import React, { useCallback, useState, useEffect } from 'react'
 
 export const useSelectWidth = <T extends HTMLElement>(
   opened: boolean,

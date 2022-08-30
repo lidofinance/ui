@@ -1,7 +1,15 @@
 module.exports = {
   cacheDirectory: '.jest-cache',
   coverageDirectory: '.jest-coverage',
-  coveragePathIgnorePatterns: ['<rootDir>/packages/(?:.+?)/dist/'],
+  // forked from default
+  // https://jestjs.io/docs/configuration#testmatch-arraystring
+  testMatch: [
+    '**/__tests__/**/*.[jt]s',
+    '**/__tests__/**/*.[jt]sx',
+    '**/?(*.)+(spec|test).[jt]s',
+    '**/?(*.)+(spec|test).[jt]sx',
+  ],
+  collectCoverageFrom: ['packages/**/*'],
   coverageReporters: ['html', 'text'],
   coverageThreshold: {
     global: {
@@ -11,9 +19,11 @@ module.exports = {
       statements: 100,
     },
   },
-  testPathIgnorePatterns: ['<rootDir>/packages/(?:.+?)/dist/'],
   transform: {
-    '^.+\\.((js|ts)x?)$': 'babel-jest',
+    '^.+\\.((js|ts)x?)$': ['@swc/jest'],
+  },
+  moduleNameMapper: {
+    '^@lidofinance/(.*)$': '<rootDir>/packages/$1/src',
   },
   testEnvironment: 'jest-environment-jsdom',
 }

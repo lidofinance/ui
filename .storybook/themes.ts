@@ -1,6 +1,6 @@
 import { DocsContainer } from './components/DocContainer'
 import { ThemeVars, create } from '@storybook/theming'
-import { themeLight, themeDark, Theme } from '../packages/theme/dist/esm'
+import { themeLight, themeDark, Theme } from '@lidofinance/theme'
 
 const constructor = (base: ThemeVars['base'], theme: Theme): ThemeVars => ({
   base,

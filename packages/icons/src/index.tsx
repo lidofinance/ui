@@ -1,6 +1,6 @@
 // THIS FILE IS AUTO GENERATED
 
-import * as React from 'react'
+import React from 'react'
 
 export const Ambire = React.forwardRef(function Ambire(
   props: React.SVGProps<SVGSVGElement>,

@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import withStyledSystem from './withStyledSystem'
 import { ThemeProvider, themeDefault } from '@lidofinance/theme'

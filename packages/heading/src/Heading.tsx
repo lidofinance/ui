@@ -1,3 +1,4 @@
+import React from 'react'
 import { ForwardedRef, forwardRef } from 'react'
 import { HeadingStyle, H1Style, H2Style, H3Style } from './HeadingStyles'
 import { HeadingProps, HProps } from './types'
