@@ -22,3 +22,5 @@ storybook-static
 .pnp.*
 .idea/
 .vscode/
+
+.swc/

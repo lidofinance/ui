@@ -1,3 +1,4 @@
+import React from 'react'
 import { ForwardedRef, forwardRef } from 'react'
 import { InlineLoader } from '@lidofinance/loaders'
 import { Tooltip } from '@lidofinance/tooltip'

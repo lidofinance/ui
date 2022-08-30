@@ -1,3 +1,4 @@
+import React from 'react'
 import { ForwardedRef, forwardRef } from 'react'
 import { IdenticonProps } from './types'
 import { IdenticonStyle } from './IdenticonStyles'

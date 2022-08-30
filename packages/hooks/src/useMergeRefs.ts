@@ -1,4 +1,5 @@
 import { useMergeRefs as useCallbackMergeRefs } from 'use-callback-ref'
+import React from 'react'
 
 export const useMergeRefs = <T extends HTMLElement>(
   refs: (React.ForwardedRef<T | null> | undefined)[]

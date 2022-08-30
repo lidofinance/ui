@@ -1,3 +1,4 @@
+import React from 'react'
 import { ForwardedRef, forwardRef, useCallback } from 'react'
 import { PopupMenuItem } from '@lidofinance/popup-menu'
 import { OptionProps } from './types'

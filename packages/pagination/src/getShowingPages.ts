@@ -1,6 +1,9 @@
 import { SiblingsCount } from './types'
 
-export const arrayPusher = () => {
+export const arrayPusher = (): ((
+  arr: unknown[],
+  element: unknown
+) => number) => {
   const innerArray: unknown[] = []
 
   return (arr: unknown[], element: unknown) => {
@@ -13,9 +16,9 @@ export const arrayPusher = () => {
   }
 }
 
-export const numberSort = (a: number, b: number) => a - b
+export const numberSort = (a: number, b: number): number => a - b
 
-export const range = (start: number, end: number) => {
+export const range = (start: number, end: number): number[] => {
   const length = end - start + 1
   return Array.from({ length }, (_, i) => start + i)
 }

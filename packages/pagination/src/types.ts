@@ -1,4 +1,5 @@
 import { LidoComponentProps } from '@lidofinance/utils'
+import React from 'react'
 
 export type SiblingsCount = 0 | 1
 

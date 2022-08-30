@@ -1,3 +1,4 @@
+import React from 'react'
 import { ForwardedRef, forwardRef } from 'react'
 import { ContainerStyle } from './ContainerStyles'
 import { ContainerProps } from './types'

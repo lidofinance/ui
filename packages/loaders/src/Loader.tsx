@@ -1,3 +1,4 @@
+import React from 'react'
 import { ForwardedRef, forwardRef } from 'react'
 import { LoaderProps, LoaderSize } from './types'
 import {

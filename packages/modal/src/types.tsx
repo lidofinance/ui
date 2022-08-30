@@ -4,6 +4,7 @@ import {
   TransitionInnerProps,
 } from '@lidofinance/transition'
 import { ButtonProps } from '@lidofinance/button'
+import React from 'react'
 
 export type ModalOverlayOwnProps = LidoComponentProps<
   'div',

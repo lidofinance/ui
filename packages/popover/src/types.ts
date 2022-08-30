@@ -3,6 +3,7 @@ import {
   TransitionWrapperProps,
   TransitionInnerProps,
 } from '@lidofinance/transition'
+import React from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum PopoverOffset {

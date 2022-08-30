@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { useInterceptFocus } from '@lidofinance/hooks'
 import { FOCUSABLE_ELEMENTS } from './constants'
 import { PopupMenuProps } from './types'
@@ -33,8 +33,9 @@ export const usePopupFocus = <T extends HTMLDivElement>(
 
       const currentElement = document.activeElement
       const focusedItemIndex =
-        currentElement instanceof HTMLElement &&
-        focusableNodes.indexOf(currentElement)
+        currentElement instanceof HTMLElement
+          ? focusableNodes.indexOf(currentElement)
+          : -1
 
       const activeItemIndex = focusableNodes.findIndex(
         (node) => node.getAttribute('aria-selected') === 'true'
