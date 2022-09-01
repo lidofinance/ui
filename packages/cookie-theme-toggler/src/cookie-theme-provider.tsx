@@ -1,8 +1,6 @@
 import { FC, createContext, useCallback, useState, useMemo } from 'react'
 import {
   DEFAULT_THEME,
-  COOKIE_THEME_MANUAL_KEY,
-  COOKIES_THEME_EXPIRES_DAYS,
   ThemeProvider,
   themeLight,
   themeDark,
@@ -10,6 +8,10 @@ import {
   ThemeName,
 } from '@lidofinance/theme'
 import { getThemeNameFromCookies } from './utils'
+import {
+  COOKIE_THEME_MANUAL_KEY,
+  COOKIES_THEME_EXPIRES_DAYS,
+} from './constants'
 
 const themeMap: Record<ThemeName, Theme> = {
   light: themeLight,
