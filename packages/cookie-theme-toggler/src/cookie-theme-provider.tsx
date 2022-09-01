@@ -37,7 +37,7 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
   let themeNameCookie = null
 
   if (typeof window !== 'undefined') {
-    themeNameCookie = getThemeNameFromCookies() as ThemeName
+    themeNameCookie = getThemeNameFromCookies()
 
     if (document.location.host.indexOf('localhost') === 0) {
       topLevelDomain = 'localhost'
@@ -54,14 +54,14 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
     themeNameCookie || themeNameParent || DEFAULT_THEME
   )
 
+  console.log('themeName: ', themeName)
+
   // remember the theme on manual toggle, ignore system theme changes
   const toggleTheme = useCallback(() => {
     const _themeName = themeName === 'light' ? 'dark' : 'light'
     setThemeName(_themeName)
 
-    if (typeof window !== 'undefined') {
-      document.cookie = `${COOKIE_THEME_MANUAL_KEY}=${_themeName};expires=${COOKIES_THEME_EXPIRES_DAYS};path=/;domain=${topLevelDomain};samesite=None;secure;`
-    }
+    document.cookie = `${COOKIE_THEME_MANUAL_KEY}=${_themeName};expires=${COOKIES_THEME_EXPIRES_DAYS};path=/;domain=${topLevelDomain};samesite=None;secure;`
   }, [themeName, topLevelDomain])
 
   const value = useMemo(

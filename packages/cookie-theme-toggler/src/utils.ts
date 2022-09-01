@@ -1,9 +1,14 @@
-import { COOKIE_THEME_MANUAL_KEY } from '@lidofinance/theme'
+import { ThemeName } from '@lidofinance/theme'
+import { COOKIE_THEME_MANUAL_KEY } from './constants'
 
-export const getThemeNameFromCookies = (): string => {
-  const re = new RegExp(
-    '/(?:(?:^|.*;\\s*)' + COOKIE_THEME_MANUAL_KEY + '\\s*=\\s*([^;]*).*$)|^.*$/'
+export const getThemeNameFromCookies = (): ThemeName | null => {
+  const match = document.cookie.match(
+    new RegExp('(^| )' + COOKIE_THEME_MANUAL_KEY + '=([^;]+)')
   )
 
-  return document.cookie.replace(re, '$1')
+  if (!match) {
+    return null
+  }
+
+  return match[2] as ThemeName
 }
