@@ -1,5 +1,5 @@
-import { Button } from '../../../button/src'
 import styled from 'styled-components'
+import { Button } from '@lidofinance/button'
 
 export const CookieThemeTogglerStyle = styled((props) => (
   <Button {...props} />

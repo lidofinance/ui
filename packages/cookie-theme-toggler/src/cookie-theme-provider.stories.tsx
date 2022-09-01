@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import { Block } from '../styles'
+import { Block } from '@lidofinance/block'
 
 import { CookieThemeProvider } from './cookie-theme-provider'
 import { ThemeToggler } from './cookie-theme-toggler'

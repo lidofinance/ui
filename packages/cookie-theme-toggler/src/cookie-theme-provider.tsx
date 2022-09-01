@@ -3,10 +3,12 @@ import {
   DEFAULT_THEME,
   COOKIE_THEME_MANUAL_KEY,
   COOKIES_THEME_EXPIRES_DAYS,
-} from '../constants'
-import { ThemeProvider } from '../provider'
-import { themeLight, themeDark } from '../themes'
-import { Theme, ThemeName } from '../types'
+  ThemeProvider,
+  themeLight,
+  themeDark,
+  Theme,
+  ThemeName,
+} from '@lidofinance/theme'
 import { getThemeNameFromCookies } from './utils'
 
 const themeMap: Record<ThemeName, Theme> = {

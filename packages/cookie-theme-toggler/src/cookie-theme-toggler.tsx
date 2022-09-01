@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Dark, Light } from '../../../icons'
+import { Dark, Light } from '"@lidofinance/icons'
 import { CookieThemeTogglerStyle } from './styles'
 import { useThemeToggle } from './hooks'
 

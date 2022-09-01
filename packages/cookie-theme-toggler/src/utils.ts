@@ -1,4 +1,4 @@
-import { COOKIE_THEME_MANUAL_KEY } from '../constants'
+import { COOKIE_THEME_MANUAL_KEY } from '@lidofinance/theme'
 
 export const getThemeNameFromCookies = (): string => {
   const re = new RegExp(
