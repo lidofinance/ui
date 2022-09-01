@@ -1,9 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import { Block } from '../../../block'
-import { Checkbox } from '../../../checkbox'
-import { Input } from '../../../input'
-import { Text } from '../../../text'
+import { Block } from '../styles'
 
 import { CookieThemeProvider } from './cookie-theme-provider'
 import { ThemeToggler } from './cookie-theme-toggler'
@@ -23,11 +20,7 @@ export const Providers: Story = () => (
       <br />
       <br />
       <Block>
-        <Text>Some text</Text>
-        <br />
-        <Checkbox label='Some checkbox' />
-        <br />
-        <Input label='Some input' />
+        The block depended by theme cookie
       </Block>
     </CookieThemeProvider>
   </>

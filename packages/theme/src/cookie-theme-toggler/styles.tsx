@@ -1,4 +1,4 @@
-import { Button } from '../../../button'
+import { Button } from '../../../button/src'
 import styled from 'styled-components'
 
 export const CookieThemeTogglerStyle = styled((props) => (
