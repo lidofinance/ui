@@ -7,6 +7,7 @@ import {
   Theme,
   ThemeName,
 } from '@lidofinance/theme'
+import { useSystemTheme } from '@lidofinance/hooks'
 import { getThemeNameFromCookies } from './utils'
 import {
   COOKIE_THEME_MANUAL_KEY,
@@ -37,6 +38,8 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
   let topLevelDomain: string | null = null
   let themeNameCookie = null
 
+  const systemThemeName = useSystemTheme()
+
   if (typeof window !== 'undefined') {
     themeNameCookie = getThemeNameFromCookies()
 
@@ -55,7 +58,7 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
   }
 
   const [themeName, setThemeName] = useState<ThemeName>(
-    themeNameCookie || themeNameParent || DEFAULT_THEME
+    themeNameCookie || themeNameParent || systemThemeName || DEFAULT_THEME
   )
 
   // remember the theme on manual toggle, ignore system theme changes
