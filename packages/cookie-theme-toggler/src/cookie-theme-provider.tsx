@@ -59,13 +59,7 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
       topLevelDomain = 'localhost'
     } else {
       // Get host with dot in first position
-      topLevelDomain = `.${document.location.host
-        .split('.')
-        .slice(-2)
-        .join('.')}`
-
-      // Remove port
-      topLevelDomain = topLevelDomain.split(':').slice(0, 1).join()
+      topLevelDomain = `.${location.hostname.split('.').slice(-2).join('.')}`
     }
   }
 
