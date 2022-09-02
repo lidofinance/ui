@@ -3834,7 +3834,6 @@ __metadata:
   dependencies:
     "@lidofinance/block": "workspace:*"
     "@lidofinance/button": "workspace:*"
-    "@lidofinance/hooks": "workspace:*"
     "@lidofinance/icons": "workspace:*"
     "@lidofinance/theme": "workspace:*"
     "@storybook/react": 6.3.7
