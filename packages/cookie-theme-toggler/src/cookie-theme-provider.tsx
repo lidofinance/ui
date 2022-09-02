@@ -1,4 +1,11 @@
-import { FC, createContext, useCallback, useState, useMemo } from 'react'
+import {
+  FC,
+  createContext,
+  useCallback,
+  useState,
+  useMemo,
+  useEffect,
+} from 'react'
 import {
   DEFAULT_THEME,
   ThemeProvider,
@@ -6,8 +13,9 @@ import {
   themeDark,
   Theme,
   ThemeName,
+  LIGHT,
+  DARK,
 } from '@lidofinance/theme'
-import { useSystemTheme } from '@lidofinance/hooks'
 import { getThemeNameFromCookies } from './utils'
 import {
   COOKIE_THEME_MANUAL_KEY,
@@ -36,11 +44,15 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
   themeNameParent,
 }) => {
   let topLevelDomain: string | null = null
-  let themeNameCookie = null
-
-  const systemThemeName = useSystemTheme()
+  let themeNameCookie: ThemeName | null = null
+  let systemThemeName: ThemeName | null = null
 
   if (typeof window !== 'undefined') {
+    // Get system theme
+    const mql = window.matchMedia('(prefers-color-scheme: dark)')
+    systemThemeName = mql.matches ? (DARK as ThemeName) : (LIGHT as ThemeName)
+
+    // Get from cookie
     themeNameCookie = getThemeNameFromCookies()
 
     if (document.location.host.indexOf('localhost') === 0) {
@@ -60,6 +72,14 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
   const [themeName, setThemeName] = useState<ThemeName>(
     themeNameCookie || themeNameParent || systemThemeName || DEFAULT_THEME
   )
+
+  // Noticing browser preferences on hydration
+  // Reacting to changing preferences
+  useEffect(() => {
+    if (systemThemeName) {
+      setThemeName(systemThemeName)
+    }
+  }, [systemThemeName])
 
   // remember the theme on manual toggle, ignore system theme changes
   const toggleTheme = useCallback(() => {
