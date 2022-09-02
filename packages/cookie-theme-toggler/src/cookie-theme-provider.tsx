@@ -43,13 +43,18 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
     if (document.location.host.indexOf('localhost') === 0) {
       topLevelDomain = 'localhost'
     } else {
-      // With dot in first position
+      // Get host with dot in first position
       topLevelDomain = `.${document.location.host
         .split('.')
-        .slice(-2, 0)
-        .join()}`
+        .slice(-2)
+        .join('.')}`
+
+      // Remove port
+      topLevelDomain = topLevelDomain.split(':').slice(0, 1).join()
     }
   }
+
+  console.log('topLevelDomain: ', topLevelDomain)
 
   const [themeName, setThemeName] = useState<ThemeName>(
     themeNameCookie || themeNameParent || DEFAULT_THEME
