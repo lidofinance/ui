@@ -26,6 +26,7 @@ export type ThemeContext = {
 export const ThemeToggleContext = createContext({} as ThemeContext)
 
 export type ThemeProviderProps = {
+  // Use themeNameParent if you need get cookie in SSR
   themeNameParent?: ThemeName
 }
 
@@ -54,14 +55,14 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
     themeNameCookie || themeNameParent || DEFAULT_THEME
   )
 
-  console.log('themeName: ', themeName)
-
   // remember the theme on manual toggle, ignore system theme changes
   const toggleTheme = useCallback(() => {
     const _themeName = themeName === 'light' ? 'dark' : 'light'
     setThemeName(_themeName)
 
-    document.cookie = `${COOKIE_THEME_MANUAL_KEY}=${_themeName};expires=${COOKIES_THEME_EXPIRES_DAYS};path=/;domain=${topLevelDomain};samesite=None;secure;`
+    if (typeof window !== 'undefined') {
+      document.cookie = `${COOKIE_THEME_MANUAL_KEY}=${_themeName};expires=${COOKIES_THEME_EXPIRES_DAYS};path=/;domain=${topLevelDomain};samesite=None;secure;`
+    }
   }, [themeName, topLevelDomain])
 
   const value = useMemo(

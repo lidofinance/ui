@@ -16,12 +16,10 @@ export const Providers: Story = () => (
       <span role='img' aria-label='right'>
         👉
       </span>{' '}
-      <ThemeToggler />
+      <ThemeToggler /> and reload page!
       <br />
       <br />
-      <Block>
-        The block depended by theme cookie
-      </Block>
+      <Block>The block depended by theme cookie</Block>
     </CookieThemeProvider>
   </>
 )
