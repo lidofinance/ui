@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 import { Button } from '@lidofinance/button'
 
-export const CookieThemeTogglerStyle = styled((props) => (
-  <Button {...props} />
-)).attrs({
+export const CookieThemeTogglerStyle = styled(Button).attrs({
   variant: 'text',
   size: 'xs',
 })`
