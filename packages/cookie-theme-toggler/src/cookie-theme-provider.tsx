@@ -54,8 +54,6 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
     }
   }
 
-  console.log('topLevelDomain: ', topLevelDomain)
-
   const [themeName, setThemeName] = useState<ThemeName>(
     themeNameCookie || themeNameParent || DEFAULT_THEME
   )
