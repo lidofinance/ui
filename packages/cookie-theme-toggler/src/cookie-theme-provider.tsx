@@ -16,6 +16,7 @@ import {
   themeLight,
   ThemeProvider,
 } from '@lidofinance/theme'
+import { useSystemTheme } from '@lidofinance/hooks'
 import { getThemeNameFromCookies } from './utils'
 import {
   COOKIE_THEME_MANUAL_KEY,
@@ -45,12 +46,14 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
 }) => {
   let topLevelDomain: string | null = null
   let themeNameCookie: THEME | null = null
-  let systemThemeName: THEME | null = null
+  let systemThemeName: THEME | undefined = useSystemTheme()
 
   if (typeof window !== 'undefined') {
-    // Get system theme
-    const mql = window.matchMedia('(prefers-color-scheme: dark)')
-    systemThemeName = mql.matches ? (DARK as THEME) : (LIGHT as THEME)
+    if (!systemThemeName) {
+      // Get system theme (fix for first renders)
+      const mql = window.matchMedia('(prefers-color-scheme: dark)')
+      systemThemeName = mql.matches ? (DARK as THEME) : (LIGHT as THEME)
+    }
 
     // Get from cookie
     themeNameCookie = getThemeNameFromCookies()

@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "@lidofinance/button": "workspace:*",
+    "@lidofinance/hooks": "workspace:*",
     "@lidofinance/icons": "workspace:*",
     "@lidofinance/theme": "workspace:*"
   },
