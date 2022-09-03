@@ -10,7 +10,6 @@ import {
   DARK,
   DEFAULT_THEME_NAME,
   LIGHT,
-  Theme,
   THEME,
   themeDark,
   themeLight,
@@ -19,11 +18,6 @@ import {
 import { getThemeNameFromCookies } from './utils'
 import { initColors } from '@lidofinance/theme'
 import { updateGlobalTheme } from '../../theme/src/document-head-contents/element-theme-script'
-
-const themeMap: Record<THEME, Theme> = {
-  light: themeLight,
-  dark: themeDark,
-}
 
 export type ThemeContext = {
   toggleTheme: () => void
@@ -47,6 +41,7 @@ export const CookieThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
   const [themeName, setThemeName] = useState<THEME>(
     initialTheme || DEFAULT_THEME_NAME
   )
+  const [isAutoDetectedTheme, setIsAutoDetectedTheme] = useState(true)
 
   console.log('using theme', themeName)
 
@@ -67,6 +62,9 @@ export const CookieThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
           initialTheme ||
           systemThemeName ||
           DEFAULT_THEME_NAME
+      )
+      setIsAutoDetectedTheme(
+        overrideTheme !== undefined || themeNameCookie !== undefined
       )
     }
     mql.addEventListener('change', setTheme)
@@ -90,7 +88,17 @@ export const CookieThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
 
   return (
     <ThemeToggleContext.Provider value={value}>
-      <ThemeProvider theme={themeMap[themeName]}>{children}</ThemeProvider>
+      <ThemeProvider
+        isAutoDetectedTheme={isAutoDetectedTheme}
+        theme={
+          {
+            light: themeLight,
+            dark: themeDark,
+          }[themeName]
+        }
+      >
+        {children}
+      </ThemeProvider>
     </ThemeToggleContext.Provider>
   )
 }

@@ -6,6 +6,8 @@ export const themeLight = {
   name: ThemeName.light,
   colors: {
     ...themeBase.colors,
+    darkThemeOpacity: '0',
+    lightThemeOpacity: '1',
 
     secondary: '#273852',
     secondaryHover: '#212f45',
@@ -44,6 +46,8 @@ export const themeDark = {
   name: ThemeName.dark,
   colors: {
     ...themeBase.colors,
+    darkThemeOpacity: '1',
+    lightThemeOpacity: '0',
 
     secondary: 'rgba(255, 255, 255, .8)',
     secondaryHover: '#fff',

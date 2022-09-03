@@ -1,4 +1,6 @@
 const colors = {
+  darkThemeOpacity: '0',
+  lightThemeOpacity: '1',
   primary: '#00a3ff',
   primaryHover: '#009bf2',
   primaryContrast: '#fff',
