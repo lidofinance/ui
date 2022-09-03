@@ -70,10 +70,10 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
   // Noticing browser preferences on hydration
   // Reacting to changing preferences
   useEffect(() => {
-    if (systemThemeName) {
+    if (!themeNameCookie && !themeNameParent && systemThemeName) {
       setThemeName(systemThemeName)
     }
-  }, [systemThemeName])
+  }, [systemThemeName, themeNameCookie, themeNameParent])
 
   // remember the theme on manual toggle, ignore system theme changes
   const toggleTheme = useCallback(() => {
