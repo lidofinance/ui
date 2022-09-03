@@ -28,7 +28,6 @@
     "postinstall": "husky install",
     "release": "semantic-release",
     "release:dry": "yarn release --dry-run"
-
   },
   "peerDependencies": {
     "react": "16 || 17 || 18",

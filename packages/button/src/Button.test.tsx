@@ -12,5 +12,5 @@ it('renders correctly', () => {
     </ThemeProvider>
   )
 
-  expect(container.firstChild).toMatchSnapshot()
+  expect(container.firstChild?.firstChild).toMatchSnapshot()
 })

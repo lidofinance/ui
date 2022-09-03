@@ -15,7 +15,7 @@ export const CheckboxIconStyle = styled(Check)`
   width: 24px;
   border-radius: 4px;
   transition: box-shadow 0.1s ease, background-color 0.1s ease;
-  fill: ${({ theme }) => theme.colors.primaryContrast};
+  fill: var(--lido-color-primaryContrast);
 `
 
 export const CheckboxInputStyle = styled.input`
@@ -30,12 +30,12 @@ export const CheckboxInputStyle = styled.input`
   }
 
   label:hover &:not(:disabled):not(:checked) + ${CheckboxIconStyle} {
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.borderHover};
+    box-shadow: inset 0 0 0 1px var(--lido-color-borderHover);
   }
 
   & + ${CheckboxIconStyle} {
-    background-color: ${({ theme }) => theme.colors.controlBg};
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border};
+    background-color: var(--lido-color-controlBg);
+    box-shadow: inset 0 0 0 1px var(--lido-color-border);
 
     path {
       opacity: 0;
@@ -43,7 +43,7 @@ export const CheckboxInputStyle = styled.input`
   }
 
   &:checked + ${CheckboxIconStyle} {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: var(--lido-color-primary);
     box-shadow: none;
 
     path {
@@ -57,10 +57,10 @@ export const CheckboxInputStyle = styled.input`
   }
 
   &:focus-visible + ${CheckboxIconStyle} {
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.primary};
+    box-shadow: inset 0 0 0 1px var(--lido-color-primary);
   }
 
   &:focus-visible:checked + ${CheckboxIconStyle} {
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.borderHover};
+    box-shadow: inset 0 0 0 1px var(--lido-color-borderHover);
   }
 `

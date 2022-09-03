@@ -97,7 +97,7 @@
       "@lidofinance/stack": [
         "packages/stack/src/index.ts"
       ],
-      "@lidofinance/styled–system": [
+      "@lidofinance/styled-system": [
         "packages/styled-system/src/index.ts"
       ],
       "@lidofinance/table": [
@@ -120,6 +120,9 @@
       ],
       "@lidofinance/utils": [
         "packages/utils/src/index.ts"
+      ],
+      "@lidofinance/cookie-theme-toggler": [
+        "packages/cookie-theme-toggler/src"
       ]
     },
     "target": "es2019",

@@ -30,7 +30,6 @@ module.exports = {
         backgrounds: false,
       },
     },
-    'storybook-dark-mode',
     {
       name: 'storybook-addon-swc',
       options: {

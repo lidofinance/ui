@@ -9,21 +9,21 @@ type InjectedProps = {
 
 const variantColors = {
   [PaginationItemVariant.active]: css`
-    border-color: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.primary};
+    border-color: var(--lido-color-primary);
+    color: var(--lido-color-primary);
 
     :not(:disabled):hover {
-      border-color: ${({ theme }) => theme.colors.primaryVisited};
-      color: ${({ theme }) => theme.colors.primaryVisited};
+      border-color: var(--lido-color-primaryVisited);
+      color: var(--lido-color-primaryVisited);
     }
   `,
   [PaginationItemVariant.default]: css`
-    border-color: ${({ theme }) => theme.colors.border};
-    color: ${({ theme }) => theme.colors.text};
+    border-color: var(--lido-color-border);
+    color: var(--lido-color-text);
 
     :not(:disabled):hover {
-      border-color: ${({ theme }) => theme.colors.primary};
-      color: ${({ theme }) => theme.colors.primary};
+      border-color: var(--lido-color-primary);
+      color: var(--lido-color-primary);
     }
   `,
 }
@@ -31,7 +31,7 @@ const variantColors = {
 export const PaginationItemStyle = styled.button<InjectedProps>`
   width: 32px;
   height: 32px;
-  background-color: ${({ theme }) => theme.colors.foreground};
+  background-color: var(--lido-color-foreground);
   border: 1px solid;
   display: grid;
   place-items: center;
@@ -45,8 +45,8 @@ export const PaginationItemStyle = styled.button<InjectedProps>`
   ${({ $variant }) => variantColors[$variant]}
 
   :disabled {
-    border-color: ${({ theme }) => theme.colors.border};
-    color: ${({ theme }) => theme.colors.textSecondary};
+    border-color: var(--lido-color-border);
+    color: var(--lido-color-textSecondary);
     cursor: unset;
   }
 `

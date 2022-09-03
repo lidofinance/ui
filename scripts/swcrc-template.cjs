@@ -45,7 +45,7 @@ module.exports = {
       '@lidofinance/select': ['packages/select/src/index.ts'],
       '@lidofinance/service-page': ['packages/service-page/src/index.ts'],
       '@lidofinance/stack': ['packages/stack/src/index.ts'],
-      '@lidofinance/styled–system': ['packages/styled-system/src/index.ts'],
+      '@lidofinance/styled-system': ['packages/styled-system/src/index.ts'],
       '@lidofinance/table': ['packages/table/src/index.ts'],
       '@lidofinance/text': ['packages/text/src/index.ts'],
       '@lidofinance/theme': ['packages/theme/src/index.ts'],
@@ -53,6 +53,7 @@ module.exports = {
       '@lidofinance/tooltip': ['packages/tooltip/src/index.ts'],
       '@lidofinance/transition': ['packages/transition/src/index.ts'],
       '@lidofinance/utils': ['packages/utils/src/index.ts'],
+      '@lidofinance/cookie-theme-toggler': ['packages/cookie-theme-toggler/src']
     },
     target: 'es2019',
     loose: false,

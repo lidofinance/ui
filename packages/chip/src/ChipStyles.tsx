@@ -8,20 +8,20 @@ type InjectedPropsTr = {
 
 const ChipVariantsStyle = {
   positive: css`
-    background: ${({ theme }) => theme.colors.success};
-    color: ${({ theme }) => theme.colors.foreground};
+    background: var(--lido-color-success);
+    color: var(--lido-color-foreground);
   `,
   negative: css`
-    background: ${({ theme }) => theme.colors.error};
-    color: ${({ theme }) => theme.colors.foreground};
+    background: var(--lido-color-error);
+    color: var(--lido-color-foreground);
   `,
   gray: css`
-    background: ${({ theme }) => theme.colors.shadowLight};
-    color: ${({ theme }) => theme.colors.textSecondary};
+    background: var(--lido-color-shadowLight);
+    color: var(--lido-color-textSecondary);
   `,
   warning: css`
-    background: ${({ theme }) => theme.colors.warning};
-    color: ${({ theme }) => theme.colors.foreground};
+    background: var(--lido-color-warning);
+    color: var(--lido-color-foreground);
   `,
 }
 
@@ -29,7 +29,7 @@ export const ChipWrapperStyle = styled.div<InjectedPropsTr>`
   font-size: 14px;
   line-height: 20px;
   display: inline-flex;
-  max-width: 100 %;
+  max-width: 100%;
   box-sizing: border-box;
   align-items: center;
   white-space: nowrap;

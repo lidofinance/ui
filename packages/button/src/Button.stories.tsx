@@ -43,13 +43,11 @@ export default {
 
 export const Basic: Story<ButtonProps> = (props) => <Button {...props} />
 
-export const WithIcon: Story<ButtonIconProps> = (props) => (
-  // @ts-expect-error fix later
+export const WithIcon: Story<Omit<ButtonIconProps, 'icon'>> = (props) => (
   <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 
-export const Icon: Story<ButtonIconProps> = (props) => (
-  // @ts-expect-error fix later
+export const Icon: Story<Omit<ButtonIconProps, 'icon'>> = (props) => (
   <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 

@@ -239,11 +239,6 @@ BasicModalButtonInModal.argTypes = {
       disable: true,
     },
   },
-  center: {
-    table: {
-      disable: true,
-    },
-  },
   size: {
     options: getOptions(ButtonSize),
     control: 'inline-radio',
@@ -288,11 +283,6 @@ ManulIconSizeInModalButtonInModal.args = {
 
 ManulIconSizeInModalButtonInModal.argTypes = {
   title: {
-    table: {
-      disable: true,
-    },
-  },
-  center: {
     table: {
       disable: true,
     },

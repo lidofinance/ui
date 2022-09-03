@@ -11,16 +11,16 @@ type InjectedProps = {
 
 const colors = {
   foreground: css`
-    background: ${({ theme }) => theme.colors.foreground};
-    color: ${({ theme }) => theme.colors.textSecondary};
+    background: var(--lido-color-foreground);
+    color: var(--lido-color-textSecondary);
   `,
   background: css`
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.textSecondary};
+    background: var(--lido-color-background);
+    color: var(--lido-color-textSecondary);
   `,
   accent: css`
-    background: ${({ theme }) => theme.colors.accent};
-    color: ${({ theme }) => theme.colors.accentContrast};
+    background: var(--lido-color-accent);
+    color: var(--lido-color-accentContrast);
   `,
 }
 
@@ -29,8 +29,8 @@ const variants = {
     box-shadow: none;
   `,
   shadow: css`
-    box-shadow: ${({ theme }) =>
-      `${theme.boxShadows.lg} ${theme.colors.shadowLight}`};
+    box-shadow: ${({ theme }) => theme.boxShadows.lg}
+      var(--lido-colors-shadowLight);
   `,
 }
 

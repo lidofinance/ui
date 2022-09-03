@@ -3,12 +3,12 @@ import { IdenticonBadgeColors } from './types'
 
 const colors = {
   background: css`
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.textSecondary};
+    background: var(--lido-color-background);
+    color: var(--lido-color-textSecondary);
   `,
   accent: css`
-    background: ${({ theme }) => theme.colors.accentDarken};
-    color: ${({ theme }) => theme.colors.accentContrast};
+    background: var(--lido-color-accentDarken);
+    color: var(--lido-color-accentContrast);
   `,
 }
 

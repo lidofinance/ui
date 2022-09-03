@@ -125,7 +125,7 @@ export const ModalCloseStyle = styled(ButtonIcon).attrs({
   size: 'xs',
 })`
   margin: 0 -10px 0 0;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: var(--lido-color-textSecondary);
   flex-shrink: 0;
   border-radius: 50%;
 `

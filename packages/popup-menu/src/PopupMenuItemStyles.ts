@@ -13,7 +13,7 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
   line-height: inherit;
   background: transparent;
   border-radius: 0;
-  color: ${({ theme }) => theme.colors.text};
+  color: var(--lido-color-text);
   border: none;
   box-shadow: none;
   outline: none;
@@ -24,7 +24,7 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
 
   &:disabled {
     cursor: default;
-    color: ${({ theme }) => theme.colors.textSecondary};
+    color: var(--lido-color-textSecondary);
   }
 
   &:before {
@@ -37,7 +37,7 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
     pointer-events: none;
     border-radius: inherit;
     opacity: ${({ $active }) => ($active ? 0.04 : 0)};
-    background: ${({ theme }) => theme.colors.popupMenuItemBgActiveHover};
+    background: var(--lido-color-popupMenuItemBgActiveHover);
     transition: opacity ${({ theme }) => theme.duration.fast} ease;
   }
 
@@ -83,11 +83,11 @@ const decoratorCSS = css`
 `
 
 export const PopupMenuItemLeftDecoratorStyle = styled.span`
-  ${decoratorCSS}
+  ${decoratorCSS};
   padding-right: 16px;
 `
 
 export const PopupMenuItemRightDecoratorStyle = styled.span`
-  ${decoratorCSS}
+  ${decoratorCSS};
   padding-left: 16px;
 `

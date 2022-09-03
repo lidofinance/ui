@@ -6,8 +6,7 @@ function Option(props: OptionProps, ref?: ForwardedRef<HTMLButtonElement>) {
   const { value, onClick, onChange, ...rest } = props
 
   const handleClick = useCallback(
-    // eslint-disable-next-line
-    (event: any) => {
+    (event: React.MouseEvent<HTMLButtonElement>) => {
       onChange?.(value)
       onClick?.(event)
     },

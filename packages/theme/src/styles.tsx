@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
-export const Block: FC = styled.div`
+export const Block: FC<PropsWithChildren> = styled.div`
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
   line-height: 1.5em;
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
@@ -10,11 +10,11 @@ export const Block: FC = styled.div`
   background: ${({ theme }) => theme.colors.foreground};
   color: ${({ theme }) => theme.colors.text};
 
-  &:first-child {
+  &:not(:only-child):first-child {
     margin-top: 0;
   }
 
-  &:last-child {
+  &:not(:only-child):last-child {
     margin-bottom: 0;
   }
 `

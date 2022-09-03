@@ -24,7 +24,6 @@ function Stack(props: StackProps, ref?: ForwardedRef<HTMLDivElement>) {
       ref={ref}
       {...rest}
     >
-      {/* @ts-expect-error fix later */}
       <StackProvider spacing={spacing}>{children}</StackProvider>
     </StackStyle>
   )

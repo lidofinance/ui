@@ -1,5 +1,5 @@
 import React, { ReactText } from 'react'
-import { toast, ToastOptions, ToastContent } from 'react-toastify'
+import { toast, ToastOptions } from 'react-toastify'
 import {
   ToastPendingLoaderStyle,
   ToastPendingStyle,
@@ -8,7 +8,7 @@ import {
 import { TOASTS_PENDING_OPTIONS } from './toastsDefaultOptions'
 
 export function ToastPending(
-  content: ToastContent,
+  content: JSX.Element,
   options?: ToastOptions
 ): ReactText {
   return toast(
