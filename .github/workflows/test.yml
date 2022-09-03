@@ -19,9 +19,11 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Check typescript
+        run: yarn types
       - name: Run lint
         run: yarn lint
-      - name: Build Components
+      - name: Build components
         run: yarn build
       - name: Run tests
         run: yarn test
