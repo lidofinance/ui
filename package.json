@@ -96,6 +96,7 @@
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
     "rimraf": "3.0.2",
+    "semantic-release": "^19.0.5",
     "storybook-addon-swc": "^1.1.8",
     "storybook-dark-mode": "^1.1.0",
     "styled-components": "^5.3.5",
