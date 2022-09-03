@@ -10,7 +10,9 @@
     "test:coverage": "jest coverage",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "release": "semantic-release",
+    "release:dry": "yarn release --dry-run"
   },
   "peerDependencies": {
     "react": "16 || 17 || 18",
@@ -32,7 +34,9 @@
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
-    "@semrel-extra/npm": "1.2.0",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "@semrel-extra/npm": "^1.2.2",
     "@storybook/addon-docs": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addons": "^6.5.10",
