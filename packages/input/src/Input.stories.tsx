@@ -80,9 +80,13 @@ const MaxButton = () => (
   <Button
     variant='translucent'
     size='xxs'
-    css={`
-      margin-right: -4px;
-    `}
+    // TODO: fix any
+    {...({
+      css: `
+        margin-right: -4px;
+      `,
+      // eslint-disable-next-line
+    } as any)}
   >
     MAX
   </Button>
@@ -131,9 +135,13 @@ export const WithButton: Story<InputProps> = (props) => (
     rightDecorator={
       <Button
         size='sm'
-        css={`
-          margin-right: -10px;
-        `}
+        // TODO: fix any
+        {...({
+          css: `
+            margin-right: -10px;
+          `,
+          // eslint-disable-next-line
+        } as any)}
         disabled={props.disabled}
       >
         Subscribe
@@ -202,10 +210,14 @@ export const AccentColor: Story<InputProps> = (props) => {
   return (
     <Block
       color='accent'
-      css={`
-        display: flex;
-        background: linear-gradient(60deg, #413e58 20%, #30363f 100%);
-      `}
+      // TODO: fix any
+      {...({
+        css: `
+          display: flex;
+          background: linear-gradient(60deg, #413e58 20%, #30363f 100%);
+        `,
+        // eslint-disable-next-line
+      } as any)}
     >
       <Input
         {...props}
@@ -218,10 +230,14 @@ export const AccentColor: Story<InputProps> = (props) => {
         color='accent'
       />
       <Button
-        css={`
-          margin-left: 12px;
-          flex-shrink: 0;
-        `}
+        // TODO: fix any
+        {...({
+          css: `
+            margin-left: 12px;
+            flex-shrink: 0;
+          `,
+          // eslint-disable-next-line
+        } as any)}
       >
         Calculate
       </Button>

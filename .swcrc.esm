@@ -127,6 +127,20 @@
     "externalHelpers": false,
     "keepClassNames": true
   },
+  "exclude": "\\.(test|stories)\\.",
+  "env": {
+    "targets": {
+      "chrome": "69",
+      "firefox": "68",
+      "safari": "13.1",
+      "node": "12"
+    },
+    "mode": "entry",
+    "coreJs": "3.22"
+  },
   "sourceMaps": true,
-  "minify": false
+  "minify": false,
+  "module": {
+    "type": "es6"
+  }
 }

@@ -2,7 +2,3 @@
 node_modules
 dist
 storybook-static
-
-# yarn 2
-.yarn/*
-.pnp.*

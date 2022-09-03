@@ -1,5 +1,4 @@
-import React from 'react'
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import { SelectIconProps } from './types'
 import { SelectIconDecoratorStyle, SelectIconStyle } from './SelectIconStyles'
 

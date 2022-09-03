@@ -1,5 +1,4 @@
-import React from 'react'
-import { createContext, useContext, FC } from 'react'
+import React, { createContext, useContext, FC } from 'react'
 import { StackSpacings } from './types'
 
 export interface StackContext {

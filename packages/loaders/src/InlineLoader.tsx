@@ -1,5 +1,4 @@
-import React from 'react'
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import { InlineLoaderProps } from './types'
 import { InlineLoaderStyle } from './InlineLoaderStyles'
 

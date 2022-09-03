@@ -46,11 +46,13 @@ export default {
 export const Base: Story<TdProps> = (props, options) => {
   const [sortDir, setSortDir] = useState<ThSortDirs>('ASC')
 
+  // @ts-expect-error fix later
   const isShowTrHighlights = options.args.showHighlight
 
   return (
     <div style={{ height: 300, overflowY: 'scroll' }}>
       <Table style={{ width: 600 }}>
+        {/* @ts-expect-error fix later */}
         <Thead sticky={options.args.stickyHeader}>
           <Tr>
             <Th

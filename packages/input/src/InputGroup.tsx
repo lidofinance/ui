@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import { InputMessageStyle } from './InputStyles'
 import { InputGroupStyle, InputGroupContentStyle } from './InputGroupStyles'
 import { InputGroupProps } from './types'

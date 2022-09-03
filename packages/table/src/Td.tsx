@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import { TdProps } from './types'
 
 import { TdStyle, ThTdContentStyle } from './styles'
