@@ -25,7 +25,7 @@
     "lint:fix": "eslint --fix .",
     "types": "tsc --noEmit",
     "generate-swcrc": "zx ./scripts/generate-swcrc.cjs",
-    "_postinstall": "husky install",
+    "prepare": "husky install",
     "release": "semantic-release",
     "release:dry": "yarn release --dry-run"
   },
