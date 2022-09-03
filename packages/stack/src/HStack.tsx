@@ -1,3 +1,4 @@
+import React from 'react'
 import { ForwardedRef, forwardRef } from 'react'
 import { HStackProps } from './types'
 import Stack from './Stack'

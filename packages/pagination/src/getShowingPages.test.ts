@@ -179,7 +179,7 @@ describe('arrayPusher', () => {
   test('Adding 5 elements', () => {
     const pusher = arrayPusher()
 
-    const pages = []
+    const pages: number[] = []
 
     pusher(pages, 1)
     pusher(pages, 1)
@@ -196,7 +196,7 @@ describe('arrayPusher', () => {
   test('Adding several ellipsis (...)', () => {
     const pusher = arrayPusher()
 
-    const pages = []
+    const pages: number[] = []
 
     pusher(pages, '...')
     pusher(pages, 1)

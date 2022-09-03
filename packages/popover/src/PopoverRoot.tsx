@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { ForwardedRef, forwardRef } from 'react'
 import { modalRoot } from '@lidofinance/utils'

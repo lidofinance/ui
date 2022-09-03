@@ -1,6 +1,6 @@
 import { BaseDecorators } from '@storybook/addons'
 import { useDarkMode } from 'storybook-dark-mode'
-import { themeLight, themeDark, ThemeProvider } from '../../packages/theme/src'
+import { themeLight, themeDark, ThemeProvider } from '@lidofinance/theme'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`

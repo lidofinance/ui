@@ -1,3 +1,4 @@
+import React from 'react'
 import { FC } from 'react'
 import { SelectArrowBigStyle, SelectArrowSmallStyle } from './SelectArrowStyles'
 import { SelectArrows } from './types'

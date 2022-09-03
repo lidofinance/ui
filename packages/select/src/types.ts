@@ -1,5 +1,6 @@
 import { InputProps } from '@lidofinance/input'
 import { PopupMenuItemProps } from '@lidofinance/popup-menu'
+import React from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export type OptionValue = string | number

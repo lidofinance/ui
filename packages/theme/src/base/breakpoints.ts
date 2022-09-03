@@ -1,22 +1,27 @@
-const sm = {
+type Breakpoint = {
+  width: `${number}px`
+  height: `${number}px`
+}
+
+const sm: Breakpoint = {
   width: '359px',
   height: '639px',
-} as const
+}
 
-const md = {
+const md: Breakpoint = {
   width: '479px',
   height: '799px',
-} as const
+}
 
-const lg = {
+const lg: Breakpoint = {
   width: '767px',
   height: '1023px',
-} as const
+}
 
-const xl = {
+const xl: Breakpoint = {
   width: '1023px',
   height: '1365px',
-} as const
+}
 
 const mediaQueries = {
   sm: `@media screen and (max-width: ${sm.width})`,
@@ -25,8 +30,8 @@ const mediaQueries = {
   xl: `@media screen and (max-width: ${xl.width})`,
 }
 
-const breakpoints = [sm.width, md.width, lg.width, xl.width]
 const breakpointsMap = { sm, md, lg, xl }
+const breakpoints = [sm.width, md.width, lg.width, xl.width]
 
 export default {
   breakpoints,

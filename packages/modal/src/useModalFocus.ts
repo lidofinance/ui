@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import { useInterceptFocus } from '@lidofinance/hooks'
 import { FOCUSABLE_ELEMENTS } from './constants'
 
