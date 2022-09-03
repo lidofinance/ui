@@ -1,5 +1,4 @@
-import React from 'react'
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { useMergeRefs, useEscape, useLockScroll } from '@lidofinance/hooks'
 import { withTransition } from '@lidofinance/transition'

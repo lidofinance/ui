@@ -1,5 +1,5 @@
-import { LidoComponentProps } from '@lidofinance/utils'
 import React from 'react'
+import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
 export enum ButtonSize {

@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import { ChipProps } from './types'
 import { ChipWrapperStyle } from './ChipStyles'
 

@@ -125,8 +125,22 @@
     "target": "es2019",
     "loose": false,
     "keepClassNames": true,
-    "externalHelpers": false
+    "externalHelpers": true
   },
   "sourceMaps": true,
-  "minify": false
+  "minify": false,
+  "env": {
+    "targets": {
+      "chrome": "69",
+      "firefox": "68",
+      "safari": "13.1",
+      "node": "12"
+    },
+    "mode": "entry",
+    "coreJs": "3.22"
+  },
+  "exclude": "\\.(test|stories)\\.",
+  "module": {
+    "type": "es6"
+  }
 }

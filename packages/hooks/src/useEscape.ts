@@ -2,7 +2,9 @@ import { useCallback, useEffect } from 'react'
 
 export const useEscape = (callback?: () => void): void => {
   const handleKeyDown = useCallback(
-    (event) => {
+    // TODO: fix any
+    // eslint-disable-next-line
+    (event: any) => {
       if (event.key === 'Escape') {
         callback?.()
       }

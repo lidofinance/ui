@@ -22,14 +22,18 @@ const themeCustom = {
 
 export const Providers: Story = (props) => (
   <>
+    {/* @ts-expect-error fix later */}
     <Block>Component inherits global theme</Block>
     <LightThemeProvider {...props}>
+      {/* @ts-expect-error fix later */}
       <Block>Wrapped in LightThemeProvider</Block>
     </LightThemeProvider>
     <DarkThemeProvider {...props}>
+      {/* @ts-expect-error fix later */}
       <Block>Wrapped in DarkThemeProvider</Block>
     </DarkThemeProvider>
     <ThemeProvider theme={themeCustom} {...props}>
+      {/* @ts-expect-error fix later */}
       <Block>Wrapped in ThemeProvider, which provides custom theme</Block>
     </ThemeProvider>
   </>

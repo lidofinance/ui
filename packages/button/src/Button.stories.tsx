@@ -44,10 +44,12 @@ export default {
 export const Basic: Story<ButtonProps> = (props) => <Button {...props} />
 
 export const WithIcon: Story<ButtonIconProps> = (props) => (
+  // @ts-expect-error fix later
   <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 
 export const Icon: Story<ButtonIconProps> = (props) => (
+  // @ts-expect-error fix later
   <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 

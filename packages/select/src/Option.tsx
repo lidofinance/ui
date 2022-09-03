@@ -1,5 +1,4 @@
-import React from 'react'
-import { ForwardedRef, forwardRef, useCallback } from 'react'
+import React, { ForwardedRef, forwardRef, useCallback } from 'react'
 import { PopupMenuItem } from '@lidofinance/popup-menu'
 import { OptionProps } from './types'
 
@@ -7,7 +6,8 @@ function Option(props: OptionProps, ref?: ForwardedRef<HTMLButtonElement>) {
   const { value, onClick, onChange, ...rest } = props
 
   const handleClick = useCallback(
-    (event) => {
+    // eslint-disable-next-line
+    (event: any) => {
       onChange?.(value)
       onClick?.(event)
     },

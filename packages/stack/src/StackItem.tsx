@@ -1,5 +1,4 @@
-import React from 'react'
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import { StackItemStyle } from './StackItemStyles'
 import { useStackContext } from './StackProvider'
 import { StackItemProps } from './types'

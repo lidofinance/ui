@@ -1,5 +1,4 @@
-import React from 'react'
-import { createContext, useContext, FC } from 'react'
+import React, { createContext, useContext, FC } from 'react'
 import { PopupMenuVariants } from './types'
 
 export interface PopupMenuContext {

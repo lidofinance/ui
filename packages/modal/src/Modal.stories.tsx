@@ -248,7 +248,9 @@ BasicModalButtonInModal.argTypes = {
     options: getOptions(ButtonSize),
     control: 'inline-radio',
   },
-}
+  // TODO: fix
+  // eslint-disable-next-line
+} as any
 
 export const ManulIconSizeInModalButtonInModal: Story<ButtonProps> = (
   props
@@ -300,7 +302,9 @@ ManulIconSizeInModalButtonInModal.argTypes = {
       disable: true,
     },
   },
-}
+  // TODO: fix
+  // eslint-disable-next-line
+} as any
 
 export const ChooseNetworkInModal: Story = () => {
   const modalProps = {

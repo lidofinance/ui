@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import { useMergeRefs } from '@lidofinance/hooks'
 import { PopupMenuProvider } from './PopupMenuProvider'
 import { PopupMenuStyle } from './PopupMenuStyles'
@@ -31,6 +31,7 @@ function PopupMenu(
       {...rest}
       ref={popupRef}
     >
+      {/* @ts-expect-error fix later */}
       <PopupMenuProvider variant={variant}>{children}</PopupMenuProvider>
     </PopupMenuStyle>
   )
