@@ -1,20 +1,20 @@
 import {
-  FC,
   createContext,
+  FC,
   useCallback,
-  useState,
-  useMemo,
   useEffect,
+  useMemo,
+  useState,
 } from 'react'
 import {
-  DEFAULT_THEME,
-  ThemeProvider,
-  themeLight,
-  themeDark,
-  Theme,
-  ThemeName,
-  LIGHT,
   DARK,
+  DEFAULT_THEME,
+  LIGHT,
+  Theme,
+  THEME,
+  themeDark,
+  themeLight,
+  ThemeProvider,
 } from '@lidofinance/theme'
 import { getThemeNameFromCookies } from './utils'
 import {
@@ -22,21 +22,21 @@ import {
   COOKIES_THEME_EXPIRES_DAYS,
 } from './constants'
 
-const themeMap: Record<ThemeName, Theme> = {
+const themeMap: Record<THEME, Theme> = {
   light: themeLight,
   dark: themeDark,
 }
 
 export type ThemeContext = {
   toggleTheme: () => void
-  themeName: ThemeName
+  themeName: THEME
 }
 
 export const ThemeToggleContext = createContext({} as ThemeContext)
 
 export type ThemeProviderProps = {
   // Use themeNameParent if you need get cookie in SSR
-  themeNameParent?: ThemeName
+  themeNameParent?: THEME
 }
 
 export const CookieThemeProvider: FC<ThemeProviderProps> = ({
@@ -44,13 +44,13 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
   themeNameParent,
 }) => {
   let topLevelDomain: string | null = null
-  let themeNameCookie: ThemeName | null = null
-  let systemThemeName: ThemeName | null = null
+  let themeNameCookie: THEME | null = null
+  let systemThemeName: THEME | null = null
 
   if (typeof window !== 'undefined') {
     // Get system theme
     const mql = window.matchMedia('(prefers-color-scheme: dark)')
-    systemThemeName = mql.matches ? (DARK as ThemeName) : (LIGHT as ThemeName)
+    systemThemeName = mql.matches ? (DARK as THEME) : (LIGHT as THEME)
 
     // Get from cookie
     themeNameCookie = getThemeNameFromCookies()
@@ -63,8 +63,11 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
     }
   }
 
-  const [themeName, setThemeName] = useState<ThemeName>(
-    themeNameCookie || themeNameParent || systemThemeName || DEFAULT_THEME
+  const [themeName, setThemeName] = useState<THEME>(
+    themeNameCookie ||
+      themeNameParent ||
+      systemThemeName ||
+      THEME[DEFAULT_THEME]
   )
 
   // Noticing browser preferences on hydration
@@ -77,7 +80,7 @@ export const CookieThemeProvider: FC<ThemeProviderProps> = ({
 
   // remember the theme on manual toggle, ignore system theme changes
   const toggleTheme = useCallback(() => {
-    const _themeName = themeName === 'light' ? 'dark' : 'light'
+    const _themeName = themeName === THEME.light ? THEME.dark : THEME.light
     setThemeName(_themeName)
 
     if (typeof window !== 'undefined') {
