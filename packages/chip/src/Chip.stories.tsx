@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { ChipProps, ChipVariant } from './types'
+import { ChipVariant } from './types'
 import Chip from './Chip'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -21,7 +21,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<ChipProps> = (props, options) => (
+export const Basic: Story = (props, options) => (
   <Chip
     {...props}
     // @ts-expect-error fix later

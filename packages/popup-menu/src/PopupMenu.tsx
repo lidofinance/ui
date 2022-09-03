@@ -31,7 +31,6 @@ function PopupMenu(
       {...rest}
       ref={popupRef}
     >
-      {/* @ts-expect-error fix later */}
       <PopupMenuProvider variant={variant}>{children}</PopupMenuProvider>
     </PopupMenuStyle>
   )

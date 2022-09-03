@@ -390,13 +390,13 @@ export const ToastContainer = styled(SourceToastContainer).attrs({
       min-height: 0;
 
       border-radius: ${({ theme }) => theme.borderRadiusesMap.md}px;
-      box-shadow: ${({ theme }) =>
-        `${theme.boxShadows.xs} ${theme.colors.shadowLight}`};
+      box-shadow: ${({ theme }) => theme.boxShadows.xs}
+        var(--lido-color-shadowLight);
       margin: ${({ theme }) => theme.spaceMap.xs}px 0;
       padding: ${({ theme }) => theme.spaceMap.sm}px
         ${({ theme }) => theme.spaceMap.md}px;
-      background-color: ${({ theme }) => theme.colors.accent};
-      color: ${({ theme }) => theme.colors.accentContrast};
+      background-color: var(--lido-color-accent);
+      color: var(--lido-color-accentContrast);
       font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
       line-height: 1.3em;
       font-family: inherit;
@@ -460,20 +460,20 @@ export const ToastContainer = styled(SourceToastContainer).attrs({
     //  color: #aaa;
     //}
     &__toast--info {
-      background-color: ${({ theme }) => theme.colors.accent};
-      color: ${({ theme }) => theme.colors.accentContrast};
+      background-color: var(--lido-color-accent);
+      color: var(--lido-color-accentContrast);
     }
     &__toast--error {
-      background-color: ${({ theme }) => theme.colors.error};
-      color: ${({ theme }) => theme.colors.errorContrast};
+      background-color: var(--lido-color-error);
+      color: var(--lido-color-errorContrast);
     }
     &__toast--warning {
-      background-color: ${({ theme }) => theme.colors.warning};
-      color: ${({ theme }) => theme.colors.warningContrast};
+      background-color: var(--lido-color-warning);
+      color: var(--lido-color-warningContrast);
     }
     &__toast--success {
-      background-color: ${({ theme }) => theme.colors.success};
-      color: ${({ theme }) => theme.colors.successContrast};
+      background-color: var(--lido-color-success);
+      color: var(--lido-color-successContrast);
     }
     /* /Variants */
 

@@ -33,17 +33,15 @@ type InjectedPropsTd = {
   $numeric: boolean
 }
 
-const getMainColorTd = (props: InjectedPropsTd) => {
-  const colorsMap = {
-    primary: props.theme.colors.primary,
-    secondary: props.theme.colors.textSecondary,
-    warning: props.theme.colors.warning,
-    error: props.theme.colors.error,
-    success: props.theme.colors.success,
-    default: props.theme.colors.text,
-  }
-  return colorsMap[props.$textColor]
-}
+const getMainColorTd = (props: InjectedPropsTd) =>
+  ({
+    primary: `var(--lido-color-primary)`,
+    secondary: `var(--lido-color-textSecondary)`,
+    warning: `var(--lido-color-warning)`,
+    error: `var(--lido-color-error)`,
+    success: `var(--lido-color-success)`,
+    default: `var(--lido-color-text)`,
+  }[props.$textColor])
 
 const TdThAlign = {
   left: css`
@@ -89,7 +87,7 @@ const ThTdInteractive = css`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primary};
+    color: var(--lido-color-primary);
   }
 `
 
@@ -107,16 +105,15 @@ export const TbodyStyle = styled.tbody`
 `
 
 const TheadStickyStyle = css`
-  background: ${({ theme }) => theme.colors.foreground};
+  background: var(--lido-color-foreground);
   top: 0;
   position: sticky;
   z-index: 5;
-}
 `
 
 export const TheadStyle = styled.thead<InjectedPropsThead>`
-  border-top: 1px solid ${({ theme }) => theme.colors.borderLight};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
+  border-top: 1px solid var(--lido-color-borderLight);
+  border-bottom: 1px solid var(--lido-color-borderLight);
 
   ${({ $sticky }) => $sticky && TheadStickyStyle}
 
@@ -126,8 +123,8 @@ export const TheadStyle = styled.thead<InjectedPropsThead>`
     display: table-cell;
     width: 32px;
 
-    border-top: 1px solid ${({ theme }) => theme.colors.borderLight};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
+    border-top: 1px solid var(--lido-color-borderLight);
+    border-bottom: 1px solid var(--lido-color-borderLight);
   }
 `
 
@@ -135,13 +132,13 @@ export const TfootStyle = styled.tfoot``
 
 const TrColors = {
   negative: css`
-    background: ${({ theme }) => theme.colors.error}18;
+    background: rgba(var(--lido-rgb-error), 0.07);
   `,
   positive: css`
-    background: ${({ theme }) => theme.colors.success}18;
+    background: rgba(var(--lido-rgb-success), 0.07);
   `,
   warning: css`
-    background: ${({ theme }) => theme.colors.warning}18;
+    background: rgba(var(--lido-rgb-warning), 0.07);
   `,
 }
 
@@ -163,7 +160,7 @@ const TdNumericStyle = css`
 `
 
 export const TdStyle = styled.td<InjectedPropsTd>`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
+  border-bottom: 1px solid var(--lido-color-borderLight);
   padding: 18px;
 
   color: ${getMainColorTd};
@@ -183,13 +180,13 @@ export const TdStyle = styled.td<InjectedPropsTd>`
 `
 
 export const ThStyle = styled.th<InjectedPropsTh>`
-  border-top: 1px solid ${({ theme }) => theme.colors.borderLight};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
+  border-top: 1px solid var(--lido-color-borderLight);
+  border-bottom: 1px solid var(--lido-color-borderLight);
 
   padding: 7px 18px;
 
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.text};
+  color: var(--lido-color-text);
 
   ${(props) => TdThAlign[props.$align]}
   ${({ $interactive }) => $interactive && ThTdInteractive}

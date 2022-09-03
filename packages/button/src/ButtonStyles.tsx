@@ -47,8 +47,8 @@ const sizes = {
     line-height: 1em;
     font-size: ${({ theme }) => theme.fontSizesMap.sm}px;
     border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
-    box-shadow: ${({ theme }) =>
-      `${theme.boxShadows.md} ${theme.colors.shadowDark}`};
+    box-shadow: ${({ theme }) => theme.boxShadows.md}
+      var(--lido-color-shadowDark);
     padding: ${({ $square }) => ($square ? '24px' : '24px 64px')};
     min-width: ${({ $square }) => ($square ? '0' : '160px')};
   `,
@@ -56,33 +56,33 @@ const sizes = {
 
 const getMainColor = (props: InjectedProps) => {
   const colorsMap = {
-    primary: props.theme.colors.primary,
-    secondary: props.theme.colors.secondary,
-    warning: props.theme.colors.warning,
-    error: props.theme.colors.error,
-    success: props.theme.colors.success,
+    primary: `var(--lido-color-primary)`,
+    secondary: `var(--lido-color-secondary)`,
+    warning: `var(--lido-color-warning)`,
+    error: `var(--lido-color-error)`,
+    success: `var(--lido-color-success)`,
   }
   return colorsMap[props.$color]
 }
 
 const getContrastColor = (props: InjectedProps) => {
   const colorsMap = {
-    primary: props.theme.colors.primaryContrast,
-    secondary: props.theme.colors.secondaryContrast,
-    warning: props.theme.colors.warningContrast,
-    error: props.theme.colors.errorContrast,
-    success: props.theme.colors.successContrast,
+    primary: `var(--lido-color-primaryContrast)`,
+    secondary: `var(--lido-color-secondaryContrast)`,
+    warning: `var(--lido-color-warningContrast)`,
+    error: `var(--lido-color-errorContrast)`,
+    success: `var(--lido-color-successContrast)`,
   }
   return colorsMap[props.$color]
 }
 
 const getHoverColor = (props: InjectedProps) => {
   const colorsMap = {
-    primary: props.theme.colors.primaryHover,
-    secondary: props.theme.colors.secondaryHover,
-    warning: props.theme.colors.warningHover,
-    error: props.theme.colors.errorHover,
-    success: props.theme.colors.successHover,
+    primary: `var(--lido-color-primaryHover)`,
+    secondary: `var(--lido-color-secondaryHover)`,
+    warning: `var(--lido-color-warningHover)`,
+    error: `var(--lido-color-errorHover)`,
+    success: `var(--lido-color-successHover)`,
   }
   return colorsMap[props.$color]
 }
@@ -116,7 +116,7 @@ const variants = {
   `,
   text: css`
     color: ${getMainColor};
-    background-color: ${({ theme }) => theme.colors.foreground};
+    background-color: var(--lido-color-foreground);
 
     :before {
       display: block;

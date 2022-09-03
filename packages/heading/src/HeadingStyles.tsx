@@ -24,8 +24,8 @@ type InjectedProps = {
 
 const getHeadingColor = (props: InjectedProps) => {
   const colorsMap = {
-    text: props.theme.colors.text,
-    secondary: props.theme.colors.textSecondary,
+    text: `var(--lido-color-text)`,
+    secondary: `var(--lido-color-textSecondary)`,
   }
   return colorsMap[props.$color]
 }

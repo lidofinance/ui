@@ -9,8 +9,8 @@ export const PopupMenuStyle = styled(Popover)`
   border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
   overflow: auto;
   overflow-x: hidden;
-  box-shadow: ${({ theme }) =>
-    `${theme.boxShadows.xs} ${theme.colors.shadowLight}`};
+  box-shadow: ${({ theme }) => theme.boxShadows.xs}
+    var(--lido-color-shadowLight);
   padding: 0;
 
   ${PopupMenuItemStyle}:first-child {

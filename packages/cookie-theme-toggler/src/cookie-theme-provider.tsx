@@ -1,14 +1,14 @@
 import {
   createContext,
   FC,
-  useCallback,
+  PropsWithChildren,
   useEffect,
   useMemo,
   useState,
 } from 'react'
 import {
   DARK,
-  DEFAULT_THEME,
+  DEFAULT_THEME_NAME,
   LIGHT,
   Theme,
   THEME,
@@ -16,12 +16,9 @@ import {
   themeLight,
   ThemeProvider,
 } from '@lidofinance/theme'
-import { useSystemTheme } from '@lidofinance/hooks'
 import { getThemeNameFromCookies } from './utils'
-import {
-  COOKIE_THEME_MANUAL_KEY,
-  COOKIES_THEME_EXPIRES_DAYS,
-} from './constants'
+import { initColors } from '@lidofinance/theme'
+import { updateGlobalTheme } from '../../theme/src/document-head-contents/element-theme-script'
 
 const themeMap: Record<THEME, Theme> = {
   light: themeLight,
@@ -37,66 +34,56 @@ export const ThemeToggleContext = createContext({} as ThemeContext)
 
 export type ThemeProviderProps = {
   // Use themeNameParent if you need get cookie in SSR
-  themeNameParent?: THEME
+  initialTheme?: THEME
+  overrideTheme?: THEME
 }
 
-export const CookieThemeProvider: FC<ThemeProviderProps> = ({
+export const CookieThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
   children,
-  themeNameParent,
+  initialTheme,
+  // overrideTheme is mainly used for storybook
+  overrideTheme,
 }) => {
-  let topLevelDomain: string | null = null
-  let themeNameCookie: THEME | null = null
-  let systemThemeName: THEME | undefined = useSystemTheme()
-
-  if (typeof window !== 'undefined') {
-    if (!systemThemeName) {
-      // Get system theme (fix for first renders)
-      const mql = window.matchMedia('(prefers-color-scheme: dark)')
-      systemThemeName = mql.matches ? (DARK as THEME) : (LIGHT as THEME)
-    }
-
-    // Get from cookie
-    themeNameCookie = getThemeNameFromCookies()
-
-    if (document.location.host.indexOf('localhost') === 0) {
-      topLevelDomain = 'localhost'
-    } else {
-      // Get host with dot in first position
-      topLevelDomain = `.${location.hostname.split('.').slice(-2).join('.')}`
-    }
-  }
-
   const [themeName, setThemeName] = useState<THEME>(
-    themeNameCookie ||
-      themeNameParent ||
-      systemThemeName ||
-      THEME[DEFAULT_THEME]
+    initialTheme || DEFAULT_THEME_NAME
   )
 
   // Noticing browser preferences on hydration
   // Reacting to changing preferences
   useEffect(() => {
-    if (!themeNameCookie && !themeNameParent && systemThemeName) {
-      setThemeName(systemThemeName)
+    if (typeof window === 'undefined') {
+      return
     }
-  }, [systemThemeName, themeNameCookie, themeNameParent])
-
-  // remember the theme on manual toggle, ignore system theme changes
-  const toggleTheme = useCallback(() => {
-    const _themeName = themeName === THEME.light ? THEME.dark : THEME.light
-    setThemeName(_themeName)
-
-    if (typeof window !== 'undefined') {
-      document.cookie = `${COOKIE_THEME_MANUAL_KEY}=${_themeName};expires=${COOKIES_THEME_EXPIRES_DAYS};path=/;domain=${topLevelDomain};samesite=None;secure;`
+    initColors()
+    const mql = window.matchMedia('(prefers-color-scheme: dark)')
+    const setTheme = () => {
+      const systemThemeName = mql.matches ? (DARK as THEME) : (LIGHT as THEME)
+      const themeNameCookie = getThemeNameFromCookies()
+      setThemeName(
+        overrideTheme ||
+          themeNameCookie ||
+          initialTheme ||
+          systemThemeName ||
+          DEFAULT_THEME_NAME
+      )
     }
-  }, [themeName, topLevelDomain])
+    mql.addEventListener('change', setTheme)
+    setTheme()
+  }, [initialTheme, overrideTheme])
 
   const value = useMemo(
     () => ({
-      toggleTheme,
       themeName,
+      toggleTheme() {
+        setThemeName((themeName) => {
+          const newThemeName =
+            themeName === THEME.light ? THEME.dark : THEME.light
+          updateGlobalTheme(newThemeName)
+          return newThemeName
+        })
+      },
     }),
-    [themeName, toggleTheme]
+    [themeName]
   )
 
   return (

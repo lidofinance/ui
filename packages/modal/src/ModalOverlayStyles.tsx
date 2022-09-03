@@ -19,7 +19,7 @@ export const ModalPortalStyle = styled.div<
   bottom: 0;
   left: 0;
   z-index: 300;
-  background: ${({ theme }) => theme.colors.overlay};
+  background: var(--lido-color-overlay);
   cursor: ${({ $closable }) => ($closable ? 'pointer' : 'default')};
   transition: opacity ${({ $duration }) => $duration}ms ease;
   opacity: ${getOpacity};

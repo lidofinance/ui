@@ -1,5 +1,5 @@
-export { ThemeProvider } from './provider'
+export * from './provider'
+export * from './document-head-contents'
 export * from './constants'
-export * from './fonts'
 export * from './themes'
 export * from './types'

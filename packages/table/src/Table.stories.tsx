@@ -43,7 +43,9 @@ export default {
   },
 } as Meta
 
-export const Base: Story<TdProps> = (props, options) => {
+export const Base: Story<
+  TdProps & { showHighlight: boolean; stickyHeader: boolean }
+> = (props, options) => {
   const [sortDir, setSortDir] = useState<ThSortDirs>('ASC')
 
   // @ts-expect-error fix later
@@ -75,7 +77,10 @@ export const Base: Story<TdProps> = (props, options) => {
             .map((item, index) => (
               <Tr
                 key={index}
-                highlight={isShowTrHighlights && TrHighlight[index % 3]}
+                // @ts-expect-error this is a story anyway
+                highlight={
+                  isShowTrHighlights ? TrHighlight[index % 3] : undefined
+                }
               >
                 <Td {...props} onClick={() => void 0}>
                   01-13-2021

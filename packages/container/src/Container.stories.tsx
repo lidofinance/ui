@@ -16,8 +16,8 @@ export default {
 
 const StyledDiv = styled.div`
   height: 100px;
-  background: ${({ theme }) => theme.colors.foreground};
-  color: ${({ theme }) => theme.colors.textSecondary};
+  background: var(--lido-color-foreground);
+  color: var(--lido-color-textSecondary);
   display: flex;
   align-items: center;
   justify-content: center;

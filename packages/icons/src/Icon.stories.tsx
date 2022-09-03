@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { Theme } from '@lidofinance/theme'
-import styled, { useTheme } from 'styled-components'
+import styled from 'styled-components'
 import * as components from './index'
 
 type IconVariants = keyof typeof components
@@ -11,11 +10,10 @@ export default {
 } as Meta
 
 export const Base: Story<{ color: string; type: IconVariants }> = (props) => {
-  const theme: Theme = useTheme()
   const { color, type } = props
   const Component = components[type]
 
-  return <Component style={{ fill: color || theme.colors.text }} />
+  return <Component style={{ fill: color || `var(--lido-color-text)` }} />
 }
 
 Base.argTypes = {
@@ -43,7 +41,7 @@ const IconListItem = styled.div`
   margin: 2px;
   padding: 10px;
   border-radius: 4px;
-  color: ${({ theme }) => theme.colors.text};
+  color: var(--lido-color-text);
 `
 
 const IconListTitle = styled.div`

@@ -1,4 +1,3 @@
-import { DocsContainer } from './components/DocContainer'
 import { ThemeVars, create } from '@storybook/theming'
 import { themeLight, themeDark, Theme } from '@lidofinance/theme'
 
@@ -31,9 +30,6 @@ export const light = create(constructor('light', themeLight))
 export const dark = create(constructor('dark', themeDark))
 
 export default {
-  docs: {
-    container: DocsContainer,
-  },
   darkMode: {
     dark,
     light,

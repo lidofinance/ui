@@ -3,10 +3,10 @@ import { InputColors } from './types'
 
 const colors = {
   default: css`
-    color: ${({ theme }) => theme.colors.textSecondary};
+    color: var(--lido-color-textSecondary);
   `,
   accent: css`
-    color: ${({ theme }) => theme.colors.accentContrastSecondary};
+    color: var(--lido-color-accentContrastSecondary);
   `,
 }
 
@@ -25,16 +25,16 @@ export const labelFilledValueCSS = css<{ $color: InputColors }>`
 `
 
 export const labelFocusCSS = css`
-  color: ${({ theme }) => theme.colors.primary};
+  color: var(--lido-color-primary);
   opacity: 1;
 `
 
 export const labelErrorCSS = css`
-  color: ${({ theme }) => theme.colors.error};
+  color: var(--lido-color-error);
 `
 
 export const labelWarningCSS = css`
-  color: ${({ theme }) => theme.colors.warning};
+  color: var(--lido-color-warning);
 `
 
 export const InputLabelStyle = styled.span`

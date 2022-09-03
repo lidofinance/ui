@@ -1,7 +1,9 @@
 import themeBase from './base'
+import { ThemeName } from './globals'
 
 export const themeLight = {
   ...themeBase,
+  name: ThemeName.light,
   colors: {
     ...themeBase.colors,
 
@@ -39,6 +41,7 @@ export const themeLight = {
 
 export const themeDark = {
   ...themeBase,
+  name: ThemeName.dark,
   colors: {
     ...themeBase.colors,
 

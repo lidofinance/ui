@@ -3,7 +3,7 @@ import { ArrowBottom } from '@lidofinance/icons'
 
 export const AccordionStyle = styled.div`
   margin: 0 0 ${({ theme }) => theme.spaceMap.sm}px 0;
-  background: ${({ theme }) => theme.colors.foreground};
+  background: var(--lido-color-foreground);
   border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
 `
 
@@ -23,7 +23,7 @@ export const AccordionSummaryStyle = styled.div`
 `
 
 export const AccordionTitleStyle = styled.div`
-  color: ${({ theme }) => theme.colors.text};
+  color: var(--lido-color-text);
   flex-grow: 1;
   font-weight: 800;
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
@@ -36,11 +36,11 @@ export const AccordionArrowStyle = styled(ArrowBottom)<{ $expanded: boolean }>`
   transition: transform ${({ theme }) => theme.duration.norm} ease;
   margin: -2px;
   margin-left: ${({ theme }) => theme.spaceMap.md}px;
-  fill: ${({ theme }) => theme.colors.textSecondary};
+  fill: var(--lido-color-textSecondary);
 `
 
 export const AccordionContentStyle = styled.div`
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: var(--lido-color-textSecondary);
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
   padding-top: 0;
   font-weight: 400;

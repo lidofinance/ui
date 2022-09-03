@@ -13,13 +13,13 @@ const commonCSS = css<InjectedProps>`
 `
 
 export const SelectArrowBigStyle = styled(ArrowBottom)<InjectedProps>`
-  ${commonCSS}
-  fill: ${({ theme }) => theme.colors.textSecondary};
+  ${commonCSS};
+  fill: var(--lido-color-textSecondary);
 `
 
 export const SelectArrowSmallStyle = styled.div<InjectedProps>`
-  ${commonCSS}
-  color: ${({ theme }) => theme.colors.text};
+  ${commonCSS};
+  color: var(--lido-color-text);
 
   border: 3px solid currentColor;
   border-bottom-width: 0px;

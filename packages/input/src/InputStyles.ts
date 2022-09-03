@@ -15,7 +15,7 @@ const statesCSS = css`
 
   &:focus-within {
     z-index: 2;
-    border-color: ${({ theme }) => theme.colors.borderActive};
+    border-color: var(--lido-color-borderActive);
 
     ${InputLabelStyle} {
       ${labelFocusCSS}
@@ -28,7 +28,7 @@ const activeCSS = css`
   &:hover,
   &:focus-within {
     z-index: 2;
-    border-color: ${({ theme }) => theme.colors.borderActive};
+    border-color: var(--lido-color-borderActive);
 
     ${InputLabelStyle} {
       ${labelFocusCSS}
@@ -40,7 +40,7 @@ const errorCSS = css`
   &,
   &:hover,
   &:focus-within {
-    border-color: ${({ theme }) => theme.colors.error};
+    border-color: var(--lido-color-error);
 
     ${InputLabelStyle} {
       ${labelErrorCSS}
@@ -52,7 +52,7 @@ const warningCSS = css`
   &,
   &:hover,
   &:focus-within {
-    border-color: ${({ theme }) => theme.colors.warning};
+    border-color: var(--lido-color-warning);
 
     ${InputLabelStyle} {
       ${labelWarningCSS}
@@ -62,30 +62,30 @@ const warningCSS = css`
 
 const wrapperColors = {
   default: css<{ $disabled: boolean }>`
-    background: ${({ theme }) => theme.colors.controlBg};
-    border-color: ${({ theme }) => theme.colors.border};
-    color: ${({ theme }) => theme.colors.text};
+    background: var(--lido-color-controlBg);
+    border-color: var(--lido-color-border);
+    color: var(--lido-color-text);
 
-    ${({ $disabled, theme }) =>
+    ${({ $disabled }) =>
       $disabled
-        ? `background: ${theme.colors.background};`
+        ? `background: var(--lido-color-background);`
         : `
           &:hover {
-            border-color: ${theme.colors.borderHover};
+            border-color: var(--lido-color-borderHover);
           }
     `};
   `,
   accent: css<{ $disabled: boolean }>`
-    background: ${({ theme }) => theme.colors.accentControlBg};
-    border-color: ${({ theme }) => theme.colors.accentBorder};
-    color: ${({ theme }) => theme.colors.accentText};
+    background: var(--lido-color-accentControlBg);
+    border-color: var(--lido-color-accentBorder);
+    color: var(--lido-color-accentText);
 
-    ${({ $disabled, theme }) =>
+    ${({ $disabled }) =>
       $disabled
-        ? `background: ${theme.colors.controlBg};`
+        ? `background: var(--lido-color-controlBg);`
         : `
           &:hover {
-            border-color: ${theme.colors.accentBorderHover};
+            border-color: var(--lido-color-accentBorderHover);
           }
     `};
   `,
@@ -151,47 +151,46 @@ const labeledCSS = css`
 
 const inputColors = {
   default: css`
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--lido-color-text);
 
     &:disabled {
-      color: ${({ theme }) => theme.colors.textSecondary};
+      color: var(--lido-color-textSecondary);
     }
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors.textSecondary};
+      color: var(--lido-color-textSecondary);
     }
 
     &:-webkit-autofill {
-      box-shadow: 0 0 0 100px ${({ theme }) => theme.colors.controlBg} inset !important;
-      color: ${({ theme }) => theme.colors.text} !important;
+      box-shadow: 0 0 0 100px var(--lido-color-controlBg) inset !important;
+      color: var(--lido-color-text) !important;
     }
 
     &:-internal-autofill-selected {
-      color: ${({ theme }) => theme.colors.text} !important;
+      color: var(--lido-color-text) !important;
     }
   `,
   accent: css`
-    color: ${({ theme }) => theme.colors.accentText};
+    color: var(--lido-color-accentText);
     opacity: 1;
 
     &:disabled {
-      color: ${({ theme }) => theme.colors.accentText};
+      color: var(--lido-color-accentText);
       opacity: 0.5;
     }
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors.accentText};
+      color: var(--lido-color-accentText);
       opacity: 0.5;
     }
 
     &:-webkit-autofill {
-      box-shadow: 0 0 0 100px ${({ theme }) => theme.colors.accentControlBg}
-        inset !important;
-      color: ${({ theme }) => theme.colors.accentContrast} !important;
+      box-shadow: 0 0 0 100px var(--lido-color-accentControlBg) inset !important;
+      color: var(--lido-color-accentContrast) !important;
     }
 
     &:-internal-autofill-selected {
-      color: ${({ theme }) => theme.colors.accentContrast} !important;
+      color: var(--lido-color-accentContrast) !important;
     }
   `,
 }
@@ -230,19 +229,19 @@ export const TextareaStyle = styled(InputStyle).attrs({
 
 const messageVariants = {
   error: css`
-    background: ${({ theme }) => theme.colors.error};
-    color: ${({ theme }) => theme.colors.errorContrast};
-    box-shadow: ${({ theme }) =>
-      `${theme.boxShadows.sm} ${theme.colors.shadowLight}`};
+    background: var(--lido-color-error);
+    color: var(--lido-color-errorContrast);
+    box-shadow: ${({ theme }) => theme.boxShadows.sm}
+      var(--lido-color-shadowLight);
   `,
   warning: css`
-    background: ${({ theme }) => theme.colors.warning};
-    color: ${({ theme }) => theme.colors.warningContrast};
-    box-shadow: ${({ theme }) =>
-      `${theme.boxShadows.sm} ${theme.colors.shadowLight}`};
+    background: var(--lido-color-warning);
+    color: var(--lido-color-warningContrast);
+    box-shadow: ${({ theme }) => theme.boxShadows.sm}
+      var(--lido-color-shadowLight);
   `,
   success: css`
-    color: ${({ theme }) => theme.colors.success};
+    color: var(--lido-color-success);
   `,
 }
 

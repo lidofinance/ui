@@ -18,8 +18,8 @@ exports[`renders correctly 1`] = `
   border-radius: 10px;
   padding: 21px 44px;
   min-width: 120px;
-  color: #fff;
-  background-color: #00a3ff;
+  color: var(--lido-color-primaryContrast);
+  background-color: var(--lido-color-primary);
   -webkit-transition: background-color 100ms ease;
   transition: background-color 100ms ease;
 }
@@ -46,7 +46,7 @@ exports[`renders correctly 1`] = `
 
 .c0:not(:disabled):hover,
 .c0:focus-visible {
-  background-color: #009bf2;
+  background-color: var(--lido-color-primaryHover);
 }
 
 .c1 {

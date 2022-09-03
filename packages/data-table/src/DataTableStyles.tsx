@@ -20,13 +20,14 @@ export const DataTableRowStyle = styled.div`
 `
 
 export const DataTableTitleStyle = styled.div`
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: var(--lido-color-textSecondary);
   flex-grow: 1;
 `
 
 export const DataTableValueStyle = styled.div<{ $highlight: boolean }>`
-  color: ${({ theme, $highlight }) =>
-    $highlight ? theme.colors.success : theme.colors.text};
+  color: var(
+    --lido-color-${({ $highlight }) => ($highlight ? `success` : `text`)}
+  );
   text-align: right;
   margin-left: ${({ theme }) => theme.spaceMap.xxl}px;
   flex-grow: 1;

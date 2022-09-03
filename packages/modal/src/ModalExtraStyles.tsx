@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const ModalExtraStyle = styled.div`
   margin-top: ${({ theme }) => -theme.borderRadiusesMap.xl}px;
-  color: ${({ theme }) => theme.colors.accentContrast};
-  background: ${({ theme }) => theme.colors.accent};
+  color: var(--lido-color-accentContrast);
+  background: var(--lido-color-accent);
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
   padding-top: ${({ theme }) =>
     theme.borderRadiusesMap.xl + theme.spaceMap.xxl}px;

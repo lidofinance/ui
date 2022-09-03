@@ -73,20 +73,16 @@ Label.argTypes = {
 }
 
 const EthIcon = styled(Eth)`
-  fill: ${({ theme }) => theme.colors.text};
+  fill: var(--lido-color-text);
 `
 
 const MaxButton = () => (
   <Button
     variant='translucent'
     size='xxs'
-    // TODO: fix any
-    {...({
-      css: `
-        margin-right: -4px;
-      `,
-      // eslint-disable-next-line
-    } as any)}
+    style={{
+      marginRight: '-4px',
+    }}
   >
     MAX
   </Button>
@@ -135,13 +131,9 @@ export const WithButton: Story<InputProps> = (props) => (
     rightDecorator={
       <Button
         size='sm'
-        // TODO: fix any
-        {...({
-          css: `
-            margin-right: -10px;
-          `,
-          // eslint-disable-next-line
-        } as any)}
+        style={{
+          marginRight: '-10px',
+        }}
         disabled={props.disabled}
       >
         Subscribe
@@ -189,7 +181,7 @@ WithWarning.args = {
 const Success = styled.span`
   font-weight: 600;
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
-  color: ${({ theme }) => theme.colors.success};
+  color: var(--lido-color-success);
 `
 
 export const WithSuccess: Story<InputProps> = (props) => (
@@ -210,14 +202,10 @@ export const AccentColor: Story<InputProps> = (props) => {
   return (
     <Block
       color='accent'
-      // TODO: fix any
-      {...({
-        css: `
-          display: flex;
-          background: linear-gradient(60deg, #413e58 20%, #30363f 100%);
-        `,
-        // eslint-disable-next-line
-      } as any)}
+      style={{
+        display: 'flex',
+        background: 'linear-gradient(60deg, #413e58 20%, #30363f 100%)',
+      }}
     >
       <Input
         {...props}
@@ -230,14 +218,10 @@ export const AccentColor: Story<InputProps> = (props) => {
         color='accent'
       />
       <Button
-        // TODO: fix any
-        {...({
-          css: `
-            margin-left: 12px;
-            flex-shrink: 0;
-          `,
-          // eslint-disable-next-line
-        } as any)}
+        style={{
+          marginLeft: 12,
+          flexShrink: 0,
+        }}
       >
         Calculate
       </Button>

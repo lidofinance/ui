@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const NavLink = styled.a<{ active: boolean }>`
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: var(--lido-color-secondary);
   font-size: ${({ theme }) => theme.fontSizesMap.xxxs}px;
   line-height: 1.7em;
   font-weight: 800;
@@ -16,7 +16,7 @@ export const NavLink = styled.a<{ active: boolean }>`
 
   :hover {
     opacity: 1;
-    color: ${({ theme }) => theme.colors.secondary};
+    color: var(--lido-color-secondary);
   }
 
   :not(:last-of-type) {
@@ -24,8 +24,9 @@ export const NavLink = styled.a<{ active: boolean }>`
   }
 
   svg {
-    fill: ${({ active, theme }) =>
-      active ? theme.colors.primary : theme.colors.secondary};
+    fill: var(
+      --lido-color-${({ active }) => (active ? `primary` : `secondary`)}
+    );
   }
 
   ${({ theme }) => theme.mediaQueries.md} {

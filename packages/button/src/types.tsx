@@ -1,4 +1,3 @@
-import React from 'react'
 import { LidoComponentProps } from '@lidofinance/utils'
 export type { Theme } from '@lidofinance/theme'
 
@@ -44,5 +43,5 @@ export type ButtonProps = LidoComponentProps<
 >
 
 export type ButtonIconProps = {
-  icon: React.ReactNode
+  icon: JSX.Element
 } & ButtonProps

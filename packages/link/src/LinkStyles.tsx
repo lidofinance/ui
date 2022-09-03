@@ -3,17 +3,17 @@ import { LinkProps } from './types'
 
 export const LinkStyle = styled.a`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.primary};
+  color: var(--lido-color-primary);
 
   :hover {
-    color: ${({ theme }) => theme.colors.primaryHover};
+    color: var(--lido-color-primaryHover);
   }
 
   ${(props: LinkProps) =>
     props.fadeVisited &&
     css`
       :visited {
-        color: ${({ theme }) => theme.colors.primaryVisited};
+        color: var(--lido-color-primaryVisited);
       }
     `}
 `

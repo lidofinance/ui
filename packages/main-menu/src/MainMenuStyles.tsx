@@ -15,11 +15,11 @@ const mobileCss = css`
   left: 0;
   right: 0;
   padding: 8px;
-  background-color: ${({ theme }) => theme.colors.foreground};
+  background-color: var(--lido-color-foreground);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  border-top: 1px solid var(--lido-color-border);
 
   svg {
     margin-right: 0;

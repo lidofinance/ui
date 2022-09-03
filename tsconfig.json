@@ -50,14 +50,15 @@
       "@lidofinance/select": ["packages/select/src"],
       "@lidofinance/service-page": ["packages/service-page/src"],
       "@lidofinance/stack": ["packages/stack/src"],
-      "@lidofinance/styled–system": ["packages/styled-system/src"],
+      "@lidofinance/styled-system": ["packages/styled-system/src"],
       "@lidofinance/table": ["packages/table/src"],
       "@lidofinance/text": ["packages/text/src"],
       "@lidofinance/theme": ["packages/theme/src"],
       "@lidofinance/toast": ["packages/toast/src"],
       "@lidofinance/tooltip": ["packages/tooltip/src"],
       "@lidofinance/transition": ["packages/transition/src"],
-      "@lidofinance/utils": ["packages/utils/src"]
+      "@lidofinance/utils": ["packages/utils/src"],
+      "@lidofinance/cookie-theme-toggler": ["packages/cookie-theme-toggler/src"]
     }
   },
   "files": ["packages/index.ts"],
