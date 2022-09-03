@@ -97,50 +97,5 @@
     "tslib": "2.3.1",
     "typescript": "4.8",
     "zx": "^7.0.8"
-  },
-  "alias": {
-    "@lidofinance/accordion": "./packages/accordion/src",
-    "@lidofinance/address": "./packages/address/src",
-    "@lidofinance/block": "./packages/block/src",
-    "@lidofinance/box": "./packages/box/src",
-    "@lidofinance/button": "./packages/button/src",
-    "@lidofinance/checkbox": "./packages/checkbox/src",
-    "@lidofinance/chip": "./packages/chip/src",
-    "@lidofinance/container": "./packages/container/src",
-    "@lidofinance/data-table": "./packages/data-table/src",
-    "@lidofinance/divider": "./packages/divider/src",
-    "@lidofinance/heading": "./packages/heading/src",
-    "@lidofinance/hooks": "./packages/hooks/src",
-    "@lidofinance/icons": "./packages/icons/src",
-    "@lidofinance/identicon": "./packages/identicon/src",
-    "@lidofinance/input": "./packages/input/src",
-    "@lidofinance/lido-logo": "./packages/lido-logo/src",
-    "@lidofinance/link": "./packages/link/src",
-    "@lidofinance/loaders": "./packages/loaders/src",
-    "@lidofinance/main-menu": "./packages/main-menu/src",
-    "@lidofinance/modal": "./packages/modal/src",
-    "@lidofinance/pagination": "./packages/pagination/src",
-    "@lidofinance/popover": "./packages/popover/src",
-    "@lidofinance/popup-menu": "./packages/popup-menu/src",
-    "@lidofinance/select": "./packages/select/src",
-    "@lidofinance/service-page": "./packages/service-page/src",
-    "@lidofinance/stack": "./packages/stack/src",
-    "@lidofinance/styled–system": "./packages/styled-system/src",
-    "@lidofinance/table": "./packages/table/src",
-    "@lidofinance/text": "./packages/text/src",
-    "@lidofinance/theme": "./packages/theme/src",
-    "@lidofinance/toast": "./packages/toast/src",
-    "@lidofinance/tooltip": "./packages/tooltip/src",
-    "@lidofinance/transition": "./packages/transition/src",
-    "@lidofinance/utils": "./packages/utils/src"
-  },
-  "lint-staged": {
-    "./**/*.{ts,tsx,js,jsx}": [
-      "eslint --max-warnings=0",
-      "jest --bail --findRelatedTests"
-    ],
-    "./**/*.{ts,tsx,js,jsx,md,json}": [
-      "prettier --write"
-    ]
   }
 }
