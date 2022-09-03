@@ -18,14 +18,14 @@
   "scripts": {
     "dev": "start-storybook -p 5555 -s .storybook/public",
     "build-storybook": "build-storybook -s .storybook/public",
-    "build": "./scripts/build.cjs",
+    "build": "zx ./scripts/build.cjs",
     "test": "jest",
     "test:coverage": "jest coverage",
     "postinstall": "husky install",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "types": "tsc --noEmit",
-    "generate-swcrc": "./scripts/generate-swcrc.cjs"
+    "generate-swcrc": "zx ./scripts/generate-swcrc.cjs"
   },
   "peerDependencies": {
     "react": "16 || 17 || 18",
