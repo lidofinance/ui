@@ -1,10 +1,7 @@
 import React from 'react'
 import { STORAGE_THEME_MANUAL_KEY, ThemeName, VOID_FN } from '../globals'
-import {
-  COOKIE_THEME_MANUAL_KEY,
-  COOKIES_THEME_EXPIRES_DAYS,
-} from '../../../cookie-theme-toggler/src/constants'
 import { getTopLevelDomain } from '@lidofinance/utils'
+import {COOKIE_THEME_MANUAL_KEY, COOKIES_THEME_EXPIRES_DAYS} from "../../../cookie-theme-toggler/src/constants";
 
 /**
  *  this FN should be hermetic and has zero external items - it is inlined via .toString()
@@ -21,9 +18,9 @@ const themeScriptValueString = function (key: string) {
       .split(';')
       .find((cookie) => cookie.trim().startsWith(key + '='))
     if (themeCookie) {
-      document.documentElement.dataset.theme = themeCookie.split('=')[1]
+      document.documentElement.dataset.lidoTheme = themeCookie.split('=')[1]
     } else {
-      delete document.documentElement.dataset.theme
+      delete document.documentElement.dataset.lidoTheme
     }
   }
   setTheme()
@@ -50,7 +47,9 @@ export let initGlobalCookieTheme =
       }
 
 export const ScriptThemeValue = () => (
-  <script>
-    `(${themeScriptValueString.toString()})(${STORAGE_THEME_MANUAL_KEY})`
-  </script>
+  <script
+    dangerouslySetInnerHTML={{
+      __html: `(${themeScriptValueString.toString()})("${STORAGE_THEME_MANUAL_KEY}")`,
+    }}
+  />
 )

@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   FC,
   PropsWithChildren,
@@ -47,6 +47,8 @@ export const CookieThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
   const [themeName, setThemeName] = useState<THEME>(
     initialTheme || DEFAULT_THEME_NAME
   )
+
+  console.log('using theme', themeName)
 
   // Noticing browser preferences on hydration
   // Reacting to changing preferences

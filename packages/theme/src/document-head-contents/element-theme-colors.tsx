@@ -8,17 +8,17 @@ const lightThemeColors = generateCssColorVariables(themeLight.colors)
 
 export let initGlobalColors = VOID_FN
 export const themeCSSValueString = `
-html, [data-theme='${ThemeName.light}'] { 
+html, [data-lido-theme='${ThemeName.light}'] { 
     color-theme: light;
     ${lightThemeColors}
 }
 @media (prefers-color-scheme: dark) {
-    html:not([data-theme='${ThemeName.light}']) { 
+    html:not([data-lido-theme='${ThemeName.light}']) { 
         color-theme: dark;
         ${darkThemeColors} 
     }
 }
-[data-theme='${ThemeName.dark}'] {
+[data-lido-theme='${ThemeName.dark}'] {
     color-theme: dark;
     ${darkThemeColors}
 }`
@@ -38,7 +38,8 @@ if (typeof window !== 'undefined') {
 }
 
 export const StyleThemeColors = () => (
-  <style {...{ [globalStyleDataAttribute]: true }}>
-    `${themeCSSValueString}`
-  </style>
+  <style
+    {...{ [globalStyleDataAttribute]: true }}
+    dangerouslySetInnerHTML={{ __html: themeCSSValueString }}
+  />
 )
