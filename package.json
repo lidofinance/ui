@@ -24,6 +24,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "types": "tsc --noEmit",
+    "postinstall": "yarn generate-swcrc",
     "generate-swcrc": "./scripts/generate-swcrc.cjs"
   },
   "peerDependencies": {

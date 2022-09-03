@@ -4,6 +4,7 @@ node_modules
 dist
 storybook-static
 .swc/
+.swcrc*
 
 # User-specific
 .idea/
