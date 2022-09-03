@@ -3850,6 +3850,32 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lidofinance/cookie-theme-toggler@workspace:*, @lidofinance/cookie-theme-toggler@workspace:packages/cookie-theme-toggler":
+  version: 0.0.0-use.local
+  resolution: "@lidofinance/cookie-theme-toggler@workspace:packages/cookie-theme-toggler"
+  dependencies:
+    "@lidofinance/block": "workspace:*"
+    "@lidofinance/button": "workspace:*"
+    "@lidofinance/hooks": "workspace:*"
+    "@lidofinance/icons": "workspace:*"
+    "@lidofinance/theme": "workspace:*"
+    "@storybook/react": 6.3.7
+    "@types/react": 17.0.19
+    "@types/react-dom": 17.0.9
+    "@types/react-is": 17.0.2
+    "@types/styled-components": 5.1.12
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-is: 17.0.2
+    styled-components: 5.3.0
+  peerDependencies:
+    react: 16 || 17
+    react-dom: 16 || 17
+    react-is: 16 || 17
+    styled-components: 5
+  languageName: unknown
+  linkType: soft
+
 "@lidofinance/data-table@workspace:*, @lidofinance/data-table@workspace:packages/data-table":
   version: 0.0.0-use.local
   resolution: "@lidofinance/data-table@workspace:packages/data-table"
@@ -4062,6 +4088,7 @@ __metadata:
     "@lidofinance/checkbox": "workspace:*"
     "@lidofinance/chip": "workspace:*"
     "@lidofinance/container": "workspace:*"
+    "@lidofinance/cookie-theme-toggler": "workspace:*"
     "@lidofinance/data-table": "workspace:*"
     "@lidofinance/divider": "workspace:*"
     "@lidofinance/heading": "workspace:*"
