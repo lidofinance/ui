@@ -15,7 +15,6 @@ export type ChipProps = LidoComponentProps<
   'div',
   {
     wrapperRef?: React.RefObject<HTMLLabelElement>
-    children?: never
     variant?: ChipVariants
   }
 >

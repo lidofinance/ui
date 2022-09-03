@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export enum THEME {
-  light = 'light',
-  dark = 'dark',
-}
+import { THEME } from '@lidofinance/theme'
 
 export const useSystemTheme = (): THEME | undefined => {
   const [systemTheme, setSystemTheme] = useState<THEME>()
