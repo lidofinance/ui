@@ -6,35 +6,20 @@ import { generateCssColorVariables } from './utils/generate-css-color-variables'
 const darkThemeColors = generateCssColorVariables(themeDark.colors)
 const lightThemeColors = generateCssColorVariables(themeLight.colors)
 
-const generateModeVisibilityCssVariables = (mode: ThemeName): string => {
-  return mode === ThemeName.dark
-    ? `
-    --lido-lightModeVisibility: hidden;
-    --lido-darkModeVisibility: visible;
-  `
-    : `
-    --lido-lightModeVisibility: visible;
-    --lido-darkModeVisibility: hidden;
-  `
-}
-
 export let initGlobalColors = VOID_FN
 export const themeCSSValueString = `
 html, [data-lido-theme='${ThemeName.light}'] {
     color-theme: light;
-    ${generateModeVisibilityCssVariables(ThemeName.light)}
     ${lightThemeColors}
 }
 @media (prefers-color-scheme: dark) {
     html:not([data-lido-theme='${ThemeName.light}']) { 
         color-theme: dark;
-        ${generateModeVisibilityCssVariables(ThemeName.dark)}
         ${darkThemeColors} 
     }
 }
 [data-lido-theme='${ThemeName.dark}'] {
     color-theme: dark;
-    ${generateModeVisibilityCssVariables(ThemeName.dark)}
     ${darkThemeColors}
 }`
 
