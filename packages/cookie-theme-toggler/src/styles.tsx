@@ -23,9 +23,9 @@ export const IconWrapper = styled.span`
 `
 
 export const LightWrapper = styled(IconWrapper)`
-  visibility: var(--lido-lightModeVisibility);
+  visibility: var(--lido-color-lightModeVisibility);
 `
 
 export const DarkWrapper = styled(IconWrapper)`
-  visibility: var(--lido-darkModeVisibility);
+  visibility: var(--lido-color-darkModeVisibility);
 `
