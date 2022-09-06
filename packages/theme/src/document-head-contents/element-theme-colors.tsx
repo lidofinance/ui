@@ -8,7 +8,7 @@ const lightThemeColors = generateCssColorVariables(themeLight.colors)
 
 export let initGlobalColors = VOID_FN
 export const themeCSSValueString = `
-html, [data-lido-theme='${ThemeName.light}'] { 
+html, [data-lido-theme='${ThemeName.light}'] {
     color-theme: light;
     ${lightThemeColors}
 }
