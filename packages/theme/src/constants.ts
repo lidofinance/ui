@@ -10,7 +10,6 @@ export const globalStyleDataAttribute = 'data-lido-ui-global-style'
 
 export const themeCookieExpire = 365
 
-export const prefersDarkThemeMediaQuery =
-  typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-color-scheme: dark)')
-    : undefined
+export const prefersDarkThemeMediaQuery = window?.matchMedia?.(
+  '(prefers-color-scheme: dark)'
+)
