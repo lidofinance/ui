@@ -28,7 +28,7 @@ if (typeof window !== 'undefined') {
     initGlobalColors = () => {
       const style = document.createElement('style')
       style.setAttribute(globalStyleDataAttribute, '')
-      style.innerText = themeCSSValueString
+      style.innerHTML = themeCSSValueString
 
       document.head.appendChild(style)
       // eslint-disable-next-line @typescript-eslint/no-empty-function
