@@ -8,8 +8,8 @@ export const translation = keyframes`
 `
 
 export const InlineLoaderStyle = styled.span<{ $color?: InlineLoaderColors }>`
-  --loader-color: ${({ theme, $color }) =>
-    $color ? theme.colors[$color] : 'currentColor'};
+  --loader-color: ${({ $color }) =>
+    $color ? `var(--lido-color-${$color})` : 'currentColor'};
 
   width: 100%;
   display: inline-block;

@@ -16,7 +16,7 @@ export const LoaderStyle = styled.div<{
   line-height: 0;
   width: ${(props) => props.$size}px;
   height: ${(props) => props.$size}px;
-  color: ${({ theme, $color }) => theme.colors[$color]};
+  color: ${({ $color }) => `var(--lido-color-${$color})`};
 `
 
 export const LoaderCircleBgStyle = styled.circle<{ $thickness: number }>`
