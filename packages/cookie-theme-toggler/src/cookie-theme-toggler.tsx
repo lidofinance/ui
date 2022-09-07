@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { CookieThemeTogglerStyle, DarkWrapper, LightWrapper } from './styles'
 import { Dark, Light } from '@lidofinance/icons'
-import { useThemeToggle } from './hooks'
+import { useThemeToggle } from '@lidofinance/theme'
 
 export const ThemeToggler: FC = () => {
   const { toggleTheme } = useThemeToggle()

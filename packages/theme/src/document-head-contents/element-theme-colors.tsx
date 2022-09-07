@@ -1,7 +1,8 @@
 import React from 'react'
 import { themeDark, themeLight } from '../themes'
-import { globalStyleDataAttribute, ThemeName, VOID_FN } from '../globals'
-import { generateCssColorVariables } from './utils/generate-css-color-variables'
+import { generateCssColorVariables } from '../utils/generate-css-color-variables'
+import { globalStyleDataAttribute, ThemeName } from '../constants'
+import { VOID_FN } from '@lidofinance/utils'
 
 const darkThemeColors = generateCssColorVariables(themeDark.colors)
 const lightThemeColors = generateCssColorVariables(themeLight.colors)
@@ -9,18 +10,18 @@ const lightThemeColors = generateCssColorVariables(themeLight.colors)
 export let initGlobalColors = VOID_FN
 export const themeCSSValueString = `
 html, [data-lido-theme='${ThemeName.light}'] {
-    color-theme: light;
-    ${lightThemeColors}
+color-theme: light;
+${lightThemeColors}
 }
 @media (prefers-color-scheme: dark) {
-    html:not([data-lido-theme='${ThemeName.light}']) { 
-        color-theme: dark;
-        ${darkThemeColors} 
-    }
+html:not([data-lido-theme='${ThemeName.light}']) { 
+color-theme: dark;
+${darkThemeColors} 
+}
 }
 [data-lido-theme='${ThemeName.dark}'] {
-    color-theme: dark;
-    ${darkThemeColors}
+color-theme: dark;
+${darkThemeColors}
 }`
 
 if (typeof window !== 'undefined') {

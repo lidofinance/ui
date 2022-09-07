@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 
-import { THEME } from '@lidofinance/theme'
+import { ThemeName } from '@lidofinance/theme'
 
-export const useSystemTheme = (): THEME | undefined => {
-  const [systemTheme, setSystemTheme] = useState<THEME>()
+export const useSystemTheme = (): ThemeName | undefined => {
+  const [systemTheme, setSystemTheme] = useState<ThemeName>()
 
   useEffect(() => {
     const mql = window.matchMedia('(prefers-color-scheme: dark)')
 
     const setThemeFromQuery = ({ matches }: { matches: boolean }) => {
-      setSystemTheme(matches ? THEME.dark : THEME.light)
+      setSystemTheme(matches ? ThemeName.dark : ThemeName.light)
     }
 
     mql.addEventListener('change', setThemeFromQuery)
