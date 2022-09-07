@@ -23,7 +23,6 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
-    "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-unused-vars": [
@@ -34,6 +33,12 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"]
+    },
+    {
+      "files": ["*.stories.*", ".storybook/**"],
+      "rules": {
+        "react/react-in-jsx-scope": "off"
+      }
     },
     {
       "files": ["*.js", "*.jsx", "*.cjs"],

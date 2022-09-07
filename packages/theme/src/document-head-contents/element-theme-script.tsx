@@ -28,7 +28,7 @@ const themeScriptValueString = function (key: string) {
     const themeCookie =
       (document.cookie.match(cookieMatcher)?.[2] as ThemeName) ?? null
     if (themeCookie) {
-      document.documentElement.dataset.lidoTheme = themeCookie.split('=')[1]
+      document.documentElement.dataset.lidoTheme = themeCookie
     } else {
       delete document.documentElement.dataset.lidoTheme
     }
@@ -49,7 +49,12 @@ export let initGlobalCookieTheme =
         initGlobalCookieTheme = VOID_FN
         const topLevelDomain = getTopLevelDomain()
         updateGlobalTheme = (theme: ThemeName) => {
-          document.cookie = `${themeCookieKey}=${theme};expires=${themeCookieExpire};path=/;domain=${topLevelDomain};samesite=None;`
+          const cookie = `${themeCookieKey}=${theme};expires=${themeCookieExpire};path=/;domain=${topLevelDomain};samesite=None;`
+          // 1. we want this cookie to be available on HTTP websites too.
+          // 2. there is a bug on localhost which causes Chrome to ignore cookies set without Secure,
+          // and Safari when cookies are set with Secure, so we're forcing cookie into both
+          document.cookie = cookie
+          document.cookie = `${cookie}Secure;`
           setTheme()
         }
       }
