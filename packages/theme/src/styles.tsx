@@ -7,8 +7,8 @@ export const Block: FC<PropsWithChildren> = styled.div`
   padding: ${({ theme }) => theme.spaceMap.xxl}px;
   margin: ${({ theme }) => theme.spaceMap.md}px 0;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
-  background: ${({ theme }) => theme.colors.foreground};
-  color: ${({ theme }) => theme.colors.text};
+  background: var(--lido-color-foreground);
+  color: var(--lido-color-text);
 
   &:not(:only-child):first-child {
     margin-top: 0;
