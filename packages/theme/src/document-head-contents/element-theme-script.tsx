@@ -1,7 +1,10 @@
 import React from 'react'
 import { STORAGE_THEME_MANUAL_KEY, ThemeName, VOID_FN } from '../globals'
 import { getTopLevelDomain } from '@lidofinance/utils'
-import {COOKIE_THEME_MANUAL_KEY, COOKIES_THEME_EXPIRES_DAYS} from "../../../cookie-theme-toggler/src/constants";
+import {
+  COOKIE_THEME_MANUAL_KEY,
+  COOKIES_THEME_EXPIRES_DAYS,
+} from '../../../cookie-theme-toggler/src/constants'
 
 /**
  *  this FN should be hermetic and has zero external items - it is inlined via .toString()
