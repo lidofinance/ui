@@ -1,7 +1,7 @@
 import { BaseDecorators } from '@storybook/addons'
 import '@lidofinance/theme'
 import { createGlobalStyle } from 'styled-components'
-import { CookieThemeProvider } from '@lidofinance/cookie-theme-toggler'
+import { CookieThemeProvider } from '@lidofinance/theme'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -20,7 +20,7 @@ export const WithThemeProvider: BaseDecorators<JSX.Element>[number] = (
 ): JSX.Element => {
   return (
     <CookieThemeProvider
-      overrideTheme={
+      overrideThemeName={
         args.themeOverride === 'follow cookie and system'
           ? undefined
           : args.themeOverride

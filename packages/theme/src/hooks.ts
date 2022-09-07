@@ -1,5 +1,6 @@
 import { useContext } from 'react'
-import { ThemeToggleContext, ThemeContext } from './cookie-theme-provider'
+import { ThemeToggleContext } from './cookie-theme-provider'
+import { ThemeContext } from './types'
 
 export const useThemeToggle = (): ThemeContext => {
   return useContext(ThemeToggleContext)

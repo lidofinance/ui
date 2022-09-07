@@ -1,5 +1,5 @@
 import themeBase from './base'
-import { ThemeName } from './globals'
+import { ThemeName } from './constants'
 
 export const themeLight = {
   ...themeBase,
@@ -86,5 +86,15 @@ export const themeDark = {
     popupMenuItemBgActiveHover: '#fff',
   },
 }
+
+export const themeMap = {
+  [ThemeName.light]: themeLight,
+  [ThemeName.dark]: themeDark,
+}
+
+export const reverseThemeMap = new WeakMap([
+  [themeLight, ThemeName.light],
+  [themeDark, ThemeName.dark],
+])
 
 export const themeDefault = themeLight

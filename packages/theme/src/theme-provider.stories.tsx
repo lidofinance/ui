@@ -3,9 +3,10 @@ import {
   DarkThemeProvider,
   LightThemeProvider,
   ThemeProvider,
-} from './provider'
+} from './theme-provider'
 import { themeLight } from './themes'
-import { Block } from './styles'
+import { FC, PropsWithChildren } from 'react'
+import styled from 'styled-components'
 
 export default {
   title: 'Theme/Providers',
@@ -20,20 +21,34 @@ const themeCustom = {
   },
 }
 
+const Block: FC<PropsWithChildren> = styled.div`
+  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+  line-height: 1.5em;
+  padding: ${({ theme }) => theme.spaceMap.xxl}px;
+  margin: ${({ theme }) => theme.spaceMap.md}px 0;
+  border-radius: ${({ theme }) => theme.borderRadiusesMap.xl}px;
+  background: var(--lido-color-foreground);
+  color: var(--lido-color-text);
+
+  &:not(:only-child):first-child {
+    margin-top: 0;
+  }
+
+  &:not(:only-child):last-child {
+    margin-bottom: 0;
+  }
+`
+
 export const Providers: Story = (props) => (
   <>
-    {/* @ts-expect-error fix later */}
     <Block>Component inherits global theme</Block>
-    <LightThemeProvider {...props}>
-      {/* @ts-expect-error fix later */}
+    <LightThemeProvider>
       <Block>Wrapped in LightThemeProvider</Block>
     </LightThemeProvider>
-    <DarkThemeProvider {...props}>
-      {/* @ts-expect-error fix later */}
+    <DarkThemeProvider>
       <Block>Wrapped in DarkThemeProvider</Block>
     </DarkThemeProvider>
     <ThemeProvider theme={themeCustom} {...props}>
-      {/* @ts-expect-error fix later */}
       <Block>Wrapped in ThemeProvider, which provides custom theme</Block>
     </ThemeProvider>
   </>

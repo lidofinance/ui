@@ -29,8 +29,8 @@ export const generateCssColorVariables = (
       const color = colors[key as keyof typeof colors]
       const rgb = toRgb(color)
       return rgb
-        ? `--lido-color-${key}: ${color}; --lido-rgb-${key}: ${rgb[0]},${rgb[1]},${rgb[2]};`
-        : `--lido-color-${key}: ${color};`
+        ? `--lido-color-${key}: ${color};\n--lido-rgb-${key}: ${rgb[0]},${rgb[1]},${rgb[2]};\n`
+        : `--lido-color-${key}: ${color};\n`
     })
-    .join(';')
+    .join('')
 }
