@@ -49,7 +49,7 @@ export let initGlobalCookieTheme =
         initGlobalCookieTheme = VOID_FN
         const topLevelDomain = getTopLevelDomain()
         updateGlobalTheme = (theme: ThemeName) => {
-          document.cookie = `${themeCookieKey}=${theme};expires=${themeCookieExpire};path=/;domain=${topLevelDomain};samesite=None;secure;`
+          document.cookie = `${themeCookieKey}=${theme};expires=${themeCookieExpire};path=/;domain=${topLevelDomain};samesite=None;`
           setTheme()
         }
       }

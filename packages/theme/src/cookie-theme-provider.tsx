@@ -117,6 +117,7 @@ export const CookieThemeProvider: FC<
             // note that we're writing cookie theme only on explicit calls,
             // not on "internal theme state" change
             updateGlobalTheme(newThemeName)
+            // we do not need to run setTheme here, as effect is triggered
             return newThemeName
           })
         },

@@ -6,6 +6,9 @@ import { ThemeToggler } from './cookie-theme-toggler'
 
 export default {
   title: 'Theme/Cookie Theme Provider',
+  args: {
+    themeOverride: 'follow cookie and system',
+  },
 } as Meta
 
 export const Providers: Story = () => (
