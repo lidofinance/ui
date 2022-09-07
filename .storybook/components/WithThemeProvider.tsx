@@ -20,7 +20,7 @@ export const WithThemeProvider: BaseDecorators<JSX.Element>[number] = (
 ): JSX.Element => {
   return (
     <CookieThemeProvider
-      overrideTheme={
+      overrideThemeName={
         args.themeOverride === 'follow cookie and system'
           ? undefined
           : args.themeOverride

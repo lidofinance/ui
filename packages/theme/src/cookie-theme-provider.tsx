@@ -23,6 +23,7 @@ const defaultThemeContext = {} as ThemeContext
 export const ThemeToggleContext =
   createContext<ThemeContext>(defaultThemeContext)
 
+// we need to initialize this before react component code if we're using this provider or ThemeProvider
 initColors()
 
 /** Cookie theme provider acts differently from common theme provider.
@@ -34,20 +35,20 @@ initColors()
 export const CookieThemeProvider: FC<
   PropsWithChildren<{
     // Use themeNameParent if you need get cookie in SSR
-    initialTheme?: ThemeName
-    overrideTheme?: ThemeName
+    initialThemeName?: ThemeName
+    overrideThemeName?: ThemeName
   }>
 > = React.memo(
   ({
     children,
-    initialTheme,
-    // overrideTheme is mainly used for storybook
-    overrideTheme,
+    initialThemeName,
+    // overrideThemeName is mainly used for storybook
+    overrideThemeName,
   }) => {
     const parentTheme = useContext(ThemeToggleContext)
     const isTopLevelProvider = parentTheme === defaultThemeContext
     const [internalThemeName, setThemeName] = useState<ThemeName>(
-      initialTheme || DEFAULT_THEME_NAME
+      initialThemeName || DEFAULT_THEME_NAME
     )
     const themeName = parentTheme.themeName || internalThemeName
 
@@ -56,7 +57,7 @@ export const CookieThemeProvider: FC<
     // Noticing browser preferences on hydration
     // Reacting to changing preferences
     useEffect(() => {
-      if (typeof window === 'undefined' || !isTopLevelProvider) {
+      if (!isTopLevelProvider) {
         return
       }
 
@@ -66,9 +67,9 @@ export const CookieThemeProvider: FC<
           : ThemeName.light
         const themeNameCookie = getThemeNameFromCookies()
         const newThemeName =
-          overrideTheme ||
+          overrideThemeName ||
           themeNameCookie ||
-          initialTheme ||
+          initialThemeName ||
           systemThemeName ||
           DEFAULT_THEME_NAME
         setThemeName(newThemeName)
@@ -77,7 +78,13 @@ export const CookieThemeProvider: FC<
 
       prefersDarkThemeMediaQuery?.addEventListener('change', setTheme)
       setTheme()
-    }, [initialTheme, isTopLevelProvider, overrideTheme, parentTheme, theme])
+    }, [
+      initialThemeName,
+      isTopLevelProvider,
+      overrideThemeName,
+      parentTheme,
+      theme,
+    ])
 
     const value = useMemo(
       () => ({

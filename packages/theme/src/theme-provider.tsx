@@ -5,7 +5,7 @@ import { initColors } from './document-head-contents'
 import { generateCssColorVariables } from './utils/generate-css-color-variables'
 import { Theme } from './types'
 
-// you need this if you're using themes, so we initiate this automatically
+// we need to initialize this before react component code if we're using this provider or CookieThemeProvider
 initColors()
 
 const StyledWrapper = styled.div<{ colors?: Record<string, string> }>`
