@@ -4,6 +4,16 @@ import { generateCssColorVariables } from '../utils/generate-css-color-variables
 import { globalStyleDataAttribute, ThemeName } from '../constants'
 import { VOID_FN } from '@lidofinance/utils'
 
+/**
+ * What is happening here:
+ * We want to have React dehydrated HTML to be loaded after theme is initialized.
+ * That means that we need to have some code executed BEFORE main react components code,
+ * before even injected script itself, so we need to provide some CSS and JS in document head
+ * to read the theme from cookie and make global CSS follow preferred palette.
+ * This file is providing CSS themes that defines custom CSS variables with palette to
+ * make HTML document styled even before any code is loaded
+ * */
+
 const darkThemeColors = generateCssColorVariables(themeDark.colors)
 const lightThemeColors = generateCssColorVariables(themeLight.colors)
 
