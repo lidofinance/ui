@@ -101,7 +101,7 @@
         "packages/styled-system/index.ts"
       ],
       "@lidofinance/table": [
-        "packages/table/src/index.ts"
+        "packages/table/index.ts"
       ],
       "@lidofinance/text": [
         "packages/text/src/index.ts"
