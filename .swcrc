@@ -65,7 +65,7 @@
         "packages/input/index.ts"
       ],
       "@lidofinance/lido-logo": [
-        "packages/lido-logo/src/index.ts"
+        "packages/lido-logo/index.ts"
       ],
       "@lidofinance/link": [
         "packages/link/src/index.ts"
