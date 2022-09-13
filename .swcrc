@@ -47,7 +47,7 @@
         "packages/data-table/index.ts"
       ],
       "@lidofinance/divider": [
-        "packages/divider/src/index.ts"
+        "packages/divider/index.ts"
       ],
       "@lidofinance/heading": [
         "packages/heading/src/index.tsx"

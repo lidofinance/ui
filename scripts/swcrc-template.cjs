@@ -28,7 +28,7 @@ module.exports = {
       '@lidofinance/chip': ['packages/chip/index.ts'],
       '@lidofinance/container': ['packages/container/index.ts'],
       '@lidofinance/data-table': ['packages/data-table/index.ts'],
-      '@lidofinance/divider': ['packages/divider/src/index.ts'],
+      '@lidofinance/divider': ['packages/divider/index.ts'],
       '@lidofinance/heading': ['packages/heading/src/index.tsx'],
       '@lidofinance/hooks': ['packages/hooks/src/index.ts'],
       '@lidofinance/icons': ['packages/icons/src/index.tsx'],
