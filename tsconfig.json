@@ -32,7 +32,7 @@
       "@lidofinance/checkbox": ["packages/checkbox"],
       "@lidofinance/chip": ["packages/chip"],
       "@lidofinance/container": ["packages/container"],
-      "@lidofinance/data-table": ["packages/data-table/src"],
+      "@lidofinance/data-table": ["packages/data-table"],
       "@lidofinance/divider": ["packages/divider/src"],
       "@lidofinance/heading": ["packages/heading/src/"],
       "@lidofinance/hooks": ["packages/hooks/src"],
