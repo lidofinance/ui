@@ -39,7 +39,7 @@ module.exports = {
       '@lidofinance/loaders': ['packages/loaders/index.ts'],
       '@lidofinance/main-menu': ['packages/main-menu/index.ts'],
       '@lidofinance/modal': ['packages/modal/index.ts'],
-      '@lidofinance/pagination': ['packages/pagination/src/index.ts'],
+      '@lidofinance/pagination': ['packages/pagination/index.ts'],
       '@lidofinance/popover': ['packages/popover/src/index.ts'],
       '@lidofinance/popup-menu': ['packages/popup-menu/src/index.ts'],
       '@lidofinance/select': ['packages/select/src/index.ts'],

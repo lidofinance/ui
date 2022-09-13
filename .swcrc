@@ -80,7 +80,7 @@
         "packages/modal/index.ts"
       ],
       "@lidofinance/pagination": [
-        "packages/pagination/src/index.ts"
+        "packages/pagination/index.ts"
       ],
       "@lidofinance/popover": [
         "packages/popover/src/index.ts"
