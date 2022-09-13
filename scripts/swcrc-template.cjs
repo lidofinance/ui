@@ -33,7 +33,7 @@ module.exports = {
       '@lidofinance/hooks': ['packages/hooks/index.ts'],
       '@lidofinance/icons': ['packages/icons/index.tsx'],
       '@lidofinance/identicon': ['packages/identicon/index.ts'],
-      '@lidofinance/input': ['packages/input/src/index.ts'],
+      '@lidofinance/input': ['packages/input/index.ts'],
       '@lidofinance/lido-logo': ['packages/lido-logo/src/index.ts'],
       '@lidofinance/link': ['packages/link/src/index.ts'],
       '@lidofinance/loaders': ['packages/loaders/src/index.ts'],
