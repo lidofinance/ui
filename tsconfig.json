@@ -28,7 +28,7 @@
       "@lidofinance/address": ["packages/address"],
       "@lidofinance/block": ["packages/block"],
       "@lidofinance/box": ["packages/box"],
-      "@lidofinance/button": ["packages/button/src"],
+      "@lidofinance/button": ["packages/button"],
       "@lidofinance/checkbox": ["packages/checkbox/src"],
       "@lidofinance/chip": ["packages/chip/src"],
       "@lidofinance/container": ["packages/container/src"],

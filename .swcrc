@@ -32,7 +32,7 @@
         "packages/box/index.ts"
       ],
       "@lidofinance/button": [
-        "packages/button/src/index.ts"
+        "packages/button/index.ts"
       ],
       "@lidofinance/checkbox": [
         "packages/checkbox/src/index.ts"
