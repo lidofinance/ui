@@ -26,7 +26,7 @@
     "paths": {
       "@lidofinance/accordion": ["packages/accordion"],
       "@lidofinance/address": ["packages/address"],
-      "@lidofinance/block": ["packages/block/src"],
+      "@lidofinance/block": ["packages/block"],
       "@lidofinance/box": ["packages/box/src"],
       "@lidofinance/button": ["packages/button/src"],
       "@lidofinance/checkbox": ["packages/checkbox/src"],

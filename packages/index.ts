@@ -1,6 +1,6 @@
 export * from './accordion'
 export * from './address'
-export * from './block/src'
+export * from './block'
 export * from './box/src'
 export * from './button/src'
 export * from './checkbox/src'

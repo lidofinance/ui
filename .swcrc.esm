@@ -26,7 +26,7 @@
         "packages/address/index.ts"
       ],
       "@lidofinance/block": [
-        "packages/block/src/index.ts"
+        "packages/block/index.ts"
       ],
       "@lidofinance/box": [
         "packages/box/src/index.ts"
