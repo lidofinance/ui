@@ -35,7 +35,7 @@
         "packages/button/index.ts"
       ],
       "@lidofinance/checkbox": [
-        "packages/checkbox/src/index.ts"
+        "packages/checkbox/index.ts"
       ],
       "@lidofinance/chip": [
         "packages/chip/src/index.ts"
