@@ -53,7 +53,7 @@
         "packages/heading/index.tsx"
       ],
       "@lidofinance/hooks": [
-        "packages/hooks/src/index.ts"
+        "packages/hooks/index.ts"
       ],
       "@lidofinance/icons": [
         "packages/icons/src/index.tsx"
