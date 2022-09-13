@@ -31,7 +31,7 @@ module.exports = {
       '@lidofinance/divider': ['packages/divider/index.ts'],
       '@lidofinance/heading': ['packages/heading/index.tsx'],
       '@lidofinance/hooks': ['packages/hooks/index.ts'],
-      '@lidofinance/icons': ['packages/icons/src/index.tsx'],
+      '@lidofinance/icons': ['packages/icons/index.tsx'],
       '@lidofinance/identicon': ['packages/identicon/src/index.ts'],
       '@lidofinance/input': ['packages/input/src/index.ts'],
       '@lidofinance/lido-logo': ['packages/lido-logo/src/index.ts'],

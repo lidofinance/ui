@@ -56,7 +56,7 @@
         "packages/hooks/index.ts"
       ],
       "@lidofinance/icons": [
-        "packages/icons/src/index.tsx"
+        "packages/icons/index.tsx"
       ],
       "@lidofinance/identicon": [
         "packages/identicon/src/index.ts"
