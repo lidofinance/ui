@@ -52,7 +52,7 @@
       "@lidofinance/stack": ["packages/stack"],
       "@lidofinance/styled-system": ["packages/styled-system"],
       "@lidofinance/table": ["packages/table"],
-      "@lidofinance/text": ["packages/text/src"],
+      "@lidofinance/text": ["packages/text"],
       "@lidofinance/theme": ["packages/theme/src"],
       "@lidofinance/toast": ["packages/toast/src"],
       "@lidofinance/tooltip": ["packages/tooltip/src"],

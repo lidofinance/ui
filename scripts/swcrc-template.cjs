@@ -47,7 +47,7 @@ module.exports = {
       '@lidofinance/stack': ['packages/stack/index.ts'],
       '@lidofinance/styled-system': ['packages/styled-system/index.ts'],
       '@lidofinance/table': ['packages/table/index.ts'],
-      '@lidofinance/text': ['packages/text/src/index.ts'],
+      '@lidofinance/text': ['packages/text/index.ts'],
       '@lidofinance/theme': ['packages/theme/src/index.ts'],
       '@lidofinance/toast': ['packages/toast/src/index.ts'],
       '@lidofinance/tooltip': ['packages/tooltip/src/index.ts'],

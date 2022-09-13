@@ -104,7 +104,7 @@
         "packages/table/index.ts"
       ],
       "@lidofinance/text": [
-        "packages/text/src/index.ts"
+        "packages/text/index.ts"
       ],
       "@lidofinance/theme": [
         "packages/theme/src/index.ts"
