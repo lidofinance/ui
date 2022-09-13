@@ -45,7 +45,7 @@
       "@lidofinance/main-menu": ["packages/main-menu"],
       "@lidofinance/modal": ["packages/modal"],
       "@lidofinance/pagination": ["packages/pagination"],
-      "@lidofinance/popover": ["packages/popover/src"],
+      "@lidofinance/popover": ["packages/popover"],
       "@lidofinance/popup-menu": ["packages/popup-menu/src"],
       "@lidofinance/select": ["packages/select/src"],
       "@lidofinance/service-page": ["packages/service-page/src"],

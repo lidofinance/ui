@@ -83,7 +83,7 @@
         "packages/pagination/index.ts"
       ],
       "@lidofinance/popover": [
-        "packages/popover/src/index.ts"
+        "packages/popover/index.ts"
       ],
       "@lidofinance/popup-menu": [
         "packages/popup-menu/src/index.ts"

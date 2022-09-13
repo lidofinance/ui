@@ -40,7 +40,7 @@ module.exports = {
       '@lidofinance/main-menu': ['packages/main-menu/index.ts'],
       '@lidofinance/modal': ['packages/modal/index.ts'],
       '@lidofinance/pagination': ['packages/pagination/index.ts'],
-      '@lidofinance/popover': ['packages/popover/src/index.ts'],
+      '@lidofinance/popover': ['packages/popover/index.ts'],
       '@lidofinance/popup-menu': ['packages/popup-menu/src/index.ts'],
       '@lidofinance/select': ['packages/select/src/index.ts'],
       '@lidofinance/service-page': ['packages/service-page/src/index.ts'],
