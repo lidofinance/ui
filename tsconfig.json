@@ -42,7 +42,7 @@
       "@lidofinance/lido-logo": ["packages/lido-logo"],
       "@lidofinance/link": ["packages/link"],
       "@lidofinance/loaders": ["packages/loaders"],
-      "@lidofinance/main-menu": ["packages/main-menu/src"],
+      "@lidofinance/main-menu": ["packages/main-menu"],
       "@lidofinance/modal": ["packages/modal/src"],
       "@lidofinance/pagination": ["packages/pagination/src"],
       "@lidofinance/popover": ["packages/popover/src"],
