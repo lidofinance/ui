@@ -116,7 +116,7 @@
         "packages/tooltip/index.ts"
       ],
       "@lidofinance/transition": [
-        "packages/transition/src/index.ts"
+        "packages/transition/index.ts"
       ],
       "@lidofinance/utils": [
         "packages/utils/src/index.ts"

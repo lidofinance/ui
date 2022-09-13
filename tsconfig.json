@@ -56,7 +56,7 @@
       "@lidofinance/theme": ["packages/theme"],
       "@lidofinance/toast": ["packages/toast"],
       "@lidofinance/tooltip": ["packages/tooltip"],
-      "@lidofinance/transition": ["packages/transition/src"],
+      "@lidofinance/transition": ["packages/transition"],
       "@lidofinance/utils": ["packages/utils/src"],
       "@lidofinance/cookie-theme-toggler": ["packages/cookie-theme-toggler"]
     }
