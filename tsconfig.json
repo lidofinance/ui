@@ -40,7 +40,7 @@
       "@lidofinance/identicon": ["packages/identicon"],
       "@lidofinance/input": ["packages/input"],
       "@lidofinance/lido-logo": ["packages/lido-logo"],
-      "@lidofinance/link": ["packages/link/src"],
+      "@lidofinance/link": ["packages/link"],
       "@lidofinance/loaders": ["packages/loaders/src"],
       "@lidofinance/main-menu": ["packages/main-menu/src"],
       "@lidofinance/modal": ["packages/modal/src"],
