@@ -24,8 +24,8 @@
     "strictFunctionTypes": false,
     "baseUrl": ".",
     "paths": {
-      "@lidofinance/accordion": ["packages/accordion/src"],
-      "@lidofinance/address": ["packages/address/src"],
+      "@lidofinance/accordion": ["packages/accordion"],
+      "@lidofinance/address": ["packages/address"],
       "@lidofinance/block": ["packages/block/src"],
       "@lidofinance/box": ["packages/box/src"],
       "@lidofinance/button": ["packages/button/src"],

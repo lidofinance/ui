@@ -19,8 +19,8 @@ module.exports = {
     },
     baseUrl: '.',
     paths: {
-      '@lidofinance/accordion': ['packages/accordion/src/index.ts'],
-      '@lidofinance/address': ['packages/address/src/index.ts'],
+      '@lidofinance/accordion': ['packages/accordion/index.ts'],
+      '@lidofinance/address': ['packages/address/index.ts'],
       '@lidofinance/block': ['packages/block/src/index.ts'],
       '@lidofinance/box': ['packages/box/src/index.ts'],
       '@lidofinance/button': ['packages/button/src/index.ts'],

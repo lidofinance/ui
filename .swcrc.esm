@@ -20,10 +20,10 @@
     "baseUrl": ".",
     "paths": {
       "@lidofinance/accordion": [
-        "packages/accordion/src/index.ts"
+        "packages/accordion/index.ts"
       ],
       "@lidofinance/address": [
-        "packages/address/src/index.ts"
+        "packages/address/index.ts"
       ],
       "@lidofinance/block": [
         "packages/block/src/index.ts"
