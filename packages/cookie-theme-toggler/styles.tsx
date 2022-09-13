@@ -6,7 +6,7 @@ export const CookieThemeTogglerStyle = styled(Button).attrs({
   variant: 'text',
   size: 'xs',
 })`
-  display: grid;
+  display: inline-grid;
   grid-template-areas: 'a';
   min-width: 0;
   margin-left: ${({ theme }) => theme.spaceMap.sm}px;
@@ -28,12 +28,12 @@ export const CookieThemeTogglerLightIcon = styled(Light)`
   grid-area: a;
   align-self: center;
   justify-self: center;
-  visibility: var(--lido-color-lightModeVisibility);
+  visibility: var(--lido-color-darkModeVisibility);
 `
 
 export const CookieThemeTogglerDarkIcon = styled(Dark)`
   grid-area: a;
   align-self: center;
   justify-self: center;
-  visibility: var(--lido-color-darkModeVisibility);
+  visibility: var(--lido-color-lightModeVisibility);
 `
