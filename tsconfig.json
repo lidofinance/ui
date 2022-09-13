@@ -41,7 +41,7 @@
       "@lidofinance/input": ["packages/input"],
       "@lidofinance/lido-logo": ["packages/lido-logo"],
       "@lidofinance/link": ["packages/link"],
-      "@lidofinance/loaders": ["packages/loaders/src"],
+      "@lidofinance/loaders": ["packages/loaders"],
       "@lidofinance/main-menu": ["packages/main-menu/src"],
       "@lidofinance/modal": ["packages/modal/src"],
       "@lidofinance/pagination": ["packages/pagination/src"],

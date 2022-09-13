@@ -71,7 +71,7 @@
         "packages/link/index.ts"
       ],
       "@lidofinance/loaders": [
-        "packages/loaders/src/index.ts"
+        "packages/loaders/index.ts"
       ],
       "@lidofinance/main-menu": [
         "packages/main-menu/src/index.ts"
