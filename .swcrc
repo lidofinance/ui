@@ -119,7 +119,7 @@
         "packages/transition/index.ts"
       ],
       "@lidofinance/utils": [
-        "packages/utils/src/index.ts"
+        "packages/utils/index.ts"
       ],
       "@lidofinance/cookie-theme-toggler": [
         "packages/cookie-theme-toggler"
