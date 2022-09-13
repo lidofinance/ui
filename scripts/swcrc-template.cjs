@@ -49,7 +49,7 @@ module.exports = {
       '@lidofinance/table': ['packages/table/index.ts'],
       '@lidofinance/text': ['packages/text/index.ts'],
       '@lidofinance/theme': ['packages/theme/index.ts'],
-      '@lidofinance/toast': ['packages/toast/src/index.ts'],
+      '@lidofinance/toast': ['packages/toast/index.ts'],
       '@lidofinance/tooltip': ['packages/tooltip/src/index.ts'],
       '@lidofinance/transition': ['packages/transition/src/index.ts'],
       '@lidofinance/utils': ['packages/utils/src/index.ts'],

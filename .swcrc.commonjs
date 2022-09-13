@@ -110,7 +110,7 @@
         "packages/theme/index.ts"
       ],
       "@lidofinance/toast": [
-        "packages/toast/src/index.ts"
+        "packages/toast/index.ts"
       ],
       "@lidofinance/tooltip": [
         "packages/tooltip/src/index.ts"

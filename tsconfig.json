@@ -54,7 +54,7 @@
       "@lidofinance/table": ["packages/table"],
       "@lidofinance/text": ["packages/text"],
       "@lidofinance/theme": ["packages/theme"],
-      "@lidofinance/toast": ["packages/toast/src"],
+      "@lidofinance/toast": ["packages/toast"],
       "@lidofinance/tooltip": ["packages/tooltip/src"],
       "@lidofinance/transition": ["packages/transition/src"],
       "@lidofinance/utils": ["packages/utils/src"],
