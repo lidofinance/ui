@@ -50,7 +50,7 @@
         "packages/divider/index.ts"
       ],
       "@lidofinance/heading": [
-        "packages/heading/src/index.tsx"
+        "packages/heading/index.tsx"
       ],
       "@lidofinance/hooks": [
         "packages/hooks/src/index.ts"

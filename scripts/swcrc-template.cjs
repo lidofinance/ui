@@ -29,7 +29,7 @@ module.exports = {
       '@lidofinance/container': ['packages/container/index.ts'],
       '@lidofinance/data-table': ['packages/data-table/index.ts'],
       '@lidofinance/divider': ['packages/divider/index.ts'],
-      '@lidofinance/heading': ['packages/heading/src/index.tsx'],
+      '@lidofinance/heading': ['packages/heading/index.tsx'],
       '@lidofinance/hooks': ['packages/hooks/src/index.ts'],
       '@lidofinance/icons': ['packages/icons/src/index.tsx'],
       '@lidofinance/identicon': ['packages/identicon/src/index.ts'],

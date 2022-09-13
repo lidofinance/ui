@@ -34,7 +34,7 @@
       "@lidofinance/container": ["packages/container"],
       "@lidofinance/data-table": ["packages/data-table"],
       "@lidofinance/divider": ["packages/divider"],
-      "@lidofinance/heading": ["packages/heading/src/"],
+      "@lidofinance/heading": ["packages/heading"],
       "@lidofinance/hooks": ["packages/hooks/src"],
       "@lidofinance/icons": ["packages/icons/src/"],
       "@lidofinance/identicon": ["packages/identicon/src"],
