@@ -122,7 +122,7 @@
         "packages/utils/src/index.ts"
       ],
       "@lidofinance/cookie-theme-toggler": [
-        "packages/cookie-theme-toggler/src"
+        "packages/cookie-theme-toggler"
       ]
     },
     "target": "es2019",
