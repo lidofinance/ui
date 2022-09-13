@@ -92,7 +92,7 @@
         "packages/select/index.ts"
       ],
       "@lidofinance/service-page": [
-        "packages/service-page/src/index.ts"
+        "packages/service-page/index.ts"
       ],
       "@lidofinance/stack": [
         "packages/stack/src/index.ts"

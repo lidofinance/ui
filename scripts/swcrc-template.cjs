@@ -43,7 +43,7 @@ module.exports = {
       '@lidofinance/popover': ['packages/popover/index.ts'],
       '@lidofinance/popup-menu': ['packages/popup-menu/index.ts'],
       '@lidofinance/select': ['packages/select/index.ts'],
-      '@lidofinance/service-page': ['packages/service-page/src/index.ts'],
+      '@lidofinance/service-page': ['packages/service-page/index.ts'],
       '@lidofinance/stack': ['packages/stack/src/index.ts'],
       '@lidofinance/styled-system': ['packages/styled-system/src/index.ts'],
       '@lidofinance/table': ['packages/table/src/index.ts'],
