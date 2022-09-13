@@ -107,7 +107,7 @@
         "packages/text/index.ts"
       ],
       "@lidofinance/theme": [
-        "packages/theme/src/index.ts"
+        "packages/theme/index.ts"
       ],
       "@lidofinance/toast": [
         "packages/toast/src/index.ts"

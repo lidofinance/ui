@@ -53,7 +53,7 @@
       "@lidofinance/styled-system": ["packages/styled-system"],
       "@lidofinance/table": ["packages/table"],
       "@lidofinance/text": ["packages/text"],
-      "@lidofinance/theme": ["packages/theme/src"],
+      "@lidofinance/theme": ["packages/theme"],
       "@lidofinance/toast": ["packages/toast/src"],
       "@lidofinance/tooltip": ["packages/tooltip/src"],
       "@lidofinance/transition": ["packages/transition/src"],
