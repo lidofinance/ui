@@ -41,7 +41,7 @@
         "packages/chip/index.ts"
       ],
       "@lidofinance/container": [
-        "packages/container/src/index.ts"
+        "packages/container/index.ts"
       ],
       "@lidofinance/data-table": [
         "packages/data-table/src/index.ts"
