@@ -77,7 +77,7 @@
         "packages/main-menu/index.ts"
       ],
       "@lidofinance/modal": [
-        "packages/modal/src/index.ts"
+        "packages/modal/index.ts"
       ],
       "@lidofinance/pagination": [
         "packages/pagination/src/index.ts"
