@@ -1,4 +1,4 @@
-export * from './accordion/src'
+export * from './accordion'
 export * from './address/src'
 export * from './block/src'
 export * from './box/src'
