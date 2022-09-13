@@ -86,10 +86,10 @@
         "packages/popover/index.ts"
       ],
       "@lidofinance/popup-menu": [
-        "packages/popup-menu/src/index.ts"
+        "packages/popup-menu/index.ts"
       ],
       "@lidofinance/select": [
-        "packages/select/src/index.ts"
+        "packages/select/index.ts"
       ],
       "@lidofinance/service-page": [
         "packages/service-page/src/index.ts"
