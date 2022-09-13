@@ -37,7 +37,7 @@
       "@lidofinance/heading": ["packages/heading"],
       "@lidofinance/hooks": ["packages/hooks"],
       "@lidofinance/icons": ["packages/icons"],
-      "@lidofinance/identicon": ["packages/identicon/src"],
+      "@lidofinance/identicon": ["packages/identicon"],
       "@lidofinance/input": ["packages/input/src"],
       "@lidofinance/lido-logo": ["packages/lido-logo/src"],
       "@lidofinance/link": ["packages/link/src"],

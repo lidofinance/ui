@@ -59,7 +59,7 @@
         "packages/icons/index.tsx"
       ],
       "@lidofinance/identicon": [
-        "packages/identicon/src/index.ts"
+        "packages/identicon/index.ts"
       ],
       "@lidofinance/input": [
         "packages/input/src/index.ts"
