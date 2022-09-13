@@ -22,7 +22,7 @@ module.exports = {
       '@lidofinance/accordion': ['packages/accordion/index.ts'],
       '@lidofinance/address': ['packages/address/index.ts'],
       '@lidofinance/block': ['packages/block/index.ts'],
-      '@lidofinance/box': ['packages/box/src/index.ts'],
+      '@lidofinance/box': ['packages/box/index.ts'],
       '@lidofinance/button': ['packages/button/src/index.ts'],
       '@lidofinance/checkbox': ['packages/checkbox/src/index.ts'],
       '@lidofinance/chip': ['packages/chip/src/index.ts'],

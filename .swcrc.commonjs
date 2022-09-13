@@ -29,7 +29,7 @@
         "packages/block/index.ts"
       ],
       "@lidofinance/box": [
-        "packages/box/src/index.ts"
+        "packages/box/index.ts"
       ],
       "@lidofinance/button": [
         "packages/button/src/index.ts"
