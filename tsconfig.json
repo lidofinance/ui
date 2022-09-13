@@ -50,7 +50,7 @@
       "@lidofinance/select": ["packages/select"],
       "@lidofinance/service-page": ["packages/service-page"],
       "@lidofinance/stack": ["packages/stack"],
-      "@lidofinance/styled-system": ["packages/styled-system/src"],
+      "@lidofinance/styled-system": ["packages/styled-system"],
       "@lidofinance/table": ["packages/table/src"],
       "@lidofinance/text": ["packages/text/src"],
       "@lidofinance/theme": ["packages/theme/src"],

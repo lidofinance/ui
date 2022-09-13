@@ -98,7 +98,7 @@
         "packages/stack/index.ts"
       ],
       "@lidofinance/styled-system": [
-        "packages/styled-system/src/index.ts"
+        "packages/styled-system/index.ts"
       ],
       "@lidofinance/table": [
         "packages/table/src/index.ts"
