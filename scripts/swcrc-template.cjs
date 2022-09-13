@@ -25,7 +25,7 @@ module.exports = {
       '@lidofinance/box': ['packages/box/index.ts'],
       '@lidofinance/button': ['packages/button/index.ts'],
       '@lidofinance/checkbox': ['packages/checkbox/index.ts'],
-      '@lidofinance/chip': ['packages/chip/src/index.ts'],
+      '@lidofinance/chip': ['packages/chip/index.ts'],
       '@lidofinance/container': ['packages/container/src/index.ts'],
       '@lidofinance/data-table': ['packages/data-table/src/index.ts'],
       '@lidofinance/divider': ['packages/divider/src/index.ts'],
