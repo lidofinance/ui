@@ -1,5 +1,5 @@
 export * from './accordion'
-export * from './address/src'
+export * from './address'
 export * from './block/src'
 export * from './box/src'
 export * from './button/src'
