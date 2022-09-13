@@ -31,7 +31,7 @@
       "@lidofinance/button": ["packages/button"],
       "@lidofinance/checkbox": ["packages/checkbox"],
       "@lidofinance/chip": ["packages/chip"],
-      "@lidofinance/container": ["packages/container/src"],
+      "@lidofinance/container": ["packages/container"],
       "@lidofinance/data-table": ["packages/data-table/src"],
       "@lidofinance/divider": ["packages/divider/src"],
       "@lidofinance/heading": ["packages/heading/src/"],
