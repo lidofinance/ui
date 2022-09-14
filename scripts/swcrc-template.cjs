@@ -56,6 +56,7 @@ module.exports = {
       '@lidofinance/cookie-theme-toggler': [
         'packages/cookie-theme-toggler/src',
       ],
+      '@lidofinance/content-theme': ['packages/content-theme/src/index.ts'],
     },
     target: 'es2019',
     loose: false,

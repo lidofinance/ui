@@ -58,7 +58,8 @@
       "@lidofinance/tooltip": ["packages/tooltip/src"],
       "@lidofinance/transition": ["packages/transition/src"],
       "@lidofinance/utils": ["packages/utils/src"],
-      "@lidofinance/cookie-theme-toggler": ["packages/cookie-theme-toggler/src"]
+      "@lidofinance/cookie-theme-toggler": ["packages/cookie-theme-toggler/src"],
+      "@lidofinance/content-theme": ["packages/content-theme/src"],
     }
   },
   "files": ["packages/index.ts"],
