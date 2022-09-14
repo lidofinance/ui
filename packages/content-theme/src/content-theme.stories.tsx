@@ -1,4 +1,6 @@
 import { Story, Meta } from '@storybook/react'
+import { Text } from '@lidofinance/text'
+import { Block } from '@lidofinance/block'
 
 import { ContentTheme } from './content-theme'
 
@@ -9,8 +11,16 @@ export default {
 export const Basic: Story = () => (
   <>
     <ContentTheme
-      darkContent={'You see only dark content!'}
-      lightContent={'You see only light content!'}
+      darkContent={
+        <Block>
+          <Text>You see only dark content!</Text>
+        </Block>
+      }
+      lightContent={
+        <Block>
+          <Text>You see only light content!</Text>
+        </Block>
+      }
     />
   </>
 )
