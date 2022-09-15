@@ -1,6 +1,6 @@
 {
   "name": "@lidofinance/lido-ui",
-  "version": "3.0.0-next.10",
+  "version": "3.0.0-next.12",
   "homepage": "https://github.com/lidofinance/ui",
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
     "generate-swcrc": "zx ./scripts/generate-swcrc.cjs",
     "prepare": "husky install",
     "release": "semantic-release",
-    "release:dry": "yarn release --dry-run"
+    "release:dry": "yarn release --dry-run",
+    "icons:convert": "node ./packages/icons/converter/index.js"
   },
   "peerDependencies": {
     "react": "16 || 17 || 18",
@@ -102,6 +103,10 @@
     "styled-components": "^5.3.5",
     "tslib": "2.3.1",
     "typescript": "4.8",
-    "zx": "^7.0.8"
+    "zx": "^7.0.8",
+    "@svgr/core": "5.5.0",
+    "@svgr/plugin-jsx": "5.5.0",
+    "@svgr/plugin-prettier": "5.5.0",
+    "@svgr/plugin-svgo": "5.5.0"
   }
 }

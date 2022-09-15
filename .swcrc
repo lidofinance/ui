@@ -20,112 +20,109 @@
     "baseUrl": ".",
     "paths": {
       "@lidofinance/accordion": [
-        "packages/accordion/src/index.ts"
+        "packages/accordion/index.ts"
       ],
       "@lidofinance/address": [
-        "packages/address/src/index.ts"
+        "packages/address/index.ts"
       ],
       "@lidofinance/block": [
-        "packages/block/src/index.ts"
+        "packages/block/index.ts"
       ],
       "@lidofinance/box": [
-        "packages/box/src/index.ts"
+        "packages/box/index.ts"
       ],
       "@lidofinance/button": [
-        "packages/button/src/index.ts"
+        "packages/button/index.ts"
       ],
       "@lidofinance/checkbox": [
-        "packages/checkbox/src/index.ts"
+        "packages/checkbox/index.ts"
       ],
       "@lidofinance/chip": [
-        "packages/chip/src/index.ts"
+        "packages/chip/index.ts"
       ],
       "@lidofinance/container": [
-        "packages/container/src/index.ts"
+        "packages/container/index.ts"
       ],
       "@lidofinance/data-table": [
-        "packages/data-table/src/index.ts"
+        "packages/data-table/index.ts"
       ],
       "@lidofinance/divider": [
-        "packages/divider/src/index.ts"
+        "packages/divider/index.ts"
       ],
       "@lidofinance/heading": [
-        "packages/heading/src/index.tsx"
+        "packages/heading/index.tsx"
       ],
       "@lidofinance/hooks": [
-        "packages/hooks/src/index.ts"
+        "packages/hooks/index.ts"
       ],
       "@lidofinance/icons": [
-        "packages/icons/src/index.tsx"
+        "packages/icons/index.tsx"
       ],
       "@lidofinance/identicon": [
-        "packages/identicon/src/index.ts"
+        "packages/identicon/index.ts"
       ],
       "@lidofinance/input": [
-        "packages/input/src/index.ts"
+        "packages/input/index.ts"
       ],
       "@lidofinance/lido-logo": [
-        "packages/lido-logo/src/index.ts"
+        "packages/lido-logo/index.ts"
       ],
       "@lidofinance/link": [
-        "packages/link/src/index.ts"
+        "packages/link/index.ts"
       ],
       "@lidofinance/loaders": [
-        "packages/loaders/src/index.ts"
+        "packages/loaders/index.ts"
       ],
       "@lidofinance/main-menu": [
-        "packages/main-menu/src/index.ts"
+        "packages/main-menu/index.ts"
       ],
       "@lidofinance/modal": [
-        "packages/modal/src/index.ts"
+        "packages/modal/index.ts"
       ],
       "@lidofinance/pagination": [
-        "packages/pagination/src/index.ts"
+        "packages/pagination/index.ts"
       ],
       "@lidofinance/popover": [
-        "packages/popover/src/index.ts"
+        "packages/popover/index.ts"
       ],
       "@lidofinance/popup-menu": [
-        "packages/popup-menu/src/index.ts"
+        "packages/popup-menu/index.ts"
       ],
       "@lidofinance/select": [
-        "packages/select/src/index.ts"
+        "packages/select/index.ts"
       ],
       "@lidofinance/service-page": [
-        "packages/service-page/src/index.ts"
+        "packages/service-page/index.ts"
       ],
       "@lidofinance/stack": [
-        "packages/stack/src/index.ts"
+        "packages/stack/index.ts"
       ],
       "@lidofinance/styled-system": [
-        "packages/styled-system/src/index.ts"
+        "packages/styled-system/index.ts"
       ],
       "@lidofinance/table": [
-        "packages/table/src/index.ts"
+        "packages/table/index.ts"
       ],
       "@lidofinance/text": [
-        "packages/text/src/index.ts"
+        "packages/text/index.ts"
       ],
       "@lidofinance/theme": [
-        "packages/theme/src/index.ts"
+        "packages/theme/index.ts"
       ],
       "@lidofinance/toast": [
-        "packages/toast/src/index.ts"
+        "packages/toast/index.ts"
       ],
       "@lidofinance/tooltip": [
-        "packages/tooltip/src/index.ts"
+        "packages/tooltip/index.ts"
       ],
       "@lidofinance/transition": [
-        "packages/transition/src/index.ts"
+        "packages/transition/index.ts"
       ],
       "@lidofinance/utils": [
-        "packages/utils/src/index.ts"
+        "packages/utils/index.ts"
       ],
       "@lidofinance/cookie-theme-toggler": [
-        "packages/cookie-theme-toggler/src"
-      ],
-      "@lidofinance/content-theme": [
-        "packages/content-theme/src/index.ts"
+        "packages/cookie-theme-toggler"
       ]
     },
     "target": "es2019",
