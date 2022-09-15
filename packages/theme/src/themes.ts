@@ -12,6 +12,9 @@ export const themeLight = {
     lightModeVisibility: 'visible',
     darkModeVisibility: 'hidden',
 
+    lightDisplay: 'initial',
+    darkDisplay: 'none',
+
     secondary: '#273852',
     secondaryHover: '#212f45',
     secondaryContrast: '#fff',
@@ -54,6 +57,9 @@ export const themeDark = {
 
     lightModeVisibility: 'hidden',
     darkModeVisibility: 'visible',
+
+    lightDisplay: 'none',
+    darkDisplay: 'initial',
 
     secondary: 'rgba(255, 255, 255, .8)',
     secondaryHover: '#fff',

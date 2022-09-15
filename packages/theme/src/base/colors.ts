@@ -1,6 +1,13 @@
 const colors = {
   darkThemeOpacity: '0',
   lightThemeOpacity: '1',
+
+  lightModeVisibility: 'visible',
+  darkModeVisibility: 'hidden',
+
+  lightDisplay: 'initial',
+  darkDisplay: 'none',
+
   primary: '#00a3ff',
   primaryHover: '#009bf2',
   primaryContrast: '#fff',

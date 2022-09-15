@@ -1,16 +1,20 @@
 import React, { FC } from 'react'
-import { ThemeName, useThemeToggle } from '@lidofinance/theme'
+
+import {
+  ContentThemeContainer,
+  ContentThemeOnlyDark,
+  ContentThemeOnlyLight,
+} from './styles'
+
 import { ContentThemeProps } from './types'
 
 export const ContentTheme: FC<ContentThemeProps> = (
   props: ContentThemeProps
 ) => {
-  const { themeName } = useThemeToggle()
-
   return (
-    <>
-      {themeName === ThemeName.dark && <>{props.darkContent}</>}
-      {themeName === ThemeName.light && <>{props.lightContent}</>}
-    </>
+    <ContentThemeContainer>
+      <ContentThemeOnlyDark>{props.darkContent}</ContentThemeOnlyDark>
+      <ContentThemeOnlyLight>{props.lightContent}</ContentThemeOnlyLight>
+    </ContentThemeContainer>
   )
 }
