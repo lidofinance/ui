@@ -123,6 +123,9 @@
       ],
       "@lidofinance/cookie-theme-toggler": [
         "packages/cookie-theme-toggler"
+      ],
+      "@lidofinance/content-theme": [
+        "packages/content-theme"
       ]
     },
     "target": "es2019",
