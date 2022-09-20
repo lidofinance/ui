@@ -1,1 +1,1 @@
-export * from './cookies-tooltip'
+export { default as CookiesTooltip } from './cookies-tooltip'

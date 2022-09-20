@@ -73,3 +73,5 @@ export const CookiesTooltip: FC = () => {
     </Wrap>
   )
 }
+
+export default CookiesTooltip
