@@ -5,10 +5,18 @@ import {
   COOKIE_VALUE_YES,
 } from './constants'
 
+type windowOnfocusCallback = () => void
+
 export const allowCookies = (): void => {
   setCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY, COOKIE_VALUE_YES)
 }
 
 export const declineCookies = (): void => {
   setCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY, COOKIE_VALUE_NO)
+}
+
+export const setWindowOnfocus = (callback: windowOnfocusCallback): void => {
+  window.onfocus = () => {
+    callback()
+  }
 }

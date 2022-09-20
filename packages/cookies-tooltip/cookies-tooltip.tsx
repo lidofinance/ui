@@ -13,16 +13,25 @@ import {
   DeclineButton,
   Link,
 } from './styles'
-import { allowCookies, declineCookies } from './utils'
+import { allowCookies, declineCookies, setWindowOnfocus } from './utils'
 import { COOKIE_ALLOWED_KEY } from './constants'
 
 export const CookiesTooltip: FC = () => {
   const [isVisible, setVisibility] = useState(false)
 
   useEffect(() => {
+    // Check cookie after page loaded
     if (getCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY) === null) {
       setVisibility(true)
     }
+
+    // And set window.onfocus callback after each the user return
+    setWindowOnfocus(() => {
+      // Check if user allowed/declined in other tab or third level domain
+      if (getCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY)) {
+        setVisibility(false)
+      }
+    })
   }, [])
 
   if (!isVisible) return <></>
