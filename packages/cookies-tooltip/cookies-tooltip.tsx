@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
-// import { AppCookies, COOKIES_ALLOWED_KEY } from 'utils'
 import { Cookie, CookieInverse } from '@lidofinance/icons'
 import { ContentTheme } from '@lidofinance/content-theme'
+import { getCrossDomainCookieClientSide } from '@lidofinance/utils'
 
 import {
   Wrap,
@@ -13,15 +13,16 @@ import {
   DeclineButton,
   Link,
 } from './styles'
+import { allowCookies, declineCookies } from './utils'
+import { COOKIE_ALLOWED_KEY } from './constants'
 
 export const CookiesTooltip: FC = () => {
   const [isVisible, setVisibility] = useState(false)
 
   useEffect(() => {
-    // if (AppCookies.getCookie(COOKIES_ALLOWED_KEY) === null) {
-    //   setVisibility(true)
-    // }
-    setVisibility(true)
+    if (getCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY) === null) {
+      setVisibility(true)
+    }
   }, [])
 
   if (!isVisible) return <></>
@@ -44,7 +45,7 @@ export const CookiesTooltip: FC = () => {
         <ButtonsWrap>
           <AllowButton
             onClick={() => {
-              // AppCookies.allowCookies()
+              allowCookies()
               setVisibility(false)
             }}
           >
@@ -52,7 +53,7 @@ export const CookiesTooltip: FC = () => {
           </AllowButton>
           <DeclineButton
             onClick={() => {
-              // AppCookies.declineCookies()
+              declineCookies()
               setVisibility(false)
             }}
           >
