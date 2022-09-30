@@ -21,7 +21,8 @@ export const Basic: Story = () => (
       - allow or decline cookie;
       <br />
       - and check in another tab;
-      <br />- and click to work area (to handler window.onfocus event).
+      <br />
+      - and click to work area (to handler window.onfocus event).
     </Text>
     <CookiesTooltip />
   </>
