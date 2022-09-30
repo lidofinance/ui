@@ -15,7 +15,9 @@ export const declineCookies = (): void => {
   setCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY, COOKIE_VALUE_NO)
 }
 
-export const setWindowOnfocus = (callback: windowOnfocusCallback): void => {
+export const usingWindowOnFocusAfterReturnedToWindow = (
+  callback: windowOnfocusCallback
+): void => {
   window.onfocus = () => {
     callback()
   }

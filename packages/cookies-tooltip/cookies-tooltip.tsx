@@ -13,7 +13,11 @@ import {
   DeclineButton,
   Link,
 } from './styles'
-import { allowCookies, declineCookies, setWindowOnfocus } from './utils'
+import {
+  allowCookies,
+  declineCookies,
+  usingWindowOnFocusAfterReturnedToWindow,
+} from './utils'
 import { COOKIE_ALLOWED_KEY } from './constants'
 
 export const CookiesTooltip: FC = () => {
@@ -25,8 +29,8 @@ export const CookiesTooltip: FC = () => {
       setVisibility(true)
     }
 
-    // And set window.onfocus callback after each the user return
-    setWindowOnfocus(() => {
+    // This code runs after returned to this browser tab (window) from other
+    usingWindowOnFocusAfterReturnedToWindow(() => {
       // Check if user allowed/declined in other tab or third level domain
       if (getCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY)) {
         setVisibility(false)
@@ -47,8 +51,8 @@ export const CookiesTooltip: FC = () => {
         </CookieIconWrap>
         <Text>
           We use cookies to collect anonymous site visitation data
-          to&nbsp;improve performance of&nbsp;our&nbsp;website.
-          For&nbsp;more info, read our&nbsp;
+          to&nbsp;improve performance of&nbsp;our&nbsp;website. For&nbsp;more
+          info, read our&nbsp;
           <Link href='https://lido.fi/privacy-notice'>Privacy Notice</Link>
         </Text>
         <ButtonsWrap>
