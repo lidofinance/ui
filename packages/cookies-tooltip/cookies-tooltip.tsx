@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, useCallback } from 'react'
 import { Cookie, CookieInverse } from '@lidofinance/icons'
 import { ContentTheme } from '@lidofinance/content-theme'
 import { getCrossDomainCookieClientSide } from '@lidofinance/utils'
@@ -13,30 +13,32 @@ import {
   DeclineButton,
   Link,
 } from './styles'
-import {
-  allowCookies,
-  declineCookies,
-  usingWindowOnFocusAfterReturnedToWindow,
-} from './utils'
+import { allowCookies, declineCookies } from './utils'
 import { COOKIE_ALLOWED_KEY } from './constants'
 
 export const CookiesTooltip: FC = () => {
   const [isVisible, setVisibility] = useState(false)
 
+  const checkCookieAllowedEarlier = useCallback(() => {
+    // Check if user allowed/declined in other tab or third level domain
+    if (getCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY)) {
+      setVisibility(false)
+
+      window.removeEventListener('focus', checkCookieAllowedEarlier)
+    }
+  }, [])
+
   useEffect(() => {
     // Check cookie after page loaded
-    if (getCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY) === null) {
-      setVisibility(true)
+    if (getCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY)) {
+      return
     }
 
+    setVisibility(true)
+
     // This code runs after returned to this browser tab (window) from other
-    usingWindowOnFocusAfterReturnedToWindow(() => {
-      // Check if user allowed/declined in other tab or third level domain
-      if (getCrossDomainCookieClientSide(COOKIE_ALLOWED_KEY)) {
-        setVisibility(false)
-      }
-    })
-  }, [])
+    window.addEventListener('focus', checkCookieAllowedEarlier)
+  }, [checkCookieAllowedEarlier])
 
   if (!isVisible) return <></>
 
