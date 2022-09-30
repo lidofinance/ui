@@ -16,13 +16,13 @@ export const Basic: Story = () => (
     <Text>
       You can check above if you:
       <br />
-      - duplicate this tab;
+      1. duplicate this tab;
       <br />
-      - allow or decline cookie;
+      2. allow or decline cookie;
       <br />
-      - and check in another tab;
+      3. and check in another tab;
       <br />
-      - and click to work area (to handler window.onfocus event).
+      4. and click to work area (to handler window.onfocus event).
     </Text>
     <CookiesTooltip />
   </>
