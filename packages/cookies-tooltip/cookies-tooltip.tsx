@@ -47,8 +47,8 @@ export const CookiesTooltip: FC = () => {
         </CookieIconWrap>
         <Text>
           We use cookies to collect anonymous site visitation data
-          to&nbsp;improve the performance of&nbsp;our&nbsp;website.
-          For&nbsp;more info read our&nbsp;
+          to&nbsp;improve performance of&nbsp;our&nbsp;website.
+          For&nbsp;more info, read our&nbsp;
           <Link href='https://lido.fi/privacy-notice'>Privacy Notice</Link>
         </Text>
         <ButtonsWrap>
