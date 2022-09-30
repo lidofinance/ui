@@ -10,7 +10,7 @@ export default {
 export const Basic: Story = () => (
   <>
     <Text>
-      CookiesTooltip component have a ability to detect a user choice in other
+      CookiesTooltip component has an ability to detect a user choice in other
       tabs and third level domain.
     </Text>
     <Text>
