@@ -4,10 +4,6 @@ import { reverseThemeMap, themeDark, themeDefault, themeLight } from './themes'
 import { initColors } from './document-head-contents'
 import { generateCssColorVariables } from './utils/generate-css-color-variables'
 import { Theme } from './types'
-import { migrationThemeCookiesToCrossDomainCookiesClientSide } from './utils/cookies-migration'
-
-// Migrations old cookies to new cross domain cookies
-migrationThemeCookiesToCrossDomainCookiesClientSide()
 
 // we need to initialize this before react component code if we're using this provider or CookieThemeProvider
 initColors()

@@ -9,6 +9,10 @@ const THEME_AUTO_KEY = 'lido-theme-auto'
 const THEME_MANUAL_KEY = themeCookieKey // lido-theme-manual
 
 export const migrationThemeCookiesToCrossDomainCookiesClientSide = (): void => {
+  if (typeof window === 'undefined') {
+    return
+  }
+
   const old_cookie_theme_auto_value = getDomainCookieClientSide(THEME_AUTO_KEY)
   const old_cookie_theme_manual_value =
     getDomainCookieClientSide(THEME_MANUAL_KEY)
