@@ -27,3 +27,11 @@ export const getCrossDomainCookieClientSide = (key: string): string | null => {
   const cookieMatcher = new RegExp(`(^| )${key}=([^;]+)`)
   return (document.cookie.match(cookieMatcher)?.[2] as string) ?? defaultValue
 }
+
+export const getDomainCookieClientSide = (key: string): string | null => {
+  return getCrossDomainCookieClientSide(key)
+}
+
+export const removeCookiesClientSide = (key: string): void => {
+  document.cookie = `${key}= ; expires = Thu, 01 Jan 1970 00:00:00 GMT`
+}
