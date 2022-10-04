@@ -2,11 +2,13 @@ import React, {
   createContext,
   FC,
   PropsWithChildren,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
   useState,
 } from 'react'
+import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import {
   DEFAULT_THEME_NAME,
   prefersDarkThemeMediaQuery,
@@ -16,7 +18,6 @@ import { themeMap } from './themes'
 import { getThemeNameFromCookies } from './utils/cookies'
 import { initColors } from './document-head-contents'
 import { updateGlobalTheme } from './document-head-contents/element-theme-script'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { ThemeContext } from './types'
 
 const defaultThemeContext = {} as ThemeContext
@@ -106,6 +107,27 @@ export const CookieThemeProvider: FC<
       parentTheme,
       theme,
     ])
+
+    const checkCookieThemeWasChanged = useCallback(() => {
+      const themeNameCookie = getThemeNameFromCookies()
+
+      if (
+        themeNameCookie &&
+        (themeNameCookie === ThemeName.dark ||
+          themeNameCookie === ThemeName.light)
+      ) {
+        setThemeName(themeNameCookie)
+      }
+    }, [])
+
+    useEffect(() => {
+      // This code runs after returned to this browser tab (window) from other
+      window.addEventListener('focus', checkCookieThemeWasChanged)
+
+      return () => {
+        window.removeEventListener('focus', checkCookieThemeWasChanged)
+      }
+    }, [checkCookieThemeWasChanged])
 
     const value = useMemo(
       () => ({
