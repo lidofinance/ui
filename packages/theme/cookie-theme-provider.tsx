@@ -2,7 +2,6 @@ import React, {
   createContext,
   FC,
   PropsWithChildren,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -100,6 +99,19 @@ export const CookieThemeProvider: FC<
       // Users may have auto-theme (switching on sunset or schedule or whatever) so we need to listen for this event
       prefersDarkThemeMediaQuery?.addEventListener('change', setTheme)
       setTheme()
+
+      // This code check that the theme cookie was changed on other tab or site (the same second-level domain)
+      window.addEventListener('focus', () => {
+        const themeNameCookie = getThemeNameFromCookies()
+
+        if (
+          themeNameCookie &&
+          (themeNameCookie === ThemeName.dark ||
+            themeNameCookie === ThemeName.light)
+        ) {
+          setThemeName(themeNameCookie)
+        }
+      })
     }, [
       initialThemeName,
       isTopLevelProvider,
@@ -107,27 +119,6 @@ export const CookieThemeProvider: FC<
       parentTheme,
       theme,
     ])
-
-    const checkCookieThemeWasChanged = useCallback(() => {
-      const themeNameCookie = getThemeNameFromCookies()
-
-      if (
-        themeNameCookie &&
-        (themeNameCookie === ThemeName.dark ||
-          themeNameCookie === ThemeName.light)
-      ) {
-        setThemeName(themeNameCookie)
-      }
-    }, [])
-
-    useEffect(() => {
-      // This code runs after returned to this browser tab (window) from other
-      window.addEventListener('focus', checkCookieThemeWasChanged)
-
-      return () => {
-        window.removeEventListener('focus', checkCookieThemeWasChanged)
-      }
-    }, [checkCookieThemeWasChanged])
 
     const value = useMemo(
       () => ({
