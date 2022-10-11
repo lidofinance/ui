@@ -9,7 +9,11 @@ export const setThemeCookie = (theme: ThemeName) => {
   // and Safari when cookies are set with Secure, so we're forcing cookie into both
   const parser = new UAParser()
   if (parser.getBrowser()?.name?.toLowerCase() === 'safari') {
-    document.cookie = cookie
+    if (window.location.protocol === 'https:') {
+      document.cookie = `${cookie}Secure;`
+    } else {
+      document.cookie = cookie
+    }
   } else {
     document.cookie = `${cookie}Secure;`
   }
