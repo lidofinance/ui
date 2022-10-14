@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useState,
 } from 'react'
+import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import {
   DEFAULT_THEME_NAME,
   prefersDarkThemeMediaQuery,
@@ -16,7 +17,6 @@ import { themeMap } from './themes'
 import { getThemeNameFromCookies } from './utils/cookies'
 import { initColors } from './document-head-contents'
 import { updateGlobalTheme } from './document-head-contents/element-theme-script'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { ThemeContext } from './types'
 
 const defaultThemeContext = {} as ThemeContext
@@ -99,6 +99,24 @@ export const CookieThemeProvider: FC<
       // Users may have auto-theme (switching on sunset or schedule or whatever) so we need to listen for this event
       prefersDarkThemeMediaQuery?.addEventListener('change', setTheme)
       setTheme()
+
+      // This code check that the theme cookie was changed on other tab or site (the same second-level domain)
+      const checkCookieThemeWasChanged = () => {
+        const themeNameCookie = getThemeNameFromCookies()
+
+        if (
+          themeNameCookie &&
+          (themeNameCookie === ThemeName.dark ||
+            themeNameCookie === ThemeName.light)
+        ) {
+          setThemeName(themeNameCookie)
+        }
+      }
+      window.addEventListener('focus', checkCookieThemeWasChanged)
+
+      return () => {
+        window.removeEventListener('focus', checkCookieThemeWasChanged)
+      }
     }, [
       initialThemeName,
       isTopLevelProvider,
