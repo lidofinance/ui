@@ -101,7 +101,7 @@ export const CookieThemeProvider: FC<
       setTheme()
 
       // This code check that the theme cookie was changed on other tab or site (the same second-level domain)
-      window.addEventListener('focus', () => {
+      const checkCookieThemeWasChanged = () => {
         const themeNameCookie = getThemeNameFromCookies()
 
         if (
@@ -111,7 +111,12 @@ export const CookieThemeProvider: FC<
         ) {
           setThemeName(themeNameCookie)
         }
-      })
+      }
+      window.addEventListener('focus', checkCookieThemeWasChanged)
+
+      return () => {
+        window.removeEventListener('focus', checkCookieThemeWasChanged)
+      }
     }, [
       initialThemeName,
       isTopLevelProvider,
