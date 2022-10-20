@@ -57,6 +57,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       return // disabled
     }
 
+    onItemClick(currentPage - 1)
     setCurrPage(currentPage - 1)
   }
 
@@ -65,6 +66,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       return // disabled
     }
 
+    onItemClick(currentPage + 1)
     setCurrPage(currentPage + 1)
   }
 
