@@ -45,3 +45,9 @@ export const Icon: Story<TooltipProps> = (props) => (
     <Question />
   </Tooltip>
 )
+
+export const KeepWhileHovering: Story<TooltipProps> = (props) => (
+  <Tooltip keepWhileHovering {...props}>
+    <span>Tooltip will be kept while it&apos;s body is hovered</span>
+  </Tooltip>
+)

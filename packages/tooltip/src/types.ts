@@ -6,5 +6,7 @@ export type TooltipProps = Omit<
   'anchorRef' | 'title' | 'open' | 'backdrop' | 'children'
 > & {
   title: React.ReactNode
+  keepWhileHovering?: boolean
+  keepTimeout?: number
   children: React.ReactElement & React.RefAttributes<HTMLElement>
 }
