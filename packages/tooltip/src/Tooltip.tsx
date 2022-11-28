@@ -70,17 +70,15 @@ function Tooltip(props: TooltipProps, ref?: ForwardedRef<HTMLDivElement>) {
         open={state}
         backdrop={false}
         anchorRef={anchorRef}
-        onMouseEnter={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        onMouseEnter={() => {
           if (keepWhileHovering) {
             handleMouseEnterKeeping()
           }
-          rest.onMouseEnter?.(e)
         }}
-        onMouseLeave={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        onMouseLeave={() => {
           if (keepWhileHovering) {
             handleMouseEnterLeaveKeeping()
           }
-          rest.onMouseLeave?.(e)
         }}
         ref={ref}
       >
