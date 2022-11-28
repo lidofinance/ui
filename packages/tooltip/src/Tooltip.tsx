@@ -23,7 +23,7 @@ function Tooltip(props: TooltipProps, ref?: ForwardedRef<HTMLDivElement>) {
   } = props
 
   const [state, setState] = useState(false)
-  const keepTimeoutRef = useRef(-1)
+  const keepTimeoutRef = useRef<number | null>(null)
 
   const child = Children.only(children)
   if (!isElement(child)) throw new Error('Child must be a React element')
@@ -32,16 +32,16 @@ function Tooltip(props: TooltipProps, ref?: ForwardedRef<HTMLDivElement>) {
   const mergedRef = useMergeRefs([child.ref, anchorRef])
 
   const handleMouseEnterKeeping = () => {
-    if (keepTimeoutRef.current !== -1) {
+    if (keepTimeoutRef.current) {
       clearTimeout(keepTimeoutRef.current)
-      keepTimeoutRef.current = -1
+      keepTimeoutRef.current = null
     }
   }
 
   const handleMouseEnterLeaveKeeping = () => {
     keepTimeoutRef.current = setTimeout(() => {
       setState(false)
-      keepTimeoutRef.current !== -1
+      keepTimeoutRef.current = null
     }, keepTimeout)
   }
 
