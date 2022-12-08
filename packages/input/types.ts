@@ -1,5 +1,5 @@
 import { LidoComponentProps } from '@lidofinance/utils'
-import React from 'react'
+import React, { ChangeEventHandler } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum InputMessageVariant {
@@ -63,4 +63,39 @@ export type InputGroupProps = LidoComponentProps<
     error?: React.ReactNode
     success?: React.ReactNode
   }
+>
+
+type SliderProps = {
+  value: number
+  onChange?: ChangeEventHandler<HTMLInputElement>
+  min?: number
+  max?: number
+  minLabel?: React.ReactNode
+  maxLabel?: React.ReactNode
+  step?: number
+  getLabel?: (value: number) => React.ReactNode
+}
+
+export type SliderInputProps = LidoComponentProps<'input', SliderProps>
+
+type SliderOptionValue = string | number
+
+interface SliderOption {
+  value: SliderOptionValue
+  label: React.ReactNode
+}
+
+interface OptionsSliderProps {
+  options: [SliderOption, SliderOption, ...SliderOption[]] // this is declaration like T[] but with "at least 2 elements" constraint
+  value?: SliderOptionValue // if value is not provided, component should act isolated; initial value should be first option
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    value: SliderOptionValue,
+    valueIndex: number
+  ) => unknown
+}
+
+export type OptionsSliderInputProps = LidoComponentProps<
+  'input',
+  OptionsSliderProps
 >
