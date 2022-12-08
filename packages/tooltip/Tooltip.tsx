@@ -17,7 +17,7 @@ function Tooltip(props: TooltipProps, ref?: ForwardedRef<HTMLDivElement>) {
   const { title, children, ...rest } = props
 
   const [state, setState] = useState(false)
-  const keepTimeoutRef = useRef<number | null>(null)
+  const keepTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const child = Children.only(children)
   if (!isElement(child)) throw new Error('Child must be a React element')
