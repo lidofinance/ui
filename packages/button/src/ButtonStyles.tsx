@@ -169,6 +169,7 @@ const variants = {
 }
 
 export const ButtonStyle = styled.button<InjectedProps>`
+  display: inline-block;
   box-sizing: border-box;
   margin: 0;
   border: none;
@@ -179,6 +180,7 @@ export const ButtonStyle = styled.button<InjectedProps>`
   background: transparent;
   font-family: inherit;
   font-weight: 700;
+  text-decoration: none;
   width: ${({ $fullwidth }) => ($fullwidth ? ' 100%' : 'auto')};
 
   :before {

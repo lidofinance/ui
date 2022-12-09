@@ -1,10 +1,10 @@
-import { ForwardedRef, forwardRef } from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import {
   ButtonStyle,
   ButtonContentStyle,
   ButtonLoaderStyle,
 } from './ButtonStyles'
-import { ButtonProps } from './types'
+import { ButtonButtonProps, ButtonProps } from './types'
 import { useRipple } from './useRipple'
 
 const loaderSizes = {
@@ -15,7 +15,10 @@ const loaderSizes = {
   lg: 'medium',
 } as const
 
-function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
+function Button(
+  props: ButtonProps,
+  ref?: ForwardedRef<HTMLButtonElement | HTMLAnchorElement>
+) {
   const {
     size = 'md',
     variant = 'filled',
@@ -27,14 +30,16 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
     onClick,
     disabled,
     children,
+    href,
     ...rest
-  } = props
+  } = props as ButtonButtonProps
 
   const { handleClick, ripple } = useRipple(props)
   const loaderSize = loaderSizes[size]
 
   return (
     <ButtonStyle
+      as={href ? ('a' as React.ElementType) : undefined}
       $size={size}
       $variant={variant}
       $fullwidth={fullwidth}
@@ -46,6 +51,7 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
       disabled={disabled || loading}
       type='button'
       ref={ref}
+      href={href}
       {...rest}
     >
       <ButtonContentStyle $hidden={loading}>{children}</ButtonContentStyle>

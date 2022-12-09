@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 .c0 {
+  display: inline-block;
   box-sizing: border-box;
   margin: 0;
   border: none;
@@ -12,6 +13,8 @@ exports[`renders correctly 1`] = `
   background: transparent;
   font-family: inherit;
   font-weight: 700;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   width: auto;
   line-height: 1em;
   font-size: 14px;

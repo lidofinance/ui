@@ -38,6 +38,13 @@ export default {
       options: getOptions(ButtonColor),
       control: 'inline-radio',
     },
+    href: {
+      options: ['', '#'],
+      control: {
+        type: 'inline-radio',
+        labels: { '#': 'Yes', '': 'No' },
+      },
+    },
   },
 } as Meta
 
