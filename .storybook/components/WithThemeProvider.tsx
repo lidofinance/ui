@@ -1,24 +1,42 @@
 import { BaseDecorators } from '@storybook/addons'
-import { useDarkMode } from 'storybook-dark-mode'
-import { themeLight, themeDark, ThemeProvider } from '../../packages/theme/src'
+import '@lidofinance/theme'
 import { createGlobalStyle } from 'styled-components'
+import { CookieThemeProvider } from '@lidofinance/theme'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    color: ${({ theme }) => theme.colors.text};
+    padding: 0 !important;
+    display: flex;
+  }
+
+  html, body, #root {
+    min-height: 100vh;
   }
 `
 
 export const WithThemeProvider: BaseDecorators<JSX.Element>[number] = (
-  Story
+  Story,
+  { args }
 ): JSX.Element => {
-  const isDarkMode = useDarkMode()
-  const theme = isDarkMode ? themeDark : themeLight
-
   return (
-    <ThemeProvider theme={theme}>
+    <CookieThemeProvider
+      overrideThemeName={
+        args.themeOverride === 'follow cookie and system'
+          ? undefined
+          : args.themeOverride
+      }
+    >
       <GlobalStyle />
-      <Story />
-    </ThemeProvider>
+      <div
+        style={{
+          minHeight: '100vh',
+          color: 'var(--lido-color-text)',
+          padding: '1em',
+          background: 'var(--lido-color-background)',
+        }}
+      >
+        <Story />
+      </div>
+    </CookieThemeProvider>
   )
 }

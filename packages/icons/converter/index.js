@@ -7,8 +7,8 @@ const indexTemplate = require('./template.index.js')
 const fs = require('fs/promises')
 const { extname, resolve } = require('path')
 
-const SRC_DIR = resolve(__dirname, '../src/svg')
-const DEST_FILE = resolve(__dirname, '../src/index.tsx')
+const SRC_DIR = resolve(__dirname, '../svg')
+const DEST_FILE = resolve(__dirname, '../index.tsx')
 
 const svgoConfig = {
   plugins: [

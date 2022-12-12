@@ -1,24 +1,11 @@
 *.log
-.DS_Store
 .jest-*
 node_modules
 dist
 storybook-static
+.swc/
 
-# User-specific stuff:
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
-
-# yarn 2
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
+# User-specific
 .idea/
 .vscode/
+.DS_Store
