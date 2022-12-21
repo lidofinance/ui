@@ -62,13 +62,22 @@ export const RangeInputSlider = styled.input.attrs({ type: 'range' })`
   }
 `
 
-export const Track = styled.div<{ fillPercentage: number }>`
+export const Track = styled.div<{
+  fillPercentage: number
+  borderNone?: boolean
+}>`
   height: 1px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background: var(--lido-color-border);
+
+  ${(props) =>
+    props.borderNone &&
+    `
+    background: none;
+    `};
 
   &:before {
     content: '';
@@ -82,7 +91,9 @@ export const Track = styled.div<{ fillPercentage: number }>`
   }
 `
 
-export const Slider = styled.div`
+export const Slider = styled.div<{
+  borderNone?: boolean
+}>`
   position: relative;
   height: 56px;
   padding: 16px 20px;
@@ -92,6 +103,14 @@ export const Slider = styled.div`
   border-right: 1px solid var(--lido-color-border);
   border-left: 1px solid var(--lido-color-border);
   border-top: 1px solid var(--lido-color-border);
+
+  ${(props) =>
+    props.borderNone &&
+    `
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    `};
 
   border-radius: 10px;
   overflow: hidden;
@@ -114,4 +133,16 @@ export const Label = styled.span`
   line-height: 20px;
   color: var(--lido-color-text);
   opacity: 0.5;
+`
+
+export const LabelButton = styled.button`
+  border: none;
+  background-color: transparent;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--lido-color-text);
+  opacity: 0.5;
+  cursor: pointer;
 `

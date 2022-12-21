@@ -25,7 +25,7 @@ export const Basic: Story<SliderInputProps> = (props) => {
     <OptionsSlider
       {...props}
       value={value}
-      onChange={(e, val) => setValue(val as string)}
+      onChange={(val) => setValue(val as string)}
       options={[
         { value: 'weekly', label: 'Weekly' },
         { value: 'monthly', label: 'Monthly' },

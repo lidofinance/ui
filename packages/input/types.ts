@@ -65,6 +65,11 @@ export type InputGroupProps = LidoComponentProps<
   }
 >
 
+interface ValueLabel {
+  value: number
+  label: React.ReactNode
+}
+
 type SliderProps = {
   value: number
   onChange?: ChangeEventHandler<HTMLInputElement>
@@ -74,6 +79,9 @@ type SliderProps = {
   maxLabel?: React.ReactNode
   step?: number
   getLabel?: (value: number) => React.ReactNode
+  borderNone?: boolean
+  labels?: ValueLabel[]
+  onLabelClick?: (value: number) => unknown
 }
 
 export type SliderInputProps = LidoComponentProps<'input', SliderProps>
@@ -88,11 +96,7 @@ interface SliderOption {
 interface OptionsSliderProps {
   options: [SliderOption, SliderOption, ...SliderOption[]] // this is declaration like T[] but with "at least 2 elements" constraint
   value?: SliderOptionValue // if value is not provided, component should act isolated; initial value should be first option
-  onChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: SliderOptionValue,
-    valueIndex: number
-  ) => unknown
+  onChange: (value: SliderOptionValue, valueIndex: number) => unknown
 }
 
 export type OptionsSliderInputProps = LidoComponentProps<

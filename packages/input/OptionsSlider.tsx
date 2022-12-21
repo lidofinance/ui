@@ -15,26 +15,28 @@ const OptionsSlider = ({
 
   const max = options.length - 1
 
-  const firstOption = options[0]
-  const lastOption = options[max]
-
   const getLabel = (optionIndex: number) => {
     return options[optionIndex].label
   }
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const optionIndex = Number(e.target.value)
-    onChange(e, options[optionIndex].value, optionIndex)
+    onChange(options[optionIndex].value, optionIndex)
   }
+
+  const labels = options.map(({ label }, index) => ({ value: index, label }))
   return (
     <SliderInput
       min={0}
       max={max}
       value={sliderIndex}
       onChange={handleSliderChange}
-      minLabel={firstOption.label}
-      maxLabel={lastOption.label}
       getLabel={getLabel}
+      labels={labels}
+      borderNone={true}
+      onLabelClick={(optionIndex) =>
+        onChange(options[optionIndex].value, optionIndex)
+      }
     />
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Label,
+  LabelButton,
   LabelContainer,
   RangeInputSlider,
   Slider,
@@ -12,19 +13,29 @@ import { SliderInputProps } from './types'
 function SliderInput({
   value,
   onChange,
+  onLabelClick,
   min = 0,
   max = 100,
   step = 1,
   minLabel,
   maxLabel,
   getLabel = (val) => String(val),
+  borderNone,
+  labels,
 }: SliderInputProps): React.ReactElement {
   const fillPercentage = ((value - min) / (max - min)) * 100
+  const LabelComponent = onLabelClick ? LabelButton : Label
+  const createClickHandler = (value: number) => {
+    if (onLabelClick) {
+      return () => onLabelClick(value)
+    }
+    return undefined
+  }
   return (
     <SliderWrapper>
-      <Slider>
+      <Slider borderNone={borderNone}>
         {getLabel(value)}
-        <Track fillPercentage={fillPercentage} />
+        <Track fillPercentage={fillPercentage} borderNone={borderNone} />
       </Slider>
       <RangeInputSlider
         value={value}
@@ -34,8 +45,21 @@ function SliderInput({
         max={max}
       />
       <LabelContainer>
-        <Label>{minLabel}</Label>
-        <Label>{maxLabel}</Label>
+        {minLabel && (
+          <LabelComponent onClick={createClickHandler(min)}>
+            {minLabel}
+          </LabelComponent>
+        )}
+        {labels?.map(({ value, label }) => (
+          <LabelComponent onClick={createClickHandler(value)} key={value}>
+            {label}
+          </LabelComponent>
+        ))}
+        {maxLabel && (
+          <LabelComponent onClick={createClickHandler(max)}>
+            {maxLabel}
+          </LabelComponent>
+        )}
       </LabelContainer>
     </SliderWrapper>
   )
