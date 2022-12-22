@@ -28,6 +28,9 @@ const colors = {
   warning: '#EC8600',
   warningHover: '#f0a431',
   warningContrast: '#fff',
+  warningBackground: '#FFFAE0',
+
+  textDark: '#273852',
 
   success: '#53BA95',
   successHover: '#5dae5e',

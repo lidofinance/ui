@@ -21,6 +21,7 @@ export const themeLight = {
 
     background: '#f2f4f6',
     backgroundDarken: '#dae0e5',
+    backgroundSecondary: '#EFF2F6',
 
     foreground: '#fff',
 
@@ -67,6 +68,7 @@ export const themeDark = {
 
     background: '#1c1c21',
     backgroundDarken: '#131317',
+    backgroundSecondary: '#27272E',
 
     foreground: '#34343d',
 
