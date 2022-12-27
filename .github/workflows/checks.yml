@@ -1,9 +1,0 @@
-name: Tests and Checks
-
-on: pull_request
-
-jobs:
-  security:
-    uses: lidofinance/linters/.github/workflows/security.yml@master
-  actions:
-    uses: lidofinance/linters/.github/workflows/actions.yml@master
