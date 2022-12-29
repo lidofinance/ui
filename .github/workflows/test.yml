@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
   pull_request:
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   security:
     uses: lidofinance/linters/.github/workflows/security.yml@master
