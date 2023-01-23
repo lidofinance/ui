@@ -25,12 +25,8 @@ function SliderInput({
 }: SliderInputProps): React.ReactElement {
   const fillPercentage = ((value - min) / (max - min)) * 100
   const LabelComponent = onLabelClick ? LabelButton : Label
-  const createClickHandler = (value: number) => {
-    if (onLabelClick) {
-      return () => onLabelClick(value)
-    }
-    return undefined
-  }
+  const createClickHandler = (value: number) => () => onLabelClick?.(value)
+
   return (
     <SliderWrapper>
       <Slider borderNone={borderNone}>
