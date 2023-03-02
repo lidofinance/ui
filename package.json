@@ -16,8 +16,8 @@
     "dist"
   ],
   "scripts": {
-    "dev": "start-storybook -p 5555 -s .storybook/public",
-    "build-storybook": "build-storybook -s .storybook/public",
+    "dev": "start-storybook -p 5555",
+    "build-storybook": "build-storybook",
     "build": "zx ./scripts/build.cjs",
     "test": "jest",
     "test:coverage": "jest coverage",
