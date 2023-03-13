@@ -33,7 +33,7 @@ const colors = {
   textDark: '#273852',
 
   success: '#53BA95',
-  successHover: '#5dae5e',
+  successHover: '#4ba886',
   successContrast: '#fff',
 } as const
 
