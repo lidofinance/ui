@@ -45,7 +45,7 @@
     "react-toastify": "7.0.4",
     "react-transition-group": "4",
     "styled-system": "5.1.5",
-    "ua-parser-js": "^1.0.2",
+    "ua-parser-js": "^1.0.33",
     "use-callback-ref": "1.2.5"
   },
   "devDependencies": {
