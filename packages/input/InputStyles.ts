@@ -241,7 +241,10 @@ const messageVariants = {
       var(--lido-color-shadowLight);
   `,
   success: css`
-    color: var(--lido-color-success);
+    background: var(--lido-color-success);
+    color: var(--lido-color-successContrast);
+    box-shadow: ${({ theme }) => theme.boxShadows.sm}
+      var(--lido-color-shadowLight);
   `,
 }
 
