@@ -1856,7 +1856,10 @@
     box-shadow: ${({theme})=>theme.boxShadows.sm}
       var(--lido-color-shadowLight);
   `,success:styled_components__WEBPACK_IMPORTED_MODULE_1__.iv`
-    color: var(--lido-color-success);
+    background: var(--lido-color-success);
+    color: var(--lido-color-successContrast);
+    box-shadow: ${({theme})=>theme.boxShadows.sm}
+      var(--lido-color-shadowLight);
   `},InputMessageStyle=styled_components__WEBPACK_IMPORTED_MODULE_1__.ZP.span`
   margin-top: ${({$bordered})=>$bordered?5:6}px;
   left: ${({$bordered})=>$bordered?-1:0}px;
