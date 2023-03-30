@@ -13,7 +13,7 @@ function AddressBadge(
   return (
     <AddressBadgeStyle
       symbols={isMobile ? symbolsMobile : symbolsDesktop}
-      address={address}
+      address={address ?? ''}
       ref={ref}
     />
   )
