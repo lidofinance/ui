@@ -4,7 +4,7 @@ import Address from './Address'
 
 export default {
   component: Address,
-  title: 'Layout/Address',
+  title: 'Wallet/Address',
   args: {
     address: '0x5a98fcbea516cf06857215779fd812ca3bef1b32',
     symbols: 3,
