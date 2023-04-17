@@ -51,7 +51,7 @@ export const CookieThemeProvider: FC<
     const parentTheme = useContext(ThemeToggleContext)
     // we do not want to do nested injections, and we're checking
     // if context we inject in this component is already provided
-    const isTopLevelProvider = parentTheme === defaultThemeContext
+    const isTopLevelProvider = Object.keys(parentTheme).length === 0
     // we always start with default theme, or, if server wants to provide
     // specific default theme, with server-provided theme to avoid hydration errors
     const [internalThemeName, setThemeName] = useState<ThemeName>(
@@ -151,12 +151,14 @@ export const CookieThemeProvider: FC<
           <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
         </ThemeToggleContext.Provider>
       )
-    } else {
+    } else if (overrideThemeName) {
       return (
         <div style={{ display: 'contents' }} data-lido-theme={themeName}>
           <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
         </div>
       )
+    } else {
+      return <>{children}</>
     }
   }
 )
