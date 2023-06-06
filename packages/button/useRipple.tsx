@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
-import { ButtonProps } from './types'
 import { ButtonRippleStyle } from './ButtonStyles'
+import { ButtonProps } from './Button'
 
 type UseRipple = (props: ButtonProps) => {
   ripple: React.ReactNode

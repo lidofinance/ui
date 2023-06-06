@@ -43,7 +43,9 @@ const paddings = css`
   }
 `
 
-export type BlockStyleProps = InferStyledComponentPropsWithoutRef<typeof BlockStyle>
+export type BlockStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof BlockStyle
+>
 
 export const BlockStyle = styled.div<InjectedProps>`
   font-weight: 400;

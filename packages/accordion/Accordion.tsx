@@ -8,7 +8,6 @@ import {
   AccordionStyleProps,
 } from './AccordionStyles'
 import { useExpanded } from './useExpanded'
-export type { Theme } from '@lidofinance/theme'
 
 export type AccordionProps = AccordionStyleProps & {
   defaultExpanded?: boolean

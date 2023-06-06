@@ -1,7 +1,9 @@
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
 
-export type AddressStyleProps = InferStyledComponentPropsWithoutRef<typeof AddressStyle>
+export type AddressStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof AddressStyle
+>
 
 export const AddressStyle = styled.div`
   position: relative;

@@ -1,9 +1,11 @@
 import { ForwardedRef, forwardRef } from 'react'
 import { BlockStyle, BlockStyleProps } from './BlockStyles'
 import { BlockColors, BlockVariants } from './constants'
-export type { Theme } from '@lidofinance/theme'
 
-export type BlockProps =  Omit<BlockStyleProps, '$color' | '$variant' | 'paddingLess'> & {
+export type BlockProps = Omit<
+  BlockStyleProps,
+  '$color' | '$variant' | '$paddingLess'
+> & {
   color?: BlockColors
   variant?: BlockVariants
   paddingLess?: boolean

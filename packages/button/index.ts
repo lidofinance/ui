@@ -1,3 +1,5 @@
 export { default as Button } from './Button'
+export * from './Button'
 export { default as ButtonIcon } from './ButtonIcon'
-export * from './types'
+export * from './ButtonIcon'
+export * from './constants'

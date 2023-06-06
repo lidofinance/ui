@@ -1,10 +1,11 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import {
   ButtonStyle,
   ButtonContentStyle,
   ButtonLoaderStyle,
+  ButtonStyleProps,
 } from './ButtonStyles'
-import { ButtonProps } from './types'
+import { ButtonColors, ButtonSizes, ButtonVariants } from './constants'
 import { useRipple } from './useRipple'
 
 const loaderSizes = {
@@ -14,6 +15,25 @@ const loaderSizes = {
   md: 'medium',
   lg: 'medium',
 } as const
+
+export type ButtonProps = Omit<
+  ButtonStyleProps,
+  | '$size'
+  | '$variant'
+  | '$color'
+  | '$fullwidth'
+  | '$square'
+  | '$loading'
+  | '$active'
+> & {
+  size?: ButtonSizes
+  variant?: ButtonVariants
+  color?: ButtonColors
+  fullwidth?: boolean
+  square?: boolean
+  loading?: boolean
+  active?: boolean
+}
 
 function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
   const {
@@ -35,10 +55,11 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
 
   return (
     <ButtonStyle
+      {...rest}
       $size={size}
       $variant={variant}
-      $fullwidth={fullwidth}
       $color={color}
+      $fullwidth={fullwidth}
       $square={square}
       $loading={loading}
       $active={active}
@@ -46,7 +67,6 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
       disabled={disabled || loading}
       type='button'
       ref={ref}
-      {...rest}
     >
       <ButtonContentStyle $hidden={loading}>{children}</ButtonContentStyle>
       {loading && <ButtonLoaderStyle size={loaderSize} />}

@@ -2,7 +2,10 @@ import { ForwardedRef, forwardRef } from 'react'
 import { useBreakpoint } from '@lidofinance/hooks'
 import { AddressBadgeStyle, AddressBadgeStyleProps } from './AddressBadgeStyles'
 
-export type AddressBadgeProps = Omit<AddressBadgeStyleProps, 'address' | 'symbol'> & {
+export type AddressBadgeProps = Omit<
+  AddressBadgeStyleProps,
+  'address' | 'symbol'
+> & {
   address?: string
   symbolsMobile?: number
   symbolsDesktop?: number

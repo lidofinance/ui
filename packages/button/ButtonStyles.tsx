@@ -1,7 +1,8 @@
 import styled, { css, keyframes } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
 import { Loader } from '@lidofinance/loaders'
-import { ButtonColors, ButtonSizes, ButtonVariants } from './types'
+import { ButtonColors, ButtonSizes, ButtonVariants } from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 type InjectedProps = {
   $color: ButtonColors
@@ -167,6 +168,8 @@ const variants = {
     }
   `,
 }
+
+export type ButtonStyleProps = InferStyledComponentPropsWithoutRef<typeof ButtonStyle>
 
 export const ButtonStyle = styled.button<InjectedProps>`
   box-sizing: border-box;
