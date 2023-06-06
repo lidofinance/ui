@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { ArrowBottom } from '@lidofinance/icons'
+import { InferStyledComponentProps } from '@lidofinance/utils'
 
+export type AccordionStyleProps = InferStyledComponentProps<
+  typeof AccordionStyle
+>
 export const AccordionStyle = styled.div`
   margin: 0 0 ${({ theme }) => theme.spaceMap.sm}px 0;
   background: var(--lido-color-foreground);

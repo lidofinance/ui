@@ -1,13 +1,19 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-import { AccordionProps } from './types'
 import {
   AccordionStyle,
   AccordionSummaryStyle,
   AccordionTitleStyle,
   AccordionArrowStyle,
   AccordionContentStyle,
+  AccordionStyleProps,
 } from './AccordionStyles'
 import { useExpanded } from './useExpanded'
+export type { Theme } from '@lidofinance/theme'
+
+export type AccordionProps = Omit<AccordionStyleProps, 'ref'> & {
+  defaultExpanded?: boolean
+  summary: React.ReactNode
+}
 
 function Accordion(props: AccordionProps, ref?: ForwardedRef<HTMLDivElement>) {
   const { defaultExpanded, summary, children, ...rest } = props
