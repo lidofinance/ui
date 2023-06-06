@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { IdenticonBadgeColors } from './types'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 const colors = {
   background: css`
@@ -12,6 +13,8 @@ const colors = {
   `,
 }
 
+export type IdenticonBadgeStyleProps = InferStyledComponentPropsWithoutRef<typeof IdenticonBadgeStyle>
+
 export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
   border-radius: 1000px;
   padding: 4px;
@@ -21,6 +24,8 @@ export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
 
   ${({ $color }) => colors[$color]}
 `
+
+export type IdenticonStyleProps = InferStyledComponentPropsWithoutRef<typeof IdenticonStyle>
 
 export const IdenticonStyle = styled.div`
   border-radius: 1000px;

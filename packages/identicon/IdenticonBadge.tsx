@@ -1,14 +1,17 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { Address } from '@lidofinance/address'
-import { IdenticonBadgeProps } from './types'
-import { IdenticonBadgeStyle, AddressWrapperStyle } from './IdenticonStyles'
-import Identicon from './Identicon'
+import { ForwardedRef, forwardRef } from 'react'
+import { Address, AddressProps } from '@lidofinance/address'
+import { IdenticonBadgeColors } from './types'
+import { IdenticonBadgeStyle, AddressWrapperStyle, IdenticonBadgeStyleProps } from './IdenticonStyles'
+import Identicon, { IdenticonProps } from './Identicon'
+
+export type IdenticonBadgeProps = Omit<IdenticonBadgeStyleProps, '$color'> & {
+  color?: IdenticonBadgeColors
+  address: string
+} & Pick<IdenticonProps, 'diameter' | 'paperStyles' | 'svgStyles'> &
+  Pick<AddressProps, 'symbols'>
 
 function IdenticonBadge(
-  props: IdenticonBadgeProps,
-  ref?: ForwardedRef<HTMLDivElement>
-) {
-  const {
+  {
     symbols = 3,
     color = 'background',
     diameter,
@@ -16,11 +19,13 @@ function IdenticonBadge(
     paperStyles,
     svgStyles,
     ...rest
-  } = props
+  }: IdenticonBadgeProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
   const identiconProps = { address, diameter, paperStyles, svgStyles }
 
   return (
-    <IdenticonBadgeStyle $color={color} {...rest} ref={ref}>
+    <IdenticonBadgeStyle {...rest} $color={color} ref={ref}>
       {symbols > 0 ? (
         <AddressWrapperStyle>
           <Address address={address} symbols={symbols} />

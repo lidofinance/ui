@@ -1,3 +1,5 @@
 export { default as IdenticonBadge } from './IdenticonBadge'
+export * from './IdenticonBadge'
 export { default as Identicon } from './Identicon'
+export * from './Identicon'
 export * from './types'

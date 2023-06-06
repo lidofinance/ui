@@ -1,10 +1,18 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-import { IdenticonProps } from './types'
-import { IdenticonStyle } from './IdenticonStyles'
+import { IdenticonStyle, IdenticonStyleProps } from './IdenticonStyles'
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 
-function Identicon(props: IdenticonProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { diameter = 24, address, paperStyles, svgStyles, ...rest } = props
+export type IdenticonProps = IdenticonStyleProps & {
+  address: string
+  diameter?: number
+  paperStyles?: React.CSSProperties
+  svgStyles?: React.CSSProperties
+}
+
+function Identicon(
+  { diameter = 24, address, paperStyles, svgStyles, ...rest }: IdenticonProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
   const iconProps = { diameter, paperStyles, svgStyles }
 
   return (
