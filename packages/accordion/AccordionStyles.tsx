@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { ArrowBottom } from '@lidofinance/icons'
-import { InferStyledComponentProps } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
-export type AccordionStyleProps = InferStyledComponentProps<
+export type AccordionStyleProps = InferStyledComponentPropsWithoutRef<
   typeof AccordionStyle
 >
 export const AccordionStyle = styled.div`

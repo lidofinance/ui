@@ -1,15 +1,30 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { AddressProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
 import {
   AddressStyle,
   AddressFullStyle,
   AddressTrimmedStyle,
+  AddressStyleProps,
 } from './AddressStyles'
-import { trimAddress } from './trimAddress'
 
-function Address(props: AddressProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { symbols = 3, address, ...rest } = props
+export const trimAddress = (address: string, symbols: number): string => {
+  if (symbols <= 0) return ''
+  if (symbols * 2 >= address.length) return address
 
+  const left = address.slice(0, symbols)
+  const right = address.slice(-symbols)
+
+  return `${left}...${right}`
+}
+
+export type AddressProps = Omit<AddressStyleProps, 'ref'> & {
+  address: string
+  symbols?: number
+}
+
+function Address(
+  { symbols = 3, address, ...rest }: AddressProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
   return (
     <AddressStyle {...rest} ref={ref}>
       <AddressFullStyle>{address}</AddressFullStyle>
