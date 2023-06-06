@@ -1,3 +1,4 @@
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
 
 const ExternalLink = styled.a.attrs({
@@ -6,6 +7,8 @@ const ExternalLink = styled.a.attrs({
 })`
   cursor: pointer;
 `
+
+export type WrapProps = InferStyledComponentPropsWithoutRef<typeof Wrap>
 
 export const Wrap = styled.div`
   z-index: 999;

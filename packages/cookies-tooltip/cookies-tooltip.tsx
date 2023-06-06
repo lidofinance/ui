@@ -1,8 +1,9 @@
-import React, { FC, useEffect, useState, useCallback } from 'react'
+import { FC, useEffect, useState, useCallback } from 'react'
 import { Cookie, CookieInverse } from '@lidofinance/icons'
 import { ContentTheme } from '@lidofinance/content-theme'
-import { getCrossDomainCookieClientSide } from '@lidofinance/utils'
-
+import {
+  getCrossDomainCookieClientSide,
+} from '@lidofinance/utils'
 import {
   Wrap,
   Box,
@@ -12,11 +13,14 @@ import {
   AllowButton,
   DeclineButton,
   Link,
+  WrapProps,
 } from './styles'
 import { allowCookies, declineCookies } from './utils'
 import { COOKIE_ALLOWED_KEY } from './constants'
 
-export const CookiesTooltip: FC = () => {
+export type CookiesTooltip = WrapProps
+
+export const CookiesTooltip: FC<CookiesTooltip> = (props) => {
   const [isVisible, setVisibility] = useState(false)
 
   const checkCookieAllowedEarlier = useCallback(() => {
@@ -43,7 +47,7 @@ export const CookiesTooltip: FC = () => {
   if (!isVisible) return <></>
 
   return (
-    <Wrap>
+    <Wrap {...props}>
       <Box>
         <CookieIconWrap>
           <ContentTheme
