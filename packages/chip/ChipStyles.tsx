@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
-import { ChipVariants } from './types'
+import { ChipVariants } from './Chip'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 type InjectedPropsTr = {
   $variant: ChipVariants
@@ -24,6 +25,10 @@ const ChipVariantsStyle = {
     color: var(--lido-color-foreground);
   `,
 }
+
+export type ChipWrapperStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof ChipWrapperStyle
+>
 
 export const ChipWrapperStyle = styled.div<InjectedPropsTr>`
   font-size: 14px;

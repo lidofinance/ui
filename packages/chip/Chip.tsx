@@ -1,16 +1,33 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-import { ChipProps } from './types'
-import { ChipWrapperStyle } from './ChipStyles'
+import { ChipWrapperStyle, ChipWrapperStyleProps } from './ChipStyles'
 
-function Chip(props: ChipProps, ref?: ForwardedRef<HTMLInputElement>) {
-  const { children, onClick, variant = 'positive', ...rest } = props
+export enum ChipVariant {
+  positive,
+  negative,
+  warning,
+  gray,
+}
 
+export type ChipVariants = keyof typeof ChipVariant
+
+export type ChipProps = Omit<
+  ChipWrapperStyleProps,
+  '$interactive' | '$variant'
+> & {
+  wrapperRef?: React.RefObject<HTMLLabelElement>
+  variant?: ChipVariants
+}
+
+function Chip(
+  { children, onClick, variant = 'positive', ...rest }: ChipProps,
+  ref?: ForwardedRef<HTMLInputElement>
+) {
   return (
     <ChipWrapperStyle
+      {...rest}
       $interactive={!!onClick}
       $variant={variant}
       onClick={onClick}
-      {...rest}
       ref={ref}
     >
       {children}
