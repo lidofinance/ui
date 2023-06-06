@@ -36,12 +36,6 @@
       "files": ["*.ts", "*.tsx"]
     },
     {
-      "files": ["*.stories.*", ".storybook/**"],
-      "rules": {
-        "react/react-in-jsx-scope": "off"
-      }
-    },
-    {
       "files": ["*.js", "*.jsx", "*.cjs"],
       "rules": {
         "@typescript-eslint/no-var-requires": "off",
@@ -53,6 +47,5 @@
     "react": {
       "version": "detect"
     }
-  },
-  "ignorePatterns": ["!.storybook"]
+  }
 }
