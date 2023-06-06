@@ -1,3 +1,3 @@
-export * from './Heading'
+export * from './constants'
 export { default as Heading } from './Heading'
-export * from './types'
+export * from './Heading'

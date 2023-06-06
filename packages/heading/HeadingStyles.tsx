@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { HeadingColors, HeadingSizes } from './types'
+import { HeadingColors, HeadingSizes } from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 export const sizes = {
   sm: css`
@@ -42,15 +43,21 @@ export const HeadingStyle = styled.div<InjectedProps & { $size: HeadingSizes }>`
   ${(props) => sizes[props.$size]}
 `
 
+export type H1StyleProps = InferStyledComponentPropsWithoutRef<typeof H1Style>
+
 export const H1Style = styled.h1<InjectedProps>`
   ${commonCSS}
   ${sizes.lg}
 `
 
+export type H2StyleProps = InferStyledComponentPropsWithoutRef<typeof H2Style>
+
 export const H2Style = styled.h2<InjectedProps>`
   ${commonCSS}
   ${sizes.md}
 `
+
+export type H3StyleProps = InferStyledComponentPropsWithoutRef<typeof H3Style>
 
 export const H3Style = styled.h3<InjectedProps>`
   ${commonCSS}

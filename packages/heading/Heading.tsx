@@ -1,34 +1,57 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { HeadingStyle, H1Style, H2Style, H3Style } from './HeadingStyles'
-import { HeadingProps, HProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { HeadingStyle, H1Style, H2Style, H3Style, H1StyleProps, H2StyleProps, H3StyleProps } from './HeadingStyles'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { HeadingColors, HeadingSizes } from './constants'
 
-function Heading(props: HeadingProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { size = 'md', color = 'text', ...rest } = props
-  return <HeadingStyle $size={size} $color={color} ref={ref} {...rest} />
+export type HeadingProps = InferStyledComponentPropsWithoutRef<
+  typeof HeadingStyle
+> & {
+  color?: HeadingColors
+  size?: HeadingSizes
 }
-
+function Heading(
+  { size = 'md', color = 'text', ...rest }: HeadingProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
+  return <HeadingStyle {...rest} $size={size} $color={color} ref={ref} />
+}
 export default forwardRef(Heading)
 
+export type HProps<T extends 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'> =
+  T extends 'h1'
+    ? H1Props
+    : T extends 'h2'
+    ? H2Props
+    : T extends 'h3'
+    ? H3Props
+    : never
+
+export type H1Props = Omit<H1StyleProps, '$color'> & {
+  color?: HeadingColors
+}
 export const H1 = forwardRef(function H1(
-  props: HProps<'h1'>,
+  { color = 'text', ...rest }: H1Props,
   ref?: ForwardedRef<HTMLHeadingElement>
 ) {
-  const { color = 'text', ...rest } = props
-  return <H1Style $color={color} ref={ref} {...rest} />
+  return <H1Style {...rest} $color={color} ref={ref} />
 })
 
+export type H2Props = Omit<H2StyleProps,  '$color'> & {
+  color?: HeadingColors
+}
 export const H2 = forwardRef(function H2(
-  props: HProps<'h2'>,
+  { color = 'text', ...rest }: H2Props,
   ref?: ForwardedRef<HTMLHeadingElement>
 ) {
-  const { color = 'text', ...rest } = props
-  return <H2Style $color={color} ref={ref} {...rest} />
+  return <H2Style {...rest} $color={color} ref={ref} />
 })
 
+export type H3Props = Omit<H3StyleProps, '$color'> & {
+  color?: HeadingColors
+}
 export const H3 = forwardRef(function H3(
-  props: HProps<'h3'>,
+  { color = 'text', ...rest }: H3Props,
   ref?: ForwardedRef<HTMLHeadingElement>
 ) {
-  const { color = 'text', ...rest } = props
-  return <H3Style $color={color} ref={ref} {...rest} />
+  return <H3Style {...rest} $color={color} ref={ref} />
 })
