@@ -1,11 +1,22 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { ContainerStyle } from './ContainerStyles'
-import { ContainerProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { ContainerStyle, ContainerStyleProps } from './ContainerStyles'
 
-function Container(props: ContainerProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { size = 'full', ...rest } = props
+export enum ContainerSize {
+  full,
+  content,
+  tight,
+}
+export type ContainerSizes = keyof typeof ContainerSize
 
-  return <ContainerStyle $size={size} ref={ref} {...rest} />
+export type ContainerProps = Omit<ContainerStyleProps, '$size'> & {
+  size?: ContainerSizes
+}
+
+function Container(
+  { size = 'full', ...rest }: ContainerProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
+  return <ContainerStyle {...rest} $size={size} ref={ref} />
 }
 
 export default forwardRef(Container)

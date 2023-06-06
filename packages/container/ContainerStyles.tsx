@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
-import { ContainerSizes } from './types'
+import { ContainerSizes } from './Container'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 const sizes = {
   full: css`
@@ -12,6 +13,10 @@ const sizes = {
     max-width: 560px;
   `,
 }
+
+export type ContainerStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof ContainerStyle
+>
 
 export const ContainerStyle = styled.div<{ $size: ContainerSizes }>`
   box-sizing: border-box;
