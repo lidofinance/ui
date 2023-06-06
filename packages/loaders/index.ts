@@ -1,3 +1,5 @@
+export * from './constants'
 export { default as Loader } from './Loader'
+export * from './Loader'
 export { default as InlineLoader } from './InlineLoader'
-export * from './types'
+export * from './InlineLoader'

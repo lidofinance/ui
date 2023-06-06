@@ -1,11 +1,14 @@
 import styled, { keyframes } from 'styled-components'
-import { LoaderColors } from './types'
+import { LoaderColors } from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 export const rotation = keyframes`
   100% {
     transform: rotate(360deg);
   }
 `
+
+export type LoaderStyleProps = InferStyledComponentPropsWithoutRef<typeof LoaderStyle>
 
 export const LoaderStyle = styled.div<{
   $size: number

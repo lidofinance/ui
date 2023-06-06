@@ -1,11 +1,14 @@
 import styled, { keyframes } from 'styled-components'
-import { InlineLoaderColors } from './types'
+import { InlineLoaderColors } from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 export const translation = keyframes`
   100% {
     background-position: 0 0;
   }
 `
+
+export type InlineLoaderStyleProps = InferStyledComponentPropsWithoutRef<typeof InlineLoaderStyle>
 
 export const InlineLoaderStyle = styled.span<{ $color?: InlineLoaderColors }>`
   --loader-color: ${({ $color }) =>

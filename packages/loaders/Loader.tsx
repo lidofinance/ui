@@ -1,20 +1,28 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { LoaderProps, LoaderSize } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { LoaderColors, LoaderSize, LoaderSizes } from './constants'
 import {
   LoaderStyle,
   LoaderCircleBgStyle,
   LoaderCircleFgStyle,
+  LoaderStyleProps,
 } from './LoaderStyles'
 
-function Loader(props: LoaderProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { size = 'medium', thickness = 3, color = 'primary', ...rest } = props
+export type LoaderProps = Omit<LoaderStyleProps, '$color' | '$size'> & {
+  size?: LoaderSizes
+  color?: LoaderColors
+  thickness?: number
+}
 
+function Loader(
+  { size = 'medium', thickness = 3, color = 'primary', ...rest }: LoaderProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
   const pxSize = LoaderSize[size]
   const center = pxSize / 2
   const radius = pxSize / 2 - thickness / 2
 
   return (
-    <LoaderStyle $size={pxSize} $color={color} {...rest} ref={ref}>
+    <LoaderStyle {...rest} $size={pxSize} $color={color} ref={ref}>
       <svg width={pxSize} height={pxSize} viewBox={`0 0 ${pxSize} ${pxSize}`}>
         <LoaderCircleBgStyle
           $thickness={thickness}
