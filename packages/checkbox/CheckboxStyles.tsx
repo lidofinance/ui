@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Check } from '@lidofinance/icons'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 export const CheckboxWrapperStyle = styled.label`
   flex-shrink: 0;
@@ -17,6 +18,8 @@ export const CheckboxIconStyle = styled(Check)`
   transition: box-shadow 0.1s ease, background-color 0.1s ease;
   fill: var(--lido-color-primaryContrast);
 `
+
+export type CheckboxInputStyleProps = InferStyledComponentPropsWithoutRef<typeof CheckboxInputStyle>
 
 export const CheckboxInputStyle = styled.input`
   width: 1px;
