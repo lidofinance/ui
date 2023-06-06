@@ -1,7 +1,9 @@
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled, { css } from 'styled-components'
-import { LinkProps } from './types'
 
-export const LinkStyle = styled.a`
+export type LinkStyleProps = InferStyledComponentPropsWithoutRef<typeof LinkStyle>
+
+export const LinkStyle = styled.a<{ fadeVisited?: boolean }>`
   text-decoration: none;
   color: var(--lido-color-primary);
 
@@ -9,7 +11,7 @@ export const LinkStyle = styled.a`
     color: var(--lido-color-primaryHover);
   }
 
-  ${(props: LinkProps) =>
+  ${(props) =>
     props.fadeVisited &&
     css`
       :visited {
