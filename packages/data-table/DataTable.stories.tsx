@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { DataTableProps, DataTableRowProps } from './types'
-import DataTable, { DataTableRow } from './DataTable'
+import { DataTable, DataTableProps, DataTableRowProps, DataTableRow } from '.'
 
 export default {
   component: DataTable,
@@ -11,9 +10,7 @@ export default {
 } as Meta
 
 export const Base: Story<DataTableProps & Pick<DataTableRowProps, 'loading'>> =
-  (props) => {
-    const { loading, ...rest } = props
-
+  ({ loading, ...rest }) => {
     return (
       <div style={{ width: 300 }}>
         <DataTable {...rest}>

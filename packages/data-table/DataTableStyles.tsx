@@ -1,7 +1,12 @@
 import { Question } from '@lidofinance/icons'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
 
+export type DataTableStyleProps = InferStyledComponentPropsWithoutRef<typeof DataTableStyle>
+
 export const DataTableStyle = styled.div``
+
+export type DataTableRowStyleProps = InferStyledComponentPropsWithoutRef<typeof DataTableRowStyle>
 
 export const DataTableRowStyle = styled.div`
   display: flex;

@@ -7,8 +7,11 @@ import {
   DataTableTitleStyle,
   DataTableValueStyle,
   DataTableQuestionStyle,
+  DataTableStyleProps,
+  DataTableRowStyleProps,
 } from './DataTableStyles'
-import { DataTableProps, DataTableRowProps } from './types'
+
+export type DataTableProps = DataTableStyleProps
 
 function DataTable(props: DataTableProps, ref?: ForwardedRef<HTMLDivElement>) {
   return <DataTableStyle ref={ref} {...props} />
@@ -16,18 +19,24 @@ function DataTable(props: DataTableProps, ref?: ForwardedRef<HTMLDivElement>) {
 
 export default forwardRef(DataTable)
 
+export type DataTableRowProps = DataTableRowStyleProps & {
+  title: React.ReactNode
+  help?: React.ReactNode
+  loading?: boolean
+  highlight?: boolean
+}
+
 export const DataTableRow = forwardRef(function DataTableRow(
-  props: DataTableRowProps,
-  ref?: ForwardedRef<HTMLDivElement>
-) {
-  const {
+  {
     title,
     loading = false,
     highlight = false,
     help,
     children,
     ...rest
-  } = props
+  }: DataTableRowProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
   const hasHelper = !!help
 
   return (
