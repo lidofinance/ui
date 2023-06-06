@@ -3,10 +3,11 @@ import { ArrowTop, ArrowBottom } from '@lidofinance/icons'
 import {
   TableAligns,
   TableTextColors,
-  Theme,
   ThTdVariants,
   TrHighlights,
-} from './types'
+} from './constants'
+import { Theme } from '@lidofinance/theme'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 type InjectedPropsTr = {
   $highlight?: TrHighlights
@@ -91,9 +92,13 @@ const ThTdInteractive = css`
   }
 `
 
+export type TableStyleProps = InferStyledComponentPropsWithoutRef<typeof TableStyle>
+
 export const TableStyle = styled.table`
   border-spacing: 0;
 `
+
+export type TbodyStyleProps = InferStyledComponentPropsWithoutRef<typeof TbodyStyle>
 
 export const TbodyStyle = styled.tbody`
   & > tr::before,
@@ -111,6 +116,8 @@ const TheadStickyStyle = css`
   z-index: 5;
 `
 
+export type TheadStyleProps = InferStyledComponentPropsWithoutRef<typeof TheadStyle>
+
 export const TheadStyle = styled.thead<InjectedPropsThead>`
   border-top: 1px solid var(--lido-color-borderLight);
   border-bottom: 1px solid var(--lido-color-borderLight);
@@ -127,6 +134,8 @@ export const TheadStyle = styled.thead<InjectedPropsThead>`
     border-bottom: 1px solid var(--lido-color-borderLight);
   }
 `
+
+export type TfootStyleProps = InferStyledComponentPropsWithoutRef<typeof TfootStyle>
 
 export const TfootStyle = styled.tfoot``
 
@@ -146,6 +155,8 @@ const TrInteractive = css`
   cursor: pointer;
 `
 
+export type TrStyleProps = InferStyledComponentPropsWithoutRef<typeof TrStyle>
+
 export const TrStyle = styled.tr<InjectedPropsTr>`
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
@@ -158,6 +169,8 @@ const TdNumericStyle = css`
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 `
+
+export type TdStyleProps = InferStyledComponentPropsWithoutRef<typeof TdStyle>
 
 export const TdStyle = styled.td<InjectedPropsTd>`
   border-bottom: 1px solid var(--lido-color-borderLight);
@@ -178,6 +191,8 @@ export const TdStyle = styled.td<InjectedPropsTd>`
     padding-right: 0;
   }
 `
+
+export type ThStyleProps = InferStyledComponentPropsWithoutRef<typeof ThStyle>
 
 export const ThStyle = styled.th<InjectedPropsTh>`
   border-top: 1px solid var(--lido-color-borderLight);

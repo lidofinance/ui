@@ -1,20 +1,20 @@
 import { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
 import { Light, Eth } from '@lidofinance/icons'
-import Table from './Table'
-import Thead from './Thead'
-import Tbody from './Tbody'
-import Tr from './Tr'
-import Td from './Td'
-import Th from './Th'
-
 import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Td,
+  Th,
   TdProps,
   TableTextColor,
   TableAlign,
   ThSortDirs,
   TrHighlight,
-} from './types'
+  TrHighlights,
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -48,13 +48,11 @@ export const Base: Story<
 > = (props, options) => {
   const [sortDir, setSortDir] = useState<ThSortDirs>('ASC')
 
-  // @ts-expect-error fix later
   const isShowTrHighlights = options.args.showHighlight
 
   return (
     <div style={{ height: 300, overflowY: 'scroll' }}>
       <Table style={{ width: 600 }}>
-        {/* @ts-expect-error fix later */}
         <Thead sticky={options.args.stickyHeader}>
           <Tr>
             <Th
@@ -77,9 +75,10 @@ export const Base: Story<
             .map((item, index) => (
               <Tr
                 key={index}
-                // @ts-expect-error this is a story anyway
                 highlight={
-                  isShowTrHighlights ? TrHighlight[index % 3] : undefined
+                  isShowTrHighlights
+                    ? (TrHighlight[index % 3] as unknown as TrHighlights)
+                    : undefined
                 }
               >
                 <Td {...props} onClick={() => void 0}>

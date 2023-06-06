@@ -1,17 +1,21 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { TrProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { TrStyle, TrStyleProps } from './styles'
+import { TrHighlights } from './constants'
 
-import { TrStyle } from './styles'
+export type TrProps = Omit<TrStyleProps, '$highlight' | '$interactive'> & {
+  highlight?: TrHighlights
+}
 
-function Tr(props: TrProps, ref?: ForwardedRef<HTMLTableRowElement>) {
-  const { highlight, ...rest } = props
-
+function Tr(
+  { highlight, ...rest }: TrProps,
+  ref?: ForwardedRef<HTMLTableRowElement>
+) {
   return (
     <TrStyle
+      {...rest}
       $highlight={highlight}
       $interactive={!!rest.onClick}
       ref={ref}
-      {...rest}
     />
   )
 }

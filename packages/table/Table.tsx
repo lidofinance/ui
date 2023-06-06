@@ -1,7 +1,7 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { TableProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { TableStyle, TableStyleProps } from './styles'
 
-import { TableStyle } from './styles'
+export type TableProps = TableStyleProps
 
 function Table(props: TableProps, ref?: ForwardedRef<HTMLTableElement>) {
   return <TableStyle ref={ref} {...props} />

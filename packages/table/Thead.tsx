@@ -1,12 +1,15 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { TheadProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { TheadStyle, TheadStyleProps } from './styles'
 
-import { TheadStyle } from './styles'
+export type TheadProps = Omit<TheadStyleProps, '$sticky'> & {
+  sticky?: boolean
+}
 
-function Thead(props: TheadProps, ref?: ForwardedRef<HTMLTableSectionElement>) {
-  const { sticky = false, ...rest } = props
-
-  return <TheadStyle ref={ref} $sticky={sticky} {...rest} />
+function Thead(
+  { sticky = false, ...rest }: TheadProps,
+  ref?: ForwardedRef<HTMLTableSectionElement>
+) {
+  return <TheadStyle {...rest} ref={ref} $sticky={sticky} />
 }
 
 export default forwardRef(Thead)
