@@ -1,6 +1,7 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { LidoLogoStyles } from './LidoLogoStyles'
-import { LidoLogoProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { LidoLogoStyles, LidoLogoStylesProps } from './LidoLogoStyles'
+
+export type LidoLogoProps = LidoLogoStylesProps
 
 function LidoLogo(props: LidoLogoProps, ref?: ForwardedRef<HTMLDivElement>) {
   return (
