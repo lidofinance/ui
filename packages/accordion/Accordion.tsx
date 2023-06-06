@@ -10,7 +10,7 @@ import {
 import { useExpanded } from './useExpanded'
 export type { Theme } from '@lidofinance/theme'
 
-export type AccordionProps = Omit<AccordionStyleProps, 'ref'> & {
+export type AccordionProps = AccordionStyleProps & {
   defaultExpanded?: boolean
   summary: React.ReactNode
 }

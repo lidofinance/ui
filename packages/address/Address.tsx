@@ -16,7 +16,7 @@ export const trimAddress = (address: string, symbols: number): string => {
   return `${left}...${right}`
 }
 
-export type AddressProps = Omit<AddressStyleProps, 'ref'> & {
+export type AddressProps = AddressStyleProps & {
   address: string
   symbols?: number
 }

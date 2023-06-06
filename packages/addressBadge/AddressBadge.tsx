@@ -1,13 +1,22 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { useBreakpoint } from '@lidofinance/hooks'
-import { AddressBadgeStyle } from './AddressBadgeStyles'
-import { AddressBadgeProps } from './types'
+import { AddressBadgeStyle, AddressBadgeStyleProps } from './AddressBadgeStyles'
+
+export type AddressBadgeProps = Omit<AddressBadgeStyleProps, 'address' | 'symbol'> & {
+  address?: string
+  symbolsMobile?: number
+  symbolsDesktop?: number
+}
 
 function AddressBadge(
-  props: AddressBadgeProps,
+  {
+    address,
+    symbolsMobile = 3,
+    symbolsDesktop = 6,
+    ...rest
+  }: AddressBadgeProps,
   ref?: ForwardedRef<HTMLDivElement>
 ) {
-  const { address, symbolsMobile = 3, symbolsDesktop = 6 } = props
   const isMobile = useBreakpoint('md')
 
   return (
@@ -15,6 +24,7 @@ function AddressBadge(
       symbols={isMobile ? symbolsMobile : symbolsDesktop}
       address={address ?? ''}
       ref={ref}
+      {...rest}
     />
   )
 }

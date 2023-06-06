@@ -5,6 +5,7 @@ import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 export type AccordionStyleProps = InferStyledComponentPropsWithoutRef<
   typeof AccordionStyle
 >
+
 export const AccordionStyle = styled.div`
   margin: 0 0 ${({ theme }) => theme.spaceMap.sm}px 0;
   background: var(--lido-color-foreground);
