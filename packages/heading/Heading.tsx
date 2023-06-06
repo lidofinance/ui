@@ -1,5 +1,13 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { HeadingStyle, H1Style, H2Style, H3Style, H1StyleProps, H2StyleProps, H3StyleProps } from './HeadingStyles'
+import {
+  HeadingStyle,
+  H1Style,
+  H2Style,
+  H3Style,
+  H1StyleProps,
+  H2StyleProps,
+  H3StyleProps,
+} from './HeadingStyles'
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import { HeadingColors, HeadingSizes } from './constants'
 
@@ -36,7 +44,7 @@ export const H1 = forwardRef(function H1(
   return <H1Style {...rest} $color={color} ref={ref} />
 })
 
-export type H2Props = Omit<H2StyleProps,  '$color'> & {
+export type H2Props = Omit<H2StyleProps, '$color'> & {
   color?: HeadingColors
 }
 export const H2 = forwardRef(function H2(

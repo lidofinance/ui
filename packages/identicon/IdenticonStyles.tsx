@@ -13,7 +13,9 @@ const colors = {
   `,
 }
 
-export type IdenticonBadgeStyleProps = InferStyledComponentPropsWithoutRef<typeof IdenticonBadgeStyle>
+export type IdenticonBadgeStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof IdenticonBadgeStyle
+>
 
 export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
   border-radius: 1000px;
@@ -25,7 +27,9 @@ export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
   ${({ $color }) => colors[$color]}
 `
 
-export type IdenticonStyleProps = InferStyledComponentPropsWithoutRef<typeof IdenticonStyle>
+export type IdenticonStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof IdenticonStyle
+>
 
 export const IdenticonStyle = styled.div`
   border-radius: 1000px;

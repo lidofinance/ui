@@ -28,7 +28,9 @@ const types = {
   `,
 }
 
-export type DividerStyleProps = InferStyledComponentPropsWithoutRef<typeof DividerStyle>
+export type DividerStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof DividerStyle
+>
 
 export const DividerStyle = styled.div<InjectedProps>`
   box-sizing: border-box;

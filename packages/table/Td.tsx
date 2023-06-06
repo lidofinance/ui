@@ -2,7 +2,10 @@ import { ForwardedRef, forwardRef } from 'react'
 import { TdStyle, TdStyleProps, ThTdContentStyle } from './styles'
 import { TableAligns, TableTextColors, ThTdVariants } from './constants'
 
-export type TdProps = Omit<TdStyleProps, '$align' | '$textColor' | '$variant' | '$interactive' | '$numeric'> & {
+export type TdProps = Omit<
+  TdStyleProps,
+  '$align' | '$textColor' | '$variant' | '$interactive' | '$numeric'
+> & {
   align?: TableAligns
   textColor?: TableTextColors
   variant?: ThTdVariants

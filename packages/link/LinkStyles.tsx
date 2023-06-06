@@ -1,7 +1,9 @@
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled, { css } from 'styled-components'
 
-export type LinkStyleProps = InferStyledComponentPropsWithoutRef<typeof LinkStyle>
+export type LinkStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof LinkStyle
+>
 
 export const LinkStyle = styled.a<{ fadeVisited?: boolean }>`
   text-decoration: none;

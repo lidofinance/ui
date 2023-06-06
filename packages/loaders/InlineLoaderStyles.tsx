@@ -8,7 +8,9 @@ export const translation = keyframes`
   }
 `
 
-export type InlineLoaderStyleProps = InferStyledComponentPropsWithoutRef<typeof InlineLoaderStyle>
+export type InlineLoaderStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof InlineLoaderStyle
+>
 
 export const InlineLoaderStyle = styled.span<{ $color?: InlineLoaderColors }>`
   --loader-color: ${({ $color }) =>

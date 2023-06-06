@@ -8,7 +8,9 @@ export const rotation = keyframes`
   }
 `
 
-export type LoaderStyleProps = InferStyledComponentPropsWithoutRef<typeof LoaderStyle>
+export type LoaderStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof LoaderStyle
+>
 
 export const LoaderStyle = styled.div<{
   $size: number

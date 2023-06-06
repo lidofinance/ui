@@ -92,13 +92,17 @@ const ThTdInteractive = css`
   }
 `
 
-export type TableStyleProps = InferStyledComponentPropsWithoutRef<typeof TableStyle>
+export type TableStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof TableStyle
+>
 
 export const TableStyle = styled.table`
   border-spacing: 0;
 `
 
-export type TbodyStyleProps = InferStyledComponentPropsWithoutRef<typeof TbodyStyle>
+export type TbodyStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof TbodyStyle
+>
 
 export const TbodyStyle = styled.tbody`
   & > tr::before,
@@ -116,7 +120,9 @@ const TheadStickyStyle = css`
   z-index: 5;
 `
 
-export type TheadStyleProps = InferStyledComponentPropsWithoutRef<typeof TheadStyle>
+export type TheadStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof TheadStyle
+>
 
 export const TheadStyle = styled.thead<InjectedPropsThead>`
   border-top: 1px solid var(--lido-color-borderLight);
@@ -135,7 +141,9 @@ export const TheadStyle = styled.thead<InjectedPropsThead>`
   }
 `
 
-export type TfootStyleProps = InferStyledComponentPropsWithoutRef<typeof TfootStyle>
+export type TfootStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof TfootStyle
+>
 
 export const TfootStyle = styled.tfoot``
 

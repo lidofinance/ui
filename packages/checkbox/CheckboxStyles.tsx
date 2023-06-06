@@ -19,7 +19,9 @@ export const CheckboxIconStyle = styled(Check)`
   fill: var(--lido-color-primaryContrast);
 `
 
-export type CheckboxInputStyleProps = InferStyledComponentPropsWithoutRef<typeof CheckboxInputStyle>
+export type CheckboxInputStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof CheckboxInputStyle
+>
 
 export const CheckboxInputStyle = styled.input`
   width: 1px;

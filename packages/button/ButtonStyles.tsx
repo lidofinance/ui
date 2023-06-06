@@ -169,7 +169,9 @@ const variants = {
   `,
 }
 
-export type ButtonStyleProps = InferStyledComponentPropsWithoutRef<typeof ButtonStyle>
+export type ButtonStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof ButtonStyle
+>
 
 export const ButtonStyle = styled.button<InjectedProps>`
   box-sizing: border-box;

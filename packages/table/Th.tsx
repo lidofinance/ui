@@ -8,7 +8,10 @@ import {
 } from './styles'
 import { TableAligns, ThSortDirs, ThTdVariants } from './constants'
 
-export type ThProps = Omit<ThStyleProps, '$align' | '$interactive' | '$variant'> & {
+export type ThProps = Omit<
+  ThStyleProps,
+  '$align' | '$interactive' | '$variant'
+> & {
   align?: TableAligns
   sortDir?: ThSortDirs
   variant?: ThTdVariants
