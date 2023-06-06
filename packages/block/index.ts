@@ -1,2 +1,3 @@
 export { default as Block } from './Block'
-export * from './types'
+export * from './Block'
+export * from './constants'

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { BlockVariants, BlockColors } from './types'
+import { BlockVariants, BlockColors } from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 type InjectedProps = {
   $variant: BlockVariants
@@ -41,6 +42,8 @@ const paddings = css`
     padding: ${({ theme }) => theme.spaceMap.lg}px;
   }
 `
+
+export type BlockStyleProps = InferStyledComponentPropsWithoutRef<typeof BlockStyle>
 
 export const BlockStyle = styled.div<InjectedProps>`
   font-weight: 400;
