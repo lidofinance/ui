@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { DividerIndents, DividerTypes } from './types'
+import { DividerIndents, DividerTypes } from './Divider'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 type InjectedProps = {
   $type: DividerTypes
@@ -26,6 +27,8 @@ const types = {
     margin: 0 ${getIndents};
   `,
 }
+
+export type DividerStyleProps = InferStyledComponentPropsWithoutRef<typeof DividerStyle>
 
 export const DividerStyle = styled.div<InjectedProps>`
   box-sizing: border-box;

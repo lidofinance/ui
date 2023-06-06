@@ -1,11 +1,32 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { DividerStyle } from './DividerStyles'
-import { DividerProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { DividerStyle, DividerStyleProps } from './DividerStyles'
 
-function Divider(props: DividerProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { type = 'horizontal', indents, children, ...rest } = props
+export enum DividerType {
+  vertical,
+  horizontal,
+}
+export type DividerTypes = keyof typeof DividerType
 
-  return <DividerStyle $type={type} $indents={indents} ref={ref} {...rest} />
+export enum DividerIndent {
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+}
+export type DividerIndents = keyof typeof DividerIndent
+
+export type DividerProps = Omit<DividerStyleProps, '$type' | '$indents'> & {
+  type?: DividerTypes
+  indents?: DividerIndents
+  children?: never
+}
+
+function Divider(
+  { type = 'horizontal', indents, children, ...rest }: DividerProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
+  return <DividerStyle {...rest} $type={type} $indents={indents} ref={ref} />
 }
 
 export default forwardRef(Divider)
