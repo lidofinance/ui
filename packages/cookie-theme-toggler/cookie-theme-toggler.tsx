@@ -1,16 +1,19 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import {
   CookieThemeTogglerStyle,
   CookieThemeTogglerDarkIcon,
   CookieThemeTogglerLightIcon,
+  CookieThemeTogglerStyleProps,
 } from './styles'
 import { useThemeToggle } from '@lidofinance/theme'
 
-export const ThemeToggler: FC = () => {
+export type ThemeTogglerProps = CookieThemeTogglerStyleProps
+
+export const ThemeToggler: FC<ThemeTogglerProps> = (props) => {
   const { toggleTheme } = useThemeToggle()
 
   return (
-    <CookieThemeTogglerStyle color='secondary' onClick={toggleTheme}>
+    <CookieThemeTogglerStyle {...props} color='secondary' onClick={toggleTheme}>
       <CookieThemeTogglerLightIcon />
       <CookieThemeTogglerDarkIcon />
     </CookieThemeTogglerStyle>
