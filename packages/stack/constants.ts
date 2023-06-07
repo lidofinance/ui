@@ -1,6 +1,3 @@
-import { LidoComponentProps } from '@lidofinance/utils'
-export type { Theme } from '@lidofinance/theme'
-
 export enum StackAlign {
   'center',
   'stretch',
@@ -47,31 +44,3 @@ export enum StackSpacing {
   xxl,
 }
 export type StackSpacings = keyof typeof StackSpacing
-
-export type StackProps = LidoComponentProps<
-  'div',
-  {
-    align?: StackAligns
-    justify?: StackJustifies
-    direction?: StackDirections
-    wrap?: StackWraps
-    spacing?: StackSpacings
-  }
->
-
-export type StackItemProps = LidoComponentProps<
-  'div',
-  {
-    grow?: number
-    shrink?: number
-    basis?: string
-  }
->
-
-export type HStackProps = {
-  reverse?: boolean
-} & Omit<StackProps, 'direction'>
-
-export type VStackProps = {
-  reverse?: boolean
-} & Omit<StackProps, 'direction'>

@@ -6,7 +6,10 @@ import {
   StackJustifies,
   StackSpacings,
   StackWraps,
-} from './types'
+} from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+
+export type StackStyleProps = InferStyledComponentPropsWithoutRef<typeof StackStyle>
 
 export const StackStyle = styled.div<{
   $align: StackAligns

@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { StackSpacings } from './types'
+import { StackSpacings } from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+
+export type StackItemStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof StackItemStyle
+>
 
 export const StackItemStyle = styled.div<{
   $grow: number
