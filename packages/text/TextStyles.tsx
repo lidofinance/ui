@@ -65,7 +65,9 @@ const getTextDecoration = ({ underline, strikeThrough }: InjectedProps) => {
   }
 }
 
-export type TextStyleProps = InferStyledComponentPropsWithoutRef<typeof TextStyle>
+export type TextStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof TextStyle
+>
 
 export const TextStyle = styled.p<InjectedProps>`
   ${({ strong, italic, size }) => css`

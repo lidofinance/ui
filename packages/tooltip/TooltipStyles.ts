@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 import { Popover } from '@lidofinance/popover'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+
+export type TooltipPopoverStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof TooltipPopoverStyle
+>
 
 export const TooltipPopoverStyle = styled(Popover)`
   && {

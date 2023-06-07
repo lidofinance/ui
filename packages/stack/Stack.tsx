@@ -9,7 +9,10 @@ import {
   StackWraps,
 } from './constants'
 
-export type StackProps = Omit<StackStyleProps, '$align' | '$justify' | '$direction' | '$wrap' | '$spacing'> & {
+export type StackProps = Omit<
+  StackStyleProps,
+  '$align' | '$justify' | '$direction' | '$wrap' | '$spacing'
+> & {
   align?: StackAligns
   justify?: StackJustifies
   direction?: StackDirections

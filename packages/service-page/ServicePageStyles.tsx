@@ -1,7 +1,9 @@
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
 
-export type ServicePageStyleProps = InferStyledComponentPropsWithoutRef<typeof ServicePageStyle>
+export type ServicePageStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof ServicePageStyle
+>
 
 export const ServicePageStyle = styled.div`
   height: 100vh;
