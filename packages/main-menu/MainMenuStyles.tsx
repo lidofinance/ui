@@ -1,3 +1,4 @@
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled, { css } from 'styled-components'
 export const desktopCss = css`
   margin: 0 46px;
@@ -26,6 +27,8 @@ const mobileCss = css`
     margin-bottom: 7px;
   }
 `
+
+export type NavProps = InferStyledComponentPropsWithoutRef<typeof Nav>
 
 export const Nav = styled.div`
   ${desktopCss}

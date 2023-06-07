@@ -1,4 +1,7 @@
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
+
+export type NavLinkProps = InferStyledComponentPropsWithoutRef<typeof NavLink>
 
 export const NavLink = styled.a<{ active: boolean }>`
   cursor: pointer;

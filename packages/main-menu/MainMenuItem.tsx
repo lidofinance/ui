@@ -1,12 +1,15 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { MainMenuItemProps } from './types'
-import { NavLink } from './MainMenuItemStyles'
+import { ForwardedRef, forwardRef } from 'react'
+import { NavLink, NavLinkProps } from './MainMenuItemStyles'
+
+export type MainMenuItemProps = Omit<NavLinkProps, 'active'> & {
+  icon?: JSX.Element
+  active?: boolean
+}
 
 function MainMenuItem(
-  props: MainMenuItemProps,
+  { icon, children, active, ...restProps }: MainMenuItemProps,
   ref?: ForwardedRef<HTMLDivElement>
 ) {
-  const { icon, children, active, ...restProps } = props
   return (
     <NavLink ref={ref} active={Boolean(active)} {...restProps}>
       {icon}
