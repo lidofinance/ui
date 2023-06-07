@@ -1,1 +1,1 @@
-global.React = require('react');
+global.React = require('react')
