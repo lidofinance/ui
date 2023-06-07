@@ -1,10 +1,10 @@
 import { useMemo, useState, useEffect, MouseEvent, FC } from 'react'
 import styled from 'styled-components'
-import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
-import { Box } from '@lidofinance/box'
+import { ArrowLeft, ArrowRight } from '../icons'
+import { Box } from '../box'
 import getShowingPages from './getShowingPages'
 import PaginationItem, { PaginationItemProps } from './PaginationItem'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 import { PaginationItemVariant } from './constants'
 
 const getActiveItem = (length: number, activeItem: number): number => {

@@ -1,7 +1,7 @@
 import {
   getDomainCookieClientSide,
   removeCookiesClientSide,
-} from '@lidofinance/utils'
+} from '../../utils'
 import { themeCookieKey, ThemeName } from '../constants'
 import { setThemeCookie } from './set-theme-cookie'
 

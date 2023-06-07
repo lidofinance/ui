@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { PopupMenuVariants } from './constants'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 export type PopupMenuItemStyleProps = InferStyledComponentPropsWithoutRef<
   typeof PopupMenuItemStyle

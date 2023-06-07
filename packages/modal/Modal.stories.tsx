@@ -1,11 +1,11 @@
 import { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { Story, Meta } from '@storybook/react'
-import { Button, ButtonProps, ButtonSize } from '@lidofinance/button'
-import { Loader } from '@lidofinance/loaders'
-import { Text } from '@lidofinance/text'
-import { Link } from '@lidofinance/link'
-import { Error, Success, Eth, Terra } from '@lidofinance/icons'
+import { Button, ButtonProps, ButtonSize } from '../button'
+import { Loader } from '../loaders'
+import { Text } from '../text'
+import { Link } from '../link'
+import { Error, Success, Eth, Terra } from '../icons'
 import { Modal, ModalExtra, ModalButton, ModalProps } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

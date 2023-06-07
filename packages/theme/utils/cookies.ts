@@ -1,6 +1,6 @@
 // TODO: use /packages/utils/cookies-client-side.ts
 
-import { ThemeName } from '@lidofinance/theme'
+import { ThemeName } from '../../theme'
 import { themeCookieKey } from '../constants'
 
 // we're using all-same regex in element-theme-script.tsx.

@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
 import { TextStyle, TextStyleProps } from './TextStyles'
-import { PartialBy } from '@lidofinance/utils'
+import { PartialBy } from '../utils'
 
 export type TextProps = PartialBy<TextStyleProps, 'size' | 'color'>
 

@@ -5,8 +5,8 @@ import {
   CheckboxIconStyle,
   CheckboxInputStyleProps,
 } from './CheckboxStyles'
-import { Text } from '@lidofinance/text'
-import { Box } from '@lidofinance/box'
+import { Text } from '../text'
+import { Box } from '../box'
 
 export type CheckboxProps = CheckboxInputStyleProps & {
   wrapperRef?: RefObject<HTMLLabelElement>

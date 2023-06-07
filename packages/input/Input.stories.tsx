@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Eth } from '@lidofinance/icons'
-import { Block } from '@lidofinance/block'
-import { Button } from '@lidofinance/button'
-import { Identicon } from '@lidofinance/identicon'
+import { Eth } from '../icons'
+import { Block } from '../block'
+import { Button } from '../button'
+import { Identicon } from '../identicon'
 import { Input, InputProps, InputType, InputVariant, InputColor } from '.'
 import styled from 'styled-components'
 

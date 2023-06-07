@@ -1,12 +1,12 @@
 import { ForwardedRef, RefObject, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
-import { modalRoot } from '@lidofinance/utils'
-import { useMergeRefs, useOutsideClick, useEscape } from '@lidofinance/hooks'
+import { modalRoot } from '../utils'
+import { useMergeRefs, useOutsideClick, useEscape } from '../hooks'
 import {
   TransitionInnerProps,
   TransitionWrapperProps,
   withTransition,
-} from '@lidofinance/transition'
+} from '../transition'
 import { usePopoverPosition } from './usePopoverPosition'
 import {
   PopoverWrapperStyle,

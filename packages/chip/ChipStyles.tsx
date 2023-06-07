@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { ChipVariants } from './Chip'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 type InjectedPropsTr = {
   $variant: ChipVariants

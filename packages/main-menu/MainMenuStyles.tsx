@@ -1,4 +1,4 @@
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 import styled, { css } from 'styled-components'
 export const desktopCss = css`
   margin: 0 46px;

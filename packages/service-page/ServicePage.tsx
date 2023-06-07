@@ -4,8 +4,8 @@ import {
   ServicePageInsideStyle,
   ServicePageStyleProps,
 } from './ServicePageStyles'
-import { H1 } from '@lidofinance/heading'
-import { Text } from '@lidofinance/text'
+import { H1 } from '../heading'
+import { Text } from '../text'
 
 export type ServicePageProps = ServicePageStyleProps & {
   title: ReactNode

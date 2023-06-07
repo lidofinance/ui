@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { TransitionInnerProps } from '@lidofinance/transition'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { TransitionInnerProps } from '../transition'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 type TransitionProps = {
   $duration: number

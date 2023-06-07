@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { InlineLoaderColors } from './constants'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 export const translation = keyframes`
   100% {

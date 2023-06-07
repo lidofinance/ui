@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Button } from '@lidofinance/button'
-import { Dark, Light } from '@lidofinance/icons'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { Button } from '../button'
+import { Dark, Light } from '../icons'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 export type CookieThemeTogglerStyleProps = InferStyledComponentPropsWithoutRef<
   typeof CookieThemeTogglerStyle

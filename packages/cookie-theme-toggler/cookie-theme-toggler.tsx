@@ -5,7 +5,7 @@ import {
   CookieThemeTogglerLightIcon,
   CookieThemeTogglerStyleProps,
 } from './styles'
-import { useThemeToggle } from '@lidofinance/theme'
+import { useThemeToggle } from '../theme'
 
 export type ThemeTogglerProps = CookieThemeTogglerStyleProps
 

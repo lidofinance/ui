@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
-import { Theme } from '@lidofinance/theme'
+import { Theme } from '../theme'
 import { PaginationItemVariant } from './constants'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 type InjectedProps = {
   $variant: PaginationItemVariant

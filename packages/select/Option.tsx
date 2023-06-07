@@ -1,5 +1,5 @@
 import { ForwardedRef, MouseEvent, forwardRef, useCallback } from 'react'
-import { PopupMenuItem, PopupMenuItemProps } from '@lidofinance/popup-menu'
+import { PopupMenuItem, PopupMenuItemProps } from '../popup-menu'
 import { OptionValue, SelectHandleChange } from './types'
 
 export type OptionProps = Omit<PopupMenuItemProps, 'value' | 'children'> & {

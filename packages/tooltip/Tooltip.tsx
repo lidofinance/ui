@@ -11,7 +11,7 @@ import {
   MouseEvent,
 } from 'react'
 import { TooltipPopoverStyle, TooltipPopoverStyleProps } from './TooltipStyles'
-import { useMergeRefs } from '@lidofinance/hooks'
+import { useMergeRefs } from '../hooks'
 import { isElement } from 'react-is'
 
 const BODY_PERSISTENT_TIMEOUT = 150

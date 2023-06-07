@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { IdenticonBadgeColors } from './constants'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 const colors = {
   background: css`

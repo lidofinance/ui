@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { ArrowBottom } from '@lidofinance/icons'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { ArrowBottom } from '../icons'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 export type AccordionStyleProps = InferStyledComponentPropsWithoutRef<
   typeof AccordionStyle

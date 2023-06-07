@@ -8,7 +8,7 @@ import {
   H2StyleProps,
   H3StyleProps,
 } from './HeadingStyles'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 import { HeadingColors, HeadingSizes } from './constants'
 
 export type HeadingProps = InferStyledComponentPropsWithoutRef<

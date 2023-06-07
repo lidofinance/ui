@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Button } from '@lidofinance/button'
+import { Button } from '../button'
 import {
   Popover,
   DEFAULT_PLACEMENT,

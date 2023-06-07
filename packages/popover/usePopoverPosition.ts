@@ -5,7 +5,7 @@ import {
   CSSProperties,
   RefObject,
 } from 'react'
-import { useWindowSize } from '@lidofinance/hooks'
+import { useWindowSize } from '../hooks'
 import { PopoverRootProps } from './PopoverRoot'
 import { INITIAL_STYLE, DEFAULT_PLACEMENT } from './constants'
 import { calculatePosition } from './calculatePosition'

@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components'
-import { ArrowTop, ArrowBottom } from '@lidofinance/icons'
+import { ArrowTop, ArrowBottom } from '../icons'
 import {
   TableAligns,
   TableTextColors,
   ThTdVariants,
   TrHighlights,
 } from './constants'
-import { Theme } from '@lidofinance/theme'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { Theme } from '../theme'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 type InjectedPropsTr = {
   $highlight?: TrHighlights

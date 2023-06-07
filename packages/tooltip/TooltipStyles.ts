@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Popover } from '@lidofinance/popover'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { Popover } from '../popover'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 export type TooltipPopoverStyleProps = InferStyledComponentPropsWithoutRef<
   typeof TooltipPopoverStyle

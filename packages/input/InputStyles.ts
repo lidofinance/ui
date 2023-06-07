@@ -7,7 +7,7 @@ import {
   InputLabelStyle,
   labelWarningCSS,
 } from './LabelStyles'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 const statesCSS = css`
   &:hover {

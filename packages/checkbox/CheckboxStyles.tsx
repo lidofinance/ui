@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Check } from '@lidofinance/icons'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { Check } from '../icons'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 export const CheckboxWrapperStyle = styled.label`
   flex-shrink: 0;

@@ -1,10 +1,10 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { useMergeRefs } from '@lidofinance/hooks'
+import { useMergeRefs } from '../hooks'
 import { PopupMenuProvider } from './PopupMenuProvider'
 import { PopupMenuStyle } from './PopupMenuStyles'
 import { usePopupFocus } from './usePopupFocus'
 import { PopupMenuVariants } from './constants'
-import { PopoverProps } from '@lidofinance/popover'
+import { PopoverProps } from '../popover'
 
 export type PopupMenuProps = {
   variant?: PopupMenuVariants

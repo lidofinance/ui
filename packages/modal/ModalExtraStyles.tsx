@@ -1,4 +1,4 @@
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 import styled from 'styled-components'
 
 export type ModalExtraStyleProps = InferStyledComponentPropsWithoutRef<

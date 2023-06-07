@@ -1,8 +1,8 @@
 import styled, { css, keyframes } from 'styled-components'
-import { Theme } from '@lidofinance/theme'
-import { Loader } from '@lidofinance/loaders'
+import { Theme } from '../theme'
+import { Loader } from '../loaders'
 import { ButtonColors, ButtonSizes, ButtonVariants } from './constants'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 type InjectedProps = {
   $color: ButtonColors

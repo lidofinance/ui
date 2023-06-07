@@ -6,7 +6,7 @@ import {
   RefAttributes,
   forwardRef,
 } from 'react'
-import { useMergeRefs } from '@lidofinance/hooks'
+import { useMergeRefs } from '../hooks'
 import { Transition } from 'react-transition-group'
 import { DEFAULT_DURATION } from './constants'
 import { TransitionWrapperProps, TransitionInnerProps } from './types'

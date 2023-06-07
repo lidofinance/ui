@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Theme } from '@lidofinance/theme'
+import { Theme } from '../theme'
 import { StackSpacings } from './constants'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 export type StackItemStyleProps = InferStyledComponentPropsWithoutRef<
   typeof StackItemStyle

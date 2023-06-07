@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { ArrowBottom } from '@lidofinance/icons'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { ArrowBottom } from '../icons'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 type InjectedProps = {
   $opened: boolean

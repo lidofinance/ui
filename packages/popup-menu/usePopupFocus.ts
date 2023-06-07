@@ -6,7 +6,7 @@ import {
   useCallback,
   useRef,
 } from 'react'
-import { useInterceptFocus } from '@lidofinance/hooks'
+import { useInterceptFocus } from '../hooks'
 import { FOCUSABLE_ELEMENTS } from './constants'
 import { PopupMenuProps } from './PopupMenu'
 

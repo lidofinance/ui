@@ -1,5 +1,5 @@
-import { Question } from '@lidofinance/icons'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { Question } from '../icons'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 import styled from 'styled-components'
 
 export type DataTableStyleProps = InferStyledComponentPropsWithoutRef<

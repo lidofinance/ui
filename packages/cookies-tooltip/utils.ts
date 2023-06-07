@@ -2,7 +2,7 @@ import {
   setCrossDomainCookieClientSide,
   getDomainCookieClientSide,
   removeCookiesClientSide,
-} from '@lidofinance/utils'
+} from '../utils'
 import {
   COOKIE_ALLOWED_KEY,
   COOKIE_VALUE_NO,

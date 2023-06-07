@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { ContainerSizes } from './Container'
-import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { InferStyledComponentPropsWithoutRef } from '../utils'
 
 const sizes = {
   full: css`

@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { Whitepaper } from '@lidofinance/icons'
+import { Whitepaper } from '../icons'
 import {
   Button,
   ButtonProps,

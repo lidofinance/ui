@@ -1,6 +1,6 @@
 import { ForwardedRef, ReactElement, cloneElement, forwardRef } from 'react'
 import { ModalButtonStyle, ModalButtonContentStyle } from './ModalButtonStyles'
-import { ButtonProps } from '@lidofinance/button'
+import { ButtonProps } from '../button'
 
 const iconSize = {
   xxs: {
