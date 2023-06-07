@@ -24,7 +24,6 @@ import {
   position,
   shadow,
 } from 'styled-system'
-
 import { StyledSystemProps } from './types'
 import React from 'react'
 

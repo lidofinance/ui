@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { TextColors, TextProps, TextSizes } from './types'
+import { TextColors, TextSizes } from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 export const sizes = {
   xxs: css`
@@ -29,18 +30,17 @@ export const sizes = {
   `,
 }
 
-type InjectedProps = {
+export type InjectedProps = {
   color: TextColors
   size: TextSizes
   theme: Theme
-} & Omit<TextProps, 'color' | 'size'>
+  underline?: boolean
+  strikeThrough?: boolean
+  strong?: boolean
+  italic?: boolean
+}
 
-const getTextColor = (props: InjectedProps) => {
-  const {
-    theme: { colors },
-    color,
-  } = props
-
+const getTextColor = ({ theme: { colors }, color }: InjectedProps) => {
   const colorsMap = {
     default: colors.text,
     secondary: colors.textSecondary,
@@ -49,13 +49,10 @@ const getTextColor = (props: InjectedProps) => {
     error: colors.error,
     success: colors.success,
   }
-
   return colorsMap[color]
 }
 
-const getTextDecoration = (props: InjectedProps) => {
-  const { underline, strikeThrough } = props
-
+const getTextDecoration = ({ underline, strikeThrough }: InjectedProps) => {
   switch (true) {
     case underline:
       return 'underline'
@@ -67,6 +64,8 @@ const getTextDecoration = (props: InjectedProps) => {
       return 'none'
   }
 }
+
+export type TextStyleProps = InferStyledComponentPropsWithoutRef<typeof TextStyle>
 
 export const TextStyle = styled.p<InjectedProps>`
   ${({ strong, italic, size }) => css`

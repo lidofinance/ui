@@ -1,9 +1,15 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { TextStyle } from './TextStyles'
-import { TextProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { TextStyle, TextStyleProps } from './TextStyles'
+import {
+  PartialBy,
+} from '@lidofinance/utils'
 
-function Text(props: TextProps, ref?: ForwardedRef<HTMLParagraphElement>) {
-  const { size = 'md', color = 'default', ...rest } = props
+export type TextProps = PartialBy<TextStyleProps, 'size' | 'color'>
+
+function Text(
+  { size = 'md', color = 'default', ...rest }: TextProps,
+  ref?: ForwardedRef<HTMLParagraphElement>
+) {
   return <TextStyle size={size} color={color} ref={ref} {...rest} />
 }
 
