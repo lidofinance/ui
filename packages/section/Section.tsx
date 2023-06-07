@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, ReactNode, forwardRef } from 'react'
 import {
   SectionStyle,
   SectionHeaderStyle,
@@ -8,8 +8,8 @@ import {
 } from './SectionStyles'
 
 export type SectionProps = SectionStyleProps & {
-  title?: React.ReactNode
-  headerDecorator?: React.ReactNode
+  title?: ReactNode
+  headerDecorator?: ReactNode
 }
 
 function Section(

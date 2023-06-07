@@ -1,6 +1,7 @@
-import React, {
+import {
   createContext,
   FC,
+  memo,
   PropsWithChildren,
   useContext,
   useEffect,
@@ -41,7 +42,7 @@ export const CookieThemeProvider: FC<
     initialThemeName?: ThemeName
     overrideThemeName?: ThemeName
   }>
-> = React.memo(
+> = memo(
   ({
     children,
     initialThemeName,

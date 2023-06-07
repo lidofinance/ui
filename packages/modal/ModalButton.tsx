@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, ReactElement, cloneElement, forwardRef } from 'react'
 import { ModalButtonStyle, ModalButtonContentStyle } from './ModalButtonStyles'
 import { ButtonProps } from '@lidofinance/button'
 
@@ -26,7 +26,7 @@ const iconSize = {
 }
 
 export type ModalButtonProps = {
-  icon: React.ReactElement
+  icon: ReactElement
 } & ButtonProps
 
 function ModalButton(
@@ -36,7 +36,7 @@ function ModalButton(
   const { size = 'md', loading = false, children, icon } = props
   const AdaptiveIconProps =
     icon.props.width || icon.props.height ? icon.props : { ...iconSize[size] }
-  const AdaptiveIcon = React.cloneElement(icon, AdaptiveIconProps)
+  const AdaptiveIcon = cloneElement(icon, AdaptiveIconProps)
 
   return (
     <ModalButtonStyle

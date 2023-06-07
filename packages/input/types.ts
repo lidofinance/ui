@@ -1,4 +1,4 @@
-import React from 'react'
+import { ReactNode, RefObject } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum InputMessageVariant {
@@ -32,14 +32,14 @@ export enum InputColor {
 export type InputColors = keyof typeof InputColor
 
 export type CommonProps = {
-  label?: React.ReactNode
-  error?: React.ReactNode | boolean
-  warning?: React.ReactNode | boolean
-  success?: React.ReactNode | boolean
+  label?: ReactNode
+  error?: ReactNode | boolean
+  warning?: ReactNode | boolean
+  success?: ReactNode | boolean
   variant?: InputVariants
   color?: InputColors
   active?: boolean
   fullwidth?: boolean
-  wrapperRef?: React.RefObject<HTMLLabelElement>
+  wrapperRef?: RefObject<HTMLLabelElement>
   as?: never
 }

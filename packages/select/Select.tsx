@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, useRef } from 'react'
+import { ForwardedRef, RefObject, forwardRef, useRef } from 'react'
 import { SelectWrapperStyle } from './SelectStyles'
 import { SelectArrow } from './SelectArrow'
 import { useMergeRefs } from '@lidofinance/hooks'
@@ -13,7 +13,7 @@ export type SelectProps = Omit<
   InputProps,
   'type' | 'readonly' | 'onChange' | 'value' | 'defaultValue'
 > & {
-  anchorRef?: React.RefObject<HTMLElement | null>
+  anchorRef?: RefObject<HTMLElement | null>
   arrow?: SelectArrows
   value?: OptionValue
   defaultValue?: OptionValue

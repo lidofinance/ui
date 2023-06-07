@@ -1,8 +1,8 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import { useCallback, useState, useEffect, RefObject } from 'react'
 
 export const useSelectWidth = <T extends HTMLElement>(
   opened: boolean,
-  anchorRef: React.RefObject<T | null>
+  anchorRef: RefObject<T | null>
 ): number | undefined => {
   const [width, setWidth] = useState<number>()
 

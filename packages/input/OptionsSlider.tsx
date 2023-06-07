@@ -1,11 +1,11 @@
-import React, { ChangeEvent, ReactElement } from 'react'
+import { ChangeEvent, ReactElement, ReactNode } from 'react'
 import SliderInput, { SliderInputProps } from './SliderInput'
 
 type SliderOptionValue = string | number
 
 interface SliderOption {
   value: SliderOptionValue
-  label: React.ReactNode
+  label: ReactNode
 }
 
 export type OptionsSliderInputProps = Omit<

@@ -1,15 +1,15 @@
-import React, { useCallback, useRef } from 'react'
+import { MouseEvent, RefObject, useCallback, useRef } from 'react'
 
 export const useModalClose = <T extends HTMLDivElement>(
   callback?: () => void
 ): {
-  ref: React.RefObject<T>
-  handleClick: (event: React.MouseEvent<T, MouseEvent>) => void
+  ref: RefObject<T>
+  handleClick: (event: MouseEvent<T>) => void
 } => {
   const ref = useRef<T>(null)
 
   const handleClick = useCallback(
-    (event: React.MouseEvent<T, MouseEvent>) => {
+    (event: MouseEvent<T>) => {
       const contentElement = ref.current
 
       if (!contentElement) return

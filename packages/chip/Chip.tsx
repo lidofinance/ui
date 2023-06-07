@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, RefObject, forwardRef } from 'react'
 import { ChipWrapperStyle, ChipWrapperStyleProps } from './ChipStyles'
 
 export enum ChipVariant {
@@ -13,7 +13,7 @@ export type ChipProps = Omit<
   ChipWrapperStyleProps,
   '$interactive' | '$variant'
 > & {
-  wrapperRef?: React.RefObject<HTMLLabelElement>
+  wrapperRef?: RefObject<HTMLLabelElement>
   variant?: ChipVariants
 }
 

@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, RefObject, forwardRef } from 'react'
 import {
   CheckboxWrapperStyle,
   CheckboxInputStyle,
@@ -9,7 +9,7 @@ import { Text } from '@lidofinance/text'
 import { Box } from '@lidofinance/box'
 
 export type CheckboxProps = CheckboxInputStyleProps & {
-  wrapperRef?: React.RefObject<HTMLLabelElement>
+  wrapperRef?: RefObject<HTMLLabelElement>
   children?: never
   label?: string
 }

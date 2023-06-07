@@ -1,4 +1,11 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentType,
+  ForwardRefExoticComponent,
+  ForwardedRef,
+  PropsWithoutRef,
+  RefAttributes,
+  forwardRef,
+} from 'react'
 import { useMergeRefs } from '@lidofinance/hooks'
 import { Transition } from 'react-transition-group'
 import { DEFAULT_DURATION } from './constants'
@@ -11,12 +18,12 @@ export default function withTransition<
   P extends TransitionInnerProps,
   E extends HTMLElement
 >(
-  Component: React.ComponentType<P>
-): React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<WrappedProps<P>> & React.RefAttributes<E>
+  Component: ComponentType<P>
+): ForwardRefExoticComponent<
+  PropsWithoutRef<WrappedProps<P>> & RefAttributes<E>
 > {
-  function Wrapped(props: WrappedProps<P>, externalRef: ForwardedRef<E>) {
-    const {
+  function Wrapped(
+    {
       in: state = false,
       timeout = DEFAULT_DURATION,
       mountOnEnter = true,
@@ -32,8 +39,9 @@ export default function withTransition<
       onExiting,
       onExited,
       ...rest
-    } = props
-
+    }: WrappedProps<P>,
+    externalRef: ForwardedRef<E>
+  ) {
     const transitionProps = {
       in: state,
       timeout,

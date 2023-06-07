@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, ReactNode, forwardRef } from 'react'
 import {
   InputWrapperStyle,
   InputContentStyle,
@@ -14,8 +14,8 @@ import { CommonProps, InputTypes } from './types'
 export type InputProps = Omit<InputStyleProps, '$labeled' | '$color'> &
   CommonProps & {
     type?: InputTypes
-    leftDecorator?: React.ReactNode
-    rightDecorator?: React.ReactNode
+    leftDecorator?: ReactNode
+    rightDecorator?: ReactNode
   }
 
 function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {

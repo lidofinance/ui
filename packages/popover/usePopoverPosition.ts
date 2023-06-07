@@ -1,4 +1,10 @@
-import React, { useRef, useLayoutEffect, useState, CSSProperties } from 'react'
+import {
+  useRef,
+  useLayoutEffect,
+  useState,
+  CSSProperties,
+  RefObject,
+} from 'react'
 import { useWindowSize } from '@lidofinance/hooks'
 import { PopoverRootProps } from './PopoverRoot'
 import { INITIAL_STYLE, DEFAULT_PLACEMENT } from './constants'
@@ -10,8 +16,8 @@ export const usePopoverPosition = <
 >(
   props: PopoverRootProps
 ): {
-  popoverRef: React.RefObject<P>
-  wrapperRef: React.RefObject<W>
+  popoverRef: RefObject<P>
+  wrapperRef: RefObject<W>
   style: CSSProperties
 } => {
   const { placement = DEFAULT_PLACEMENT, anchorRef } = props

@@ -25,7 +25,7 @@ import {
   shadow,
 } from 'styled-system'
 import { StyledSystemProps } from './types'
-import React from 'react'
+import { ComponentType } from 'react'
 
 type MergePropsWithSS<T extends object> = Omit<T, keyof StyledSystemProps> &
   StyledSystemProps
@@ -45,7 +45,7 @@ function withStyledSystem<
 >
 
 function withStyledSystem<
-  C extends keyof JSX.IntrinsicElements | React.ComponentType<any>,
+  C extends keyof JSX.IntrinsicElements | ComponentType<any>,
   T extends object = DefaultTheme,
   O extends object = {},
   A extends keyof any = never

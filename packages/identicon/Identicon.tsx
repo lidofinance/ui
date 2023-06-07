@@ -1,12 +1,12 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { CSSProperties, ForwardedRef, forwardRef } from 'react'
 import { IdenticonStyle, IdenticonStyleProps } from './IdenticonStyles'
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 
 export type IdenticonProps = IdenticonStyleProps & {
   address: string
   diameter?: number
-  paperStyles?: React.CSSProperties
-  svgStyles?: React.CSSProperties
+  paperStyles?: CSSProperties
+  svgStyles?: CSSProperties
 }
 
 function Identicon(

@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, RefObject, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { modalRoot } from '@lidofinance/utils'
 import { useMergeRefs, useOutsideClick, useEscape } from '@lidofinance/hooks'
@@ -19,8 +19,8 @@ export type PopoverRootOwnProps = Omit<
   PopoverRootStyleProps,
   '$duration' | '$transition'
 > & {
-  wrapperRef?: React.RefObject<HTMLDivElement>
-  anchorRef: React.RefObject<HTMLElement | null>
+  wrapperRef?: RefObject<HTMLDivElement>
+  anchorRef: RefObject<HTMLElement | null>
   placement?: PopoverPlacements
   backdrop?: boolean
   onClose?: () => void

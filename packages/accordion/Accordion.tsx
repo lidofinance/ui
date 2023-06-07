@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, ReactNode, forwardRef } from 'react'
 import {
   AccordionStyle,
   AccordionSummaryStyle,
@@ -11,7 +11,7 @@ import { useExpanded } from './useExpanded'
 
 export type AccordionProps = AccordionStyleProps & {
   defaultExpanded?: boolean
-  summary: React.ReactNode
+  summary: ReactNode
 }
 
 function Accordion(props: AccordionProps, ref?: ForwardedRef<HTMLDivElement>) {

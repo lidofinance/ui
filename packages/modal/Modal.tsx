@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, ReactNode, forwardRef } from 'react'
 import {
   ModalStyle,
   ModalBaseStyle,
@@ -14,10 +14,10 @@ import {
 import ModalOverlay, { ModalOverlayProps } from './ModalOverlay'
 
 export type ModalProps = {
-  title?: React.ReactNode
-  titleIcon?: React.ReactNode
-  subtitle?: React.ReactNode
-  extra?: React.ReactNode
+  title?: ReactNode
+  titleIcon?: ReactNode
+  subtitle?: ReactNode
+  extra?: ReactNode
   center?: boolean
   open?: boolean
 } & Omit<ModalOverlayProps, 'title' | 'in'>

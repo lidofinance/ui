@@ -1,4 +1,4 @@
-import React from 'react'
+import { HTMLAttributes } from 'react'
 import styled from 'styled-components'
 import withStyledSystem from './withStyledSystem'
 import { ThemeProvider, themeDefault } from '@lidofinance/theme'
@@ -9,7 +9,7 @@ import 'jest-styled-components'
 const StyledComponent = withStyledSystem(styled.div``)
 const RegularComponent = withStyledSystem(
   forwardRef(function Regular(
-    props: React.HTMLAttributes<HTMLDivElement>,
+    props: HTMLAttributes<HTMLDivElement>,
     ref?: ForwardedRef<HTMLDivElement>
   ) {
     return <div {...props} ref={ref} />

@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, useCallback } from 'react'
+import { ForwardedRef, MouseEvent, forwardRef, useCallback } from 'react'
 import { PopupMenuItem, PopupMenuItemProps } from '@lidofinance/popup-menu'
 import { OptionValue, SelectHandleChange } from './types'
 
@@ -13,7 +13,7 @@ function Option(
   ref?: ForwardedRef<HTMLButtonElement>
 ) {
   const handleClick = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
+    (event: MouseEvent<HTMLButtonElement>) => {
       onChange?.(value)
       onClick?.(event)
     },

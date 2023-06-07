@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, ReactNode, forwardRef } from 'react'
 import { InlineLoader } from '@lidofinance/loaders'
 import { Tooltip } from '@lidofinance/tooltip'
 import {
@@ -20,8 +20,8 @@ function DataTable(props: DataTableProps, ref?: ForwardedRef<HTMLDivElement>) {
 export default forwardRef(DataTable)
 
 export type DataTableRowProps = DataTableRowStyleProps & {
-  title: React.ReactNode
-  help?: React.ReactNode
+  title: ReactNode
+  help?: ReactNode
   loading?: boolean
   highlight?: boolean
 }
