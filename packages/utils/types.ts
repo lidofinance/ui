@@ -5,20 +5,6 @@ import {
   StyledComponentProps,
 } from 'styled-components'
 
-// @deprecated
-export type LidoComponentProps<
-  T extends keyof JSX.IntrinsicElements,
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  Props extends object = {}
-> = Props &
-  Omit<
-    JSX.IntrinsicElements[T] & {
-      as?: keyof JSX.IntrinsicElements
-      forwardedAs?: keyof JSX.IntrinsicElements
-    },
-    'ref' | keyof Props
-  >
-
 export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 
 export type InferStyledComponentProps<T extends AnyStyledComponent> =
