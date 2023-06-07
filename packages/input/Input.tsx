@@ -11,11 +11,12 @@ import {
 import { InputLabelStyle } from './LabelStyles'
 import { CommonProps, InputTypes } from './types'
 
-export type InputProps = Omit<InputStyleProps, '$labeled' | '$color'> & CommonProps & {
-  type?: InputTypes
-  leftDecorator?: React.ReactNode
-  rightDecorator?: React.ReactNode
-}
+export type InputProps = Omit<InputStyleProps, '$labeled' | '$color'> &
+  CommonProps & {
+    type?: InputTypes
+    leftDecorator?: React.ReactNode
+    rightDecorator?: React.ReactNode
+  }
 
 function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
   const {

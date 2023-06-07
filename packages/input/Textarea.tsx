@@ -9,8 +9,8 @@ import {
 import { TextareaLabelStyle } from './LabelStyles'
 import { CommonProps } from './types'
 
-export type TextareaProps = Omit<TextareaStyleProps, '$labeled' | '$color'> & 
-  CommonProps & 
+export type TextareaProps = Omit<TextareaStyleProps, '$labeled' | '$color'> &
+  CommonProps &
   Pick<HTMLProps<HTMLTextAreaElement>, 'rows' | 'cols' | 'wrap'>
 
 function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {

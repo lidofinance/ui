@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
 import { Box } from '@lidofinance/box'
 import getShowingPages from './getShowingPages'
-import PaginationItem, {
-  PaginationItemProps,
-} from './PaginationItem'
+import PaginationItem, { PaginationItemProps } from './PaginationItem'
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import { PaginationItemVariant } from './constants'
 
@@ -19,7 +17,9 @@ const getActiveItem = (length: number, activeItem: number): number => {
   return activeItem
 }
 
-type PaginationBlockProps = InferStyledComponentPropsWithoutRef<typeof PaginationBlock>
+type PaginationBlockProps = InferStyledComponentPropsWithoutRef<
+  typeof PaginationBlock
+>
 
 const PaginationBlock = styled(Box)`
   display: flex;

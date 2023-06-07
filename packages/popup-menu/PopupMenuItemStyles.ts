@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components'
 import { PopupMenuVariants } from './constants'
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
-export type PopupMenuItemStyleProps = InferStyledComponentPropsWithoutRef<typeof PopupMenuItemStyle>
+export type PopupMenuItemStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof PopupMenuItemStyle
+>
 
 export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
   text-align: left;

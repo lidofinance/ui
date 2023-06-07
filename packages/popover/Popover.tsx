@@ -9,13 +9,15 @@ export type PopoverProps = {
   open?: boolean
 } & Omit<PopoverRootProps, 'in'>
 
-function Popover({
-  placement = DEFAULT_PLACEMENT,
-  open = false,
-  offset = 'xs',
-  ...rest
-}: PopoverProps, ref?: ForwardedRef<HTMLDivElement>) {
-
+function Popover(
+  {
+    placement = DEFAULT_PLACEMENT,
+    open = false,
+    offset = 'xs',
+    ...rest
+  }: PopoverProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
   return (
     <PopoverStyle
       $offset={offset}

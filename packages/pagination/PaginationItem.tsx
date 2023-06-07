@@ -1,5 +1,8 @@
 import { FC, ReactNode } from 'react'
-import { PaginationItemStyle, PaginationItemStyleProps } from './PaginationItemStyles'
+import {
+  PaginationItemStyle,
+  PaginationItemStyleProps,
+} from './PaginationItemStyles'
 import { PaginationItemVariant, PaginationItemVariants } from './constants'
 
 export type PaginationItemProps = Omit<PaginationItemStyleProps, '$variant'> & {

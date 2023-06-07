@@ -8,7 +8,10 @@ interface SliderOption {
   label: React.ReactNode
 }
 
-export type OptionsSliderInputProps = Omit<SliderInputProps, 'value' | 'onChange'> & {
+export type OptionsSliderInputProps = Omit<
+  SliderInputProps,
+  'value' | 'onChange'
+> & {
   options: [SliderOption, SliderOption, ...SliderOption[]] // this is declaration like T[] but with "at least 2 elements" constraint
   value?: SliderOptionValue // if value is not provided, component should act isolated; initial value should be first option
   onChange: (value: SliderOptionValue, valueIndex: number) => unknown

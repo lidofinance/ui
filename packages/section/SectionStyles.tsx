@@ -1,7 +1,9 @@
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
 
-export type SectionStyleProps = InferStyledComponentPropsWithoutRef<typeof SectionStyle>
+export type SectionStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof SectionStyle
+>
 
 export const SectionStyle = styled.section`
   margin: ${({ theme }) => theme.spaceMap.xxl}px 0;

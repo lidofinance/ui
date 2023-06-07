@@ -29,7 +29,9 @@ const variantColors = {
   `,
 }
 
-export type PaginationItemStyleProps = InferStyledComponentPropsWithoutRef<typeof PaginationItemStyle>
+export type PaginationItemStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof PaginationItemStyle
+>
 
 export const PaginationItemStyle = styled.button<InjectedProps>`
   width: 32px;

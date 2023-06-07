@@ -1,8 +1,12 @@
 import React, { ForwardedRef, forwardRef } from 'react'
 import { InputMessageStyle } from './InputStyles'
-import { InputGroupStyle, InputGroupContentStyle, InputGroupStyleProps } from './InputGroupStyles'
+import {
+  InputGroupStyle,
+  InputGroupContentStyle,
+  InputGroupStyleProps,
+} from './InputGroupStyles'
 
-export type InputGroupProps = Omit<InputGroupStyleProps,'$fullwidth'> & {
+export type InputGroupProps = Omit<InputGroupStyleProps, '$fullwidth'> & {
   fullwidth?: boolean
   error?: React.ReactNode
   success?: React.ReactNode

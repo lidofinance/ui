@@ -117,7 +117,9 @@ export const Slider = styled.div<{
   overflow: hidden;
 `
 
-export type SliderWrapperProps = InferStyledComponentPropsWithoutRef<typeof SliderWrapper>
+export type SliderWrapperProps = InferStyledComponentPropsWithoutRef<
+  typeof SliderWrapper
+>
 
 export const SliderWrapper = styled.div`
   position: relative;

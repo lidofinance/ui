@@ -196,7 +196,9 @@ const inputColors = {
   `,
 }
 
-export type InputStyleProps = InferStyledComponentPropsWithoutRef<typeof InputStyle>
+export type InputStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof InputStyle
+>
 
 export const InputStyle = styled.input<{
   $labeled: boolean
@@ -224,7 +226,9 @@ export const InputStyle = styled.input<{
   ${({ $labeled }) => ($labeled ? labeledCSS : '')}
 `
 
-export type TextareaStyleProps = InferStyledComponentPropsWithoutRef<typeof TextareaStyle>
+export type TextareaStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof TextareaStyle
+>
 
 export const TextareaStyle = styled(InputStyle).attrs({
   as: 'textarea',

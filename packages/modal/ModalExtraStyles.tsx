@@ -1,7 +1,9 @@
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
 
-export type ModalExtraStyleProps = InferStyledComponentPropsWithoutRef<typeof ModalExtraStyle>
+export type ModalExtraStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof ModalExtraStyle
+>
 
 export const ModalExtraStyle = styled.div`
   margin-top: ${({ theme }) => -theme.borderRadiusesMap.xl}px;

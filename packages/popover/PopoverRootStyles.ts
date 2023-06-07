@@ -47,7 +47,9 @@ const getTransitionCSS = ({ $transition }: TransitionProps) => {
   return ['exiting', 'exited'].includes($transition) ? hiddenCSS : visibleCSS
 }
 
-export type PopoverRootStyleProps = InferStyledComponentPropsWithoutRef<typeof PopoverRootStyle>
+export type PopoverRootStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof PopoverRootStyle
+>
 
 export const PopoverRootStyle = styled.div<TransitionProps>`
   box-sizing: border-box;
