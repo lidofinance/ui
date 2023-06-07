@@ -1,18 +1,18 @@
 import React, { useCallback, useRef } from 'react'
 import { useInterceptFocus } from '@lidofinance/hooks'
 import { FOCUSABLE_ELEMENTS } from './constants'
-import { PopupMenuProps } from './types'
+import { PopupMenuProps } from './PopupMenu'
 
-export const usePopupFocus = <T extends HTMLDivElement>(
-  props: PopupMenuProps
-): {
+export const usePopupFocus = <T extends HTMLDivElement>({
+  onMouseMove,
+  onKeyDown,
+}: PopupMenuProps): {
   ref: React.RefObject<T>
   handleMouseMove: React.MouseEventHandler<T>
   handleKeyDown: React.KeyboardEventHandler<T>
   handleEnter: () => void
   handleExit: () => void
 } => {
-  const { onMouseMove, onKeyDown } = props
   const ref = useRef<T>(null)
 
   const getFocusableNodes = useCallback(() => {

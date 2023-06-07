@@ -1,3 +1,5 @@
+export * from './constants'
 export { default as PopupMenu } from './PopupMenu'
+export * from './PopupMenu'
 export { default as PopupMenuItem } from './PopupMenuItem'
-export * from './types'
+export * from './PopupMenuItem'

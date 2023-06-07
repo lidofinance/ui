@@ -1,10 +1,8 @@
 import { Story, Meta } from '@storybook/react'
 import { useCallback, useRef, useState } from 'react'
 import { Button } from '@lidofinance/button'
-import { PopupMenuProps, PopupMenuVariant } from './types'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
-import PopupMenu from './PopupMenu'
-import PopupMenuItem from './PopupMenuItem'
+import { PopupMenu, PopupMenuItem, PopupMenuProps, PopupMenuVariant } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -23,9 +21,7 @@ export default {
   },
 } as Meta
 
-const usePopup = (props: PopupMenuProps) => {
-  const { onClose } = props
-
+const usePopup = ({ onClose }: PopupMenuProps) => {
   const [state, setState] = useState(false)
   const anchorRef = useRef<HTMLButtonElement>(null)
 

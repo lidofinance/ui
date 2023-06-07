@@ -1,24 +1,29 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, ReactNode, forwardRef } from 'react'
 import {
   PopupMenuItemStyle,
   PopupMenuItemContentStyle,
   PopupMenuItemLeftDecoratorStyle,
   PopupMenuItemRightDecoratorStyle,
+  PopupMenuItemStyleProps,
 } from './PopupMenuItemStyles'
 import { usePopupMenuContext } from './PopupMenuProvider'
-import { PopupMenuItemProps } from './types'
+
+export type PopupMenuItemProps = Omit<PopupMenuItemStyleProps, '$active'> & {
+  leftDecorator?: ReactNode
+  rightDecorator?: ReactNode
+  active?: boolean
+}
 
 function PopupMenuItem(
-  props: PopupMenuItemProps,
-  ref?: ForwardedRef<HTMLButtonElement>
-) {
-  const {
+  {
     active = false,
     leftDecorator,
     rightDecorator,
     children,
     ...rest
-  } = props
+  }: PopupMenuItemProps,
+  ref?: ForwardedRef<HTMLButtonElement>
+) {
   const { variant = 'default' } = usePopupMenuContext()
 
   const hasLeftDecorator = !!leftDecorator
@@ -26,10 +31,10 @@ function PopupMenuItem(
 
   return (
     <PopupMenuItemStyle
+      {...rest}
       $active={active}
       role='option'
       aria-selected={active}
-      {...rest}
       ref={ref}
     >
       {hasLeftDecorator && (
