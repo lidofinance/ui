@@ -26,4 +26,5 @@ module.exports = {
     '^@lidofinance/(.*)$': '<rootDir>/packages/$1/src',
   },
   testEnvironment: 'jest-environment-jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
 }
