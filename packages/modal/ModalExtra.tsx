@@ -1,7 +1,7 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
+import { ModalExtraStyle, ModalExtraStyleProps } from './ModalExtraStyles'
 
-import { ModalExtraStyle } from './ModalExtraStyles'
-import { ModalExtraProps } from './types'
+export type ModalExtraProps = ModalExtraStyleProps
 
 function ModalExtra(
   props: ModalExtraProps,

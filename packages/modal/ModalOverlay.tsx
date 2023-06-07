@@ -1,9 +1,12 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { useMergeRefs, useEscape, useLockScroll } from '@lidofinance/hooks'
-import { withTransition } from '@lidofinance/transition'
+import {
+  TransitionInnerProps,
+  TransitionWrapperProps,
+  withTransition,
+} from '@lidofinance/transition'
 import { modalRoot } from '@lidofinance/utils'
-import { ModalOverlayInnerProps } from './types'
 import {
   ModalPortalStyle,
   ModalOverflowStyle,
@@ -11,12 +14,29 @@ import {
 } from './ModalOverlayStyles'
 import { useModalFocus } from './useModalFocus'
 import { useModalClose } from './useModalClose'
+import { HTMLProps } from 'react'
+
+// Can't use ComponentProps<typeof ModalContentStyle> here, because
+// ModalContentStyle defines Some transition properties itself
+export type ModalOverlayOwnProps = Omit<HTMLProps<HTMLDivElement>, 'ref'> & {
+  as?: keyof HTMLProps<HTMLDivElement>
+  forwardedAs?: keyof HTMLProps<HTMLDivElement>
+  onClose?: () => void
+  onBack?: () => void
+}
+export type ModalOverlayProps = ModalOverlayOwnProps & TransitionWrapperProps
+export type ModalOverlayInnerProps = ModalOverlayOwnProps & TransitionInnerProps
 
 function ModalOverlay(
-  props: ModalOverlayInnerProps,
+  {
+    onClose,
+    onBack,
+    duration,
+    transitionStatus,
+    ...rest
+  }: ModalOverlayInnerProps,
   externalRef?: ForwardedRef<HTMLDivElement>
 ) {
-  const { onClose, onBack, duration, transitionStatus, ...rest } = props
   const closable = !!onClose
 
   useEscape(onClose)

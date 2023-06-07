@@ -1,7 +1,6 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-
 import { ModalButtonStyle, ModalButtonContentStyle } from './ModalButtonStyles'
-import { ModalButtonIconProps } from './types'
+import { ButtonProps } from '@lidofinance/button'
 
 const iconSize = {
   xxs: {
@@ -26,12 +25,15 @@ const iconSize = {
   },
 }
 
+export type ModalButtonProps = {
+  icon: React.ReactElement
+} & ButtonProps
+
 function ModalButton(
-  props: ModalButtonIconProps,
+  props: ModalButtonProps,
   ref?: ForwardedRef<HTMLButtonElement>
 ) {
   const { size = 'md', loading = false, children, icon } = props
-
   const AdaptiveIconProps =
     icon.props.width || icon.props.height ? icon.props : { ...iconSize[size] }
   const AdaptiveIcon = React.cloneElement(icon, AdaptiveIconProps)

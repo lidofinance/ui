@@ -1,5 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-
+import { ForwardedRef, forwardRef } from 'react'
 import {
   ModalStyle,
   ModalBaseStyle,
@@ -12,8 +11,16 @@ import {
   ModalBackStyle,
   ModalSubtitleStyle,
 } from './ModalStyles'
-import { ModalProps } from './types'
-import ModalOverlay from './ModalOverlay'
+import ModalOverlay, { ModalOverlayProps } from './ModalOverlay'
+
+export type ModalProps = {
+  title?: React.ReactNode
+  titleIcon?: React.ReactNode
+  subtitle?: React.ReactNode
+  extra?: React.ReactNode
+  center?: boolean
+  open?: boolean
+} & Omit<ModalOverlayProps, 'title' | 'in'>
 
 function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
   const {

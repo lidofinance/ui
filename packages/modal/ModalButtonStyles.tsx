@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { Button } from '@lidofinance/button'
 
 export const ModalButtonStyle = styled(Button)`
