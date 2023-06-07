@@ -7,7 +7,6 @@ export enum ChipVariant {
   warning,
   gray,
 }
-
 export type ChipVariants = keyof typeof ChipVariant
 
 export type ChipProps = Omit<

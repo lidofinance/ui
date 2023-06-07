@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { PaginationItemVariant } from './types'
+import { PaginationItemVariant } from './constants'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 type InjectedProps = {
   $variant: PaginationItemVariant
@@ -27,6 +28,8 @@ const variantColors = {
     }
   `,
 }
+
+export type PaginationItemStyleProps = InferStyledComponentPropsWithoutRef<typeof PaginationItemStyle>
 
 export const PaginationItemStyle = styled.button<InjectedProps>`
   width: 32px;

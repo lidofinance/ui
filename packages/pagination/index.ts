@@ -1,2 +1,5 @@
+export * from './constants'
 export { default as Pagination } from './Pagination'
-export * from './types'
+export * from './Pagination'
+export { default as PaginationItem } from './PaginationItem'
+export * from './PaginationItem'

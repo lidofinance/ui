@@ -1,8 +1,5 @@
-import React from 'react'
 import { Story, Meta } from '@storybook/react'
-
-import Pagination from './Pagination'
-import { PaginationProps } from './types'
+import { Pagination, PaginationProps } from '.'
 
 export default {
   component: Pagination,

@@ -1,16 +1,13 @@
 import React, { useMemo, useState, useEffect } from 'react'
 import styled from 'styled-components'
-
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
 import { Box } from '@lidofinance/box'
-
-import {
-  PaginationProps,
-  PaginationItemProps,
-  PaginationItemVariant,
-} from './types'
 import getShowingPages from './getShowingPages'
-import PaginationItem from './PaginationItem'
+import PaginationItem, {
+  PaginationItemProps,
+} from './PaginationItem'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+import { PaginationItemVariant } from './constants'
 
 const getActiveItem = (length: number, activeItem: number): number => {
   const isActiveNotInRange: boolean = activeItem >= length || activeItem < 0
@@ -22,14 +19,31 @@ const getActiveItem = (length: number, activeItem: number): number => {
   return activeItem
 }
 
+type PaginationBlockProps = InferStyledComponentPropsWithoutRef<typeof PaginationBlock>
+
 const PaginationBlock = styled(Box)`
   display: flex;
   gap: 8px;
 `
 
-const Pagination: React.FC<PaginationProps> = (props) => {
-  const { onItemClick, pagesCount, activePage = 1, siblingCount } = props
+export type SiblingsCount = 0 | 1
 
+export type onItemClick = (index: number, e?: React.MouseEvent) => void
+
+export type PaginationProps = PaginationBlockProps & {
+  pagesCount: number
+  activePage?: number
+  onItemClick: onItemClick
+  siblingCount?: SiblingsCount
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+  onItemClick,
+  pagesCount,
+  activePage = 1,
+  siblingCount,
+  ...rest
+}) => {
   const [currentPage, setCurrPage] = useState(
     getActiveItem(pagesCount, activePage)
   )
@@ -71,7 +85,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   }
 
   return (
-    <PaginationBlock>
+    <PaginationBlock {...rest}>
       <PaginationItem
         disabled={currentPage === 1}
         icon={<ArrowLeft />}
