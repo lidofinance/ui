@@ -3,8 +3,8 @@ import {
   DarkThemeProvider,
   LightThemeProvider,
   ThemeProvider,
-} from './theme-provider'
-import { themeLight } from './themes'
+  themeLight,
+} from '.'
 import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 

@@ -1,7 +1,6 @@
 import { Story } from '@storybook/react'
-import { StyledSystemProps } from './types'
+import { StyledSystemProps, withStyledSystem } from '.'
 import styled, { DefaultTheme, StyledComponentProps } from 'styled-components'
-import withStyledSystem from './withStyledSystem'
 
 const StyledDiv = styled.div`
   display: flex;

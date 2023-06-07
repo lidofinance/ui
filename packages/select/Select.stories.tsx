@@ -1,9 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { Eth, Steth, Solana } from '../icons'
 import { InputGroup, Input, InputColor } from '../input'
-import Select, { SelectProps } from './Select'
-import SelectIcon from './SelectIcon'
-import Option from './Option'
+import { Select, SelectProps, SelectIcon, Option } from '.'
 import { useRef, useState } from 'react'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
