@@ -63,7 +63,7 @@
       "@lidofinance/cookies-tooltip": ["packages/cookies-tooltip"]
     }
   },
-  // "files": ["packages/index.ts"],
+  "files": ["packages/index.ts"],
   "include": [
     "packages/**/*.test.tsx",
     "packages/**/*.stories.tsx",
