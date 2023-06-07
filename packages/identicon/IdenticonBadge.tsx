@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
 import { Address, AddressProps } from '@lidofinance/address'
-import { IdenticonBadgeColors } from './types'
+import { IdenticonBadgeColors } from './constants'
 import {
   IdenticonBadgeStyle,
   AddressWrapperStyle,

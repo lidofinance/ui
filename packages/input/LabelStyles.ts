@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { InputColors } from './types'
+import { InputColors } from './constants'
 
 const colors = {
   default: css`

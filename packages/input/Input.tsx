@@ -9,7 +9,8 @@ import {
   InputStyleProps,
 } from './InputStyles'
 import { InputLabelStyle } from './LabelStyles'
-import { CommonProps, InputTypes } from './types'
+import { CommonProps } from './types'
+import { InputTypes } from './constants'
 
 export type InputProps = Omit<InputStyleProps, '$labeled' | '$color'> &
   CommonProps & {

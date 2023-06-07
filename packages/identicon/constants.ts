@@ -1,5 +1,3 @@
-export type { Theme } from '@lidofinance/theme'
-
 export enum IdenticonBadgeColor {
   background,
   accent,

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { IdenticonBadgeColors } from './types'
+import { IdenticonBadgeColors } from './constants'
 import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 const colors = {

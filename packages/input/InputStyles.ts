@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { InputMessageVariants, InputVariants, InputColors } from './types'
+import { InputMessageVariants, InputVariants, InputColors } from './constants'
 import {
   labelEmptyValueCSS,
   labelFocusCSS,
