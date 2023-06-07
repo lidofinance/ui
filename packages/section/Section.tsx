@@ -1,15 +1,21 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-import { SectionProps } from './types'
 import {
   SectionStyle,
   SectionHeaderStyle,
   SectionTitleStyle,
   SectionHeaderDecoratorStyle,
+  SectionStyleProps,
 } from './SectionStyles'
 
-function Section(props: SectionProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { title, headerDecorator, children, ...rest } = props
+export type SectionProps = SectionStyleProps & {
+  title?: React.ReactNode
+  headerDecorator?: React.ReactNode
+}
 
+function Section(
+  { title, headerDecorator, children, ...rest }: SectionProps,
+  ref?: ForwardedRef<HTMLDivElement>
+) {
   return (
     <SectionStyle {...rest} ref={ref}>
       {title && (
