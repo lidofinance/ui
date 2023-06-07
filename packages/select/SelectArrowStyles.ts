@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { ArrowBottom } from '@lidofinance/icons'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 type InjectedProps = {
   $opened: boolean
@@ -12,10 +13,18 @@ const commonCSS = css<InjectedProps>`
   opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
 `
 
+export type SelectArrowBigStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof SelectArrowBigStyle
+>
+
 export const SelectArrowBigStyle = styled(ArrowBottom)<InjectedProps>`
   ${commonCSS};
   fill: var(--lido-color-textSecondary);
 `
+
+export type SelectArrowSmallStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof SelectArrowSmallStyle
+>
 
 export const SelectArrowSmallStyle = styled.div<InjectedProps>`
   ${commonCSS};

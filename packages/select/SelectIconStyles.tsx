@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 import Select from './Select'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
+
+export type SelectIconStyleProps = InferStyledComponentPropsWithoutRef<
+  typeof SelectIconStyle
+>
 
 export const SelectIconStyle = styled(Select)`
   input {

@@ -1,11 +1,24 @@
-import React, { ForwardedRef, forwardRef, useRef } from 'react'
+import { ForwardedRef, forwardRef, useRef } from 'react'
 import { SelectWrapperStyle } from './SelectStyles'
 import { SelectArrow } from './SelectArrow'
 import { useMergeRefs } from '@lidofinance/hooks'
 import { PopupMenu } from '@lidofinance/popup-menu'
-import { SelectProps } from './types'
 import { useSelect } from './useSelect'
 import { useSelectWidth } from './useSelectWidth'
+import { InputProps } from '@lidofinance/input'
+import { OptionValue, SelectHandleChange } from './types'
+import { SelectArrows } from './constants'
+
+export type SelectProps = Omit<
+  InputProps,
+  'type' | 'readonly' | 'onChange' | 'value' | 'defaultValue'
+> & {
+  anchorRef?: React.RefObject<HTMLElement | null>
+  arrow?: SelectArrows
+  value?: OptionValue
+  defaultValue?: OptionValue
+  onChange: SelectHandleChange
+}
 
 function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
   const {

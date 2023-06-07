@@ -7,7 +7,8 @@ import React, {
   useEffect,
 } from 'react'
 import { isElement } from 'react-is'
-import { SelectProps, SelectHandleChange, OptionValue } from './types'
+import { SelectHandleChange, OptionValue } from './types'
+import { SelectProps } from './Select'
 
 type SelectHandleClick = (
   event: React.MouseEvent<HTMLInputElement, MouseEvent>

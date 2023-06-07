@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Input } from '@lidofinance/input'
-import { SelectProps } from './types'
+import { SelectProps } from './Select'
 
 const smallCSS = css`
   input {

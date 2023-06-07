@@ -1,10 +1,17 @@
 import React, { ForwardedRef, forwardRef, useCallback } from 'react'
-import { PopupMenuItem } from '@lidofinance/popup-menu'
-import { OptionProps } from './types'
+import { PopupMenuItem, PopupMenuItemProps } from '@lidofinance/popup-menu'
+import { OptionValue, SelectHandleChange } from './types'
 
-function Option(props: OptionProps, ref?: ForwardedRef<HTMLButtonElement>) {
-  const { value, onClick, onChange, ...rest } = props
+export type OptionProps = Omit<PopupMenuItemProps, 'value' | 'children'> & {
+  value: OptionValue
+  children: string
+  onChange?: SelectHandleChange
+}
 
+function Option(
+  { value, onClick, onChange, ...rest }: OptionProps,
+  ref?: ForwardedRef<HTMLButtonElement>
+) {
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       onChange?.(value)

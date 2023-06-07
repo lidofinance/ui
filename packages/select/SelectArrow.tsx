@@ -1,24 +1,37 @@
-import React, { FC } from 'react'
-import { SelectArrowBigStyle, SelectArrowSmallStyle } from './SelectArrowStyles'
-import { SelectArrows } from './types'
+import { FC } from 'react'
+import {
+  SelectArrowBigStyle,
+  SelectArrowBigStyleProps,
+  SelectArrowSmallStyle,
+  SelectArrowSmallStyleProps,
+} from './SelectArrowStyles'
+import { SelectArrows } from './constants'
 
-type SelectArrowProps = {
+type SelectArrowProps = Omit<
+  SelectArrowBigStyleProps & SelectArrowSmallStyleProps,
+  '$opened' | '$disabled'
+> & {
   arrow: SelectArrows
   disabled?: boolean
   opened: boolean
   children?: never
 }
 
-export const SelectArrow: FC<SelectArrowProps> = (props) => {
-  const { arrow, disabled = false, opened } = props
-
+export const SelectArrow: FC<SelectArrowProps> = ({
+  arrow,
+  disabled = false,
+  opened,
+  ...rest
+}) => {
   const commonProps = {
     $opened: opened,
     $disabled: disabled,
   }
 
-  if (arrow === 'default') return <SelectArrowBigStyle {...commonProps} />
-  if (arrow === 'small') return <SelectArrowSmallStyle {...commonProps} />
+  if (arrow === 'default')
+    return <SelectArrowBigStyle {...rest} {...commonProps} />
+  if (arrow === 'small')
+    return <SelectArrowSmallStyle {...rest} {...commonProps} />
 
   return null
 }
