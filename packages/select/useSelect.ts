@@ -13,9 +13,7 @@ import { isElement } from 'react-is'
 import { SelectHandleChange, OptionValue } from './types'
 import { SelectProps } from './Select'
 
-type SelectHandleClick = (
-  event: MouseEvent<HTMLInputElement>
-) => void
+type SelectHandleClick = (event: MouseEvent<HTMLInputElement>) => void
 
 type SelectHandleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => void
 
