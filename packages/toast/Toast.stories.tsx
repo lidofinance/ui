@@ -28,8 +28,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story = (props) => {
-  const { text, ...options } = props
+export const Basic: Story = ({ text, ...options }) => {
   const notifyDefault = () => ToastDefault(text, options)
 
   return (
@@ -48,8 +47,7 @@ export const Basic: Story = (props) => {
   )
 }
 
-export const Error: Story = (props) => {
-  const { text, ...options } = props
+export const Error: Story = ({ text, ...options }) => {
   const notifyError = () => ToastError(text, options)
 
   return (
@@ -62,8 +60,7 @@ export const Error: Story = (props) => {
   )
 }
 
-export const Success: Story = (props) => {
-  const { text, ...options } = props
+export const Success: Story = ({ text, ...options }) => {
   const notifySuccess = () => ToastSuccess(text, options)
 
   return (
@@ -76,8 +73,7 @@ export const Success: Story = (props) => {
   )
 }
 
-export const Info: Story = (props) => {
-  const { text, ...options } = props
+export const Info: Story = ({ text, ...options }) => {
   const notifyInfo = () => ToastInfo(text, options)
 
   return (
@@ -90,8 +86,7 @@ export const Info: Story = (props) => {
   )
 }
 
-export const Pending: Story = (props) => {
-  const { text, ...options } = props
+export const Pending: Story = ({ text, ...options }) => {
   const notifyPending = () => ToastPending(text, options)
   const dismissAll = () => toast.dismiss()
 
