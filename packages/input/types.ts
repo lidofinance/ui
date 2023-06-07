@@ -1,5 +1,4 @@
-import { LidoComponentProps } from '@lidofinance/utils'
-import React, { ChangeEventHandler } from 'react'
+import React from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum InputMessageVariant {
@@ -32,7 +31,7 @@ export enum InputColor {
 }
 export type InputColors = keyof typeof InputColor
 
-type CommonProps = {
+export type CommonProps = {
   label?: React.ReactNode
   error?: React.ReactNode | boolean
   warning?: React.ReactNode | boolean
@@ -44,62 +43,3 @@ type CommonProps = {
   wrapperRef?: React.RefObject<HTMLLabelElement>
   as?: never
 }
-
-export type InputProps = LidoComponentProps<
-  'input',
-  CommonProps & {
-    type?: InputTypes
-    leftDecorator?: React.ReactNode
-    rightDecorator?: React.ReactNode
-  }
->
-
-export type TextareaProps = LidoComponentProps<'textarea', CommonProps>
-
-export type InputGroupProps = LidoComponentProps<
-  'span',
-  {
-    fullwidth?: boolean
-    error?: React.ReactNode
-    success?: React.ReactNode
-  }
->
-
-interface ValueLabel {
-  value: number
-  label: React.ReactNode
-}
-
-type SliderProps = {
-  value: number
-  onChange?: ChangeEventHandler<HTMLInputElement>
-  min?: number
-  max?: number
-  minLabel?: React.ReactNode
-  maxLabel?: React.ReactNode
-  step?: number
-  getLabel?: (value: number) => React.ReactNode
-  borderNone?: boolean
-  labels?: ValueLabel[]
-  onLabelClick?: (value: number) => unknown
-}
-
-export type SliderInputProps = LidoComponentProps<'input', SliderProps>
-
-type SliderOptionValue = string | number
-
-interface SliderOption {
-  value: SliderOptionValue
-  label: React.ReactNode
-}
-
-interface OptionsSliderProps {
-  options: [SliderOption, SliderOption, ...SliderOption[]] // this is declaration like T[] but with "at least 2 elements" constraint
-  value?: SliderOptionValue // if value is not provided, component should act isolated; initial value should be first option
-  onChange: (value: SliderOptionValue, valueIndex: number) => unknown
-}
-
-export type OptionsSliderInputProps = LidoComponentProps<
-  'input',
-  OptionsSliderProps
->

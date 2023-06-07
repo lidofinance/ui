@@ -1,4 +1,7 @@
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
+
+export type InputGroupStyleProps = InferStyledComponentPropsWithoutRef<typeof InputGroupStyle>
 
 export const InputGroupStyle = styled.span<{ $fullwidth: boolean }>`
   display: inline-flex;

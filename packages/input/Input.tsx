@@ -6,9 +6,16 @@ import {
   InputLeftDecoratorStyle,
   InputRightDecoratorStyle,
   InputMessageStyle,
+  InputStyleProps,
 } from './InputStyles'
 import { InputLabelStyle } from './LabelStyles'
-import { InputProps } from './types'
+import { CommonProps, InputTypes } from './types'
+
+export type InputProps = Omit<InputStyleProps, '$labeled' | '$color'> & CommonProps & {
+  type?: InputTypes
+  leftDecorator?: React.ReactNode
+  rightDecorator?: React.ReactNode
+}
 
 function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
   const {
@@ -63,13 +70,13 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
 
       <InputContentStyle $variant={variant}>
         <InputStyle
+          {...rest}
           $labeled={hasLabel}
           $color={color}
           placeholder={placeholder}
           aria-invalid={hasError}
           type='text'
           ref={ref}
-          {...rest}
         />
         {hasLabel && <InputLabelStyle $color={color}>{label}</InputLabelStyle>}
       </InputContentStyle>

@@ -1,3 +1,4 @@
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 import styled from 'styled-components'
 
 export const RangeInputSlider = styled.input.attrs({ type: 'range' })`
@@ -115,6 +116,8 @@ export const Slider = styled.div<{
   border-radius: 10px;
   overflow: hidden;
 `
+
+export type SliderWrapperProps = InferStyledComponentPropsWithoutRef<typeof SliderWrapper>
 
 export const SliderWrapper = styled.div`
   position: relative;

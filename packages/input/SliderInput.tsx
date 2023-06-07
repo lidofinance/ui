@@ -1,4 +1,4 @@
-import React from 'react'
+import { ChangeEventHandler, ReactNode } from 'react'
 import {
   Label,
   LabelButton,
@@ -6,9 +6,28 @@ import {
   RangeInputSlider,
   Slider,
   SliderWrapper,
+  SliderWrapperProps,
   Track,
 } from './SliderInputStyles'
-import { SliderInputProps } from './types'
+
+interface ValueLabel {
+  value: number
+  label: ReactNode
+}
+
+export type SliderInputProps = Omit<SliderWrapperProps, 'onChange'> & {
+  value: number
+  onChange?: ChangeEventHandler<HTMLInputElement>
+  min?: number
+  max?: number
+  minLabel?: ReactNode
+  maxLabel?: ReactNode
+  step?: number
+  getLabel?: (value: number) => ReactNode
+  borderNone?: boolean
+  labels?: ValueLabel[]
+  onLabelClick?: (value: number) => unknown
+}
 
 function SliderInput({
   value,
@@ -22,13 +41,14 @@ function SliderInput({
   getLabel = (val) => String(val),
   borderNone,
   labels,
-}: SliderInputProps): React.ReactElement {
+  ...rest
+}: SliderInputProps) {
   const fillPercentage = ((value - min) / (max - min)) * 100
   const LabelComponent = onLabelClick ? LabelButton : Label
   const createClickHandler = (value: number) => () => onLabelClick?.(value)
 
   return (
-    <SliderWrapper>
+    <SliderWrapper {...rest}>
       <Slider borderNone={borderNone}>
         {getLabel(value)}
         <Track fillPercentage={fillPercentage} borderNone={borderNone} />

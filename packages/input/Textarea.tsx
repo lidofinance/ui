@@ -1,12 +1,17 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, HTMLProps, forwardRef } from 'react'
 import {
   InputWrapperStyle,
   InputContentStyle,
   TextareaStyle,
   InputMessageStyle,
+  TextareaStyleProps,
 } from './InputStyles'
 import { TextareaLabelStyle } from './LabelStyles'
-import { TextareaProps } from './types'
+import { CommonProps } from './types'
+
+export type TextareaProps = Omit<TextareaStyleProps, '$labeled' | '$color'> & 
+  CommonProps & 
+  Pick<HTMLProps<HTMLTextAreaElement>, 'rows' | 'cols' | 'wrap'>
 
 function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
   const {
@@ -52,12 +57,12 @@ function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
     >
       <InputContentStyle $variant={variant}>
         <TextareaStyle
+          {...rest}
           $labeled={hasLabel}
           $color={color}
           placeholder={placeholder}
           aria-invalid={hasError}
           ref={ref}
-          {...rest}
         />
         {hasLabel && (
           <TextareaLabelStyle $color={color}>{label}</TextareaLabelStyle>

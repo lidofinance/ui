@@ -7,6 +7,7 @@ import {
   InputLabelStyle,
   labelWarningCSS,
 } from './LabelStyles'
+import { InferStyledComponentPropsWithoutRef } from '@lidofinance/utils'
 
 const statesCSS = css`
   &:hover {
@@ -195,6 +196,8 @@ const inputColors = {
   `,
 }
 
+export type InputStyleProps = InferStyledComponentPropsWithoutRef<typeof InputStyle>
+
 export const InputStyle = styled.input<{
   $labeled: boolean
   $color: InputColors
@@ -220,6 +223,8 @@ export const InputStyle = styled.input<{
   ${({ $color }) => inputColors[$color]}
   ${({ $labeled }) => ($labeled ? labeledCSS : '')}
 `
+
+export type TextareaStyleProps = InferStyledComponentPropsWithoutRef<typeof TextareaStyle>
 
 export const TextareaStyle = styled(InputStyle).attrs({
   as: 'textarea',
