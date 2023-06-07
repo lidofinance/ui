@@ -1,16 +1,20 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { DEFAULT_PLACEMENT } from './constants'
-
+import { ForwardedRef, forwardRef } from 'react'
+import { DEFAULT_PLACEMENT, PopoverOffsets } from './constants'
 import { PopoverStyle } from './PopoverStyles'
-import { PopoverProps } from './types'
+import { PopoverRootProps } from './PopoverRoot'
 
-function Popover(props: PopoverProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const {
-    placement = DEFAULT_PLACEMENT,
-    open = false,
-    offset = 'xs',
-    ...rest
-  } = props
+export type PopoverProps = {
+  as?: never
+  offset?: PopoverOffsets
+  open?: boolean
+} & Omit<PopoverRootProps, 'in'>
+
+function Popover({
+  placement = DEFAULT_PLACEMENT,
+  open = false,
+  offset = 'xs',
+  ...rest
+}: PopoverProps, ref?: ForwardedRef<HTMLDivElement>) {
 
   return (
     <PopoverStyle

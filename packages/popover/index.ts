@@ -1,2 +1,3 @@
+export * from './constants'
 export { default as Popover } from './Popover'
-export * from './types'
+export * from './Popover'

@@ -1,12 +1,22 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { modalRoot } from '@lidofinance/utils'
 import { useMergeRefs, useOutsideClick, useEscape } from '@lidofinance/hooks'
-import { withTransition } from '@lidofinance/transition'
+import { TransitionInnerProps, TransitionWrapperProps, withTransition } from '@lidofinance/transition'
 import { usePopoverPosition } from './usePopoverPosition'
-import { PopoverWrapperStyle, PopoverRootStyle } from './PopoverRootStyles'
-import { PopoverRootInnerProps } from './types'
-import { DEFAULT_PLACEMENT } from './constants'
+import { PopoverWrapperStyle, PopoverRootStyle, PopoverRootStyleProps } from './PopoverRootStyles'
+import { DEFAULT_PLACEMENT, PopoverPlacements  } from './constants'
+
+export type PopoverRootOwnProps = Omit<PopoverRootStyleProps, '$duration' | '$transition'> & {
+  wrapperRef?: React.RefObject<HTMLDivElement>
+  anchorRef: React.RefObject<HTMLElement | null>
+  placement?: PopoverPlacements
+  backdrop?: boolean
+  onClose?: () => void
+}
+
+export type PopoverRootInnerProps = PopoverRootOwnProps & TransitionInnerProps
+export type PopoverRootProps = PopoverRootOwnProps & TransitionWrapperProps
 
 function PopoverRoot(
   props: PopoverRootInnerProps,

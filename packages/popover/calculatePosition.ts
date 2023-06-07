@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { PopoverPlacements } from './types'
+import { PopoverPlacements } from './constants'
 
 export const calculatePosition = (
   anchorRect: DOMRect,

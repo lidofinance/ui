@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import PopoverRoot from './PopoverRoot'
-import { PopoverOffsets, PopoverPlacements } from './types'
+import { PopoverOffsets, PopoverPlacements } from './constants'
 import { Theme } from '@lidofinance/theme'
 
 type InjectedProps = {
