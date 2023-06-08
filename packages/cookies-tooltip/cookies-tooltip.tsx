@@ -16,9 +16,9 @@ import {
 import { allowCookies, declineCookies } from './utils'
 import { COOKIE_ALLOWED_KEY } from './constants'
 
-export type CookiesTooltip = WrapProps
+export type CookiesTooltipProps = WrapProps
 
-export const CookiesTooltip: FC<CookiesTooltip> = (props) => {
+export const CookiesTooltip: FC<CookiesTooltipProps> = (props) => {
   const [isVisible, setVisibility] = useState(false)
 
   const checkCookieAllowedEarlier = useCallback(() => {
