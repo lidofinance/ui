@@ -266,6 +266,7 @@ export const InputMessageStyle = styled.span<{
   box-sizing: border-box;
   text-overflow: ellipsis;
   max-width: ${({ $bordered }) => ($bordered ? 'calc(100% + 2px)' : '100%')};
+  z-index: 999;
 
   ${({ $variant }) => messageVariants[$variant]}
 `
