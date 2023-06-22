@@ -164,10 +164,12 @@ const inputColors = {
     &:-webkit-autofill {
       box-shadow: 0 0 0 100px var(--lido-color-controlBg) inset !important;
       color: var(--lido-color-text) !important;
+      -webkit-text-fill-color: var(--lido-color-text) !important;
     }
 
     &:-internal-autofill-selected {
       color: var(--lido-color-text) !important;
+      -webkit-text-fill-color: var(--lido-color-text) !important;
     }
   `,
   accent: css`
@@ -187,10 +189,12 @@ const inputColors = {
     &:-webkit-autofill {
       box-shadow: 0 0 0 100px var(--lido-color-accentControlBg) inset !important;
       color: var(--lido-color-accentContrast) !important;
+      -webkit-text-fill-color: var(--lido-color-accentContrast) !important;
     }
 
     &:-internal-autofill-selected {
       color: var(--lido-color-accentContrast) !important;
+      -webkit-text-fill-color: var(--lido-color-accentContrast) !important;
     }
   `,
 }
