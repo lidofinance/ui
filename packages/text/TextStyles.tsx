@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Theme } from '@lidofinance/theme'
-import { TextColors, TextProps, TextSizes } from './types'
+import { TextColors, TextProps, TextSizes, TextWeight } from './types'
 
 export const sizes = {
   xxs: css`
@@ -32,8 +32,9 @@ export const sizes = {
 type InjectedProps = {
   color: TextColors
   size: TextSizes
+  weight: TextWeight
   theme: Theme
-} & Omit<TextProps, 'color' | 'size'>
+} & Omit<TextProps, 'color' | 'size' | 'strong' | 'weight'>
 
 const getTextColor = (props: InjectedProps) => {
   const {
@@ -69,9 +70,9 @@ const getTextDecoration = (props: InjectedProps) => {
 }
 
 export const TextStyle = styled.p<InjectedProps>`
-  ${({ strong, italic, size }) => css`
+  ${({ weight, italic, size }) => css`
     font-style: ${italic ? 'italic' : 'normal'};
-    font-weight: ${strong ? 700 : 400};
+    font-weight: ${weight};
     margin: 0;
     padding: 0;
     color: ${getTextColor};
