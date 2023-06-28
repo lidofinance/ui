@@ -20,11 +20,14 @@ export enum TextSize {
 }
 export type TextSizes = keyof typeof TextSize
 
+export type TextWeight = 400 | 500 | 700 | 800 | string | number
+
 export type TextProps = LidoComponentProps<
   'p',
   {
     color?: TextColors
     size?: TextSizes
+    weight?: TextWeight
     underline?: boolean
     strikeThrough?: boolean
     strong?: boolean
