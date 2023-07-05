@@ -6,7 +6,9 @@ import { Identicon } from '@lidofinance/identicon'
 import Input from './Input'
 import styled from 'styled-components'
 import { InputProps, InputType, InputVariant, InputColor } from './types'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
+import { ModalProps } from '../modal/types'
+import Modal from '../modal/Modal'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -97,7 +99,7 @@ export const WithDecorators: Story<InputProps> = (props) => (
 )
 
 WithDecorators.args = {
-  placeholder: 'Amount',
+  label: 'Amount',
 }
 WithDecorators.argTypes = {
   color: {
@@ -233,4 +235,59 @@ AccentColor.args = {
   fullwidth: true,
   label: '',
   placeholder: 'Ethereum address',
+}
+
+const useModal = (props: ModalProps) => {
+  const { onClose, onBack } = props
+  const [state, setState] = useState(false)
+  const handleOpen = useCallback(() => setState(true), [])
+  const handleClose = useCallback(() => {
+    setState(false)
+    onClose?.()
+  }, [onClose])
+  const handleBack = useCallback(() => {
+    onBack?.()
+  }, [onBack])
+
+  return { state, handleOpen, handleClose, handleBack }
+}
+
+export const ErrorsOverlapCase: Story<InputProps> = (props) => {
+  const { state, handleOpen, handleClose } = useModal(props)
+
+  return (
+    <>
+      <Input {...props} />
+      <br />
+      <br />
+      <Input {...props} />
+      <br />
+      <br />
+      <Button onClick={handleOpen}>Show modal</Button>
+      <Modal
+        open={state}
+        onClose={handleClose}
+        title='Modal Title'
+        subtitle=''
+        center={false}
+      >
+        <Input {...props} />
+        <br />
+        <br />
+        <Input {...props} />
+      </Modal>
+    </>
+  )
+}
+
+ErrorsOverlapCase.args = {
+  fullwidth: true,
+  label: 'Email address',
+  error: 'Email is invalid',
+}
+ErrorsOverlapCase.argTypes = {
+  color: {
+    options: getOptions(InputColor),
+    control: 'inline-radio',
+  },
 }

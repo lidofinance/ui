@@ -91,50 +91,88 @@ const wrapperColors = {
   `,
 }
 
+const decoratorCSS = css`
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: inherit;
+  display: flex;
+  align-items: center;
+`
+
+export const InputLeftDecoratorStyle = styled.span`
+  ${decoratorCSS}
+  padding-right: 16px;
+`
+
+export const InputRightDecoratorStyle = styled.span`
+  ${decoratorCSS}
+  padding-left: 16px;
+`
+
 export const InputWrapperStyle = styled.label<{
-  $error: boolean
-  $warning: boolean
-  $active: boolean
-  $disabled: boolean
   $fullwidth: boolean
-  $color: InputColors
+  $disabled: boolean
 }>`
   position: relative;
   display: inline-flex;
-  border: 1px solid;
-  border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
   align-items: stretch;
   box-sizing: border-box;
-  padding: 0 15px;
   cursor: ${({ $disabled }) => ($disabled ? 'default' : 'text')};
-  transition: border-color ${({ theme }) => theme.duration.fast} ease;
   width: ${({ $fullwidth }) => ($fullwidth ? '100%' : 'auto')};
-
-  ${({ $color }) => wrapperColors[$color]};
-  ${({ $disabled }) => ($disabled ? '' : statesCSS)}
-
-  ${({ $active }) => ($active ? activeCSS : '')}
-  ${({ $warning }) => ($warning ? warningCSS : '')}
-  ${({ $error }) => ($error ? errorCSS : '')}
 `
 
 const contentVariants = {
   default: css`
-    padding: 17px 0;
+    padding-top: 17px;
+    padding-bottom: 17px;
+
+    & ${InputLeftDecoratorStyle}, & ${InputRightDecoratorStyle} {
+      margin-top: -17px;
+      margin-bottom: -17px;
+    }
   `,
   small: css`
-    padding: 9px 0;
+    padding-top: 9px;
+    padding-bottom: 9px;
+
+    & ${InputLeftDecoratorStyle}, & ${InputRightDecoratorStyle} {
+      padding-top: -9px;
+      padding-bottom: -9px;
+    }
   `,
 }
 
-export const InputContentStyle = styled.span<{ $variant: InputVariants }>`
-  font-weight: 400;
-  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+export const InputContentStyle = styled.span<{
+  $error: boolean
+  $warning: boolean
+  $active: boolean
+  $disabled: boolean
+  $color: InputColors
+  $variant: InputVariants
+}>`
+  position: relative;
   display: flex;
   flex-grow: 1;
-  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
+  border: 1px solid;
+  border-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
+  transition: border-color ${({ theme }) => theme.duration.fast} ease;
 
   ${({ $variant }) => contentVariants[$variant]};
+  ${({ $color }) => wrapperColors[$color]};
+  ${({ $disabled }) => ($disabled ? '' : statesCSS)};
+  ${({ $active }) => ($active ? activeCSS : '')};
+  ${({ $warning }) => ($warning ? warningCSS : '')};
+  ${({ $error }) => ($error ? errorCSS : '')};
+`
+
+export const InputControlWrapperStyle = styled.div`
+  position: relative;
+  display: flex;
+  flex-grow: 1;
 `
 
 const labeledCSS = css`
@@ -266,25 +304,7 @@ export const InputMessageStyle = styled.span<{
   box-sizing: border-box;
   text-overflow: ellipsis;
   max-width: ${({ $bordered }) => ($bordered ? 'calc(100% + 2px)' : '100%')};
-  z-index: 999;
+  z-index: 3;
 
   ${({ $variant }) => messageVariants[$variant]}
-`
-
-const decoratorCSS = css`
-  flex-grow: 0;
-  flex-shrink: 0;
-  cursor: inherit;
-  display: flex;
-  align-items: center;
-`
-
-export const InputLeftDecoratorStyle = styled.span`
-  ${decoratorCSS}
-  padding-right: 16px;
-`
-
-export const InputRightDecoratorStyle = styled.span`
-  ${decoratorCSS}
-  padding-left: 16px;
 `

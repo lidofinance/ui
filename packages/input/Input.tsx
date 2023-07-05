@@ -2,6 +2,7 @@ import React, { ForwardedRef, forwardRef } from 'react'
 import {
   InputWrapperStyle,
   InputContentStyle,
+  InputControlWrapperStyle,
   InputStyle,
   InputLeftDecoratorStyle,
   InputRightDecoratorStyle,
@@ -47,31 +48,42 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
 
   return (
     <InputWrapperStyle
-      $error={hasError}
-      $warning={hasWarning}
-      $active={active}
       $disabled={disabled}
       $fullwidth={fullwidth}
-      $color={color}
       htmlFor={id}
       ref={wrapperRef}
       {...wrapperProps}
     >
-      {hasLeftDecorator && (
-        <InputLeftDecoratorStyle>{leftDecorator}</InputLeftDecoratorStyle>
-      )}
+      <InputContentStyle
+        $color={color}
+        $variant={variant}
+        $error={hasError}
+        $warning={hasWarning}
+        $active={active}
+        $disabled={disabled}
+      >
+        {hasLeftDecorator && (
+          <InputLeftDecoratorStyle>{leftDecorator}</InputLeftDecoratorStyle>
+        )}
 
-      <InputContentStyle $variant={variant}>
-        <InputStyle
-          $labeled={hasLabel}
-          $color={color}
-          placeholder={placeholder}
-          aria-invalid={hasError}
-          type='text'
-          ref={ref}
-          {...rest}
-        />
-        {hasLabel && <InputLabelStyle $color={color}>{label}</InputLabelStyle>}
+        <InputControlWrapperStyle>
+          <InputStyle
+            $labeled={hasLabel}
+            $color={color}
+            placeholder={placeholder}
+            aria-invalid={hasError}
+            type='text'
+            ref={ref}
+            {...rest}
+          />
+          {hasLabel && (
+            <InputLabelStyle $color={color}>{label}</InputLabelStyle>
+          )}
+        </InputControlWrapperStyle>
+
+        {hasRightDecorator && (
+          <InputRightDecoratorStyle>{rightDecorator}</InputRightDecoratorStyle>
+        )}
       </InputContentStyle>
 
       {hasErrorMessage && (
@@ -88,10 +100,6 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
         <InputMessageStyle $variant='success' $bordered>
           {success}
         </InputMessageStyle>
-      )}
-
-      {hasRightDecorator && (
-        <InputRightDecoratorStyle>{rightDecorator}</InputRightDecoratorStyle>
       )}
     </InputWrapperStyle>
   )
