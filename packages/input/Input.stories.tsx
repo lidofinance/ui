@@ -275,6 +275,9 @@ export const ErrorsOverlapCase: Story<InputProps> = (props) => {
         <br />
         <br />
         <Input {...props} />
+        <br />
+        <br />
+        <br />
       </Modal>
     </>
   )
