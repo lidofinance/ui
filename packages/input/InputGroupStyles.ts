@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { InputWrapperStyle, InputContentStyle } from './InputStyles'
 
 export const InputGroupStyle = styled.span<{ $fullwidth: boolean }>`
   display: inline-flex;
@@ -10,20 +11,22 @@ export const InputGroupContentStyle = styled.span`
   display: flex;
   width: 100%;
 
-  & > * {
-    border-radius: 0px;
+  & > ${InputWrapperStyle} {
     margin: 0 -1px 0 0;
 
     &:first-child {
-      border-top-left-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
-      border-bottom-left-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
+      & ${InputContentStyle} {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
 
     &:last-child {
-      margin-right: 0;
-      border-top-right-radius: ${({ theme }) => theme.borderRadiusesMap.lg}px;
-      border-bottom-right-radius: ${({ theme }) =>
-        theme.borderRadiusesMap.lg}px;
+      & ${InputContentStyle} {
+        margin-right: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
   }
 `

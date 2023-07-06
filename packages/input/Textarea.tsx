@@ -4,6 +4,7 @@ import {
   InputContentStyle,
   TextareaStyle,
   InputMessageStyle,
+  InputControlWrapperStyle,
 } from './InputStyles'
 import { TextareaLabelStyle } from './LabelStyles'
 import { TextareaProps } from './types'
@@ -40,28 +41,33 @@ function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
 
   return (
     <InputWrapperStyle
-      $error={hasError}
-      $warning={hasWarning}
-      $active={active}
       $disabled={disabled}
       $fullwidth={fullwidth}
-      $color={color}
       htmlFor={id}
       ref={wrapperRef}
       {...wrapperProps}
     >
-      <InputContentStyle $variant={variant}>
-        <TextareaStyle
-          $labeled={hasLabel}
-          $color={color}
-          placeholder={placeholder}
-          aria-invalid={hasError}
-          ref={ref}
-          {...rest}
-        />
-        {hasLabel && (
-          <TextareaLabelStyle $color={color}>{label}</TextareaLabelStyle>
-        )}
+      <InputContentStyle
+        $color={color}
+        $variant={variant}
+        $error={hasError}
+        $warning={hasWarning}
+        $active={active}
+        $disabled={disabled}
+      >
+        <InputControlWrapperStyle>
+          <TextareaStyle
+            $labeled={hasLabel}
+            $color={color}
+            placeholder={placeholder}
+            aria-invalid={hasError}
+            ref={ref}
+            {...rest}
+          />
+          {hasLabel && (
+            <TextareaLabelStyle $color={color}>{label}</TextareaLabelStyle>
+          )}
+        </InputControlWrapperStyle>
       </InputContentStyle>
 
       {hasErrorMessage && (
