@@ -22,6 +22,12 @@ export const Basic: Story<TextareaProps> = (props) => <Textarea {...props} />
 
 Basic.args = {
   placeholder: 'Amount',
-  label: '',
+  rows: 5,
+}
+
+export const Labeled: Story<TextareaProps> = (props) => <Textarea {...props} />
+
+Labeled.args = {
+  label: 'Amount',
   rows: 5,
 }

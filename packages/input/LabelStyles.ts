@@ -56,5 +56,5 @@ export const InputLabelStyle = styled.span`
 `
 
 export const TextareaLabelStyle = styled(InputLabelStyle)`
-  top: 27px;
+  top: 10px;
 `
