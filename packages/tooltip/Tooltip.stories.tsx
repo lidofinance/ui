@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
-import { Question } from '@lidofinance/icons'
-import { PopoverOffset, PopoverPlacement } from '@lidofinance/popover'
+import { Question } from '../icons'
+import { PopoverOffset, PopoverPlacement } from '../popover'
 import { TooltipProps } from './types'
 import Tooltip from './Tooltip'
 

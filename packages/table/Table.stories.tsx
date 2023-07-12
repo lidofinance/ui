@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Light, Eth } from '@lidofinance/icons'
+import { Light, Eth } from '../icons'
 import Table from './Table'
 import Thead from './Thead'
 import Tbody from './Tbody'
@@ -48,13 +48,11 @@ export const Base: Story<
 > = (props, options) => {
   const [sortDir, setSortDir] = useState<ThSortDirs>('ASC')
 
-  // @ts-expect-error fix later
   const isShowTrHighlights = options.args.showHighlight
 
   return (
     <div style={{ height: 300, overflowY: 'scroll' }}>
       <Table style={{ width: 600 }}>
-        {/* @ts-expect-error fix later */}
         <Thead sticky={options.args.stickyHeader}>
           <Tr>
             <Th

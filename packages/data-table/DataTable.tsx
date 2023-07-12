@@ -1,6 +1,6 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-import { InlineLoader } from '@lidofinance/loaders'
-import { Tooltip } from '@lidofinance/tooltip'
+import { InlineLoader } from '../loaders'
+import { Tooltip } from '../tooltip'
 import {
   DataTableStyle,
   DataTableRowStyle,

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ArrowTop, ArrowBottom } from '@lidofinance/icons'
+import { ArrowTop, ArrowBottom } from '../icons'
 import {
   TableAligns,
   TableTextColors,

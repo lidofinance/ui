@@ -24,6 +24,7 @@
   "rules": {
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
@@ -31,15 +32,6 @@
     ]
   },
   "overrides": [
-    {
-      "files": ["*.ts", "*.tsx"]
-    },
-    {
-      "files": ["*.stories.*", ".storybook/**"],
-      "rules": {
-        "react/react-in-jsx-scope": "off"
-      }
-    },
     {
       "files": ["*.js", "*.jsx", "*.cjs"],
       "rules": {
@@ -52,6 +44,5 @@
     "react": {
       "version": "detect"
     }
-  },
-  "ignorePatterns": ["!.storybook"]
+  }
 }

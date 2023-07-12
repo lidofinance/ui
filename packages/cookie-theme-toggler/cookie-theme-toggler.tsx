@@ -4,7 +4,7 @@ import {
   CookieThemeTogglerDarkIcon,
   CookieThemeTogglerLightIcon,
 } from './styles'
-import { useThemeToggle } from '@lidofinance/theme'
+import { useThemeToggle } from '../theme'
 
 export const ThemeToggler: FC = () => {
   const { toggleTheme } = useThemeToggle()

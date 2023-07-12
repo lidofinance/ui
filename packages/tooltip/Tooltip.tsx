@@ -7,7 +7,7 @@ import React, {
   useState,
 } from 'react'
 import { TooltipPopoverStyle } from './TooltipStyles'
-import { useMergeRefs } from '@lidofinance/hooks'
+import { useMergeRefs } from '../hooks'
 import { isElement } from 'react-is'
 import { TooltipProps } from './types'
 

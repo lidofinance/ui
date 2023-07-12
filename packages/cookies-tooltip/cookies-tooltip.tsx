@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState, useCallback } from 'react'
-import { Cookie, CookieInverse } from '@lidofinance/icons'
-import { ContentTheme } from '@lidofinance/content-theme'
-import { getCrossDomainCookieClientSide } from '@lidofinance/utils'
+import { Cookie, CookieInverse } from '../icons'
+import { ContentTheme } from '../content-theme'
+import { getCrossDomainCookieClientSide } from '../utils'
 
 import {
   Wrap,

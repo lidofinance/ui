@@ -1,5 +1,5 @@
 import React, { ForwardedRef, forwardRef, useCallback } from 'react'
-import { PopupMenuItem } from '@lidofinance/popup-menu'
+import { PopupMenuItem } from '../popup-menu'
 import { OptionProps } from './types'
 
 function Option(props: OptionProps, ref?: ForwardedRef<HTMLButtonElement>) {

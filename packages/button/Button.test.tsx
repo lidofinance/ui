@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ThemeProvider, themeDefault } from '@lidofinance/theme'
+import { ThemeProvider, themeDefault } from '../theme'
 import 'jest-styled-components'
 
 import Button from './Button'

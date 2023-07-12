@@ -1,4 +1,4 @@
-import { Question } from '@lidofinance/icons'
+import { Question } from '../icons'
 import styled from 'styled-components'
 
 export const DataTableStyle = styled.div``
