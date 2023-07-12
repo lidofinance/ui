@@ -1,4 +1,4 @@
-import { LidoComponentProps } from '@lidofinance/utils'
+import { LidoComponentProps } from '../utils'
 
 export type AddressProps = LidoComponentProps<
   'div',

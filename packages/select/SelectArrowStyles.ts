@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ArrowBottom } from '@lidofinance/icons'
+import { ArrowBottom } from '../icons'
 
 type InjectedProps = {
   $opened: boolean

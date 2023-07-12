@@ -1,8 +1,7 @@
-import React from 'react'
 import { themeDark, themeLight } from '../themes'
 import { generateCssColorVariables } from '../utils/generate-css-color-variables'
 import { globalStyleDataAttribute, ThemeName } from '../constants'
-import { VOID_FN } from '@lidofinance/utils'
+import { VOID_FN } from '../../utils'
 
 /**
  * What is happening here:

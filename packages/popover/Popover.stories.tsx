@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { Button } from '@lidofinance/button'
+import { Button } from '../button'
 import { PopoverProps, PopoverPlacement, PopoverOffset } from './types'
 
 import Popover from './Popover'

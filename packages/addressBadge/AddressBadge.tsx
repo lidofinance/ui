@@ -1,5 +1,5 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-import { useBreakpoint } from '@lidofinance/hooks'
+import { useBreakpoint } from '../hooks'
 import { AddressBadgeStyle } from './AddressBadgeStyles'
 import { AddressBadgeProps } from './types'
 

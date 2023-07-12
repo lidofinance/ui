@@ -24,7 +24,6 @@ export default {
 export const Basic: Story = (props, options) => (
   <Chip
     {...props}
-    // @ts-expect-error fix later
     onClick={options.args.interactive ? () => void 0 : undefined}
   />
 )

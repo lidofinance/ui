@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { reverseThemeMap, themeDark, themeDefault, themeLight } from './themes'
 import { initColors } from './document-head-contents'

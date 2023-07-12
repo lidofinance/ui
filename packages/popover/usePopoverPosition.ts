@@ -1,5 +1,5 @@
 import React, { useRef, useLayoutEffect, useState, CSSProperties } from 'react'
-import { useWindowSize } from '@lidofinance/hooks'
+import { useWindowSize } from '../hooks'
 import { PopoverRootProps } from './types'
 import { INITIAL_STYLE, DEFAULT_PLACEMENT } from './constants'
 import { calculatePosition } from './calculatePosition'

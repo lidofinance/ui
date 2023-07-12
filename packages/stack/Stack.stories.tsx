@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { Block } from '@lidofinance/block'
+import { Block } from '../block'
 import {
   StackAlign,
   StackDirection,

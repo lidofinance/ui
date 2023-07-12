@@ -1,6 +1,6 @@
-import { PopoverProps } from '@lidofinance/popover'
+import { PopoverProps } from '../popover'
 import React from 'react'
-export type { Theme } from '@lidofinance/theme'
+export type { Theme } from '../theme'
 
 export type TooltipProps = Omit<
   PopoverProps,

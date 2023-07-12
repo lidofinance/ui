@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { Stake, Wrap, Wallet } from '@lidofinance/icons'
+import { Stake, Wrap, Wallet } from '../icons'
 import MainMenu from './MainMenu'
 import MainMenuItem from './MainMenuItem'
 

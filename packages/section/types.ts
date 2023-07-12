@@ -1,5 +1,5 @@
 import React from 'react'
-import { LidoComponentProps } from '@lidofinance/utils'
+import { LidoComponentProps } from '../utils'
 
 export type SectionProps = LidoComponentProps<
   'div',

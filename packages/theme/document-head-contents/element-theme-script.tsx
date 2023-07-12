@@ -1,5 +1,4 @@
-import React from 'react'
-import { VOID_FN } from '@lidofinance/utils'
+import { VOID_FN } from '../../utils'
 import { themeCookieKey, ThemeName } from '../constants'
 import { setThemeCookie } from '../utils/set-theme-cookie'
 

@@ -1,7 +1,7 @@
 import React, { ForwardedRef, forwardRef } from 'react'
 import { ServicePageStyle, ServicePageInsideStyle } from './ServicePageStyles'
-import { H1 } from '@lidofinance/heading'
-import { Text } from '@lidofinance/text'
+import { H1 } from '../heading'
+import { Text } from '../text'
 import { ServicePageProps } from './types'
 
 function ServicePage(

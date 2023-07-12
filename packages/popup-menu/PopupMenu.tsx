@@ -1,5 +1,5 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-import { useMergeRefs } from '@lidofinance/hooks'
+import { useMergeRefs } from '../hooks'
 import { PopupMenuProvider } from './PopupMenuProvider'
 import { PopupMenuStyle } from './PopupMenuStyles'
 import { PopupMenuProps } from './types'

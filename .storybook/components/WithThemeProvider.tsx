@@ -1,7 +1,7 @@
 import { BaseDecorators } from '@storybook/addons'
-import '@lidofinance/theme'
+import '../../packages/theme'
 import { createGlobalStyle } from 'styled-components'
-import { CookieThemeProvider } from '@lidofinance/theme'
+import { CookieThemeProvider } from '../../packages/theme'
 
 const GlobalStyle = createGlobalStyle`
   body {

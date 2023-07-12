@@ -1,4 +1,4 @@
-import { themeDefault } from '@lidofinance/theme'
+import { themeDefault } from '../packages/theme'
 
 const { breakpointsMap } = themeDefault
 

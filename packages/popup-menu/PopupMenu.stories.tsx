@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/react'
 import { useCallback, useRef, useState } from 'react'
-import { Button } from '@lidofinance/button'
+import { Button } from '../button'
 import { PopupMenuProps, PopupMenuVariant } from './types'
-import { Eth, Steth, Solana } from '@lidofinance/icons'
+import { Eth, Steth, Solana } from '../icons'
 import PopupMenu from './PopupMenu'
 import PopupMenuItem from './PopupMenuItem'
 

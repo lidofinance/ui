@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Theme } from '@lidofinance/theme'
+import { Theme } from '../theme'
 import { TextColors, TextProps, TextSizes, TextWeight } from './types'
 
 export const sizes = {
