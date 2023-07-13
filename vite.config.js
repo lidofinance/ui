@@ -21,19 +21,14 @@ module.exports = defineConfig({
       external: (id) => {
         if (
           // direct node_modules import
-          id.includes('node_modules') ||
-          // everything else is library import
-          !(
-            // relative import is ok
-            id.startsWith('.') ||
-            // absolute import is ok
-            id.startsWith('/')
-          )
+          id.includes('/node_modules/') ||
+          // everything except relative and absolute imports are library imports
+          !(id.startsWith('.') || id.startsWith('/'))
         ) {
           return true
         }
         return false
-      }
+      },
     },
-  }
+  },
 })
