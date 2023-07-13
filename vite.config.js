@@ -1,14 +1,6 @@
-const path = require('path')
+const path = require('node:path')
 const { defineConfig } = require('vite')
 const react = require('@vitejs/plugin-react')
-
-const packageJson = require('./package.json')
-
-const excluded = [
-  ...Object.keys(packageJson.peerDependencies),
-  ...Object.keys(packageJson.dependencies),
-  ...Object.keys(packageJson.devDependencies),
-]
 
 module.exports = defineConfig({
   plugins: [react()],
@@ -28,9 +20,10 @@ module.exports = defineConfig({
       },
       external: (id) => {
         if (
-          excluded.includes(id.split('/')[0]) ||
-          (id.startsWith('@') &&
-            excluded.includes(id.split('/').slice(0, 2).join('/')))
+          // direct node_modules import
+          id.includes('/node_modules/') ||
+          // everything except relative and absolute imports are library imports
+          !(id.startsWith('.') || id.startsWith('/'))
         ) {
           return true
         }
