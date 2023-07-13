@@ -16,13 +16,11 @@ module.exports = {
   features: {
     postcss: false
   },
-  framework: {
-    name: '@storybook/react-webpack5',
-    options: {
-      strictMode: false
-    }
-  },
   docs: {
     autodocs: true
+  },
+  framework: {
+    name: '@storybook/react-vite',
+    options: {}
   }
 };
