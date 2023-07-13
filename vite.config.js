@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('node:path')
 const { defineConfig } = require('vite')
 const react = require('@vitejs/plugin-react')
 
@@ -18,7 +18,22 @@ module.exports = defineConfig({
         preserveModules: true,
         interop: 'compat',
       },
-      external: [/node_modules/],
+      external: (id) => {
+        if (
+          // direct node_modules import
+          id.includes('node_modules') ||
+          // everything else is library import
+          !(
+            // relative import is ok
+            id.startsWith('.') ||
+            // absolute import is ok
+            id.startsWith('/')
+          )
+        ) {
+          return true
+        }
+        return false
+      }
     },
-  },
+  }
 })
