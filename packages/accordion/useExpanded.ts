@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { AccordionProps } from './types'
+import { AccordionProps } from './Accordion'
 import useCollapse from 'react-collapsed'
 import {
   GetCollapsePropsOutput,

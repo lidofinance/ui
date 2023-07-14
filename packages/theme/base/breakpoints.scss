@@ -1,0 +1,28 @@
+$lido-media-breakpoint-sm: 359px;
+$lido-media-breakpoint-md: 479px;
+$lido-media-breakpoint-lg: 767px;
+$lido-media-breakpoint-xl: 1023px;
+
+@mixin media-breakpoint-up-sm() {
+  @media screen and (min-width: $lido-media-breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-md() {
+  @media screen and (min-width: $lido-media-breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-lg() {
+  @media screen and (min-width: $lido-media-breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-xl() {
+  @media screen and (min-width: $lido-media-breakpoint-xl) {
+    @content;
+  }
+}
