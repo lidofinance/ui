@@ -18,9 +18,7 @@
   "scripts": {
     "dev": "storybook dev -p 5555",
     "build-storybook": "storybook build",
-    "build": "yarn build:js && yarn build:types",
-    "build:js": "vite build",
-    "build:types": "tsc -p tsconfig.build.json",
+    "build": "zx scripts/build.mjs",
     "test": "jest",
     "test:coverage": "jest coverage",
     "lint": "eslint .",
@@ -99,6 +97,7 @@
     "jest-resolve": "^29.0.1",
     "jest-runner": "^29.0.1",
     "jest-styled-components": "^7.1.1",
+    "postcss-custom-media": "^10.0.0",
     "prettier": "2.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -110,6 +109,7 @@
     "ts-jest": "^29.1.1",
     "tslib": "2.3.1",
     "typescript": "4.8",
-    "vite": "^4.4.3"
+    "vite": "^4.4.3",
+    "zx": "^7.2.3"
   }
 }

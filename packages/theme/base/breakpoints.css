@@ -1,0 +1,4 @@
+@custom-media --lido-media-breakpoint-up-sm screen and (min-width: 359px);
+@custom-media --lido-media-breakpoint-up-md screen and (min-width: 479px);
+@custom-media --lido-media-breakpoint-up-lg screen and (min-width: 767px);
+@custom-media --lido-media-breakpoint-up-xl screen and (min-width: 1023px);

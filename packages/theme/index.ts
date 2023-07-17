@@ -7,4 +7,4 @@ export * from './hooks'
 export * from './types'
 export { migrationThemeCookiesToCrossDomainCookiesClientSide } from './utils/cookies-migration'
 
-import './index.scss'
+import './index.css'

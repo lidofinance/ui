@@ -1,4 +1,4 @@
-@import "../theme/index.scss";
+@import "../theme/index.css";
 
 .accordion {
   margin: 0 0 var(--lido-space-sm) 0;
@@ -15,7 +15,7 @@
   box-sizing: content-box;
   padding: var(--lido-space-lg);
 
-  @include media-breakpoint-up-md {
+  @media (--lido-media-breakpoint-up-md) {
     padding: var(--lido-space-lg) var(--lido-space-xxl);
   }
 }
@@ -36,7 +36,7 @@
   padding: var(--lido-space-lg);
   padding-top: 0;
 
-  @include media-breakpoint-up-md {
+  @media (--lido-media-breakpoint-up-md) {
     padding: var(--lido-space-xxl);
     padding-top: 0;
   }

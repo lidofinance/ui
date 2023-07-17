@@ -1,8 +1,8 @@
 import { ForwardedRef, forwardRef } from 'react'
 import { useExpanded } from './useExpanded'
 import { NewLidoComponentProps } from 'packages/utils'
-import styles from './Accordion.module.scss'
 import { ArrowBottom } from '../icons'
+import styles from './Accordion.module.css'
 
 export type AccordionProps = NewLidoComponentProps<
   'div',
