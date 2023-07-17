@@ -1,5 +1,3 @@
-@import "../theme/index.css";
-
 .accordion {
   margin: 0 0 var(--lido-space-sm) 0;
   background: var(--lido-color-foreground);

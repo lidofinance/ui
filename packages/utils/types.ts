@@ -10,15 +10,10 @@ export type Simplify<T> = {
   [K in keyof T]: T[K]
 }
 
-// eslint-disable-next-line
-export type SafeObj = {}
-
-// eslint-disable-next-line
-export type SafeAny = any
-
 export type NewLidoComponentProps<
   ElementName extends keyof JSX.IntrinsicElements,
-  Props extends object = SafeObj,
+  // eslint-disable-next-line
+  Props extends object = any,
   ElementType = HTMLElementByName<ElementName>
 > = Props &
   Simplify<
@@ -29,7 +24,8 @@ export type NewLidoComponentProps<
 
 export type LidoComponentProps<
   T extends keyof JSX.IntrinsicElements,
-  Props extends object = SafeObj
+  // eslint-disable-next-line
+  Props extends object = any
 > = Props &
   Omit<
     JSX.IntrinsicElements[T] & {
