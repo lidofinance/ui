@@ -24,19 +24,10 @@ const buildPostcssExport = async () => {
   })
 }
 
-const buildSCSSExport = async () => {
-  console.log('🏎️  Building SCSS export...')
-  await concatAssets({
-    from: ['packages/theme/base/breakpoints.scss'],
-    to: 'dist/scss.scss'
-  })
-}
-
 const main = async () => {
   await buildPackages()
   await buildTypes()
   await buildPostcssExport()
-  await buildSCSSExport()
 }
 
 main()
