@@ -3,6 +3,7 @@ import { useExpanded } from './useExpanded'
 import { NewLidoComponentProps } from 'packages/utils'
 import { ArrowBottom } from '../icons'
 import styles from './Accordion.module.css'
+import cn from 'classnames'
 
 export type AccordionProps = NewLidoComponentProps<
   'div',
@@ -22,9 +23,7 @@ export const Accordion = forwardRef(
         <div {...toggleProps} className={styles.summary}>
           <div className={styles.title}>{summary}</div>
           <ArrowBottom
-            className={`${styles.arrow} ${
-              isExpanded ? styles.arrowExpanded : ''
-            }`}
+            className={cn(styles.arrow, { [styles.arrowExpanded]: isExpanded })}
           />
         </div>
         <div {...collapseProps}>
