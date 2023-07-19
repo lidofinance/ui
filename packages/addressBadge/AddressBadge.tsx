@@ -1,22 +1,40 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { useBreakpoint } from '../hooks'
-import { AddressBadgeStyle } from './AddressBadgeStyles'
-import { AddressBadgeProps } from './types'
+import cn from 'classnames'
+import styles from './AddressBadge.module.css'
+import { IdenticonBadge, IdenticonBadgeProps } from '../identicon'
 
-function AddressBadge(
-  props: AddressBadgeProps,
-  ref?: ForwardedRef<HTMLDivElement>,
-) {
-  const { address, symbolsMobile = 3, symbolsDesktop = 6 } = props
-  const isMobile = useBreakpoint('md')
-
-  return (
-    <AddressBadgeStyle
-      symbols={isMobile ? symbolsMobile : symbolsDesktop}
-      address={address ?? ''}
-      ref={ref}
-    />
-  )
+export type AddressBadgeProps = Omit<
+  IdenticonBadgeProps,
+  'address' | 'symbols'
+> & {
+  address?: string
+  symbolsMobile?: number
+  symbolsDesktop?: number
 }
 
-export default forwardRef(AddressBadge)
+export const AddressBadge = forwardRef(
+  (
+    {
+      address,
+      symbolsMobile = 3,
+      symbolsDesktop = 6,
+      className,
+      ...rest
+    }: AddressBadgeProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const isMobile = useBreakpoint('md')
+
+    return (
+      <IdenticonBadge
+        symbols={isMobile ? symbolsMobile : symbolsDesktop}
+        address={address ?? ''}
+        className={cn(styles.addressBadge, className)}
+        {...rest}
+        ref={ref}
+      />
+    )
+  },
+)
+AddressBadge.displayName = 'AddressBadge'

@@ -22,7 +22,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "strictFunctionTypes": false,
-    "baseUrl": "."
   },
   "files": ["packages/index.ts"],
   "include": [
