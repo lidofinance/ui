@@ -4,7 +4,7 @@ import { TOASTS_ERROR_OPTIONS } from './toastsDefaultOptions'
 
 export function ToastError(
   content: ToastContent,
-  options?: ToastOptions
+  options?: ToastOptions,
 ): ReactText {
   return toast.error(content, { ...TOASTS_ERROR_OPTIONS, ...(options || {}) })
 }

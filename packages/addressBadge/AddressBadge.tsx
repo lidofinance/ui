@@ -5,7 +5,7 @@ import { AddressBadgeProps } from './types'
 
 function AddressBadge(
   props: AddressBadgeProps,
-  ref?: ForwardedRef<HTMLDivElement>
+  ref?: ForwardedRef<HTMLDivElement>,
 ) {
   const { address, symbolsMobile = 3, symbolsDesktop = 6 } = props
   const isMobile = useBreakpoint('md')

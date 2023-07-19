@@ -9,7 +9,7 @@ import Button from './Button'
 
 function ButtonIcon(
   props: ButtonIconProps,
-  ref?: ForwardedRef<HTMLButtonElement>
+  ref?: ForwardedRef<HTMLButtonElement>,
 ) {
   const { icon, children, ...rest } = props
   const hasNoChildren = !children

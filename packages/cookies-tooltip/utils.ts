@@ -18,7 +18,7 @@ export const declineCookies = (): void => {
 }
 
 export const migrationAllowCookieToCrossDomainCookieClientSide = (
-  keyOldCookie: string
+  keyOldCookie: string,
 ) => {
   const old_cookie_value = getDomainCookieClientSide(keyOldCookie)
 

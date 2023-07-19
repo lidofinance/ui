@@ -10,7 +10,7 @@ import { Box } from '../box'
 
 function Checkbox(
   props: CheckboxProps,
-  inputRef?: ForwardedRef<HTMLInputElement>
+  inputRef?: ForwardedRef<HTMLInputElement>,
 ) {
   const { className, style, wrapperRef, children, label, ...inputProps } = props
   const { disabled } = inputProps

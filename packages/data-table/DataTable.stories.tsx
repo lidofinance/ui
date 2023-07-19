@@ -10,23 +10,24 @@ export default {
   },
 } as Meta
 
-export const Base: Story<DataTableProps & Pick<DataTableRowProps, 'loading'>> =
-  (props) => {
-    const { loading, ...rest } = props
+export const Base: Story<
+  DataTableProps & Pick<DataTableRowProps, 'loading'>
+> = (props) => {
+  const { loading, ...rest } = props
 
-    return (
-      <div style={{ width: 300 }}>
-        <DataTable {...rest}>
-          <DataTableRow title='You will receive' loading={loading}>
-            100&nbsp;LDO
-          </DataTableRow>
-          <DataTableRow title='Transaction gas cost' loading={loading}>
-            $0.12
-          </DataTableRow>
-        </DataTable>
-      </div>
-    )
-  }
+  return (
+    <div style={{ width: 300 }}>
+      <DataTable {...rest}>
+        <DataTableRow title='You will receive' loading={loading}>
+          100&nbsp;LDO
+        </DataTableRow>
+        <DataTableRow title='Transaction gas cost' loading={loading}>
+          $0.12
+        </DataTableRow>
+      </DataTable>
+    </div>
+  )
+}
 
 Base.args = {
   loading: false,

@@ -5,7 +5,7 @@ import { ModalExtraProps } from './types'
 
 function ModalExtra(
   props: ModalExtraProps,
-  ref?: ForwardedRef<HTMLDivElement>
+  ref?: ForwardedRef<HTMLDivElement>,
 ) {
   return <ModalExtraStyle {...props} ref={ref} />
 }

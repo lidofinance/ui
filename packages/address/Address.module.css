@@ -1,12 +1,10 @@
-import styled from 'styled-components'
-
-export const AddressStyle = styled.div`
+.address {
   position: relative;
   display: inline-block;
   font-weight: 400;
-`
+}
 
-export const AddressFullStyle = styled.span`
+.full {
   position: absolute;
   overflow: hidden;
   top: 0;
@@ -14,9 +12,9 @@ export const AddressFullStyle = styled.span`
   bottom: 0;
   left: 0;
   color: transparent;
-`
+}
 
-export const AddressTrimmedStyle = styled.span`
+.trimmed {
   user-select: none;
   pointer-events: none;
-`
+}

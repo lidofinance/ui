@@ -21,7 +21,7 @@ export const useExpanded: UseExpanded = ({ defaultExpanded = false }) => {
 
   const handleToggle = useCallback(
     () => setExpanded((previous) => !previous),
-    []
+    [],
   )
 
   const { getToggleProps, getCollapseProps } = useCollapse({ isExpanded })

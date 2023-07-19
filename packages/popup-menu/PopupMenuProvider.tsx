@@ -12,7 +12,7 @@ export const usePopupMenuContext = (): PopupMenuContext => {
 }
 
 export const PopupMenuProvider: FC<PropsWithChildren<PopupMenuContext>> = (
-  props
+  props,
 ) => {
   const { variant, ...rest } = props
 

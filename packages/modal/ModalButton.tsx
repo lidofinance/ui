@@ -28,7 +28,7 @@ const iconSize = {
 
 function ModalButton(
   props: ModalButtonIconProps,
-  ref?: ForwardedRef<HTMLButtonElement>
+  ref?: ForwardedRef<HTMLButtonElement>,
 ) {
   const { size = 'md', loading = false, children, icon } = props
 

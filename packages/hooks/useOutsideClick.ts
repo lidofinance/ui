@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 
 export const useOutsideClick = <T extends HTMLDivElement>(
-  callback?: () => void
+  callback?: () => void,
 ): {
   ref: React.RefObject<T>
 } => {
@@ -17,7 +17,7 @@ export const useOutsideClick = <T extends HTMLDivElement>(
       const isOutside = popover?.contains(target) === false
       if (isOutside) callback?.()
     },
-    [callback]
+    [callback],
   )
 
   useEffect(() => {

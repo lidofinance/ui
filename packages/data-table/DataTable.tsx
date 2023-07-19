@@ -18,7 +18,7 @@ export default forwardRef(DataTable)
 
 export const DataTableRow = forwardRef(function DataTableRow(
   props: DataTableRowProps,
-  ref?: ForwardedRef<HTMLDivElement>
+  ref?: ForwardedRef<HTMLDivElement>,
 ) {
   const {
     title,

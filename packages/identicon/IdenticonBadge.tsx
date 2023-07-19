@@ -6,7 +6,7 @@ import Identicon from './Identicon'
 
 function IdenticonBadge(
   props: IdenticonBadgeProps,
-  ref?: ForwardedRef<HTMLDivElement>
+  ref?: ForwardedRef<HTMLDivElement>,
 ) {
   const {
     symbols = 3,

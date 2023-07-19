@@ -7,7 +7,7 @@ import { usePopupFocus } from './usePopupFocus'
 
 function PopupMenu(
   props: PopupMenuProps,
-  externalRef?: ForwardedRef<HTMLDivElement>
+  externalRef?: ForwardedRef<HTMLDivElement>,
 ) {
   const { variant, children, onKeyDown, onMouseMove, ...rest } = props
 

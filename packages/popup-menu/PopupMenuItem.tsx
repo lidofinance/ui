@@ -10,7 +10,7 @@ import { PopupMenuItemProps } from './types'
 
 function PopupMenuItem(
   props: PopupMenuItemProps,
-  ref?: ForwardedRef<HTMLButtonElement>
+  ref?: ForwardedRef<HTMLButtonElement>,
 ) {
   const {
     active = false,

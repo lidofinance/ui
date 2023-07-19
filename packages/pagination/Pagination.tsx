@@ -31,12 +31,12 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const { onItemClick, pagesCount, activePage = 1, siblingCount } = props
 
   const [currentPage, setCurrPage] = useState(
-    getActiveItem(pagesCount, activePage)
+    getActiveItem(pagesCount, activePage),
   )
 
   const showingPages = useMemo<(string | number)[]>(
     () => getShowingPages(pagesCount, currentPage, siblingCount),
-    [pagesCount, currentPage, siblingCount]
+    [pagesCount, currentPage, siblingCount],
   )
 
   useEffect(() => {
