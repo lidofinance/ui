@@ -1,6 +1,6 @@
 import React, { ForwardedRef, forwardRef } from 'react'
 import { trimAddress } from './trimAddress'
-import { NewLidoComponentProps } from 'packages/utils'
+import { NewLidoComponentProps } from '../utils'
 import styles from './Address.module.css'
 import cn from 'classnames'
 

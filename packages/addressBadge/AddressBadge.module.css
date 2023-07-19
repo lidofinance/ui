@@ -1,7 +1,4 @@
-import { IdenticonBadge } from '../identicon'
-import styled from 'styled-components'
-
-export const AddressBadgeStyle = styled(IdenticonBadge)`
+.addressBadge {
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
@@ -13,4 +10,4 @@ export const AddressBadgeStyle = styled(IdenticonBadge)`
     overflow: hidden;
     text-overflow: ellipsis;
   }
-`
+}
