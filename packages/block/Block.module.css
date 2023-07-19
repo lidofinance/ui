@@ -1,0 +1,38 @@
+.foreground {
+  background: var(--lido-color-foreground);
+  color: var(--lido-color-textSecondary);
+}
+
+.background {
+  background: var(--lido-color-background);
+  color: var(--lido-color-textSecondary);
+}
+
+.accent {
+  background: var(--lido-color-accent);
+  color: var(--lido-color-accentContrast);
+}
+
+.flat {
+  box-shadow: none;
+}
+
+.shadow {
+  box-shadow: var(--lido-shadows-lg) var(--lido-color-shadowLight);
+}
+
+.padding {
+  padding: var(--lido-space-lg);
+
+  @media (--lido-media-breakpoint-up-md) {
+    padding: var(--lido-space-xxl);
+  }
+}
+
+.block {
+  font-weight: 400;
+  font-size: var(--lido-font-size-xxs);
+  line-height: 1.6em;
+  border-radius: var(--lido-border-radius-xl);
+  margin: 0;
+}

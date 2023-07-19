@@ -52,6 +52,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
+    "@csstools/postcss-global-data": "^2.0.0",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@semrel-extra/npm": "^1.2.2",
