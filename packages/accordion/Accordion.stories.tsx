@@ -4,7 +4,7 @@ import { Accordion, AccordionProps } from '.'
 export default {
   component: Accordion,
   title: 'Layout/Accordion',
-} as Meta
+} satisfies Meta
 
 export const Basic: StoryFn<AccordionProps> = (props) => (
   <Accordion {...props}>

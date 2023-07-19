@@ -10,11 +10,11 @@ import { isElement } from 'react-is'
 import { SelectProps, SelectHandleChange, OptionValue } from './types'
 
 type SelectHandleClick = (
-  event: React.MouseEvent<HTMLInputElement, MouseEvent>
+  event: React.MouseEvent<HTMLInputElement, MouseEvent>,
 ) => void
 
 type SelectHandleKeyDown = (
-  event: React.KeyboardEvent<HTMLInputElement>
+  event: React.KeyboardEvent<HTMLInputElement>,
 ) => void
 
 type SelectHandleClose = () => void
@@ -42,7 +42,7 @@ export const useSelect: UseSelect = (props) => {
       handleOpen()
       onClick?.(event)
     },
-    [handleOpen, onClick]
+    [handleOpen, onClick],
   )
 
   const handleClose = useCallback(() => {
@@ -55,7 +55,7 @@ export const useSelect: UseSelect = (props) => {
       setLocalValue(value)
       onChange?.(value)
     },
-    [handleClose, onChange]
+    [handleClose, onChange],
   )
 
   const handleKeyDown: SelectHandleKeyDown = useCallback(
@@ -66,7 +66,7 @@ export const useSelect: UseSelect = (props) => {
       }
       onKeyDown?.(event)
     },
-    [handleOpen, onKeyDown]
+    [handleOpen, onKeyDown],
   )
 
   const outerValue = props.value ?? props.defaultValue ?? null

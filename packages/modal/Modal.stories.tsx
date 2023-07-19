@@ -248,7 +248,7 @@ BasicModalButtonInModal.argTypes = {
 } as any
 
 export const ManulIconSizeInModalButtonInModal: Story<ButtonProps> = (
-  props
+  props,
 ) => {
   const modalProps = {
     title: 'Basic modal button in modal',

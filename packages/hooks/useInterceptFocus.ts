@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react'
 
 export const useInterceptFocus = (): [
   (node: HTMLElement) => void,
-  () => void
+  () => void,
 ] => {
   const savedElement = useRef<Element | null>(null)
 

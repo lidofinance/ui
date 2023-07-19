@@ -6,9 +6,9 @@ import { calculatePosition } from './calculatePosition'
 
 export const usePopoverPosition = <
   P extends HTMLDivElement,
-  W extends HTMLDivElement
+  W extends HTMLDivElement,
 >(
-  props: PopoverRootProps
+  props: PopoverRootProps,
 ): {
   popoverRef: React.RefObject<P>
   wrapperRef: React.RefObject<W>
@@ -33,7 +33,7 @@ export const usePopoverPosition = <
       anchorRect,
       popoverRect,
       wrapperRect,
-      placement
+      placement,
     )
     setPopoverStyle(position)
   }, [anchorRef, placement, windowWidth, windowHeight])

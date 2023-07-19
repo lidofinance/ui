@@ -14,7 +14,9 @@ export const CheckboxIconStyle = styled(Check)`
   height: 24px;
   width: 24px;
   border-radius: 4px;
-  transition: box-shadow 0.1s ease, background-color 0.1s ease;
+  transition:
+    box-shadow 0.1s ease,
+    background-color 0.1s ease;
   fill: var(--lido-color-primaryContrast);
 `
 

@@ -14,7 +14,7 @@ export type NewLidoComponentProps<
   ElementName extends keyof JSX.IntrinsicElements,
   // eslint-disable-next-line
   Props extends object = any,
-  ElementType = HTMLElementByName<ElementName>
+  ElementType = HTMLElementByName<ElementName>,
 > = Props &
   Simplify<
     Omit<JSX.IntrinsicElements[ElementName], 'ref' | keyof Props> & {

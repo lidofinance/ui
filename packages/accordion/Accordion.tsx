@@ -15,11 +15,11 @@ export type AccordionProps = NewLidoComponentProps<
 
 export const Accordion = forwardRef(
   (props: AccordionProps, ref?: ForwardedRef<HTMLDivElement>) => {
-    const { defaultExpanded, summary, children, ...rest } = props
+    const { defaultExpanded, summary, children, className, ...rest } = props
     const { toggleProps, collapseProps, isExpanded } = useExpanded(props)
 
     return (
-      <div {...rest} ref={ref} className={styles.accordion}>
+      <div className={cn(styles.accordion, className)} {...rest} ref={ref}>
         <div {...toggleProps} className={styles.summary}>
           <div className={styles.title}>{summary}</div>
           <ArrowBottom
@@ -31,6 +31,6 @@ export const Accordion = forwardRef(
         </div>
       </div>
     )
-  }
+  },
 )
 Accordion.displayName = 'Accordion'

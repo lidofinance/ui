@@ -5,7 +5,7 @@ export const calculatePosition = (
   anchorRect: DOMRect,
   popoverRect: DOMRect,
   wrapperRect: DOMRect,
-  placement: PopoverPlacements
+  placement: PopoverPlacements,
 ): CSSProperties => {
   const position: CSSProperties = {}
 

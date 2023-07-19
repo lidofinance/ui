@@ -57,7 +57,7 @@ const readFolder = async (folder) => {
         code: data.toString(),
         name: file.replace('.svg', ''),
       }
-    })
+    }),
   )
 }
 
@@ -82,9 +82,9 @@ const convertFiles = async () => {
           plugins: [svgrSvgo, svgrJsx, svgrPrettier],
           template: require('./template.component.js'),
         },
-        { componentName }
+        { componentName },
       )
-    })
+    }),
   )
 
   const content = indexTemplate(componentsCode)

@@ -55,7 +55,7 @@ export const CookieThemeProvider: FC<
     // we always start with default theme, or, if server wants to provide
     // specific default theme, with server-provided theme to avoid hydration errors
     const [internalThemeName, setThemeName] = useState<ThemeName>(
-      initialThemeName || DEFAULT_THEME_NAME
+      initialThemeName || DEFAULT_THEME_NAME,
     )
     // since we're using this component to provide cookie-theme,
     // we eventually want to respect theme provided in cookie, not general theme,
@@ -140,7 +140,7 @@ export const CookieThemeProvider: FC<
           })
         },
       }),
-      [themeName]
+      [themeName],
     )
 
     if (isTopLevelProvider) {
@@ -160,7 +160,7 @@ export const CookieThemeProvider: FC<
     } else {
       return <>{children}</>
     }
-  }
+  },
 )
 
 CookieThemeProvider.displayName = 'CookieThemeProvider'
