@@ -1,24 +1,55 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { BlockStyle } from './BlockStyles'
-import { BlockProps } from './types'
+import { ForwardedRef, forwardRef } from 'react'
+import { NewLidoComponentProps } from '../utils'
+import cn from 'classnames'
+import styles from './Block.module.css'
 
-function Block(props: BlockProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const {
-    color = 'foreground',
-    variant = 'flat',
-    paddingLess = false,
-    ...rest
-  } = props
-
-  return (
-    <BlockStyle
-      $color={color}
-      $variant={variant}
-      $paddingLess={paddingLess}
-      ref={ref}
-      {...rest}
-    />
-  )
+export enum BlockVariant {
+  flat,
+  shadow,
 }
+export type BlockVariants = keyof typeof BlockVariant
 
-export default forwardRef(Block)
+export enum BlockColor {
+  foreground,
+  background,
+  accent,
+}
+export type BlockColors = keyof typeof BlockColor
+
+export type BlockProps = NewLidoComponentProps<
+  'div',
+  {
+    color?: BlockColors
+    variant?: BlockVariants
+    paddingLess?: boolean
+  }
+>
+
+export const Block = forwardRef(
+  (
+    {
+      color = 'foreground',
+      variant = 'flat',
+      paddingLess = false,
+      className,
+      ...rest
+    }: BlockProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    return (
+      <div
+        className={cn(styles.block, className, {
+          [styles.foreground]: color === 'foreground',
+          [styles.background]: color === 'background',
+          [styles.accent]: color === 'accent',
+          [styles.flat]: variant === 'flat',
+          [styles.shadow]: variant === 'shadow',
+          [styles.padding]: !paddingLess,
+        })}
+        {...rest}
+        ref={ref}
+      />
+    )
+  },
+)
+Block.displayName = 'Block'
