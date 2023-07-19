@@ -6,3 +6,5 @@ export * from './themes'
 export * from './hooks'
 export * from './types'
 export { migrationThemeCookiesToCrossDomainCookiesClientSide } from './utils/cookies-migration'
+
+import './index.css'

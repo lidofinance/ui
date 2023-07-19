@@ -1,13 +1,12 @@
-import { Story, Meta } from '@storybook/react'
-import { AccordionProps } from './types'
-import Accordion from './Accordion'
+import { StoryFn, Meta } from '@storybook/react'
+import { Accordion, AccordionProps } from '.'
 
 export default {
   component: Accordion,
   title: 'Layout/Accordion',
 } as Meta
 
-export const Basic: Story<AccordionProps> = (props) => (
+export const Basic: StoryFn<AccordionProps> = (props) => (
   <Accordion {...props}>
     Liquid staking protocols allow users to earn staking rewards without locking
     assets or maintaining staking infrastructure. Users of these protocols can
@@ -32,7 +31,7 @@ Basic.argTypes = {
   },
 }
 
-export const List: Story = () => (
+export const List: StoryFn = () => (
   <>
     <Accordion summary='What is Liquid Staking?'>
       <p>

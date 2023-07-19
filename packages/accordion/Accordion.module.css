@@ -1,0 +1,65 @@
+.accordion {
+  margin: 0 0 var(--lido-space-sm) 0;
+  background: var(--lido-color-foreground);
+  border-radius: var(--lido-border-radius-xl);
+}
+
+.summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  outline: none;
+  min-height: 40px;
+  box-sizing: content-box;
+  padding: var(--lido-space-lg);
+
+  @media (--lido-media-breakpoint-up-md) {
+    padding: var(--lido-space-lg) var(--lido-space-xxl);
+  }
+}
+
+.title {
+  color: var(--lido-color-text);
+  flex-grow: 1;
+  font-weight: 800;
+  font-size: var(--lido-font-size-xs);
+  line-height: 1.6em;
+}
+
+.content {
+  color: var(--lido-color-textSecondary);
+  font-weight: 400;
+  font-size: var(--lido-font-size-xxs);
+  line-height: 1.6em;
+  padding: var(--lido-space-lg);
+  padding-top: 0;
+
+  @media (--lido-media-breakpoint-up-md) {
+    padding: var(--lido-space-xxl);
+    padding-top: 0;
+  }
+
+  p, ul, ol {
+    margin: 0 0 1.6em 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol {
+    padding: 0 0 0 1.5em;
+  }
+}
+
+.arrow { 
+  flex-shrink: 0;
+  margin: -2px;
+  margin-left: var(--lido-space-md);
+  fill: var(--lido-color-textSecondary);
+}
+
+.arrowExpanded {
+  transition: transform var(--lido-transition-duration-norm) ease;
+  transform: rotate(180deg);
+}

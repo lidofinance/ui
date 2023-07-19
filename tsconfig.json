@@ -26,6 +26,7 @@
   },
   "files": ["packages/index.ts"],
   "include": [
+    "**/*.d.ts",
     ".storybook/**/*.ts",
     ".storybook/**/*.tsx",
     "**/*.stories.tsx"

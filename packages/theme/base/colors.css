@@ -1,0 +1,38 @@
+:root {
+  --lido-color-dark-theme-opacity: 0;
+  --lido-color-light-theme-opacity: 1;
+
+  --lido-color-light-mode-visibility: visible;
+  --lido-color-dark-mode-visibility: hidden;
+
+  --lido-color-light-display: initial;
+  --lido-color-dark-display: none;
+
+  --lido-color-primary: #00a3ff;
+  --lido-color-primary-hover: #009bf2;
+  --lido-color-primary-contrast: #fff;
+  --lido-color-primary-visited: #4bbeff;
+
+  --lido-color-accent: #27272e;
+  --lido-color-accent-contrast: #fff;
+  --lido-color-accent-contrast-secondary: rgba(255, 255, 255, 0.6);
+  --lido-color-accent-darken: rgba(0, 0, 0, .2);
+  --lido-color-accent-control-bg: rgba(0, 0, 0, .1);
+  --lido-color-accent-border: rgba(255, 255, 255, 0.2);
+  --lido-color-accent-border-hover: rgba(255, 255, 255, 0.3);
+
+  --lido-color-error: #e14d4d;
+  --lido-color-error-hover: #d44c4d;
+  --lido-color-error-contrast: #fff;
+
+  --lido-color-warning: #EC8600;
+  --lido-color-warning-hover: #f0a431;
+  --lido-color-warning-contrast: #fff;
+  --lido-color-warning-background: #FFFAE0;
+
+  --lido-color-text-dark: #273852;
+
+  --lido-color-success: #53BA95;
+  --lido-color-success-hover: #4ba886;
+  --lido-color-success-contrast: #fff;
+}
