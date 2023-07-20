@@ -1,0 +1,38 @@
+.positive {
+  background: var(--lido-color-success);
+  color: var(--lido-color-foreground);
+}
+
+.negative {
+  background: var(--lido-color-error);
+  color: var(--lido-color-foreground);
+}
+
+.gray {
+  background: var(--lido-color-shadowLight);
+  color: var(--lido-color-textSecondary);
+}
+
+.warning {
+  background: var(--lido-color-warning);
+  color: var(--lido-color-foreground);
+}
+
+.chip {
+  font-size: 14px;
+  line-height: 20px;
+  display: inline-flex;
+  max-width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: nowrap;
+  outline: none;
+  padding: 0.2em 0.4em;
+	border: none;
+  border-radius: var(--lido-border-radius-xs);
+  cursor: auto;
+}
+
+.interactive {
+  cursor: pointer;
+}
