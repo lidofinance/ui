@@ -11026,6 +11026,14 @@ postcss-custom-media@^10.0.0:
     "@csstools/css-tokenizer" "^2.1.1"
     "@csstools/media-query-list-parser" "^2.1.2"
 
+postcss-nesting@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-12.0.0.tgz#729932293b925ac5bffcb6df1e2620faa0447554"
+  integrity sha512-knqwW65kxssmyIFadRSimaiRyLVRd0MdwfabesKw6XvGLwSOCJ+4zfvNQQCOOYij5obwpZzDpODuGRv2PCyiUw==
+  dependencies:
+    "@csstools/selector-specificity" "^3.0.0"
+    postcss-selector-parser "^6.0.13"
+
 postcss-resolve-nested-selector@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/postcss-resolve-nested-selector/-/postcss-resolve-nested-selector-0.1.1.tgz#29ccbc7c37dedfac304e9fff0bf1596b3f6a0e4e"
