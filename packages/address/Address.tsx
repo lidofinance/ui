@@ -1,16 +1,12 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { trimAddress } from './trimAddress'
-import { NewLidoComponentProps } from '../utils'
 import styles from './Address.module.css'
 import cn from 'classnames'
 
-export type AddressProps = NewLidoComponentProps<
-  'div',
-  {
-    address: string
-    symbols?: number
-  }
->
+export type AddressProps = ComponentPropsWithoutRef<'div'> & {
+  address: string
+  symbols?: number
+}
 
 export const Address = forwardRef(
   (

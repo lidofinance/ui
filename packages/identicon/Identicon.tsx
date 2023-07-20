@@ -1,18 +1,14 @@
-import { ForwardedRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 import cn from 'classnames'
 import styles from './Identicon.module.css'
-import { NewLidoComponentProps } from '../utils'
 
-export type IdenticonProps = NewLidoComponentProps<
-  'div',
-  {
-    address: string
-    diameter?: number
-    paperStyles?: React.CSSProperties
-    svgStyles?: React.CSSProperties
-  }
->
+export type IdenticonProps = ComponentPropsWithoutRef<'div'> & {
+  address: string
+  diameter?: number
+  paperStyles?: React.CSSProperties
+  svgStyles?: React.CSSProperties
+}
 
 export const Identicon = forwardRef(
   (

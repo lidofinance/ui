@@ -1,5 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
-import { NewLidoComponentProps } from '../utils'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import cn from 'classnames'
 import styles from './Chip.module.css'
 
@@ -11,13 +10,10 @@ export enum ChipVariant {
 }
 export type ChipVariants = keyof typeof ChipVariant
 
-export type ChipProps = NewLidoComponentProps<
-  'button',
-  {
-    wrapperRef?: React.RefObject<HTMLLabelElement>
-    variant?: ChipVariants
-  }
->
+export type ChipProps = ComponentPropsWithoutRef<'button'> & {
+  wrapperRef?: React.RefObject<HTMLLabelElement>
+  variant?: ChipVariants
+}
 
 export const Chip = forwardRef(
   (
