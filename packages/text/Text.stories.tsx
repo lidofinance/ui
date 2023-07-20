@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import Text from './Text'
-import { TextProps, TextColor, TextSize } from './types'
+import { StoryFn, Meta } from '@storybook/react'
+import { Text, TextProps, TextColor, TextSize } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -30,6 +29,6 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<TextProps> = (props) => <Text {...props} />
+export const Basic: StoryFn<TextProps> = (props) => <Text {...props} />
