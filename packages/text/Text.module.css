@@ -4,32 +4,32 @@
 }
 
 .xxs {
-  font-size: var(--lido-font-size-xxs); 
+  font-size: var(--lido-font-size-xxs);
   line-height: 1.5em;
 }
 
 .xs {
-  font-size: var(--lido-font-size-xs); 
+  font-size: var(--lido-font-size-xs);
   line-height: 1.5em;
 }
 
 .sm {
-  font-size: var(--lido-font-size-sm); 
+  font-size: var(--lido-font-size-sm);
   line-height: 1.5em;
 }
 
 .md {
-  font-size: var(--lido-font-size-md); 
+  font-size: var(--lido-font-size-md);
   line-height: 1.5em;
 }
 
 .lg {
-  font-size: var(--lido-font-size-lg); 
+  font-size: var(--lido-font-size-lg);
   line-height: 1.4em;
 }
 
 .xl {
-  font-size: var(--lido-font-size-xl); 
+  font-size: var(--lido-font-size-xl);
   line-height: 1.4em;
 }
 
@@ -46,25 +46,25 @@
 }
 
 .default {
-  color: var(--lido-color-text)
+  color: var(--lido-color-text);
 }
 
 .secondary {
-  color: var(--lido-color-textSecondary)
+  color: var(--lido-color-textSecondary);
 }
 
 .primary {
-  color: var(--lido-color-primary)
+  color: var(--lido-color-primary);
 }
 
 .warning {
-  color: var(--lido-color-warning)
+  color: var(--lido-color-warning);
 }
 
 .error {
-  color: var(--lido-color-error)
+  color: var(--lido-color-error);
 }
 
 .success {
-  color: var(--lido-color-success)
+  color: var(--lido-color-success);
 }
