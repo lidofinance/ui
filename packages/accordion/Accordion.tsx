@@ -1,17 +1,13 @@
-import { ForwardedRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { useExpanded } from './useExpanded'
-import { NewLidoComponentProps } from '../utils'
 import { ArrowBottom } from '../icons'
 import styles from './Accordion.module.css'
 import cn from 'classnames'
 
-export type AccordionProps = NewLidoComponentProps<
-  'div',
-  {
-    defaultExpanded?: boolean
-    summary: React.ReactNode
-  }
->
+export type AccordionProps = ComponentPropsWithoutRef<'div'> & {
+  defaultExpanded?: boolean
+  summary: React.ReactNode
+}
 
 export const Accordion = forwardRef(
   (props: AccordionProps, ref?: ForwardedRef<HTMLDivElement>) => {

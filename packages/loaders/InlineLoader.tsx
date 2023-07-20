@@ -1,5 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
-import { NewLidoComponentProps } from '../utils'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import cn from 'classnames'
 import styles from './InlineLoader.module.css'
 
@@ -10,12 +9,9 @@ export enum InlineLoaderColor {
 }
 export type InlineLoaderColors = keyof typeof InlineLoaderColor
 
-export type InlineLoaderProps = NewLidoComponentProps<
-  'div',
-  {
-    color?: InlineLoaderColors
-  }
->
+export type InlineLoaderProps = ComponentPropsWithoutRef<'div'> & {
+  color?: InlineLoaderColors
+}
 
 export const InlineLoader = forwardRef(
   (
