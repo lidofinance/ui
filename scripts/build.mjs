@@ -7,9 +7,9 @@ const buildTypes = async () => {
   await $`tsc -p tsconfig.build.json`
 }
 
-const concatAssets = async ({from, to}) => {
+const concatAssets = async ({ from, to }) => {
   const files = await glob(from)
-  const filesContent = await Promise.all(files.map(file => fs.readFile(file)))
+  const filesContent = await Promise.all(files.map((file) => fs.readFile(file)))
   const result = filesContent.join('\n')
   await fs.writeFile(to, result)
   console.log(`${files.length} concatenated`)
@@ -20,7 +20,7 @@ const buildPostcssExport = async () => {
   console.log('🏎️  Building PostCSS export...')
   await concatAssets({
     from: ['packages/theme/base/breakpoints.css'],
-    to: 'dist/postcss.css'
+    to: 'dist/postcss.css',
   })
 }
 

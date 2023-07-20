@@ -10,7 +10,7 @@ const themeViewports = Object.keys(breakpointsMap).reduce(
       styles: breakpointsMap[breakpoint],
     },
   }),
-  {}
+  {},
 )
 
 export default {

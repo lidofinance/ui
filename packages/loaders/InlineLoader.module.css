@@ -16,7 +16,8 @@
   background-size: 300% 100%;
   background-position: 100% 0;
   animation: translation 2s infinite;
-  --loader-color: currentColor;
+
+  --loader-color: currentcolor;
 
   background-image: linear-gradient(
     90deg,
@@ -28,26 +29,23 @@
     var(--loader-color) 100%
   );
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     background: var(--loader-color);
     opacity: 0.2;
   }
 }
 
 .text {
-  --loader-color: var(--lido-color-text)
+  --loader-color: var(--lido-color-text);
 }
 
 .secondary {
-  --loader-color: var(--lido-color-secondary)
+  --loader-color: var(--lido-color-secondary);
 }
 
 .foreground {
-  --loader-color: var(--lido-color-foreground)
+  --loader-color: var(--lido-color-foreground);
 }
