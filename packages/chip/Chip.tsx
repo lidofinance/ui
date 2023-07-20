@@ -12,7 +12,7 @@ export enum ChipVariant {
 export type ChipVariants = keyof typeof ChipVariant
 
 export type ChipProps = NewLidoComponentProps<
-  'div',
+  'button',
   {
     wrapperRef?: React.RefObject<HTMLLabelElement>
     variant?: ChipVariants
@@ -22,23 +22,25 @@ export type ChipProps = NewLidoComponentProps<
 export const Chip = forwardRef(
   (
     { children, onClick, variant = 'positive', className, ...rest }: ChipProps,
-    ref?: ForwardedRef<HTMLInputElement>,
+    ref?: ForwardedRef<HTMLButtonElement>,
   ) => {
+    const interactive = !!onClick
     return (
-      <div
+      <button
         className={cn(styles.chip, className, {
-          [styles.interactive]: !!onClick,
+          [styles.interactive]: interactive,
           [styles.positive]: variant === 'positive',
           [styles.negative]: variant === 'negative',
           [styles.warning]: variant === 'warning',
           [styles.gray]: variant === 'gray',
         })}
+        disabled={!interactive}
         onClick={onClick}
         {...rest}
         ref={ref}
       >
         {children}
-      </div>
+      </button>
     )
   },
 )
