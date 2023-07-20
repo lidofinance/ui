@@ -1,5 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react'
-import { NewLidoComponentProps } from '../utils'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import cn from 'classnames'
 import styles from './Block.module.css'
 
@@ -16,14 +15,11 @@ export enum BlockColor {
 }
 export type BlockColors = keyof typeof BlockColor
 
-export type BlockProps = NewLidoComponentProps<
-  'div',
-  {
-    color?: BlockColors
-    variant?: BlockVariants
-    paddingLess?: boolean
-  }
->
+export type BlockProps = ComponentPropsWithoutRef<'div'> & {
+  color?: BlockColors
+  variant?: BlockVariants
+  paddingLess?: boolean
+}
 
 export const Block = forwardRef(
   (

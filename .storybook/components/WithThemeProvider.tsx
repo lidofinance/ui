@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 export const WithThemeProvider: Decorator<any> = (
   Story,
-  { args }
+  { args },
 ): JSX.Element => {
   return (
     <CookieThemeProvider

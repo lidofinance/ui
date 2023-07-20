@@ -22,7 +22,7 @@
 
 .circleBg {
   fill: none;
-  stroke: currentColor;
+  stroke: currentcolor;
   opacity: 0.2;
 }
 
@@ -30,6 +30,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -37,7 +38,7 @@
 
 .circleFg {
   fill: none;
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-linecap: round;
   transform: rotate(0deg);
   transform-origin: 50% 50%;

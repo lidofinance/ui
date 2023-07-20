@@ -1,26 +1,29 @@
 module.exports = {
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-docs', {
-    name: '@storybook/addon-essentials',
-    options: {
-      backgrounds: false
-    }
-  }],
+  addons: [
+    '@storybook/addon-docs',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        backgrounds: false,
+      },
+    },
+  ],
   typescript: {
     check: false,
     checkOptions: {
-      formatter: 'codeframe'
+      formatter: 'codeframe',
     },
-    reactDocgen: 'none'
+    reactDocgen: 'none',
   },
   features: {
-    postcss: false
+    postcss: false,
   },
   docs: {
-    autodocs: true
+    autodocs: true,
   },
   framework: {
     name: '@storybook/react-vite',
-    options: {}
-  }
-};
+    options: {},
+  },
+}
