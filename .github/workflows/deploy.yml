@@ -31,14 +31,26 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
-      - name: Run lint
-        run: yarn lint
+      - name: Run checks
+        run: |
+          set -e 
+
+          echo Checking types...
+          yarn types
+
+          echo Checking format...
+          yarn format
+
+          echo Checking linting...
+          yarn lint
+
+          echo Running tests...
+          yarn test
+
+          set +e 
 
       - name: Build Components
         run: yarn build
-
-      - name: Run tests
-        run: yarn test
 
       - name: Publish to NPM
         env:

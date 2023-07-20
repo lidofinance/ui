@@ -39,20 +39,25 @@
     padding-top: 0;
   }
 
-  p, ul, ol {
-    margin: 0 0 1.6em 0;
+  /* stylelint-disable no-descending-specificity */
+  p,
+  ul,
+  ol {
+    margin: 0 0 1.6em;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  ul, ol {
+  ul,
+  ol {
     padding: 0 0 0 1.5em;
   }
+  /* stylelint-enable no-descending-specificity */
 }
 
-.arrow { 
+.arrow {
   flex-shrink: 0;
   margin: -2px;
   margin-left: var(--lido-space-md);

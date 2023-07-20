@@ -32,14 +32,23 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Check typescript
-        run: yarn types
+      - name: Run checks
+        run: |
+          set -e 
 
-      - name: Run lint
-        run: yarn lint
+          echo Checking types...
+          yarn types
 
-      - name: Build Components
-        run: yarn build
+          echo Checking format...
+          yarn format
 
-      - name: Run tests
-        run: yarn test
+          echo Checking linting...
+          yarn lint
+
+          echo Running tests...
+          yarn test
+
+          echo Trying to build...
+          yarn build
+
+          set +e 

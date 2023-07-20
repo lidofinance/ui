@@ -28,7 +28,7 @@
   white-space: nowrap;
   outline: none;
   padding: 0.2em 0.4em;
-	border: none;
+  border: none;
   border-radius: var(--lido-border-radius-xs);
   cursor: auto;
 }
