@@ -1,0 +1,23 @@
+.container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  min-width: 320px;
+  width: 100%;
+  padding: 0 var(--lido-space-lg);
+
+  @media (--lido-media-breakpoint-up-lg) {
+    padding: 0 var(--lido-space-xxl);
+  }
+}
+
+.full {
+  max-width: 1424px;
+}
+
+.content {
+  max-width: 960px;
+}
+
+.tight {
+  max-width: 560px;
+}
