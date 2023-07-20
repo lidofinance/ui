@@ -31,27 +31,6 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
-      - name: Run checks
-        run: |
-          set -e 
-
-          echo Checking types...
-          yarn types
-
-          echo Checking format...
-          yarn format
-
-          echo Checking JS/TS linting...
-          yarn lint:js
-
-          echo Checking CSS linting...
-          yarn lint:css
-
-          echo Running tests...
-          yarn test
-
-          set +e 
-
       - name: Build Components
         run: yarn build
 

@@ -8,15 +8,18 @@ permissions:
   contents: read
   security-events: write
 
+env:
+  NODE_OPTIONS: --max_old_space_size=4096
+
 jobs:
   security:
     uses: lidofinance/linters/.github/workflows/security.yml@master
+
   actions:
     uses: lidofinance/linters/.github/workflows/actions.yml@master
-  test-components:
+
+  cache-deps:
     runs-on: ubuntu-latest
-    env:
-      NODE_OPTIONS: --max_old_space_size=4096
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -32,26 +35,128 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run checks
-        run: |
-          set -e 
+  check-types:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
-          echo Checking types...
-          yarn types
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
 
-          echo Checking format...
-          yarn format
+      - name: Install dependencies
+        run: yarn install --immutable
 
-          echo Checking JS/TS linting...
-          yarn lint:js
+      - name: Check types
+        run: yarn types
 
-          echo Checking CSS linting...
-          yarn lint:css
+  check-format:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
-          echo Running tests...
-          yarn test
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
 
-          echo Trying to build...
-          yarn build
+      - name: Install dependencies
+        run: yarn install --immutable
 
-          set +e 
+      - name: Check format
+        run: yarn format
+
+  lint-js:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint JS/TS
+        run: yarn lint:js
+
+  lint-css:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint CSS
+        run: yarn lint:css
+
+  run-tests:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run tests
+        run: yarn test
+
+  demo-build:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Try to build
+        run: yarn build
