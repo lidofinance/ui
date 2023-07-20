@@ -5,5 +5,6 @@ module.exports = {
       files: ['packages/theme/base/breakpoints.css'],
     },
     'postcss-custom-media': {},
+    'postcss-nesting': {},
   },
 }

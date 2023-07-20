@@ -1,16 +1,13 @@
-import styled from 'styled-components'
-import { Check } from '../icons'
-
-export const CheckboxWrapperStyle = styled.label`
+.wrapper {
   flex-shrink: 0;
   display: inline-flex;
   position: relative;
   overflow: hidden;
   line-height: 0;
   align-items: center;
-`
+}
 
-export const CheckboxIconStyle = styled(Check)`
+.icon {
   height: 24px;
   width: 24px;
   border-radius: 4px;
@@ -18,9 +15,9 @@ export const CheckboxIconStyle = styled(Check)`
     box-shadow 0.1s ease,
     background-color 0.1s ease;
   fill: var(--lido-color-primaryContrast);
-`
+}
 
-export const CheckboxInputStyle = styled.input`
+.input {
   width: 1px;
   height: 1px;
   position: absolute;
@@ -31,11 +28,11 @@ export const CheckboxInputStyle = styled.input`
     cursor: pointer;
   }
 
-  label:hover &:not(:disabled):not(:checked) + ${CheckboxIconStyle} {
+  label:hover &:not(:disabled):not(:checked) + .icon {
     box-shadow: inset 0 0 0 1px var(--lido-color-borderHover);
   }
 
-  & + ${CheckboxIconStyle} {
+  & + .icon {
     background-color: var(--lido-color-controlBg);
     box-shadow: inset 0 0 0 1px var(--lido-color-border);
 
@@ -44,7 +41,7 @@ export const CheckboxInputStyle = styled.input`
     }
   }
 
-  &:checked + ${CheckboxIconStyle} {
+  &:checked + .icon {
     background-color: var(--lido-color-primary);
     box-shadow: none;
 
@@ -53,16 +50,20 @@ export const CheckboxInputStyle = styled.input`
     }
   }
 
-  &:disabled + ${CheckboxIconStyle} {
+  &:disabled + .icon {
     opacity: 0.5;
     cursor: default;
   }
 
-  &:focus-visible + ${CheckboxIconStyle} {
+  &:focus-visible + .icon {
     box-shadow: inset 0 0 0 1px var(--lido-color-primary);
   }
 
-  &:focus-visible:checked + ${CheckboxIconStyle} {
+  &:focus-visible:checked + .icon {
     box-shadow: inset 0 0 0 1px var(--lido-color-borderHover);
   }
-`
+}
+
+.wrapper .label {
+  margin-left: 8px;
+}
