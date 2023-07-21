@@ -1,13 +1,12 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Block } from '../block'
-
-import { ContentTheme } from './content-theme'
+import { ContentTheme } from '.'
 
 export default {
   title: 'Theme/Content Theme',
-} as Meta
+} satisfies Meta
 
-export const Basic: Story = () => (
+export const Basic: StoryFn = () => (
   <>
     <ContentTheme
       darkContent={
