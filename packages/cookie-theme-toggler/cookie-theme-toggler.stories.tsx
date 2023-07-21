@@ -1,10 +1,8 @@
-import { Story, Meta } from '@storybook/react'
-
+import { StoryFn, Meta } from '@storybook/react'
 import { Block } from '../block'
 import { ContentTheme } from '../content-theme'
 import { Text } from '../text'
-
-import { ThemeToggler } from './cookie-theme-toggler'
+import { ThemeToggler } from '.'
 
 export default {
   title: 'Theme/Cookie Theme Provider',
@@ -13,7 +11,7 @@ export default {
   },
 } as Meta
 
-export const Providers: Story = () => (
+export const Providers: StoryFn = () => (
   <>
     Use button to toggle theme{' '}
     <span role='img' aria-label='right'>
