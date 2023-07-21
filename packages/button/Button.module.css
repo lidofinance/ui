@@ -1,439 +1,443 @@
-.button {
-  box-sizing: border-box;
-  margin: 0;
-  border: none;
-  outline: none;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-  background: transparent;
-  font-family: inherit;
-  font-weight: 700;
+@layer loader, button;
 
-  &::before {
-    content: '';
+@layer button {
+  .button {
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    font-family: inherit;
+    font-weight: 700;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      display: none;
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .loading.button:disabled {
+    opacity: 1;
+  }
+
+  .fullwidth {
+    width: 100%;
+  }
+
+  .xxs {
+    line-height: 1em;
+    font-size: var(--lido-font-size-xxxs);
+    border-radius: var(--lido-border-radius-sm);
+    padding: 11px 16px;
+    min-width: 50px;
+  }
+
+  .xxs.square {
+    padding: 11px;
+    min-width: 0;
+  }
+
+  .xs {
+    line-height: 1em;
+    font-size: var(--lido-font-size-xxs);
+    border-radius: var(--lido-border-radius-sm);
+    padding: 10px 16px;
+    min-width: 60px;
+  }
+
+  .xs.square {
+    padding: 10px;
+    min-width: 0;
+  }
+
+  .sm {
+    line-height: 1em;
+    font-size: var(--lido-font-size-xs);
+    border-radius: var(--lido-border-radius-sm);
+    padding: 16px 24px;
+    min-width: 100px;
+  }
+
+  .sm.square {
+    padding: 16px;
+    min-width: 0;
+  }
+
+  .md {
+    line-height: 1em;
+    font-size: var(--lido-font-size-xs);
+    border-radius: var(--lido-border-radius-lg);
+    padding: 21px 44px;
+    min-width: 120px;
+  }
+
+  .md.square {
+    padding: 21px;
+    min-width: 0;
+  }
+
+  .lg {
+    line-height: 1em;
+    font-size: var(--lido-font-size-sm);
+    border-radius: var(--lido-border-radius-lg);
+    box-shadow: var(--lido-shadows-md) var(--lido-color-shadowDark);
+    padding: 24px 64px;
+    min-width: 160px;
+  }
+
+  .lg.square {
+    padding: 24px;
+    min-width: 0;
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  .ripple {
     position: absolute;
-    inset: 0;
+    border-radius: 50%;
+    transform: scale(0);
     pointer-events: none;
-    border-radius: inherit;
-    display: none;
+    animation: ripple 0.8s linear;
+    background-color: currentcolor;
+    opacity: 0.4;
   }
 
-  &:not(:disabled) {
-    cursor: pointer;
+  .filled {
+    transition: background-color var(--lido-transition-duration-fast) ease;
   }
 
-  &:disabled {
-    opacity: 0.5;
-  }
-}
-
-.loading.button:disabled {
-  opacity: 1;
-}
-
-.fullwidth {
-  width: 100%;
-}
-
-.xxs {
-  line-height: 1em;
-  font-size: var(--lido-font-size-xxxs);
-  border-radius: var(--lido-border-radius-sm);
-  padding: 11px 16px;
-  min-width: 50px;
-}
-
-.xxs.square {
-  padding: 11px;
-  min-width: 0;
-}
-
-.xs {
-  line-height: 1em;
-  font-size: var(--lido-font-size-xxs);
-  border-radius: var(--lido-border-radius-sm);
-  padding: 10px 16px;
-  min-width: 60px;
-}
-
-.xs.square {
-  padding: 10px;
-  min-width: 0;
-}
-
-.sm {
-  line-height: 1em;
-  font-size: var(--lido-font-size-xs);
-  border-radius: var(--lido-border-radius-sm);
-  padding: 16px 24px;
-  min-width: 100px;
-}
-
-.sm.square {
-  padding: 16px;
-  min-width: 0;
-}
-
-.md {
-  line-height: 1em;
-  font-size: var(--lido-font-size-xs);
-  border-radius: var(--lido-border-radius-lg);
-  padding: 21px 44px;
-  min-width: 120px;
-}
-
-.md.square {
-  padding: 21px;
-  min-width: 0;
-}
-
-.lg {
-  line-height: 1em;
-  font-size: var(--lido-font-size-sm);
-  border-radius: var(--lido-border-radius-lg);
-  box-shadow: var(--lido-shadows-md) var(--lido-color-shadowDark);
-  padding: 24px 64px;
-  min-width: 160px;
-}
-
-.lg.square {
-  padding: 24px;
-  min-width: 0;
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  pointer-events: none;
-  animation: ripple 0.8s linear;
-  background-color: currentcolor;
-  opacity: 0.4;
-}
-
-.filled {
-  transition: background-color var(--lido-transition-duration-fast) ease;
-}
-
-.filled.primary {
-  color: var(--lido-color-primaryContrast);
-  background-color: var(--lido-color-primary);
-
-  &:focus-visible,
-  &:not(:disabled):hover {
-    background-color: var(--lido-color-primaryHover);
-  }
-}
-
-.filled.secondary {
-  color: var(--lido-color-secondaryContrast);
-  background-color: var(--lido-color-secondary);
-
-  &:focus-visible,
-  &:not(:disabled):hover {
-    background-color: var(--lido-color-secondaryHover);
-  }
-}
-
-.filled.warning {
-  color: var(--lido-color-warningContrast);
-  background-color: var(--lido-color-warning);
-
-  &:focus-visible,
-  &:not(:disabled):hover {
-    background-color: var(--lido-color-warningHover);
-  }
-}
-
-.filled.error {
-  color: var(--lido-color-errorContrast);
-  background-color: var(--lido-color-error);
-
-  &:focus-visible,
-  &:not(:disabled):hover {
-    background-color: var(--lido-color-errorHover);
-  }
-}
-
-.filled.success {
-  color: var(--lido-color-successContrast);
-  background-color: var(--lido-color-success);
-
-  &:focus-visible,
-  &:not(:disabled):hover {
-    background-color: var(--lido-color-successHover);
-  }
-}
-
-.outlined {
-  transition:
-    background-color var(--lido-transition-duration-fast) ease,
-    color var(--lido-transition-duration-fast) ease;
-
-  &::before {
-    display: block;
-  }
-}
-
-.outlined.primary {
-  color: var(--lido-color-primary);
-
-  &::before {
-    border: 1px solid var(--lido-color-primary);
-  }
-
-  &:focus-visible,
-  &:not(:disabled):hover {
+  .filled.primary {
     color: var(--lido-color-primaryContrast);
-    background-color: var(--lido-color-primaryHover);
-  }
-}
+    background-color: var(--lido-color-primary);
 
-.outlined.secondary {
-  color: var(--lido-color-secondary);
-
-  &::before {
-    border: 1px solid var(--lido-color-secondary);
+    &:focus-visible,
+    &:not(:disabled):hover {
+      background-color: var(--lido-color-primaryHover);
+    }
   }
 
-  &:focus-visible,
-  &:not(:disabled):hover {
+  .filled.secondary {
     color: var(--lido-color-secondaryContrast);
-    background-color: var(--lido-color-secondaryHover);
-  }
-}
+    background-color: var(--lido-color-secondary);
 
-.outlined.warning {
-  color: var(--lido-color-warning);
-
-  &::before {
-    border: 1px solid var(--lido-color-warning);
+    &:focus-visible,
+    &:not(:disabled):hover {
+      background-color: var(--lido-color-secondaryHover);
+    }
   }
 
-  &:focus-visible,
-  &:not(:disabled):hover {
+  .filled.warning {
     color: var(--lido-color-warningContrast);
-    background-color: var(--lido-color-warningHover);
-  }
-}
+    background-color: var(--lido-color-warning);
 
-.outlined.error {
-  color: var(--lido-color-error);
-
-  &::before {
-    border: 1px solid var(--lido-color-error);
+    &:focus-visible,
+    &:not(:disabled):hover {
+      background-color: var(--lido-color-warningHover);
+    }
   }
 
-  &:focus-visible,
-  &:not(:disabled):hover {
+  .filled.error {
     color: var(--lido-color-errorContrast);
-    background-color: var(--lido-color-errorHover);
-  }
-}
+    background-color: var(--lido-color-error);
 
-.outlined.success {
-  color: var(--lido-color-success);
-
-  &::before {
-    border: 1px solid var(--lido-color-success);
+    &:focus-visible,
+    &:not(:disabled):hover {
+      background-color: var(--lido-color-errorHover);
+    }
   }
 
-  &:focus-visible,
-  &:not(:disabled):hover {
+  .filled.success {
     color: var(--lido-color-successContrast);
-    background-color: var(--lido-color-successHover);
-  }
-}
+    background-color: var(--lido-color-success);
 
-.text {
-  background-color: var(--lido-color-foreground);
-
-  &::before {
-    display: block;
-    transition: opacity var(--lido-transition-duration-fast) ease;
-    opacity: 0;
+    &:focus-visible,
+    &:not(:disabled):hover {
+      background-color: var(--lido-color-successHover);
+    }
   }
 
-  &:focus-visible,
-  &:not(:disabled):hover {
+  .outlined {
+    transition:
+      background-color var(--lido-transition-duration-fast) ease,
+      color var(--lido-transition-duration-fast) ease;
+
     &::before {
+      display: block;
+    }
+  }
+
+  .outlined.primary {
+    color: var(--lido-color-primary);
+
+    &::before {
+      border: 1px solid var(--lido-color-primary);
+    }
+
+    &:focus-visible,
+    &:not(:disabled):hover {
+      color: var(--lido-color-primaryContrast);
+      background-color: var(--lido-color-primaryHover);
+    }
+  }
+
+  .outlined.secondary {
+    color: var(--lido-color-secondary);
+
+    &::before {
+      border: 1px solid var(--lido-color-secondary);
+    }
+
+    &:focus-visible,
+    &:not(:disabled):hover {
+      color: var(--lido-color-secondaryContrast);
+      background-color: var(--lido-color-secondaryHover);
+    }
+  }
+
+  .outlined.warning {
+    color: var(--lido-color-warning);
+
+    &::before {
+      border: 1px solid var(--lido-color-warning);
+    }
+
+    &:focus-visible,
+    &:not(:disabled):hover {
+      color: var(--lido-color-warningContrast);
+      background-color: var(--lido-color-warningHover);
+    }
+  }
+
+  .outlined.error {
+    color: var(--lido-color-error);
+
+    &::before {
+      border: 1px solid var(--lido-color-error);
+    }
+
+    &:focus-visible,
+    &:not(:disabled):hover {
+      color: var(--lido-color-errorContrast);
+      background-color: var(--lido-color-errorHover);
+    }
+  }
+
+  .outlined.success {
+    color: var(--lido-color-success);
+
+    &::before {
+      border: 1px solid var(--lido-color-success);
+    }
+
+    &:focus-visible,
+    &:not(:disabled):hover {
+      color: var(--lido-color-successContrast);
+      background-color: var(--lido-color-successHover);
+    }
+  }
+
+  .text {
+    background-color: var(--lido-color-foreground);
+
+    &::before {
+      display: block;
+      transition: opacity var(--lido-transition-duration-fast) ease;
+      opacity: 0;
+    }
+
+    &:focus-visible,
+    &:not(:disabled):hover {
+      &::before {
+        opacity: 0.1;
+      }
+    }
+  }
+
+  .text.primary {
+    color: var(--lido-color-primary);
+
+    &::before {
+      background-color: var(--lido-color-primary);
+    }
+  }
+
+  .text.secondary {
+    color: var(--lido-color-secondary);
+
+    &::before {
+      background-color: var(--lido-color-secondary);
+    }
+  }
+
+  .text.warning {
+    color: var(--lido-color-warning);
+
+    &::before {
+      background-color: var(--lido-color-warning);
+    }
+  }
+
+  .text.error {
+    color: var(--lido-color-error);
+
+    &::before {
+      background-color: var(--lido-color-error);
+    }
+  }
+
+  .text.success {
+    color: var(--lido-color-success);
+
+    &::before {
+      background-color: var(--lido-color-success);
+    }
+  }
+
+  .ghost {
+    &::before {
+      display: block;
+      transition: opacity var(--lido-transition-duration-fast) ease;
+      opacity: 0;
+    }
+
+    &:focus-visible,
+    &:not(:disabled):hover {
+      &::before {
+        opacity: 0.1;
+      }
+    }
+  }
+
+  .ghost.primary {
+    color: var(--lido-color-primary);
+
+    &::before {
+      background-color: var(--lido-color-primary);
+    }
+  }
+
+  .ghost.secondary {
+    color: var(--lido-color-secondary);
+
+    &::before {
+      background-color: var(--lido-color-secondary);
+    }
+  }
+
+  .ghost.warning {
+    color: var(--lido-color-warning);
+
+    &::before {
+      background-color: var(--lido-color-warning);
+    }
+  }
+
+  .ghost.error {
+    color: var(--lido-color-error);
+
+    &::before {
+      background-color: var(--lido-color-error);
+    }
+  }
+
+  .ghost.success {
+    color: var(--lido-color-success);
+
+    &::before {
+      background-color: var(--lido-color-success);
+    }
+  }
+
+  .translucent {
+    &::before {
+      display: block;
+      transition: opacity var(--lido-transition-duration-fast) ease;
       opacity: 0.1;
     }
-  }
-}
 
-.text.primary {
-  color: var(--lido-color-primary);
-
-  &::before {
-    background-color: var(--lido-color-primary);
-  }
-}
-
-.text.secondary {
-  color: var(--lido-color-secondary);
-
-  &::before {
-    background-color: var(--lido-color-secondary);
-  }
-}
-
-.text.warning {
-  color: var(--lido-color-warning);
-
-  &::before {
-    background-color: var(--lido-color-warning);
-  }
-}
-
-.text.error {
-  color: var(--lido-color-error);
-
-  &::before {
-    background-color: var(--lido-color-error);
-  }
-}
-
-.text.success {
-  color: var(--lido-color-success);
-
-  &::before {
-    background-color: var(--lido-color-success);
-  }
-}
-
-.ghost {
-  &::before {
-    display: block;
-    transition: opacity var(--lido-transition-duration-fast) ease;
-    opacity: 0;
-  }
-
-  &:focus-visible,
-  &:not(:disabled):hover {
-    &::before {
-      opacity: 0.1;
+    &:focus-visible,
+    &:not(:disabled):hover {
+      &::before {
+        opacity: 0.2;
+      }
     }
   }
-}
 
-.ghost.primary {
-  color: var(--lido-color-primary);
+  .translucent.primary {
+    color: var(--lido-color-primary);
 
-  &::before {
-    background-color: var(--lido-color-primary);
-  }
-}
-
-.ghost.secondary {
-  color: var(--lido-color-secondary);
-
-  &::before {
-    background-color: var(--lido-color-secondary);
-  }
-}
-
-.ghost.warning {
-  color: var(--lido-color-warning);
-
-  &::before {
-    background-color: var(--lido-color-warning);
-  }
-}
-
-.ghost.error {
-  color: var(--lido-color-error);
-
-  &::before {
-    background-color: var(--lido-color-error);
-  }
-}
-
-.ghost.success {
-  color: var(--lido-color-success);
-
-  &::before {
-    background-color: var(--lido-color-success);
-  }
-}
-
-.translucent {
-  &::before {
-    display: block;
-    transition: opacity var(--lido-transition-duration-fast) ease;
-    opacity: 0.1;
-  }
-
-  &:focus-visible,
-  &:not(:disabled):hover {
     &::before {
-      opacity: 0.2;
+      background-color: var(--lido-color-primary);
     }
   }
-}
 
-.translucent.primary {
-  color: var(--lido-color-primary);
+  .translucent.secondary {
+    color: var(--lido-color-secondary);
 
-  &::before {
-    background-color: var(--lido-color-primary);
+    &::before {
+      background-color: var(--lido-color-secondary);
+    }
   }
-}
 
-.translucent.secondary {
-  color: var(--lido-color-secondary);
+  .translucent.warning {
+    color: var(--lido-color-warning);
 
-  &::before {
-    background-color: var(--lido-color-secondary);
+    &::before {
+      background-color: var(--lido-color-warning);
+    }
   }
-}
 
-.translucent.warning {
-  color: var(--lido-color-warning);
+  .translucent.error {
+    color: var(--lido-color-error);
 
-  &::before {
-    background-color: var(--lido-color-warning);
+    &::before {
+      background-color: var(--lido-color-error);
+    }
   }
-}
 
-.translucent.error {
-  color: var(--lido-color-error);
+  .translucent.success {
+    color: var(--lido-color-success);
 
-  &::before {
-    background-color: var(--lido-color-error);
+    &::before {
+      background-color: var(--lido-color-success);
+    }
   }
-}
 
-.translucent.success {
-  color: var(--lido-color-success);
-
-  &::before {
-    background-color: var(--lido-color-success);
+  .content {
+    position: relative;
+    pointer-events: none;
   }
-}
 
-.content {
-  position: relative;
-  pointer-events: none;
-}
+  .hidden {
+    visibility: hidden;
+  }
 
-.hidden {
-  visibility: hidden;
-}
-
-.loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: currentcolor;
-  pointer-events: none;
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: currentcolor;
+    pointer-events: none;
+  }
 }

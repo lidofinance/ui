@@ -6,5 +6,6 @@ module.exports = {
     },
     'postcss-custom-media': {},
     'postcss-nesting': {},
+    '@csstools/postcss-cascade-layers': {},
   },
 }
