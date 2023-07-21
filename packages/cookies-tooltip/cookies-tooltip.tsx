@@ -56,7 +56,7 @@ export const CookiesTooltip = ({ className, ...rest }: CookiesTooltipProps) => {
           <a
             className={styles.link}
             target='_blank'
-            rel='noopener'
+            rel='noopener noreferrer'
             href='https://lido.fi/privacy-notice'
           >
             Privacy Notice
