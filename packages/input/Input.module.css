@@ -195,6 +195,7 @@
     z-index: 2;
     border-color: var(--lido-color-borderActive);
 
+    /* stylelint-disable-next-line no-descending-specificity */
     .label {
       color: var(--lido-color-primary);
       opacity: 1;
