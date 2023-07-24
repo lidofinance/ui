@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import Link from './Link'
-import { LinkProps } from './types'
+import { StoryFn, Meta } from '@storybook/react'
+import { Link, LinkProps } from '.'
 
 export default {
   component: Link,
@@ -15,6 +14,6 @@ export default {
       description: 'Fade visited links',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<LinkProps> = (props) => <Link {...props} />
+export const Basic: StoryFn<LinkProps> = (props) => <Link {...props} />
