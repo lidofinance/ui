@@ -1,27 +1,11 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
-import styles from './LinkStyles.module.css'
-import cn from 'classnames'
+import React, { ForwardedRef, forwardRef } from 'react'
+import { LinkStyle } from './LinkStyles'
+import { LinkProps } from './types'
 
-export type LinkProps = ComponentPropsWithoutRef<'a'> & {
-  fadeVisited?: boolean
+function Link(props: LinkProps, ref?: ForwardedRef<HTMLAnchorElement>) {
+  return (
+    <LinkStyle target='_blank' rel='nofollow noopener' ref={ref} {...props} />
+  )
 }
 
-export const Link = forwardRef(
-  (
-    { fadeVisited, className, children, ...rest }: LinkProps,
-    ref?: ForwardedRef<HTMLAnchorElement>,
-  ) => {
-    return (
-      <a
-        className={cn(styles.link, { [styles.fadedVisited]: fadeVisited })}
-        target='_blank'
-        rel='nofollow noopener'
-        ref={ref}
-        {...rest}
-      >
-        {children}
-      </a>
-    )
-  },
-)
-Link.displayName = 'Link'
+export default forwardRef(Link)
