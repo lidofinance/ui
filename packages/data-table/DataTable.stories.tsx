@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import { DataTableProps, DataTableRowProps } from './types'
-import DataTable, { DataTableRow } from './DataTable'
+import { StoryFn, Meta } from '@storybook/react'
+import { DataTable, DataTableRow, DataTableProps, DataTableRowProps } from '.'
 
 export default {
   component: DataTable,
@@ -8,13 +7,11 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as Meta
+} satisfies Meta
 
-export const Base: Story<
+export const Base: StoryFn<
   DataTableProps & Pick<DataTableRowProps, 'loading'>
-> = (props) => {
-  const { loading, ...rest } = props
-
+> = ({ loading, ...rest }) => {
   return (
     <div style={{ width: 300 }}>
       <DataTable {...rest}>
@@ -33,7 +30,7 @@ Base.args = {
   loading: false,
 }
 
-export const WithHint: Story<DataTableProps> = (props) => {
+export const WithHint: StoryFn<DataTableProps> = (props) => {
   return (
     <div style={{ width: 300 }}>
       <DataTable {...props}>
@@ -49,7 +46,7 @@ export const WithHint: Story<DataTableProps> = (props) => {
   )
 }
 
-export const WithHighlighted: Story<DataTableProps> = (props) => {
+export const WithHighlighted: StoryFn<DataTableProps> = (props) => {
   return (
     <div style={{ width: 300 }}>
       <DataTable {...props}>
