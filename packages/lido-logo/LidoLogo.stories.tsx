@@ -1,9 +1,9 @@
-import { Story, Meta } from '@storybook/react'
-import LidoLogo from './LidoLogo'
+import { StoryFn, Meta } from '@storybook/react'
+import { LidoLogo } from '.'
 
 export default {
   component: LidoLogo,
   title: 'Layout/LidoLogo',
-} as Meta
+} satisfies Meta
 
-export const Basic: Story = () => <LidoLogo />
+export const Basic: StoryFn = () => <LidoLogo />
