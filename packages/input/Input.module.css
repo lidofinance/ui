@@ -112,20 +112,20 @@
     border-radius: var(--lido-border-radius-lg);
     transition: border-color var(--lido-transition-duration-fast) ease;
   }
+}
 
-  .content:not(.disabled) {
-    &:hover {
-      z-index: 1;
-    }
+.content:not(.disabled) {
+  &:hover {
+    z-index: 1;
+  }
 
-    &:focus-within {
-      z-index: 2;
-      border-color: var(--lido-color-borderActive);
+  &:focus-within {
+    z-index: 2;
+    border-color: var(--lido-color-borderActive);
 
-      .label {
-        color: var(--lido-color-primary);
-        opacity: 1;
-      }
+    .label {
+      color: var(--lido-color-primary);
+      opacity: 1;
     }
   }
 }
@@ -260,7 +260,7 @@
         color: var(--lido-color-textSecondary);
       }
 
-      &.colorDccent {
+      &.colorAccent {
         color: var(--lido-color-accentContrastSecondary);
       }
     }
