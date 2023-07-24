@@ -1,7 +1,6 @@
-import { Story, Meta } from '@storybook/react'
-import { SliderInputProps } from './types'
-import React, { useState } from 'react'
-import OptionsSlider from './OptionsSlider'
+import { StoryFn, Meta } from '@storybook/react'
+import { useState } from 'react'
+import { OptionsSlider, SliderInputProps } from '.'
 
 export default {
   component: OptionsSlider,
@@ -17,15 +16,15 @@ export default {
       table: { disable: true },
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<SliderInputProps> = (props) => {
+export const Basic: StoryFn<SliderInputProps> = (props) => {
   const [value, setValue] = useState('weekly')
   return (
     <OptionsSlider
       {...props}
       value={value}
-      onChange={(val) => setValue(val as string)}
+      onChange={(val: string) => setValue(val)}
       options={[
         { value: 'weekly', label: 'Weekly' },
         { value: 'monthly', label: 'Monthly' },
