@@ -2,7 +2,8 @@
   "extends": ["stylelint-config-standard"],
   "rules": {
     "custom-property-pattern": null,
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "property-no-unknown": [true, { "ignoreProperties": ["composes"] }]
   },
   "ignoreFiles": [
     "node_modules/**/*", 

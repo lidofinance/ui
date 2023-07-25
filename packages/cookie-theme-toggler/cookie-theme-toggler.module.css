@@ -1,14 +1,16 @@
-.light {
+.icon {
   grid-area: a;
   align-self: center;
   justify-self: center;
+}
+
+.light {
+  composes: icon;
   visibility: var(--lido-color-darkModeVisibility);
 }
 
 .dark {
-  grid-area: a;
-  align-self: center;
-  justify-self: center;
+  composes: icon;
   visibility: var(--lido-color-lightModeVisibility);
 }
 
