@@ -48,24 +48,3 @@
     }
   }
 }
-
-/* 
-type TransitionProps = {
-  $duration: number
-  $transition: TransitionInnerProps['transitionStatus']
-}
-
-const visibleCSS = css`
-`
-
-const hiddenCSS = css`
-`
-
-const getTransitionCSS = ({ $transition }: TransitionProps) => {
-  return ['exiting', 'exited'].includes($transition) ? hiddenCSS : visibleCSS
-}
-
-export const PopoverRootStyle = styled.div<TransitionProps>`
-
-  ${getTransitionCSS}
-` */
