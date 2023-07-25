@@ -1,0 +1,14 @@
+.icon {
+  input {
+    width: 0;
+  }
+}
+
+.iconDecorator {
+  margin-right: -24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  justify-self: stretch;
+}
