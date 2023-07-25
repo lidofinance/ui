@@ -1,16 +1,15 @@
-import React, { useMemo, useState, useEffect } from 'react'
-import styled from 'styled-components'
-
-import { ArrowLeft, ArrowRight } from '../icons'
-import { Box } from '../box'
-
 import {
-  PaginationProps,
-  PaginationItemProps,
-  PaginationItemVariant,
-} from './types'
+  useMemo,
+  useState,
+  useEffect,
+  FC,
+  ComponentPropsWithoutRef,
+} from 'react'
+import { ArrowLeft, ArrowRight } from '../icons'
 import getShowingPages from './getShowingPages'
-import PaginationItem from './PaginationItem'
+import { PaginationItem, PaginationItemProps } from './PaginationItem'
+import cn from 'classnames'
+import styles from './Pagination.module.css'
 
 const getActiveItem = (length: number, activeItem: number): number => {
   const isActiveNotInRange: boolean = activeItem >= length || activeItem < 0
@@ -22,14 +21,28 @@ const getActiveItem = (length: number, activeItem: number): number => {
   return activeItem
 }
 
-const PaginationBlock = styled(Box)`
-  display: flex;
-  gap: 8px;
-`
+export type SiblingsCount = 0 | 1
 
-const Pagination: React.FC<PaginationProps> = (props) => {
-  const { onItemClick, pagesCount, activePage = 1, siblingCount } = props
+export type onItemClick = (index: number, e?: React.MouseEvent) => void
 
+export type PaginationProps = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  'children'
+> & {
+  pagesCount: number
+  activePage?: number
+  onItemClick: onItemClick
+  siblingCount?: SiblingsCount
+}
+
+export const Pagination: FC<PaginationProps> = ({
+  onItemClick,
+  pagesCount,
+  activePage = 1,
+  siblingCount,
+  className,
+  ...rest
+}) => {
   const [currentPage, setCurrPage] = useState(
     getActiveItem(pagesCount, activePage),
   )
@@ -71,7 +84,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   }
 
   return (
-    <PaginationBlock>
+    <div className={cn(styles.block, className)} {...rest}>
       <PaginationItem
         disabled={currentPage === 1}
         icon={<ArrowLeft />}
@@ -81,9 +94,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       {showingPages.map((page, index) => {
         const isDisabled = page === '...'
         const variant: PaginationItemProps['variant'] =
-          page === currentPage
-            ? PaginationItemVariant.active
-            : PaginationItemVariant.default
+          page === currentPage ? 'active' : 'default'
 
         return (
           <PaginationItem
@@ -101,8 +112,6 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         icon={<ArrowRight />}
         onClick={onNextClick}
       />
-    </PaginationBlock>
+    </div>
   )
 }
-
-export default Pagination
