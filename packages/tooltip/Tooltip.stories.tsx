@@ -1,8 +1,7 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Question } from '../icons'
 import { PopoverOffset, PopoverPlacement } from '../popover'
-import { TooltipProps } from './types'
-import Tooltip from './Tooltip'
+import { Tooltip, TooltipProps } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -32,15 +31,15 @@ export default {
       control: 'radio',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<TooltipProps> = (props) => (
+export const Basic: StoryFn<TooltipProps> = (props) => (
   <Tooltip {...props}>
     <span>Hover me</span>
   </Tooltip>
 )
 
-export const Icon: Story<TooltipProps> = (props) => (
+export const Icon: StoryFn<TooltipProps> = (props) => (
   <Tooltip {...props}>
     <Question />
   </Tooltip>
