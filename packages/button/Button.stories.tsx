@@ -1,14 +1,14 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Whitepaper } from '../icons'
 import {
+  Button,
   ButtonProps,
   ButtonIconProps,
   ButtonColor,
   ButtonSize,
   ButtonVariant,
-} from './types'
-import Button from './Button'
-import ButtonIcon from './ButtonIcon'
+  ButtonIcon,
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -23,6 +23,7 @@ export default {
     disabled: false,
     fullwidth: false,
     loading: false,
+    square: false,
     children: 'Example',
   },
   argTypes: {
@@ -41,13 +42,13 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<ButtonProps> = (props) => <Button {...props} />
+export const Basic: StoryFn<ButtonProps> = (props) => <Button {...props} />
 
-export const WithIcon: Story<Omit<ButtonIconProps, 'icon'>> = (props) => (
+export const WithIcon: StoryFn<Omit<ButtonIconProps, 'icon'>> = (props) => (
   <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 
-export const Icon: Story<Omit<ButtonIconProps, 'icon'>> = (props) => (
+export const Icon: StoryFn<Omit<ButtonIconProps, 'icon'>> = (props) => (
   <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 
