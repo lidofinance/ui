@@ -24,10 +24,10 @@
   text-align: right;
   margin-left: var(--lido-space-xxl);
   flex-grow: 1;
-}
 
-.value.highlight {
-  color: var(--lido-color-success);
+  &.highlight {
+    color: var(--lido-color-success);
+  }
 }
 
 .question {
