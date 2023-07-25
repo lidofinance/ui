@@ -1,0 +1,43 @@
+.navLink {
+  cursor: pointer;
+  color: var(--lido-color-secondary);
+  font-size: var(--lido-font-size-xxxs);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  line-height: 1.2em;
+
+  &:hover {
+    opacity: 1;
+    color: var(--lido-color-secondary);
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 32px;
+  }
+
+  svg {
+    fill: var(--lido-color-secondary);
+  }
+
+  &.active {
+    opacity: 1;
+
+    svg {
+      fill: var(--lido-color-primary);
+    }
+  }
+
+  @media (--lido-media-breakpoint-up-md) {
+    font-weight: 800;
+    flex-direction: row;
+    text-transform: uppercase;
+    line-height: 1.7em;
+    letter-spacing: 0.04em;
+  }
+}

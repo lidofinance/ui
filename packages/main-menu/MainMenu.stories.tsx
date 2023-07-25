@@ -1,7 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Stake, Wrap, Wallet } from '../icons'
-import MainMenu from './MainMenu'
-import MainMenuItem from './MainMenuItem'
+import { MainMenu, MainMenuItem } from '.'
 
 export default {
   component: MainMenu,
@@ -16,9 +15,9 @@ export default {
       options: ['stake', 'wrap', 'wallet'],
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<{ active: 'stake' | 'wrap' | 'wallet' }> = ({
+export const Basic: StoryFn<{ active: 'stake' | 'wrap' | 'wallet' }> = ({
   active,
 }) => (
   <MainMenu>
