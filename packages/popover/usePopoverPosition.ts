@@ -1,21 +1,21 @@
 import React, { useRef, useLayoutEffect, useState, CSSProperties } from 'react'
 import { useWindowSize } from '../hooks'
-import { PopoverRootProps } from './types'
+import { PopoverRootProps } from './PopoverRoot'
 import { INITIAL_STYLE, DEFAULT_PLACEMENT } from './constants'
 import { calculatePosition } from './calculatePosition'
 
 export const usePopoverPosition = <
   P extends HTMLDivElement,
   W extends HTMLDivElement,
->(
-  props: PopoverRootProps,
-): {
+>({
+  placement = DEFAULT_PLACEMENT,
+  anchorRef,
+  style,
+}: Pick<PopoverRootProps, 'placement' | 'anchorRef' | 'style'>): {
   popoverRef: React.RefObject<P>
   wrapperRef: React.RefObject<W>
-  style: CSSProperties
+  customStyle: CSSProperties
 } => {
-  const { placement = DEFAULT_PLACEMENT, anchorRef } = props
-
   const popoverRef = useRef<P>(null)
   const wrapperRef = useRef<W>(null)
 
@@ -38,14 +38,14 @@ export const usePopoverPosition = <
     setPopoverStyle(position)
   }, [anchorRef, placement, windowWidth, windowHeight])
 
-  const style = {
-    ...props.style,
+  const customStyle = {
+    ...style,
     ...popoverStyle,
   }
 
   return {
     popoverRef,
     wrapperRef,
-    style,
+    customStyle,
   }
 }

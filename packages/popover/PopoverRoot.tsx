@@ -1,60 +1,112 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { modalRoot } from '../utils'
 import { useMergeRefs, useOutsideClick, useEscape } from '../hooks'
-import { withTransition } from '../transition'
+import {
+  TransitionInnerProps,
+  TransitionWrapperProps,
+  withTransition,
+} from '../transition'
 import { usePopoverPosition } from './usePopoverPosition'
-import { PopoverWrapperStyle, PopoverRootStyle } from './PopoverRootStyles'
-import { PopoverRootInnerProps } from './types'
 import { DEFAULT_PLACEMENT } from './constants'
+import cn from 'classnames'
+import styles from './PopoverRoot.module.css'
 
-function PopoverRoot(
-  props: PopoverRootInnerProps,
-  externalRef?: ForwardedRef<HTMLDivElement>,
-) {
-  const {
-    anchorRef,
-    wrapperRef: externalWrapperRef,
-    placement = DEFAULT_PLACEMENT,
-    backdrop = true,
-    transitionStatus,
-    duration,
-    ...rest
-  } = props
+export enum PopoverPlacement {
+  topLeft,
+  top,
+  topRight,
 
-  const { onClose } = props
-  useEscape(onClose)
-  const { ref: outsidePopoverRef } = useOutsideClick(onClose)
+  rightTop,
+  right,
+  rightBottom,
 
-  const {
-    popoverRef: positionPopoverRef,
-    wrapperRef: positionWrapperRef,
-    style,
-  } = usePopoverPosition(props)
+  bottomLeft,
+  bottom,
+  bottomRight,
 
-  const popoverRef = useMergeRefs([
-    positionPopoverRef,
-    outsidePopoverRef,
-    externalRef,
-  ])
+  leftTop,
+  left,
+  leftBottom,
+}
+export type PopoverPlacements = keyof typeof PopoverPlacement
 
-  const wrapperRef = useMergeRefs([positionWrapperRef, externalWrapperRef])
-
-  if (!modalRoot) return null
-
-  return ReactDOM.createPortal(
-    <PopoverWrapperStyle $backdrop={backdrop} ref={wrapperRef}>
-      <PopoverRootStyle
-        {...rest}
-        $transition={transitionStatus}
-        $duration={duration}
-        data-placement={placement}
-        style={style}
-        ref={popoverRef}
-      />
-    </PopoverWrapperStyle>,
-    modalRoot,
-  )
+export type PopoverRootOwnProps = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  'children'
+> & {
+  wrapperRef?: React.RefObject<HTMLDivElement>
+  anchorRef: React.RefObject<HTMLElement | null>
+  placement?: PopoverPlacements
+  backdrop?: boolean
+  onClose?: () => void
 }
 
-export default withTransition(forwardRef(PopoverRoot))
+export type PopoverRootProps = PopoverRootOwnProps & TransitionWrapperProps
+export type PopoverRootInnerProps = PopoverRootOwnProps & TransitionInnerProps
+
+export const PopoverRoot = withTransition(
+  // eslint-disable-next-line react/display-name
+  forwardRef(
+    (
+      {
+        anchorRef,
+        wrapperRef: externalWrapperRef,
+        placement = DEFAULT_PLACEMENT,
+        backdrop = true,
+        transitionStatus,
+        duration,
+        onClose,
+        style,
+        className,
+        ...rest
+      }: PopoverRootInnerProps,
+      externalRef?: ForwardedRef<HTMLDivElement>,
+    ) => {
+      useEscape(onClose)
+      const { ref: outsidePopoverRef } = useOutsideClick(onClose)
+
+      const {
+        popoverRef: positionPopoverRef,
+        wrapperRef: positionWrapperRef,
+        customStyle,
+      } = usePopoverPosition({ placement, anchorRef, style })
+
+      const popoverRef = useMergeRefs([
+        positionPopoverRef,
+        outsidePopoverRef,
+        externalRef,
+      ])
+
+      const wrapperRef = useMergeRefs([positionWrapperRef, externalWrapperRef])
+
+      if (!modalRoot) return null
+
+      return ReactDOM.createPortal(
+        <div
+          className={cn(styles.wrapper, { [styles.backdrop]: backdrop })}
+          ref={wrapperRef}
+        >
+          <div
+            className={cn(
+              styles.root,
+              className,
+              ['exiting', 'exited'].includes(transitionStatus)
+                ? styles.hidden
+                : styles.visible,
+            )}
+            style={{
+              transition: `opacity ${duration}ms ease`,
+              ...customStyle,
+            }}
+            {...rest}
+            data-placement={placement}
+            ref={popoverRef}
+          />
+        </div>,
+        modalRoot,
+      )
+    },
+  ),
+)
+PopoverRoot.displayName = 'PopoverRoot'
