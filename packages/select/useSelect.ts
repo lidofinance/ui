@@ -7,7 +7,7 @@ import React, {
   useEffect,
 } from 'react'
 import { isElement } from 'react-is'
-import { SelectProps, SelectHandleChange, OptionValue } from './types'
+import { SelectOptionValue, SelectHandleChange, SelectProps } from './Select'
 
 type SelectHandleClick = (
   event: React.MouseEvent<HTMLInputElement, MouseEvent>,
@@ -19,7 +19,18 @@ type SelectHandleKeyDown = (
 
 type SelectHandleClose = () => void
 
-type UseSelect = (props: SelectProps) => {
+type UseSelect = (
+  props: Pick<
+    SelectProps,
+    | 'value'
+    | 'defaultValue'
+    | 'disabled'
+    | 'onClick'
+    | 'onChange'
+    | 'onKeyDown'
+    | 'children'
+  >,
+) => {
   handleClick: SelectHandleClick
   handleClose: SelectHandleClose
   handleKeyDown: SelectHandleKeyDown
@@ -28,8 +39,15 @@ type UseSelect = (props: SelectProps) => {
   options: React.ReactNode
 }
 
-export const useSelect: UseSelect = (props) => {
-  const { disabled, onClick, onChange, onKeyDown, children } = props
+export const useSelect: UseSelect = ({
+  value,
+  defaultValue,
+  disabled,
+  onClick,
+  onChange,
+  onKeyDown,
+  children,
+}) => {
   const [opened, setOpened] = useState(false)
 
   const handleOpen = useCallback(() => {
@@ -69,15 +87,17 @@ export const useSelect: UseSelect = (props) => {
     [handleOpen, onKeyDown],
   )
 
-  const outerValue = props.value ?? props.defaultValue ?? null
-  const [localValue, setLocalValue] = useState<OptionValue | null>(outerValue)
+  const outerValue = value ?? defaultValue ?? null
+  const [localValue, setLocalValue] = useState<SelectOptionValue | null>(
+    outerValue,
+  )
 
   useEffect(() => {
     setLocalValue(outerValue)
   }, [outerValue])
 
   const { values, options } = useMemo(() => {
-    const values = new Map<OptionValue, string>()
+    const values = new Map<SelectOptionValue, string>()
 
     const options: React.ReactNode = Children.map(children, (child) => {
       if (!isElement(child)) return child
