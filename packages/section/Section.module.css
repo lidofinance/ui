@@ -1,0 +1,22 @@
+.section {
+  margin: var(--lido-space-xxl) 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: var(--lido-font-size-xxs);
+}
+
+.title {
+  margin-right: auto;
+  font-weight: 800;
+  font-size: var(--lido-font-size-md);
+  line-height: 1.3em;
+}
+
+.headerDecorator {
+  margin-left: var(--lido-space-lg);
+  font-size: var(--lido-font-size-xxs);
+  line-height: 1.5em;
+}

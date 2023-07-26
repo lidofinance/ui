@@ -1,8 +1,6 @@
-import styled from 'styled-components'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Block } from '../block'
-import { SectionProps } from './types'
-import Section from './Section'
+import { Section, SectionProps } from '.'
 
 export default {
   component: Section,
@@ -10,15 +8,15 @@ export default {
   args: {
     title: 'Section',
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<SectionProps> = (props) => (
+export const Basic: StoryFn<SectionProps> = (props) => (
   <Section {...props}>
     <Block>Example content</Block>
   </Section>
 )
 
-export const HeaderDecorator: Story<SectionProps> = (props) => (
+export const HeaderDecorator: StoryFn<SectionProps> = (props) => (
   <Section
     {...props}
     headerDecorator={
@@ -31,18 +29,13 @@ export const HeaderDecorator: Story<SectionProps> = (props) => (
   </Section>
 )
 
-const H2OverrideStyled = styled.div`
-  h2 {
-    margin: 0 auto 0 0;
-    padding: 0;
-    font-weight: 800;
-    font-size: 18px;
-    line-height: 1.3em;
-  }
-`
-
-export const HeaderStyleOverride: Story<SectionProps> = (props) => (
-  <H2OverrideStyled>
+export const HeaderStyleOverride: StoryFn<SectionProps> = (props) => (
+  <div>
+    <style>{`
+      h2 {
+        color: red;
+      }
+    `}</style>
     <Section
       {...props}
       headerDecorator={
@@ -53,5 +46,5 @@ export const HeaderStyleOverride: Story<SectionProps> = (props) => (
     >
       <Block>H2 style overridden</Block>
     </Section>
-  </H2OverrideStyled>
+  </div>
 )
