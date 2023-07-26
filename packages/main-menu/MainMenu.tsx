@@ -1,14 +1,19 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { MainMenuProps } from './types'
-import { Nav } from './MainMenuStyles'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import cn from 'classnames'
+import styles from './MainMenu.module.css'
 
-function MainMenu(props: MainMenuProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { children, ...restProps } = props
-  return (
-    <Nav ref={ref} {...restProps}>
-      {children}
-    </Nav>
-  )
-}
+export type MainMenuProps = ComponentPropsWithoutRef<'div'>
 
-export default forwardRef(MainMenu)
+export const MainMenu = forwardRef(
+  (
+    { className, children, ...restProps }: MainMenuProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    return (
+      <div className={cn(styles.nav, className)} ref={ref} {...restProps}>
+        {children}
+      </div>
+    )
+  },
+)
+MainMenu.displayName = 'MainMenu'
