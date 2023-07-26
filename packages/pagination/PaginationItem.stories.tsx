@@ -1,25 +1,25 @@
-import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
+import { PaginationItem, PaginationItemVariant, PaginationItemProps } from '.'
 
-import { PaginationItemVariant, PaginationItemProps } from './types'
-import PaginationItem from './PaginationItem'
+const getOptions = (enumObject: Record<string, string | number>) =>
+  Object.values(enumObject).filter((value) => typeof value === 'string')
 
 export default {
   component: PaginationItem,
   title: 'Pagination/PaginationItem',
   args: {
-    variant: PaginationItemVariant.default,
+    variant: 'default',
     disabled: false,
     icon: '2',
   },
   argTypes: {
     variant: {
-      options: PaginationItemVariant,
+      options: getOptions(PaginationItemVariant),
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<PaginationItemProps> = (props) => (
+export const Basic: StoryFn<PaginationItemProps> = (props) => (
   <PaginationItem {...props} />
 )

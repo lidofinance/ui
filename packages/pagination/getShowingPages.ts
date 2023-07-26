@@ -1,4 +1,4 @@
-import { SiblingsCount } from './types'
+import { SiblingsCount } from './Pagination'
 
 export const arrayPusher = (): ((
   arr: unknown[],

@@ -1,0 +1,46 @@
+@layer base {
+  .item {
+    width: 32px;
+    height: 32px;
+    background-color: var(--lido-color-foreground);
+    border: 1px solid;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0;
+  }
+}
+
+@layer item-status {
+  .item.active {
+    border-color: var(--lido-color-primary);
+    color: var(--lido-color-primary);
+
+    &:not(:disabled):hover {
+      border-color: var(--lido-color-primaryVisited);
+      color: var(--lido-color-primaryVisited);
+    }
+  }
+
+  .item.default {
+    border-color: var(--lido-color-border);
+    color: var(--lido-color-text);
+
+    &:not(:disabled):hover {
+      border-color: var(--lido-color-primary);
+      color: var(--lido-color-primary);
+    }
+  }
+}
+
+@layer item-disabled {
+  .item:disabled {
+    border-color: var(--lido-color-border);
+    color: var(--lido-color-textSecondary);
+    cursor: unset;
+  }
+}
