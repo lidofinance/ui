@@ -1,13 +1,17 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import cn from 'classnames'
+import styles from './ModalExtra.module.css'
 
-import { ModalExtraStyle } from './ModalExtraStyles'
-import { ModalExtraProps } from './types'
+export type ModalExtraProps = ComponentPropsWithoutRef<'div'>
 
-function ModalExtra(
-  props: ModalExtraProps,
-  ref?: ForwardedRef<HTMLDivElement>,
-) {
-  return <ModalExtraStyle {...props} ref={ref} />
-}
-
-export default forwardRef(ModalExtra)
+export const ModalExtra = forwardRef(
+  (
+    { className, ...rest }: ModalExtraProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    return (
+      <div className={cn(styles.modalExtra, className)} ref={ref} {...rest} />
+    )
+  },
+)
+ModalExtra.displayName = 'ModalExtra'
