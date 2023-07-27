@@ -1,19 +1,20 @@
-import { Story, Meta } from '@storybook/react'
+import {  Meta, StoryFn } from "@storybook/react";
 import { Block } from '../block'
-import {
+import  {
+  HStackProps,
   StackAlign,
   StackDirection,
   StackJustify,
-  StackWrap,
   StackProps,
-  HStackProps,
-  VStackProps,
   StackSpacing,
-} from './types'
-import Stack from './Stack'
-import HStack from './HStack'
-import VStack from './VStack'
-import StackItem from './StackItem'
+  StackWrap,
+  VStackProps,
+  HStack,
+  VStack,
+  StackItem,
+  Stack
+} from ".";
+
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -47,7 +48,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<StackProps> = (props) => (
+export const Basic: StoryFn<StackProps> = (props) => (
   <Stack {...props}>
     <StackItem>
       <Block>First</Block>
@@ -82,7 +83,7 @@ Basic.argTypes = {
   },
 }
 
-export const Horizontal: Story<HStackProps> = (props) => (
+export const Horizontal: StoryFn<HStackProps> = (props) => (
   <HStack {...props}>
     <StackItem>
       <Block>First</Block>
@@ -108,7 +109,7 @@ export const Horizontal: Story<HStackProps> = (props) => (
 
 Horizontal.args = { reverse: false }
 
-export const Vertical: Story<VStackProps> = (props) => (
+export const Vertical: StoryFn<VStackProps> = (props) => (
   <VStack {...props}>
     <StackItem>
       <Block>First</Block>
@@ -134,7 +135,7 @@ export const Vertical: Story<VStackProps> = (props) => (
 
 Vertical.args = { reverse: false }
 
-export const Grid: Story<HStackProps> = (props) => (
+export const Grid: StoryFn<HStackProps> = (props) => (
   <HStack {...props}>
     <StackItem basis='50%'>
       <Block />

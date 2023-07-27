@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, createContext, useContext, FC } from 'react'
-import { StackSpacings } from './types'
+import { StackSpacings } from "./Stack";
+
 
 export interface StackContext {
   spacing?: StackSpacings
