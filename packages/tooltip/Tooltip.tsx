@@ -10,7 +10,6 @@ import React, {
   RefAttributes,
 } from 'react'
 import { useMergeRefs } from '../hooks'
-import { isElement } from 'react-is'
 import { Popover, PopoverProps } from '../popover'
 import cn from 'classnames'
 import styles from './Tooltip.module.css'
@@ -34,8 +33,6 @@ export const Tooltip = forwardRef(
     const keepTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
     const child = Children.only(children)
-    if (!isElement(child)) throw new Error('Child must be a React element')
-
     const anchorRef = useRef<HTMLElement>(null)
     const mergedRef = useMergeRefs([child.ref, anchorRef])
 
