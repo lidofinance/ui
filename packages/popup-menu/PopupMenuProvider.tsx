@@ -1,5 +1,5 @@
-import React, { PropsWithChildren, createContext, useContext, FC } from 'react'
-import { PopupMenuVariants } from './types'
+import { PropsWithChildren, createContext, useContext, FC } from 'react'
+import { PopupMenuVariants } from './PopupMenu'
 
 export interface PopupMenuContext {
   variant?: PopupMenuVariants

@@ -1,10 +1,8 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { useCallback, useRef, useState } from 'react'
 import { Button } from '../button'
-import { PopupMenuProps, PopupMenuVariant } from './types'
+import { PopupMenu, PopupMenuItem, PopupMenuProps, PopupMenuVariant } from '.'
 import { Eth, Steth, Solana } from '../icons'
-import PopupMenu from './PopupMenu'
-import PopupMenuItem from './PopupMenuItem'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -46,7 +44,7 @@ const usePopup = (props: PopupMenuProps) => {
   }
 }
 
-export const Basic: Story<PopupMenuProps> = (props) => {
+export const Basic: StoryFn<PopupMenuProps> = (props) => {
   const { state, anchorRef, handleOpen, handleClose } = usePopup(props)
 
   return (
@@ -69,7 +67,7 @@ export const Basic: Story<PopupMenuProps> = (props) => {
   )
 }
 
-export const Icons: Story<PopupMenuProps> = (props) => {
+export const Icons: StoryFn<PopupMenuProps> = (props) => {
   const { state, anchorRef, handleOpen, handleClose } = usePopup(props)
 
   return (
@@ -98,7 +96,7 @@ export const Icons: Story<PopupMenuProps> = (props) => {
   )
 }
 
-export const WithDisabled: Story<PopupMenuProps> = (props) => {
+export const WithDisabled: StoryFn<PopupMenuProps> = (props) => {
   const { state, anchorRef, handleOpen, handleClose } = usePopup(props)
 
   return (
