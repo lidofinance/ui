@@ -1,103 +1,103 @@
 .stack {
-    display: flex;
-    margin: 0;
+  display: flex;
+  margin: 0;
 }
 
 .alignCenter {
-    align-items: center;
+  align-items: center;
 }
 
 .alignStretch {
-    align-items: stretch;
+  align-items: stretch;
 }
 
 .alignFlexStart {
-    align-items: flex-start;
+  align-items: flex-start;
 }
 
 .alignFlexEnd {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 .alignBaseline {
-    align-items: baseline;
+  align-items: baseline;
 }
 
 .justifyCenter {
-    justify-content: center;
+  justify-content: center;
 }
 
 .justifyStart {
-    justify-content: start;
+  justify-content: start;
 }
 
 .justifyEnd {
-    justify-content: end;
+  justify-content: end;
 }
 
 .justifyStretch {
-    justify-content: stretch;
+  justify-content: stretch;
 }
 
 .justifyFlexStart {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .justifyFlexEnd {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .justifySpaceAround {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .justifySpaceBetween {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 .justifySpaceEvenly {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 .directionRow {
-    flex-direction: row;
+  flex-direction: row;
 }
 .directionRowReverse {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 .directionColumn {
-    flex-direction: column;
+  flex-direction: column;
 }
 .directionColumnReverse {
-    flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 .wrapNowrap {
-    flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 .wrapWrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .wrapWrapReverse {
-    flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
 }
 
 .spacingXs {
-    margin: calc(0px - var(--lido-space-xs)/2);
+  margin: calc(0px - var(--lido-space-xs) / 2);
 }
 
 .spacingSm {
-    margin: calc(0px - var(--lido-space-sm)/2);
+  margin: calc(0px - var(--lido-space-sm) / 2);
 }
 
 .spacingMd {
-    margin: calc(0px - var(--lido-space-md)/2);
+  margin: calc(0px - var(--lido-space-md) / 2);
 }
 
 .spacingLg {
-    margin: calc(0px - var(--lido-space-lg)/2);
+  margin: calc(0px - var(--lido-space-lg) / 2);
 }
 
 .spacingXl {
-    margin: calc(0px - var(--lido-space-xl)/2);
+  margin: calc(0px - var(--lido-space-xl) / 2);
 }
 .spacingXxl {
-    margin: calc(0px - var(--lido-space-xxl)/2);
+  margin: calc(0px - var(--lido-space-xxl) / 2);
 }

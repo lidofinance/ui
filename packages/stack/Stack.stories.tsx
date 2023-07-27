@@ -1,6 +1,6 @@
-import {  Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from '@storybook/react'
 import { Block } from '../block'
-import  {
+import {
   HStackProps,
   StackAlign,
   StackDirection,
@@ -12,9 +12,8 @@ import  {
   HStack,
   VStack,
   StackItem,
-  Stack
-} from ".";
-
+  Stack,
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

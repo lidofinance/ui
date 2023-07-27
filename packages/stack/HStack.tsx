@@ -5,10 +5,14 @@ export type HStackProps = {
   reverse?: boolean
 } & Omit<StackProps, 'direction'>
 
-export const HStack = forwardRef(({ reverse = false, ...rest }: HStackProps, ref?: ForwardedRef<HTMLDivElement>) => {
-  const direction = reverse ? 'row-reverse' : 'row'
+export const HStack = forwardRef(
+  (
+    { reverse = false, ...rest }: HStackProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const direction = reverse ? 'row-reverse' : 'row'
 
-  return <Stack direction={direction} ref={ref} {...rest} />
-}
+    return <Stack direction={direction} ref={ref} {...rest} />
+  },
 )
 HStack.displayName = 'HStack'
