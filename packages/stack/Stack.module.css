@@ -54,27 +54,35 @@
 .justifySpaceBetween {
   justify-content: space-between;
 }
+
 .justifySpaceEvenly {
   justify-content: space-evenly;
 }
+
 .directionRow {
   flex-direction: row;
 }
+
 .directionRowReverse {
   flex-direction: row-reverse;
 }
+
 .directionColumn {
   flex-direction: column;
 }
+
 .directionColumnReverse {
   flex-direction: column-reverse;
 }
+
 .wrapNowrap {
   flex-wrap: nowrap;
 }
+
 .wrapWrap {
   flex-wrap: wrap;
 }
+
 .wrapWrapReverse {
   flex-wrap: wrap-reverse;
 }
@@ -98,6 +106,7 @@
 .spacingXl {
   margin: calc(0px - var(--lido-space-xl) / 2);
 }
+
 .spacingXxl {
   margin: calc(0px - var(--lido-space-xxl) / 2);
 }

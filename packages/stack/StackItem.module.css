@@ -23,6 +23,7 @@
 .spacingXl {
   padding: calc(var(--lido-space-xl) / 2);
 }
+
 .spacingXxl {
   padding: calc(var(--lido-space-xxl) / 2);
 }
