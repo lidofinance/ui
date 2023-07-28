@@ -5,4 +5,3 @@ export * from './Tfoot'
 export * from './Tr'
 export * from './Th'
 export * from './Td'
-
