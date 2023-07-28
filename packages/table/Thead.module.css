@@ -1,0 +1,20 @@
+.thead {
+  border-top: 1px solid var(--lido-color-borderLight);
+  border-bottom: 1px solid var(--lido-color-borderLight);
+}
+
+.thead > tr::before,
+.thead > tr::after {
+  content: '';
+  display: table-cell;
+  width: 32px;
+  border-top: 1px solid var(--lido-color-borderLight);
+  border-bottom: 1px solid var(--lido-color-borderLight);
+}
+
+.sticky {
+  background: var(--lido-color-foreground);
+  top: 0;
+  position: sticky;
+  z-index: 5;
+}

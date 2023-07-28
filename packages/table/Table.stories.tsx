@@ -1,20 +1,19 @@
 import { useState } from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { Light, Eth } from '../icons'
-import Table from './Table'
-import Thead from './Thead'
-import Tbody from './Tbody'
-import Tr from './Tr'
-import Td from './Td'
-import Th from './Th'
-
 import {
-  TdProps,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Td,
+  Th,
   TableTextColor,
   TableAlign,
+  TdProps,
   ThSortDirs,
   TrHighlight,
-} from './types'
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -43,7 +42,7 @@ export default {
   },
 } as Meta
 
-export const Base: Story<
+export const Base: StoryFn<
   TdProps & { showHighlight: boolean; stickyHeader: boolean }
 > = (props, options) => {
   const [sortDir, setSortDir] = useState<ThSortDirs>('ASC')
