@@ -3,12 +3,12 @@
   color: var(--lido-color-primary);
 
   :hover {
-    color: var(--lido-color-primaryHover);
+    color: var(--lido-color-primary-hover);
   }
 }
 
 .link.fadedVisited {
   &:visited {
-    color: var(--lido-color-primaryVisited);
+    color: var(--lido-color-primary-visited);
   }
 }

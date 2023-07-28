@@ -24,7 +24,7 @@ export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
 
   &:disabled {
     cursor: default;
-    color: var(--lido-color-textSecondary);
+    color: var(--lido-color-text-secondary);
   }
 
   &:before {

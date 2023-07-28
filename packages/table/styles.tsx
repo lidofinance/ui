@@ -36,7 +36,7 @@ type InjectedPropsTd = {
 const getMainColorTd = (props: InjectedPropsTd) =>
   ({
     primary: `var(--lido-color-primary)`,
-    secondary: `var(--lido-color-textSecondary)`,
+    secondary: `var(--lido-color-text-secondary)`,
     warning: `var(--lido-color-warning)`,
     error: `var(--lido-color-error)`,
     success: `var(--lido-color-success)`,

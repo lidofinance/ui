@@ -1,7 +1,7 @@
 .dark {
-  display: var(--lido-color-darkDisplay, contents);
+  display: var(--lido-color-dark-display, contents);
 }
 
 .light {
-  display: var(--lido-color-lightDisplay, contents);
+  display: var(--lido-color-light-display, contents);
 }

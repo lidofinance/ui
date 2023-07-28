@@ -13,12 +13,12 @@
 
 .background {
   background: var(--lido-color-background);
-  color: var(--lido-color-textSecondary);
+  color: var(--lido-color-text-secondary);
 }
 
 .accent {
-  background: var(--lido-color-accentDarken);
-  color: var(--lido-color-accentContrast);
+  background: var(--lido-color-accent-darken);
+  color: var(--lido-color-accent-contrast);
 }
 
 .wrapper {

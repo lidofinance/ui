@@ -21,8 +21,8 @@
     color: var(--lido-color-primary);
 
     &:not(:disabled):hover {
-      border-color: var(--lido-color-primaryVisited);
-      color: var(--lido-color-primaryVisited);
+      border-color: var(--lido-color-primary-visited);
+      color: var(--lido-color-primary-visited);
     }
   }
 
@@ -40,7 +40,7 @@
 @layer item-disabled {
   .item:disabled {
     border-color: var(--lido-color-border);
-    color: var(--lido-color-textSecondary);
+    color: var(--lido-color-text-secondary);
     cursor: unset;
   }
 }

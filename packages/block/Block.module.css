@@ -1,16 +1,16 @@
 .foreground {
   background: var(--lido-color-foreground);
-  color: var(--lido-color-textSecondary);
+  color: var(--lido-color-text-secondary);
 }
 
 .background {
   background: var(--lido-color-background);
-  color: var(--lido-color-textSecondary);
+  color: var(--lido-color-text-secondary);
 }
 
 .accent {
   background: var(--lido-color-accent);
-  color: var(--lido-color-accentContrast);
+  color: var(--lido-color-accent-contrast);
 }
 
 .flat {
@@ -18,7 +18,7 @@
 }
 
 .shadow {
-  box-shadow: var(--lido-shadows-lg) var(--lido-color-shadowLight);
+  box-shadow: var(--lido-shadows-lg) var(--lido-color-shadow-light);
 }
 
 .padding {

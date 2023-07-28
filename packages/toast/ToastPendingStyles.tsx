@@ -12,6 +12,6 @@ export const ToastPendingLoaderStyle = styled(Loader)`
   margin: ${({ theme }) => -theme.spaceMap.xs}px;
   margin-right: ${({ theme }) => theme.spaceMap.md}px;
   svg {
-    color: var(--lido-color-accentContrast);
+    color: var(--lido-color-accent-contrast);
   }
 `

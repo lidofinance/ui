@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800");
+
+body {
+  font-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --lido-border-radius-xs: 4px;
+  --lido-border-radius-sm: 6px;
+  --lido-border-radius-md: 8px;
+  --lido-border-radius-lg: 10px;
+  --lido-border-radius-xl: 20px;
+  --lido-color-primary: #00a3ff;
+  --lido-color-primary-hover: #009bf2;
+  --lido-color-primary-contrast: #fff;
+  --lido-color-primary-visited: #4bbeff;
+  --lido-color-accent: #27272e;
+  --lido-color-accent-contrast: #fff;
+  --lido-color-accent-contrast-secondary: rgb(255 255 255 / 60%);
+  --lido-color-accent-darken: rgb(0 0 0 / 20%);
+  --lido-color-accent-control-bg: rgb(0 0 0 / 10%);
+  --lido-color-accent-border: rgb(255 255 255 / 20%);
+  --lido-color-accent-border-hover: rgb(255 255 255 / 30%);
+  --lido-color-error: #e14d4d;
+  --lido-color-error-hover: #d44c4d;
+  --lido-color-error-contrast: #fff;
+  --lido-color-warning: #ec8600;
+  --lido-color-warning-hover: #f0a431;
+  --lido-color-warning-contrast: #fff;
+  --lido-color-warning-background: #fffae0;
+  --lido-color-text-dark: #273852;
+  --lido-color-success: #53ba95;
+  --lido-color-success-hover: #4ba886;
+  --lido-color-success-contrast: #fff;
+  --lido-shadows-xxl: 0px 8px 44px 0px;
+  --lido-shadows-xl: 0px 8px 32px 0px;
+  --lido-shadows-lg: 0px 8px 24px 0px;
+  --lido-shadows-md: 0px 4px 16px 0px;
+  --lido-shadows-sm: 0px 4px 12px 0px;
+  --lido-shadows-xs: 0px 4px 8px 0px;
+  --lido-space-xs: 4px;
+  --lido-space-sm: 8px;
+  --lido-space-md: 16px;
+  --lido-space-lg: 20px;
+  --lido-space-xl: 24px;
+  --lido-space-xxl: 32px;
+  --lido-transition-duration-fast: 100ms;
+  --lido-transition-duration-med: 150ms;
+  --lido-transition-duration-norm: 200ms;
+  --lido-transition-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
+  --lido-transition-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
+  --lido-transition-inout-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  --lido-transition-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --lido-transition-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --lido-transition-inout-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --lido-transition-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --lido-transition-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --lido-transition-inout-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --lido-transition-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --lido-transition-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --lido-transition-inout-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --lido-transition-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --lido-transition-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --lido-transition-inout-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  --lido-transition-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --lido-transition-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --lido-transition-inout-expo: cubic-bezier(1, 0, 0, 1);
+  --lido-transition-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  --lido-transition-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --lido-transition-inout-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  --lido-transition-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  --lido-transition-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --lido-transition-inout-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --lido-font-size-xxxs: 10px;
+  --lido-font-size-xxs: 12px;
+  --lido-font-size-xs: 14px;
+  --lido-font-size-sm: 16px;
+  --lido-font-size-md: 18px;
+  --lido-font-size-lg: 20px;
+  --lido-font-size-xl: 26px;
+  --lido-font-size-xxl: 32px;
+  --lido-font-size-xxxl: 40px;
+  --lido-font-size-xxxxl: 50px;
+}
+
+html[data-lido-theme="light"] {
+  --lido-dark-theme-opacity: 0;
+  --lido-light-theme-opacity: 1;
+  --lido-light-mode-visibility: visible;
+  --lido-dark-mode-visibility: hidden;
+  --lido-light-display: initial;
+  --lido-dark-display: none;
+  --lido-color-secondary: #273852;
+  --lido-color-secondary-hover: #212f45;
+  --lido-color-secondary-contrast: #fff;
+  --lido-color-background: #f2f4f6;
+  --lido-color-background-darken: #dae0e5;
+  --lido-color-background-secondary: #EFF2F6;
+  --lido-color-foreground: #fff;
+  --lido-color-overlay: rgb(0 0 0 / 50%);
+  --lido-color-shadow-light: rgb(39 56 82 / 8%);
+  --lido-color-shadow-dark: rgb(0 0 0 / 25%);
+  --lido-color-text: #273852;
+  --lido-color-text-secondary: #7a8aa0;
+  --lido-color-accent-text: #273852;
+  --lido-color-border: rgb(0 10 61 / 12%);
+  --lido-color-border-active: rgb(0 10 61 / 48%);
+  --lido-color-border-hover: rgb(0 10 61 / 24%);
+  --lido-color-border-light: #dfe5eb;
+  --lido-color-accent-border: rgb(0 10 61 / 12%);
+  --lido-color-accent-border-hover: rgb(0 10 61 / 24%);
+  --lido-color-control-bg: #fff;
+  --lido-color-accent-control-bg: rgb(239 242 246 / 56%);
+  --lido-popup-menu-item-bg-active-hover: #000a3d;
+}
+
+html[data-lido-theme="dark"] {
+  --lido-dark-theme-opacity: 1;
+  --lido-light-theme-opacity: 0;
+  --lido-light-mode-visibility: hidden;
+  --lido-dark-mode-visibility: visible;
+  --lido-light-display: none;
+  --lido-dark-display: initial;
+  --lido-color-secondary: rgb(255 255 255 / 80%);
+  --lido-color-secondary-hover: #fff;
+  --lido-color-secondary-contrast: #273852;
+  --lido-color-background: #1c1c21;
+  --lido-color-background-darken: #131317;
+  --lido-color-background-secondary: #27272E;
+  --lido-color-foreground: #34343d;
+  --lido-color-overlay: rgb(0 0 0 / 50%);
+  --lido-color-shadow-light: rgb(0 0 0 / 25%);
+  --lido-color-shadow-dark: rgb(0 0 0 / 50%);
+  --lido-color-text: #fff;
+  --lido-color-text-secondary: rgb(255 255 255 / 80%);
+  --lido-color-accent-text: #fff;
+  --lido-color-border: rgb(255 255 255 / 12%);
+  --lido-color-border-active: rgb(255 255 255 / 48%);
+  --lido-color-border-hover: rgb(255 255 255 / 24%);
+  --lido-color-border-light: #484855;
+  --lido-color-accent-border: rgb(255 255 255 / 12%);
+  --lido-color-accent-border-hover: rgb(255 255 255 / 24%);
+  --lido-color-control-bg: #2f2f37;
+  --lido-color-accent-control-bg: rgb(39 39 46 / 56%);
+  --lido-popup-menu-item-bg-active-hover: #fff;
+}
