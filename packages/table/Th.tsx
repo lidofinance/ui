@@ -37,9 +37,10 @@ export type ThProps = ComponentPropsWithoutRef<'th'> & {
 }
 
 export const Th = forwardRef(
-  (props: ThProps, ref?: ForwardedRef<HTMLTableCellElement>) => {
-    const { align = 'left', children, sortDir, variant, ...rest } = props
-
+  (
+    { align = 'left', children, sortDir, variant, ...rest }: ThProps,
+    ref?: ForwardedRef<HTMLTableCellElement>,
+  ) => {
     return (
       <th
         className={cn(styles.th, className, {

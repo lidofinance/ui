@@ -13,6 +13,7 @@ export enum TableAlign {
   center = 'center',
   right = 'right',
 }
+
 export type TableAligns = keyof typeof TableAlign
 
 export enum TableTextColor {
@@ -23,12 +24,14 @@ export enum TableTextColor {
   success = 'success',
   default = 'default',
 }
+
 export type TableTextColors = keyof typeof TableTextColor
 
 export enum TdVariant {
   string = 'string',
   icon = 'icon',
 }
+
 export type TdVariants = keyof typeof TdVariant
 
 export type TdProps = ComponentPropsWithoutRef<'td'> & {
@@ -39,16 +42,17 @@ export type TdProps = ComponentPropsWithoutRef<'td'> & {
 }
 
 export const Td = forwardRef(
-  (props: TdProps, ref?: ForwardedRef<HTMLTableCellElement>) => {
-    const {
+  (
+    {
       align = 'left',
       textColor = 'default',
       variant,
       children,
       numeric = false,
       ...rest
-    } = props
-
+    }: TdProps,
+    ref?: ForwardedRef<HTMLTableCellElement>,
+  ) => {
     return (
       <td
         className={cn(styles.td, className, {
