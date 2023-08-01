@@ -1,0 +1,16 @@
+@layer modaExtra {
+  .modalExtra {
+    margin-top: calc(0px - var(--lido-border-radius-xl));
+    color: var(--lido-color-accent-contrast);
+    background: var(--lido-color-accent);
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    padding: var(--lido-space-lg);
+    padding-top: calc(var(--lido-border-radius-xl) + var(--lido-space-lg));
+
+    @media (--lido-media-breakpoint-up-md) {
+      padding: var(--lido-space-xxl);
+      padding-top: calc(var(--lido-border-radius-xl) + var(--lido-space-xxl));
+    }
+  }
+}

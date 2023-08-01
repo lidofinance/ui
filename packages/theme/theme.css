@@ -23,6 +23,7 @@ body {
   --lido-border-radius-lg: 10px;
   --lido-border-radius-xl: 20px;
   --lido-color-primary: #00a3ff;
+  --lido-rgb-primary: 0, 163, 255;
   --lido-color-primary-hover: #009bf2;
   --lido-color-primary-contrast: #fff;
   --lido-color-primary-visited: #4bbeff;
@@ -34,13 +35,16 @@ body {
   --lido-color-accent-border: rgb(255 255 255 / 20%);
   --lido-color-accent-border-hover: rgb(255 255 255 / 30%);
   --lido-color-error: #e14d4d;
+  --lido-rgb-error: 225, 77, 77;
   --lido-color-error-hover: #d44c4d;
   --lido-color-error-contrast: #fff;
   --lido-color-warning: #ec8600;
+  --lido-rgb-warning: 236, 134, 0;
   --lido-color-warning-hover: #f0a431;
   --lido-color-warning-contrast: #fff;
   --lido-color-warning-background: #fffae0;
   --lido-color-text-dark: #273852;
+  --lido-rgb-success: 83, 186, 149;
   --lido-color-success: #53ba95;
   --lido-color-success-hover: #4ba886;
   --lido-color-success-contrast: #fff;
@@ -124,7 +128,7 @@ body {
   --lido-color-accent-border-hover: rgb(0 10 61 / 24%);
   --lido-color-control-bg: #fff;
   --lido-color-accent-control-bg: rgb(239 242 246 / 56%);
-  --lido-popup-menu-item-bg-active-hover: #000a3d;
+  --lido-color-popup-menu-item-bg-active-hover: #000a3d;
 }
 
 [data-lido-theme='dark'] {

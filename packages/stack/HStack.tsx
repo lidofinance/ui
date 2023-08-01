@@ -1,12 +1,18 @@
 import React, { ForwardedRef, forwardRef } from 'react'
-import { HStackProps } from './types'
-import Stack from './Stack'
+import { Stack, StackProps } from './Stack'
 
-function HStack(props: HStackProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { reverse = false, ...rest } = props
-  const direction = reverse ? 'row-reverse' : 'row'
+export type HStackProps = {
+  reverse?: boolean
+} & Omit<StackProps, 'direction'>
 
-  return <Stack direction={direction} ref={ref} {...rest} />
-}
+export const HStack = forwardRef(
+  (
+    { reverse = false, ...rest }: HStackProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const direction = reverse ? 'row-reverse' : 'row'
 
-export default forwardRef(HStack)
+    return <Stack direction={direction} ref={ref} {...rest} />
+  },
+)
+HStack.displayName = 'HStack'

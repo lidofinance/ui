@@ -5,9 +5,7 @@ import { Eth } from '../icons'
 import { Block } from '../block'
 import { Button } from '../button'
 import { Identicon } from '../identicon'
-import { ModalProps } from '../modal/types'
-import Modal from '../modal/Modal'
-
+import { Modal, ModalProps } from '../modal'
 import { Input, InputProps, InputType, InputVariant, InputColor } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

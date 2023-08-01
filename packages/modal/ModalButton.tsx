@@ -1,7 +1,7 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-
-import { ModalButtonStyle, ModalButtonContentStyle } from './ModalButtonStyles'
-import { ModalButtonIconProps } from './types'
+import { ForwardedRef, ReactElement, cloneElement, forwardRef } from 'react'
+import { Button, ButtonProps } from '../button'
+import cn from 'classnames'
+import styles from './ModalButton.module.css'
 
 const iconSize = {
   xxs: {
@@ -26,29 +26,44 @@ const iconSize = {
   },
 }
 
-function ModalButton(
-  props: ModalButtonIconProps,
-  ref?: ForwardedRef<HTMLButtonElement>,
-) {
-  const { size = 'md', loading = false, children, icon } = props
+export type ModalButtonIconProps = {
+  icon: ReactElement
+} & ButtonProps
 
-  const AdaptiveIconProps =
-    icon.props.width || icon.props.height ? icon.props : { ...iconSize[size] }
-  const AdaptiveIcon = React.cloneElement(icon, AdaptiveIconProps)
+export const ModalButton = forwardRef(
+  (
+    {
+      size = 'md',
+      loading = false,
+      children,
+      icon,
+      className,
+      active,
+      ...rest
+    }: ModalButtonIconProps,
+    ref?: ForwardedRef<HTMLButtonElement>,
+  ) => {
+    const AdaptiveIconProps =
+      icon.props.width || icon.props.height ? icon.props : { ...iconSize[size] }
+    const AdaptiveIcon = cloneElement(icon, AdaptiveIconProps)
 
-  return (
-    <ModalButtonStyle
-      type='button'
-      size={size}
-      loading={loading}
-      ref={ref}
-      {...props}
-    >
-      <ModalButtonContentStyle>
-        {children} {AdaptiveIcon}
-      </ModalButtonContentStyle>
-    </ModalButtonStyle>
-  )
-}
-
-export default forwardRef(ModalButton)
+    return (
+      <Button
+        className={cn(styles.modalButton, className, {
+          [styles.active]: active,
+        })}
+        active={active}
+        type='button'
+        size={size}
+        loading={loading}
+        ref={ref}
+        {...rest}
+      >
+        <span className={styles.modalButtonContent}>
+          {children} {AdaptiveIcon}
+        </span>
+      </Button>
+    )
+  },
+)
+ModalButton.displayName = 'ModalButton'

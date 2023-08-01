@@ -1,101 +1,103 @@
-.popover {
-  background: var(--lido-color-foreground);
-  color: var(--lido-color-text);
-  font-size: var(--lido-font-size-xs);
-  line-height: 1.5em;
-  font-weight: 400;
-  border-radius: var(--lido-border-radius-lg);
-  box-shadow: var(--lido-shadows-xs) var(--lido-color-shadow-light);
-  padding: var(--lido-space-lg);
-  overflow: auto;
-}
-
-.popover.xs {
-  &[data-placement^='top'] {
-    margin-top: calc(0px - var(--lido-space-xs));
+@layer popover {
+  .popover {
+    background: var(--lido-color-foreground);
+    color: var(--lido-color-text);
+    font-size: var(--lido-font-size-xs);
+    line-height: 1.5em;
+    font-weight: 400;
+    border-radius: var(--lido-border-radius-lg);
+    box-shadow: var(--lido-shadows-xs) var(--lido-color-shadow-light);
+    padding: var(--lido-space-lg);
+    overflow: auto;
   }
 
-  &[data-placement^='right'] {
-    margin-left: var(--lido-space-xs);
+  .popover.xs {
+    &[data-placement^='top'] {
+      margin-top: calc(0px - var(--lido-space-xs));
+    }
+
+    &[data-placement^='right'] {
+      margin-left: var(--lido-space-xs);
+    }
+
+    &[data-placement^='bottom'] {
+      margin-top: var(--lido-space-xs);
+    }
+
+    &[data-placement^='left'] {
+      margin-left: calc(0px - var(--lido-space-xs));
+    }
   }
 
-  &[data-placement^='bottom'] {
-    margin-top: var(--lido-space-xs);
+  .popover.sm {
+    &[data-placement^='top'] {
+      margin-top: calc(0px - var(--lido-space-sm));
+    }
+
+    &[data-placement^='right'] {
+      margin-left: var(--lido-space-sm);
+    }
+
+    &[data-placement^='bottom'] {
+      margin-top: var(--lido-space-sm);
+    }
+
+    &[data-placement^='left'] {
+      margin-left: calc(0px - var(--lido-space-sm));
+    }
   }
 
-  &[data-placement^='left'] {
-    margin-left: calc(0px - var(--lido-space-xs));
-  }
-}
+  .popover.md {
+    &[data-placement^='top'] {
+      margin-top: calc(0px - var(--lido-space-md));
+    }
 
-.popover.sm {
-  &[data-placement^='top'] {
-    margin-top: calc(0px - var(--lido-space-sm));
-  }
+    &[data-placement^='right'] {
+      margin-left: var(--lido-space-md);
+    }
 
-  &[data-placement^='right'] {
-    margin-left: var(--lido-space-sm);
-  }
+    &[data-placement^='bottom'] {
+      margin-top: var(--lido-space-md);
+    }
 
-  &[data-placement^='bottom'] {
-    margin-top: var(--lido-space-sm);
-  }
-
-  &[data-placement^='left'] {
-    margin-left: calc(0px - var(--lido-space-sm));
-  }
-}
-
-.popover.md {
-  &[data-placement^='top'] {
-    margin-top: calc(0px - var(--lido-space-md));
+    &[data-placement^='left'] {
+      margin-left: calc(0px - var(--lido-space-md));
+    }
   }
 
-  &[data-placement^='right'] {
-    margin-left: var(--lido-space-md);
+  .popover.lg {
+    &[data-placement^='top'] {
+      margin-top: calc(0px - var(--lido-space-lg));
+    }
+
+    &[data-placement^='right'] {
+      margin-left: var(--lido-space-lg);
+    }
+
+    &[data-placement^='bottom'] {
+      margin-top: var(--lido-space-lg);
+    }
+
+    &[data-placement^='left'] {
+      margin-left: calc(0px - var(--lido-space-lg));
+    }
   }
 
-  &[data-placement^='bottom'] {
-    margin-top: var(--lido-space-md);
-  }
+  .popover.xl {
+    &[data-placement^='top'] {
+      margin-top: calc(0px - var(--lido-space-xl));
+    }
 
-  &[data-placement^='left'] {
-    margin-left: calc(0px - var(--lido-space-md));
-  }
-}
+    &[data-placement^='right'] {
+      margin-left: var(--lido-space-xl);
+    }
 
-.popover.lg {
-  &[data-placement^='top'] {
-    margin-top: calc(0px - var(--lido-space-lg));
-  }
+    &[data-placement^='bottom'] {
+      margin-top: var(--lido-space-xl);
+    }
 
-  &[data-placement^='right'] {
-    margin-left: var(--lido-space-lg);
-  }
-
-  &[data-placement^='bottom'] {
-    margin-top: var(--lido-space-lg);
-  }
-
-  &[data-placement^='left'] {
-    margin-left: calc(0px - var(--lido-space-lg));
-  }
-}
-
-.popover.xl {
-  &[data-placement^='top'] {
-    margin-top: calc(0px - var(--lido-space-xl));
-  }
-
-  &[data-placement^='right'] {
-    margin-left: var(--lido-space-xl);
-  }
-
-  &[data-placement^='bottom'] {
-    margin-top: var(--lido-space-xl);
-  }
-
-  &[data-placement^='left'] {
-    margin-left: calc(0px - var(--lido-space-xl));
+    &[data-placement^='left'] {
+      margin-left: calc(0px - var(--lido-space-xl));
+    }
   }
 }
