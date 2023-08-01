@@ -1,0 +1,566 @@
+/* stylelint-disable */
+
+/* Animations */
+@keyframes :global(Toastify__trackProgress) {
+  0% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes :global(Toastify__bounceInRight) {
+  0%,
+  60%,
+  75%,
+  90%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes :global(Toastify__bounceOutRight) {
+  20% {
+    opacity: 1;
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+@keyframes :global(Toastify__bounceInLeft) {
+  0%,
+  60%,
+  75%,
+  90%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes :global(Toastify__bounceOutLeft) {
+  20% {
+    opacity: 1;
+    transform: translate3d(20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-2000px, 0, 0);
+  }
+}
+
+@keyframes :global(Toastify__bounceInUp) {
+  0%,
+  60%,
+  75%,
+  90%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+@keyframes :global(Toastify__bounceOutUp) {
+  20% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  40%,
+  45% {
+    opacity: 1;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+
+@keyframes :global(Toastify__bounceInDown) {
+  0%,
+  60%,
+  75%,
+  90%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes :global(Toastify__bounceOutDown) {
+  20% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  40%,
+  45% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 2000px, 0);
+  }
+}
+
+@keyframes :global(Toastify__slideInRight) {
+  0% {
+    transform: translate3d(110%, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+@keyframes :global(Toastify__slideInLeft) {
+  0% {
+    transform: translate3d(-110%, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+@keyframes :global(Toastify__slideInUp) {
+  0% {
+    transform: translate3d(0, 110%, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+@keyframes :global(Toastify__slideInDown) {
+  0% {
+    transform: translate3d(0, -110%, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+@keyframes :global(Toastify__slideOutRight) {
+  0% {
+    transform: translateZ(0);
+  }
+
+  100% {
+    visibility: hidden;
+    transform: translate3d(110%, 0, 0);
+  }
+}
+
+@keyframes :global(Toastify__slideOutLeft) {
+  0% {
+    transform: translateZ(0);
+  }
+
+  100% {
+    visibility: hidden;
+    transform: translate3d(-110%, 0, 0);
+  }
+}
+
+@keyframes :global(Toastify__slideOutDown) {
+  0% {
+    transform: translateZ(0);
+  }
+
+  100% {
+    visibility: hidden;
+    transform: translate3d(0, 500px, 0);
+  }
+}
+
+@keyframes :global(Toastify__slideOutUp) {
+  0% {
+    transform: translateZ(0);
+  }
+
+  100% {
+    visibility: hidden;
+    transform: translate3d(0, -500px, 0);
+  }
+}
+
+@keyframes :global(Toastify__flipIn) {
+  0% {
+    transform: perspective(400px) rotateX(90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotateX(-20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotateX(10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotateX(-5deg);
+  }
+
+  100% {
+    transform: perspective(400px);
+  }
+}
+
+@keyframes :global(Toastify__flipOut) {
+  0% {
+    transform: perspective(400px);
+  }
+
+  30% {
+    transform: perspective(400px) rotateX(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+/* /Animations */
+
+:global {
+  .Toastify__toast {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    direction: ltr;
+    max-width: 360px;
+    max-height: 800px;
+    min-height: 0;
+    border-radius: var(--lido-border-radius-md);
+    box-shadow: var(--lido-shadows-xs) var(--lido-color-shadowLight);
+    margin: var(--lido-space-xs) 0;
+    padding: var(--lido-space-sm) var(--lido-space-md);
+    background-color: var(--lido-color-accent);
+    color: var(--lido-color-accentContrast);
+    font-size: var(--lido-font-size-xs);
+    line-height: 1.3em;
+    font-family: inherit;
+    cursor: default;
+  }
+
+  .Toastify__toast-body {
+    margin: auto 0;
+    flex: 1 1 auto;
+    padding: 6px;
+  }
+
+  .Toastify__toast {
+    a,
+    a:hover {
+      color: currentcolor;
+      text-decoration: underline;
+    }
+  }
+
+  .Toastify--animate {
+    animation-fill-mode: both;
+    animation-duration: 0.7s;
+  }
+
+  .Toastify__progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 9999;
+    opacity: 0.7;
+    background: rgb(255 255 255 / 25%);
+    transform-origin: left;
+  }
+
+  .Toastify__progress-bar--animated {
+    animation: Toastify__trackProgress linear 1 forwards;
+  }
+
+  .Toastify__progress-bar--controlled {
+    transition: transform 0.2s;
+  }
+
+  .Toastify__progress-bar--rtl {
+    right: 0;
+    left: auto;
+    transform-origin: right;
+  }
+
+  .Toastify__toast--rtl {
+    direction: rtl;
+  }
+
+  /* Variants */
+  .Toastify__toast--info {
+    background-color: var(--lido-color-accent);
+    color: var(--lido-color-accentContrast);
+  }
+
+  .Toastify__toast--error {
+    background-color: var(--lido-color-error);
+    color: var(--lido-color-errorContrast);
+  }
+
+  .Toastify__toast--warning {
+    background-color: var(--lido-color-warning);
+    color: var(--lido-color-warningContrast);
+  }
+
+  .Toastify__toast--success {
+    background-color: var(--lido-color-success);
+    color: var(--lido-color-successContrast);
+  }
+
+  /* /Variants */
+
+  /* For animations */
+  .Toastify__flip-enter {
+    animation-name: Toastify__flipIn;
+  }
+
+  .Toastify__flip-exit {
+    animation-name: Toastify__flipOut;
+  }
+
+  .Toastify__bounce-enter--bottom-left,
+  .Toastify__bounce-enter--top-left {
+    animation-name: Toastify__bounceInLeft;
+  }
+
+  .Toastify__bounce-enter--bottom-right,
+  .Toastify__bounce-enter--top-right {
+    animation-name: Toastify__bounceInRight;
+  }
+
+  .Toastify__bounce-enter--top-center {
+    animation-name: Toastify__bounceInDown;
+  }
+
+  .Toastify__bounce-enter--bottom-center {
+    animation-name: Toastify__bounceInUp;
+  }
+
+  .Toastify__bounce-exit--bottom-left,
+  .Toastify__bounce-exit--top-left {
+    animation-name: Toastify__bounceOutLeft;
+  }
+
+  .Toastify__bounce-exit--bottom-right,
+  .Toastify__bounce-exit--top-right {
+    animation-name: Toastify__bounceOutRight;
+  }
+
+  .Toastify__bounce-exit--top-center {
+    animation-name: Toastify__bounceOutUp;
+  }
+
+  .Toastify__bounce-exit--bottom-center {
+    animation-name: Toastify__bounceOutDown;
+  }
+
+  /* /For animations */
+
+  /* Positions */
+  .Toastify__toast-container--top-left {
+    top: var(--lido-space-lg);
+    left: var(--lido-space-lg);
+
+    @media screen and (width <= 480px) {
+      top: var(--lido-space-sm);
+      left: var(--lido-space-sm);
+    }
+  }
+
+  .Toastify__toast-container--top-center {
+    top: var(--lido-space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media screen and (width <= 480px) {
+      top: var(--lido-space-sm);
+      left: 45%;
+      transform: translateX(-40%);
+    }
+  }
+
+  .Toastify__toast-container--top-right {
+    top: var(--lido-space-lg);
+    right: var(--lido-space-lg);
+    left: auto;
+
+    @media screen and (width <= 480px) {
+      top: var(--lido-space-sm);
+      right: var(--lido-space-sm);
+      transform: none;
+    }
+  }
+
+  .Toastify__toast-container--bottom-left {
+    bottom: var(--lido-space-lg);
+    left: var(--lido-space-lg);
+
+    @media screen and (width <= 480px) {
+      bottom: var(--lido-space-sm);
+      left: var(--lido-space-sm);
+    }
+  }
+
+  .Toastify__toast-container--bottom-center {
+    bottom: var(--lido-space-lg);
+    transform: translateX(-50%);
+    left: 50%;
+
+    @media screen and (width <= 480px) {
+      bottom: var(--lido-space-sm);
+      left: 45%;
+      transform: translateX(-40%);
+    }
+  }
+
+  .Toastify__toast-container--bottom-right {
+    bottom: var(--lido-space-lg);
+    right: var(--lido-space-lg);
+    left: auto;
+
+    @media screen and (width <= 480px) {
+      bottom: var(--lido-space-sm);
+      right: var(--lido-space-sm);
+      transform: none;
+    }
+  }
+  /* /Positions */
+}
+
+/* stylelint-enable */
+
+.toastContainer {
+  width: auto;
+  max-width: calc(100vw - 2 * var(--lido-space-lg));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media screen and (width <= 480px) {
+    max-width: calc(100vw - 2 * var(--lido-space-sm));
+  }
+
+  &:global(.Toastify__toast-container) {
+    z-index: 9999;
+    transform: translateZ(9999px);
+    position: fixed;
+    padding: 4px;
+    box-sizing: border-box;
+    color: #fff;
+  }
+}

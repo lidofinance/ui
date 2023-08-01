@@ -1,0 +1,17 @@
+@layer loader, toastPending;
+
+@layer toastPending {
+  .toastPending {
+    display: flex;
+    align-items: center;
+  }
+
+  .toastPendingLoader {
+    margin: var(--lido-space-xs);
+    margin-right: var(--lido-space-md);
+
+    svg {
+      color: var(--lido-color-accentContrast);
+    }
+  }
+}

@@ -1,11 +1,7 @@
-import { ReactText } from 'react'
 import { toast, ToastOptions, ToastContent } from 'react-toastify'
-import { TOASTS_SUCCESS_OPTIONS } from './toastsDefaultOptions'
+import { TOASTS_SUCCESS_OPTIONS } from './constants'
 
-export function ToastSuccess(
-  content: ToastContent,
-  options?: ToastOptions,
-): ReactText {
+export function ToastSuccess(content: ToastContent, options?: ToastOptions) {
   return toast.success(content, {
     ...TOASTS_SUCCESS_OPTIONS,
     ...(options || {}),

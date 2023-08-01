@@ -21,7 +21,7 @@
     "noImplicitAny": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "strictFunctionTypes": false,
+    "strictFunctionTypes": false
   },
   "files": ["packages/index.ts"],
   "include": [

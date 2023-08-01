@@ -1,14 +1,17 @@
 import { toast } from './index'
-import { Story, Meta } from '@storybook/react'
-import { ToastPosition } from './types'
+import { StoryFn, Meta } from '@storybook/react'
 import { Button } from '../button'
 import { Accordion } from '../accordion'
-import { ToastContainer } from './ToastContainer'
-import { ToastDefault } from './ToastDefault'
-import { ToastError } from './ToastError'
-import { ToastInfo } from './ToastInfo'
-import { ToastPending } from './ToastPending'
-import { ToastSuccess } from './ToastSuccess'
+import {
+  ToastContainer,
+  ToastDefault,
+  ToastError,
+  ToastInfo,
+  ToastPending,
+  ToastSuccess,
+} from '.'
+
+export const ToastPosition = toast.POSITION
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -26,10 +29,9 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story = (props) => {
-  const { text, ...options } = props
+export const Basic: StoryFn = ({ text, ...options }) => {
   const notifyDefault = () => ToastDefault(text, options)
 
   return (
@@ -48,8 +50,7 @@ export const Basic: Story = (props) => {
   )
 }
 
-export const Error: Story = (props) => {
-  const { text, ...options } = props
+export const Error: StoryFn = ({ text, ...options }) => {
   const notifyError = () => ToastError(text, options)
 
   return (
@@ -62,8 +63,7 @@ export const Error: Story = (props) => {
   )
 }
 
-export const Success: Story = (props) => {
-  const { text, ...options } = props
+export const Success: StoryFn = ({ text, ...options }) => {
   const notifySuccess = () => ToastSuccess(text, options)
 
   return (
@@ -76,8 +76,7 @@ export const Success: Story = (props) => {
   )
 }
 
-export const Info: Story = (props) => {
-  const { text, ...options } = props
+export const Info: StoryFn = ({ text, ...options }) => {
   const notifyInfo = () => ToastInfo(text, options)
 
   return (
@@ -90,8 +89,7 @@ export const Info: Story = (props) => {
   )
 }
 
-export const Pending: Story = (props) => {
-  const { text, ...options } = props
+export const Pending: StoryFn = ({ text, ...options }) => {
   const notifyPending = () => ToastPending(text, options)
   const dismissAll = () => toast.dismiss()
 
