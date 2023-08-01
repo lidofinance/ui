@@ -1,4 +1,9 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  RefObject,
+} from 'react'
 import ReactDOM from 'react-dom'
 import { modalRoot } from '../utils'
 import { useMergeRefs, useOutsideClick, useEscape } from '../hooks'
@@ -35,8 +40,8 @@ export type PopoverRootOwnProps = Omit<
   ComponentPropsWithoutRef<'div'>,
   'children'
 > & {
-  wrapperRef?: React.RefObject<HTMLDivElement>
-  anchorRef: React.RefObject<HTMLElement | null>
+  wrapperRef?: RefObject<HTMLDivElement>
+  anchorRef: RefObject<HTMLElement | null>
   placement?: PopoverPlacements
   backdrop?: boolean
   onClose?: () => void

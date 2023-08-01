@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, createContext, useContext, FC } from 'react'
+import { PropsWithChildren, createContext, useContext, FC } from 'react'
 import { StackSpacings } from './Stack'
 
 export interface StackContext {

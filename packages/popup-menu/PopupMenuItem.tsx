@@ -1,11 +1,16 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  ReactNode,
+} from 'react'
 import { usePopupMenuContext } from './PopupMenuProvider'
 import cn from 'classnames'
 import styles from './PopupMenu.module.css'
 
 export type PopupMenuItemProps = ComponentPropsWithoutRef<'button'> & {
-  leftDecorator?: React.ReactNode
-  rightDecorator?: React.ReactNode
+  leftDecorator?: ReactNode
+  rightDecorator?: ReactNode
   active?: boolean
 }
 
