@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, useRef } from 'react'
+import { ForwardedRef, forwardRef, RefObject, useRef } from 'react'
 import { SelectArrow, SelectArrowVariants } from './SelectArrow'
 import { useMergeRefs } from '../hooks'
 import { PopupMenu } from '../popup-menu'
@@ -15,7 +15,7 @@ export type SelectProps = Omit<
   InputProps,
   'type' | 'readonly' | 'onChange' | 'value' | 'defaultValue'
 > & {
-  anchorRef?: React.RefObject<HTMLElement | null>
+  anchorRef?: RefObject<HTMLElement | null>
   arrow?: SelectArrowVariants
   value?: SelectOptionValue
   defaultValue?: SelectOptionValue

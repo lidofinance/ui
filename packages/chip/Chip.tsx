@@ -1,4 +1,9 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  RefObject,
+} from 'react'
 import cn from 'classnames'
 import styles from './Chip.module.css'
 
@@ -11,7 +16,7 @@ export enum ChipVariant {
 export type ChipVariants = keyof typeof ChipVariant
 
 export type ChipProps = ComponentPropsWithoutRef<'button'> & {
-  wrapperRef?: React.RefObject<HTMLLabelElement>
+  wrapperRef?: RefObject<HTMLLabelElement>
   variant?: ChipVariants
 }
 

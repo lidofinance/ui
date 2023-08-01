@@ -1,4 +1,4 @@
-import { ForwardedRef, ReactNode, forwardRef } from 'react'
+import { ForwardedRef, ReactNode, forwardRef, ChangeEvent } from 'react'
 import { SliderInput, SliderInputProps } from './SliderInput'
 
 export type SliderOptionValue = string | number
@@ -34,7 +34,7 @@ export const OptionsSlider = forwardRef(
       return options[optionIndex].label
     }
 
-    const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleSliderChange = (e: ChangeEvent<HTMLInputElement>) => {
       const optionIndex = Number(e.target.value)
       onChange(options[optionIndex].value, optionIndex)
     }

@@ -1,4 +1,9 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  ReactNode,
+} from 'react'
 import { useExpanded } from './useExpanded'
 import { ArrowBottom } from '../icons'
 import styles from './Accordion.module.css'
@@ -6,7 +11,7 @@ import cn from 'classnames'
 
 export type AccordionProps = ComponentPropsWithoutRef<'div'> & {
   defaultExpanded?: boolean
-  summary: React.ReactNode
+  summary: ReactNode
 }
 
 export const Accordion = forwardRef(

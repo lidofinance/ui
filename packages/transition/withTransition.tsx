@@ -1,4 +1,11 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentType,
+  ForwardedRef,
+  forwardRef,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+} from 'react'
 import { useMergeRefs } from '../hooks'
 import { Transition } from 'react-transition-group'
 import { DEFAULT_DURATION } from './constants'
@@ -11,9 +18,9 @@ export default function withTransition<
   P extends TransitionInnerProps,
   E extends HTMLElement,
 >(
-  Component: React.ComponentType<P>,
-): React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<WrappedProps<P>> & React.RefAttributes<E>
+  Component: ComponentType<P>,
+): ForwardRefExoticComponent<
+  PropsWithoutRef<WrappedProps<P>> & RefAttributes<E>
 > {
   function Wrapped(props: WrappedProps<P>, externalRef: ForwardedRef<E>) {
     const {

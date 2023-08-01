@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { Stack, StackProps } from './Stack'
 
 export type VStackProps = {
@@ -15,4 +15,4 @@ export const VStack = forwardRef(
   },
 )
 
-VStack.displayName = 'Vstack'
+VStack.displayName = 'VStack'

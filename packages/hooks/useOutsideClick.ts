@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef } from 'react'
+import { RefObject, useCallback, useEffect, useRef } from 'react'
 
 export const useOutsideClick = <T extends HTMLDivElement>(
   callback?: () => void,
 ): {
-  ref: React.RefObject<T>
+  ref: RefObject<T>
 } => {
   const ref = useRef<T>(null)
 
