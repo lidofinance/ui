@@ -22,8 +22,8 @@ export default function withTransition<
 ): ForwardRefExoticComponent<
   PropsWithoutRef<WrappedProps<P>> & RefAttributes<E>
 > {
-  function Wrapped(props: WrappedProps<P>, externalRef: ForwardedRef<E>) {
-    const {
+  function Wrapped(
+    {
       in: state = false,
       timeout = DEFAULT_DURATION,
       mountOnEnter = true,
@@ -39,8 +39,9 @@ export default function withTransition<
       onExiting,
       onExited,
       ...rest
-    } = props
-
+    }: WrappedProps<P>,
+    externalRef: ForwardedRef<E>,
+  ) {
     const transitionProps = {
       in: state,
       timeout,
