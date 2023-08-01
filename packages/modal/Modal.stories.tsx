@@ -1,15 +1,12 @@
 import styled from 'styled-components'
-import { Story, Meta } from '@storybook/react'
-import { ModalProps } from './types'
+import { StoryFn, Meta } from '@storybook/react'
+import { useCallback, useState } from 'react'
 import { Button, ButtonProps, ButtonSize } from '../button'
 import { Loader } from '../loaders'
 import { Text } from '../text'
 import { Link } from '../link'
 import { Error, Success, Eth, Terra } from '../icons'
-import Modal from './Modal'
-import ModalExtra from './ModalExtra'
-import ModalButton from './ModalButton'
-import { useCallback, useState } from 'react'
+import { ModalButton, Modal, ModalProps, ModalExtra } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -29,7 +26,7 @@ export default {
       table: { disable: true },
     },
   },
-} as Meta
+} satisfies Meta
 
 const useModal = (props: ModalProps) => {
   const { onClose, onBack } = props
@@ -46,7 +43,7 @@ const useModal = (props: ModalProps) => {
   return { state, handleOpen, handleClose, handleBack }
 }
 
-export const Basic: Story<ModalProps> = (props) => {
+export const Basic: StoryFn<ModalProps> = (props) => {
   const { state, handleOpen, handleClose } = useModal(props)
 
   return (
@@ -57,7 +54,7 @@ export const Basic: Story<ModalProps> = (props) => {
   )
 }
 
-export const ExtraContent: Story<ModalProps> = (props) => {
+export const ExtraContent: StoryFn<ModalProps> = (props) => {
   const { state, handleOpen, handleClose } = useModal(props)
 
   return (
@@ -73,7 +70,7 @@ export const ExtraContent: Story<ModalProps> = (props) => {
   )
 }
 
-export const WithBackButton: Story<ModalProps> = (props) => {
+export const WithBackButton: StoryFn<ModalProps> = (props) => {
   const { state, handleOpen, handleClose, handleBack } = useModal(props)
 
   return (
@@ -89,7 +86,7 @@ export const WithBackButton: Story<ModalProps> = (props) => {
   )
 }
 
-export const WithScroll: Story<ModalProps> = (props) => {
+export const WithScroll: StoryFn<ModalProps> = (props) => {
   const { state, handleOpen, handleClose } = useModal(props)
 
   return (
@@ -102,7 +99,7 @@ export const WithScroll: Story<ModalProps> = (props) => {
   )
 }
 
-export const LoadingStateInModal: Story<ModalProps> = (props) => {
+export const LoadingStateInModal: StoryFn<ModalProps> = (props) => {
   const { state, handleOpen, handleClose } = useModal(props)
 
   return (
@@ -138,7 +135,7 @@ LoadingStateInModal.argTypes = {
   },
 }
 
-export const SuccessStateInModal: Story<ModalProps> = (props) => {
+export const SuccessStateInModal: StoryFn<ModalProps> = (props) => {
   const { state, handleOpen, handleClose } = useModal(props)
 
   return (
@@ -172,7 +169,7 @@ SuccessStateInModal.argTypes = {
   },
 }
 
-export const ErrorStateInModal: Story<ModalProps> = (props) => {
+export const ErrorStateInModal: StoryFn<ModalProps> = (props) => {
   const { state, handleOpen, handleClose } = useModal(props)
 
   return (
@@ -206,7 +203,7 @@ ErrorStateInModal.argTypes = {
   },
 }
 
-export const BasicModalButtonInModal: Story<ButtonProps> = (props) => {
+export const BasicModalButtonInModal: StoryFn<ButtonProps> = (props) => {
   const modalProps = {
     title: 'Basic modal button in modal',
     center: false,
@@ -247,7 +244,7 @@ BasicModalButtonInModal.argTypes = {
   // eslint-disable-next-line
 } as any
 
-export const ManulIconSizeInModalButtonInModal: Story<ButtonProps> = (
+export const ManulIconSizeInModalButtonInModal: StoryFn<ButtonProps> = (
   props,
 ) => {
   const modalProps = {
@@ -296,7 +293,7 @@ ManulIconSizeInModalButtonInModal.argTypes = {
   // eslint-disable-next-line
 } as any
 
-export const ChooseNetworkInModal: Story = () => {
+export const ChooseNetworkInModal: StoryFn = () => {
   const modalProps = {
     title: 'ChooseNetwork',
     center: false,
