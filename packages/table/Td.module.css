@@ -1,0 +1,80 @@
+.td {
+  border-bottom: 1px solid var(--lido-color-borderLight);
+  padding: 18px;
+  color: var(--lido-color-text);
+  text-align: left;
+}
+
+.td:first-child {
+  padding-left: 0;
+}
+
+.td:last-child {
+  padding-right: 0;
+}
+
+.tdContent {
+  position: relative;
+  min-height: 16px;
+}
+
+.colorPrimary {
+  color: var(--lido-color-primary);
+}
+
+.colorSecondary {
+  color: var(--lido-color-textSecondary);
+}
+
+.colorWarning {
+  color: var(--lido-color-warning);
+}
+
+.colorError {
+  color: var(--lido-color-error);
+}
+
+.colorSuccess {
+  color: var(--lido-color-success);
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.variantString .tdContent {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.variantIcon {
+  line-height: 0;
+  width: 24px;
+  text-align: center;
+
+  & .tdContent {
+    width: 24px;
+
+    & svg {
+      margin: -4px 0;
+    }
+  }
+}
+
+.interactive {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--lido-color-primary);
+  }
+}
+
+.numeric {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}

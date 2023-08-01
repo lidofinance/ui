@@ -1,0 +1,8 @@
+.tbody {
+  & > tr::before,
+  & > tr::after {
+    content: '';
+    display: table-cell;
+    width: 32px;
+  }
+}

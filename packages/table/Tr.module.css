@@ -1,0 +1,21 @@
+.tr {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.highlightNegative {
+  background: rgb(var(--lido-rgb-error) 0.07);
+}
+
+.highlightPositive {
+  background: rgb(var(--lido-rgb-success) 0.07);
+}
+
+.highlightWarning {
+  background: rgb(var(--lido-rgb-warning) 0.07);
+}

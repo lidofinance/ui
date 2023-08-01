@@ -1,19 +1,41 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { TrProps } from './types'
+import React, {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+} from 'react'
 
-import { TrStyle } from './styles'
+import cn from 'classnames'
+import styles from './Tr.module.css'
+import { className } from 'postcss-selector-parser'
 
-function Tr(props: TrProps, ref?: ForwardedRef<HTMLTableRowElement>) {
-  const { highlight, ...rest } = props
+export enum TrHighlight {
+  positive,
+  negative,
+  warning,
+}
+export type TrHighlights = keyof typeof TrHighlight
 
-  return (
-    <TrStyle
-      $highlight={highlight}
-      $interactive={!!rest.onClick}
-      ref={ref}
-      {...rest}
-    />
-  )
+export type TrProps = ComponentPropsWithoutRef<'tr'> & {
+  highlight?: TrHighlights
 }
 
-export default forwardRef(Tr)
+export const Tr = forwardRef(
+  (
+    { highlight, ...rest }: TrProps,
+    ref?: ForwardedRef<HTMLTableRowElement>,
+  ) => {
+    return (
+      <tr
+        className={cn(styles.tr, className, {
+          [styles.highlightPositive]: highlight === 'positive',
+          [styles.highlightNegative]: highlight === 'negative',
+          [styles.highlightWarning]: highlight === 'warning',
+          [styles.interactive]: Boolean(rest.onClick),
+        })}
+        ref={ref}
+        {...rest}
+      />
+    )
+  },
+)
+Tr.displayName = 'Tr'
