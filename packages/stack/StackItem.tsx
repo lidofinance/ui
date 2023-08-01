@@ -5,9 +5,7 @@ import React, {
 } from 'react'
 import { useStackContext } from './StackProvider'
 import cn from 'classnames'
-import { className } from 'postcss-selector-parser'
 import styles from './StackItem.module.css'
-import { style } from 'styled-system'
 
 export type StackItemProps = ComponentPropsWithoutRef<'div'> & {
   grow?: number
@@ -17,7 +15,14 @@ export type StackItemProps = ComponentPropsWithoutRef<'div'> & {
 
 export const StackItem = forwardRef(
   (
-    { grow = 0, shrink = 0, basis = 'auto', ...rest }: StackItemProps,
+    {
+      grow = 0,
+      shrink = 0,
+      basis = 'auto',
+      className,
+      style,
+      ...rest
+    }: StackItemProps,
     ref?: ForwardedRef<HTMLDivElement>,
   ) => {
     const { spacing } = useStackContext()
