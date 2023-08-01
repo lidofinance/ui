@@ -1,9 +1,9 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { useThemeToggle } from '../theme'
-import styles from './cookie-theme-toggler.module.css'
-import { Button, ButtonProps } from '../button'
-import { Dark, Light } from '../icons'
+import { useThemeToggle } from '../use-theme-toggle'
+import { Button, ButtonProps } from '../../button'
+import { Dark, Light } from '../../icons'
 import cn from 'classnames'
+import styles from './theme-toggler.module.css'
 
 export type ThemeTogglerProps = ButtonProps
 

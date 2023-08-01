@@ -1,17 +1,17 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Block } from '../block'
+import { Block } from '../../block'
 import { ContentTheme } from '../content-theme'
-import { Text } from '../text'
+import { Text } from '../../text'
 import { ThemeToggler } from '.'
 
 export default {
-  title: 'Theme/Cookie Theme Provider',
+  title: 'Theme/Toggler',
   args: {
     themeOverride: 'follow cookie and system',
   },
 } as Meta
 
-export const Providers: StoryFn = () => (
+export const Basic: StoryFn = () => (
   <>
     Use button to toggle theme{' '}
     <span role='img' aria-label='right'>

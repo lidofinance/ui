@@ -1,8 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800");
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800');
 
 body {
-  font-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    Manrope,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
 }
 
 :root {
@@ -84,7 +95,8 @@ body {
   --lido-font-size-xxxxl: 50px;
 }
 
-html[data-lido-theme="light"] {
+:root,
+[data-lido-theme='light'] {
   --lido-dark-theme-opacity: 0;
   --lido-light-theme-opacity: 1;
   --lido-light-mode-visibility: visible;
@@ -96,7 +108,7 @@ html[data-lido-theme="light"] {
   --lido-color-secondary-contrast: #fff;
   --lido-color-background: #f2f4f6;
   --lido-color-background-darken: #dae0e5;
-  --lido-color-background-secondary: #EFF2F6;
+  --lido-color-background-secondary: #eff2f6;
   --lido-color-foreground: #fff;
   --lido-color-overlay: rgb(0 0 0 / 50%);
   --lido-color-shadow-light: rgb(39 56 82 / 8%);
@@ -115,7 +127,7 @@ html[data-lido-theme="light"] {
   --lido-popup-menu-item-bg-active-hover: #000a3d;
 }
 
-html[data-lido-theme="dark"] {
+[data-lido-theme='dark'] {
   --lido-dark-theme-opacity: 1;
   --lido-light-theme-opacity: 0;
   --lido-light-mode-visibility: hidden;
@@ -127,7 +139,7 @@ html[data-lido-theme="dark"] {
   --lido-color-secondary-contrast: #273852;
   --lido-color-background: #1c1c21;
   --lido-color-background-darken: #131317;
-  --lido-color-background-secondary: #27272E;
+  --lido-color-background-secondary: #27272e;
   --lido-color-foreground: #34343d;
   --lido-color-overlay: rgb(0 0 0 / 50%);
   --lido-color-shadow-light: rgb(0 0 0 / 25%);

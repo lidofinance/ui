@@ -1,6 +1,9 @@
-import { VOID_FN } from '../../utils'
-import { themeCookieKey, ThemeName } from '../constants'
-import { setThemeCookie } from '../utils/set-theme-cookie'
+import { FC } from 'react'
+import { ThemeName } from '../cookie-theme-provider'
+import { setThemeCookie, themeCookieKey } from './set-theme-cookie'
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export const VOID_FN = () => {}
 
 /**
  * What is happening here:
@@ -38,7 +41,6 @@ const themeScriptValueString = function (key: string) {
   return setTheme
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 export let updateGlobalTheme: (theme: string) => void = VOID_FN
 
 export let initGlobalCookieTheme =
@@ -59,4 +61,14 @@ export const ScriptThemeValue = () => (
       __html: `(${themeScriptValueString.toString()})("${themeCookieKey}")`,
     }}
   />
+)
+
+export const initColors = () => {
+  initGlobalCookieTheme()
+}
+
+export const LidoUIHead: FC<{
+  jsStyleScript?: boolean
+}> = ({ jsStyleScript = true }) => (
+  <>{jsStyleScript ? <ScriptThemeValue /> : null}</>
 )

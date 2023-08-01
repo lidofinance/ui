@@ -1,7 +1,7 @@
 // TODO: use /packages/utils/cookies-client-side.ts
 
 import { ThemeName } from '../../theme'
-import { themeCookieKey } from '../constants'
+import { themeCookieKey } from './set-theme-cookie'
 
 // we're using all-same regex in element-theme-script.tsx.
 // Sadly, we cannot re-use it as this script is supposed to be inlined in document head
