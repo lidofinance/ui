@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import styled from 'styled-components'
-import * as components from './index'
+import * as components from '.'
 
 type IconVariants = keyof typeof components
 const iconKeys = Object.keys(components) as IconVariants[]
