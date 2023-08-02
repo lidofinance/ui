@@ -31,7 +31,7 @@ export type TransitionWrapperProps = Partial<
     | 'onExiting'
     | 'onExited'
   > &
-  Pick<TransitionActions, 'appear' | 'enter' | 'exit'>
+    Pick<TransitionActions, 'appear' | 'enter' | 'exit'>
 >
 
 export type TransitionInnerProps = {
