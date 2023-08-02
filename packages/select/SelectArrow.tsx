@@ -42,4 +42,3 @@ export const SelectArrow: FC<SelectArrowProps> = ({
 
   return null
 }
-SelectArrow.displayName = 'SelectArrow'
