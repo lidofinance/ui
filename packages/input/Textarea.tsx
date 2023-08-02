@@ -6,8 +6,8 @@ import cn from 'classnames'
 export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & CommonProps
 
 export const Textarea = forwardRef(
-  (props: TextareaProps, ref?: ForwardedRef<HTMLTextAreaElement>) => {
-    const {
+  (
+    {
       id,
       disabled = false,
       label,
@@ -24,7 +24,9 @@ export const Textarea = forwardRef(
       wrapperRef,
       children,
       ...rest
-    } = props
+    }: TextareaProps,
+    ref?: ForwardedRef<HTMLTextAreaElement>,
+  ) => {
     const hasLabel = !!label && variant === 'default'
 
     const hasError = !!error
