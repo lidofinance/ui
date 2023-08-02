@@ -1,6 +1,6 @@
 const ROOT_ID = 'lido-ui-modal-root'
 
-const ModalRoot = ((): HTMLElement | null => {
+export const ModalRoot = ((): HTMLElement | null => {
   try {
     let modalRoot = document.getElementById(ROOT_ID)
 
@@ -15,5 +15,3 @@ const ModalRoot = ((): HTMLElement | null => {
     return null
   }
 })()
-
-export default ModalRoot

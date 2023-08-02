@@ -6,7 +6,7 @@ import {
   TransitionWrapperProps,
   withTransition,
 } from '../transition'
-import { modalRoot } from '../utils'
+import { ModalRoot } from '../utils'
 import { useModalFocus } from './useModalFocus'
 import { useModalClose } from './useModalClose'
 import cn from 'classnames'
@@ -45,7 +45,7 @@ export const ModalOverlay = withTransition(
 
       const mergedRef = useMergeRefs([controlRef, closeRef, externalRef])
 
-      if (!modalRoot) return null
+      if (!ModalRoot) return null
 
       return ReactDOM.createPortal(
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
@@ -77,7 +77,7 @@ export const ModalOverlay = withTransition(
             />
           </div>
         </div>,
-        modalRoot,
+        ModalRoot,
       )
     },
   ),
