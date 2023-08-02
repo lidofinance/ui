@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { ComponentPropsWithoutRef, FC, ReactElement } from 'react'
 import styles from './content-theme.module.css'
 
@@ -6,13 +7,20 @@ export type ContentThemeProps = ComponentPropsWithoutRef<'div'> & {
   lightContent: ReactElement
 }
 
-export const ContentTheme: FC<ContentThemeProps> = (
-  props: ContentThemeProps,
-) => {
+export const ContentTheme: FC<ContentThemeProps> = ({
+  darkContent,
+  lightContent,
+  className,
+  ...rest
+}: ContentThemeProps) => {
   return (
     <>
-      <div className={styles.dark}>{props.darkContent}</div>
-      <div className={styles.light}>{props.lightContent}</div>
+      <div className={cn(styles.dark, className)} {...rest}>
+        {darkContent}
+      </div>
+      <div className={cn(styles.light, className)} {...rest}>
+        {lightContent}
+      </div>
     </>
   )
 }
