@@ -19,7 +19,7 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
 const usePopup = (props: PopupMenuProps) => {
   const { onClose } = props

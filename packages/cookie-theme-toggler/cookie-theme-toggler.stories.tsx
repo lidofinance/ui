@@ -9,7 +9,7 @@ export default {
   args: {
     themeOverride: 'follow cookie and system',
   },
-} as Meta
+} satisfies Meta
 
 export const Providers: StoryFn = () => (
   <>
