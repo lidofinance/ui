@@ -1,4 +1,4 @@
-import React, {
+import {
   ForwardedRef,
   forwardRef,
   Children,
@@ -8,6 +8,7 @@ import React, {
   ReactNode,
   ReactElement,
   RefAttributes,
+  MouseEvent,
 } from 'react'
 import { useMergeRefs } from '../hooks'
 import { Popover, PopoverProps } from '../popover'
@@ -55,11 +56,11 @@ export const Tooltip = forwardRef(
       <>
         {cloneElement(child, {
           ref: mergedRef,
-          onMouseEnter(event: React.MouseEvent<HTMLElement, MouseEvent>) {
+          onMouseEnter(event: MouseEvent<HTMLElement>) {
             handleMouseEnter()
             child.props.onMouseEnter?.(event)
           },
-          onMouseLeave(event: React.MouseEvent<HTMLElement, MouseEvent>) {
+          onMouseLeave(event: MouseEvent<HTMLElement>) {
             handleMouseLeave()
             child.props.onMouseLeave?.(event)
           },

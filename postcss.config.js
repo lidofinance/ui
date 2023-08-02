@@ -1,11 +1,11 @@
 /** @type {import('postcss-load-config').Config} */
-module.exports = {
+module.exports = (ctx) => ({
   plugins: {
+    'postcss-custom-media': {},
     '@csstools/postcss-global-data': {
       files: ['packages/theme/base/breakpoints.css'],
     },
-    'postcss-custom-media': {},
+    '@csstools/postcss-cascade-layers': ctx.env === 'production' ? {} : false,
     'postcss-nesting': {},
-    '@csstools/postcss-cascade-layers': {},
   },
-}
+})

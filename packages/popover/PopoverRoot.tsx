@@ -1,6 +1,11 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  RefObject,
+} from 'react'
 import ReactDOM from 'react-dom'
-import { modalRoot } from '../utils'
+import { ModalRoot } from '../utils'
 import { useMergeRefs, useOutsideClick, useEscape } from '../hooks'
 import {
   TransitionInnerProps,
@@ -35,8 +40,8 @@ export type PopoverRootOwnProps = Omit<
   ComponentPropsWithoutRef<'div'>,
   'children'
 > & {
-  wrapperRef?: React.RefObject<HTMLDivElement>
-  anchorRef: React.RefObject<HTMLElement | null>
+  wrapperRef?: RefObject<HTMLDivElement>
+  anchorRef: RefObject<HTMLElement | null>
   placement?: PopoverPlacements
   backdrop?: boolean
   onClose?: () => void
@@ -80,7 +85,7 @@ export const PopoverRoot = withTransition(
 
       const wrapperRef = useMergeRefs([positionWrapperRef, externalWrapperRef])
 
-      if (!modalRoot) return null
+      if (!ModalRoot) return null
 
       return ReactDOM.createPortal(
         <div
@@ -104,7 +109,7 @@ export const PopoverRoot = withTransition(
             ref={popoverRef}
           />
         </div>,
-        modalRoot,
+        ModalRoot,
       )
     },
   ),

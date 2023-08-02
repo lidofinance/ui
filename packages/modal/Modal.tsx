@@ -15,8 +15,8 @@ export type ModalProps = Omit<ModalOverlayProps, 'title' | 'in'> & {
 }
 
 export const Modal = forwardRef(
-  (props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) => {
-    const {
+  (
+    {
       children,
       title,
       titleIcon,
@@ -27,7 +27,9 @@ export const Modal = forwardRef(
       onClose,
       onBack,
       ...rest
-    } = props
+    }: ModalProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
     const withTitleIcon = !!titleIcon
     const withSubtitle = !!subtitle
     const withCloseButton = !!onClose

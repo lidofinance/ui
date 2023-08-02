@@ -42,5 +42,3 @@ export const SelectArrow: FC<SelectArrowProps> = ({
 
   return null
 }
-
-export default SelectArrow

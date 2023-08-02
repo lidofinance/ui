@@ -4,6 +4,7 @@ import {
   useEffect,
   FC,
   ComponentPropsWithoutRef,
+  MouseEvent,
 } from 'react'
 import { ArrowLeft, ArrowRight } from '../icons'
 import getShowingPages from './getShowingPages'
@@ -23,7 +24,7 @@ const getActiveItem = (length: number, activeItem: number): number => {
 
 export type SiblingsCount = 0 | 1
 
-export type onItemClick = (index: number, e?: React.MouseEvent) => void
+export type onItemClick = (index: number, e?: MouseEvent) => void
 
 export type PaginationProps = Omit<
   ComponentPropsWithoutRef<'div'>,
@@ -60,7 +61,7 @@ export const Pagination: FC<PaginationProps> = ({
     return null
   }
 
-  const onPageItemClick = (page: number, e: React.MouseEvent) => {
+  const onPageItemClick = (page: number, e: MouseEvent) => {
     onItemClick(page, e)
     setCurrPage(page)
   }

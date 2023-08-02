@@ -1,4 +1,9 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  CSSProperties,
+  ForwardedRef,
+  forwardRef,
+} from 'react'
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 import cn from 'classnames'
 import styles from './Identicon.module.css'
@@ -6,8 +11,8 @@ import styles from './Identicon.module.css'
 export type IdenticonProps = ComponentPropsWithoutRef<'div'> & {
   address: string
   diameter?: number
-  paperStyles?: React.CSSProperties
-  svgStyles?: React.CSSProperties
+  paperStyles?: CSSProperties
+  svgStyles?: CSSProperties
 }
 
 export const Identicon = forwardRef(
