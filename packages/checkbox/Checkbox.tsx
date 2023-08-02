@@ -1,11 +1,16 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  RefObject,
+} from 'react'
 import { Text } from '../text'
 import cn from 'classnames'
 import styles from './Checkbox.module.css'
 import { Check } from '../icons'
 
 export type CheckboxProps = ComponentPropsWithoutRef<'input'> & {
-  wrapperRef?: React.RefObject<HTMLLabelElement>
+  wrapperRef?: RefObject<HTMLLabelElement>
   children?: never
   label?: string
 }

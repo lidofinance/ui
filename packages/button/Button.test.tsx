@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 import { LightThemeProvider } from '../theme'
 import 'jest-styled-components'

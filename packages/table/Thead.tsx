@@ -1,8 +1,4 @@
-import React, {
-  ComponentPropsWithoutRef,
-  ForwardedRef,
-  forwardRef,
-} from 'react'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import styles from './Thead.module.css'
 import { className } from 'postcss-selector-parser'
 import cn from 'classnames'

@@ -1,8 +1,4 @@
-import React, {
-  ComponentPropsWithoutRef,
-  ForwardedRef,
-  forwardRef,
-} from 'react'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import styles from './Th.module.css'
 import cn from 'classnames'
 import { className } from 'postcss-selector-parser'
