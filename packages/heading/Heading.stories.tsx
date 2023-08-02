@@ -31,7 +31,7 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
 export const Basic: StoryFn<HeadingProps> = (props) => <Heading {...props} />
 

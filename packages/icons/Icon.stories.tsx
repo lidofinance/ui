@@ -7,7 +7,7 @@ const iconKeys = Object.keys(components) as IconVariants[]
 
 export default {
   title: 'Images/Icons',
-} as Meta
+} satisfies Meta
 
 export const Base: StoryFn<{ color: string; type: IconVariants }> = (props) => {
   const { color, type } = props

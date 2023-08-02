@@ -40,7 +40,7 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
 export const Basic: StoryFn<ButtonProps> = (props) => <Button {...props} />
 
