@@ -2,7 +2,6 @@ import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 
 import cn from 'classnames'
 import styles from './Td.module.css'
-import { className } from 'postcss-selector-parser'
 
 export enum TableAlign {
   left = 'left',
@@ -45,6 +44,7 @@ export const Td = forwardRef(
       variant,
       children,
       numeric = false,
+      className,
       ...rest
     }: TdProps,
     ref?: ForwardedRef<HTMLTableCellElement>,

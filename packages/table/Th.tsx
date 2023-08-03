@@ -1,7 +1,6 @@
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import styles from './Th.module.css'
 import cn from 'classnames'
-import { className } from 'postcss-selector-parser'
 import { ArrowBottom, ArrowTop } from '../icons'
 
 export enum ThAlign {
@@ -34,7 +33,7 @@ export type ThProps = ComponentPropsWithoutRef<'th'> & {
 
 export const Th = forwardRef(
   (
-    { align = 'left', children, sortDir, variant, ...rest }: ThProps,
+    { align = 'left', children, sortDir, variant, className, ...rest }: ThProps,
     ref?: ForwardedRef<HTMLTableCellElement>,
   ) => {
     return (

@@ -13,7 +13,9 @@ export const Link = forwardRef(
   ) => {
     return (
       <a
-        className={cn(styles.link, { [styles.fadedVisited]: fadeVisited })}
+        className={cn(styles.link, className, {
+          [styles.fadedVisited]: fadeVisited,
+        })}
         target='_blank'
         rel='nofollow noopener'
         ref={ref}

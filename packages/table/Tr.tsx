@@ -2,7 +2,6 @@ import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 
 import cn from 'classnames'
 import styles from './Tr.module.css'
-import { className } from 'postcss-selector-parser'
 
 export enum TrHighlight {
   positive,
@@ -17,7 +16,7 @@ export type TrProps = ComponentPropsWithoutRef<'tr'> & {
 
 export const Tr = forwardRef(
   (
-    { highlight, ...rest }: TrProps,
+    { highlight, className, ...rest }: TrProps,
     ref?: ForwardedRef<HTMLTableRowElement>,
   ) => {
     return (
