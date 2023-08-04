@@ -1,4 +1,10 @@
-import { ForwardedRef, MouseEvent, forwardRef, useCallback } from 'react'
+import {
+  ForwardedRef,
+  MouseEvent,
+  forwardRef,
+  useCallback,
+  ReactNode,
+} from 'react'
 import { PopupMenuItem, PopupMenuItemProps } from '../popup-menu'
 
 export type OptionValue = string | number
@@ -6,7 +12,7 @@ export type OptionHandleChange = (value: OptionValue) => void
 
 export type OptionProps = Omit<PopupMenuItemProps, 'value' | 'children'> & {
   value: OptionValue
-  children: string
+  children: ReactNode
   onChange?: OptionHandleChange
 }
 
