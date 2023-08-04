@@ -1,7 +1,7 @@
 @layer modaExtra {
   .modalExtra {
     margin-top: calc(0px - var(--lido-border-radius-xl));
-    color: var(--lido-color-accentContrast);
+    color: var(--lido-color-accent-contrast);
     background: var(--lido-color-accent);
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;

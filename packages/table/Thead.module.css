@@ -1,6 +1,6 @@
 .thead {
-  border-top: 1px solid var(--lido-color-borderLight);
-  border-bottom: 1px solid var(--lido-color-borderLight);
+  border-top: 1px solid var(--lido-color-border-light);
+  border-bottom: 1px solid var(--lido-color-border-light);
 }
 
 .thead > tr::before,
@@ -8,8 +8,8 @@
   content: '';
   display: table-cell;
   width: 32px;
-  border-top: 1px solid var(--lido-color-borderLight);
-  border-bottom: 1px solid var(--lido-color-borderLight);
+  border-top: 1px solid var(--lido-color-border-light);
+  border-bottom: 1px solid var(--lido-color-border-light);
 }
 
 .sticky {

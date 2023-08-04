@@ -55,20 +55,20 @@
 
   &.error {
     background: var(--lido-color-error);
-    color: var(--lido-color-errorContrast);
-    box-shadow: var(--lido-shadows-sm) var(--lido-color-shadowLight);
+    color: var(--lido-color-error-contrast);
+    box-shadow: var(--lido-shadows-sm) var(--lido-color-shadow-light);
   }
 
   &.warning {
     background: var(--lido-color-warning);
-    color: var(--lido-color-warningContrast);
-    box-shadow: var(--lido-shadows-sm) var(--lido-color-shadowLight);
+    color: var(--lido-color-warning-contrast);
+    box-shadow: var(--lido-shadows-sm) var(--lido-color-shadow-light);
   }
 
   &.success {
     background: var(--lido-color-success);
-    color: var(--lido-color-successContrast);
-    box-shadow: var(--lido-shadows-sm) var(--lido-color-shadowLight);
+    color: var(--lido-color-success-contrast);
+    box-shadow: var(--lido-shadows-sm) var(--lido-color-shadow-light);
   }
 }
 
@@ -91,11 +91,11 @@
   opacity: 1;
 
   &.colorDefault {
-    color: var(--lido-color-textSecondary);
+    color: var(--lido-color-text-secondary);
   }
 
   &.colorAccent {
-    color: var(--lido-color-accentContrastSecondary);
+    color: var(--lido-color-accent-contrast-secondary);
   }
 }
 
@@ -121,7 +121,7 @@
 
   &:focus-within {
     z-index: 2;
-    border-color: var(--lido-color-borderActive);
+    border-color: var(--lido-color-border-active);
 
     .label {
       color: var(--lido-color-primary);
@@ -132,7 +132,7 @@
 
 @layer content-color {
   .content.colorDefault {
-    background: var(--lido-color-controlBg);
+    background: var(--lido-color-control-bg);
     border-color: var(--lido-color-border);
     color: var(--lido-color-text);
 
@@ -142,23 +142,23 @@
 
     &:not(.disabled) {
       &:hover {
-        border-color: var(--lido-color-borderHover);
+        border-color: var(--lido-color-border-hover);
       }
     }
   }
 
   .content.colorAccent {
-    background: var(--lido-color-accentControlBg);
-    border-color: var(--lido-color-accentBorder);
-    color: var(--lido-color-accentText);
+    background: var(--lido-color-accent-control-bg);
+    border-color: var(--lido-color-accent-border);
+    color: var(--lido-color-accent-text);
 
     &.disabled {
-      background: var(--lido-color-controlBg);
+      background: var(--lido-color-control-bg);
     }
 
     &:not(.disabled) {
       &:hover {
-        border-color: var(--lido-color-accentBorderHover);
+        border-color: var(--lido-color-accent-border-hover);
       }
     }
   }
@@ -193,7 +193,7 @@
   &:hover,
   &:focus-within {
     z-index: 2;
-    border-color: var(--lido-color-borderActive);
+    border-color: var(--lido-color-border-active);
 
     /* stylelint-disable-next-line no-descending-specificity */
     .label {
@@ -258,11 +258,11 @@
       opacity: 0.5;
 
       &.colorDefault {
-        color: var(--lido-color-textSecondary);
+        color: var(--lido-color-text-secondary);
       }
 
       &.colorAccent {
-        color: var(--lido-color-accentContrastSecondary);
+        color: var(--lido-color-accent-contrast-secondary);
       }
     }
 
@@ -276,15 +276,15 @@
   color: var(--lido-color-text);
 
   &:disabled {
-    color: var(--lido-color-textSecondary);
+    color: var(--lido-color-text-secondary);
   }
 
   &::placeholder {
-    color: var(--lido-color-textSecondary);
+    color: var(--lido-color-text-secondary);
   }
 
   &:-webkit-autofill {
-    box-shadow: 0 0 0 100px var(--lido-color-controlBg) inset !important;
+    box-shadow: 0 0 0 100px var(--lido-color-control-bg) inset !important;
     color: var(--lido-color-text) !important;
     -webkit-text-fill-color: var(--lido-color-text) !important;
   }
@@ -296,28 +296,28 @@
 }
 
 .input.colorAccent {
-  color: var(--lido-color-accentText);
+  color: var(--lido-color-accent-text);
   opacity: 1;
 
   &:disabled {
-    color: var(--lido-color-accentText);
+    color: var(--lido-color-accent-text);
     opacity: 0.5;
   }
 
   &::placeholder {
-    color: var(--lido-color-accentText);
+    color: var(--lido-color-accent-text);
     opacity: 0.5;
   }
 
   &:-webkit-autofill {
-    box-shadow: 0 0 0 100px var(--lido-color-accentControlBg) inset !important;
-    color: var(--lido-color-accentContrast) !important;
-    -webkit-text-fill-color: var(--lido-color-accentContrast) !important;
+    box-shadow: 0 0 0 100px var(--lido-color-accent-control-bg) inset !important;
+    color: var(--lido-color-accent-contrast) !important;
+    -webkit-text-fill-color: var(--lido-color-accent-contrast) !important;
   }
 
   &:-internal-autofill-selected {
-    color: var(--lido-color-accentContrast) !important;
-    -webkit-text-fill-color: var(--lido-color-accentContrast) !important;
+    color: var(--lido-color-accent-contrast) !important;
+    -webkit-text-fill-color: var(--lido-color-accent-contrast) !important;
   }
 }
 

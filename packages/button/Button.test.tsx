@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react'
-import { ThemeProvider, themeDefault } from '../theme'
+import { LightThemeProvider } from '../theme'
 import 'jest-styled-components'
 import { Button } from './Button'
 
 it('renders correctly', () => {
   const { container } = render(
-    <ThemeProvider theme={themeDefault}>
+    <LightThemeProvider>
       <Button>Test</Button>
-    </ThemeProvider>,
+    </LightThemeProvider>,
   )
 
   expect(container.firstChild?.firstChild).toMatchSnapshot()

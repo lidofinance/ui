@@ -1,5 +1,5 @@
 .td {
-  border-bottom: 1px solid var(--lido-color-borderLight);
+  border-bottom: 1px solid var(--lido-color-border-light);
   padding: 18px;
   color: var(--lido-color-text);
   text-align: left;
@@ -23,7 +23,7 @@
 }
 
 .colorSecondary {
-  color: var(--lido-color-textSecondary);
+  color: var(--lido-color-text-secondary);
 }
 
 .colorWarning {

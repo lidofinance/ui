@@ -27,7 +27,7 @@
 }
 
 .content {
-  color: var(--lido-color-textSecondary);
+  color: var(--lido-color-text-secondary);
   font-weight: 400;
   font-size: var(--lido-font-size-xxs);
   line-height: 1.6em;
@@ -61,7 +61,7 @@
   flex-shrink: 0;
   margin: -2px;
   margin-left: var(--lido-space-md);
-  fill: var(--lido-color-textSecondary);
+  fill: var(--lido-color-text-secondary);
 }
 
 .arrowExpanded {

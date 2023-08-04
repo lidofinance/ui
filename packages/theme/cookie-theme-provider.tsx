@@ -9,20 +9,32 @@ import {
   useState,
 } from 'react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import {
-  DEFAULT_THEME_NAME,
-  prefersDarkThemeMediaQuery,
-  ThemeName,
-} from './constants'
 import { themeMap } from './themes'
 import { getThemeNameFromCookies } from './utils/cookies'
-import { initColors } from './document-head-contents'
-import { updateGlobalTheme } from './document-head-contents/element-theme-script'
-import { ThemeContext } from './types'
+import { initColors } from './utils/document-head-contents'
+import { updateGlobalTheme } from './utils/document-head-contents'
+
+export enum ThemeName {
+  light = 'light',
+  dark = 'dark',
+}
+export type ThemeNames = keyof typeof ThemeName
+
+export type ThemeContext = {
+  toggleTheme: () => void
+  themeName: ThemeNames
+}
 
 const defaultThemeContext = {} as ThemeContext
 export const ThemeToggleContext =
   createContext<ThemeContext>(defaultThemeContext)
+
+export const DEFAULT_THEME_NAME = ThemeName.light
+
+export const prefersDarkThemeMediaQuery =
+  typeof window !== 'undefined'
+    ? window.matchMedia?.('(prefers-color-scheme: dark)')
+    : undefined
 
 // we need to initialize this before react component code if we're using this provider or ThemeProvider
 initColors()

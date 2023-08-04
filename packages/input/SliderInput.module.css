@@ -71,7 +71,7 @@
   height: 56px;
   padding: 16px 20px;
   box-sizing: border-box;
-  background: var(--lido-color-accentControlBg);
+  background: var(--lido-color-accent-control-bg);
   overflow: hidden;
 }
 

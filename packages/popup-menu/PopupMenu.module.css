@@ -24,7 +24,7 @@
 
     &:disabled {
       cursor: default;
-      color: var(--lido-color-textSecondary);
+      color: var(--lido-color-text-secondary);
     }
 
     &::before {
@@ -34,7 +34,7 @@
       pointer-events: none;
       border-radius: inherit;
       opacity: 0;
-      background: var(--lido-color-popupMenuItemBgActiveHover);
+      background: var(--lido-color-popup-menu-item-bg-active-hover);
       transition: opacity var(--lido-transition-duration-fast) ease;
     }
 
@@ -97,7 +97,7 @@
     border-radius: var(--lido-border-radius-lg);
     overflow: auto;
     overflow-x: hidden;
-    box-shadow: var(--lido-box-shadow-xs) var(--lido-color-shadowLight);
+    box-shadow: var(--lido-shadows-xs) var(--lido-color-shadow-light);
     padding: 0;
 
     & .popupMenuItem:first-child {

@@ -9,8 +9,8 @@
 }
 
 .gray {
-  background: var(--lido-color-shadowLight);
-  color: var(--lido-color-textSecondary);
+  background: var(--lido-color-shadow-light);
+  color: var(--lido-color-text-secondary);
 }
 
 .warning {

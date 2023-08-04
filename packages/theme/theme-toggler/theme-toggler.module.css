@@ -6,12 +6,12 @@
 
 .light {
   composes: icon;
-  visibility: var(--lido-color-darkModeVisibility);
+  visibility: var(--lido-dark-mode-visibility);
 }
 
 .dark {
   composes: icon;
-  visibility: var(--lido-color-lightModeVisibility);
+  visibility: var(--lido-light-mode-visibility);
 }
 
 .themeToggler {

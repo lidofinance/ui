@@ -11,7 +11,7 @@
     margin-right: var(--lido-space-md);
 
     svg {
-      color: var(--lido-color-accentContrast);
+      color: var(--lido-color-accent-contrast);
     }
   }
 }

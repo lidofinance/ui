@@ -1,25 +1,11 @@
-import { Meta, StoryFn } from '@storybook/react'
-import {
-  DarkThemeProvider,
-  LightThemeProvider,
-  ThemeProvider,
-} from './theme-provider'
-import { themeLight } from './themes'
+import { StoryFn, Meta } from '@storybook/react'
 import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
+import { DarkThemeProvider, LightThemeProvider } from '.'
 
 export default {
   title: 'Theme/Providers',
-} as Meta
-
-const themeCustom = {
-  ...themeLight,
-  colors: {
-    ...themeLight.colors,
-    text: '#FFA29A',
-    foreground: '#323161',
-  },
-}
+} satisfies Meta
 
 const Block: FC<PropsWithChildren> = styled.div`
   font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
@@ -39,6 +25,11 @@ const Block: FC<PropsWithChildren> = styled.div`
   }
 `
 
+const ThemeProvider = styled.div`
+  --lido-color-text: #ffa29a;
+  --lido-color-foreground: #323161;
+`
+
 export const Providers: StoryFn = (props) => (
   <>
     <Block>Component inherits global theme</Block>
@@ -48,8 +39,8 @@ export const Providers: StoryFn = (props) => (
     <DarkThemeProvider>
       <Block>Wrapped in DarkThemeProvider</Block>
     </DarkThemeProvider>
-    <ThemeProvider theme={themeCustom} {...props}>
-      <Block>Wrapped in ThemeProvider, which provides custom theme</Block>
+    <ThemeProvider {...props}>
+      <Block>Wrapped in ThemeProvider, which overwrites CSS variables</Block>
     </ThemeProvider>
   </>
 )

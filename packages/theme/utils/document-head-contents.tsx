@@ -1,6 +1,9 @@
-import { VOID_FN } from '../../utils'
-import { themeCookieKey, ThemeName } from '../constants'
-import { setThemeCookie } from '../utils/set-theme-cookie'
+import { FC } from 'react'
+import { ThemeName } from '../cookie-theme-provider'
+import { setThemeCookie, themeCookieKey } from './set-theme-cookie'
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export const VOID_FN = () => {}
 
 /**
  * What is happening here:
@@ -38,7 +41,6 @@ const themeScriptValueString = function (key: string) {
   return setTheme
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 export let updateGlobalTheme: (theme: string) => void = VOID_FN
 
 export let initGlobalCookieTheme =
@@ -59,4 +61,26 @@ export const ScriptThemeValue = () => (
       __html: `(${themeScriptValueString.toString()})("${themeCookieKey}")`,
     }}
   />
+)
+
+export const initColors = () => {
+  initGlobalCookieTheme()
+}
+
+const CSS_FONTS = `@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800);
+body {
+font-family: Manrope, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}`
+
+export const Fonts = (): JSX.Element => <style>{CSS_FONTS}</style>
+
+export const LidoUIHead: FC<{
+  jsStyleScript?: boolean
+  cssFont?: boolean
+}> = ({ jsStyleScript = true, cssFont = false }) => (
+  <>
+    {jsStyleScript ? <ScriptThemeValue /> : null}
+    {cssFont ? <Fonts /> : null}
+  </>
 )

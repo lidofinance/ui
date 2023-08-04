@@ -1,6 +1,6 @@
 .th {
-  border-top: 1px solid var(--lido-color-borderLight);
-  border-bottom: 1px solid var(--lido-color-borderLight);
+  border-top: 1px solid var(--lido-color-border-light);
+  border-bottom: 1px solid var(--lido-color-border-light);
   padding: 7px 18px;
   font-weight: 700;
   color: var(--lido-color-text);

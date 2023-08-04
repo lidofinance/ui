@@ -57,7 +57,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
-  color: var(--lido-color-textSecondary);
+  color: var(--lido-color-text-secondary);
   width: 100%;
   text-align: center;
 
@@ -110,7 +110,7 @@
   color: var(--lido-color-foreground);
 
   &:hover {
-    background-color: var(--lido-color-textSecondary);
+    background-color: var(--lido-color-text-secondary);
   }
 }
 

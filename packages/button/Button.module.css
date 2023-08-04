@@ -95,7 +95,7 @@
     line-height: 1em;
     font-size: var(--lido-font-size-sm);
     border-radius: var(--lido-border-radius-lg);
-    box-shadow: var(--lido-shadows-md) var(--lido-color-shadowDark);
+    box-shadow: var(--lido-shadows-md) var(--lido-color-shadow-dark);
     padding: 24px 64px;
     min-width: 160px;
   }
@@ -127,52 +127,52 @@
   }
 
   .filled.primary {
-    color: var(--lido-color-primaryContrast);
+    color: var(--lido-color-primary-contrast);
     background-color: var(--lido-color-primary);
 
     &:focus-visible,
     &:not(:disabled):hover {
-      background-color: var(--lido-color-primaryHover);
+      background-color: var(--lido-color-primary-hover);
     }
   }
 
   .filled.secondary {
-    color: var(--lido-color-secondaryContrast);
+    color: var(--lido-color-secondary-contrast);
     background-color: var(--lido-color-secondary);
 
     &:focus-visible,
     &:not(:disabled):hover {
-      background-color: var(--lido-color-secondaryHover);
+      background-color: var(--lido-color-secondary-hover);
     }
   }
 
   .filled.warning {
-    color: var(--lido-color-warningContrast);
+    color: var(--lido-color-warning-contrast);
     background-color: var(--lido-color-warning);
 
     &:focus-visible,
     &:not(:disabled):hover {
-      background-color: var(--lido-color-warningHover);
+      background-color: var(--lido-color-warning-hover);
     }
   }
 
   .filled.error {
-    color: var(--lido-color-errorContrast);
+    color: var(--lido-color-error-contrast);
     background-color: var(--lido-color-error);
 
     &:focus-visible,
     &:not(:disabled):hover {
-      background-color: var(--lido-color-errorHover);
+      background-color: var(--lido-color-error-hover);
     }
   }
 
   .filled.success {
-    color: var(--lido-color-successContrast);
+    color: var(--lido-color-success-contrast);
     background-color: var(--lido-color-success);
 
     &:focus-visible,
     &:not(:disabled):hover {
-      background-color: var(--lido-color-successHover);
+      background-color: var(--lido-color-success-hover);
     }
   }
 
@@ -195,8 +195,8 @@
 
     &:focus-visible,
     &:not(:disabled):hover {
-      color: var(--lido-color-primaryContrast);
-      background-color: var(--lido-color-primaryHover);
+      color: var(--lido-color-primary-contrast);
+      background-color: var(--lido-color-primary-hover);
     }
   }
 
@@ -209,8 +209,8 @@
 
     &:focus-visible,
     &:not(:disabled):hover {
-      color: var(--lido-color-secondaryContrast);
-      background-color: var(--lido-color-secondaryHover);
+      color: var(--lido-color-secondary-contrast);
+      background-color: var(--lido-color-secondary-hover);
     }
   }
 
@@ -223,8 +223,8 @@
 
     &:focus-visible,
     &:not(:disabled):hover {
-      color: var(--lido-color-warningContrast);
-      background-color: var(--lido-color-warningHover);
+      color: var(--lido-color-warning-contrast);
+      background-color: var(--lido-color-warning-hover);
     }
   }
 
@@ -237,8 +237,8 @@
 
     &:focus-visible,
     &:not(:disabled):hover {
-      color: var(--lido-color-errorContrast);
-      background-color: var(--lido-color-errorHover);
+      color: var(--lido-color-error-contrast);
+      background-color: var(--lido-color-error-hover);
     }
   }
 
@@ -251,8 +251,8 @@
 
     &:focus-visible,
     &:not(:disabled):hover {
-      color: var(--lido-color-successContrast);
-      background-color: var(--lido-color-successHover);
+      color: var(--lido-color-success-contrast);
+      background-color: var(--lido-color-success-hover);
     }
   }
 

@@ -11,7 +11,7 @@
 }
 
 .big {
-  fill: var(--lido-color-textSecondary);
+  fill: var(--lido-color-text-secondary);
 }
 
 .small {

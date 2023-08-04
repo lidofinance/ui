@@ -6,7 +6,7 @@
     line-height: 1.5em;
     font-weight: 400;
     border-radius: var(--lido-border-radius-lg);
-    box-shadow: var(--lido-shadows-xs) var(--lido-color-shadowLight);
+    box-shadow: var(--lido-shadows-xs) var(--lido-color-shadow-light);
     padding: var(--lido-space-lg);
     overflow: auto;
   }

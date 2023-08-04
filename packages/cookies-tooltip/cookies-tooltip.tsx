@@ -5,7 +5,7 @@ import {
   ComponentPropsWithoutRef,
 } from 'react'
 import { Cookie, CookieInverse } from '../icons'
-import { ContentTheme } from '../content-theme'
+import { ContentTheme } from '../theme/content-theme'
 import { getCrossDomainCookieClientSide } from '../utils'
 import { allowCookies, declineCookies } from './utils'
 import { COOKIE_ALLOWED_KEY } from './constants'
