@@ -1,7 +1,6 @@
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { StackProvider } from './StackProvider'
 import cn from 'classnames'
-import { className } from 'postcss-selector-parser'
 import styles from './Stack.module.css'
 
 export enum StackAlign {
@@ -73,6 +72,7 @@ export const Stack = forwardRef(
       wrap = 'wrap',
       spacing,
       children,
+      className,
       ...rest
     }: StackProps,
     ref?: ForwardedRef<HTMLDivElement>,

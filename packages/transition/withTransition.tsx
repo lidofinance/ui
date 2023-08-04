@@ -9,12 +9,39 @@ import {
 import { useMergeRefs } from '../hooks'
 import { Transition } from 'react-transition-group'
 import { DEFAULT_DURATION } from './constants'
-import { TransitionWrapperProps, TransitionInnerProps } from './types'
 
+import type {
+  TransitionProps,
+  TransitionStatus,
+  TransitionActions,
+} from 'react-transition-group/Transition'
+
+export type TransitionWrapperProps = Partial<
+  Pick<
+    TransitionProps<HTMLElement>,
+    | 'in'
+    | 'mountOnEnter'
+    | 'unmountOnExit'
+    | 'timeout'
+    | 'addEndListener'
+    | 'onEnter'
+    | 'onEntering'
+    | 'onEntered'
+    | 'onExit'
+    | 'onExiting'
+    | 'onExited'
+  > &
+    Pick<TransitionActions, 'appear' | 'enter' | 'exit'>
+>
+
+export type TransitionInnerProps = {
+  duration: number
+  transitionStatus: TransitionStatus
+}
 type WrappedProps<T> = Omit<T, keyof TransitionInnerProps> &
   TransitionWrapperProps
 
-export default function withTransition<
+export function withTransition<
   P extends TransitionInnerProps,
   E extends HTMLElement,
 >(

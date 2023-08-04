@@ -17,7 +17,7 @@ export default {
       control: { type: 'range', min: 3, max: 21, step: 1 },
     },
   },
-} as Meta
+} satisfies Meta
 
 export const Basic: StoryFn<AddressBadgeProps> = (props) => (
   <AddressBadge {...props} />

@@ -2,6 +2,7 @@ import {
   ComponentPropsWithoutRef,
   ForwardedRef,
   forwardRef,
+  ReactNode,
   RefObject,
 } from 'react'
 import { Text } from '../text'
@@ -12,7 +13,7 @@ import { Check } from '../icons'
 export type CheckboxProps = ComponentPropsWithoutRef<'input'> & {
   wrapperRef?: RefObject<HTMLLabelElement>
   children?: never
-  label?: string
+  label?: ReactNode
 }
 
 export const Checkbox = forwardRef(

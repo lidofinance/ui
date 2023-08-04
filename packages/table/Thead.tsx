@@ -1,6 +1,5 @@
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import styles from './Thead.module.css'
-import { className } from 'postcss-selector-parser'
 import cn from 'classnames'
 
 export type TheadProps = ComponentPropsWithoutRef<'thead'> & {
@@ -9,7 +8,7 @@ export type TheadProps = ComponentPropsWithoutRef<'thead'> & {
 
 export const Thead = forwardRef(
   (
-    { sticky = false, ...rest }: TheadProps,
+    { sticky = false, className, ...rest }: TheadProps,
     ref?: ForwardedRef<HTMLTableSectionElement>,
   ) => {
     return (

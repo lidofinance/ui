@@ -1,13 +1,13 @@
 import { StoryFn, Meta } from '@storybook/react'
 import styled from 'styled-components'
-import * as components from './index'
+import * as components from '.'
 
 type IconVariants = keyof typeof components
 const iconKeys = Object.keys(components) as IconVariants[]
 
 export default {
   title: 'Images/Icons',
-} as Meta
+} satisfies Meta
 
 export const Base: StoryFn<{ color: string; type: IconVariants }> = (props) => {
   const { color, type } = props

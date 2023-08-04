@@ -11,7 +11,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta
+} satisfies Meta
 
 const StyledDiv = styled.div`
   height: 100px;

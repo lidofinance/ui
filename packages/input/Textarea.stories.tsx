@@ -15,7 +15,7 @@ export default {
       table: { disable: true },
     },
   },
-} as Meta
+} satisfies Meta
 
 export const Basic: StoryFn<TextareaProps> = (props) => <Textarea {...props} />
 
