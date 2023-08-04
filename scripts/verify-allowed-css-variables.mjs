@@ -1,3 +1,11 @@
+/*
+ * This script was used during migration to css variables 
+ * to ensure all variables used in each component were declared.
+ * 
+ * This is not establised part of pipeline, so use with caution and
+ * double-check results.
+ */
+
 const getDefinedVariables = async () => {
   const content = await fs.readFile('./packages/theme/theme.css', 'utf-8')
   const matches = content.match(/--lido-[^:]+/g)
@@ -23,7 +31,7 @@ const getUsedVariables = async () => {
   return new Set(usedVars)
 }
 
-// TODO: this can by stylelint plugin
+// TODO: consider to use as stylelint plugin
 const main = async () => {
   const usedVars = await getUsedVariables()
   const definedVars = await getDefinedVariables()
