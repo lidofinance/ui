@@ -1,7 +1,7 @@
 /*
- * This script was used during migration to css variables 
+ * This script was used during migration to css variables
  * to ensure all variables used in each component were declared.
- * 
+ *
  * This is not establised part of pipeline, so use with caution and
  * double-check results.
  */
