@@ -5,7 +5,6 @@ import {
   useCallback,
   useState,
 } from 'react'
-import styles from './Button.module.css'
 
 type UseRipple = (props: {
   onClick?: MouseEventHandler<HTMLButtonElement>
@@ -41,7 +40,7 @@ export const useRipple: UseRipple = ({ onClick }) => {
       }
 
       setRipple(
-        <span className={styles.ripple} style={style} key={event.timeStamp} />,
+        <span className={'btn_ripple'} style={style} key={event.timeStamp} />,
       )
       onClick?.(event)
     },

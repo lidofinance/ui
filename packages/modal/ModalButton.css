@@ -1,0 +1,23 @@
+.modal-btn.btn {
+  color: var(--lido-color-text);
+  border: 1px solid var(--lido-color-background);
+  background-color: var(--lido-color-background);
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    background-color: rgb(0 163 255 / 10%);
+    color: var(--lido-color-text);
+  }
+
+  &.modal-btn_active {
+    border: 1px solid var(--lido-color-primary);
+    background-color: rgb(0 163 255 / 10%);
+  }
+}
+
+.modal-btn__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

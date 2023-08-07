@@ -1,0 +1,439 @@
+@keyframes btn-ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.btn {
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  font-family: inherit;
+  font-weight: 700;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    display: none;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.btn_fullwidth {
+  width: 100%;
+}
+
+.btn_xxs {
+  line-height: 1em;
+  font-size: var(--lido-font-size-xxxs);
+  border-radius: var(--lido-border-radius-sm);
+  padding: 11px 16px;
+  min-width: 50px;
+}
+
+.btn_xxs.btn_square {
+  padding: 11px;
+  min-width: 0;
+}
+
+.btn_loading:disabled {
+  opacity: 1;
+}
+
+.btn_xs {
+  line-height: 1em;
+  font-size: var(--lido-font-size-xxs);
+  border-radius: var(--lido-border-radius-sm);
+  padding: 10px 16px;
+  min-width: 60px;
+}
+
+.btn_xs.btn_square {
+  padding: 10px;
+  min-width: 0;
+}
+
+.btn_sm {
+  line-height: 1em;
+  font-size: var(--lido-font-size-xs);
+  border-radius: var(--lido-border-radius-sm);
+  padding: 16px 24px;
+  min-width: 100px;
+}
+
+.btn_sm.btn_square {
+  padding: 16px;
+  min-width: 0;
+}
+
+.btn_md {
+  line-height: 1em;
+  font-size: var(--lido-font-size-xs);
+  border-radius: var(--lido-border-radius-lg);
+  padding: 21px 44px;
+  min-width: 120px;
+}
+
+.btn_md.btn_square {
+  padding: 21px;
+  min-width: 0;
+}
+
+.btn_lg {
+  line-height: 1em;
+  font-size: var(--lido-font-size-sm);
+  border-radius: var(--lido-border-radius-lg);
+  box-shadow: var(--lido-shadows-md) var(--lido-color-shadow-dark);
+  padding: 24px 64px;
+  min-width: 160px;
+}
+
+.btn_lg.btn_square {
+  padding: 24px;
+  min-width: 0;
+}
+
+.btn_ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+  animation: btn-ripple 0.8s linear;
+  background-color: currentcolor;
+  opacity: 0.4;
+}
+
+.btn_filled {
+  transition: background-color var(--lido-transition-duration-fast) ease;
+}
+
+.btn_filled.btn_primary {
+  color: var(--lido-color-primary-contrast);
+  background-color: var(--lido-color-primary);
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    background-color: var(--lido-color-primary-hover);
+  }
+}
+
+.btn_filled.btn_secondary {
+  color: var(--lido-color-secondary-contrast);
+  background-color: var(--lido-color-secondary);
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    background-color: var(--lido-color-secondary-hover);
+  }
+}
+
+.btn_filled.btn_warning {
+  color: var(--lido-color-warning-contrast);
+  background-color: var(--lido-color-warning);
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    background-color: var(--lido-color-warning-hover);
+  }
+}
+
+.btn_filled.btn_error {
+  color: var(--lido-color-error-contrast);
+  background-color: var(--lido-color-error);
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    background-color: var(--lido-color-error-hover);
+  }
+}
+
+.btn_filled.btn_success {
+  color: var(--lido-color-success-contrast);
+  background-color: var(--lido-color-success);
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    background-color: var(--lido-color-success-hover);
+  }
+}
+
+.btn_outlined {
+  transition:
+    background-color var(--lido-transition-duration-fast) ease,
+    color var(--lido-transition-duration-fast) ease;
+
+  &::before {
+    display: block;
+  }
+}
+
+.btn_outlined.btn_primary {
+  color: var(--lido-color-primary);
+
+  &::before {
+    border: 1px solid var(--lido-color-primary);
+  }
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    color: var(--lido-color-primary-contrast);
+    background-color: var(--lido-color-primary-hover);
+  }
+}
+
+.btn_outlined.btn_secondary {
+  color: var(--lido-color-secondary);
+
+  &::before {
+    border: 1px solid var(--lido-color-secondary);
+  }
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    color: var(--lido-color-secondary-contrast);
+    background-color: var(--lido-color-secondary-hover);
+  }
+}
+
+.btn_outlined.btn_warning {
+  color: var(--lido-color-warning);
+
+  &::before {
+    border: 1px solid var(--lido-color-warning);
+  }
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    color: var(--lido-color-warning-contrast);
+    background-color: var(--lido-color-warning-hover);
+  }
+}
+
+.btn_outlined.btn_error {
+  color: var(--lido-color-error);
+
+  &::before {
+    border: 1px solid var(--lido-color-error);
+  }
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    color: var(--lido-color-error-contrast);
+    background-color: var(--lido-color-error-hover);
+  }
+}
+
+.btn_outlined.btn_success {
+  color: var(--lido-color-success);
+
+  &::before {
+    border: 1px solid var(--lido-color-success);
+  }
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    color: var(--lido-color-success-contrast);
+    background-color: var(--lido-color-success-hover);
+  }
+}
+
+.btn_text {
+  background-color: var(--lido-color-foreground);
+
+  &::before {
+    display: block;
+    transition: opacity var(--lido-transition-duration-fast) ease;
+    opacity: 0;
+  }
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    &::before {
+      opacity: 0.1;
+    }
+  }
+}
+
+.btn_text.btn_primary {
+  color: var(--lido-color-primary);
+
+  &::before {
+    background-color: var(--lido-color-primary);
+  }
+}
+
+.btn_text.btn_secondary {
+  color: var(--lido-color-secondary);
+
+  &::before {
+    background-color: var(--lido-color-secondary);
+  }
+}
+
+.btn_text.btn_warning {
+  color: var(--lido-color-warning);
+
+  &::before {
+    background-color: var(--lido-color-warning);
+  }
+}
+
+.btn_text.btn_error {
+  color: var(--lido-color-error);
+
+  &::before {
+    background-color: var(--lido-color-error);
+  }
+}
+
+.btn_text.btn_success {
+  color: var(--lido-color-success);
+
+  &::before {
+    background-color: var(--lido-color-success);
+  }
+}
+
+.btn_ghost {
+  &::before {
+    display: block;
+    transition: opacity var(--lido-transition-duration-fast) ease;
+    opacity: 0;
+  }
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    &::before {
+      opacity: 0.1;
+    }
+  }
+}
+
+.btn_ghost.btn_primary {
+  color: var(--lido-color-primary);
+
+  &::before {
+    background-color: var(--lido-color-primary);
+  }
+}
+
+.btn_ghost.btn_secondary {
+  color: var(--lido-color-secondary);
+
+  &::before {
+    background-color: var(--lido-color-secondary);
+  }
+}
+
+.btn_ghost.btn_warning {
+  color: var(--lido-color-warning);
+
+  &::before {
+    background-color: var(--lido-color-warning);
+  }
+}
+
+.btn_ghost.btn_error {
+  color: var(--lido-color-error);
+
+  &::before {
+    background-color: var(--lido-color-error);
+  }
+}
+
+.btn_ghost.btn_success {
+  color: var(--lido-color-success);
+
+  &::before {
+    background-color: var(--lido-color-success);
+  }
+}
+
+.btn_translucent {
+  &::before {
+    display: block;
+    transition: opacity var(--lido-transition-duration-fast) ease;
+    opacity: 0.1;
+  }
+
+  &:focus-visible,
+  &:not(:disabled):hover {
+    &::before {
+      opacity: 0.2;
+    }
+  }
+}
+
+.btn_translucent.btn_primary {
+  color: var(--lido-color-primary);
+
+  &::before {
+    background-color: var(--lido-color-primary);
+  }
+}
+
+.btn_translucent.btn_secondary {
+  color: var(--lido-color-secondary);
+
+  &::before {
+    background-color: var(--lido-color-secondary);
+  }
+}
+
+.btn_translucent.btn_warning {
+  color: var(--lido-color-warning);
+
+  &::before {
+    background-color: var(--lido-color-warning);
+  }
+}
+
+.btn_translucent.btn_error {
+  color: var(--lido-color-error);
+
+  &::before {
+    background-color: var(--lido-color-error);
+  }
+}
+
+.btn_translucent.btn_success {
+  color: var(--lido-color-success);
+
+  &::before {
+    background-color: var(--lido-color-success);
+  }
+}
+
+.btn__content {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn_hidden {
+  visibility: hidden;
+}
+
+.btn .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: currentcolor;
+  pointer-events: none;
+}

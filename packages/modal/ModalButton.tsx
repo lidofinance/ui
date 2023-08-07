@@ -1,7 +1,7 @@
 import { ForwardedRef, ReactElement, cloneElement, forwardRef } from 'react'
 import { Button, ButtonProps } from '../button'
 import cn from 'classnames'
-import styles from './ModalButton.module.css'
+import './ModalButton.css'
 
 const iconSize = {
   xxs: {
@@ -49,8 +49,8 @@ export const ModalButton = forwardRef(
 
     return (
       <Button
-        className={cn(styles.modalButton, className, {
-          [styles.active]: active,
+        className={cn('modal-btn', className, {
+          ['modal-btn_active']: active,
         })}
         active={active}
         type='button'
@@ -59,7 +59,7 @@ export const ModalButton = forwardRef(
         ref={ref}
         {...rest}
       >
-        <span className={styles.modalButtonContent}>
+        <span className={'modal-btn__content'}>
           {children} {AdaptiveIcon}
         </span>
       </Button>
