@@ -1,9 +1,8 @@
-*.log
-.jest-*
 node_modules
 dist
 storybook-static
-.swc/
+*.log
+.jest-cache
 
 # User-specific
 .idea/

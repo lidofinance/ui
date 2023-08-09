@@ -1,4 +1,3 @@
-.jest-*
 node_modules
 dist
 storybook-static
