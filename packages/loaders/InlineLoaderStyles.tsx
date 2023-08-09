@@ -32,13 +32,10 @@ export const InlineLoaderStyle = styled.span<{ $color?: InlineLoaderColors }>`
     var(--loader-color) 100%
   );
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     background: var(--loader-color);
     opacity: 0.2;
   }

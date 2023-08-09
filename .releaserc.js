@@ -1,7 +1,7 @@
 module.exports = {
   branches: [
-    {name: 'main'},
-    {name: 'next', channel: 'next', prerelease: true},
+    { name: 'main' },
+    { name: 'next', channel: 'next', prerelease: true },
   ],
   plugins: [
     ['@semantic-release/commit-analyzer', { preset: 'conventionalcommits' }],

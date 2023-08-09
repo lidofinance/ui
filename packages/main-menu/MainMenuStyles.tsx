@@ -32,5 +32,6 @@ export const Nav = styled.div`
   ${({ theme }) => theme.mediaQueries.md} {
     ${mobileCss}
   }
+
   z-index: 5;
 `

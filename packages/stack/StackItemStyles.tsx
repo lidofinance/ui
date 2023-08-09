@@ -13,8 +13,6 @@ export const StackItemStyle = styled.div<{
   margin: 0;
   padding: ${({ $spacing, theme }) =>
     $spacing ? theme.spaceMap[$spacing] / 2 : 0}px;
-
-  flex-grow: ${({ $grow }) => $grow};
-  flex-shrink: ${({ $shrink }) => $shrink};
-  flex-basis: ${({ $basis }) => $basis};
+  flex: ${({ $grow }) => $grow} ${({ $shrink }) => $shrink}
+    ${({ $basis }) => $basis};
 `

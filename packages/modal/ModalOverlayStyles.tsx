@@ -14,10 +14,7 @@ export const ModalPortalStyle = styled.div<
   { $closable: boolean } & TransitionProps
 >`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 300;
   background: var(--lido-color-overlay);
   cursor: ${({ $closable }) => ($closable ? 'pointer' : 'default')};
@@ -27,10 +24,7 @@ export const ModalPortalStyle = styled.div<
 
 export const ModalOverflowStyle = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 2;
   overflow: auto;
   overflow-x: hidden;

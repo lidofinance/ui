@@ -24,7 +24,7 @@ export const LoaderStyle = styled.div<{
 
 export const LoaderCircleBgStyle = styled.circle<{ $thickness: number }>`
   fill: none;
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-width: ${(props) => props.$thickness};
   opacity: 0.2;
 `
@@ -34,7 +34,7 @@ export const LoaderCircleFgStyle = styled.circle<{
   r: number
 }>`
   fill: none;
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-linecap: round;
   stroke-width: ${(props) => props.$thickness};
   stroke-dasharray: ${(props) => {

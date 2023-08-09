@@ -12,7 +12,6 @@ export const SelectIconDecoratorStyle = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-
   align-self: stretch;
   justify-self: stretch;
 `

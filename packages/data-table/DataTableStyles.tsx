@@ -34,6 +34,6 @@ export const DataTableValueStyle = styled.div<{ $highlight: boolean }>`
 `
 
 export const DataTableQuestionStyle = styled(Question)`
-  margin: -6px 0 -5px 0;
+  margin: -6px 0 -5px;
   vertical-align: middle;
 `

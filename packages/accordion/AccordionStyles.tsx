@@ -55,14 +55,16 @@ export const AccordionContentStyle = styled.div`
   p,
   ul,
   ol {
-    margin: 0 0 1.6em 0;
+    margin: 0 0 1.6em;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   ul,
+  /* stylelint-disable-next-line no-descending-specificity */
   ol {
     padding: 0 0 0 1.5em;
   }

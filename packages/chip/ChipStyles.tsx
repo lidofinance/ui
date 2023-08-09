@@ -36,7 +36,6 @@ export const ChipWrapperStyle = styled.div<InjectedPropsTr>`
   outline: none;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.xs}px;
   padding: 0.2em 0.4em;
-
   cursor: ${({ $interactive }) => ($interactive ? 'pointer' : 'auto')};
   ${({ $variant }) => ChipVariantsStyle[$variant]}
 `
