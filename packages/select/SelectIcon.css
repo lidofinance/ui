@@ -1,10 +1,8 @@
-.icon {
-  input {
-    width: 0;
-  }
+.select-icon input {
+  width: 0;
 }
 
-.iconDecorator {
+.select-icon-decorator {
   margin-right: -24px;
   display: flex;
   align-items: center;

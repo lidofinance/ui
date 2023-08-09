@@ -6,7 +6,7 @@ import { useSelect } from './useSelect'
 import { useSelectWidth } from './useSelectWidth'
 import { Input, InputProps } from '../input'
 import cn from 'classnames'
-import styles from './Select.module.css'
+import './Select.css'
 
 export type SelectOptionValue = string | number
 export type SelectHandleChange = (value: SelectOptionValue) => void
@@ -59,9 +59,9 @@ export const Select = forwardRef(
     return (
       <>
         <Input
-          className={cn(styles.select, {
-            [styles.disabled]: disabled,
-            [styles.small]: variant === 'small',
+          className={cn('select', {
+            ['select-disabled']: disabled,
+            ['select-small']: variant === 'small',
           })}
           disabled={disabled}
           onClick={handleClick}

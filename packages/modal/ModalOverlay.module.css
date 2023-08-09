@@ -1,35 +1,33 @@
-@layer modalOverlay {
-  .portal {
-    position: fixed;
-    inset: 0;
-    z-index: 300;
-    background: var(--lido-color-overlay);
-  }
+.portal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: var(--lido-color-overlay);
+}
 
-  .portal.closable {
-    cursor: pointer;
-  }
+.portal.closable {
+  cursor: pointer;
+}
 
-  .overflow {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    overflow: auto;
-    overflow-x: hidden;
-    display: flex;
-  }
+.overflow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: auto;
+  overflow-x: hidden;
+  display: flex;
+}
 
-  .content {
-    box-sizing: border-box;
-    max-width: 100%;
-    padding: var(--lido-space-lg);
-    outline: none;
-    margin: auto;
-    cursor: default;
-    pointer-events: none;
+.content {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: var(--lido-space-lg);
+  outline: none;
+  margin: auto;
+  cursor: default;
+  pointer-events: none;
 
-    & > * {
-      pointer-events: auto;
-    }
+  & > * {
+    pointer-events: auto;
   }
 }

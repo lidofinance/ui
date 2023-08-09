@@ -1,3 +1,6 @@
+import './theme-legacy.css'
+import './theme.css'
+
 export * from './content-theme'
 export * from './theme-provider'
 export * from './theme-toggler'
@@ -6,6 +9,3 @@ export * from './utils/document-head-contents'
 export * from './themes'
 export * from './use-theme-toggle'
 export { migrationThemeCookiesToCrossDomainCookiesClientSide } from './utils/cookies-migration'
-
-import './theme-legacy.css'
-import './theme.css'

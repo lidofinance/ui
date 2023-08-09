@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
-import styles from './Container.module.css'
 import cn from 'classnames'
+import './Container.css'
 
 export enum ContainerSize {
   full,
@@ -20,10 +20,10 @@ export const Container = forwardRef(
   ) => {
     return (
       <div
-        className={cn(styles.container, className, {
-          [styles.tight]: size === 'tight',
-          [styles.full]: size === 'full',
-          [styles.content]: size === 'content',
+        className={cn('container', className, {
+          ['container-tight']: size === 'tight',
+          ['container-full']: size === 'full',
+          ['container-content']: size === 'content',
         })}
         ref={ref}
         {...rest}

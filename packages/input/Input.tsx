@@ -5,7 +5,6 @@ import {
   forwardRef,
 } from 'react'
 import { CommonProps, InputTypes } from './types'
-import styles from './Input.module.css'
 import cn from 'classnames'
 
 export type InputProps = ComponentPropsWithoutRef<'input'> &
@@ -53,38 +52,38 @@ export const Input = forwardRef(
 
     return (
       <label
-        className={cn(styles.wrapper, className, {
-          [styles.disabled]: disabled,
-          [styles.fullwidth]: fullwidth,
+        className={cn('input-wrapper', className, {
+          ['input-wrapper-disabled']: disabled,
+          ['input-wrapper-fullwidth']: fullwidth,
         })}
         style={style}
         htmlFor={id}
         ref={wrapperRef}
       >
         <span
-          className={cn(styles.content, {
-            [styles.colorAccent]: color === 'accent',
-            [styles.colorDefault]: color === 'default',
-            [styles.variantSmall]: variant === 'small',
-            [styles.variantDefault]: variant === 'default',
-            [styles.error]: hasError,
-            [styles.warning]: hasWarning,
-            [styles.active]: active,
-            [styles.disabled]: disabled,
+          className={cn('input-content', {
+            ['input-content-color-accent']: color === 'accent',
+            ['input-content-color-default']: color === 'default',
+            ['input-content-variant-small']: variant === 'small',
+            ['input-content-variant-default']: variant === 'default',
+            ['input-content-error']: hasError,
+            ['input-content-warning']: hasWarning,
+            ['input-content-active']: active,
+            ['input-content-disabled']: disabled,
           })}
         >
           {hasLeftDecorator && (
-            <span className={cn(styles.decorator, styles.left)}>
+            <span className={cn('input-decorator', 'input-decorator-left')}>
               {leftDecorator}
             </span>
           )}
 
-          <div className={styles.controlWrapper}>
+          <div className={'input-control-wrapper'}>
             <input
-              className={cn(styles.input, {
-                [styles.labeled]: hasLabel,
-                [styles.colorDefault]: color === 'default',
-                [styles.colorAccent]: color === 'accent',
+              className={cn('input', {
+                ['input-labeled']: hasLabel,
+                ['input-color-default']: color === 'default',
+                ['input-color-accent']: color === 'accent',
               })}
               disabled={disabled}
               placeholder={placeholder}
@@ -95,9 +94,9 @@ export const Input = forwardRef(
             />
             {hasLabel && (
               <span
-                className={cn(styles.label, {
-                  [styles.colorDefault]: color === 'default',
-                  [styles.colorAccent]: color === 'accent',
+                className={cn('input-label', {
+                  ['input-label-default']: color === 'default',
+                  ['input-label-accent']: color === 'accent',
                 })}
               >
                 {label}
@@ -106,24 +105,24 @@ export const Input = forwardRef(
           </div>
 
           {hasRightDecorator && (
-            <span className={cn(styles.decorator, styles.right)}>
+            <span className={cn('input-decorator', 'input-decorator-right')}>
               {rightDecorator}
             </span>
           )}
         </span>
 
         {hasErrorMessage && (
-          <span className={cn(styles.message, styles.error, styles.bordered)}>
+          <span className={cn('input-message', 'input-message-error', 'input-message-bordered')}>
             {error}
           </span>
         )}
         {hasWarningMessage && (
-          <span className={cn(styles.message, styles.warning, styles.bordered)}>
+          <span className={cn('input-message', 'input-message-warning', 'input-message-bordered')}>
             {warning}
           </span>
         )}
         {hasSuccessMessage && (
-          <span className={cn(styles.message, styles.success, styles.bordered)}>
+          <span className={cn('input-message', 'input-message-success', 'input-message-bordered')}>
             {success}
           </span>
         )}

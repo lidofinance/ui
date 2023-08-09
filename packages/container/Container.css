@@ -10,14 +10,14 @@
   }
 }
 
-.full {
+.container-full {
   max-width: 1424px;
 }
 
-.content {
+.container-content {
   max-width: 960px;
 }
 
-.tight {
+.container-tight {
   max-width: 560px;
 }

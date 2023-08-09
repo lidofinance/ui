@@ -1,9 +1,7 @@
-@layer contentTheme {
-  .dark {
-    display: var(--lido-dark-display, contents);
-  }
+.dark {
+  display: var(--lido-dark-display, contents);
+}
 
-  .light {
-    display: var(--lido-light-display, contents);
-  }
+.light {
+  display: var(--lido-light-display, contents);
 }

@@ -1,7 +1,7 @@
 import { ForwardedRef, ReactNode, forwardRef } from 'react'
 import { Select, SelectProps } from './Select'
-import styles from './SelectIcon.module.css'
 import cn from 'classnames'
+import './SelectIcon.css'
 
 export type SelectIconProps = Omit<
   SelectProps,
@@ -17,10 +17,10 @@ export const SelectIcon = forwardRef(
   ) => {
     return (
       <Select
-        className={cn(styles.icon, className)}
+        className={cn('select-icon', className)}
         fullwidth={false}
         arrow='small'
-        leftDecorator={<span className={styles.iconDecorator}>{icon}</span>}
+        leftDecorator={<span className='select-icon-decorator'>{icon}</span>}
         ref={ref}
         {...rest}
       />

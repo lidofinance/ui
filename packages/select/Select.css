@@ -1,0 +1,31 @@
+.select {
+  &,
+  input {
+    user-select: none;
+    cursor: 'pointer';
+
+    &::selection {
+      background: transparent;
+    }
+  }
+
+  input {
+    appearance: none;
+    overflow: hidden;
+  }
+}
+
+.select-disabled {
+  &,
+  input {
+    cursor: 'default';
+  }
+}
+
+.select-small input {
+  font-size: var(--lido-font-size-xxs);
+  line-height: 1.7em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 800;
+}

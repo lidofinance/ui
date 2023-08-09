@@ -1,7 +1,8 @@
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { CommonProps } from './types'
-import styles from './Input.module.css'
 import cn from 'classnames'
+
+const styles = {} as any
 
 export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & CommonProps
 

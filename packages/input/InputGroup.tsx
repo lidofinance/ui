@@ -5,7 +5,6 @@ import {
   forwardRef,
 } from 'react'
 import cn from 'classnames'
-import styles from './Input.module.css'
 
 export type InputGroupProps = ComponentPropsWithoutRef<'span'> & {
   fullwidth?: boolean
@@ -15,7 +14,14 @@ export type InputGroupProps = ComponentPropsWithoutRef<'span'> & {
 
 export const InputGroup = forwardRef(
   (
-    { fullwidth = false, error, success, children, ...rest }: InputGroupProps,
+    {
+      fullwidth = false,
+      error,
+      success,
+      className,
+      children,
+      ...rest
+    }: InputGroupProps,
     ref?: ForwardedRef<HTMLSpanElement>,
   ) => {
     const hasError = !!error
@@ -23,16 +29,18 @@ export const InputGroup = forwardRef(
 
     return (
       <span
-        className={cn(styles.group, { [styles.fullwidth]: fullwidth })}
+        className={cn('input-group', className, {
+          ['input-group-fullwidth']: fullwidth,
+        })}
         {...rest}
         ref={ref}
       >
-        <span className={cn(styles.groupContent)}>{children}</span>
+        <span className={cn('input-group-content')}>{children}</span>
         {hasError && (
-          <span className={cn(styles.message, styles.error)}>{error}</span>
+          <span className={cn('input-message', 'input-error')}>{error}</span>
         )}
         {hasSuccess && (
-          <span className={cn(styles.message, styles.success)}>{success}</span>
+          <span className={cn('input-message', 'input-success')}>{success}</span>
         )}
       </span>
     )

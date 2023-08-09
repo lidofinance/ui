@@ -67,6 +67,6 @@
   /* stylelint-enable no-descending-specificity */
 }
 
-.label {
+.wrapper .label {
   margin-left: 8px;
 }
