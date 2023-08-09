@@ -1,0 +1,14 @@
+.link {
+  text-decoration: none;
+  color: var(--lido-color-primary);
+
+  :hover {
+    color: var(--lido-color-primary-hover);
+  }
+}
+
+.link.fadedVisited {
+  &:visited {
+    color: var(--lido-color-primary-visited);
+  }
+}

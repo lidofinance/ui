@@ -1,0 +1,23 @@
+.opened {
+  transform: rotate(180deg);
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.icon {
+  transition: transform var(--lido-transition-duration-norm) ease;
+}
+
+.big {
+  fill: var(--lido-color-text-secondary);
+}
+
+.small {
+  color: var(--lido-color-text);
+  border: 3px solid currentcolor;
+  border-bottom-width: 0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}

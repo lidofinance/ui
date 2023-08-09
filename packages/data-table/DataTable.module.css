@@ -1,0 +1,36 @@
+.row {
+  display: flex;
+  margin: var(--lido-space-md);
+  font-weight: 400;
+  font-size: var(--lido-font-size-xxs);
+  line-height: 1.6em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  color: var(--lido-color-text-secondary);
+  flex-grow: 1;
+}
+
+.value {
+  color: var(--lido-color-text);
+  text-align: right;
+  margin-left: var(--lido-space-xxl);
+  flex-grow: 1;
+
+  &.highlight {
+    color: var(--lido-color-success);
+  }
+}
+
+.question {
+  margin: -6px 0 -5px;
+  vertical-align: middle;
+}

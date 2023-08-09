@@ -1,0 +1,48 @@
+@layer loader {
+  .loader {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+  }
+
+  .primary {
+    color: var(--lido-color-primary);
+  }
+
+  .secondary {
+    color: var(--lido-color-secondary);
+  }
+
+  .foreground {
+    color: var(--lido-color-foreground);
+  }
+
+  .success {
+    color: var(--lido-color-success);
+  }
+
+  .circleBg {
+    fill: none;
+    stroke: currentcolor;
+    opacity: 0.2;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .circleFg {
+    fill: none;
+    stroke: currentcolor;
+    stroke-linecap: round;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    animation: rotation 1.4s linear infinite;
+  }
+}

@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useRef } from 'react'
-import { useInterceptFocus } from '@lidofinance/hooks'
+import { RefObject, useCallback, useEffect, useRef } from 'react'
+import { useInterceptFocus } from '../hooks'
 import { FOCUSABLE_ELEMENTS } from './constants'
 
-export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
+export const useModalFocus = (): RefObject<HTMLDivElement> => {
   const modalRef = useRef<HTMLDivElement>(null)
 
   const getFocusableNodes = useCallback(() => {
@@ -11,7 +11,7 @@ export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
 
     return Array.from(nodes).filter(
       (node): node is HTMLElement =>
-        node && node instanceof HTMLElement && node.offsetParent !== null
+        node && node instanceof HTMLElement && node.offsetParent !== null,
     )
   }, [])
 
@@ -40,7 +40,7 @@ export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
         event.preventDefault()
       }
     },
-    [getFocusableNodes]
+    [getFocusableNodes],
   )
 
   useEffect(() => {

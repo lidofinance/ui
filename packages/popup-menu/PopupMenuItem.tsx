@@ -1,54 +1,64 @@
-import React, { ForwardedRef, forwardRef } from 'react'
 import {
-  PopupMenuItemStyle,
-  PopupMenuItemContentStyle,
-  PopupMenuItemLeftDecoratorStyle,
-  PopupMenuItemRightDecoratorStyle,
-} from './PopupMenuItemStyles'
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  ReactNode,
+} from 'react'
 import { usePopupMenuContext } from './PopupMenuProvider'
-import { PopupMenuItemProps } from './types'
+import cn from 'classnames'
+import styles from './PopupMenu.module.css'
 
-function PopupMenuItem(
-  props: PopupMenuItemProps,
-  ref?: ForwardedRef<HTMLButtonElement>
-) {
-  const {
-    active = false,
-    leftDecorator,
-    rightDecorator,
-    children,
-    ...rest
-  } = props
-  const { variant = 'default' } = usePopupMenuContext()
-
-  const hasLeftDecorator = !!leftDecorator
-  const hasRightDecorator = !!rightDecorator
-
-  return (
-    <PopupMenuItemStyle
-      $active={active}
-      role='option'
-      aria-selected={active}
-      {...rest}
-      ref={ref}
-    >
-      {hasLeftDecorator && (
-        <PopupMenuItemLeftDecoratorStyle>
-          {leftDecorator}
-        </PopupMenuItemLeftDecoratorStyle>
-      )}
-
-      <PopupMenuItemContentStyle $variant={variant}>
-        {children}
-      </PopupMenuItemContentStyle>
-
-      {hasRightDecorator && (
-        <PopupMenuItemRightDecoratorStyle>
-          {rightDecorator}
-        </PopupMenuItemRightDecoratorStyle>
-      )}
-    </PopupMenuItemStyle>
-  )
+export type PopupMenuItemProps = ComponentPropsWithoutRef<'button'> & {
+  leftDecorator?: ReactNode
+  rightDecorator?: ReactNode
+  active?: boolean
 }
 
-export default forwardRef(PopupMenuItem)
+export const PopupMenuItem = forwardRef(
+  (
+    {
+      active = false,
+      leftDecorator,
+      rightDecorator,
+      className,
+      children,
+      ...rest
+    }: PopupMenuItemProps,
+    ref?: ForwardedRef<HTMLButtonElement>,
+  ) => {
+    const { variant = 'default' } = usePopupMenuContext()
+
+    const hasLeftDecorator = !!leftDecorator
+    const hasRightDecorator = !!rightDecorator
+
+    return (
+      <button
+        className={cn(styles.popupMenuItem, className, {
+          [styles.active]: active,
+        })}
+        role='option'
+        aria-selected={active}
+        {...rest}
+        ref={ref}
+      >
+        {hasLeftDecorator && (
+          <span className={styles.decoratorLeft}>{leftDecorator}</span>
+        )}
+
+        <span
+          className={cn(styles.popupMenuItemContent, {
+            [styles.variantSmall]: variant === 'small',
+            [styles.variantDefault]: variant === 'default',
+          })}
+        >
+          {children}
+        </span>
+
+        {hasRightDecorator && (
+          <span className={styles.decoratorRight}>{rightDecorator}</span>
+        )}
+      </button>
+    )
+  },
+)
+PopupMenuItem.displayName = 'PopupMenuItem'

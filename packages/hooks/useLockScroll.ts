@@ -33,7 +33,7 @@ const getPaddingRight = (element: HTMLElement): number => {
 const setStyleProperty = (
   element: HTMLElement,
   property: string,
-  value?: string
+  value?: string,
 ): void => {
   if (value) {
     element.style.setProperty(property, value)

@@ -1,7 +1,6 @@
-import { Story, Meta } from '@storybook/react'
-import { InlineLoaderProps, InlineLoaderColor } from './types'
+import { StoryFn, Meta } from '@storybook/react'
 import styled from 'styled-components'
-import InlineLoader from './InlineLoader'
+import { InlineLoader, InlineLoaderColor, InlineLoaderProps } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -19,9 +18,9 @@ export default {
       description: 'Background color (component has opacity)',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<InlineLoaderProps> = (props) => (
+export const Basic: StoryFn<InlineLoaderProps> = (props) => (
   <InlineLoader {...props} />
 )
 
@@ -36,7 +35,7 @@ const RowStyle = styled.div`
   }
 `
 
-export const WithText: Story = () => (
+export const WithText: StoryFn = () => (
   <>
     <RowStyle>
       <div>First row</div>

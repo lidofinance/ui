@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Theme } from '@lidofinance/theme'
+import { Theme } from '../theme'
 import { useTheme } from 'styled-components'
 
 export const useBreakpoint = (
-  breakpoint: keyof Theme['breakpointsMap']
+  breakpoint: keyof Theme['breakpointsMap'],
 ): boolean => {
   const theme = useTheme()
   const maxWidth = theme.breakpointsMap[breakpoint].width

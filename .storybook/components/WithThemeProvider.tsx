@@ -1,7 +1,7 @@
-import { BaseDecorators } from '@storybook/addons'
-import '@lidofinance/theme'
+import '../../packages/theme'
 import { createGlobalStyle } from 'styled-components'
-import { CookieThemeProvider } from '@lidofinance/theme'
+import { CookieThemeProvider } from '../../packages/theme'
+import { Decorator } from '@storybook/react'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,9 +14,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-export const WithThemeProvider: BaseDecorators<JSX.Element>[number] = (
+export const WithThemeProvider: Decorator<any> = (
   Story,
-  { args }
+  { args },
 ): JSX.Element => {
   return (
     <CookieThemeProvider

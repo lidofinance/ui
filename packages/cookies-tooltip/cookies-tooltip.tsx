@@ -1,22 +1,20 @@
-import React, { FC, useEffect, useState, useCallback } from 'react'
-import { Cookie, CookieInverse } from '@lidofinance/icons'
-import { ContentTheme } from '@lidofinance/content-theme'
-import { getCrossDomainCookieClientSide } from '@lidofinance/utils'
-
 import {
-  Wrap,
-  Box,
-  CookieIconWrap,
-  Text,
-  ButtonsWrap,
-  AllowButton,
-  DeclineButton,
-  Link,
-} from './styles'
+  useEffect,
+  useState,
+  useCallback,
+  ComponentPropsWithoutRef,
+} from 'react'
+import { Cookie, CookieInverse } from '../icons'
+import { ContentTheme } from '../theme/content-theme'
+import { getCrossDomainCookieClientSide } from '../utils'
 import { allowCookies, declineCookies } from './utils'
 import { COOKIE_ALLOWED_KEY } from './constants'
+import styles from './cookies-tooltip.module.css'
+import cn from 'classnames'
 
-export const CookiesTooltip: FC = () => {
+export type CookiesTooltipProps = ComponentPropsWithoutRef<'div'>
+
+export const CookiesTooltip = ({ className, ...rest }: CookiesTooltipProps) => {
   const [isVisible, setVisibility] = useState(false)
 
   const checkCookieAllowedEarlier = useCallback(() => {
@@ -43,41 +41,48 @@ export const CookiesTooltip: FC = () => {
   if (!isVisible) return <></>
 
   return (
-    <Wrap>
-      <Box>
-        <CookieIconWrap>
+    <div className={cn(styles.wrap, className)} {...rest}>
+      <div className={styles.box}>
+        <div className={styles.iconWrap}>
           <ContentTheme
             darkContent={<CookieInverse />}
             lightContent={<Cookie />}
           />
-        </CookieIconWrap>
-        <Text>
+        </div>
+        <div className={styles.text}>
           We use cookies to collect anonymous site visitation data
           to&nbsp;improve performance of&nbsp;our&nbsp;website. For&nbsp;more
           info, read our&nbsp;
-          <Link href='https://lido.fi/privacy-notice'>Privacy Notice</Link>
-        </Text>
-        <ButtonsWrap>
-          <AllowButton
+          <a
+            className={styles.link}
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://lido.fi/privacy-notice'
+          >
+            Privacy Notice
+          </a>
+        </div>
+        <div className={styles.buttonWrap}>
+          <button
+            className={cn(styles.button, styles.buttonAllow)}
             onClick={() => {
               allowCookies()
               setVisibility(false)
             }}
           >
             Allow
-          </AllowButton>
-          <DeclineButton
+          </button>
+          <button
+            className={cn(styles.button, styles.buttonDecline)}
             onClick={() => {
               declineCookies()
               setVisibility(false)
             }}
           >
             Decline
-          </DeclineButton>
-        </ButtonsWrap>
-      </Box>
-    </Wrap>
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
-
-export default CookiesTooltip

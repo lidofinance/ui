@@ -7,7 +7,7 @@ export const useEscape = (callback?: () => void): void => {
         callback?.()
       }
     },
-    [callback]
+    [callback],
   )
 
   useEffect(() => {

@@ -1,10 +1,10 @@
 import { useMergeRefs as useCallbackMergeRefs } from 'use-callback-ref'
-import React from 'react'
+import { ForwardedRef, MutableRefObject } from 'react'
 
 export const useMergeRefs = <T extends HTMLElement>(
-  refs: (React.ForwardedRef<T | null> | undefined)[]
-): React.MutableRefObject<T | null> => {
+  refs: (ForwardedRef<T | null> | undefined)[],
+): MutableRefObject<T | null> => {
   return useCallbackMergeRefs(
-    refs.filter((ref): ref is React.ForwardedRef<T> => !!ref)
+    refs.filter((ref): ref is ForwardedRef<T> => !!ref),
   )
 }

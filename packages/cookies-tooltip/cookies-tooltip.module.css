@@ -1,0 +1,125 @@
+.link {
+  color: inherit;
+  text-decoration: underline !important;
+}
+
+.wrap {
+  z-index: 999;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  @media (--lido-media-breakpoint-up-lg) {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: var(--lido-color-foreground);
+  box-shadow: 0 6px 32px rgb(0 0 0 / 8%);
+  border-radius: 0;
+  width: 100%;
+
+  @media (--lido-media-breakpoint-up-lg) {
+    flex-direction: row;
+    border-radius: 20px;
+    width: auto;
+  }
+}
+
+.iconWrap {
+  display: none;
+
+  @media (--lido-media-breakpoint-up-lg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+}
+
+.text {
+  margin-right: 0;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--lido-color-text-secondary);
+  width: 100%;
+  text-align: center;
+
+  @media (--lido-media-breakpoint-up-lg) {
+    text-align: initial;
+    width: 340px;
+    margin-right: 8px;
+    margin-bottom: 0;
+  }
+}
+
+.buttonWrap {
+  display: flex;
+}
+
+.button {
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 20px;
+  border-radius: 6px;
+  width: 112px;
+  height: 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition:
+    background-color ease 0.25s,
+    border-color ease 0.25s,
+    color ease 0.25s;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    background-color: #0e1621;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  @media (--lido-media-breakpoint-up-lg) {
+    width: 72px;
+  }
+}
+
+.buttonAllow {
+  background-color: var(--lido-color-text);
+  color: var(--lido-color-foreground);
+
+  &:hover {
+    background-color: var(--lido-color-text-secondary);
+  }
+}
+
+.buttonDecline {
+  background-color: var(--lido-color-foreground);
+  color: var(--lido-color-text);
+  border: 1px solid var(--lido-color-text);
+
+  &:hover {
+    background-color: var(--lido-color-background);
+  }
+}

@@ -1,18 +1,29 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { MainMenuItemProps } from './types'
-import { NavLink } from './MainMenuItemStyles'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import cn from 'classnames'
+import styles from './MainMenuItem.module.css'
 
-function MainMenuItem(
-  props: MainMenuItemProps,
-  ref?: ForwardedRef<HTMLDivElement>
-) {
-  const { icon, children, active, ...restProps } = props
-  return (
-    <NavLink ref={ref} active={Boolean(active)} {...restProps}>
-      {icon}
-      <span>{children}</span>
-    </NavLink>
-  )
+export type MainMenuItemProps = ComponentPropsWithoutRef<'a'> & {
+  icon?: JSX.Element
+  active?: boolean
 }
 
-export default forwardRef(MainMenuItem)
+export const MainMenuItem = forwardRef(
+  (
+    { icon, children, active, className, ...rest }: MainMenuItemProps,
+    ref?: ForwardedRef<HTMLAnchorElement>,
+  ) => {
+    return (
+      <a
+        className={cn(styles.navLink, className, {
+          [styles.active]: Boolean(active),
+        })}
+        ref={ref}
+        {...rest}
+      >
+        {icon}
+        <span>{children}</span>
+      </a>
+    )
+  },
+)
+MainMenuItem.displayName = 'MainMenuItem'

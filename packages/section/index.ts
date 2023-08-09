@@ -1,2 +1,1 @@
-export { default as Section } from './Section'
-export * from './types'
+export * from './Section'

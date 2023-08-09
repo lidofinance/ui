@@ -1,34 +1,59 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { CheckboxProps } from './types'
 import {
-  CheckboxWrapperStyle,
-  CheckboxInputStyle,
-  CheckboxIconStyle,
-} from './CheckboxStyles'
-import { Text } from '@lidofinance/text'
-import { Box } from '@lidofinance/box'
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  ReactNode,
+  RefObject,
+} from 'react'
+import { Text } from '../text'
+import cn from 'classnames'
+import styles from './Checkbox.module.css'
+import { Check } from '../icons'
 
-function Checkbox(
-  props: CheckboxProps,
-  inputRef?: ForwardedRef<HTMLInputElement>
-) {
-  const { className, style, wrapperRef, children, label, ...inputProps } = props
-  const { disabled } = inputProps
-  const wrapperProps = { className, style }
-
-  return (
-    <CheckboxWrapperStyle {...wrapperProps} ref={wrapperRef}>
-      <CheckboxInputStyle type='checkbox' {...inputProps} ref={inputRef} />
-      <CheckboxIconStyle />
-      {label && (
-        <Box ml={8}>
-          <Text size='xxs' color={disabled ? 'secondary' : 'default'}>
-            {label}
-          </Text>
-        </Box>
-      )}
-    </CheckboxWrapperStyle>
-  )
+export type CheckboxProps = ComponentPropsWithoutRef<'input'> & {
+  wrapperRef?: RefObject<HTMLLabelElement>
+  children?: never
+  label?: ReactNode
 }
 
-export default forwardRef(Checkbox)
+export const Checkbox = forwardRef(
+  (
+    {
+      className,
+      style,
+      wrapperRef,
+      children,
+      label,
+      disabled,
+      ...rest
+    }: CheckboxProps,
+    inputRef?: ForwardedRef<HTMLInputElement>,
+  ) => {
+    return (
+      <label
+        className={cn(styles.wrapper, className)}
+        style={style}
+        ref={wrapperRef}
+      >
+        <input
+          className={styles.input}
+          type='checkbox'
+          disabled={disabled}
+          {...rest}
+          ref={inputRef}
+        />
+        <Check className={styles.icon} />
+        {label && (
+          <Text
+            size='xxs'
+            color={disabled ? 'secondary' : 'default'}
+            className={styles.label}
+          >
+            {label}
+          </Text>
+        )}
+      </label>
+    )
+  },
+)
+Checkbox.displayName = 'Checkbox'

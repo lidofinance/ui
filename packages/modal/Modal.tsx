@@ -1,70 +1,96 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, ReactNode, forwardRef } from 'react'
+import { ModalOverlay, ModalOverlayProps } from './ModalOverlay'
+import styles from './Modal.module.css'
+import cn from 'classnames'
+import { ArrowBack, Close } from '../icons'
+import { ButtonIcon } from '../button'
 
-import {
-  ModalStyle,
-  ModalBaseStyle,
-  ModalHeaderStyle,
-  ModalTitleStyle,
-  ModalTitleIconStyle,
-  ModalTitleTextStyle,
-  ModalCloseStyle,
-  ModalContentStyle,
-  ModalBackStyle,
-  ModalSubtitleStyle,
-} from './ModalStyles'
-import { ModalProps } from './types'
-import ModalOverlay from './ModalOverlay'
-
-function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const {
-    children,
-    title,
-    titleIcon,
-    subtitle,
-    center = false,
-    extra,
-    open,
-    ...rest
-  } = props
-  const { onClose, onBack } = props
-
-  const withTitleIcon = !!titleIcon
-  const withSubtitle = !!subtitle
-  const withCloseButton = !!onClose
-  const withBackButton = !!onBack
-
-  const modalHeader = (
-    <ModalHeaderStyle $short={!title}>
-      {withBackButton && <ModalBackStyle onClick={onBack} />}
-      <ModalTitleStyle
-        $center={center}
-        $withTitleIcon={withTitleIcon}
-        $withCloseButton={withCloseButton}
-        $withBackButton={withBackButton}
-      >
-        {withTitleIcon && (
-          <ModalTitleIconStyle $center={center}>
-            {titleIcon}
-          </ModalTitleIconStyle>
-        )}
-        <ModalTitleTextStyle>{title}</ModalTitleTextStyle>
-      </ModalTitleStyle>
-      {withCloseButton && <ModalCloseStyle onClick={onClose} />}
-    </ModalHeaderStyle>
-  )
-
-  return (
-    <ModalOverlay in={open} {...rest} ref={ref}>
-      <ModalStyle $center={center}>
-        <ModalBaseStyle>
-          {modalHeader}
-          {withSubtitle && <ModalSubtitleStyle>{subtitle}</ModalSubtitleStyle>}
-          <ModalContentStyle>{children}</ModalContentStyle>
-        </ModalBaseStyle>
-        {extra}
-      </ModalStyle>
-    </ModalOverlay>
-  )
+export type ModalProps = Omit<ModalOverlayProps, 'title' | 'in'> & {
+  title?: ReactNode
+  titleIcon?: ReactNode
+  subtitle?: ReactNode
+  extra?: ReactNode
+  center?: boolean
+  open?: boolean
 }
 
-export default forwardRef(Modal)
+export const Modal = forwardRef(
+  (
+    {
+      children,
+      title,
+      titleIcon,
+      subtitle,
+      center = false,
+      extra,
+      open,
+      onClose,
+      onBack,
+      ...rest
+    }: ModalProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const withTitleIcon = !!titleIcon
+    const withSubtitle = !!subtitle
+    const withCloseButton = !!onClose
+    const withBackButton = !!onBack
+
+    const modalHeader = (
+      <div className={cn(styles.modalHeader, { [styles.short]: !title })}>
+        {withBackButton && (
+          <ButtonIcon
+            className={styles.modalBack}
+            icon={<ArrowBack />}
+            color='secondary'
+            variant='ghost'
+            size='xs'
+            onClick={onBack}
+          />
+        )}
+        <div
+          className={cn(styles.modalTitle, {
+            [styles.center]: center,
+            [styles.withIcon]: withTitleIcon,
+            [styles.withCloseButton]: withCloseButton,
+            [styles.withBackButton]: withBackButton,
+          })}
+        >
+          {withTitleIcon && (
+            <div
+              className={cn(styles.modalTitleIcon, { [styles.center]: center })}
+            >
+              {titleIcon}
+            </div>
+          )}
+          <div className={styles.modalTitleText}>{title}</div>
+        </div>
+        {withCloseButton && (
+          <ButtonIcon
+            className={styles.modalClose}
+            icon={<Close />}
+            color='secondary'
+            variant='ghost'
+            size='xxs'
+            onClick={onClose}
+          />
+        )}
+      </div>
+    )
+
+    return (
+      <ModalOverlay in={open} {...rest} ref={ref}>
+        <div className={cn(styles.modal, { [styles.center]: center })}>
+          <div className={styles.modalBase}>
+            {modalHeader}
+            {withSubtitle && (
+              <div className={styles.modalSubtitle}>{subtitle}</div>
+            )}
+            <div className={styles.modalContent}>{children}</div>
+          </div>
+          {extra}
+        </div>
+      </ModalOverlay>
+    )
+  },
+)
+Modal.displayName = 'Modal'

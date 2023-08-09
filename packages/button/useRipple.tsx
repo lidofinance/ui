@@ -1,17 +1,24 @@
-import React, { useCallback, useState } from 'react'
-import { ButtonProps } from './types'
-import { ButtonRippleStyle } from './ButtonStyles'
+import {
+  MouseEvent,
+  MouseEventHandler,
+  ReactNode,
+  useCallback,
+  useState,
+} from 'react'
+import styles from './Button.module.css'
 
-type UseRipple = (props: ButtonProps) => {
-  ripple: React.ReactNode
-  handleClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+type UseRipple = (props: {
+  onClick?: MouseEventHandler<HTMLButtonElement>
+}) => {
+  ripple: ReactNode
+  handleClick: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 export const useRipple: UseRipple = ({ onClick }) => {
-  const [ripple, setRipple] = useState<React.ReactNode | null>(null)
+  const [ripple, setRipple] = useState<ReactNode | null>(null)
 
   const handleClick = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    (event: MouseEvent<HTMLButtonElement>) => {
       const button = event.currentTarget
       const rect = button.getBoundingClientRect()
       const diameter = Math.max(button.clientWidth, button.clientHeight)
@@ -33,10 +40,12 @@ export const useRipple: UseRipple = ({ onClick }) => {
         top: y - radius,
       }
 
-      setRipple(<ButtonRippleStyle style={style} key={event.timeStamp} />)
+      setRipple(
+        <span className={styles.ripple} style={style} key={event.timeStamp} />,
+      )
       onClick?.(event)
     },
-    [onClick]
+    [onClick],
   )
 
   return {

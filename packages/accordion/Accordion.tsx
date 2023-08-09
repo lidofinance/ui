@@ -1,29 +1,37 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { AccordionProps } from './types'
 import {
-  AccordionStyle,
-  AccordionSummaryStyle,
-  AccordionTitleStyle,
-  AccordionArrowStyle,
-  AccordionContentStyle,
-} from './AccordionStyles'
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  ReactNode,
+} from 'react'
 import { useExpanded } from './useExpanded'
+import { ArrowBottom } from '../icons'
+import styles from './Accordion.module.css'
+import cn from 'classnames'
 
-function Accordion(props: AccordionProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { defaultExpanded, summary, children, ...rest } = props
-  const { toggleProps, collapseProps, isExpanded } = useExpanded(props)
-
-  return (
-    <AccordionStyle {...rest} ref={ref}>
-      <AccordionSummaryStyle {...toggleProps}>
-        <AccordionTitleStyle>{summary}</AccordionTitleStyle>
-        <AccordionArrowStyle $expanded={isExpanded} />
-      </AccordionSummaryStyle>
-      <div {...collapseProps}>
-        <AccordionContentStyle>{children}</AccordionContentStyle>
-      </div>
-    </AccordionStyle>
-  )
+export type AccordionProps = ComponentPropsWithoutRef<'div'> & {
+  defaultExpanded?: boolean
+  summary: ReactNode
 }
 
-export default forwardRef(Accordion)
+export const Accordion = forwardRef(
+  (props: AccordionProps, ref?: ForwardedRef<HTMLDivElement>) => {
+    const { defaultExpanded, summary, children, className, ...rest } = props
+    const { toggleProps, collapseProps, isExpanded } = useExpanded(props)
+
+    return (
+      <div className={cn(styles.accordion, className)} {...rest} ref={ref}>
+        <div {...toggleProps} className={styles.summary}>
+          <div className={styles.title}>{summary}</div>
+          <ArrowBottom
+            className={cn(styles.arrow, { [styles.arrowExpanded]: isExpanded })}
+          />
+        </div>
+        <div {...collapseProps}>
+          <div className={styles.content}>{children}</div>
+        </div>
+      </div>
+    )
+  },
+)
+Accordion.displayName = 'Accordion'

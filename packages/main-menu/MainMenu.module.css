@@ -1,0 +1,35 @@
+.nav {
+  z-index: 5;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  background-color: var(--lido-color-foreground);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid var(--lido-color-border);
+
+  svg {
+    margin-right: 0;
+    margin-bottom: 7px;
+  }
+
+  @media (--lido-media-breakpoint-up-md) {
+    justify-content: initial;
+    align-items: initial;
+    background-color: initial;
+    position: initial;
+    border: initial;
+    padding: initial;
+    display: flex;
+    margin: 0 46px;
+
+    svg {
+      margin-right: 10px;
+      margin-bottom: 0;
+    }
+  }
+}

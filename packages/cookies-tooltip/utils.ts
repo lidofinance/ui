@@ -2,7 +2,7 @@ import {
   setCrossDomainCookieClientSide,
   getDomainCookieClientSide,
   removeCookiesClientSide,
-} from '@lidofinance/utils'
+} from '../utils'
 import {
   COOKIE_ALLOWED_KEY,
   COOKIE_VALUE_NO,
@@ -18,7 +18,7 @@ export const declineCookies = (): void => {
 }
 
 export const migrationAllowCookieToCrossDomainCookieClientSide = (
-  keyOldCookie: string
+  keyOldCookie: string,
 ) => {
   const old_cookie_value = getDomainCookieClientSide(keyOldCookie)
 

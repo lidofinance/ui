@@ -1,26 +1,44 @@
-import React, { FC } from 'react'
-import { SelectArrowBigStyle, SelectArrowSmallStyle } from './SelectArrowStyles'
-import { SelectArrows } from './types'
+import { FC } from 'react'
+import { ArrowBottom } from '../icons'
+import cn from 'classnames'
+import styles from './SelectArrow.module.css'
+
+export enum SelectArrowVariant {
+  small,
+  default,
+}
+export type SelectArrowVariants = keyof typeof SelectArrowVariant
 
 type SelectArrowProps = {
-  arrow: SelectArrows
+  arrow: SelectArrowVariants
   disabled?: boolean
   opened: boolean
   children?: never
 }
 
-export const SelectArrow: FC<SelectArrowProps> = (props) => {
-  const { arrow, disabled = false, opened } = props
-
-  const commonProps = {
-    $opened: opened,
-    $disabled: disabled,
-  }
-
-  if (arrow === 'default') return <SelectArrowBigStyle {...commonProps} />
-  if (arrow === 'small') return <SelectArrowSmallStyle {...commonProps} />
+export const SelectArrow: FC<SelectArrowProps> = ({
+  arrow,
+  disabled = false,
+  opened,
+}) => {
+  if (arrow === 'default')
+    return (
+      <ArrowBottom
+        className={cn(styles.icon, styles.big, {
+          [styles.opened]: opened,
+          [styles.disabled]: disabled,
+        })}
+      />
+    )
+  if (arrow === 'small')
+    return (
+      <div
+        className={cn(styles.icon, styles.small, {
+          [styles.opened]: opened,
+          [styles.disabled]: disabled,
+        })}
+      />
+    )
 
   return null
 }
-
-export default SelectArrow

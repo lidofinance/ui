@@ -1,6 +1,7 @@
-import React, {
+import {
   createContext,
   FC,
+  memo,
   PropsWithChildren,
   useContext,
   useEffect,
@@ -8,20 +9,32 @@ import React, {
   useState,
 } from 'react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import {
-  DEFAULT_THEME_NAME,
-  prefersDarkThemeMediaQuery,
-  ThemeName,
-} from './constants'
 import { themeMap } from './themes'
 import { getThemeNameFromCookies } from './utils/cookies'
-import { initColors } from './document-head-contents'
-import { updateGlobalTheme } from './document-head-contents/element-theme-script'
-import { ThemeContext } from './types'
+import { initColors } from './utils/document-head-contents'
+import { updateGlobalTheme } from './utils/document-head-contents'
+
+export enum ThemeName {
+  light = 'light',
+  dark = 'dark',
+}
+export type ThemeNames = keyof typeof ThemeName
+
+export type ThemeContext = {
+  toggleTheme: () => void
+  themeName: ThemeNames
+}
 
 const defaultThemeContext = {} as ThemeContext
 export const ThemeToggleContext =
   createContext<ThemeContext>(defaultThemeContext)
+
+export const DEFAULT_THEME_NAME = ThemeName.light
+
+export const prefersDarkThemeMediaQuery =
+  typeof window !== 'undefined'
+    ? window.matchMedia?.('(prefers-color-scheme: dark)')
+    : undefined
 
 // we need to initialize this before react component code if we're using this provider or ThemeProvider
 initColors()
@@ -41,7 +54,7 @@ export const CookieThemeProvider: FC<
     initialThemeName?: ThemeName
     overrideThemeName?: ThemeName
   }>
-> = React.memo(
+> = memo(
   ({
     children,
     initialThemeName,
@@ -55,7 +68,7 @@ export const CookieThemeProvider: FC<
     // we always start with default theme, or, if server wants to provide
     // specific default theme, with server-provided theme to avoid hydration errors
     const [internalThemeName, setThemeName] = useState<ThemeName>(
-      initialThemeName || DEFAULT_THEME_NAME
+      initialThemeName || DEFAULT_THEME_NAME,
     )
     // since we're using this component to provide cookie-theme,
     // we eventually want to respect theme provided in cookie, not general theme,
@@ -140,7 +153,7 @@ export const CookieThemeProvider: FC<
           })
         },
       }),
-      [themeName]
+      [themeName],
     )
 
     if (isTopLevelProvider) {
@@ -160,7 +173,7 @@ export const CookieThemeProvider: FC<
     } else {
       return <>{children}</>
     }
-  }
+  },
 )
 
 CookieThemeProvider.displayName = 'CookieThemeProvider'

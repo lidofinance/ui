@@ -1,48 +1,61 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { InlineLoader } from '@lidofinance/loaders'
-import { Tooltip } from '@lidofinance/tooltip'
 import {
-  DataTableStyle,
-  DataTableRowStyle,
-  DataTableTitleStyle,
-  DataTableValueStyle,
-  DataTableQuestionStyle,
-} from './DataTableStyles'
-import { DataTableProps, DataTableRowProps } from './types'
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  ReactNode,
+  forwardRef,
+} from 'react'
+import { InlineLoader } from '../loaders'
+import { Tooltip } from '../tooltip'
+import styles from './DataTable.module.css'
+import cn from 'classnames'
+import { Question } from '../icons'
 
-function DataTable(props: DataTableProps, ref?: ForwardedRef<HTMLDivElement>) {
-  return <DataTableStyle ref={ref} {...props} />
+export type DataTableProps = ComponentPropsWithoutRef<'div'>
+
+export const DataTable = forwardRef(
+  (props: DataTableProps, ref?: ForwardedRef<HTMLDivElement>) => {
+    return <div ref={ref} {...props} />
+  },
+)
+DataTable.displayName = 'DataTable'
+
+export type DataTableRowProps = ComponentPropsWithoutRef<'div'> & {
+  title: ReactNode
+  help?: ReactNode
+  loading?: boolean
+  highlight?: boolean
 }
 
-export default forwardRef(DataTable)
+export const DataTableRow = forwardRef(
+  (
+    {
+      title,
+      loading = false,
+      highlight = false,
+      help,
+      className,
+      children,
+      ...rest
+    }: DataTableRowProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const hasHelper = !!help
 
-export const DataTableRow = forwardRef(function DataTableRow(
-  props: DataTableRowProps,
-  ref?: ForwardedRef<HTMLDivElement>
-) {
-  const {
-    title,
-    loading = false,
-    highlight = false,
-    help,
-    children,
-    ...rest
-  } = props
-  const hasHelper = !!help
-
-  return (
-    <DataTableRowStyle ref={ref} {...rest}>
-      <DataTableTitleStyle>
-        {title}
-        {hasHelper && (
-          <Tooltip placement='bottomLeft' title={help}>
-            <DataTableQuestionStyle />
-          </Tooltip>
-        )}
-      </DataTableTitleStyle>
-      <DataTableValueStyle $highlight={highlight}>
-        {loading ? <InlineLoader color='text' /> : children}
-      </DataTableValueStyle>
-    </DataTableRowStyle>
-  )
-})
+    return (
+      <div className={cn(styles.row, className)} ref={ref} {...rest}>
+        <div className={styles.title}>
+          {title}
+          {hasHelper && (
+            <Tooltip placement='bottomLeft' title={help}>
+              <Question className={styles.question} />
+            </Tooltip>
+          )}
+        </div>
+        <div className={cn(styles.value, { [styles.highlight]: highlight })}>
+          {loading ? <InlineLoader color='text' /> : children}
+        </div>
+      </div>
+    )
+  },
+)
+DataTableRow.displayName = 'DataTableRow'

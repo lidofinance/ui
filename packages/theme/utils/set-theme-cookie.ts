@@ -1,6 +1,9 @@
 import { UAParser } from 'ua-parser-js'
-import { getTopLevelDomain } from '@lidofinance/utils'
-import { themeCookieExpire, themeCookieKey, ThemeName } from '../constants'
+import { getTopLevelDomain } from '../../utils'
+import { ThemeName } from '../cookie-theme-provider'
+
+export const themeCookieKey = 'lido-theme-manual'
+export const themeCookieExpire = 365
 
 export const setThemeCookie = (theme: ThemeName) => {
   const cookie = `${themeCookieKey}=${theme};expires=${themeCookieExpire};path=/;domain=${getTopLevelDomain()};samesite=None;`

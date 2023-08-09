@@ -1,10 +1,14 @@
-import { Story, Meta } from '@storybook/react'
-import { Button } from '@lidofinance/button'
-import { PopoverProps, PopoverPlacement, PopoverOffset } from './types'
-
-import Popover from './Popover'
+import { StoryFn, Meta } from '@storybook/react'
+import { Button } from '../button'
 import { useCallback, useRef, useState } from 'react'
-import { DEFAULT_PLACEMENT } from './constants'
+
+import {
+  DEFAULT_PLACEMENT,
+  Popover,
+  PopoverProps,
+  PopoverPlacement,
+  PopoverOffset,
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -37,9 +41,9 @@ export default {
       table: { disable: true },
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<PopoverProps> = (props) => {
+export const Basic: StoryFn<PopoverProps> = (props) => {
   const { onClose } = props
 
   const [state, setState] = useState(false)

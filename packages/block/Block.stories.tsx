@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import { BlockProps, BlockColor, BlockVariant } from './types'
-import Block from './Block'
+import { StoryFn, Meta } from '@storybook/react'
+import { Block, BlockProps, BlockColor, BlockVariant } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -24,6 +23,6 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<BlockProps> = (props) => <Block {...props} />
+export const Basic: StoryFn<BlockProps> = (props) => <Block {...props} />

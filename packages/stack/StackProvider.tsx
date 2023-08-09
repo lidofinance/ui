@@ -1,5 +1,5 @@
-import React, { PropsWithChildren, createContext, useContext, FC } from 'react'
-import { StackSpacings } from './types'
+import { PropsWithChildren, createContext, useContext, FC } from 'react'
+import { StackSpacings } from './Stack'
 
 export interface StackContext {
   spacing?: StackSpacings
@@ -11,8 +11,9 @@ export const useStackContext = (): StackContext => {
   return useContext(Context)
 }
 
-export const StackProvider: FC<PropsWithChildren<StackContext>> = (props) => {
-  const { spacing, ...rest } = props
-
+export const StackProvider: FC<PropsWithChildren<StackContext>> = ({
+  spacing,
+  ...rest
+}) => {
   return <Context.Provider value={{ spacing }} {...rest} />
 }

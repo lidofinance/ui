@@ -1,92 +1,107 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import {
-  InputWrapperStyle,
-  InputContentStyle,
-  TextareaStyle,
-  InputMessageStyle,
-  InputControlWrapperStyle,
-} from './InputStyles'
-import { TextareaLabelStyle } from './LabelStyles'
-import { TextareaProps } from './types'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import { CommonProps } from './types'
+import styles from './Input.module.css'
+import cn from 'classnames'
 
-function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
-  const {
-    label,
-    error,
-    warning,
-    success,
-    active = false,
-    fullwidth = false,
-    placeholder = ' ',
-    className,
-    style,
-    variant = 'default',
-    color = 'default',
-    wrapperRef,
-    children,
-    ...rest
-  } = props
+export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & CommonProps
 
-  const { id, disabled = false } = props
-  const wrapperProps = { className, style }
+export const Textarea = forwardRef(
+  (
+    {
+      id,
+      disabled = false,
+      label,
+      error,
+      warning,
+      success,
+      active = false,
+      fullwidth = false,
+      placeholder = ' ',
+      className,
+      style,
+      variant = 'default',
+      color = 'default',
+      wrapperRef,
+      children,
+      ...rest
+    }: TextareaProps,
+    ref?: ForwardedRef<HTMLTextAreaElement>,
+  ) => {
+    const hasLabel = !!label && variant === 'default'
 
-  const hasLabel = !!label && variant === 'default'
+    const hasError = !!error
+    const hasErrorMessage = hasError && typeof error !== 'boolean'
+    const hasWarning = !hasError && !!warning // `error` overrides `warning`
+    const hasWarningMessage = hasWarning && typeof warning !== 'boolean'
+    const hasSuccess = !!success && !error
+    const hasSuccessMessage = hasSuccess && typeof success !== 'boolean'
 
-  const hasError = !!error
-  const hasErrorMessage = hasError && typeof error !== 'boolean'
-  const hasWarning = !hasError && !!warning // `error` overrides `warning`
-  const hasWarningMessage = hasWarning && typeof warning !== 'boolean'
-  const hasSuccess = !!success && !error
-  const hasSuccessMessage = hasSuccess && typeof success !== 'boolean'
-
-  return (
-    <InputWrapperStyle
-      $disabled={disabled}
-      $fullwidth={fullwidth}
-      htmlFor={id}
-      ref={wrapperRef}
-      {...wrapperProps}
-    >
-      <InputContentStyle
-        $color={color}
-        $variant={variant}
-        $error={hasError}
-        $warning={hasWarning}
-        $active={active}
-        $disabled={disabled}
+    return (
+      <label
+        className={cn(styles.wrapper, className, {
+          [styles.disabled]: disabled,
+          [styles.fullwidth]: fullwidth,
+        })}
+        style={style}
+        htmlFor={id}
+        ref={wrapperRef}
       >
-        <InputControlWrapperStyle>
-          <TextareaStyle
-            $labeled={hasLabel}
-            $color={color}
-            placeholder={placeholder}
-            aria-invalid={hasError}
-            ref={ref}
-            {...rest}
-          />
-          {hasLabel && (
-            <TextareaLabelStyle $color={color}>{label}</TextareaLabelStyle>
-          )}
-        </InputControlWrapperStyle>
-      </InputContentStyle>
+        <span
+          className={cn(styles.content, {
+            [styles.colorAccent]: color === 'accent',
+            [styles.colorDefault]: color === 'default',
+            [styles.variantSmall]: variant === 'small',
+            [styles.variantDefault]: variant === 'default',
+            [styles.error]: hasError,
+            [styles.warning]: hasWarning,
+            [styles.active]: active,
+            [styles.disabled]: disabled,
+          })}
+        >
+          <div className={styles.controlWrapper}>
+            <textarea
+              className={cn(styles.input, styles.textarea, {
+                [styles.labeled]: hasLabel,
+                [styles.colorDefault]: color === 'default',
+                [styles.colorAccent]: color === 'accent',
+              })}
+              disabled={disabled}
+              placeholder={placeholder}
+              aria-invalid={hasError}
+              ref={ref}
+              {...rest}
+            />
 
-      {hasErrorMessage && (
-        <InputMessageStyle $variant='error' $bordered>
-          {error}
-        </InputMessageStyle>
-      )}
-      {hasWarningMessage && (
-        <InputMessageStyle $variant='warning' $bordered>
-          {warning}
-        </InputMessageStyle>
-      )}
-      {hasSuccessMessage && (
-        <InputMessageStyle $variant='success' $bordered>
-          {success}
-        </InputMessageStyle>
-      )}
-    </InputWrapperStyle>
-  )
-}
+            {hasLabel && (
+              <span
+                className={cn(styles.label, styles.textareaLabel, {
+                  [styles.colorDefault]: color === 'default',
+                  [styles.colorAccent]: color === 'accent',
+                })}
+              >
+                {label}
+              </span>
+            )}
+          </div>
+        </span>
 
-export default forwardRef(Textarea)
+        {hasErrorMessage && (
+          <span className={cn(styles.message, styles.error, styles.bordered)}>
+            {error}
+          </span>
+        )}
+        {hasWarningMessage && (
+          <span className={cn(styles.message, styles.warning, styles.bordered)}>
+            {warning}
+          </span>
+        )}
+        {hasSuccessMessage && (
+          <span className={cn(styles.message, styles.success, styles.bordered)}>
+            {success}
+          </span>
+        )}
+      </label>
+    )
+  },
+)
+Textarea.displayName = 'Textarea'

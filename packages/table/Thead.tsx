@@ -1,12 +1,26 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { TheadProps } from './types'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import styles from './Thead.module.css'
+import cn from 'classnames'
 
-import { TheadStyle } from './styles'
-
-function Thead(props: TheadProps, ref?: ForwardedRef<HTMLTableSectionElement>) {
-  const { sticky = false, ...rest } = props
-
-  return <TheadStyle ref={ref} $sticky={sticky} {...rest} />
+export type TheadProps = ComponentPropsWithoutRef<'thead'> & {
+  sticky?: boolean
 }
 
-export default forwardRef(Thead)
+export const Thead = forwardRef(
+  (
+    { sticky = false, className, ...rest }: TheadProps,
+    ref?: ForwardedRef<HTMLTableSectionElement>,
+  ) => {
+    return (
+      <thead
+        className={cn(styles.thead, className, {
+          [styles.sticky]: sticky,
+        })}
+        ref={ref}
+        {...rest}
+      />
+    )
+  },
+)
+
+Thead.displayName = 'Thead'

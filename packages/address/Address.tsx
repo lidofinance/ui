@@ -1,21 +1,24 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { AddressProps } from './types'
-import {
-  AddressStyle,
-  AddressFullStyle,
-  AddressTrimmedStyle,
-} from './AddressStyles'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { trimAddress } from './trimAddress'
+import styles from './Address.module.css'
+import cn from 'classnames'
 
-function Address(props: AddressProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { symbols = 3, address, ...rest } = props
-
-  return (
-    <AddressStyle {...rest} ref={ref}>
-      <AddressFullStyle>{address}</AddressFullStyle>
-      <AddressTrimmedStyle>{trimAddress(address, symbols)}</AddressTrimmedStyle>
-    </AddressStyle>
-  )
+export type AddressProps = ComponentPropsWithoutRef<'div'> & {
+  address: string
+  symbols?: number
 }
 
-export default forwardRef(Address)
+export const Address = forwardRef(
+  (
+    { symbols = 3, address, className, ...rest }: AddressProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    return (
+      <div className={cn(styles.address, className)} {...rest} ref={ref}>
+        <span className={styles.full}>{address}</span>
+        <span className={styles.trimmed}>{trimAddress(address, symbols)}</span>
+      </div>
+    )
+  },
+)
+Address.displayName = 'Address'

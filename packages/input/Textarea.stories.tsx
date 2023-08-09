@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import Textarea from './Textarea'
-import { TextareaProps } from './types'
+import { StoryFn, Meta } from '@storybook/react'
+import { Textarea, TextareaProps } from '.'
 
 export default {
   component: Textarea,
@@ -16,16 +15,18 @@ export default {
       table: { disable: true },
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<TextareaProps> = (props) => <Textarea {...props} />
+export const Basic: StoryFn<TextareaProps> = (props) => <Textarea {...props} />
 
 Basic.args = {
   placeholder: 'Amount',
   rows: 5,
 }
 
-export const Labeled: Story<TextareaProps> = (props) => <Textarea {...props} />
+export const Labeled: StoryFn<TextareaProps> = (props) => (
+  <Textarea {...props} />
+)
 
 Labeled.args = {
   label: 'Amount',

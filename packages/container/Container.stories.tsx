@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import { ContainerProps, ContainerSize } from './types'
-import Container from './Container'
+import { StoryFn, Meta } from '@storybook/react'
+import { Container, ContainerProps, ContainerSize } from '.'
 import styled from 'styled-components'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -12,18 +11,18 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta
+} satisfies Meta
 
 const StyledDiv = styled.div`
   height: 100px;
   background: var(--lido-color-foreground);
-  color: var(--lido-color-textSecondary);
+  color: var(--lido-color-text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
 `
 
-export const Base: Story<ContainerProps> = (props) => (
+export const Base: StoryFn<ContainerProps> = (props) => (
   <Container {...props}>
     <StyledDiv />
   </Container>
@@ -40,12 +39,12 @@ Base.argTypes = {
   },
 }
 
-export const PageLayout: Story = () => (
+export const PageLayout: StoryFn = () => (
   <>
-    <Container as='header' size='full'>
+    <Container size='full'>
       <StyledDiv>Header</StyledDiv>
     </Container>
-    <Container as='main' size='content'>
+    <Container size='content'>
       <StyledDiv
         style={{
           margin: '20px 0',
@@ -55,7 +54,7 @@ export const PageLayout: Story = () => (
         Content
       </StyledDiv>
     </Container>
-    <Container as='footer' size='full'>
+    <Container size='full'>
       <StyledDiv>Footer</StyledDiv>
     </Container>
   </>

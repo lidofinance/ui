@@ -1,31 +1,76 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { TdProps } from './types'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 
-import { TdStyle, ThTdContentStyle } from './styles'
+import cn from 'classnames'
+import styles from './Td.module.css'
 
-function Td(props: TdProps, ref?: ForwardedRef<HTMLTableDataCellElement>) {
-  const {
-    align = 'left',
-    textColor = 'default',
-    variant,
-    children,
-    numeric = false,
-    ...rest
-  } = props
-
-  return (
-    <TdStyle
-      $align={align}
-      $textColor={textColor}
-      $variant={variant}
-      $interactive={!!rest.onClick}
-      $numeric={numeric}
-      ref={ref}
-      {...rest}
-    >
-      <ThTdContentStyle>{children}</ThTdContentStyle>
-    </TdStyle>
-  )
+export enum TableAlign {
+  left = 'left',
+  center = 'center',
+  right = 'right',
 }
 
-export default forwardRef(Td)
+export type TableAligns = keyof typeof TableAlign
+
+export enum TableTextColor {
+  primary = 'primary',
+  secondary = 'secondary',
+  warning = 'warning',
+  error = 'error',
+  success = 'success',
+  default = 'default',
+}
+
+export type TableTextColors = keyof typeof TableTextColor
+
+export enum TdVariant {
+  string = 'string',
+  icon = 'icon',
+}
+
+export type TdVariants = keyof typeof TdVariant
+
+export type TdProps = ComponentPropsWithoutRef<'td'> & {
+  align?: TableAligns
+  textColor?: TableTextColors
+  variant?: TdVariants
+  numeric?: boolean
+}
+
+export const Td = forwardRef(
+  (
+    {
+      align = 'left',
+      textColor = 'default',
+      variant,
+      children,
+      numeric = false,
+      className,
+      ...rest
+    }: TdProps,
+    ref?: ForwardedRef<HTMLTableCellElement>,
+  ) => {
+    return (
+      <td
+        className={cn(styles.td, className, {
+          [styles.colorPrimary]: textColor === TableTextColor.primary,
+          [styles.colorSecondary]: textColor === TableTextColor.secondary,
+          [styles.colorWarning]: textColor === TableTextColor.warning,
+          [styles.colorError]: textColor === TableTextColor.error,
+          [styles.colorSuccess]: textColor === TableTextColor.success,
+          [styles.alignCenter]: align === TableAlign.center,
+          [styles.alignRight]: align === TableAlign.right,
+          [styles.variantString]: variant === TdVariant.string,
+          [styles.variantIcon]: variant === TdVariant.icon,
+          [styles.numeric]: numeric,
+          [styles.interactive]: Boolean(rest.onClick),
+        })}
+        ref={ref}
+        {...rest}
+      >
+        <div className={cn(styles.tdContent, className)}>{children}</div>
+      </td>
+    )
+  },
+)
+
+Td.displayName = 'Td'

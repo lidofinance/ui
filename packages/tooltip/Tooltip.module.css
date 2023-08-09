@@ -1,0 +1,11 @@
+.tooltip {
+  padding: 12px;
+  background: var(--lido-color-accent);
+  color: var(--lido-color-accent-contrast);
+  font-size: var(--lido-font-size-xxxs);
+  line-height: 1.8em;
+  font-weight: 400;
+  max-width: 256px;
+  border-radius: var(--lido-border-radius-md);
+  box-shadow: var(--lido-shadows-sm) var(--lido-color-shadow-light);
+}

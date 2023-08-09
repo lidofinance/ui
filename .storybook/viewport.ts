@@ -1,4 +1,4 @@
-import { themeDefault } from '@lidofinance/theme'
+import { themeDefault } from '../packages/theme'
 
 const { breakpointsMap } = themeDefault
 
@@ -10,7 +10,7 @@ const themeViewports = Object.keys(breakpointsMap).reduce(
       styles: breakpointsMap[breakpoint],
     },
   }),
-  {}
+  {},
 )
 
 export default {

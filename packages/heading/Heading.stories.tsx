@@ -1,6 +1,16 @@
-import { Story, Meta } from '@storybook/react'
-import Heading, { H1, H2, H3 } from './Heading'
-import { HeadingProps, HeadingColor, HeadingSize, HProps } from './types'
+import { StoryFn, Meta } from '@storybook/react'
+import {
+  Heading,
+  HeadingProps,
+  H1,
+  H1Props,
+  H2,
+  H2Props,
+  H3,
+  H3Props,
+  HeadingColor,
+  HeadingSize,
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -21,9 +31,9 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<HeadingProps> = (props) => <Heading {...props} />
+export const Basic: StoryFn<HeadingProps> = (props) => <Heading {...props} />
 
 Basic.args = {
   size: 'md',
@@ -36,6 +46,6 @@ Basic.argTypes = {
   },
 }
 
-export const HeadingH1: Story<HProps<'h1'>> = (props) => <H1 {...props} />
-export const HeadingH2: Story<HProps<'h2'>> = (props) => <H2 {...props} />
-export const HeadingH3: Story<HProps<'h3'>> = (props) => <H3 {...props} />
+export const HeadingH1: StoryFn<H1Props> = (props) => <H1 {...props} />
+export const HeadingH2: StoryFn<H2Props> = (props) => <H2 {...props} />
+export const HeadingH3: StoryFn<H3Props> = (props) => <H3 {...props} />

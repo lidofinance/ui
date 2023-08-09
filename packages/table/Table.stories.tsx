@@ -1,20 +1,19 @@
 import { useState } from 'react'
-import { Story, Meta } from '@storybook/react'
-import { Light, Eth } from '@lidofinance/icons'
-import Table from './Table'
-import Thead from './Thead'
-import Tbody from './Tbody'
-import Tr from './Tr'
-import Td from './Td'
-import Th from './Th'
-
+import { Meta, StoryFn } from '@storybook/react'
+import { Light, Eth } from '../icons'
 import {
-  TdProps,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Td,
+  Th,
   TableTextColor,
   TableAlign,
+  TdProps,
   ThSortDirs,
   TrHighlight,
-} from './types'
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -41,20 +40,18 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Base: Story<
+export const Base: StoryFn<
   TdProps & { showHighlight: boolean; stickyHeader: boolean }
 > = (props, options) => {
   const [sortDir, setSortDir] = useState<ThSortDirs>('ASC')
 
-  // @ts-expect-error fix later
   const isShowTrHighlights = options.args.showHighlight
 
   return (
     <div style={{ height: 300, overflowY: 'scroll' }}>
       <Table style={{ width: 600 }}>
-        {/* @ts-expect-error fix later */}
         <Thead sticky={options.args.stickyHeader}>
           <Tr>
             <Th

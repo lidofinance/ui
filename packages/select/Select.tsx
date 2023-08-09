@@ -1,62 +1,93 @@
-import React, { ForwardedRef, forwardRef, useRef } from 'react'
-import { SelectWrapperStyle } from './SelectStyles'
-import { SelectArrow } from './SelectArrow'
-import { useMergeRefs } from '@lidofinance/hooks'
-import { PopupMenu } from '@lidofinance/popup-menu'
-import { SelectProps } from './types'
+import { ForwardedRef, forwardRef, RefObject, useRef } from 'react'
+import { SelectArrow, SelectArrowVariants } from './SelectArrow'
+import { useMergeRefs } from '../hooks'
+import { PopupMenu } from '../popup-menu'
 import { useSelect } from './useSelect'
 import { useSelectWidth } from './useSelectWidth'
+import { Input, InputProps } from '../input'
+import cn from 'classnames'
+import styles from './Select.module.css'
 
-function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
-  const {
-    wrapperRef: externalWrapperRef,
-    anchorRef: externalAnchorRef,
-    arrow = 'default',
-    variant,
-    value,
-    defaultValue,
-    children,
-    onChange,
-    ...rest
-  } = props
+export type SelectOptionValue = string | number
+export type SelectHandleChange = (value: SelectOptionValue) => void
 
-  const { disabled } = props
-
-  const localAnchorRef = useRef<HTMLLabelElement>(null)
-  const wrapperRef = useMergeRefs([localAnchorRef, externalWrapperRef])
-  const anchorRef = externalAnchorRef || localAnchorRef
-
-  const { opened, options, title, handleClick, handleClose, handleKeyDown } =
-    useSelect(props)
-  const width = useSelectWidth(opened, anchorRef)
-
-  return (
-    <>
-      <SelectWrapperStyle
-        onClick={handleClick}
-        onKeyDown={handleKeyDown}
-        active={opened}
-        value={title}
-        rightDecorator={
-          <SelectArrow arrow={arrow} disabled={disabled} opened={opened} />
-        }
-        wrapperRef={wrapperRef}
-        variant={variant}
-        {...rest}
-        ref={ref}
-        readOnly
-      />
-      <PopupMenu
-        open={opened}
-        variant={variant}
-        anchorRef={anchorRef}
-        style={{ minWidth: width }}
-        onClose={handleClose}
-      >
-        {options}
-      </PopupMenu>
-    </>
-  )
+export type SelectProps = Omit<
+  InputProps,
+  'type' | 'readonly' | 'onChange' | 'value' | 'defaultValue'
+> & {
+  anchorRef?: RefObject<HTMLElement | null>
+  arrow?: SelectArrowVariants
+  value?: SelectOptionValue
+  defaultValue?: SelectOptionValue
+  onChange: SelectHandleChange
 }
 
-export default forwardRef(Select)
+export const Select = forwardRef(
+  (
+    {
+      wrapperRef: externalWrapperRef,
+      anchorRef: externalAnchorRef,
+      arrow = 'default',
+      variant,
+      value,
+      defaultValue,
+      children,
+      disabled,
+      onClick,
+      onKeyDown,
+      onChange,
+      ...rest
+    }: SelectProps,
+    ref?: ForwardedRef<HTMLInputElement>,
+  ) => {
+    const localAnchorRef = useRef<HTMLLabelElement>(null)
+    const wrapperRef = useMergeRefs([localAnchorRef, externalWrapperRef])
+    const anchorRef = externalAnchorRef || localAnchorRef
+
+    const { opened, options, title, handleClick, handleClose, handleKeyDown } =
+      useSelect({
+        value,
+        defaultValue,
+        disabled,
+        onClick,
+        onChange,
+        onKeyDown,
+        children,
+      })
+    const width = useSelectWidth(opened, anchorRef)
+
+    return (
+      <>
+        <Input
+          className={cn(styles.select, {
+            [styles.disabled]: disabled,
+            [styles.small]: variant === 'small',
+          })}
+          disabled={disabled}
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
+          active={opened}
+          value={title}
+          rightDecorator={
+            <SelectArrow arrow={arrow} disabled={disabled} opened={opened} />
+          }
+          wrapperRef={wrapperRef}
+          variant={variant}
+          ref={ref}
+          readOnly
+          {...rest}
+        />
+        <PopupMenu
+          open={opened}
+          variant={variant}
+          anchorRef={anchorRef}
+          style={{ minWidth: width }}
+          onClose={handleClose}
+        >
+          {options}
+        </PopupMenu>
+      </>
+    )
+  },
+)
+Select.displayName = 'Select'

@@ -1,11 +1,11 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import {
+  Identicon,
   IdenticonProps,
+  IdenticonBadge,
   IdenticonBadgeProps,
   IdenticonBadgeColor,
-} from './types'
-import Identicon from './Identicon'
-import IdenticonBadge from './IdenticonBadge'
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -22,11 +22,13 @@ export default {
       control: { type: 'range', min: 4, max: 64, step: 4 },
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<IdenticonProps> = (props) => <Identicon {...props} />
+export const Basic: StoryFn<IdenticonProps> = (props) => (
+  <Identicon {...props} />
+)
 
-export const Badge: Story<IdenticonBadgeProps> = (props) => (
+export const Badge: StoryFn<IdenticonBadgeProps> = (props) => (
   <IdenticonBadge {...props} />
 )
 

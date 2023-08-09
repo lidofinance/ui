@@ -4,7 +4,7 @@ import { getTopLevelDomain } from './get-top-level-domain'
 export const setCrossDomainCookieClientSide = (
   key: string,
   value: string,
-  expire = 365
+  expire = 365,
 ): void => {
   if (typeof window === 'undefined') {
     return

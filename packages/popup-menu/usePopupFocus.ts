@@ -1,18 +1,25 @@
-import React, { useCallback, useRef } from 'react'
-import { useInterceptFocus } from '@lidofinance/hooks'
+import {
+  KeyboardEvent,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  RefObject,
+  useCallback,
+  useRef,
+} from 'react'
+import { useInterceptFocus } from '../hooks'
 import { FOCUSABLE_ELEMENTS } from './constants'
-import { PopupMenuProps } from './types'
+import { PopupMenuProps } from './PopupMenu'
 
-export const usePopupFocus = <T extends HTMLDivElement>(
-  props: PopupMenuProps
-): {
-  ref: React.RefObject<T>
-  handleMouseMove: React.MouseEventHandler<T>
-  handleKeyDown: React.KeyboardEventHandler<T>
+export const usePopupFocus = <T extends HTMLDivElement>({
+  onMouseMove,
+  onKeyDown,
+}: Pick<PopupMenuProps, 'onMouseMove' | 'onKeyDown'>): {
+  ref: RefObject<T>
+  handleMouseMove: MouseEventHandler<T>
+  handleKeyDown: KeyboardEventHandler<T>
   handleEnter: () => void
   handleExit: () => void
 } => {
-  const { onMouseMove, onKeyDown } = props
   const ref = useRef<T>(null)
 
   const getFocusableNodes = useCallback(() => {
@@ -21,12 +28,12 @@ export const usePopupFocus = <T extends HTMLDivElement>(
 
     return Array.from(nodes).filter(
       (node): node is HTMLElement =>
-        node && node instanceof HTMLElement && node.offsetParent !== null
+        node && node instanceof HTMLElement && node.offsetParent !== null,
     )
   }, [])
 
   const handleFocusTo = useCallback(
-    (event: React.KeyboardEvent<T>, offset = 1) => {
+    (event: KeyboardEvent<T>, offset = 1) => {
       const focusableNodes = getFocusableNodes()
 
       if (focusableNodes.length === 0) return
@@ -38,7 +45,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
           : -1
 
       const activeItemIndex = focusableNodes.findIndex(
-        (node) => node.getAttribute('aria-selected') === 'true'
+        (node) => node.getAttribute('aria-selected') === 'true',
       )
 
       const currentIndex =
@@ -51,10 +58,10 @@ export const usePopupFocus = <T extends HTMLDivElement>(
       focusableNodes[nextIndex].focus()
       event.preventDefault()
     },
-    [getFocusableNodes]
+    [getFocusableNodes],
   )
 
-  const handleMouseMove: React.MouseEventHandler<T> = useCallback(
+  const handleMouseMove: MouseEventHandler<T> = useCallback(
     (event) => {
       onMouseMove?.(event)
 
@@ -73,10 +80,10 @@ export const usePopupFocus = <T extends HTMLDivElement>(
 
       overed.focus()
     },
-    [getFocusableNodes, onMouseMove]
+    [getFocusableNodes, onMouseMove],
   )
 
-  const handleKeyDown: React.KeyboardEventHandler<T> = useCallback(
+  const handleKeyDown: KeyboardEventHandler<T> = useCallback(
     (event) => {
       onKeyDown?.(event)
       const code = event.code ?? event.key
@@ -85,7 +92,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
       if (code === 'ArrowDown') handleFocusTo(event, +1)
       if (code === 'ArrowUp') handleFocusTo(event, -1)
     },
-    [handleFocusTo, onKeyDown]
+    [handleFocusTo, onKeyDown],
   )
 
   const [interceptFocus, restoreFocus] = useInterceptFocus()

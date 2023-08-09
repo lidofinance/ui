@@ -1,27 +1,29 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import {
-  ButtonWrapperStyle,
-  ButtonIconStyle,
-  ButtonContentStyle,
-} from './ButtonIconStyles'
-import { ButtonIconProps } from './types'
-import Button from './Button'
+import { ForwardedRef, forwardRef } from 'react'
+import { Button, ButtonProps } from './Button'
+import styles from './ButtonIcon.module.css'
+import cn from 'classnames'
 
-function ButtonIcon(
-  props: ButtonIconProps,
-  ref?: ForwardedRef<HTMLButtonElement>
-) {
-  const { icon, children, ...rest } = props
-  const hasNoChildren = !children
-
-  return (
-    <Button square={hasNoChildren} {...rest} ref={ref}>
-      <ButtonWrapperStyle>
-        <ButtonIconStyle $square={hasNoChildren}>{icon}</ButtonIconStyle>
-        <ButtonContentStyle>{children}</ButtonContentStyle>
-      </ButtonWrapperStyle>
-    </Button>
-  )
+export type ButtonIconProps = ButtonProps & {
+  icon: JSX.Element
 }
 
-export default forwardRef(ButtonIcon)
+export const ButtonIcon = forwardRef(
+  (
+    { icon, children, ...rest }: ButtonIconProps,
+    ref?: ForwardedRef<HTMLButtonElement>,
+  ) => {
+    const hasNoChildren = !children
+
+    return (
+      <Button square={hasNoChildren} {...rest} ref={ref}>
+        <span className={styles.wrapper}>
+          <span className={cn(styles.icon, { [styles.square]: hasNoChildren })}>
+            {icon}
+          </span>
+          <span className={styles.content}>{children}</span>
+        </span>
+      </Button>
+    )
+  },
+)
+ButtonIcon.displayName = 'ButtonIcon'

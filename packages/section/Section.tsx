@@ -1,30 +1,35 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { SectionProps } from './types'
 import {
-  SectionStyle,
-  SectionHeaderStyle,
-  SectionTitleStyle,
-  SectionHeaderDecoratorStyle,
-} from './SectionStyles'
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  ReactNode,
+  forwardRef,
+} from 'react'
+import cn from 'classnames'
+import styles from './Section.module.css'
 
-function Section(props: SectionProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { title, headerDecorator, children, ...rest } = props
-
-  return (
-    <SectionStyle {...rest} ref={ref}>
-      {title && (
-        <SectionHeaderStyle>
-          <SectionTitleStyle>{title}</SectionTitleStyle>
-          {headerDecorator && (
-            <SectionHeaderDecoratorStyle>
-              {headerDecorator}
-            </SectionHeaderDecoratorStyle>
-          )}
-        </SectionHeaderStyle>
-      )}
-      {children}
-    </SectionStyle>
-  )
+export type SectionProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
+  title?: ReactNode
+  headerDecorator?: ReactNode
 }
 
-export default forwardRef(Section)
+export const Section = forwardRef(
+  (
+    { title, headerDecorator, className, children, ...rest }: SectionProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    return (
+      <section className={cn(styles.section, className)} {...rest} ref={ref}>
+        {title && (
+          <div className={styles.header}>
+            <h2 className={styles.title}>{title}</h2>
+            {headerDecorator && (
+              <div className={styles.headerDecorator}>{headerDecorator}</div>
+            )}
+          </div>
+        )}
+        {children}
+      </section>
+    )
+  },
+)
+Section.displayName = 'Section'

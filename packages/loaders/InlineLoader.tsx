@@ -1,19 +1,38 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { InlineLoaderProps } from './types'
-import { InlineLoaderStyle } from './InlineLoaderStyles'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import cn from 'classnames'
+import styles from './InlineLoader.module.css'
 
-function InlineLoader(
-  props: InlineLoaderProps,
-  ref?: ForwardedRef<HTMLDivElement>
-) {
-  const { color, ...rest } = props
-  const heightAdjuster = <>&nbsp;</>
+export enum InlineLoaderColor {
+  text,
+  secondary,
+  foreground,
+}
+export type InlineLoaderColors = keyof typeof InlineLoaderColor
 
-  return (
-    <InlineLoaderStyle $color={color} {...rest} ref={ref}>
-      {heightAdjuster}
-    </InlineLoaderStyle>
-  )
+export type InlineLoaderProps = ComponentPropsWithoutRef<'div'> & {
+  color?: InlineLoaderColors
 }
 
-export default forwardRef(InlineLoader)
+export const InlineLoader = forwardRef(
+  (
+    { color = 'text', className, ...rest }: InlineLoaderProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const heightAdjuster = <>&nbsp;</>
+
+    return (
+      <span
+        className={cn(styles.inlineLoader, className, {
+          [styles.text]: color === 'text',
+          [styles.foreground]: color === 'foreground',
+          [styles.secondary]: color === 'secondary',
+        })}
+        {...rest}
+        ref={ref}
+      >
+        {heightAdjuster}
+      </span>
+    )
+  },
+)
+InlineLoader.displayName = 'InlineLoader'

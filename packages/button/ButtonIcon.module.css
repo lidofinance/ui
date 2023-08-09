@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1em;
+  min-width: 1em;
+}
+
+.icon {
+  line-height: 0;
+  flex-shrink: 0;
+  margin: -12px -6px;
+
+  svg {
+    fill: currentcolor;
+  }
+
+  *.square {
+    margin: -12px;
+  }
+}
+
+.content {
+  margin-left: 10px;
+
+  &:empty {
+    display: none;
+  }
+}

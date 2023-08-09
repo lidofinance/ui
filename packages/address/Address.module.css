@@ -1,0 +1,17 @@
+.address {
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.full {
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+  color: transparent;
+}
+
+.trimmed {
+  user-select: none;
+  pointer-events: none;
+}

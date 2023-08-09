@@ -1,0 +1,29 @@
+.stackItem {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.spacingXs {
+  padding: calc(var(--lido-space-xs) / 2);
+}
+
+.spacingSm {
+  padding: calc(var(--lido-space-sm) / 2);
+}
+
+.spacingMd {
+  padding: calc(var(--lido-space-md) / 2);
+}
+
+.spacingLg {
+  padding: calc(var(--lido-space-lg) / 2);
+}
+
+.spacingXl {
+  padding: calc(var(--lido-space-xl) / 2);
+}
+
+.spacingXxl {
+  padding: calc(var(--lido-space-xxl) / 2);
+}

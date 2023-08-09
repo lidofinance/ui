@@ -1,0 +1,26 @@
+/* export const IdenticonBadgeStyle = styled.div<{ $color: IdenticonBadgeColors }>`
+
+  ${({ $color }) => colors[$color]}
+` */
+
+.identiconBadge {
+  border-radius: 1000px;
+  padding: 4px;
+  margin: 0 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.background {
+  background: var(--lido-color-background);
+  color: var(--lido-color-text-secondary);
+}
+
+.accent {
+  background: var(--lido-color-accent-darken);
+  color: var(--lido-color-accent-contrast);
+}
+
+.wrapper {
+  padding: 0 6px;
+}

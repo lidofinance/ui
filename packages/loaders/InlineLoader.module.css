@@ -1,0 +1,51 @@
+@keyframes translation {
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.inlineLoader {
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 1000px;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  opacity: 0.05;
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  animation: translation 2s infinite;
+
+  --loader-color: currentcolor;
+
+  background-image: linear-gradient(
+    90deg,
+    var(--loader-color) 0,
+    var(--loader-color) 33.33%,
+    transparent 44.44%,
+    transparent 55.55%,
+    var(--loader-color) 66.66%,
+    var(--loader-color) 100%
+  );
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--loader-color);
+    opacity: 0.2;
+  }
+}
+
+.text {
+  --loader-color: var(--lido-color-text);
+}
+
+.secondary {
+  --loader-color: var(--lido-color-secondary);
+}
+
+.foreground {
+  --loader-color: var(--lido-color-foreground);
+}

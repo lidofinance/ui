@@ -1,10 +1,15 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { TfootProps } from './types'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 
-import { TfootStyle } from './styles'
+import cn from 'classnames'
+import styles from './Table.module.css'
 
-function Tfoot(props: TfootProps, ref?: ForwardedRef<HTMLTableSectionElement>) {
-  return <TfootStyle ref={ref} {...props} />
-}
-
-export default forwardRef(Tfoot)
+export type TfootProps = ComponentPropsWithoutRef<'tfoot'>
+export const Tfoot = forwardRef(
+  (
+    { className, ...rest }: TfootProps,
+    ref?: ForwardedRef<HTMLTableSectionElement>,
+  ) => {
+    return <tfoot className={cn(styles.tfoot, className)} {...rest} ref={ref} />
+  },
+)
+Tfoot.displayName = 'Tfoot'

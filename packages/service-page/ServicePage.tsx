@@ -1,22 +1,31 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-import { ServicePageStyle, ServicePageInsideStyle } from './ServicePageStyles'
-import { H1 } from '@lidofinance/heading'
-import { Text } from '@lidofinance/text'
-import { ServicePageProps } from './types'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  ReactNode,
+  forwardRef,
+} from 'react'
+import { H1 } from '../heading'
+import { Text } from '../text'
+import cn from 'classnames'
+import styles from './ServicePage.module.css'
 
-function ServicePage(
-  props: ServicePageProps,
-  ref?: ForwardedRef<HTMLDivElement>
-) {
-  const { title, children, ...rest } = props
-  return (
-    <ServicePageStyle {...rest} ref={ref}>
-      <ServicePageInsideStyle>
-        <H1>{title}</H1>
-        <Text color='secondary'>{children}</Text>
-      </ServicePageInsideStyle>
-    </ServicePageStyle>
-  )
+export type ServicePageProps = ComponentPropsWithoutRef<'div'> & {
+  title: ReactNode
 }
 
-export default forwardRef(ServicePage)
+export const ServicePage = forwardRef(
+  (
+    { title, className, children, ...rest }: ServicePageProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    return (
+      <div className={cn(styles.servicePage, className)} ref={ref} {...rest}>
+        <div className={styles.servicePageInside}>
+          <H1>{title}</H1>
+          <Text color='secondary'>{children}</Text>
+        </div>
+      </div>
+    )
+  },
+)
+ServicePage.displayName = 'ServicePage'

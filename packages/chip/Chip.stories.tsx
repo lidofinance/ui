@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import { ChipVariant } from './types'
-import Chip from './Chip'
+import { StoryFn, Meta } from '@storybook/react'
+import { Chip, ChipVariant } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -19,12 +18,11 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story = (props, options) => (
+export const Basic: StoryFn = (props, options) => (
   <Chip
     {...props}
-    // @ts-expect-error fix later
     onClick={options.args.interactive ? () => void 0 : undefined}
   />
 )

@@ -1,0 +1,28 @@
+.sm {
+  font-size: var(--lido-font-size-xl);
+  line-height: 1.3em;
+}
+
+.md {
+  font-size: var(--lido-font-size-xxl);
+  line-height: 1.3em;
+}
+
+.lg {
+  font-size: var(--lido-font-size-xxxl);
+  line-height: 1.3em;
+}
+
+.heading {
+  margin: 0;
+  padding: 0;
+  font-weight: 800;
+}
+
+.heading.text {
+  color: var(--lido-color-text);
+}
+
+.heading.secondary {
+  color: var(--lido-color-text-secondary);
+}

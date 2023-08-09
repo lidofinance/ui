@@ -1,11 +1,8 @@
-import { Story, Meta } from '@storybook/react'
-import { Eth, Steth, Solana } from '@lidofinance/icons'
-import { InputGroup, Input, InputColor } from '@lidofinance/input'
-import { SelectProps } from './types'
-import Select from './Select'
-import SelectIcon from './SelectIcon'
-import Option from './Option'
+import { StoryFn, Meta } from '@storybook/react'
 import { useRef, useState } from 'react'
+import { Eth, Steth, Solana } from '../icons'
+import { InputGroup, Input, InputColor, InputVariant } from '../input'
+import { Select, SelectProps, SelectIcon, Option, SelectArrowVariant } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -16,16 +13,26 @@ export default {
   args: {
     disabled: false,
     fullwidth: false,
+    arrow: 'default',
+    variant: 'default',
   },
   argTypes: {
+    arrow: {
+      options: getOptions(SelectArrowVariant),
+      control: 'inline-radio',
+    },
+    variant: {
+      options: getOptions(InputVariant),
+      control: 'inline-radio',
+    },
     onChange: {
       action: 'change',
       table: { disable: true },
     },
   },
-} as Meta
+} satisfies Meta
 
-export const Basic: Story<SelectProps> = (props) => (
+export const Basic: StoryFn<SelectProps> = (props) => (
   <Select {...props} value={1}>
     <Option value={1}>First</Option>
     <Option value={2}>Second</Option>
@@ -33,7 +40,7 @@ export const Basic: Story<SelectProps> = (props) => (
   </Select>
 )
 
-export const Labeled: Story<SelectProps> = (props) => (
+export const Labeled: StoryFn<SelectProps> = (props) => (
   <Select {...props} label='Labeled select' value={1}>
     <Option value={1}>First</Option>
     <Option value={2}>Second</Option>
@@ -47,7 +54,7 @@ const iconsMap = {
   sol: <Solana />,
 }
 
-export const Icons: Story<SelectProps> = (props) => {
+export const Icons: StoryFn<SelectProps> = (props) => {
   const [value, setValue] = useState<keyof typeof iconsMap>('eth')
 
   return (
@@ -70,7 +77,7 @@ export const Icons: Story<SelectProps> = (props) => {
   )
 }
 
-export const OnlyIcon: Story<SelectProps> = (props) => {
+export const OnlyIcon: StoryFn<SelectProps> = (props) => {
   const [value, setValue] = useState<keyof typeof iconsMap>('eth')
 
   return (
@@ -78,7 +85,7 @@ export const OnlyIcon: Story<SelectProps> = (props) => {
       {...props}
       icon={iconsMap[value]}
       value={value}
-      onChange={(value) => setValue(value as keyof typeof iconsMap)}
+      onChange={(value: keyof typeof iconsMap) => setValue(value)}
     >
       <Option leftDecorator={iconsMap.eth} value='eth'>
         Ethereum (ETH)
@@ -99,7 +106,7 @@ OnlyIcon.argTypes = {
   },
 }
 
-export const WithInput: Story<SelectProps> = (props) => {
+export const WithInput: StoryFn<SelectProps> = (props) => {
   const { fullwidth, disabled, color } = props
   const [value, setValue] = useState<keyof typeof iconsMap>('eth')
   const ref = useRef<HTMLSpanElement>(null)
@@ -111,7 +118,7 @@ export const WithInput: Story<SelectProps> = (props) => {
         anchorRef={ref}
         icon={iconsMap[value]}
         value={value}
-        onChange={(value) => setValue(value as keyof typeof iconsMap)}
+        onChange={(value: keyof typeof iconsMap) => setValue(value)}
       >
         <Option leftDecorator={iconsMap.eth} value='eth'>
           Ethereum (ETH)
@@ -140,7 +147,7 @@ WithInput.argTypes = {
   },
 }
 
-export const Small: Story<SelectProps> = (props) => (
+export const Small: StoryFn<SelectProps> = (props) => (
   <Select {...props} variant='small' arrow='small' value={1}>
     <Option value={1}>First</Option>
     <Option value={2}>Second</Option>

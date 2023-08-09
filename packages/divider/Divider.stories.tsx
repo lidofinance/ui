@@ -1,6 +1,11 @@
-import { Story, Meta } from '@storybook/react'
-import { DividerIndent, DividerProps, DividerType, DividerTypes } from './types'
-import Divider from './Divider'
+import { StoryFn, Meta } from '@storybook/react'
+import {
+  Divider,
+  DividerIndent,
+  DividerProps,
+  DividerType,
+  DividerTypes,
+} from '.'
 import styled from 'styled-components'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -23,14 +28,14 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
 const Wrapper = styled.div<{ $type?: DividerTypes }>`
   flex-direction: ${({ $type }) => ($type === 'vertical' ? 'row' : 'column')};
   display: flex;
 `
 
-export const Base: Story<DividerProps> = (props) => (
+export const Base: StoryFn<DividerProps> = (props) => (
   <Wrapper $type={props.type}>
     <span>First</span>
     <Divider type='vertical' {...props} />
