@@ -8,7 +8,7 @@ const toRgb = (color: string) => {
       ].map((val) => parseInt(val, 16))
     case /^#[\da-fA-F]{6}$/.test(color):
       return [color.slice(1, 3), color.slice(3, 5), color.slice(5, 7)].map(
-        (val) => parseInt(val, 16)
+        (val) => parseInt(val, 16),
       )
     case /^rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)$/.test(color):
       return color
@@ -22,7 +22,7 @@ const toRgb = (color: string) => {
 }
 
 export const generateCssColorVariables = (
-  colors: Record<string, string>
+  colors: Record<string, string>,
 ): string => {
   return [...Object.keys(colors)]
     .map((key: string): string => {

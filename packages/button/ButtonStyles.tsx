@@ -100,7 +100,8 @@ const variants = {
   `,
   outlined: css`
     color: ${getMainColor};
-    transition: background-color ${({ theme }) => theme.duration.fast} ease,
+    transition:
+      background-color ${({ theme }) => theme.duration.fast} ease,
       color ${({ theme }) => theme.duration.fast} ease;
 
     ::before {

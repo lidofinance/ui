@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react'
 
 export const useSelectWidth = <T extends HTMLElement>(
   opened: boolean,
-  anchorRef: React.RefObject<T | null>
+  anchorRef: React.RefObject<T | null>,
 ): number | undefined => {
   const [width, setWidth] = useState<number>()
 

@@ -2,7 +2,7 @@
 
 export type LidoComponentProps<
   T extends keyof JSX.IntrinsicElements,
-  Props extends object = {}
+  Props extends object = {},
 > = Props &
   Omit<
     JSX.IntrinsicElements[T] & {

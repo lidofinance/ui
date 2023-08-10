@@ -83,7 +83,9 @@ const ButtonBasic = styled.button.attrs({ type: 'button' })`
   border: none;
   outline: none;
   cursor: pointer;
-  transition: background-color ease 0.25s, border-color ease 0.25s,
+  transition:
+    background-color ease 0.25s,
+    border-color ease 0.25s,
     color ease 0.25s;
 
   &:not(:last-child) {

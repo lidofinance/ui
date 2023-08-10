@@ -5,7 +5,7 @@ import { InputGroupProps } from './types'
 
 function InputGroup(
   props: InputGroupProps,
-  ref?: ForwardedRef<HTMLSpanElement>
+  ref?: ForwardedRef<HTMLSpanElement>,
 ) {
   const { fullwidth = false, error, success, children, ...rest } = props
 

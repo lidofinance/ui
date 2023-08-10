@@ -6,7 +6,7 @@ import { ServicePageProps } from './types'
 
 function ServicePage(
   props: ServicePageProps,
-  ref?: ForwardedRef<HTMLDivElement>
+  ref?: ForwardedRef<HTMLDivElement>,
 ) {
   const { title, children, ...rest } = props
   return (

@@ -11,7 +11,7 @@ export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
 
     return Array.from(nodes).filter(
       (node): node is HTMLElement =>
-        node && node instanceof HTMLElement && node.offsetParent !== null
+        node && node instanceof HTMLElement && node.offsetParent !== null,
     )
   }, [])
 
@@ -40,7 +40,7 @@ export const useModalFocus = (): React.RefObject<HTMLDivElement> => {
         event.preventDefault()
       }
     },
-    [getFocusableNodes]
+    [getFocusableNodes],
   )
 
   useEffect(() => {

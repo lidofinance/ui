@@ -35,9 +35,9 @@ function withStyledSystem<
   C extends AnyStyledComponent,
   T extends object = DefaultTheme,
   O extends object = {},
-  A extends keyof any = never
+  A extends keyof any = never,
 >(
-  Component: C
+  Component: C,
 ): StyledComponent<
   StyledComponentInnerComponent<C>,
   T,
@@ -49,7 +49,7 @@ function withStyledSystem<
   C extends keyof JSX.IntrinsicElements | React.ComponentType<any>,
   T extends object = DefaultTheme,
   O extends object = {},
-  A extends keyof any = never
+  A extends keyof any = never,
 >(Component: C): StyledComponent<C, T, MergePropsWithSS<O>, A>
 
 function withStyledSystem(Component: any) {
@@ -66,8 +66,8 @@ function withStyledSystem(Component: any) {
       background,
       border,
       position,
-      shadow
-    )
+      shadow,
+    ),
   )
 }
 

@@ -9,7 +9,7 @@ it('renders correctly', () => {
   const { container } = render(
     <ThemeProvider theme={themeDefault}>
       <Button>Test</Button>
-    </ThemeProvider>
+    </ThemeProvider>,
   )
 
   expect(container.firstChild?.firstChild).toMatchSnapshot()
