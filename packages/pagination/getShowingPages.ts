@@ -2,7 +2,7 @@ import { SiblingsCount } from './types'
 
 export const arrayPusher = (): ((
   arr: unknown[],
-  element: unknown
+  element: unknown,
 ) => number) => {
   const innerArray: unknown[] = []
 
@@ -26,7 +26,7 @@ export const range = (start: number, end: number): number[] => {
 const getShowingPages = (
   pagesCount: number,
   currPage = 1,
-  siblingCount: SiblingsCount = 1
+  siblingCount: SiblingsCount = 1,
 ): (string | number)[] => {
   if (!pagesCount) {
     return []

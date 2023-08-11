@@ -9,9 +9,9 @@ type WrappedProps<T> = Omit<T, keyof TransitionInnerProps> &
 
 export default function withTransition<
   P extends TransitionInnerProps,
-  E extends HTMLElement
+  E extends HTMLElement,
 >(
-  Component: React.ComponentType<P>
+  Component: React.ComponentType<P>,
 ): React.ForwardRefExoticComponent<
   React.PropsWithoutRef<WrappedProps<P>> & React.RefAttributes<E>
 > {

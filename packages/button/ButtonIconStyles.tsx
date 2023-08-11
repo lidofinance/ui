@@ -14,7 +14,7 @@ export const ButtonIconStyle = styled.span<{ $square: boolean }>`
   flex-shrink: 0;
 
   svg {
-    fill: currentColor;
+    fill: currentcolor;
   }
 `
 

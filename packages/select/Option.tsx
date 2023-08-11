@@ -10,7 +10,7 @@ function Option(props: OptionProps, ref?: ForwardedRef<HTMLButtonElement>) {
       onChange?.(value)
       onClick?.(event)
     },
-    [value, onChange, onClick]
+    [value, onChange, onClick],
   )
 
   return <PopupMenuItem onClick={handleClick} ref={ref} {...rest} />

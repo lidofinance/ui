@@ -14,13 +14,13 @@ const getIndents = ({ $indents, theme }: InjectedProps) => {
 
 const types = {
   horizontal: css<InjectedProps>`
-    border-top: 1px solid currentColor;
+    border-top: 1px solid currentcolor;
     width: 100%;
     height: 0;
     margin: ${getIndents} 0;
   `,
   vertical: css<InjectedProps>`
-    border-left: 1px solid currentColor;
+    border-left: 1px solid currentcolor;
     align-self: stretch;
     width: 0;
     margin: 0 ${getIndents};

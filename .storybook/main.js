@@ -11,7 +11,7 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       ...Object.fromEntries(
-        packages.map((dir) => [`@lidofinance/${dir}`, resolve(basepath, dir)])
+        packages.map((dir) => [`@lidofinance/${dir}`, resolve(basepath, dir)]),
       ),
     }
     return config

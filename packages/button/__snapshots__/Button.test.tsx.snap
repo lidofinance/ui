@@ -24,13 +24,10 @@ exports[`renders correctly 1`] = `
   transition: background-color 100ms ease;
 }
 
-.c0:before {
+.c0::before {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   pointer-events: none;
   border-radius: inherit;
   display: none;

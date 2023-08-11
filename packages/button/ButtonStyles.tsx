@@ -100,10 +100,11 @@ const variants = {
   `,
   outlined: css`
     color: ${getMainColor};
-    transition: background-color ${({ theme }) => theme.duration.fast} ease,
+    transition:
+      background-color ${({ theme }) => theme.duration.fast} ease,
       color ${({ theme }) => theme.duration.fast} ease;
 
-    :before {
+    ::before {
       display: block;
       border: 1px solid ${getMainColor};
     }
@@ -118,7 +119,7 @@ const variants = {
     color: ${getMainColor};
     background-color: var(--lido-color-foreground);
 
-    :before {
+    ::before {
       display: block;
       background-color: ${getMainColor};
       transition: opacity ${({ theme }) => theme.duration.fast} ease;
@@ -127,7 +128,8 @@ const variants = {
 
     :not(:disabled):hover,
     :focus-visible {
-      :before {
+      /* stylelint-disable-next-line no-descending-specificity */
+      ::before {
         opacity: 0.1;
       }
     }
@@ -135,7 +137,7 @@ const variants = {
   ghost: css`
     color: ${getMainColor};
 
-    :before {
+    ::before {
       display: block;
       background-color: ${getMainColor};
       transition: opacity ${({ theme }) => theme.duration.fast} ease;
@@ -144,7 +146,8 @@ const variants = {
 
     :not(:disabled):hover,
     :focus-visible {
-      :before {
+      /* stylelint-disable-next-line no-descending-specificity */
+      ::before {
         opacity: 0.1;
       }
     }
@@ -152,7 +155,7 @@ const variants = {
   translucent: css`
     color: ${getMainColor};
 
-    :before {
+    ::before {
       display: block;
       background-color: ${getMainColor};
       transition: opacity ${({ theme }) => theme.duration.fast} ease;
@@ -161,7 +164,8 @@ const variants = {
 
     :not(:disabled):hover,
     :focus-visible {
-      :before {
+      /* stylelint-disable-next-line no-descending-specificity */
+      ::before {
         opacity: 0.2;
       }
     }
@@ -181,13 +185,10 @@ export const ButtonStyle = styled.button<InjectedProps>`
   font-weight: 700;
   width: ${({ $fullwidth }) => ($fullwidth ? ' 100%' : 'auto')};
 
-  :before {
+  ::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     pointer-events: none;
     border-radius: inherit;
     display: none;
@@ -218,7 +219,7 @@ export const ButtonRippleStyle = styled.span`
   transform: scale(0);
   pointer-events: none;
   animation: ${ripple} 0.8s linear;
-  background-color: currentColor;
+  background-color: currentcolor;
   opacity: 0.4;
 `
 
@@ -233,6 +234,6 @@ export const ButtonLoaderStyle = styled(Loader)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: currentColor;
+  color: currentcolor;
   pointer-events: none;
 `

@@ -4,7 +4,7 @@ import { SelectIconDecoratorStyle, SelectIconStyle } from './SelectIconStyles'
 
 function SelectIcon(
   props: SelectIconProps,
-  ref?: ForwardedRef<HTMLInputElement>
+  ref?: ForwardedRef<HTMLInputElement>,
 ) {
   const { icon, ...rest } = props
 

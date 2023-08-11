@@ -8,15 +8,18 @@ permissions:
   contents: read
   security-events: write
 
+env:
+  NODE_OPTIONS: --max_old_space_size=4096
+
 jobs:
   security:
     uses: lidofinance/linters/.github/workflows/security.yml@master
+
   actions:
     uses: lidofinance/linters/.github/workflows/actions.yml@master
-  test-components:
+
+  cache-deps:
     runs-on: ubuntu-latest
-    env:
-      NODE_OPTIONS: --max_old_space_size=4096
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -27,19 +30,142 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'yarn'
+      
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Check typescript
+  check-types:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Check types
         run: yarn types
 
-      - name: Run lint
-        run: yarn lint
+  lint-js:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
-      - name: Build Components
-        run: yarn build
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint JS/TS
+        run: yarn lint:js
+
+  lint-css:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint CSS
+        run: yarn lint:css
+
+  run-tests:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
 
       - name: Run tests
         run: yarn test
+
+  demo-build:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Try to build
+        run: yarn build

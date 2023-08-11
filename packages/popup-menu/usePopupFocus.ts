@@ -4,7 +4,7 @@ import { FOCUSABLE_ELEMENTS } from './constants'
 import { PopupMenuProps } from './types'
 
 export const usePopupFocus = <T extends HTMLDivElement>(
-  props: PopupMenuProps
+  props: PopupMenuProps,
 ): {
   ref: React.RefObject<T>
   handleMouseMove: React.MouseEventHandler<T>
@@ -21,7 +21,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
 
     return Array.from(nodes).filter(
       (node): node is HTMLElement =>
-        node && node instanceof HTMLElement && node.offsetParent !== null
+        node && node instanceof HTMLElement && node.offsetParent !== null,
     )
   }, [])
 
@@ -38,7 +38,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
           : -1
 
       const activeItemIndex = focusableNodes.findIndex(
-        (node) => node.getAttribute('aria-selected') === 'true'
+        (node) => node.getAttribute('aria-selected') === 'true',
       )
 
       const currentIndex =
@@ -51,7 +51,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
       focusableNodes[nextIndex].focus()
       event.preventDefault()
     },
-    [getFocusableNodes]
+    [getFocusableNodes],
   )
 
   const handleMouseMove: React.MouseEventHandler<T> = useCallback(
@@ -73,7 +73,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
 
       overed.focus()
     },
-    [getFocusableNodes, onMouseMove]
+    [getFocusableNodes, onMouseMove],
   )
 
   const handleKeyDown: React.KeyboardEventHandler<T> = useCallback(
@@ -85,7 +85,7 @@ export const usePopupFocus = <T extends HTMLDivElement>(
       if (code === 'ArrowDown') handleFocusTo(event, +1)
       if (code === 'ArrowUp') handleFocusTo(event, -1)
     },
-    [handleFocusTo, onKeyDown]
+    [handleFocusTo, onKeyDown],
   )
 
   const [interceptFocus, restoreFocus] = useInterceptFocus()

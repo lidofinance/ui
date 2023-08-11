@@ -28,7 +28,9 @@ export const RangeInputSlider = styled.input.attrs({ type: 'range' })`
     width: 18px;
     height: 18px;
     background: #ffffff;
-    box-shadow: 0 0.5px 4px rgba(0, 0, 0, 0.12), 0 6px 13px rgba(0, 0, 0, 0.12);
+    box-shadow:
+      0 0.5px 4px rgba(0, 0, 0, 0.12),
+      0 6px 13px rgba(0, 0, 0, 0.12);
     border: 0;
     border-radius: 50px;
     cursor: pointer;

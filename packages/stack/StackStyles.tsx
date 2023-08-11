@@ -19,8 +19,7 @@ export const StackStyle = styled.div<{
   display: flex;
   align-items: ${({ $align }) => $align};
   justify-content: ${({ $justify }) => $justify};
-  flex-direction: ${({ $direction }) => $direction};
-  flex-wrap: ${({ $wrap }) => $wrap};
+  flex-flow: ${({ $direction }) => $direction} ${({ $wrap }) => $wrap};
   margin: ${({ $spacing, theme }) =>
     $spacing ? -theme.spaceMap[$spacing] / 2 : 0}px;
 `

@@ -14,7 +14,7 @@ import { useModalClose } from './useModalClose'
 
 function ModalOverlay(
   props: ModalOverlayInnerProps,
-  externalRef?: ForwardedRef<HTMLDivElement>
+  externalRef?: ForwardedRef<HTMLDivElement>,
 ) {
   const { onClose, onBack, duration, transitionStatus, ...rest } = props
   const closable = !!onClose
@@ -48,7 +48,7 @@ function ModalOverlay(
         />
       </ModalOverflowStyle>
     </ModalPortalStyle>,
-    modalRoot
+    modalRoot,
   )
 }
 

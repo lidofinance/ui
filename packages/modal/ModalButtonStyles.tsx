@@ -7,15 +7,13 @@ export const ModalButtonStyle = styled(Button)`
     active
       ? `1px solid var(--lido-color-primary)`
       : `1px solid var(--lido-color-background)`};
-
   background-color: ${({ active }) =>
     active ? 'rgba(0, 163, 255, 0.1);' : `var(--lido-color-background)`};
-
   color: var(--lido-color-text);
 
   :not(:disabled):hover,
   :focus-visible {
-    background-color: rgba(0, 163, 255, 0.1);
+    background-color: rgb(0 163 255 / 10%);
     color: var(--lido-color-text);
   }
 `

@@ -4,7 +4,7 @@ import { InlineLoaderStyle } from './InlineLoaderStyles'
 
 function InlineLoader(
   props: InlineLoaderProps,
-  ref?: ForwardedRef<HTMLDivElement>
+  ref?: ForwardedRef<HTMLDivElement>,
 ) {
   const { color, ...rest } = props
   const heightAdjuster = <>&nbsp;</>

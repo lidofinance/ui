@@ -36,7 +36,7 @@ export const useRipple: UseRipple = ({ onClick }) => {
       setRipple(<ButtonRippleStyle style={style} key={event.timeStamp} />)
       onClick?.(event)
     },
-    [onClick]
+    [onClick],
   )
 
   return {

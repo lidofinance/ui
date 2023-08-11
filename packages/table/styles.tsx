@@ -41,7 +41,7 @@ const getMainColorTd = (props: InjectedPropsTd) =>
     error: `var(--lido-color-error)`,
     success: `var(--lido-color-success)`,
     default: `var(--lido-color-text)`,
-  }[props.$textColor])
+  })[props.$textColor]
 
 const TdThAlign = {
   left: css`

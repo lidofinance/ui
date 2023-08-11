@@ -10,14 +10,14 @@ const StyledComponent = withStyledSystem(styled.div``)
 const RegularComponent = withStyledSystem(
   forwardRef(function Regular(
     props: React.HTMLAttributes<HTMLDivElement>,
-    ref?: ForwardedRef<HTMLDivElement>
+    ref?: ForwardedRef<HTMLDivElement>,
   ) {
     return <div {...props} ref={ref} />
-  })
+  }),
 )
 
 const testComponent = (
-  Component: typeof StyledComponent | typeof RegularComponent
+  Component: typeof StyledComponent | typeof RegularComponent,
 ) => {
   it('render children', () => {
     const { container } = render(<Component>Example</Component>)
@@ -45,7 +45,7 @@ const testComponent = (
     const { container } = render(
       <ThemeProvider theme={theme}>
         <Component color='primary' fontSize={1} margin={2} />
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     const element = container.firstElementChild?.firstElementChild
     expect(element).toHaveStyleRule('color', theme.colors.primary)
@@ -58,7 +58,7 @@ const testComponent = (
     const { container } = render(
       <ThemeProvider theme={theme}>
         <Component margin={[1, 2]} />
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     const element = container.firstElementChild?.firstElementChild
 

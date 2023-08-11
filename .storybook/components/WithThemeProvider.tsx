@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 export const WithThemeProvider: BaseDecorators<JSX.Element>[number] = (
   Story,
-  { args }
+  { args },
 ): JSX.Element => {
   return (
     <CookieThemeProvider

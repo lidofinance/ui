@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react'
 
 export const useModalClose = <T extends HTMLDivElement>(
-  callback?: () => void
+  callback?: () => void,
 ): {
   ref: React.RefObject<T>
   handleClick: (event: React.MouseEvent<T, MouseEvent>) => void
@@ -19,7 +19,7 @@ export const useModalClose = <T extends HTMLDivElement>(
 
       callback?.()
     },
-    [callback]
+    [callback],
   )
 
   return {

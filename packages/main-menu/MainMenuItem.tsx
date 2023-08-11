@@ -4,7 +4,7 @@ import { NavLink } from './MainMenuItemStyles'
 
 function MainMenuItem(
   props: MainMenuItemProps,
-  ref?: ForwardedRef<HTMLDivElement>
+  ref?: ForwardedRef<HTMLDivElement>,
 ) {
   const { icon, children, active, ...restProps } = props
   return (

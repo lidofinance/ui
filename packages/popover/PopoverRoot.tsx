@@ -10,7 +10,7 @@ import { DEFAULT_PLACEMENT } from './constants'
 
 function PopoverRoot(
   props: PopoverRootInnerProps,
-  externalRef?: ForwardedRef<HTMLDivElement>
+  externalRef?: ForwardedRef<HTMLDivElement>,
 ) {
   const {
     anchorRef,
@@ -53,7 +53,7 @@ function PopoverRoot(
         ref={popoverRef}
       />
     </PopoverWrapperStyle>,
-    modalRoot
+    modalRoot,
   )
 }
 

@@ -9,7 +9,7 @@ import { TOASTS_PENDING_OPTIONS } from './toastsDefaultOptions'
 
 export function ToastPending(
   content: JSX.Element,
-  options?: ToastOptions
+  options?: ToastOptions,
 ): ReactText {
   return toast(
     <ToastPendingStyle>
@@ -17,6 +17,6 @@ export function ToastPending(
       {/* eslint-disable-next-line */}
       <ToastPendingTextStyle>{content as any}</ToastPendingTextStyle>
     </ToastPendingStyle>,
-    { ...TOASTS_PENDING_OPTIONS, ...(options || {}) }
+    { ...TOASTS_PENDING_OPTIONS, ...(options || {}) },
   )
 }
