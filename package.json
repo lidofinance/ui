@@ -21,6 +21,8 @@
     "build": "zx ./scripts/build.cjs",
     "test": "jest",
     "test:coverage": "jest coverage",
+    "lint": "set +e; yarn lint:js; yarn lint:css; set -e",
+    "lint:fix": "set +e; yarn lint:js:fix; yarn lint:css:fix; set -e",
     "lint:js": "eslint .",
     "lint:js:fix": "eslint --fix .",
     "lint:css": "stylelint '**/*Styles.tsx'",
