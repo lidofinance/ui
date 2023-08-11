@@ -22,7 +22,7 @@
   },
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": "error",
     "react/prop-types": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-unused-vars": [
