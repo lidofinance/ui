@@ -1,12 +1,10 @@
 const { readdirSync } = require('node:fs')
+
 const { resolve } = require('node:path')
+
 const basepath = resolve(__dirname, '../packages')
 const packages = readdirSync(basepath)
-
 module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
   webpackFinal: async (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -16,12 +14,9 @@ module.exports = {
     }
     return config
   },
+
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
-  reactOptions: {
-    // FIXME: replace with true
-    // https://github.com/lidofinance/ui/issues/198
-    strictMode: false,
-  },
+
   addons: [
     '@storybook/addon-docs',
     {
@@ -37,6 +32,7 @@ module.exports = {
       },
     },
   ],
+
   typescript: {
     check: false,
     checkOptions: {
@@ -44,7 +40,20 @@ module.exports = {
     },
     reactDocgen: 'none',
   },
+
   features: {
     postcss: false,
+  },
+
+  framework: {
+    name: '@storybook/react-webpack5',
+
+    options: {
+      strictMode: false,
+    },
+  },
+
+  docs: {
+    autodocs: true,
   },
 }
