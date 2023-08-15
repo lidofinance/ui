@@ -65,6 +65,8 @@
   },
   "files": ["packages/index.ts"],
   "include": [
+    "packages/**/*.test.ts",
+    "packages/**/*.test.tsx",
     "packages/**/*.stories.ts",
     "packages/**/*.stories.tsx",
   ],
