@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CSS_FONTS = `@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800);
 body {
 font-family: Manrope, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,

@@ -1,9 +1,9 @@
 import { LidoComponentProps } from '@lidofinance/utils'
-import React from 'react'
+import { MouseEvent, ReactNode } from 'react'
 
 export type SiblingsCount = 0 | 1
 
-export type onItemClick = (index: number, e?: React.MouseEvent) => void
+export type onItemClick = (index: number, e?: MouseEvent) => void
 
 export type PaginationProps = LidoComponentProps<
   'div',
@@ -24,6 +24,6 @@ export type PaginationItemProps = LidoComponentProps<
   'button',
   {
     variant?: PaginationItemVariant
-    icon: React.ReactNode
+    icon: ReactNode
   }
 >

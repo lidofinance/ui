@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { TableProps } from './types'
 
 import { TableStyle } from './styles'

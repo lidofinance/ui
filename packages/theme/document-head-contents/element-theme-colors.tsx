@@ -1,4 +1,3 @@
-import React from 'react'
 import { themeDark, themeLight } from '../themes'
 import { generateCssColorVariables } from '../utils/generate-css-color-variables'
 import { globalStyleDataAttribute, ThemeName } from '../constants'

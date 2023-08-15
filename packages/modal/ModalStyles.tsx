@@ -1,4 +1,3 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 import { Close, ArrowBack } from '@lidofinance/icons'
 import { ButtonIcon } from '@lidofinance/button'

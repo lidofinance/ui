@@ -1,5 +1,5 @@
 import { LidoComponentProps } from '@lidofinance/utils'
-import React from 'react'
+import { RefObject } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum ChipVariant {
@@ -14,7 +14,7 @@ export type ChipVariants = keyof typeof ChipVariant
 export type ChipProps = LidoComponentProps<
   'div',
   {
-    wrapperRef?: React.RefObject<HTMLLabelElement>
+    wrapperRef?: RefObject<HTMLLabelElement>
     variant?: ChipVariants
   }
 >
