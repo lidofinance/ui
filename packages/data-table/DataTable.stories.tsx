@@ -12,9 +12,7 @@ export default {
 
 export const Base: Story<
   DataTableProps & Pick<DataTableRowProps, 'loading'>
-> = (props) => {
-  const { loading, ...rest } = props
-
+> = ({ loading, ...rest }) => {
   return (
     <div style={{ width: 300 }}>
       <DataTable {...rest}>

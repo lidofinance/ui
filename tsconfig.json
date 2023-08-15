@@ -64,5 +64,9 @@
     }
   },
   "files": ["packages/index.ts"],
+  "include": [
+    "packages/**/*.stories.ts",
+    "packages/**/*.stories.tsx",
+  ],
   "exclude": ["node_modules"]
 }

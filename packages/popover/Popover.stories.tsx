@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import { Button } from '@lidofinance/button'
 import { PopoverProps, PopoverPlacement, PopoverOffset } from './types'
-
 import Popover from './Popover'
 import { useCallback, useRef, useState } from 'react'
 import { DEFAULT_PLACEMENT } from './constants'
@@ -39,9 +38,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<PopoverProps> = (props) => {
-  const { onClose } = props
-
+export const Basic: Story<PopoverProps> = ({ onClose, ...rest }) => {
   const [state, setState] = useState(false)
   const anchorRef = useRef<HTMLButtonElement>(null)
 
@@ -60,9 +57,9 @@ export const Basic: Story<PopoverProps> = (props) => {
         Open Popover
       </Button>
       <Popover
-        {...props}
         open={state}
         onClose={handleClose}
+        {...rest}
         anchorRef={anchorRef}
       >
         Popover

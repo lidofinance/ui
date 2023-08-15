@@ -99,15 +99,21 @@ OnlyIcon.argTypes = {
   },
 }
 
-export const WithInput: Story<SelectProps> = (props) => {
-  const { fullwidth, disabled, color } = props
+export const WithInput: Story<SelectProps> = ({
+  fullwidth,
+  disabled,
+  color,
+  ...rest
+}) => {
   const [value, setValue] = useState<keyof typeof iconsMap>('eth')
   const ref = useRef<HTMLSpanElement>(null)
 
   return (
     <InputGroup fullwidth={fullwidth} ref={ref}>
       <SelectIcon
-        {...props}
+        {...rest}
+        disabled={disabled}
+        color={color}
         anchorRef={ref}
         icon={iconsMap[value]}
         value={value}
