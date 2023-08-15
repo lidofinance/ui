@@ -1,4 +1,10 @@
-import React, { useRef, useLayoutEffect, useState, CSSProperties } from 'react'
+import {
+  useRef,
+  useLayoutEffect,
+  useState,
+  CSSProperties,
+  RefObject,
+} from 'react'
 import { useWindowSize } from '@lidofinance/hooks'
 import { PopoverRootProps } from './types'
 import { INITIAL_STYLE, DEFAULT_PLACEMENT } from './constants'
@@ -7,15 +13,15 @@ import { calculatePosition } from './calculatePosition'
 export const usePopoverPosition = <
   P extends HTMLDivElement,
   W extends HTMLDivElement,
->(
-  props: PopoverRootProps,
-): {
-  popoverRef: React.RefObject<P>
-  wrapperRef: React.RefObject<W>
+>({
+  placement = DEFAULT_PLACEMENT,
+  anchorRef,
+  style: propsStyle,
+}: Pick<PopoverRootProps, 'placement' | 'anchorRef' | 'style'>): {
+  popoverRef: RefObject<P>
+  wrapperRef: RefObject<W>
   style: CSSProperties
 } => {
-  const { placement = DEFAULT_PLACEMENT, anchorRef } = props
-
   const popoverRef = useRef<P>(null)
   const wrapperRef = useRef<W>(null)
 
@@ -39,7 +45,7 @@ export const usePopoverPosition = <
   }, [anchorRef, placement, windowWidth, windowHeight])
 
   const style = {
-    ...props.style,
+    ...propsStyle,
     ...popoverStyle,
   }
 

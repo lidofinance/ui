@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import {
   InputWrapperStyle,
   InputContentStyle,
@@ -11,8 +11,8 @@ import {
 import { InputLabelStyle } from './LabelStyles'
 import { InputProps } from './types'
 
-function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
-  const {
+function Input(
+  {
     label,
     error,
     warning,
@@ -26,14 +26,14 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
     style,
     variant = 'default',
     color = 'default',
+    id,
+    disabled = false,
     wrapperRef,
     children,
     ...rest
-  } = props
-
-  const { id, disabled = false } = props
-  const wrapperProps = { className, style }
-
+  }: InputProps,
+  ref?: ForwardedRef<HTMLInputElement>,
+) {
   const hasLabel = !!label && variant === 'default'
 
   const hasError = !!error
@@ -48,11 +48,12 @@ function Input(props: InputProps, ref?: ForwardedRef<HTMLInputElement>) {
 
   return (
     <InputWrapperStyle
+      className={className}
+      style={style}
       $disabled={disabled}
       $fullwidth={fullwidth}
       htmlFor={id}
       ref={wrapperRef}
-      {...wrapperProps}
     >
       <InputContentStyle
         $color={color}

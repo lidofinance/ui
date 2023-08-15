@@ -1,15 +1,16 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { BlockStyle } from './BlockStyles'
 import { BlockProps } from './types'
 
-function Block(props: BlockProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const {
+function Block(
+  {
     color = 'foreground',
     variant = 'flat',
     paddingLess = false,
     ...rest
-  } = props
-
+  }: BlockProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   return (
     <BlockStyle
       $color={color}

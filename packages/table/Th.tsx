@@ -1,6 +1,5 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { ThProps } from './types'
-
 import {
   ThStyle,
   ThTdContentStyle,
@@ -8,9 +7,10 @@ import {
   ArrowTopStyle,
 } from './styles'
 
-function Th(props: ThProps, ref?: ForwardedRef<HTMLTableHeaderCellElement>) {
-  const { align = 'left', children, sortDir, variant, ...rest } = props
-
+function Th(
+  { align = 'left', children, sortDir, variant, ...rest }: ThProps,
+  ref?: ForwardedRef<HTMLTableHeaderCellElement>,
+) {
   return (
     <ThStyle
       $interactive={!!rest.onClick}

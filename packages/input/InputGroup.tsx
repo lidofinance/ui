@@ -1,14 +1,12 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { InputMessageStyle } from './InputStyles'
 import { InputGroupStyle, InputGroupContentStyle } from './InputGroupStyles'
 import { InputGroupProps } from './types'
 
 function InputGroup(
-  props: InputGroupProps,
+  { fullwidth = false, error, success, children, ...rest }: InputGroupProps,
   ref?: ForwardedRef<HTMLSpanElement>,
 ) {
-  const { fullwidth = false, error, success, children, ...rest } = props
-
   const hasError = !!error
   const hasSuccess = !!success && !error
 

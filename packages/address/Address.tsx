@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { AddressProps } from './types'
 import {
   AddressStyle,
@@ -7,9 +7,10 @@ import {
 } from './AddressStyles'
 import { trimAddress } from './trimAddress'
 
-function Address(props: AddressProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { symbols = 3, address, ...rest } = props
-
+function Address(
+  { symbols = 3, address, ...rest }: AddressProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   return (
     <AddressStyle {...rest} ref={ref}>
       <AddressFullStyle>{address}</AddressFullStyle>

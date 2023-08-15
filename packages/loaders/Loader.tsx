@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { LoaderProps, LoaderSize } from './types'
 import {
   LoaderStyle,
@@ -6,9 +6,10 @@ import {
   LoaderCircleFgStyle,
 } from './LoaderStyles'
 
-function Loader(props: LoaderProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { size = 'medium', thickness = 3, color = 'primary', ...rest } = props
-
+function Loader(
+  { size = 'medium', thickness = 3, color = 'primary', ...rest }: LoaderProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   const pxSize = LoaderSize[size]
   const center = pxSize / 2
   const radius = pxSize / 2 - thickness / 2

@@ -9,8 +9,7 @@ type InjectedProps = {
   theme: Theme
 }
 
-const getOffset = (props: InjectedProps): string => {
-  const { $offset, placement, theme } = props
+const getOffset = ({ $offset, placement, theme }: InjectedProps): string => {
   const offset = theme.spaceMap[$offset]
 
   if (placement.startsWith('top')) return `margin-top: ${-offset}px`

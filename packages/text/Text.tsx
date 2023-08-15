@@ -1,15 +1,11 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { TextStyle } from './TextStyles'
 import { TextProps } from './types'
 
-function Text(props: TextProps, ref?: ForwardedRef<HTMLParagraphElement>) {
-  const {
-    size = 'md',
-    weight = 400,
-    color = 'default',
-    strong,
-    ...rest
-  } = props
+function Text(
+  { size = 'md', weight = 400, color = 'default', strong, ...rest }: TextProps,
+  ref?: ForwardedRef<HTMLParagraphElement>,
+) {
   return (
     <TextStyle
       size={size}

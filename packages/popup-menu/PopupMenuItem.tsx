@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import {
   PopupMenuItemStyle,
   PopupMenuItemContentStyle,
@@ -9,16 +9,15 @@ import { usePopupMenuContext } from './PopupMenuProvider'
 import { PopupMenuItemProps } from './types'
 
 function PopupMenuItem(
-  props: PopupMenuItemProps,
-  ref?: ForwardedRef<HTMLButtonElement>,
-) {
-  const {
+  {
     active = false,
     leftDecorator,
     rightDecorator,
     children,
     ...rest
-  } = props
+  }: PopupMenuItemProps,
+  ref?: ForwardedRef<HTMLButtonElement>,
+) {
   const { variant = 'default' } = usePopupMenuContext()
 
   const hasLeftDecorator = !!leftDecorator

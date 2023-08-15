@@ -6,7 +6,7 @@ import {
   GetTogglePropsOutput,
 } from 'react-collapsed/dist/types'
 
-type UseExpanded = (props: AccordionProps) => {
+type UseExpanded = (props: Pick<AccordionProps, 'defaultExpanded'>) => {
   toggleProps: GetTogglePropsOutput
   collapseProps: GetCollapsePropsOutput
   isExpanded: boolean

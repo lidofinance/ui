@@ -1,10 +1,11 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { ChipProps } from './types'
 import { ChipWrapperStyle } from './ChipStyles'
 
-function Chip(props: ChipProps, ref?: ForwardedRef<HTMLInputElement>) {
-  const { children, onClick, variant = 'positive', ...rest } = props
-
+function Chip(
+  { children, onClick, variant = 'positive', ...rest }: ChipProps,
+  ref?: ForwardedRef<HTMLInputElement>,
+) {
   return (
     <ChipWrapperStyle
       $interactive={!!onClick}

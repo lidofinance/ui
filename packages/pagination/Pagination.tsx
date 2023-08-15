@@ -1,9 +1,7 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, FC, MouseEvent } from 'react'
 import styled from 'styled-components'
-
 import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
 import { Box } from '@lidofinance/box'
-
 import {
   PaginationProps,
   PaginationItemProps,
@@ -27,9 +25,12 @@ const PaginationBlock = styled(Box)`
   gap: 8px;
 `
 
-const Pagination: React.FC<PaginationProps> = (props) => {
-  const { onItemClick, pagesCount, activePage = 1, siblingCount } = props
-
+const Pagination: FC<PaginationProps> = ({
+  onItemClick,
+  pagesCount,
+  activePage = 1,
+  siblingCount,
+}) => {
   const [currentPage, setCurrPage] = useState(
     getActiveItem(pagesCount, activePage),
   )
@@ -47,7 +48,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     return null
   }
 
-  const onPageItemClick = (page: number, e: React.MouseEvent) => {
+  const onPageItemClick = (page: number, e: MouseEvent) => {
     onItemClick(page, e)
     setCurrPage(page)
   }

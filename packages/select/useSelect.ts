@@ -1,35 +1,52 @@
-import React, {
+import {
   useCallback,
   useMemo,
   useState,
   Children,
   cloneElement,
   useEffect,
+  MouseEvent,
+  KeyboardEvent,
+  ReactNode,
 } from 'react'
 import { isElement } from 'react-is'
 import { SelectProps, SelectHandleChange, OptionValue } from './types'
 
-type SelectHandleClick = (
-  event: React.MouseEvent<HTMLInputElement, MouseEvent>,
-) => void
+type SelectHandleClick = (event: MouseEvent<HTMLInputElement>) => void
 
-type SelectHandleKeyDown = (
-  event: React.KeyboardEvent<HTMLInputElement>,
-) => void
+type SelectHandleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => void
 
 type SelectHandleClose = () => void
 
-type UseSelect = (props: SelectProps) => {
+type UseSelect = (
+  props: Pick<
+    SelectProps,
+    | 'disabled'
+    | 'onClick'
+    | 'onChange'
+    | 'onKeyDown'
+    | 'children'
+    | 'value'
+    | 'defaultValue'
+  >,
+) => {
   handleClick: SelectHandleClick
   handleClose: SelectHandleClose
   handleKeyDown: SelectHandleKeyDown
   opened: boolean
   title: string
-  options: React.ReactNode
+  options: ReactNode
 }
 
-export const useSelect: UseSelect = (props) => {
-  const { disabled, onClick, onChange, onKeyDown, children } = props
+export const useSelect: UseSelect = ({
+  value,
+  defaultValue,
+  disabled,
+  onClick,
+  onChange,
+  onKeyDown,
+  children,
+}) => {
   const [opened, setOpened] = useState(false)
 
   const handleOpen = useCallback(() => {
@@ -69,7 +86,7 @@ export const useSelect: UseSelect = (props) => {
     [handleOpen, onKeyDown],
   )
 
-  const outerValue = props.value ?? props.defaultValue ?? null
+  const outerValue = value ?? defaultValue ?? null
   const [localValue, setLocalValue] = useState<OptionValue | null>(outerValue)
 
   useEffect(() => {
@@ -79,7 +96,7 @@ export const useSelect: UseSelect = (props) => {
   const { values, options } = useMemo(() => {
     const values = new Map<OptionValue, string>()
 
-    const options: React.ReactNode = Children.map(children, (child) => {
+    const options: ReactNode = Children.map(children, (child) => {
       if (!isElement(child)) return child
 
       const value = child.props.value

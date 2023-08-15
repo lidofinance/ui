@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, createContext, useContext, FC } from 'react'
+import { PropsWithChildren, createContext, useContext, FC } from 'react'
 import { PopupMenuVariants } from './types'
 
 export interface PopupMenuContext {
@@ -11,10 +11,9 @@ export const usePopupMenuContext = (): PopupMenuContext => {
   return useContext(Context)
 }
 
-export const PopupMenuProvider: FC<PropsWithChildren<PopupMenuContext>> = (
-  props,
-) => {
-  const { variant, ...rest } = props
-
+export const PopupMenuProvider: FC<PropsWithChildren<PopupMenuContext>> = ({
+  variant,
+  ...rest
+}) => {
   return <Context.Provider value={{ variant }} {...rest} />
 }

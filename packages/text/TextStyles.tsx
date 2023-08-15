@@ -36,12 +36,7 @@ type InjectedProps = {
   theme: Theme
 } & Omit<TextProps, 'color' | 'size' | 'strong' | 'weight'>
 
-const getTextColor = (props: InjectedProps) => {
-  const {
-    theme: { colors },
-    color,
-  } = props
-
+const getTextColor = ({ theme: { colors }, color }: InjectedProps) => {
   const colorsMap = {
     default: colors.text,
     secondary: colors.textSecondary,
@@ -54,9 +49,7 @@ const getTextColor = (props: InjectedProps) => {
   return colorsMap[color]
 }
 
-const getTextDecoration = (props: InjectedProps) => {
-  const { underline, strikeThrough } = props
-
+const getTextDecoration = ({ underline, strikeThrough }: InjectedProps) => {
   switch (true) {
     case underline:
       return 'underline'

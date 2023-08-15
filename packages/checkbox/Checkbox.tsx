@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { CheckboxProps } from './types'
 import {
   CheckboxWrapperStyle,
@@ -9,16 +9,25 @@ import { Text } from '@lidofinance/text'
 import { Box } from '@lidofinance/box'
 
 function Checkbox(
-  props: CheckboxProps,
+  {
+    className,
+    style,
+    wrapperRef,
+    disabled,
+    children,
+    label,
+    ...rest
+  }: CheckboxProps,
   inputRef?: ForwardedRef<HTMLInputElement>,
 ) {
-  const { className, style, wrapperRef, children, label, ...inputProps } = props
-  const { disabled } = inputProps
-  const wrapperProps = { className, style }
-
   return (
-    <CheckboxWrapperStyle {...wrapperProps} ref={wrapperRef}>
-      <CheckboxInputStyle type='checkbox' {...inputProps} ref={inputRef} />
+    <CheckboxWrapperStyle className={className} style={style} ref={wrapperRef}>
+      <CheckboxInputStyle
+        type='checkbox'
+        disabled={disabled}
+        ref={inputRef}
+        {...rest}
+      />
       <CheckboxIconStyle />
       {label && (
         <Box ml={8}>

@@ -1,13 +1,11 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { SelectIconProps } from './types'
 import { SelectIconDecoratorStyle, SelectIconStyle } from './SelectIconStyles'
 
 function SelectIcon(
-  props: SelectIconProps,
+  { icon, ...rest }: SelectIconProps,
   ref?: ForwardedRef<HTMLInputElement>,
 ) {
-  const { icon, ...rest } = props
-
   return (
     <SelectIconStyle
       {...rest}
