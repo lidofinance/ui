@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { modalRoot } from '@lidofinance/utils'
 import { useMergeRefs, useOutsideClick, useEscape } from '@lidofinance/hooks'
@@ -9,20 +9,19 @@ import { PopoverRootInnerProps } from './types'
 import { DEFAULT_PLACEMENT } from './constants'
 
 function PopoverRoot(
-  props: PopoverRootInnerProps,
-  externalRef?: ForwardedRef<HTMLDivElement>,
-) {
-  const {
+  {
     anchorRef,
     wrapperRef: externalWrapperRef,
     placement = DEFAULT_PLACEMENT,
     backdrop = true,
     transitionStatus,
     duration,
+    style: propsStyle,
+    onClose,
     ...rest
-  } = props
-
-  const { onClose } = props
+  }: PopoverRootInnerProps,
+  externalRef?: ForwardedRef<HTMLDivElement>,
+) {
   useEscape(onClose)
   const { ref: outsidePopoverRef } = useOutsideClick(onClose)
 
@@ -30,7 +29,7 @@ function PopoverRoot(
     popoverRef: positionPopoverRef,
     wrapperRef: positionWrapperRef,
     style,
-  } = usePopoverPosition(props)
+  } = usePopoverPosition({ placement, anchorRef, style: propsStyle })
 
   const popoverRef = useMergeRefs([
     positionPopoverRef,

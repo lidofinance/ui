@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Fonts } from './element-fonts'
 import { initGlobalColors, StyleThemeColors } from './element-theme-colors'
 import { initGlobalCookieTheme, ScriptThemeValue } from './element-theme-script'

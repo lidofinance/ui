@@ -1,10 +1,12 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { StackItemStyle } from './StackItemStyles'
 import { useStackContext } from './StackProvider'
 import { StackItemProps } from './types'
 
-function StackItem(props: StackItemProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { grow = 0, shrink = 0, basis = 'auto', ...rest } = props
+function StackItem(
+  { grow = 0, shrink = 0, basis = 'auto', ...rest }: StackItemProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   const { spacing } = useStackContext()
 
   return (

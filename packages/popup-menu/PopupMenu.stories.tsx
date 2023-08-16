@@ -23,9 +23,7 @@ export default {
   },
 } as Meta
 
-const usePopup = (props: PopupMenuProps) => {
-  const { onClose } = props
-
+const usePopup = ({ onClose }: PopupMenuProps) => {
   const [state, setState] = useState(false)
   const anchorRef = useRef<HTMLButtonElement>(null)
 

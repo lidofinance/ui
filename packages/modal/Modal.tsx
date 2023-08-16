@@ -1,5 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
-
+import { ForwardedRef, forwardRef } from 'react'
 import {
   ModalStyle,
   ModalBaseStyle,
@@ -15,8 +14,8 @@ import {
 import { ModalProps } from './types'
 import ModalOverlay from './ModalOverlay'
 
-function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const {
+function Modal(
+  {
     children,
     title,
     titleIcon,
@@ -24,10 +23,12 @@ function Modal(props: ModalProps, ref?: ForwardedRef<HTMLDivElement>) {
     center = false,
     extra,
     open,
+    onClose,
+    onBack,
     ...rest
-  } = props
-  const { onClose, onBack } = props
-
+  }: ModalProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   const withTitleIcon = !!titleIcon
   const withSubtitle = !!subtitle
   const withCloseButton = !!onClose

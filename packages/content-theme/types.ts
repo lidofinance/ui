@@ -1,10 +1,10 @@
-import React from 'react'
 import { LidoComponentProps } from '@lidofinance/utils'
+import { ReactElement } from 'react'
 
 export type ContentThemeProps = LidoComponentProps<
   'div',
   {
-    darkContent: React.ReactElement
-    lightContent: React.ReactElement
+    darkContent: ReactElement
+    lightContent: ReactElement
   }
 >

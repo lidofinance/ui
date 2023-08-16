@@ -1,14 +1,11 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { Address } from '@lidofinance/address'
 import { IdenticonBadgeProps } from './types'
 import { IdenticonBadgeStyle, AddressWrapperStyle } from './IdenticonStyles'
 import Identicon from './Identicon'
 
 function IdenticonBadge(
-  props: IdenticonBadgeProps,
-  ref?: ForwardedRef<HTMLDivElement>,
-) {
-  const {
+  {
     symbols = 3,
     color = 'background',
     diameter,
@@ -16,9 +13,9 @@ function IdenticonBadge(
     paperStyles,
     svgStyles,
     ...rest
-  } = props
-  const identiconProps = { address, diameter, paperStyles, svgStyles }
-
+  }: IdenticonBadgeProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   return (
     <IdenticonBadgeStyle $color={color} {...rest} ref={ref}>
       {symbols > 0 ? (
@@ -28,7 +25,12 @@ function IdenticonBadge(
       ) : (
         ''
       )}
-      <Identicon {...identiconProps} />
+      <Identicon
+        address={address}
+        diameter={diameter}
+        paperStyles={paperStyles}
+        svgStyles={svgStyles}
+      />
     </IdenticonBadgeStyle>
   )
 }

@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { SectionProps } from './types'
 import {
   SectionStyle,
@@ -7,9 +7,10 @@ import {
   SectionHeaderDecoratorStyle,
 } from './SectionStyles'
 
-function Section(props: SectionProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { title, headerDecorator, children, ...rest } = props
-
+function Section(
+  { title, headerDecorator, children, ...rest }: SectionProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   return (
     <SectionStyle {...rest} ref={ref}>
       {title && (

@@ -1,4 +1,3 @@
-import React from 'react'
 import SliderInput from './SliderInput'
 import { OptionsSliderInputProps } from './types'
 

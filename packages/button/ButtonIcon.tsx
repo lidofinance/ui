@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import {
   ButtonWrapperStyle,
   ButtonIconStyle,
@@ -8,10 +8,9 @@ import { ButtonIconProps } from './types'
 import Button from './Button'
 
 function ButtonIcon(
-  props: ButtonIconProps,
+  { icon, children, ...rest }: ButtonIconProps,
   ref?: ForwardedRef<HTMLButtonElement>,
 ) {
-  const { icon, children, ...rest } = props
   const hasNoChildren = !children
 
   return (

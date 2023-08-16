@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import {
   ButtonStyle,
   ButtonContentStyle,
@@ -15,8 +15,8 @@ const loaderSizes = {
   lg: 'medium',
 } as const
 
-function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
-  const {
+function Button(
+  {
     size = 'md',
     variant = 'filled',
     color = 'primary',
@@ -28,9 +28,10 @@ function Button(props: ButtonProps, ref?: ForwardedRef<HTMLButtonElement>) {
     disabled,
     children,
     ...rest
-  } = props
-
-  const { handleClick, ripple } = useRipple(props)
+  }: ButtonProps,
+  ref?: ForwardedRef<HTMLButtonElement>,
+) {
+  const { handleClick, ripple } = useRipple({ onClick })
   const loaderSize = loaderSizes[size]
 
   return (

@@ -1,10 +1,11 @@
-import React, {
+import {
   ForwardedRef,
   forwardRef,
   Children,
   useRef,
   cloneElement,
   useState,
+  MouseEvent,
 } from 'react'
 import { TooltipPopoverStyle } from './TooltipStyles'
 import { useMergeRefs } from '@lidofinance/hooks'
@@ -13,9 +14,10 @@ import { TooltipProps } from './types'
 
 const BODY_PERSISTENT_TIMEOUT = 150
 
-function Tooltip(props: TooltipProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { title, children, ...rest } = props
-
+function Tooltip(
+  { title, children, ...rest }: TooltipProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   const [state, setState] = useState(false)
   const keepTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -44,11 +46,11 @@ function Tooltip(props: TooltipProps, ref?: ForwardedRef<HTMLDivElement>) {
     <>
       {cloneElement(child, {
         ref: mergedRef,
-        onMouseEnter(event: React.MouseEvent<HTMLElement, MouseEvent>) {
+        onMouseEnter(event: MouseEvent<HTMLElement>) {
           handleMouseEnter()
           child.props.onMouseEnter?.(event)
         },
-        onMouseLeave(event: React.MouseEvent<HTMLElement, MouseEvent>) {
+        onMouseLeave(event: MouseEvent<HTMLElement>) {
           handleMouseLeave()
           child.props.onMouseLeave?.(event)
         },

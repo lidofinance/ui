@@ -9,8 +9,10 @@ export default {
   title: 'Images/Icons',
 } as Meta
 
-export const Base: Story<{ color: string; type: IconVariants }> = (props) => {
-  const { color, type } = props
+export const Base: Story<{ color: string; type: IconVariants }> = ({
+  color,
+  type,
+}) => {
   const Component = components[type]
 
   return <Component style={{ fill: color || `var(--lido-color-text)` }} />

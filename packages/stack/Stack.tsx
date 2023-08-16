@@ -1,10 +1,10 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { StackProvider } from './StackProvider'
 import { StackStyle } from './StackStyles'
 import { StackProps } from './types'
 
-function Stack(props: StackProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const {
+function Stack(
+  {
     align = 'flex-start',
     justify = 'flex-start',
     direction = 'row',
@@ -12,8 +12,9 @@ function Stack(props: StackProps, ref?: ForwardedRef<HTMLDivElement>) {
     spacing,
     children,
     ...rest
-  } = props
-
+  }: StackProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   return (
     <StackStyle
       $align={align}

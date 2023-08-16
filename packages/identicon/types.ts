@@ -1,5 +1,5 @@
 import { LidoComponentProps } from '@lidofinance/utils'
-import React from 'react'
+import { CSSProperties } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export type IdenticonProps = LidoComponentProps<
@@ -7,8 +7,8 @@ export type IdenticonProps = LidoComponentProps<
   {
     address: string
     diameter?: number
-    paperStyles?: React.CSSProperties
-    svgStyles?: React.CSSProperties
+    paperStyles?: CSSProperties
+    svgStyles?: CSSProperties
   }
 >
 

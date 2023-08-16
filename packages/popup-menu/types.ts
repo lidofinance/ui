@@ -1,6 +1,6 @@
 import { LidoComponentProps } from '@lidofinance/utils'
 import { PopoverProps } from '@lidofinance/popover'
-import React from 'react'
+import { ReactNode } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum PopupMenuVariant {
@@ -16,8 +16,8 @@ export type PopupMenuProps = {
 export type PopupMenuItemProps = LidoComponentProps<
   'button',
   {
-    leftDecorator?: React.ReactNode
-    rightDecorator?: React.ReactNode
+    leftDecorator?: ReactNode
+    rightDecorator?: ReactNode
     active?: boolean
   }
 >

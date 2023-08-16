@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { InlineLoader } from '@lidofinance/loaders'
 import { Tooltip } from '@lidofinance/tooltip'
 import {
@@ -17,17 +17,16 @@ function DataTable(props: DataTableProps, ref?: ForwardedRef<HTMLDivElement>) {
 export default forwardRef(DataTable)
 
 export const DataTableRow = forwardRef(function DataTableRow(
-  props: DataTableRowProps,
-  ref?: ForwardedRef<HTMLDivElement>,
-) {
-  const {
+  {
     title,
     loading = false,
     highlight = false,
     help,
     children,
     ...rest
-  } = props
+  }: DataTableRowProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   const hasHelper = !!help
 
   return (

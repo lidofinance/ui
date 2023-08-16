@@ -1,14 +1,13 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { ServicePageStyle, ServicePageInsideStyle } from './ServicePageStyles'
 import { H1 } from '@lidofinance/heading'
 import { Text } from '@lidofinance/text'
 import { ServicePageProps } from './types'
 
 function ServicePage(
-  props: ServicePageProps,
+  { title, children, ...rest }: ServicePageProps,
   ref?: ForwardedRef<HTMLDivElement>,
 ) {
-  const { title, children, ...rest } = props
   return (
     <ServicePageStyle {...rest} ref={ref}>
       <ServicePageInsideStyle>

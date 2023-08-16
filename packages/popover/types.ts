@@ -3,7 +3,7 @@ import {
   TransitionWrapperProps,
   TransitionInnerProps,
 } from '@lidofinance/transition'
-import React from 'react'
+import { RefObject } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum PopoverOffset {
@@ -37,8 +37,8 @@ export type PopoverPlacements = keyof typeof PopoverPlacement
 export type PopoverRootOwnProps = LidoComponentProps<
   'div',
   {
-    wrapperRef?: React.RefObject<HTMLDivElement>
-    anchorRef: React.RefObject<HTMLElement | null>
+    wrapperRef?: RefObject<HTMLDivElement>
+    anchorRef: RefObject<HTMLElement | null>
     placement?: PopoverPlacements
     backdrop?: boolean
     onClose?: () => void

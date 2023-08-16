@@ -1,5 +1,5 @@
 import { LidoComponentProps } from '@lidofinance/utils'
-import React, { ChangeEventHandler } from 'react'
+import { ChangeEventHandler, ReactNode, RefObject } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export enum InputMessageVariant {
@@ -33,15 +33,15 @@ export enum InputColor {
 export type InputColors = keyof typeof InputColor
 
 type CommonProps = {
-  label?: React.ReactNode
-  error?: React.ReactNode | boolean
-  warning?: React.ReactNode | boolean
-  success?: React.ReactNode | boolean
+  label?: ReactNode
+  error?: ReactNode | boolean
+  warning?: ReactNode | boolean
+  success?: ReactNode | boolean
   variant?: InputVariants
   color?: InputColors
   active?: boolean
   fullwidth?: boolean
-  wrapperRef?: React.RefObject<HTMLLabelElement>
+  wrapperRef?: RefObject<HTMLLabelElement>
   as?: never
 }
 
@@ -49,8 +49,8 @@ export type InputProps = LidoComponentProps<
   'input',
   CommonProps & {
     type?: InputTypes
-    leftDecorator?: React.ReactNode
-    rightDecorator?: React.ReactNode
+    leftDecorator?: ReactNode
+    rightDecorator?: ReactNode
   }
 >
 
@@ -60,14 +60,14 @@ export type InputGroupProps = LidoComponentProps<
   'span',
   {
     fullwidth?: boolean
-    error?: React.ReactNode
-    success?: React.ReactNode
+    error?: ReactNode
+    success?: ReactNode
   }
 >
 
 interface ValueLabel {
   value: number
-  label: React.ReactNode
+  label: ReactNode
 }
 
 type SliderProps = {
@@ -75,10 +75,10 @@ type SliderProps = {
   onChange?: ChangeEventHandler<HTMLInputElement>
   min?: number
   max?: number
-  minLabel?: React.ReactNode
-  maxLabel?: React.ReactNode
+  minLabel?: ReactNode
+  maxLabel?: ReactNode
   step?: number
-  getLabel?: (value: number) => React.ReactNode
+  getLabel?: (value: number) => ReactNode
   borderNone?: boolean
   labels?: ValueLabel[]
   onLabelClick?: (value: number) => unknown
@@ -90,7 +90,7 @@ type SliderOptionValue = string | number
 
 interface SliderOption {
   value: SliderOptionValue
-  label: React.ReactNode
+  label: ReactNode
 }
 
 interface OptionsSliderProps {

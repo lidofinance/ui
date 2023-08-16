@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import {
   InputWrapperStyle,
   InputContentStyle,
@@ -9,8 +9,8 @@ import {
 import { TextareaLabelStyle } from './LabelStyles'
 import { TextareaProps } from './types'
 
-function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
-  const {
+function Textarea(
+  {
     label,
     error,
     warning,
@@ -22,14 +22,14 @@ function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
     style,
     variant = 'default',
     color = 'default',
+    id,
+    disabled = false,
     wrapperRef,
     children,
     ...rest
-  } = props
-
-  const { id, disabled = false } = props
-  const wrapperProps = { className, style }
-
+  }: TextareaProps,
+  ref?: ForwardedRef<HTMLInputElement>,
+) {
   const hasLabel = !!label && variant === 'default'
 
   const hasError = !!error
@@ -41,11 +41,12 @@ function Textarea(props: TextareaProps, ref?: ForwardedRef<HTMLInputElement>) {
 
   return (
     <InputWrapperStyle
+      className={className}
+      style={style}
       $disabled={disabled}
       $fullwidth={fullwidth}
       htmlFor={id}
       ref={wrapperRef}
-      {...wrapperProps}
     >
       <InputContentStyle
         $color={color}

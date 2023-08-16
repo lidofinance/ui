@@ -1,6 +1,6 @@
 import { InputProps } from '@lidofinance/input'
 import { PopupMenuItemProps } from '@lidofinance/popup-menu'
-import React from 'react'
+import { ReactNode, RefObject } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export type OptionValue = string | number
@@ -16,7 +16,7 @@ export type SelectProps = Omit<
   InputProps,
   'type' | 'readonly' | 'onChange' | 'value' | 'defaultValue'
 > & {
-  anchorRef?: React.RefObject<HTMLElement | null>
+  anchorRef?: RefObject<HTMLElement | null>
   arrow?: SelectArrows
   value?: OptionValue
   defaultValue?: OptionValue
@@ -27,7 +27,7 @@ export type SelectIconProps = Omit<
   SelectProps,
   'leftDecorator' | 'fullwidth' | 'arrow'
 > & {
-  icon: React.ReactNode
+  icon: ReactNode
 }
 
 export type OptionProps = Omit<PopupMenuItemProps, 'value' | 'children'> & {

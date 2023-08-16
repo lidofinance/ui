@@ -1,17 +1,17 @@
-import React, { useCallback, useState } from 'react'
+import { MouseEvent, ReactNode, useCallback, useState } from 'react'
 import { ButtonProps } from './types'
 import { ButtonRippleStyle } from './ButtonStyles'
 
-type UseRipple = (props: ButtonProps) => {
-  ripple: React.ReactNode
-  handleClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+type UseRipple = (props: Pick<ButtonProps, 'onClick'>) => {
+  ripple: ReactNode
+  handleClick: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 export const useRipple: UseRipple = ({ onClick }) => {
-  const [ripple, setRipple] = useState<React.ReactNode | null>(null)
+  const [ripple, setRipple] = useState<ReactNode | null>(null)
 
   const handleClick = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    (event: MouseEvent<HTMLButtonElement>) => {
       const button = event.currentTarget
       const rect = button.getBoundingClientRect()
       const diameter = Math.max(button.clientWidth, button.clientHeight)

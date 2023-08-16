@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { SelectArrowBigStyle, SelectArrowSmallStyle } from './SelectArrowStyles'
 import { SelectArrows } from './types'
 
@@ -9,9 +9,11 @@ type SelectArrowProps = {
   children?: never
 }
 
-export const SelectArrow: FC<SelectArrowProps> = (props) => {
-  const { arrow, disabled = false, opened } = props
-
+export const SelectArrow: FC<SelectArrowProps> = ({
+  arrow,
+  disabled = false,
+  opened,
+}) => {
   const commonProps = {
     $opened: opened,
     $disabled: disabled,

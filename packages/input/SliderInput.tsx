@@ -1,4 +1,4 @@
-import React from 'react'
+import { ReactElement } from 'react'
 import {
   Label,
   LabelButton,
@@ -22,7 +22,7 @@ function SliderInput({
   getLabel = (val) => String(val),
   borderNone,
   labels,
-}: SliderInputProps): React.ReactElement {
+}: SliderInputProps): ReactElement {
   const fillPercentage = ((value - min) / (max - min)) * 100
   const LabelComponent = onLabelClick ? LabelButton : Label
   const createClickHandler = (value: number) => () => onLabelClick?.(value)

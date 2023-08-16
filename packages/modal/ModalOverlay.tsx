@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { useMergeRefs, useEscape, useLockScroll } from '@lidofinance/hooks'
 import { withTransition } from '@lidofinance/transition'
@@ -13,10 +13,15 @@ import { useModalFocus } from './useModalFocus'
 import { useModalClose } from './useModalClose'
 
 function ModalOverlay(
-  props: ModalOverlayInnerProps,
+  {
+    onClose,
+    onBack,
+    duration,
+    transitionStatus,
+    ...rest
+  }: ModalOverlayInnerProps,
   externalRef?: ForwardedRef<HTMLDivElement>,
 ) {
-  const { onClose, onBack, duration, transitionStatus, ...rest } = props
   const closable = !!onClose
 
   useEscape(onClose)

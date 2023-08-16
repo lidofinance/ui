@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, useRef } from 'react'
+import { ForwardedRef, forwardRef, useRef } from 'react'
 import { SelectWrapperStyle } from './SelectStyles'
 import { SelectArrow } from './SelectArrow'
 import { useMergeRefs } from '@lidofinance/hooks'
@@ -7,27 +7,37 @@ import { SelectProps } from './types'
 import { useSelect } from './useSelect'
 import { useSelectWidth } from './useSelectWidth'
 
-function Select(props: SelectProps, ref?: ForwardedRef<HTMLInputElement>) {
-  const {
+function Select(
+  {
     wrapperRef: externalWrapperRef,
     anchorRef: externalAnchorRef,
     arrow = 'default',
     variant,
     value,
     defaultValue,
+    disabled,
     children,
+    onClick,
+    onKeyDown,
     onChange,
     ...rest
-  } = props
-
-  const { disabled } = props
-
+  }: SelectProps,
+  ref?: ForwardedRef<HTMLInputElement>,
+) {
   const localAnchorRef = useRef<HTMLLabelElement>(null)
   const wrapperRef = useMergeRefs([localAnchorRef, externalWrapperRef])
   const anchorRef = externalAnchorRef || localAnchorRef
 
   const { opened, options, title, handleClick, handleClose, handleKeyDown } =
-    useSelect(props)
+    useSelect({
+      value,
+      defaultValue,
+      disabled,
+      onClick,
+      onChange,
+      onKeyDown,
+      children,
+    })
   const width = useSelectWidth(opened, anchorRef)
 
   return (

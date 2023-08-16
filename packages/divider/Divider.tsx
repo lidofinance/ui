@@ -1,10 +1,11 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { DividerStyle } from './DividerStyles'
 import { DividerProps } from './types'
 
-function Divider(props: DividerProps, ref?: ForwardedRef<HTMLDivElement>) {
-  const { type = 'horizontal', indents, children, ...rest } = props
-
+function Divider(
+  { type = 'horizontal', indents, children, ...rest }: DividerProps,
+  ref?: ForwardedRef<HTMLDivElement>,
+) {
   return <DividerStyle $type={type} $indents={indents} ref={ref} {...rest} />
 }
 

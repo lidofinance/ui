@@ -31,8 +31,7 @@ export default {
   },
 } as Meta
 
-const useModal = (props: ModalProps) => {
-  const { onClose, onBack } = props
+const useModal = ({ onClose, onBack }: ModalProps) => {
   const [state, setState] = useState(false)
   const handleOpen = useCallback(() => setState(true), [])
   const handleClose = useCallback(() => {

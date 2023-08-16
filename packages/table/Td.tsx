@@ -1,18 +1,18 @@
-import React, { ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { TdProps } from './types'
-
 import { TdStyle, ThTdContentStyle } from './styles'
 
-function Td(props: TdProps, ref?: ForwardedRef<HTMLTableDataCellElement>) {
-  const {
+function Td(
+  {
     align = 'left',
     textColor = 'default',
     variant,
     children,
     numeric = false,
     ...rest
-  } = props
-
+  }: TdProps,
+  ref?: ForwardedRef<HTMLTableDataCellElement>,
+) {
   return (
     <TdStyle
       $align={align}
