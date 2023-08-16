@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { AddressProps } from './types'
-import { Address } from './Address'
+import { Address, AddressProps } from '.'
 
 export default {
   component: Address,

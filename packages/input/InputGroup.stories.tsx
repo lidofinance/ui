@@ -1,7 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { Input } from './Input'
-import { InputGroup } from './InputGroup'
-import { InputGroupProps } from './types'
+import { Input, InputGroup, InputGroupProps } from '.'
 
 export default {
   component: Input,

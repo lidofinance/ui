@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { AddressBadgeProps } from './types'
-import { AddressBadge } from './AddressBadge'
+import { AddressBadge, AddressBadgeProps } from '.'
 
 export default {
   component: AddressBadge,

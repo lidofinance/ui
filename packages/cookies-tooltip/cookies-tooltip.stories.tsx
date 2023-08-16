@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react'
-
 import { Text } from '@lidofinance/text'
-import { CookiesTooltip } from './cookies-tooltip'
+import { CookiesTooltip } from '.'
 
 export default {
   title: 'CookiesTooltip/Basic',

@@ -1,11 +1,11 @@
 import { Story, Meta } from '@storybook/react'
 import {
+  Identicon,
+  IdenticonBadge,
   IdenticonProps,
   IdenticonBadgeProps,
   IdenticonBadgeColor,
-} from './types'
-import { Identicon } from './Identicon'
-import { IdenticonBadge } from './IdenticonBadge'
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

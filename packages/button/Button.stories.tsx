@@ -1,14 +1,14 @@
 import { Story, Meta } from '@storybook/react'
 import { Whitepaper } from '@lidofinance/icons'
 import {
+  Button,
+  ButtonIcon,
   ButtonProps,
   ButtonIconProps,
   ButtonColor,
   ButtonSize,
   ButtonVariant,
-} from './types'
-import { Button } from './Button'
-import { ButtonIcon } from './ButtonIcon'
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

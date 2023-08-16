@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { PaginationItemVariant, PaginationItemProps } from './types'
-import { PaginationItem } from './PaginationItem'
+import { PaginationItem, PaginationItemVariant, PaginationItemProps } from '.'
 
 export default {
   component: PaginationItem,

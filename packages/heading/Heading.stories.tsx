@@ -1,6 +1,14 @@
 import { Story, Meta } from '@storybook/react'
-import { Heading, H1, H2, H3 } from './Heading'
-import { HeadingProps, HeadingColor, HeadingSize, HProps } from './types'
+import {
+  Heading,
+  H1,
+  H2,
+  H3,
+  HeadingProps,
+  HeadingColor,
+  HeadingSize,
+  HProps,
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

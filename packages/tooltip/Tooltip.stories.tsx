@@ -1,8 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { Question } from '@lidofinance/icons'
 import { PopoverOffset, PopoverPlacement } from '@lidofinance/popover'
-import { TooltipProps } from './types'
-import { Tooltip } from './Tooltip'
+import { Tooltip, TooltipProps } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

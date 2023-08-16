@@ -1,11 +1,8 @@
 import { Story, Meta } from '@storybook/react'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
 import { InputGroup, Input, InputColor } from '@lidofinance/input'
-import { SelectProps } from './types'
-import { Select } from './Select'
-import { SelectIcon } from './SelectIcon'
-import { Option } from './Option'
 import { useRef, useState } from 'react'
+import { Select, SelectIcon, SelectProps, Option } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

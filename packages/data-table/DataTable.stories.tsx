@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { DataTableProps, DataTableRowProps } from './types'
-import { DataTable, DataTableRow } from './DataTable'
+import { DataTable, DataTableRow, DataTableProps, DataTableRowProps } from '.'
 
 export default {
   component: DataTable,
