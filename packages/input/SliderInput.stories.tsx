@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { SliderInputProps } from './types'
 import { useState } from 'react'
-import SliderInput from './SliderInput'
+import { SliderInput } from './SliderInput'
 
 export default {
   component: SliderInput,

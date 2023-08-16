@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import { ContainerProps, ContainerSize } from './types'
-import Container from './Container'
+import { Container } from './Container'
 import styled from 'styled-components'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

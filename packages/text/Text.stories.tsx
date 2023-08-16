@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import Text from './Text'
+import { Text } from './Text'
 import { TextProps, TextColor, TextSize } from './types'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import PopoverRoot from './PopoverRoot'
+import { PopoverRoot } from './PopoverRoot'
 import { PopoverOffsets, PopoverPlacements } from './types'
 import { Theme } from '@lidofinance/theme'
 

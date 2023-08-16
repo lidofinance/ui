@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Select from './Select'
+import { Select } from './Select'
 
 export const SelectIconStyle = styled(Select)`
   input {

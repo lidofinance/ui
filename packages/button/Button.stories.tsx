@@ -7,8 +7,8 @@ import {
   ButtonSize,
   ButtonVariant,
 } from './types'
-import Button from './Button'
-import ButtonIcon from './ButtonIcon'
+import { Button } from './Button'
+import { ButtonIcon } from './ButtonIcon'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

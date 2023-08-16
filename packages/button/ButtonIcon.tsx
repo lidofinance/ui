@@ -5,22 +5,23 @@ import {
   ButtonContentStyle,
 } from './ButtonIconStyles'
 import { ButtonIconProps } from './types'
-import Button from './Button'
+import { Button } from './Button'
 
-function ButtonIcon(
-  { icon, children, ...rest }: ButtonIconProps,
-  ref?: ForwardedRef<HTMLButtonElement>,
-) {
-  const hasNoChildren = !children
+export const ButtonIcon = forwardRef(
+  (
+    { icon, children, ...rest }: ButtonIconProps,
+    ref?: ForwardedRef<HTMLButtonElement>,
+  ) => {
+    const hasNoChildren = !children
 
-  return (
-    <Button square={hasNoChildren} {...rest} ref={ref}>
-      <ButtonWrapperStyle>
-        <ButtonIconStyle $square={hasNoChildren}>{icon}</ButtonIconStyle>
-        <ButtonContentStyle>{children}</ButtonContentStyle>
-      </ButtonWrapperStyle>
-    </Button>
-  )
-}
-
-export default forwardRef(ButtonIcon)
+    return (
+      <Button square={hasNoChildren} {...rest} ref={ref}>
+        <ButtonWrapperStyle>
+          <ButtonIconStyle $square={hasNoChildren}>{icon}</ButtonIconStyle>
+          <ButtonContentStyle>{children}</ButtonContentStyle>
+        </ButtonWrapperStyle>
+      </Button>
+    )
+  },
+)
+ButtonIcon.displayName = 'ButtonIcon'

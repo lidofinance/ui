@@ -8,36 +8,41 @@ import {
 import { Text } from '@lidofinance/text'
 import { Box } from '@lidofinance/box'
 
-function Checkbox(
-  {
-    className,
-    style,
-    wrapperRef,
-    disabled,
-    children,
-    label,
-    ...rest
-  }: CheckboxProps,
-  inputRef?: ForwardedRef<HTMLInputElement>,
-) {
-  return (
-    <CheckboxWrapperStyle className={className} style={style} ref={wrapperRef}>
-      <CheckboxInputStyle
-        type='checkbox'
-        disabled={disabled}
-        ref={inputRef}
-        {...rest}
-      />
-      <CheckboxIconStyle />
-      {label && (
-        <Box ml={8}>
-          <Text size='xxs' color={disabled ? 'secondary' : 'default'}>
-            {label}
-          </Text>
-        </Box>
-      )}
-    </CheckboxWrapperStyle>
-  )
-}
-
-export default forwardRef(Checkbox)
+export const Checkbox = forwardRef(
+  (
+    {
+      className,
+      style,
+      wrapperRef,
+      disabled,
+      children,
+      label,
+      ...rest
+    }: CheckboxProps,
+    inputRef?: ForwardedRef<HTMLInputElement>,
+  ) => {
+    return (
+      <CheckboxWrapperStyle
+        className={className}
+        style={style}
+        ref={wrapperRef}
+      >
+        <CheckboxInputStyle
+          type='checkbox'
+          disabled={disabled}
+          ref={inputRef}
+          {...rest}
+        />
+        <CheckboxIconStyle />
+        {label && (
+          <Box ml={8}>
+            <Text size='xxs' color={disabled ? 'secondary' : 'default'}>
+              {label}
+            </Text>
+          </Box>
+        )}
+      </CheckboxWrapperStyle>
+    )
+  },
+)
+Checkbox.displayName = 'Checkbox'

@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { Button } from '@lidofinance/button'
 import { PopoverProps, PopoverPlacement, PopoverOffset } from './types'
-import Popover from './Popover'
+import { Popover } from './Popover'
 import { useCallback, useRef, useState } from 'react'
 import { DEFAULT_PLACEMENT } from './constants'
 

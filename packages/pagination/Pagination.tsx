@@ -8,7 +8,7 @@ import {
   PaginationItemVariant,
 } from './types'
 import getShowingPages from './getShowingPages'
-import PaginationItem from './PaginationItem'
+import { PaginationItem } from './PaginationItem'
 
 const getActiveItem = (length: number, activeItem: number): number => {
   const isActiveNotInRange: boolean = activeItem >= length || activeItem < 0
@@ -25,7 +25,7 @@ const PaginationBlock = styled(Box)`
   gap: 8px;
 `
 
-const Pagination: FC<PaginationProps> = ({
+export const Pagination: FC<PaginationProps> = ({
   onItemClick,
   pagesCount,
   activePage = 1,
@@ -105,5 +105,3 @@ const Pagination: FC<PaginationProps> = ({
     </PaginationBlock>
   )
 }
-
-export default Pagination

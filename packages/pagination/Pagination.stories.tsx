@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import Pagination from './Pagination'
+import { Pagination } from './Pagination'
 import { PaginationProps } from './types'
 
 export default {

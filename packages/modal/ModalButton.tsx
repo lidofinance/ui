@@ -25,34 +25,35 @@ const iconSize = {
   },
 }
 
-function ModalButton(
-  {
-    size = 'md',
-    loading = false,
-    children,
-    icon,
-    ...rest
-  }: ModalButtonIconProps,
-  ref?: ForwardedRef<HTMLButtonElement>,
-) {
-  const AdaptiveIconProps =
-    icon.props.width || icon.props.height ? icon.props : { ...iconSize[size] }
-  const AdaptiveIcon = cloneElement(icon, AdaptiveIconProps)
+export const ModalButton = forwardRef(
+  (
+    {
+      size = 'md',
+      loading = false,
+      children,
+      icon,
+      ...rest
+    }: ModalButtonIconProps,
+    ref?: ForwardedRef<HTMLButtonElement>,
+  ) => {
+    const AdaptiveIconProps =
+      icon.props.width || icon.props.height ? icon.props : { ...iconSize[size] }
+    const AdaptiveIcon = cloneElement(icon, AdaptiveIconProps)
 
-  return (
-    <ModalButtonStyle
-      type='button'
-      size={size}
-      loading={loading}
-      ref={ref}
-      icon={icon}
-      {...rest}
-    >
-      <ModalButtonContentStyle>
-        {children} {AdaptiveIcon}
-      </ModalButtonContentStyle>
-    </ModalButtonStyle>
-  )
-}
-
-export default forwardRef(ModalButton)
+    return (
+      <ModalButtonStyle
+        type='button'
+        size={size}
+        loading={loading}
+        ref={ref}
+        icon={icon}
+        {...rest}
+      >
+        <ModalButtonContentStyle>
+          {children} {AdaptiveIcon}
+        </ModalButtonContentStyle>
+      </ModalButtonStyle>
+    )
+  },
+)
+ModalButton.displayName = 'ModalButton'

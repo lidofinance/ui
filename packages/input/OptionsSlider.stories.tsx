@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { SliderInputProps } from './types'
 import { useState } from 'react'
-import OptionsSlider from './OptionsSlider'
+import { OptionsSlider } from './OptionsSlider'
 
 export default {
   component: OptionsSlider,

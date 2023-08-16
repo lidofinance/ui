@@ -4,8 +4,8 @@ import {
   IdenticonBadgeProps,
   IdenticonBadgeColor,
 } from './types'
-import Identicon from './Identicon'
-import IdenticonBadge from './IdenticonBadge'
+import { Identicon } from './Identicon'
+import { IdenticonBadge } from './IdenticonBadge'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

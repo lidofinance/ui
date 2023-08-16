@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import Textarea from './Textarea'
+import { Textarea } from './Textarea'
 import { TextareaProps } from './types'
 
 export default {

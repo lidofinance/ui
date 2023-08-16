@@ -1,3 +1,3 @@
-export { default as MainMenu } from './MainMenu'
-export { default as MainMenuItem } from './MainMenuItem'
+export * from './MainMenu'
+export * from './MainMenuItem'
 export * from './types'

@@ -10,10 +10,10 @@ import {
   VStackProps,
   StackSpacing,
 } from './types'
-import Stack from './Stack'
-import HStack from './HStack'
-import VStack from './VStack'
-import StackItem from './StackItem'
+import { Stack } from './Stack'
+import { HStack } from './HStack'
+import { VStack } from './VStack'
+import { StackItem } from './StackItem'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

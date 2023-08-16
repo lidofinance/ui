@@ -6,9 +6,9 @@ import { Loader } from '@lidofinance/loaders'
 import { Text } from '@lidofinance/text'
 import { Link } from '@lidofinance/link'
 import { Error, Success, Eth, Terra } from '@lidofinance/icons'
-import Modal from './Modal'
-import ModalExtra from './ModalExtra'
-import ModalButton from './ModalButton'
+import { Modal } from './Modal'
+import { ModalExtra } from './ModalExtra'
+import { ModalButton } from './ModalButton'
 import { useCallback, useState } from 'react'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

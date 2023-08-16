@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Story, Meta } from '@storybook/react'
 import { Block } from '@lidofinance/block'
 import { SectionProps } from './types'
-import Section from './Section'
+import { Section } from './Section'
 
 export default {
   component: Section,

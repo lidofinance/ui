@@ -14,7 +14,7 @@ import { TransitionWrapperProps, TransitionInnerProps } from './types'
 type WrappedProps<T> = Omit<T, keyof TransitionInnerProps> &
   TransitionWrapperProps
 
-export default function withTransition<
+export function withTransition<
   P extends TransitionInnerProps,
   E extends HTMLElement,
 >(

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { PaginationItemStyle } from './PaginationItemStyles'
 import { PaginationItemProps, PaginationItemVariant } from './types'
 
-const PaginationItem: FC<PaginationItemProps> = ({
+export const PaginationItem: FC<PaginationItemProps> = ({
   icon,
   variant = PaginationItemVariant.default,
   ...rest
@@ -13,5 +13,3 @@ const PaginationItem: FC<PaginationItemProps> = ({
     </PaginationItemStyle>
   )
 }
-
-export default PaginationItem

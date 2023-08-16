@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react'
 import { LoaderProps, LoaderColor, LoaderSize } from './types'
-import Loader from './Loader'
+import { Loader } from './Loader'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

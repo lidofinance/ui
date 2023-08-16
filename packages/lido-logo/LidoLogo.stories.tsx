@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import LidoLogo from './LidoLogo'
+import { LidoLogo } from './LidoLogo'
 
 export default {
   component: LidoLogo,

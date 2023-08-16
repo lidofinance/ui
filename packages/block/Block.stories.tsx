@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import { BlockProps, BlockColor, BlockVariant } from './types'
-import Block from './Block'
+import { Block } from './Block'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

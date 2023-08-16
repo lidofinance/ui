@@ -2,9 +2,9 @@ import { Story, Meta } from '@storybook/react'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
 import { InputGroup, Input, InputColor } from '@lidofinance/input'
 import { SelectProps } from './types'
-import Select from './Select'
-import SelectIcon from './SelectIcon'
-import Option from './Option'
+import { Select } from './Select'
+import { SelectIcon } from './SelectIcon'
+import { Option } from './Option'
 import { useRef, useState } from 'react'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

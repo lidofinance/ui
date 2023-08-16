@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import { ServicePageProps } from './types'
-import ServicePage from './ServicePage'
+import { ServicePage } from './ServicePage'
 
 export default {
   component: ServicePage,
