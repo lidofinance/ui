@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { PaginationItemVariant, PaginationItemProps } from './types'
 import PaginationItem from './PaginationItem'
@@ -19,6 +19,6 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<PaginationItemProps> = (props) => (
+export const Basic: StoryFn<PaginationItemProps> = (props) => (
   <PaginationItem {...props} />
 )

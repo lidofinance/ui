@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import Link from './Link'
 import { LinkProps } from './types'
 
@@ -17,4 +17,4 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<LinkProps> = (props) => <Link {...props} />
+export const Basic: StoryFn<LinkProps> = (props) => <Link {...props} />

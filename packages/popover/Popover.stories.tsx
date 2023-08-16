@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Button } from '@lidofinance/button'
 import { PopoverProps, PopoverPlacement, PopoverOffset } from './types'
 import Popover from './Popover'
@@ -38,7 +38,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<PopoverProps> = ({ onClose, ...rest }) => {
+export const Basic: StoryFn<PopoverProps> = ({ onClose, ...rest }) => {
   const [state, setState] = useState(false)
   const anchorRef = useRef<HTMLButtonElement>(null)
 

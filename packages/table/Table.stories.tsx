@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Light, Eth } from '@lidofinance/icons'
 import Table from './Table'
 import Thead from './Thead'
@@ -43,7 +43,7 @@ export default {
   },
 } as Meta
 
-export const Base: Story<
+export const Base: StoryFn<
   TdProps & { showHighlight: boolean; stickyHeader: boolean }
 > = (props, options) => {
   const [sortDir, setSortDir] = useState<ThSortDirs>('ASC')

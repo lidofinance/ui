@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { StoryFn } from '@storybook/react'
 import { StyledSystemProps } from './types'
 import styled, { DefaultTheme, StyledComponentProps } from 'styled-components'
 import withStyledSystem from './withStyledSystem'
@@ -21,36 +21,36 @@ export default {
   args: { children: 'Example' },
 }
 
-export const Base: Story<Props> = (props) => <Example {...props} />
+export const Base: StoryFn<Props> = (props) => <Example {...props} />
 
-export const Space: Story<Props> = (props) => (
+export const Space: StoryFn<Props> = (props) => (
   <Example {...props} margin={2} padding={2} />
 )
 
-export const Color: Story<Props> = (props) => (
+export const Color: StoryFn<Props> = (props) => (
   <Example {...props} color='primary' />
 )
 
-export const Typography: Story<Props> = (props) => (
+export const Typography: StoryFn<Props> = (props) => (
   <Example {...props} fontSize={2} fontWeight='bold' />
 )
 
-export const Layout: Story<Props> = (props) => (
+export const Layout: StoryFn<Props> = (props) => (
   <Example {...props} width={1 / 2} />
 )
 
-export const Background: Story<Props> = (props) => (
+export const Background: StoryFn<Props> = (props) => (
   <Example {...props} bg='text' color='background' />
 )
 
-export const Border: Story<Props> = (props) => (
+export const Border: StoryFn<Props> = (props) => (
   <Example {...props} borderWidth={10} />
 )
 
-export const Position: Story<Props> = (props) => (
+export const Position: StoryFn<Props> = (props) => (
   <Example {...props} position='relative' left={50} />
 )
 
-export const Shadow: Story<Props> = (props) => (
+export const Shadow: StoryFn<Props> = (props) => (
   <Example {...props} boxShadow='0 0 4px' />
 )

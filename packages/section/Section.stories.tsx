@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Block } from '@lidofinance/block'
 import { SectionProps } from './types'
 import Section from './Section'
@@ -12,13 +12,13 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<SectionProps> = (props) => (
+export const Basic: StoryFn<SectionProps> = (props) => (
   <Section {...props}>
     <Block>Example content</Block>
   </Section>
 )
 
-export const HeaderDecorator: Story<SectionProps> = (props) => (
+export const HeaderDecorator: StoryFn<SectionProps> = (props) => (
   <Section
     {...props}
     headerDecorator={
@@ -41,7 +41,7 @@ const H2OverrideStyled = styled.div`
   }
 `
 
-export const HeaderStyleOverride: Story<SectionProps> = (props) => (
+export const HeaderStyleOverride: StoryFn<SectionProps> = (props) => (
   <H2OverrideStyled>
     <Section
       {...props}

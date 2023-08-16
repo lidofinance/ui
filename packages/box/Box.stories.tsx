@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import Box from './Box'
 
 export default {
@@ -6,11 +6,11 @@ export default {
   title: 'Styled System/Box',
 } as Meta
 
-export const Basic: Story = (props) => (
+export const Basic: StoryFn = (props) => (
   <Box {...props} width={1 / 2} height={100} margin='auto' bg='primary' />
 )
 
-export const Breakpoints: Story = (props) => (
+export const Breakpoints: StoryFn = (props) => (
   <Box
     {...props}
     width={1 / 2}

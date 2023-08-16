@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { StoryFn } from '@storybook/react'
 import { LoaderProps, LoaderColor, LoaderSize } from './types'
 import Loader from './Loader'
 
@@ -26,4 +26,4 @@ export default {
   },
 }
 
-export const Basic: Story<LoaderProps> = (props) => <Loader {...props} />
+export const Basic: StoryFn<LoaderProps> = (props) => <Loader {...props} />

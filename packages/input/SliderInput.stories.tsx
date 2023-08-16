@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { SliderInputProps } from './types'
 import { useState } from 'react'
 import SliderInput from './SliderInput'
@@ -19,7 +19,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<SliderInputProps> = (props) => {
+export const Basic: StoryFn<SliderInputProps> = (props) => {
   const [value, setValue] = useState(100000)
   return (
     <SliderInput

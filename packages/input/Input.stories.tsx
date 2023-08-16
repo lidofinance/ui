@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Eth } from '@lidofinance/icons'
 import { Block } from '@lidofinance/block'
 import { Button } from '@lidofinance/button'
@@ -29,7 +29,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<InputProps> = (props) => <Input {...props} />
+export const Basic: StoryFn<InputProps> = (props) => <Input {...props} />
 
 Basic.args = {
   placeholder: 'Amount',
@@ -48,7 +48,7 @@ Basic.argTypes = {
   },
 }
 
-export const Small: Story<InputProps> = (props) => <Input {...props} />
+export const Small: StoryFn<InputProps> = (props) => <Input {...props} />
 
 Small.args = {
   variant: 'small',
@@ -62,7 +62,7 @@ Small.argTypes = {
   },
 }
 
-export const Label: Story<InputProps> = (props) => <Input {...props} />
+export const Label: StoryFn<InputProps> = (props) => <Input {...props} />
 
 Label.args = {
   label: 'Email address',
@@ -90,7 +90,7 @@ const MaxButton = () => (
   </Button>
 )
 
-export const WithDecorators: Story<InputProps> = (props) => (
+export const WithDecorators: StoryFn<InputProps> = (props) => (
   <Input
     leftDecorator={<EthIcon />}
     rightDecorator={<MaxButton />}
@@ -108,7 +108,7 @@ WithDecorators.argTypes = {
   },
 }
 
-export const WithIdenticon: Story<InputProps> = (props) => {
+export const WithIdenticon: StoryFn<InputProps> = (props) => {
   const [value, setValue] = useState('')
 
   return (
@@ -128,7 +128,7 @@ WithIdenticon.args = {
   placeholder: 'Ethereum address',
 }
 
-export const WithButton: Story<InputProps> = (props) => (
+export const WithButton: StoryFn<InputProps> = (props) => (
   <Input
     rightDecorator={
       <Button
@@ -156,7 +156,7 @@ WithButton.argTypes = {
   },
 }
 
-export const WithError: Story<InputProps> = (props) => <Input {...props} />
+export const WithError: StoryFn<InputProps> = (props) => <Input {...props} />
 
 WithError.args = {
   fullwidth: true,
@@ -171,7 +171,7 @@ WithError.argTypes = {
   },
 }
 
-export const WithWarning: Story<InputProps> = (props) => <Input {...props} />
+export const WithWarning: StoryFn<InputProps> = (props) => <Input {...props} />
 
 WithWarning.args = {
   fullwidth: true,
@@ -186,7 +186,7 @@ const Success = styled.span`
   color: var(--lido-color-success);
 `
 
-export const WithSuccess: Story<InputProps> = (props) => (
+export const WithSuccess: StoryFn<InputProps> = (props) => (
   <Input rightDecorator={<Success>Subscribed</Success>} {...props} />
 )
 
@@ -198,7 +198,7 @@ WithSuccess.args = {
     'Thank you for subscribing! We will notify you once we kick off our platform.',
 }
 
-export const AccentColor: Story<InputProps> = (props) => {
+export const AccentColor: StoryFn<InputProps> = (props) => {
   const [value, setValue] = useState('')
 
   return (
@@ -251,7 +251,7 @@ const useModal = ({ onClose, onBack }: ModalProps) => {
   return { state, handleOpen, handleClose, handleBack }
 }
 
-export const ErrorsOverlapCase: Story<InputProps> = (props) => {
+export const ErrorsOverlapCase: StoryFn<InputProps> = (props) => {
   const { state, handleOpen, handleClose } = useModal(props)
 
   return (
