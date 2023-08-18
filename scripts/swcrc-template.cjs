@@ -10,6 +10,7 @@ module.exports = {
     },
     transform: {
       react: {
+        runtime: 'automatic',
         pragma: 'React.createElement',
         pragmaFrag: 'React.Fragment',
         throwIfNamespace: true,
