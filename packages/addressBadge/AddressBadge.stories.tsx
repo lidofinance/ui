@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { AddressBadgeProps } from './types'
 import AddressBadge from './AddressBadge'
 
@@ -20,6 +20,6 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<AddressBadgeProps> = (props) => (
+export const Basic: StoryFn<AddressBadgeProps> = (props) => (
   <AddressBadge {...props} />
 )

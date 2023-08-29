@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { AddressProps } from './types'
 import Address from './Address'
 
@@ -16,4 +16,4 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<AddressProps> = (props) => <Address {...props} />
+export const Basic: StoryFn<AddressProps> = (props) => <Address {...props} />

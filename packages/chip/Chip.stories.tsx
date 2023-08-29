@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { ChipVariant } from './types'
 import Chip from './Chip'
 
@@ -21,7 +21,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story = (props, options) => (
+export const Basic: StoryFn = (props, options) => (
   <Chip
     {...props}
     onClick={options.args.interactive ? () => void 0 : undefined}

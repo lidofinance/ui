@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Stake, Wrap, Wallet } from '@lidofinance/icons'
 import MainMenu from './MainMenu'
 import MainMenuItem from './MainMenuItem'
@@ -18,7 +18,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<{ active: 'stake' | 'wrap' | 'wallet' }> = ({
+export const Basic: StoryFn<{ active: 'stake' | 'wrap' | 'wallet' }> = ({
   active,
 }) => (
   <MainMenu>

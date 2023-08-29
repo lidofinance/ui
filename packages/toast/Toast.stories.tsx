@@ -1,5 +1,5 @@
 import { toast } from './index'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { ToastPosition } from './types'
 import { Button } from '@lidofinance/button'
 import { Accordion } from '@lidofinance/accordion'
@@ -28,7 +28,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story = ({ text, ...options }) => {
+export const Basic: StoryFn = ({ text, ...options }) => {
   const notifyDefault = () => ToastDefault(text, options)
 
   return (
@@ -47,7 +47,7 @@ export const Basic: Story = ({ text, ...options }) => {
   )
 }
 
-export const Error: Story = ({ text, ...options }) => {
+export const Error: StoryFn = ({ text, ...options }) => {
   const notifyError = () => ToastError(text, options)
 
   return (
@@ -60,7 +60,7 @@ export const Error: Story = ({ text, ...options }) => {
   )
 }
 
-export const Success: Story = ({ text, ...options }) => {
+export const Success: StoryFn = ({ text, ...options }) => {
   const notifySuccess = () => ToastSuccess(text, options)
 
   return (
@@ -73,7 +73,7 @@ export const Success: Story = ({ text, ...options }) => {
   )
 }
 
-export const Info: Story = ({ text, ...options }) => {
+export const Info: StoryFn = ({ text, ...options }) => {
   const notifyInfo = () => ToastInfo(text, options)
 
   return (
@@ -86,7 +86,7 @@ export const Info: Story = ({ text, ...options }) => {
   )
 }
 
-export const Pending: Story = ({ text, ...options }) => {
+export const Pending: StoryFn = ({ text, ...options }) => {
   const notifyPending = () => ToastPending(text, options)
   const dismissAll = () => toast.dismiss()
 

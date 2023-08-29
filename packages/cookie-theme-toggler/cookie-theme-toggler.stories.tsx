@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Block } from '@lidofinance/block'
 import { ContentTheme } from '@lidofinance/content-theme'
@@ -13,7 +13,7 @@ export default {
   },
 } as Meta
 
-export const Providers: Story = () => (
+export const Providers: StoryFn = () => (
   <>
     Use button to toggle theme{' '}
     <span role='img' aria-label='right'>

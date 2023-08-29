@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { BlockProps, BlockColor, BlockVariant } from './types'
 import Block from './Block'
 
@@ -26,4 +26,4 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<BlockProps> = (props) => <Block {...props} />
+export const Basic: StoryFn<BlockProps> = (props) => <Block {...props} />

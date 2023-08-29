@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { ServicePageProps } from './types'
 import ServicePage from './ServicePage'
 
@@ -11,6 +11,6 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<ServicePageProps> = (props) => (
+export const Basic: StoryFn<ServicePageProps> = (props) => (
   <ServicePage {...props} />
 )

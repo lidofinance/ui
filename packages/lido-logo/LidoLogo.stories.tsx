@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import LidoLogo from './LidoLogo'
 
 export default {
@@ -6,4 +6,4 @@ export default {
   title: 'Layout/LidoLogo',
 } as Meta
 
-export const Basic: Story = () => <LidoLogo />
+export const Basic: StoryFn = () => <LidoLogo />

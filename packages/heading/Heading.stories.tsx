@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import Heading, { H1, H2, H3 } from './Heading'
 import { HeadingProps, HeadingColor, HeadingSize, HProps } from './types'
 
@@ -23,7 +23,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<HeadingProps> = (props) => <Heading {...props} />
+export const Basic: StoryFn<HeadingProps> = (props) => <Heading {...props} />
 
 Basic.args = {
   size: 'md',
@@ -36,6 +36,6 @@ Basic.argTypes = {
   },
 }
 
-export const HeadingH1: Story<HProps<'h1'>> = (props) => <H1 {...props} />
-export const HeadingH2: Story<HProps<'h2'>> = (props) => <H2 {...props} />
-export const HeadingH3: Story<HProps<'h3'>> = (props) => <H3 {...props} />
+export const HeadingH1: StoryFn<HProps<'h1'>> = (props) => <H1 {...props} />
+export const HeadingH2: StoryFn<HProps<'h2'>> = (props) => <H2 {...props} />
+export const HeadingH3: StoryFn<HProps<'h3'>> = (props) => <H3 {...props} />

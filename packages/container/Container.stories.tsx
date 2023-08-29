@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { ContainerProps, ContainerSize } from './types'
 import Container from './Container'
 import styled from 'styled-components'
@@ -23,7 +23,7 @@ const StyledDiv = styled.div`
   justify-content: center;
 `
 
-export const Base: Story<ContainerProps> = (props) => (
+export const Base: StoryFn<ContainerProps> = (props) => (
   <Container {...props}>
     <StyledDiv />
   </Container>
@@ -40,7 +40,7 @@ Base.argTypes = {
   },
 }
 
-export const PageLayout: Story = () => (
+export const PageLayout: StoryFn = () => (
   <>
     <Container as='header' size='full'>
       <StyledDiv>Header</StyledDiv>
