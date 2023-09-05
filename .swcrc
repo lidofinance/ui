@@ -10,6 +10,7 @@
     },
     "transform": {
       "react": {
+        "runtime": "automatic",
         "pragma": "React.createElement",
         "pragmaFrag": "React.Fragment",
         "throwIfNamespace": true,
@@ -126,6 +127,9 @@
       ],
       "@lidofinance/content-theme": [
         "packages/content-theme"
+      ],
+      "@lidofinance/cookies-tooltip": [
+        "packages/cookies-tooltip"
       ]
     },
     "target": "es2019",

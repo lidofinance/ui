@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Checkbox, CheckboxProps } from '.'
 
 export default {
@@ -15,7 +15,7 @@ export default {
   },
 } as Meta
 
-export const Uncontrolled: Story<CheckboxProps> = (props) => (
+export const Uncontrolled: StoryFn<CheckboxProps> = (props) => (
   <Checkbox {...props} />
 )
 
@@ -23,7 +23,7 @@ Uncontrolled.args = {
   defaultChecked: false,
 }
 
-export const Controlled: Story<CheckboxProps> = (props) => {
+export const Controlled: StoryFn<CheckboxProps> = (props) => {
   return <Checkbox {...props} />
 }
 
@@ -31,7 +31,7 @@ Controlled.args = {
   checked: true,
 }
 
-export const WithLabel: Story<CheckboxProps> = (props) => {
+export const WithLabel: StoryFn<CheckboxProps> = (props) => {
   return <Checkbox {...props} />
 }
 

@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Input, InputGroup, InputGroupProps } from '.'
 
 export default {
@@ -9,7 +9,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<InputGroupProps> = (props) => (
+export const Basic: StoryFn<InputGroupProps> = (props) => (
   <InputGroup {...props}>
     <Input placeholder='First Name' fullwidth={props.fullwidth} />
     <Input placeholder='Last Name' fullwidth={props.fullwidth} />

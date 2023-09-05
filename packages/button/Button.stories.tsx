@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Whitepaper } from '@lidofinance/icons'
 import {
   Button,
@@ -41,13 +41,13 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<ButtonProps> = (props) => <Button {...props} />
+export const Basic: StoryFn<ButtonProps> = (props) => <Button {...props} />
 
-export const WithIcon: Story<Omit<ButtonIconProps, 'icon'>> = (props) => (
+export const WithIcon: StoryFn<Omit<ButtonIconProps, 'icon'>> = (props) => (
   <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 
-export const Icon: Story<Omit<ButtonIconProps, 'icon'>> = (props) => (
+export const Icon: StoryFn<Omit<ButtonIconProps, 'icon'>> = (props) => (
   <ButtonIcon icon={<Whitepaper />} {...props} />
 )
 

@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import {
   Identicon,
   IdenticonBadge,
@@ -24,9 +24,11 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<IdenticonProps> = (props) => <Identicon {...props} />
+export const Basic: StoryFn<IdenticonProps> = (props) => (
+  <Identicon {...props} />
+)
 
-export const Badge: Story<IdenticonBadgeProps> = (props) => (
+export const Badge: StoryFn<IdenticonBadgeProps> = (props) => (
   <IdenticonBadge {...props} />
 )
 

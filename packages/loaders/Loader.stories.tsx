@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { StoryFn } from '@storybook/react'
 import { Loader, LoaderProps, LoaderColor, LoaderSize } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -25,4 +25,4 @@ export default {
   },
 }
 
-export const Basic: Story<LoaderProps> = (props) => <Loader {...props} />
+export const Basic: StoryFn<LoaderProps> = (props) => <Loader {...props} />

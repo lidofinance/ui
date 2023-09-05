@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
 import { InputGroup, Input, InputColor } from '@lidofinance/input'
 import { useRef, useState } from 'react'
@@ -22,7 +22,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<SelectProps> = (props) => (
+export const Basic: StoryFn<SelectProps> = (props) => (
   <Select {...props} value={1}>
     <Option value={1}>First</Option>
     <Option value={2}>Second</Option>
@@ -30,7 +30,7 @@ export const Basic: Story<SelectProps> = (props) => (
   </Select>
 )
 
-export const Labeled: Story<SelectProps> = (props) => (
+export const Labeled: StoryFn<SelectProps> = (props) => (
   <Select {...props} label='Labeled select' value={1}>
     <Option value={1}>First</Option>
     <Option value={2}>Second</Option>
@@ -44,7 +44,7 @@ const iconsMap = {
   sol: <Solana />,
 }
 
-export const Icons: Story<SelectProps> = (props) => {
+export const Icons: StoryFn<SelectProps> = (props) => {
   const [value, setValue] = useState<keyof typeof iconsMap>('eth')
 
   return (
@@ -67,7 +67,7 @@ export const Icons: Story<SelectProps> = (props) => {
   )
 }
 
-export const OnlyIcon: Story<SelectProps> = (props) => {
+export const OnlyIcon: StoryFn<SelectProps> = (props) => {
   const [value, setValue] = useState<keyof typeof iconsMap>('eth')
 
   return (
@@ -96,7 +96,7 @@ OnlyIcon.argTypes = {
   },
 }
 
-export const WithInput: Story<SelectProps> = ({
+export const WithInput: StoryFn<SelectProps> = ({
   fullwidth,
   disabled,
   color,
@@ -143,7 +143,7 @@ WithInput.argTypes = {
   },
 }
 
-export const Small: Story<SelectProps> = (props) => (
+export const Small: StoryFn<SelectProps> = (props) => (
   <Select {...props} variant='small' arrow='small' value={1}>
     <Option value={1}>First</Option>
     <Option value={2}>Second</Option>

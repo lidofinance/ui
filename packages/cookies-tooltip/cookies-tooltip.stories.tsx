@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Text } from '@lidofinance/text'
 import { CookiesTooltip } from '.'
 
@@ -6,7 +6,7 @@ export default {
   title: 'CookiesTooltip/Basic',
 } as Meta
 
-export const Basic: Story = () => (
+export const Basic: StoryFn = () => (
   <>
     <Text>
       CookiesTooltip component has an ability to detect a user choice in other

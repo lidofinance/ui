@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Pagination, PaginationProps } from '.'
 
 export default {
@@ -12,10 +12,10 @@ export default {
 
 const noop = () => null
 
-export const SiblingCount1: Story<PaginationProps> = (props) => (
+export const SiblingCount1: StoryFn<PaginationProps> = (props) => (
   <Pagination {...props} onItemClick={noop} siblingCount={1} />
 )
 
-export const SiblingCount0: Story<PaginationProps> = (props) => (
+export const SiblingCount0: StoryFn<PaginationProps> = (props) => (
   <Pagination {...props} onItemClick={noop} siblingCount={0} />
 )

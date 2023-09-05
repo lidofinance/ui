@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Question } from '@lidofinance/icons'
 import { PopoverOffset, PopoverPlacement } from '@lidofinance/popover'
 import { Tooltip, TooltipProps } from '.'
@@ -33,13 +33,13 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<TooltipProps> = (props) => (
+export const Basic: StoryFn<TooltipProps> = (props) => (
   <Tooltip {...props}>
     <span>Hover me</span>
   </Tooltip>
 )
 
-export const Icon: Story<TooltipProps> = (props) => (
+export const Icon: StoryFn<TooltipProps> = (props) => (
   <Tooltip {...props}>
     <Question />
   </Tooltip>

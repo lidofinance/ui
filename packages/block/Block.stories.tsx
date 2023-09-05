@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Block, BlockProps, BlockColor, BlockVariant } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
@@ -25,4 +25,4 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<BlockProps> = (props) => <Block {...props} />
+export const Basic: StoryFn<BlockProps> = (props) => <Block {...props} />

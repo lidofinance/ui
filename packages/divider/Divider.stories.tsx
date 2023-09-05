@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import {
   Divider,
   DividerIndent,
@@ -35,7 +35,7 @@ const Wrapper = styled.div<{ $type?: DividerTypes }>`
   display: flex;
 `
 
-export const Base: Story<DividerProps> = (props) => (
+export const Base: StoryFn<DividerProps> = (props) => (
   <Wrapper $type={props.type}>
     <span>First</span>
     <Divider type='vertical' {...props} />

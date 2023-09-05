@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { useCallback, useRef, useState } from 'react'
 import { Button } from '@lidofinance/button'
 import { Eth, Steth, Solana } from '@lidofinance/icons'
@@ -42,7 +42,7 @@ const usePopup = ({ onClose }: PopupMenuProps) => {
   }
 }
 
-export const Basic: Story<PopupMenuProps> = (props) => {
+export const Basic: StoryFn<PopupMenuProps> = (props) => {
   const { state, anchorRef, handleOpen, handleClose } = usePopup(props)
 
   return (
@@ -65,7 +65,7 @@ export const Basic: Story<PopupMenuProps> = (props) => {
   )
 }
 
-export const Icons: Story<PopupMenuProps> = (props) => {
+export const Icons: StoryFn<PopupMenuProps> = (props) => {
   const { state, anchorRef, handleOpen, handleClose } = usePopup(props)
 
   return (
@@ -94,7 +94,7 @@ export const Icons: Story<PopupMenuProps> = (props) => {
   )
 }
 
-export const WithDisabled: Story<PopupMenuProps> = (props) => {
+export const WithDisabled: StoryFn<PopupMenuProps> = (props) => {
   const { state, anchorRef, handleOpen, handleClose } = usePopup(props)
 
   return (

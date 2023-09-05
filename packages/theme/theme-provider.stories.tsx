@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import {
@@ -39,7 +39,7 @@ const Block: FC<PropsWithChildren> = styled.div`
   }
 `
 
-export const Providers: Story = (props) => (
+export const Providers: StoryFn = (props) => (
   <>
     <Block>Component inherits global theme</Block>
     <LightThemeProvider>

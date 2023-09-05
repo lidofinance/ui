@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import styled from 'styled-components'
 import * as components from '.'
 
@@ -9,7 +9,7 @@ export default {
   title: 'Images/Icons',
 } as Meta
 
-export const Base: Story<{ color: string; type: IconVariants }> = ({
+export const Base: StoryFn<{ color: string; type: IconVariants }> = ({
   color,
   type,
 }) => {
@@ -50,7 +50,7 @@ const IconListTitle = styled.div`
   opacity: 0.5;
 `
 
-export const List: Story = () => (
+export const List: StoryFn = () => (
   <IconList>
     {iconKeys.map((componentName) => {
       const Icon = components[componentName]
@@ -81,7 +81,7 @@ const SocialListItem = styled.div<{ $color: string }>`
   }
 `
 
-export const Social: Story = () => {
+export const Social: StoryFn = () => {
   const { Facebook, Twitter, Linkedin, Email, Telegram } = components
 
   return (
@@ -105,7 +105,7 @@ export const Social: Story = () => {
   )
 }
 
-export const CryptoCurrencies: Story = () => {
+export const CryptoCurrencies: StoryFn = () => {
   const { Eth, Weth, Steth, Wsteth, Beth, Ldo, Ldopl, Solana, Stsol, Terra } =
     components
   const iconKeys = Object.keys({
@@ -137,7 +137,7 @@ export const CryptoCurrencies: Story = () => {
   )
 }
 
-export const CryptoWallets: Story = () => {
+export const CryptoWallets: StoryFn = () => {
   const {
     MetaMask,
     MetaMaskCircle,
@@ -209,7 +209,7 @@ export const CryptoWallets: Story = () => {
   )
 }
 
-export const CryptoExchanges: Story = () => {
+export const CryptoExchanges: StoryFn = () => {
   const { Uniswap, OneInch } = components
   const iconKeys = Object.keys({
     Uniswap,

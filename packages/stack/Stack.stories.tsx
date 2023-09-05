@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { Block } from '@lidofinance/block'
 import {
   StackAlign,
@@ -47,7 +47,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<StackProps> = (props) => (
+export const Basic: StoryFn<StackProps> = (props) => (
   <Stack {...props}>
     <StackItem>
       <Block>First</Block>
@@ -82,7 +82,7 @@ Basic.argTypes = {
   },
 }
 
-export const Horizontal: Story<HStackProps> = (props) => (
+export const Horizontal: StoryFn<HStackProps> = (props) => (
   <HStack {...props}>
     <StackItem>
       <Block>First</Block>
@@ -108,7 +108,7 @@ export const Horizontal: Story<HStackProps> = (props) => (
 
 Horizontal.args = { reverse: false }
 
-export const Vertical: Story<VStackProps> = (props) => (
+export const Vertical: StoryFn<VStackProps> = (props) => (
   <VStack {...props}>
     <StackItem>
       <Block>First</Block>
@@ -134,7 +134,7 @@ export const Vertical: Story<VStackProps> = (props) => (
 
 Vertical.args = { reverse: false }
 
-export const Grid: Story<HStackProps> = (props) => (
+export const Grid: StoryFn<HStackProps> = (props) => (
   <HStack {...props}>
     <StackItem basis='50%'>
       <Block />
