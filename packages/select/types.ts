@@ -32,6 +32,7 @@ export type SelectIconProps = Omit<
 
 export type OptionProps = Omit<PopupMenuItemProps, 'value' | 'children'> & {
   value: OptionValue
+  // can't be ReactNode, since it will be stringified later
   children: string
   onChange?: SelectHandleChange
 }

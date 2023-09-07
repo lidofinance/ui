@@ -1,5 +1,5 @@
 import { LidoComponentProps } from '@lidofinance/utils'
-import { RefObject } from 'react'
+import { ReactNode, RefObject } from 'react'
 export type { Theme } from '@lidofinance/theme'
 
 export type CheckboxProps = LidoComponentProps<
@@ -7,6 +7,6 @@ export type CheckboxProps = LidoComponentProps<
   {
     wrapperRef?: RefObject<HTMLLabelElement>
     children?: never
-    label?: string
+    label?: ReactNode
   }
 >

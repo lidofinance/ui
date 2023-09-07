@@ -5,12 +5,15 @@ import {
   CookieThemeTogglerLightIcon,
 } from './styles'
 import { useThemeToggle } from '@lidofinance/theme'
+import { ButtonProps } from '@lidofinance/button'
 
-export const ThemeToggler: FC = () => {
+export type ThemeTogglerProps = Omit<ButtonProps, 'color' | 'onClick'>
+
+export const ThemeToggler: FC = (props: ButtonProps) => {
   const { toggleTheme } = useThemeToggle()
 
   return (
-    <CookieThemeTogglerStyle color='secondary' onClick={toggleTheme}>
+    <CookieThemeTogglerStyle color='secondary' onClick={toggleTheme} {...props}>
       <CookieThemeTogglerLightIcon />
       <CookieThemeTogglerDarkIcon />
     </CookieThemeTogglerStyle>
