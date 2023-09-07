@@ -1,9 +1,13 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Button } from '@lidofinance/button'
-import { PopoverProps, PopoverPlacement, PopoverOffset } from './types'
-import Popover from './Popover'
 import { useCallback, useRef, useState } from 'react'
-import { DEFAULT_PLACEMENT } from './constants'
+import {
+  Popover,
+  PopoverProps,
+  PopoverPlacement,
+  PopoverOffset,
+  DEFAULT_PLACEMENT,
+} from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

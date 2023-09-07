@@ -3,12 +3,11 @@ import { Eth } from '@lidofinance/icons'
 import { Block } from '@lidofinance/block'
 import { Button } from '@lidofinance/button'
 import { Identicon } from '@lidofinance/identicon'
-import Input from './Input'
 import styled from 'styled-components'
-import { InputProps, InputType, InputVariant, InputColor } from './types'
 import { useCallback, useState } from 'react'
 import { ModalProps } from '../modal/types'
-import Modal from '../modal/Modal'
+import { Modal } from '../modal/Modal'
+import { Input, InputProps, InputType, InputVariant, InputColor } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

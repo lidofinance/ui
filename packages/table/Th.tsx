@@ -7,25 +7,26 @@ import {
   ArrowTopStyle,
 } from './styles'
 
-function Th(
-  { align = 'left', children, sortDir, variant, ...rest }: ThProps,
-  ref?: ForwardedRef<HTMLTableHeaderCellElement>,
-) {
-  return (
-    <ThStyle
-      $interactive={!!rest.onClick}
-      $align={align}
-      $variant={variant}
-      ref={ref}
-      {...rest}
-    >
-      <ThTdContentStyle>
-        {children}
-        {sortDir === 'ASC' && <ArrowBottomStyle />}
-        {sortDir === 'DESC' && <ArrowTopStyle />}
-      </ThTdContentStyle>
-    </ThStyle>
-  )
-}
-
-export default forwardRef(Th)
+export const Th = forwardRef(
+  (
+    { align = 'left', children, sortDir, variant, ...rest }: ThProps,
+    ref?: ForwardedRef<HTMLTableHeaderCellElement>,
+  ) => {
+    return (
+      <ThStyle
+        $interactive={!!rest.onClick}
+        $align={align}
+        $variant={variant}
+        ref={ref}
+        {...rest}
+      >
+        <ThTdContentStyle>
+          {children}
+          {sortDir === 'ASC' && <ArrowBottomStyle />}
+          {sortDir === 'DESC' && <ArrowTopStyle />}
+        </ThTdContentStyle>
+      </ThStyle>
+    )
+  },
+)
+Th.displayName = 'Th'

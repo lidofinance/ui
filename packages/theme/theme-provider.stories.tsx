@@ -1,12 +1,12 @@
 import { StoryFn, Meta } from '@storybook/react'
+import { FC, PropsWithChildren } from 'react'
+import styled from 'styled-components'
 import {
+  themeLight,
   DarkThemeProvider,
   LightThemeProvider,
   ThemeProvider,
-} from './theme-provider'
-import { themeLight } from './themes'
-import { FC, PropsWithChildren } from 'react'
-import styled from 'styled-components'
+} from '.'
 
 export default {
   title: 'Theme/Providers',

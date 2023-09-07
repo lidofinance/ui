@@ -1,15 +1,12 @@
 import styled from 'styled-components'
 import { StoryFn, Meta } from '@storybook/react'
-import { ModalProps } from './types'
 import { Button, ButtonProps, ButtonSize } from '@lidofinance/button'
 import { Loader } from '@lidofinance/loaders'
 import { Text } from '@lidofinance/text'
 import { Link } from '@lidofinance/link'
 import { Error, Success, Eth, Terra } from '@lidofinance/icons'
-import Modal from './Modal'
-import ModalExtra from './ModalExtra'
-import ModalButton from './ModalButton'
 import { useCallback, useState } from 'react'
+import { ModalProps, Modal, ModalExtra, ModalButton } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

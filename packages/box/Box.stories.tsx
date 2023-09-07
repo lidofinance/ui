@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import Box from './Box'
+import { Box } from '.'
 
 export default {
   component: Box,

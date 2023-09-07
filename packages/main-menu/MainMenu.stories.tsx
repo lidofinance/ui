@@ -1,7 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Stake, Wrap, Wallet } from '@lidofinance/icons'
-import MainMenu from './MainMenu'
-import MainMenuItem from './MainMenuItem'
+import { MainMenu, MainMenuItem } from '.'
 
 export default {
   component: MainMenu,

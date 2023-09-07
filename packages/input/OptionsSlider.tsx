@@ -1,11 +1,11 @@
-import SliderInput from './SliderInput'
+import { SliderInput } from './SliderInput'
 import { OptionsSliderInputProps } from './types'
 
-const OptionsSlider = ({
+export const OptionsSlider = ({
   options,
   value,
   onChange,
-}: OptionsSliderInputProps): React.ReactElement => {
+}: OptionsSliderInputProps) => {
   let sliderIndex = options.findIndex((option) => option.value === value)
 
   if (sliderIndex === -1) {
@@ -39,5 +39,3 @@ const OptionsSlider = ({
     />
   )
 }
-
-export default OptionsSlider

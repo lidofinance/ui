@@ -1,10 +1,8 @@
 import { StoryFn, Meta } from '@storybook/react'
-
 import { Block } from '@lidofinance/block'
 import { ContentTheme } from '@lidofinance/content-theme'
 import { Text } from '@lidofinance/text'
-
-import { ThemeToggler } from './cookie-theme-toggler'
+import { ThemeToggler } from '.'
 
 export default {
   title: 'Theme/Cookie Theme Provider',

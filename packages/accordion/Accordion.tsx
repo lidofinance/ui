@@ -9,25 +9,26 @@ import {
 } from './AccordionStyles'
 import { useExpanded } from './useExpanded'
 
-function Accordion(
-  { defaultExpanded, summary, children, ...rest }: AccordionProps,
-  ref?: ForwardedRef<HTMLDivElement>,
-) {
-  const { toggleProps, collapseProps, isExpanded } = useExpanded({
-    defaultExpanded,
-  })
+export const Accordion = forwardRef(
+  (
+    { defaultExpanded, summary, children, ...rest }: AccordionProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const { toggleProps, collapseProps, isExpanded } = useExpanded({
+      defaultExpanded,
+    })
 
-  return (
-    <AccordionStyle {...rest} ref={ref}>
-      <AccordionSummaryStyle {...toggleProps}>
-        <AccordionTitleStyle>{summary}</AccordionTitleStyle>
-        <AccordionArrowStyle $expanded={isExpanded} />
-      </AccordionSummaryStyle>
-      <div {...collapseProps}>
-        <AccordionContentStyle>{children}</AccordionContentStyle>
-      </div>
-    </AccordionStyle>
-  )
-}
-
-export default forwardRef(Accordion)
+    return (
+      <AccordionStyle {...rest} ref={ref}>
+        <AccordionSummaryStyle {...toggleProps}>
+          <AccordionTitleStyle>{summary}</AccordionTitleStyle>
+          <AccordionArrowStyle $expanded={isExpanded} />
+        </AccordionSummaryStyle>
+        <div {...collapseProps}>
+          <AccordionContentStyle>{children}</AccordionContentStyle>
+        </div>
+      </AccordionStyle>
+    )
+  },
+)
+Accordion.displayName = 'Accordion'

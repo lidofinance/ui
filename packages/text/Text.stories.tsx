@@ -1,6 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import Text from './Text'
-import { TextProps, TextColor, TextSize } from './types'
+import { Text, TextProps, TextColor, TextSize } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

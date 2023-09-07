@@ -1,6 +1,11 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { DividerIndent, DividerProps, DividerType, DividerTypes } from './types'
-import Divider from './Divider'
+import {
+  Divider,
+  DividerIndent,
+  DividerProps,
+  DividerType,
+  DividerTypes,
+} from '.'
 import styled from 'styled-components'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

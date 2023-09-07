@@ -7,25 +7,26 @@ import {
   SectionHeaderDecoratorStyle,
 } from './SectionStyles'
 
-function Section(
-  { title, headerDecorator, children, ...rest }: SectionProps,
-  ref?: ForwardedRef<HTMLDivElement>,
-) {
-  return (
-    <SectionStyle {...rest} ref={ref}>
-      {title && (
-        <SectionHeaderStyle>
-          <SectionTitleStyle>{title}</SectionTitleStyle>
-          {headerDecorator && (
-            <SectionHeaderDecoratorStyle>
-              {headerDecorator}
-            </SectionHeaderDecoratorStyle>
-          )}
-        </SectionHeaderStyle>
-      )}
-      {children}
-    </SectionStyle>
-  )
-}
-
-export default forwardRef(Section)
+export const Section = forwardRef(
+  (
+    { title, headerDecorator, children, ...rest }: SectionProps,
+    ref?: ForwardedRef<HTMLDivElement>,
+  ) => {
+    return (
+      <SectionStyle {...rest} ref={ref}>
+        {title && (
+          <SectionHeaderStyle>
+            <SectionTitleStyle>{title}</SectionTitleStyle>
+            {headerDecorator && (
+              <SectionHeaderDecoratorStyle>
+                {headerDecorator}
+              </SectionHeaderDecoratorStyle>
+            )}
+          </SectionHeaderStyle>
+        )}
+        {children}
+      </SectionStyle>
+    )
+  },
+)
+Section.displayName = 'Section'

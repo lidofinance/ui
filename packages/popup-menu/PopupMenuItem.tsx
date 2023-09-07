@@ -8,46 +8,47 @@ import {
 import { usePopupMenuContext } from './PopupMenuProvider'
 import { PopupMenuItemProps } from './types'
 
-function PopupMenuItem(
-  {
-    active = false,
-    leftDecorator,
-    rightDecorator,
-    children,
-    ...rest
-  }: PopupMenuItemProps,
-  ref?: ForwardedRef<HTMLButtonElement>,
-) {
-  const { variant = 'default' } = usePopupMenuContext()
+export const PopupMenuItem = forwardRef(
+  (
+    {
+      active = false,
+      leftDecorator,
+      rightDecorator,
+      children,
+      ...rest
+    }: PopupMenuItemProps,
+    ref?: ForwardedRef<HTMLButtonElement>,
+  ) => {
+    const { variant = 'default' } = usePopupMenuContext()
 
-  const hasLeftDecorator = !!leftDecorator
-  const hasRightDecorator = !!rightDecorator
+    const hasLeftDecorator = !!leftDecorator
+    const hasRightDecorator = !!rightDecorator
 
-  return (
-    <PopupMenuItemStyle
-      $active={active}
-      role='option'
-      aria-selected={active}
-      {...rest}
-      ref={ref}
-    >
-      {hasLeftDecorator && (
-        <PopupMenuItemLeftDecoratorStyle>
-          {leftDecorator}
-        </PopupMenuItemLeftDecoratorStyle>
-      )}
+    return (
+      <PopupMenuItemStyle
+        $active={active}
+        role='option'
+        aria-selected={active}
+        {...rest}
+        ref={ref}
+      >
+        {hasLeftDecorator && (
+          <PopupMenuItemLeftDecoratorStyle>
+            {leftDecorator}
+          </PopupMenuItemLeftDecoratorStyle>
+        )}
 
-      <PopupMenuItemContentStyle $variant={variant}>
-        {children}
-      </PopupMenuItemContentStyle>
+        <PopupMenuItemContentStyle $variant={variant}>
+          {children}
+        </PopupMenuItemContentStyle>
 
-      {hasRightDecorator && (
-        <PopupMenuItemRightDecoratorStyle>
-          {rightDecorator}
-        </PopupMenuItemRightDecoratorStyle>
-      )}
-    </PopupMenuItemStyle>
-  )
-}
-
-export default forwardRef(PopupMenuItem)
+        {hasRightDecorator && (
+          <PopupMenuItemRightDecoratorStyle>
+            {rightDecorator}
+          </PopupMenuItemRightDecoratorStyle>
+        )}
+      </PopupMenuItemStyle>
+    )
+  },
+)
+PopupMenuItem.displayName = 'PopupMenuItem'

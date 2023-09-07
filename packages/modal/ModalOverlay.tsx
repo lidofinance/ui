@@ -12,49 +12,53 @@ import {
 import { useModalFocus } from './useModalFocus'
 import { useModalClose } from './useModalClose'
 
-function ModalOverlay(
-  {
-    onClose,
-    onBack,
-    duration,
-    transitionStatus,
-    ...rest
-  }: ModalOverlayInnerProps,
-  externalRef?: ForwardedRef<HTMLDivElement>,
-) {
-  const closable = !!onClose
+export const ModalOverlay = withTransition(
+  // eslint-disable-next-line react/display-name
+  forwardRef(
+    (
+      {
+        onClose,
+        onBack,
+        duration,
+        transitionStatus,
+        ...rest
+      }: ModalOverlayInnerProps,
+      externalRef?: ForwardedRef<HTMLDivElement>,
+    ) => {
+      const closable = !!onClose
 
-  useEscape(onClose)
-  useLockScroll()
+      useEscape(onClose)
+      useLockScroll()
 
-  const controlRef = useModalFocus()
-  const { ref: closeRef, handleClick } = useModalClose(onClose)
+      const controlRef = useModalFocus()
+      const { ref: closeRef, handleClick } = useModalClose(onClose)
 
-  const mergedRef = useMergeRefs([controlRef, closeRef, externalRef])
+      const mergedRef = useMergeRefs([controlRef, closeRef, externalRef])
 
-  if (!modalRoot) return null
+      if (!modalRoot) return null
 
-  return ReactDOM.createPortal(
-    <ModalPortalStyle
-      $closable={closable}
-      $duration={duration}
-      $transition={transitionStatus}
-      onClick={handleClick}
-    >
-      <ModalOverflowStyle>
-        <ModalContentStyle
-          tabIndex={-1}
-          role='dialog'
-          aria-modal='true'
-          ref={mergedRef}
-          $transition={transitionStatus}
+      return ReactDOM.createPortal(
+        <ModalPortalStyle
+          $closable={closable}
           $duration={duration}
-          {...rest}
-        />
-      </ModalOverflowStyle>
-    </ModalPortalStyle>,
-    modalRoot,
-  )
-}
-
-export default withTransition(forwardRef(ModalOverlay))
+          $transition={transitionStatus}
+          onClick={handleClick}
+        >
+          <ModalOverflowStyle>
+            <ModalContentStyle
+              tabIndex={-1}
+              role='dialog'
+              aria-modal='true'
+              ref={mergedRef}
+              $transition={transitionStatus}
+              $duration={duration}
+              {...rest}
+            />
+          </ModalOverflowStyle>
+        </ModalPortalStyle>,
+        modalRoot,
+      )
+    },
+  ),
+)
+ModalOverlay.displayName = 'ModalOverlay'
