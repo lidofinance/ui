@@ -5,7 +5,12 @@ import { AddressBadgeProps } from './types'
 
 export const AddressBadge = forwardRef(
   (
-    { address, symbolsMobile = 3, symbolsDesktop = 6 }: AddressBadgeProps,
+    {
+      address,
+      symbolsMobile = 3,
+      symbolsDesktop = 6,
+      ...rest
+    }: AddressBadgeProps,
     ref?: ForwardedRef<HTMLDivElement>,
   ) => {
     const isMobile = useBreakpoint('md')
@@ -14,6 +19,7 @@ export const AddressBadge = forwardRef(
       <AddressBadgeStyle
         symbols={isMobile ? symbolsMobile : symbolsDesktop}
         address={address ?? ''}
+        {...rest}
         ref={ref}
       />
     )

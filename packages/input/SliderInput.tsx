@@ -21,6 +21,7 @@ export const SliderInput = ({
   getLabel = (val) => String(val),
   borderNone,
   labels,
+  ...rest
 }: SliderInputProps) => {
   const fillPercentage = ((value - min) / (max - min)) * 100
   const LabelComponent = onLabelClick ? LabelButton : Label
@@ -33,11 +34,13 @@ export const SliderInput = ({
         <Track fillPercentage={fillPercentage} borderNone={borderNone} />
       </Slider>
       <RangeInputSlider
+        type='range'
         value={value}
         step={step}
         onChange={onChange}
         min={min}
         max={max}
+        {...rest}
       />
       <LabelContainer>
         {minLabel && (

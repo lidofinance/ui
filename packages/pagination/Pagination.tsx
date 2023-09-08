@@ -30,6 +30,7 @@ export const Pagination: FC<PaginationProps> = ({
   pagesCount,
   activePage = 1,
   siblingCount,
+  ...rest
 }) => {
   const [currentPage, setCurrPage] = useState(
     getActiveItem(pagesCount, activePage),
@@ -72,7 +73,7 @@ export const Pagination: FC<PaginationProps> = ({
   }
 
   return (
-    <PaginationBlock>
+    <PaginationBlock {...rest}>
       <PaginationItem
         disabled={currentPage === 1}
         icon={<ArrowLeft />}

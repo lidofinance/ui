@@ -4,11 +4,11 @@ import { Nav } from './MainMenuStyles'
 
 export const MainMenu = forwardRef(
   (
-    { children, ...restProps }: MainMenuProps,
+    { children, ...rest }: MainMenuProps,
     ref?: ForwardedRef<HTMLDivElement>,
   ) => {
     return (
-      <Nav ref={ref} {...restProps}>
+      <Nav ref={ref} {...rest}>
         {children}
       </Nav>
     )
