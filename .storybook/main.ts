@@ -1,11 +1,10 @@
-const { readdirSync } = require('node:fs')
-
-const { resolve } = require('node:path')
+import { readdirSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 const basepath = resolve(__dirname, '../packages')
 const packages = readdirSync(basepath)
 module.exports = {
-  webpackFinal: async (config) => {
+  webpackFinal: async (config: any) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       ...Object.fromEntries(

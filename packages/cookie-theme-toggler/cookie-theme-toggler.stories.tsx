@@ -1,7 +1,7 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Block } from '@lidofinance/block'
-import { ContentTheme } from '@lidofinance/content-theme'
-import { Text } from '@lidofinance/text'
+import { Block } from '../block'
+import { ContentTheme } from '../content-theme'
+import { Text } from '../text'
 import { ThemeToggler } from '.'
 
 export default {

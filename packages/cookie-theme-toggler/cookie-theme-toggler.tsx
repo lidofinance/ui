@@ -4,8 +4,8 @@ import {
   CookieThemeTogglerDarkIcon,
   CookieThemeTogglerLightIcon,
 } from './styles'
-import { useThemeToggle } from '@lidofinance/theme'
-import { ButtonProps } from '@lidofinance/button'
+import { useThemeToggle } from '../theme'
+import { ButtonProps } from '../button'
 
 export type ThemeTogglerProps = Omit<ButtonProps, 'color' | 'onClick'>
 

@@ -1,4 +1,4 @@
-import { LidoComponentProps } from '@lidofinance/utils'
+import { LidoComponentProps } from '../utils'
 import { ReactElement } from 'react'
 
 export type ContentThemeProps = LidoComponentProps<

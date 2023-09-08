@@ -1,7 +1,7 @@
-import { LidoComponentProps } from '@lidofinance/utils'
-import { PopoverProps } from '@lidofinance/popover'
+import { LidoComponentProps } from '../utils'
+import { PopoverProps } from '../popover'
 import { ReactNode } from 'react'
-export type { Theme } from '@lidofinance/theme'
+export type { Theme } from '../theme'
 
 export enum PopupMenuVariant {
   small,

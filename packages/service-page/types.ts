@@ -1,4 +1,4 @@
-import { LidoComponentProps } from '@lidofinance/utils'
+import { LidoComponentProps } from '../utils'
 import { ReactNode } from 'react'
 
 export type ServicePageProps = LidoComponentProps<

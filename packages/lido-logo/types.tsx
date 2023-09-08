@@ -1,4 +1,4 @@
-import { LidoComponentProps } from '@lidofinance/utils'
-export type { Theme } from '@lidofinance/theme'
+import { LidoComponentProps } from '../utils'
+export type { Theme } from '../theme'
 
 export type LidoLogoProps = LidoComponentProps<'div'>

@@ -1,4 +1,4 @@
-import { Loader } from '@lidofinance/loaders'
+import { Loader } from '../loaders'
 import styled from 'styled-components'
 
 export const ToastPendingStyle = styled.div`

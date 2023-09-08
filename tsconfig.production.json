@@ -5,6 +5,8 @@
     "outDir": "./dist/types"
   },
   "exclude": [
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
     "packages/**/*.test.ts",
     "packages/**/*.test.tsx",
     "packages/**/*.stories.ts",

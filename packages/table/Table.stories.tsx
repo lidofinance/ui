@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { StoryFn, Meta } from '@storybook/react'
-import { Light, Eth } from '@lidofinance/icons'
+import { Light, Eth } from '../icons'
 import {
   Table,
   Thead,

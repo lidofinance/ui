@@ -1,7 +1,7 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { useCallback, useRef, useState } from 'react'
-import { Button } from '@lidofinance/button'
-import { Eth, Steth, Solana } from '@lidofinance/icons'
+import { Button } from '../button'
+import { Eth, Steth, Solana } from '../icons'
 import { PopupMenu, PopupMenuItem, PopupMenuProps, PopupMenuVariant } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
