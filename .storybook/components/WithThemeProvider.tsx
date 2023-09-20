@@ -1,5 +1,4 @@
 import { Decorator } from '@storybook/react'
-import '@lidofinance/theme'
 import { createGlobalStyle } from 'styled-components'
 import { CookieThemeProvider, ThemeName } from '../../packages/theme'
 

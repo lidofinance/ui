@@ -1,19 +1,4 @@
-import { readdirSync } from 'node:fs'
-import { resolve } from 'node:path'
-
-const basepath = resolve(__dirname, '../packages')
-const packages = readdirSync(basepath)
-module.exports = {
-  webpackFinal: async (config: any) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      ...Object.fromEntries(
-        packages.map((dir) => [`@lidofinance/${dir}`, resolve(basepath, dir)]),
-      ),
-    }
-    return config
-  },
-
+export default {
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
 
   addons: [
