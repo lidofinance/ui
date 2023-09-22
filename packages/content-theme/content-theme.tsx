@@ -2,13 +2,15 @@ import { FC } from 'react'
 import { ContentThemeOnlyDark, ContentThemeOnlyLight } from './styles'
 import { ContentThemeProps } from './types'
 
-export const ContentTheme: FC<ContentThemeProps> = (
-  props: ContentThemeProps,
-) => {
+export const ContentTheme: FC<ContentThemeProps> = ({
+  darkContent,
+  lightContent,
+  ...rest
+}: ContentThemeProps) => {
   return (
     <>
-      <ContentThemeOnlyDark>{props.darkContent}</ContentThemeOnlyDark>
-      <ContentThemeOnlyLight>{props.lightContent}</ContentThemeOnlyLight>
+      <ContentThemeOnlyDark {...rest}>{darkContent}</ContentThemeOnlyDark>
+      <ContentThemeOnlyLight {...rest}>{lightContent}</ContentThemeOnlyLight>
     </>
   )
 }

@@ -5,6 +5,7 @@ export const OptionsSlider = ({
   options,
   value,
   onChange,
+  ...rest
 }: OptionsSliderInputProps) => {
   let sliderIndex = options.findIndex((option) => option.value === value)
 
@@ -36,6 +37,7 @@ export const OptionsSlider = ({
       onLabelClick={(optionIndex) =>
         onChange(options[optionIndex].value, optionIndex)
       }
+      {...rest}
     />
   )
 }

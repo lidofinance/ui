@@ -1,10 +1,10 @@
-import { LidoComponentProps } from '../utils'
+import { IdenticonBadgeProps } from '../identicon'
 
-export type AddressBadgeProps = LidoComponentProps<
-  'div',
-  {
-    address?: string
-    symbolsMobile?: number
-    symbolsDesktop?: number
-  }
->
+export type AddressBadgeProps = Omit<
+  IdenticonBadgeProps,
+  'address' | 'symbol' | 'as' | 'forwardedAs'
+> & {
+  address?: string
+  symbolsMobile?: number
+  symbolsDesktop?: number
+}

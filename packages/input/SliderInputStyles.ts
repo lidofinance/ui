@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const RangeInputSlider = styled.input.attrs({ type: 'range' })`
+export const RangeInputSlider = styled.input`
   width: 100%;
   background-color: transparent;
   -webkit-appearance: none;

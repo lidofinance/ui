@@ -99,7 +99,8 @@ interface OptionsSliderProps {
   onChange: (value: SliderOptionValue, valueIndex: number) => unknown
 }
 
-export type OptionsSliderInputProps = LidoComponentProps<
-  'input',
+export type OptionsSliderInputProps = Omit<
+  SliderInputProps,
+  'value' | 'onChange'
+> &
   OptionsSliderProps
->
