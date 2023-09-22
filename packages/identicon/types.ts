@@ -1,6 +1,6 @@
-import { LidoComponentProps } from '@lidofinance/utils'
+import { LidoComponentProps } from '../utils'
 import { CSSProperties } from 'react'
-export type { Theme } from '@lidofinance/theme'
+export type { Theme } from '../theme'
 
 export type IdenticonProps = LidoComponentProps<
   'div',

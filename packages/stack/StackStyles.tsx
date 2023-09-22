@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Theme } from '@lidofinance/theme'
+import { Theme } from '../theme'
 import {
   StackAligns,
   StackDirections,

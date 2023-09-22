@@ -19,7 +19,7 @@ yarn add @lidofinance/lido-ui
 Then, import Lido theme provider and wrap your components in `_app.js`:
 
 ```js
-import { ThemeProvider } from '@lidofinance/lido-ui'
+import { ThemeProvider } from '../lido-ui'
 
 function App({ Component }) {
   return (
@@ -35,7 +35,7 @@ function App({ Component }) {
 Simply import any components and use in your project:
 
 ```js
-import { Button } from '@lidofinance/lido-ui'
+import { Button } from '../lido-ui'
 ```
 
 ## Developing

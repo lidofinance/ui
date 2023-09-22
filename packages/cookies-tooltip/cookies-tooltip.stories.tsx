@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Text } from '@lidofinance/text'
+import { Text } from '../text'
 import { CookiesTooltip } from '.'
 
 export default {

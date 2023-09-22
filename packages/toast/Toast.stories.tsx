@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Button } from '@lidofinance/button'
-import { Accordion } from '@lidofinance/accordion'
+import { Button } from '../button'
+import { Accordion } from '../accordion'
 import {
   toast,
   ToastPosition,

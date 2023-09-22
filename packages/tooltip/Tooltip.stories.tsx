@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Question } from '@lidofinance/icons'
-import { PopoverOffset, PopoverPlacement } from '@lidofinance/popover'
+import { Question } from '../icons'
+import { PopoverOffset, PopoverPlacement } from '../popover'
 import { Tooltip, TooltipProps } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

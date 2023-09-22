@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react'
 import styled from 'styled-components'
 import withStyledSystem from './withStyledSystem'
-import { ThemeProvider, themeDefault } from '@lidofinance/theme'
+import { ThemeProvider, themeDefault } from '../theme'
 import { render } from '@testing-library/react'
 import { createRef, forwardRef, ForwardedRef } from 'react'
 import 'jest-styled-components'

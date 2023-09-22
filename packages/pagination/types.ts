@@ -1,4 +1,4 @@
-import { LidoComponentProps } from '@lidofinance/utils'
+import { LidoComponentProps } from '../utils'
 import { MouseEvent, ReactNode } from 'react'
 
 export type SiblingsCount = 0 | 1

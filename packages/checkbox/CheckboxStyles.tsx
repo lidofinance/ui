@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Check } from '@lidofinance/icons'
+import { Check } from '../icons'
 
 export const CheckboxWrapperStyle = styled.label`
   flex-shrink: 0;

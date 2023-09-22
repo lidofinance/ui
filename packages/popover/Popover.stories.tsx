@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Button } from '@lidofinance/button'
+import { Button } from '../button'
 import { useCallback, useRef, useState } from 'react'
 import {
   Popover,

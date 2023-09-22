@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { Close, ArrowBack } from '@lidofinance/icons'
-import { ButtonIcon } from '@lidofinance/button'
+import { Close, ArrowBack } from '../icons'
+import { ButtonIcon } from '../button'
 
 export const ModalStyle = styled.div<{ $center: boolean }>`
   ${({
