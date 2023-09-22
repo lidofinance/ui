@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Button } from '@lidofinance/button'
-import { Dark, Light } from '@lidofinance/icons'
+import { Button } from '../button'
+import { Dark, Light } from '../icons'
 
 export const CookieThemeTogglerStyle = styled(Button).attrs({
   variant: 'text',

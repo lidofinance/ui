@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Theme } from '@lidofinance/theme'
+import { Theme } from '../theme'
 import { BlockVariants, BlockColors } from './types'
 
 type InjectedProps = {

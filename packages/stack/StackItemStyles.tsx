@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Theme } from '@lidofinance/theme'
+import { Theme } from '../theme'
 import { StackSpacings } from './types'
 
 export const StackItemStyle = styled.div<{

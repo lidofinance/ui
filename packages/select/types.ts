@@ -1,7 +1,7 @@
-import { InputProps } from '@lidofinance/input'
-import { PopupMenuItemProps } from '@lidofinance/popup-menu'
+import { InputProps } from '../input'
+import { PopupMenuItemProps } from '../popup-menu'
 import { ReactNode, RefObject } from 'react'
-export type { Theme } from '@lidofinance/theme'
+export type { Theme } from '../theme'
 
 export type OptionValue = string | number
 export type SelectHandleChange = (value: OptionValue) => void

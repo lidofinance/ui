@@ -1,10 +1,7 @@
-import { LidoComponentProps } from '@lidofinance/utils'
-import {
-  TransitionWrapperProps,
-  TransitionInnerProps,
-} from '@lidofinance/transition'
+import { LidoComponentProps } from '../utils'
+import { TransitionWrapperProps, TransitionInnerProps } from '../transition'
 import { RefObject } from 'react'
-export type { Theme } from '@lidofinance/theme'
+export type { Theme } from '../theme'
 
 export enum PopoverOffset {
   xs,

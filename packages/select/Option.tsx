@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef, MouseEvent, useCallback } from 'react'
-import { PopupMenuItem } from '@lidofinance/popup-menu'
+import { PopupMenuItem } from '../popup-menu'
 import { OptionProps } from './types'
 
 export const Option = forwardRef(

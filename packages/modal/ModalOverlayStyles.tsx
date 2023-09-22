@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { TransitionInnerProps } from '@lidofinance/transition'
+import { TransitionInnerProps } from '../transition'
 
 type TransitionProps = {
   $duration: number

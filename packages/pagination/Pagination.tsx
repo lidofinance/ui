@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect, FC, MouseEvent } from 'react'
 import styled from 'styled-components'
-import { ArrowLeft, ArrowRight } from '@lidofinance/icons'
-import { Box } from '@lidofinance/box'
+import { ArrowLeft, ArrowRight } from '../icons'
+import { Box } from '../box'
 import {
   PaginationProps,
   PaginationItemProps,

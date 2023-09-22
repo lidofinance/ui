@@ -1,8 +1,8 @@
 import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
-import { useMergeRefs, useEscape, useLockScroll } from '@lidofinance/hooks'
-import { withTransition } from '@lidofinance/transition'
-import { modalRoot } from '@lidofinance/utils'
+import { useMergeRefs, useEscape, useLockScroll } from '../hooks'
+import { withTransition } from '../transition'
+import { modalRoot } from '../utils'
 import { ModalOverlayInnerProps } from './types'
 import {
   ModalPortalStyle,

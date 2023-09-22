@@ -1,4 +1,4 @@
-import { IdenticonBadge } from '@lidofinance/identicon'
+import { IdenticonBadge } from '../identicon'
 import styled from 'styled-components'
 
 export const AddressBadgeStyle = styled(IdenticonBadge)`

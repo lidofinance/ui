@@ -1,4 +1,4 @@
-import { IdenticonBadgeProps } from '@lidofinance/identicon'
+import { IdenticonBadgeProps } from '../identicon'
 
 export type AddressBadgeProps = Omit<
   IdenticonBadgeProps,
