@@ -29,7 +29,7 @@
   }
 
   z-index: 5;
-`,MainMenu=(0,react.forwardRef)((({children,...restProps},ref)=>(0,jsx_runtime.jsx)(Nav,{ref,...restProps,children})));MainMenu.displayName="MainMenu";const NavLink=styled_components_browser_esm.ZP.a`
+`,MainMenu=(0,react.forwardRef)((({children,...rest},ref)=>(0,jsx_runtime.jsx)(Nav,{ref,...rest,children})));MainMenu.displayName="MainMenu";const NavLink=styled_components_browser_esm.ZP.a`
   cursor: pointer;
   color: var(--lido-color-secondary);
   font-size: ${({theme})=>theme.fontSizesMap.xxxs}px;

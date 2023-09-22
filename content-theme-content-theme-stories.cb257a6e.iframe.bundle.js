@@ -33,4 +33,4 @@
   display: var(--lido-color-darkDisplay, contents);
 `,ContentThemeOnlyLight=styled_components_browser_esm.ZP.div`
   display: var(--lido-color-lightDisplay, contents);
-`,ContentTheme=props=>(0,jsx_runtime.jsxs)(jsx_runtime.Fragment,{children:[(0,jsx_runtime.jsx)(ContentThemeOnlyDark,{children:props.darkContent}),(0,jsx_runtime.jsx)(ContentThemeOnlyLight,{children:props.lightContent})]})}}]);
+`,ContentTheme=({darkContent,lightContent,...rest})=>(0,jsx_runtime.jsxs)(jsx_runtime.Fragment,{children:[(0,jsx_runtime.jsx)(ContentThemeOnlyDark,{...rest,children:darkContent}),(0,jsx_runtime.jsx)(ContentThemeOnlyLight,{...rest,children:lightContent})]})}}]);
