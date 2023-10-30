@@ -1,3 +1,6 @@
+const { resolve } = require('node:path')
+const project = resolve(process.cwd(), 'tsconfig.json')
+
 module.exports = {
   env: {
     browser: true,
@@ -21,7 +24,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'node', 'import'],
   rules: {
     'prettier/prettier': 'error',
     'react/prop-types': 'off',
@@ -33,6 +36,11 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
+    // Hacky workaround to enforce extensions in ESM imports. See:
+    // https://github.com/import-js/eslint-plugin-import/issues/2170#issuecomment-1149473239
+    'import/extensions': ['error', 'always', { ts: 'never', tsx: 'never' }],
+    'node/file-extension-in-import': ['error', 'always'],
+    'node/no-missing-import': 'off',
   },
   overrides: [
     {
@@ -55,6 +63,11 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {
+        project,
+      },
     },
   },
   ignorePatterns: ['!.storybook'],
