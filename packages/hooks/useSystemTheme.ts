@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-
-import { ThemeName } from '../theme'
+import { ThemeName } from '../theme/index.js'
 
 export const useSystemTheme = (): ThemeName | undefined => {
   const [systemTheme, setSystemTheme] = useState<ThemeName>()

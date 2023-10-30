@@ -1,5 +1,5 @@
-import { LidoComponentProps } from '../utils'
 import { MouseEvent, ReactNode } from 'react'
+import { LidoComponentProps } from '../utils/index.js'
 
 export type SiblingsCount = 0 | 1
 

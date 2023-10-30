@@ -24,8 +24,8 @@ import {
   position,
   shadow,
 } from 'styled-system'
-import { StyledSystemProps } from './types'
 import { ComponentType } from 'react'
+import { StyledSystemProps } from './types.js'
 
 type MergePropsWithSS<T extends object> = Omit<T, keyof StyledSystemProps> &
   StyledSystemProps

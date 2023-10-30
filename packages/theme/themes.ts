@@ -1,5 +1,5 @@
-import themeBase from './base'
-import { ThemeName } from './constants'
+import themeBase from './base/index.js'
+import { ThemeName } from './constants.js'
 
 export const themeLight = {
   ...themeBase,

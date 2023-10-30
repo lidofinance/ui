@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TrProps } from './types'
-import { TrStyle } from './styles'
+import { TrProps } from './types.js'
+import { TrStyle } from './styles.js'
 
 export const Tr = forwardRef(
   (

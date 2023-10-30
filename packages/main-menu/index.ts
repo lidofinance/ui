@@ -1,3 +1,3 @@
-export * from './MainMenu'
-export * from './MainMenuItem'
-export * from './types'
+export * from './MainMenu.js'
+export * from './MainMenuItem.js'
+export * from './types.js'

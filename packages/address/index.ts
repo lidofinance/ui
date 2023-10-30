@@ -1,3 +1,3 @@
-export * from './Address'
-export * from './trimAddress'
-export * from './types'
+export * from './Address.js'
+export * from './trimAddress.js'
+export * from './types.js'

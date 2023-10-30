@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { LinkStyle } from './LinkStyles'
-import { LinkProps } from './types'
+import { LinkStyle } from './LinkStyles.js'
+import { LinkProps } from './types.js'
 
 export const Link = forwardRef(
   (props: LinkProps, ref?: ForwardedRef<HTMLAnchorElement>) => {

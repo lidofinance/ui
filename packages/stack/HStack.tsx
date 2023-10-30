@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { HStackProps } from './types'
-import { Stack } from './Stack'
+import { HStackProps } from './types.js'
+import { Stack } from './Stack.js'
 
 export const HStack = forwardRef(
   (

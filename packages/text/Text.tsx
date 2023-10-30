@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TextStyle } from './TextStyles'
-import { TextProps } from './types'
+import { TextStyle } from './TextStyles.js'
+import { TextProps } from './types.js'
 
 export const Text = forwardRef(
   (

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { Theme } from '../theme'
-import { BlockVariants, BlockColors } from './types'
+import { Theme } from '../theme/index.js'
+import { BlockVariants, BlockColors } from './types.js'
 
 type InjectedProps = {
   $variant: BlockVariants

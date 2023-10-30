@@ -1,6 +1,9 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { SelectIconProps } from './types'
-import { SelectIconDecoratorStyle, SelectIconStyle } from './SelectIconStyles'
+import { SelectIconProps } from './types.js'
+import {
+  SelectIconDecoratorStyle,
+  SelectIconStyle,
+} from './SelectIconStyles.js'
 
 export const SelectIcon = forwardRef(
   (

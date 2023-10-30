@@ -1,4 +1,4 @@
-import { IdenticonBadgeProps } from '../identicon'
+import { IdenticonBadgeProps } from '../identicon/index.js'
 
 export type AddressBadgeProps = Omit<
   IdenticonBadgeProps,

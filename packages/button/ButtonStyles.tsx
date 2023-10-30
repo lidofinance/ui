@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
-import { Theme } from '../theme'
-import { Loader } from '../loaders'
-import { ButtonColors, ButtonSizes, ButtonVariants } from './types'
+import { Theme } from '../theme/index.js'
+import { Loader } from '../loaders/index.js'
+import { ButtonColors, ButtonSizes, ButtonVariants } from './types.js'
 
 type InjectedProps = {
   $color: ButtonColors

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Theme } from '../theme'
-import { StackSpacings } from './types'
+import { Theme } from '../theme/index.js'
+import { StackSpacings } from './types.js'
 
 export const StackItemStyle = styled.div<{
   $grow: number

@@ -1,7 +1,7 @@
-import { themeDark, themeLight } from '../themes'
-import { generateCssColorVariables } from '../utils/generate-css-color-variables'
-import { globalStyleDataAttribute, ThemeName } from '../constants'
-import { VOID_FN } from '../../utils'
+import { themeDark, themeLight } from '../themes.js'
+import { generateCssColorVariables } from '../utils/generate-css-color-variables.js'
+import { globalStyleDataAttribute, ThemeName } from '../constants.js'
+import { VOID_FN } from '../../utils/index.js'
 
 /**
  * What is happening here:

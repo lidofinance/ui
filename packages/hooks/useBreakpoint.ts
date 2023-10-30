@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Theme } from '../theme'
 import { useTheme } from 'styled-components'
+import { Theme } from '../theme/index.js'
 
 export const useBreakpoint = (
   breakpoint: keyof Theme['breakpointsMap'],

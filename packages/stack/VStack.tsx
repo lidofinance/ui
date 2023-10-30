@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { VStackProps } from './types'
-import { Stack } from './Stack'
+import { VStackProps } from './types.js'
+import { Stack } from './Stack.js'
 
 export const VStack = forwardRef(
   (

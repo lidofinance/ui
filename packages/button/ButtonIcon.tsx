@@ -3,9 +3,9 @@ import {
   ButtonWrapperStyle,
   ButtonIconStyle,
   ButtonContentStyle,
-} from './ButtonIconStyles'
-import { ButtonIconProps } from './types'
-import { Button } from './Button'
+} from './ButtonIconStyles.js'
+import { ButtonIconProps } from './types.js'
+import { Button } from './Button.js'
 
 export const ButtonIcon = forwardRef(
   (

@@ -1,16 +1,16 @@
 import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
-import { useMergeRefs, useEscape, useLockScroll } from '../hooks'
-import { withTransition } from '../transition'
-import { modalRoot } from '../utils'
-import { ModalOverlayInnerProps } from './types'
+import { useMergeRefs, useEscape, useLockScroll } from '../hooks/index.js'
+import { withTransition } from '../transition/index.js'
+import { modalRoot } from '../utils/index.js'
+import { ModalOverlayInnerProps } from './types.js'
 import {
   ModalPortalStyle,
   ModalOverflowStyle,
   ModalContentStyle,
-} from './ModalOverlayStyles'
-import { useModalFocus } from './useModalFocus'
-import { useModalClose } from './useModalClose'
+} from './ModalOverlayStyles.js'
+import { useModalFocus } from './useModalFocus.js'
+import { useModalClose } from './useModalClose.js'
 
 export const ModalOverlay = withTransition(
   // eslint-disable-next-line react/display-name

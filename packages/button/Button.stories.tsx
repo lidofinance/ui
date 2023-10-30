@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Whitepaper } from '../icons'
+import { Whitepaper } from '../icons/index.js'
 import {
   Button,
   ButtonIcon,

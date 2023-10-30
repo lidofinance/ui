@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TdProps } from './types'
-import { TdStyle, ThTdContentStyle } from './styles'
+import { TdProps } from './types.js'
+import { TdStyle, ThTdContentStyle } from './styles.js'
 
 export const Td = forwardRef(
   (

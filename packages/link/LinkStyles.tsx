@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { LinkProps } from './types'
+import { LinkProps } from './types.js'
 
 export const LinkStyle = styled.a`
   text-decoration: none;

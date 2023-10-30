@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+
 export const desktopCss = css`
   margin: 0 46px;
   display: flex;

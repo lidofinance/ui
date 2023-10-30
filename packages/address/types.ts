@@ -1,4 +1,4 @@
-import { LidoComponentProps } from '../utils'
+import { LidoComponentProps } from '../utils/index.js'
 
 export type AddressProps = LidoComponentProps<
   'div',

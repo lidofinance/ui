@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { StackItemStyle } from './StackItemStyles'
-import { useStackContext } from './StackProvider'
-import { StackItemProps } from './types'
+import { StackItemStyle } from './StackItemStyles.js'
+import { useStackContext } from './StackProvider.js'
+import { StackItemProps } from './types.js'
 
 export const StackItem = forwardRef(
   (

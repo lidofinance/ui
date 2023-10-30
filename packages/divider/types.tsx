@@ -1,5 +1,5 @@
-import { LidoComponentProps } from '../utils'
-export type { Theme } from '../theme'
+export type { Theme } from '../theme/index.js'
+import { LidoComponentProps } from '../utils/index.js'
 
 export enum DividerType {
   vertical,

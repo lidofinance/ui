@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components'
-import { InputMessageVariants, InputVariants, InputColors } from './types'
+import { InputMessageVariants, InputVariants, InputColors } from './types.js'
 import {
   labelEmptyValueCSS,
   labelFocusCSS,
   labelErrorCSS,
   InputLabelStyle,
   labelWarningCSS,
-} from './LabelStyles'
+} from './LabelStyles.js'
 
 const statesCSS = css`
   &:hover {

@@ -4,9 +4,9 @@ import {
   PopupMenuItemContentStyle,
   PopupMenuItemLeftDecoratorStyle,
   PopupMenuItemRightDecoratorStyle,
-} from './PopupMenuItemStyles'
-import { usePopupMenuContext } from './PopupMenuProvider'
-import { PopupMenuItemProps } from './types'
+} from './PopupMenuItemStyles.js'
+import { usePopupMenuContext } from './PopupMenuProvider.js'
+import { PopupMenuItemProps } from './types.js'
 
 export const PopupMenuItem = forwardRef(
   (

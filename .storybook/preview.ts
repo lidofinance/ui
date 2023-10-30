@@ -1,6 +1,6 @@
-import { WithThemeProvider } from './components/WithThemeProvider'
-import themesParameters from './themes'
-import viewportParameters from './viewport'
+import { WithThemeProvider } from './components/WithThemeProvider.js'
+import themesParameters from './themes.js'
+import viewportParameters from './viewport.js'
 
 export const parameters = {
   ...themesParameters,

@@ -1,13 +1,19 @@
-import { StoryFn, Meta } from '@storybook/react'
-import { Eth } from '../icons'
-import { Block } from '../block'
-import { Button } from '../button'
-import { Identicon } from '../identicon'
 import styled from 'styled-components'
+import { StoryFn, Meta } from '@storybook/react'
+import { Eth } from '../icons/index.js'
+import { Block } from '../block/index.js'
+import { Button } from '../button/index.js'
+import { Identicon } from '../identicon/index.js'
 import { useCallback, useState } from 'react'
-import { ModalProps } from '../modal/types'
-import { Modal } from '../modal/Modal'
-import { Input, InputProps, InputType, InputVariant, InputColor } from '.'
+import { ModalProps } from '../modal/types.js'
+import { Modal } from '../modal/Modal.js'
+import {
+  Input,
+  InputProps,
+  InputType,
+  InputVariant,
+  InputColor,
+} from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

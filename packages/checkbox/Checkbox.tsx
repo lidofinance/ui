@@ -1,12 +1,12 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { CheckboxProps } from './types'
+import { CheckboxProps } from './types.js'
 import {
   CheckboxWrapperStyle,
   CheckboxInputStyle,
   CheckboxIconStyle,
-} from './CheckboxStyles'
-import { Text } from '../text'
-import { Box } from '../box'
+} from './CheckboxStyles.js'
+import { Text } from '../text/index.js'
+import { Box } from '../box/index.js'
 
 export const Checkbox = forwardRef(
   (

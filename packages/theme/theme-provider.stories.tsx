@@ -6,7 +6,7 @@ import {
   DarkThemeProvider,
   LightThemeProvider,
   ThemeProvider,
-} from '.'
+} from './index.js'
 
 export default {
   title: 'Theme/Providers',

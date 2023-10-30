@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Address, AddressProps } from '.'
+import { Address, AddressProps } from './index.js'
 
 export default {
   component: Address,

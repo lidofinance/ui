@@ -3,9 +3,9 @@ import {
   CookieThemeTogglerStyle,
   CookieThemeTogglerDarkIcon,
   CookieThemeTogglerLightIcon,
-} from './styles'
-import { useThemeToggle } from '../theme'
-import { ButtonProps } from '../button'
+} from './styles.js'
+import { useThemeToggle } from '../theme/index.js'
+import { ButtonProps } from '../button/index.js'
 
 export type ThemeTogglerProps = Omit<ButtonProps, 'color' | 'onClick'>
 

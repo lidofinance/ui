@@ -1,2 +1,2 @@
-export * from './Checkbox'
-export * from './types'
+export * from './Checkbox.js'
+export * from './types.js'

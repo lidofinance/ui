@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Stake, Wrap, Wallet } from '../icons'
-import { MainMenu, MainMenuItem } from '.'
+import { Stake, Wrap, Wallet } from '../icons/index.js'
+import { MainMenu, MainMenuItem } from './index.js'
 
 export default {
   component: MainMenu,

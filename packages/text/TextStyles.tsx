@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { Theme } from '../theme'
-import { TextColors, TextProps, TextSizes, TextWeight } from './types'
+import { Theme } from '../theme/index.js'
+import { TextColors, TextProps, TextSizes, TextWeight } from './types.js'
 
 export const sizes = {
   xxs: css`

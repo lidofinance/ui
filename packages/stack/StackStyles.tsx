@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { Theme } from '../theme'
+import { Theme } from '../theme/index.js'
 import {
   StackAligns,
   StackDirections,
   StackJustifies,
   StackSpacings,
   StackWraps,
-} from './types'
+} from './types.js'
 
 export const StackStyle = styled.div<{
   $align: StackAligns

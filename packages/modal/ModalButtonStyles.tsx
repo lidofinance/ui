@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-
-import { Button } from '../button'
+import { Button } from '../button/index.js'
 
 export const ModalButtonStyle = styled(Button)`
   border: ${({ active }) =>

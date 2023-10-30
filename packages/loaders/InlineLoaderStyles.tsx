@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { InlineLoaderColors } from './types'
+import { InlineLoaderColors } from './types.js'
 
 export const translation = keyframes`
   100% {

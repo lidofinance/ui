@@ -1,2 +1,2 @@
-export * from './content-theme'
-export * from './types'
+export * from './content-theme.js'
+export * from './types.js'

@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TableProps } from './types'
-import { TableStyle } from './styles'
+import { TableProps } from './types.js'
+import { TableStyle } from './styles.js'
 
 export const Table = forwardRef(
   (props: TableProps, ref?: ForwardedRef<HTMLTableElement>) => {

@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { HeadingStyle, H1Style, H2Style, H3Style } from './HeadingStyles'
-import { HeadingProps, HProps } from './types'
+import { HeadingStyle, H1Style, H2Style, H3Style } from './HeadingStyles.js'
+import { HeadingProps, HProps } from './types.js'
 
 export const Heading = forwardRef(
   (

@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { DividerStyle } from './DividerStyles'
-import { DividerProps } from './types'
+import { DividerStyle } from './DividerStyles.js'
+import { DividerProps } from './types.js'
 
 export const Divider = forwardRef(
   (

@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { useBreakpoint } from '../hooks'
-import { AddressBadgeStyle } from './AddressBadgeStyles'
-import { AddressBadgeProps } from './types'
+import { useBreakpoint } from '../hooks/useBreakpoint.js'
+import { AddressBadgeStyle } from './AddressBadgeStyles.js'
+import { AddressBadgeProps } from './types.js'
 
 export const AddressBadge = forwardRef(
   (

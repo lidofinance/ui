@@ -1,2 +1,2 @@
-export * from './Accordion'
-export * from './types'
+export * from './Accordion.js'
+export * from './types.js'

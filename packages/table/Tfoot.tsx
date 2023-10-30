@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TfootProps } from './types'
-import { TfootStyle } from './styles'
+import { TfootProps } from './types.js'
+import { TfootStyle } from './styles.js'
 
 export const Tfoot = forwardRef(
   (props: TfootProps, ref?: ForwardedRef<HTMLTableSectionElement>) => {

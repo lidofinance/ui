@@ -1,11 +1,11 @@
 import { ForwardedRef, forwardRef, useRef } from 'react'
-import { SelectWrapperStyle } from './SelectStyles'
-import { SelectArrow } from './SelectArrow'
-import { useMergeRefs } from '../hooks'
-import { PopupMenu } from '../popup-menu'
-import { SelectProps } from './types'
-import { useSelect } from './useSelect'
-import { useSelectWidth } from './useSelectWidth'
+import { SelectWrapperStyle } from './SelectStyles.js'
+import { SelectArrow } from './SelectArrow.js'
+import { useMergeRefs } from '../hooks/index.js'
+import { PopupMenu } from '../popup-menu/index.js'
+import { SelectProps } from './types.js'
+import { useSelect } from './useSelect.js'
+import { useSelectWidth } from './useSelectWidth.js'
 
 export const Select = forwardRef(
   (

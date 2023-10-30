@@ -1,4 +1,4 @@
-import { SiblingsCount } from './types'
+import { SiblingsCount } from './types.js'
 
 export const arrayPusher = (): ((
   arr: unknown[],

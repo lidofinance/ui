@@ -1,6 +1,6 @@
-import { VOID_FN } from '../../utils'
-import { themeCookieKey, ThemeName } from '../constants'
-import { setThemeCookie } from '../utils/set-theme-cookie'
+import { VOID_FN } from '../../utils/index.js'
+import { themeCookieKey, ThemeName } from '../constants.js'
+import { setThemeCookie } from '../utils/set-theme-cookie.js'
 
 /**
  * What is happening here:

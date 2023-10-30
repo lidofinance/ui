@@ -1,11 +1,11 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { ThProps } from './types'
+import { ThProps } from './types.js'
 import {
   ThStyle,
   ThTdContentStyle,
   ArrowBottomStyle,
   ArrowTopStyle,
-} from './styles'
+} from './styles.js'
 
 export const Th = forwardRef(
   (

@@ -7,9 +7,9 @@ import {
   InputLeftDecoratorStyle,
   InputRightDecoratorStyle,
   InputMessageStyle,
-} from './InputStyles'
-import { InputLabelStyle } from './LabelStyles'
-import { InputProps } from './types'
+} from './InputStyles.js'
+import { InputLabelStyle } from './LabelStyles.js'
+import { InputProps } from './types.js'
 
 export const Input = forwardRef(
   (

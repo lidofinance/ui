@@ -5,9 +5,9 @@ import {
   TextareaStyle,
   InputMessageStyle,
   InputControlWrapperStyle,
-} from './InputStyles'
-import { TextareaLabelStyle } from './LabelStyles'
-import { TextareaProps } from './types'
+} from './InputStyles.js'
+import { TextareaLabelStyle } from './LabelStyles.js'
+import { TextareaProps } from './types.js'
 
 export const Textarea = forwardRef(
   (

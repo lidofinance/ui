@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { Theme } from '../theme'
-import { PaginationItemVariant } from './types'
+import { Theme } from '../theme/index.js'
+import { PaginationItemVariant } from './types.js'
 
 type InjectedProps = {
   $variant: PaginationItemVariant

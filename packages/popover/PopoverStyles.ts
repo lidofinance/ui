@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { PopoverRoot } from './PopoverRoot'
-import { PopoverOffsets, PopoverPlacements } from './types'
-import { Theme } from '../theme'
+import { PopoverRoot } from './PopoverRoot.js'
+import { PopoverOffsets, PopoverPlacements } from './types.js'
+import { Theme } from '../theme/index.js'
 
 type InjectedProps = {
   $offset: PopoverOffsets

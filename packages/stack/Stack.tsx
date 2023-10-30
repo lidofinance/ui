@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { StackProvider } from './StackProvider'
-import { StackStyle } from './StackStyles'
-import { StackProps } from './types'
+import { StackProvider } from './StackProvider.js'
+import { StackStyle } from './StackStyles.js'
+import { StackProps } from './types.js'
 
 export const Stack = forwardRef(
   (

@@ -8,7 +8,7 @@ import {
   HeadingColor,
   HeadingSize,
   HProps,
-} from '.'
+} from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

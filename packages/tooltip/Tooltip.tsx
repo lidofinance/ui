@@ -7,10 +7,10 @@ import {
   useState,
   MouseEvent,
 } from 'react'
-import { TooltipPopoverStyle } from './TooltipStyles'
-import { useMergeRefs } from '../hooks'
 import { isElement } from 'react-is'
-import { TooltipProps } from './types'
+import { TooltipPopoverStyle } from './TooltipStyles.js'
+import { useMergeRefs } from '../hooks/index.js'
+import { TooltipProps } from './types.js'
 
 const BODY_PERSISTENT_TIMEOUT = 150
 

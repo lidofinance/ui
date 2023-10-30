@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import * as components from './index'
+import * as components from './index.js'
 
 type ComponentName = keyof typeof components
 

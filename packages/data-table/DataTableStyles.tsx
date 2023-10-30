@@ -1,5 +1,5 @@
-import { Question } from '../icons'
 import styled from 'styled-components'
+import { Question } from '../icons/index.js'
 
 export const DataTableStyle = styled.div``
 

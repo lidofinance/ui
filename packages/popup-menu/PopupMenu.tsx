@@ -1,9 +1,9 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { useMergeRefs } from '../hooks'
-import { PopupMenuProvider } from './PopupMenuProvider'
-import { PopupMenuStyle } from './PopupMenuStyles'
-import { PopupMenuProps } from './types'
-import { usePopupFocus } from './usePopupFocus'
+import { useMergeRefs } from '../hooks/index.js'
+import { PopupMenuProvider } from './PopupMenuProvider.js'
+import { PopupMenuStyle } from './PopupMenuStyles.js'
+import { PopupMenuProps } from './types.js'
+import { usePopupFocus } from './usePopupFocus.js'
 
 export const PopupMenu = forwardRef(
   (

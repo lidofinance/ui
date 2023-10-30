@@ -6,8 +6,8 @@ import {
   Slider,
   SliderWrapper,
   Track,
-} from './SliderInputStyles'
-import { SliderInputProps } from './types'
+} from './SliderInputStyles.js'
+import { SliderInputProps } from './types.js'
 
 export const SliderInput = ({
   value,

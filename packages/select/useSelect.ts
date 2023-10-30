@@ -10,7 +10,7 @@ import {
   ReactNode,
 } from 'react'
 import { isElement } from 'react-is'
-import { SelectProps, SelectHandleChange, OptionValue } from './types'
+import { SelectProps, SelectHandleChange, OptionValue } from './types.js'
 
 type SelectHandleClick = (event: MouseEvent<HTMLInputElement>) => void
 

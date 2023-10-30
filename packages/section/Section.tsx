@@ -1,11 +1,11 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { SectionProps } from './types'
+import { SectionProps } from './types.js'
 import {
   SectionStyle,
   SectionHeaderStyle,
   SectionTitleStyle,
   SectionHeaderDecoratorStyle,
-} from './SectionStyles'
+} from './SectionStyles.js'
 
 export const Section = forwardRef(
   (

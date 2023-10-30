@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect, useRef } from 'react'
-import { useInterceptFocus } from '../hooks'
-import { FOCUSABLE_ELEMENTS } from './constants'
+import { useInterceptFocus } from '../hooks/index.js'
+import { FOCUSABLE_ELEMENTS } from './constants.js'
 
 export const useModalFocus = (): RefObject<HTMLDivElement> => {
   const modalRef = useRef<HTMLDivElement>(null)

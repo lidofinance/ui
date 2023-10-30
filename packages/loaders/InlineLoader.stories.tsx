@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import styled from 'styled-components'
-import { InlineLoader, InlineLoaderProps, InlineLoaderColor } from '.'
+import { InlineLoader, InlineLoaderProps, InlineLoaderColor } from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

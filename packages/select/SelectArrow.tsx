@@ -1,6 +1,9 @@
 import { FC } from 'react'
-import { SelectArrowBigStyle, SelectArrowSmallStyle } from './SelectArrowStyles'
-import { SelectArrows } from './types'
+import {
+  SelectArrowBigStyle,
+  SelectArrowSmallStyle,
+} from './SelectArrowStyles.js'
+import { SelectArrows } from './types.js'
 
 type SelectArrowProps = {
   arrow: SelectArrows

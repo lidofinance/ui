@@ -1,2 +1,2 @@
-export * from './DataTable'
-export * from './types'
+export * from './DataTable.js'
+export * from './types.js'

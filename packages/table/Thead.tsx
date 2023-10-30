@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TheadProps } from './types'
-import { TheadStyle } from './styles'
+import { TheadProps } from './types.js'
+import { TheadStyle } from './styles.js'
 
 export const Thead = forwardRef(
   (

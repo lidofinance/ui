@@ -10,9 +10,9 @@ import {
   ModalContentStyle,
   ModalBackStyle,
   ModalSubtitleStyle,
-} from './ModalStyles'
-import { ModalProps } from './types'
-import { ModalOverlay } from './ModalOverlay'
+} from './ModalStyles.js'
+import { ModalProps } from './types.js'
+import { ModalOverlay } from './ModalOverlay.js'
 
 export const Modal = forwardRef(
   (

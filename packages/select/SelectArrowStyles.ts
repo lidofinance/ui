@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ArrowBottom } from '../icons'
+import { ArrowBottom } from '../icons/index.js'
 
 type InjectedProps = {
   $opened: boolean

@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { IdenticonProps } from './types'
-import { IdenticonStyle } from './IdenticonStyles'
+import { IdenticonProps } from './types.js'
+import { IdenticonStyle } from './IdenticonStyles.js'
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 
 export const Identicon = forwardRef(

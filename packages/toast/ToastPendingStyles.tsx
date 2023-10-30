@@ -1,5 +1,5 @@
-import { Loader } from '../loaders'
 import styled from 'styled-components'
+import { Loader } from '../loaders/index.js'
 
 export const ToastPendingStyle = styled.div`
   display: flex;

@@ -2,7 +2,7 @@ import type {
   TransitionProps,
   TransitionStatus,
   TransitionActions,
-} from 'react-transition-group/Transition'
+} from 'react-transition-group/Transition.js'
 
 export type TransitionWrapperProps = Partial<
   Pick<

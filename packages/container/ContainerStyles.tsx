@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ContainerSizes } from './types'
+import { ContainerSizes } from './types.js'
 
 const sizes = {
   full: css`

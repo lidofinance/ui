@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { ContainerStyle } from './ContainerStyles'
-import { ContainerProps } from './types'
+import { ContainerStyle } from './ContainerStyles.js'
+import { ContainerProps } from './types.js'
 
 export const Container = forwardRef(
   (

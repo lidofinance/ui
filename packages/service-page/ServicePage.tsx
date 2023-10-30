@@ -1,8 +1,11 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { ServicePageStyle, ServicePageInsideStyle } from './ServicePageStyles'
-import { H1 } from '../heading'
-import { Text } from '../text'
-import { ServicePageProps } from './types'
+import {
+  ServicePageStyle,
+  ServicePageInsideStyle,
+} from './ServicePageStyles.js'
+import { H1 } from '../heading/index.js'
+import { Text } from '../text/index.js'
+import { ServicePageProps } from './types.js'
 
 export const ServicePage = forwardRef(
   (

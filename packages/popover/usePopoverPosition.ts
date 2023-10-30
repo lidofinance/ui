@@ -5,10 +5,10 @@ import {
   CSSProperties,
   RefObject,
 } from 'react'
-import { useWindowSize } from '../hooks'
-import { PopoverRootProps } from './types'
-import { INITIAL_STYLE, DEFAULT_PLACEMENT } from './constants'
-import { calculatePosition } from './calculatePosition'
+import { useWindowSize } from '../hooks/index.js'
+import { PopoverRootProps } from './types.js'
+import { INITIAL_STYLE, DEFAULT_PLACEMENT } from './constants.js'
+import { calculatePosition } from './calculatePosition.js'
 
 export const usePopoverPosition = <
   P extends HTMLDivElement,

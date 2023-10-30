@@ -1,6 +1,9 @@
-import { getDomainCookieClientSide, removeCookiesClientSide } from '../../utils'
-import { themeCookieKey, ThemeName } from '../constants'
-import { setThemeCookie } from './set-theme-cookie'
+import {
+  getDomainCookieClientSide,
+  removeCookiesClientSide,
+} from '../../utils/index.js'
+import { themeCookieKey, ThemeName } from '../constants.js'
+import { setThemeCookie } from './set-theme-cookie.js'
 
 const THEME_AUTO_KEY = 'lido-theme-auto'
 const THEME_MANUAL_KEY = themeCookieKey // lido-theme-manual

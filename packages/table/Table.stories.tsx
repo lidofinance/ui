@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { StoryFn, Meta } from '@storybook/react'
-import { Light, Eth } from '../icons'
+import { Light, Eth } from '../icons/index.js'
 import {
   Table,
   Thead,
@@ -13,7 +13,7 @@ import {
   TableAlign,
   ThSortDirs,
   TrHighlight,
-} from '.'
+} from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

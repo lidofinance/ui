@@ -1,2 +1,2 @@
-export * from './Text'
-export * from './types'
+export * from './Text.js'
+export * from './types.js'

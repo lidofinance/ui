@@ -1,8 +1,13 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { useCallback, useRef, useState } from 'react'
-import { Button } from '../button'
-import { Eth, Steth, Solana } from '../icons'
-import { PopupMenu, PopupMenuItem, PopupMenuProps, PopupMenuVariant } from '.'
+import { Button } from '../button/index.js'
+import { Eth, Steth, Solana } from '../icons/index.js'
+import {
+  PopupMenu,
+  PopupMenuItem,
+  PopupMenuProps,
+  PopupMenuVariant,
+} from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

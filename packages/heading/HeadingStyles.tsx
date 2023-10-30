@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { Theme } from '../theme'
-import { HeadingColors, HeadingSizes } from './types'
+import { Theme } from '../theme/index.js'
+import { HeadingColors, HeadingSizes } from './types.js'
 
 export const sizes = {
   sm: css`

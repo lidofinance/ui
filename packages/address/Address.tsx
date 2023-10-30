@@ -1,11 +1,11 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { AddressProps } from './types'
+import { AddressProps } from './types.js'
 import {
   AddressStyle,
   AddressFullStyle,
   AddressTrimmedStyle,
-} from './AddressStyles'
-import { trimAddress } from './trimAddress'
+} from './AddressStyles.js'
+import { trimAddress } from './trimAddress.js'
 
 export const Address = forwardRef(
   (

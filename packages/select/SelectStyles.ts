@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { Input } from '../input'
-import { SelectProps } from './types'
+import { Input } from '../input/index.js'
+import { SelectProps } from './types.js'
 
 const smallCSS = css`
   input {

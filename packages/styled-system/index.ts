@@ -1,2 +1,2 @@
-export { default as withStyledSystem } from './withStyledSystem'
-export * from './types'
+export { default as withStyledSystem } from './withStyledSystem.js'
+export * from './types.js'

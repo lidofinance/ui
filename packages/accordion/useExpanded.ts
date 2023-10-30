@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
-import { AccordionProps } from './types'
+import { AccordionProps } from './types.js'
 import useCollapse from 'react-collapsed'
 import {
   GetCollapsePropsOutput,
   GetTogglePropsOutput,
-} from 'react-collapsed/dist/types'
+} from 'react-collapsed/dist/types.js'
 
 type UseExpanded = (props: Pick<AccordionProps, 'defaultExpanded'>) => {
   toggleProps: GetTogglePropsOutput

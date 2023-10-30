@@ -1,5 +1,5 @@
-import { SliderInput } from './SliderInput'
-import { OptionsSliderInputProps } from './types'
+import { SliderInput } from './SliderInput.js'
+import { OptionsSliderInputProps } from './types.js'
 
 export const OptionsSlider = ({
   options,

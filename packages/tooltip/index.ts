@@ -1,2 +1,2 @@
-export * from './Tooltip'
-export * from './types'
+export * from './Tooltip.js'
+export * from './types.js'

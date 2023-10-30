@@ -1,14 +1,14 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { InlineLoader } from '../loaders'
-import { Tooltip } from '../tooltip'
+import { InlineLoader } from '../loaders/index.js'
+import { Tooltip } from '../tooltip/index.js'
 import {
   DataTableStyle,
   DataTableRowStyle,
   DataTableTitleStyle,
   DataTableValueStyle,
   DataTableQuestionStyle,
-} from './DataTableStyles'
-import { DataTableProps, DataTableRowProps } from './types'
+} from './DataTableStyles.js'
+import { DataTableProps, DataTableRowProps } from './types.js'
 
 export const DataTableRow = forwardRef(
   (

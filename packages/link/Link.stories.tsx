@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Link, LinkProps } from '.'
+import { Link, LinkProps } from './index.js'
 
 export default {
   component: Link,

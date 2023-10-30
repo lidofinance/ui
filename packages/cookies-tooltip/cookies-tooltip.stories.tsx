@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Text } from '../text'
-import { CookiesTooltip } from '.'
+import { Text } from '../text/index.js'
+import { CookiesTooltip } from './index.js'
 
 export default {
   title: 'CookiesTooltip/Basic',

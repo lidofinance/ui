@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Checkbox, CheckboxProps } from '.'
+import { Checkbox, CheckboxProps } from './index.js'
 
 export default {
   component: Checkbox,

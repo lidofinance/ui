@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Popover } from '../popover'
+import { Popover } from '../popover/index.js'
 
 export const TooltipPopoverStyle = styled(Popover)`
   && {
