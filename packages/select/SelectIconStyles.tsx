@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { Select } from './Select.js'
 
 export const SelectIconStyle = styled(Select)`

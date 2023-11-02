@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { StoryFn, Meta } from '@storybook/react'
 import { Button, ButtonProps, ButtonSize } from '../button/index.js'
 import { Loader } from '../loaders/index.js'

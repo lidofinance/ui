@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '../utils/styled-components-wrapper.js'
 import { Theme } from '../theme/index.js'
 import { TextColors, TextProps, TextSizes, TextWeight } from './types.js'
 

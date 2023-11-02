@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { StoryFn, Meta } from '@storybook/react'
 import { Eth } from '../icons/index.js'
 import { Block } from '../block/index.js'

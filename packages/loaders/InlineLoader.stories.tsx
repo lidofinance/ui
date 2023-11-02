@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { InlineLoader, InlineLoaderProps, InlineLoaderColor } from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>

@@ -4,7 +4,7 @@ import React, {
   forwardRef,
   ForwardedRef,
 } from 'react'
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import 'jest-styled-components'
 import { render } from '@testing-library/react'
 import withStyledSystem from './withStyledSystem.js'

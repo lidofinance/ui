@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css, keyframes } from '../utils/styled-components-wrapper.js'
 import { Theme } from '../theme/index.js'
 import { Loader } from '../loaders/index.js'
 import { ButtonColors, ButtonSizes, ButtonVariants } from './types.js'

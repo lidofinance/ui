@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { PopoverRoot } from './PopoverRoot.js'
 import { PopoverOffsets, PopoverPlacements } from './types.js'
 import { Theme } from '../theme/index.js'

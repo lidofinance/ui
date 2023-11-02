@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { ArrowBottom } from '../icons/index.js'
 
 export const AccordionStyle = styled.div`

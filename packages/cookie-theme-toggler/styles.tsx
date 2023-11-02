@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { Button } from '../button/index.js'
 import { Dark, Light } from '../icons/index.js'
 

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '../utils/styled-components-wrapper.js'
 import { ArrowTop, ArrowBottom } from '../icons/index.js'
 import {
   TableAligns,

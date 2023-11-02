@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 
 export const ContentThemeOnlyDark = styled.div`
   display: var(--lido-color-darkDisplay, contents);

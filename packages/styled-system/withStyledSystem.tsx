@@ -9,7 +9,7 @@ import styled, {
   StyledComponentInnerOtherProps,
   StyledComponentInnerAttrs,
   DefaultTheme,
-} from 'styled-components'
+} from '../utils/styled-components-wrapper.js'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   compose,

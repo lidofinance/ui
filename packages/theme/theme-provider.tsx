@@ -1,5 +1,7 @@
 import { FC, PropsWithChildren } from 'react'
-import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import styled, {
+  ThemeProvider as StyledThemeProvider,
+} from '../utils/styled-components-wrapper.js'
 import {
   reverseThemeMap,
   themeDark,

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '../utils/styled-components-wrapper.js'
 
 export const desktopCss = css`
   margin: 0 46px;

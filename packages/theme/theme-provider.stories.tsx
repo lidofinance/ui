@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { FC, PropsWithChildren } from 'react'
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import {
   themeLight,
   DarkThemeProvider,

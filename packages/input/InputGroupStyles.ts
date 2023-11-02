@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { InputWrapperStyle, InputContentStyle } from './InputStyles.js'
 
 export const InputGroupStyle = styled.span<{ $fullwidth: boolean }>`

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { Theme } from '../theme/index.js'
 import { StackSpacings } from './types.js'
 

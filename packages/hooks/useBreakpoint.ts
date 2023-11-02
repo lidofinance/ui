@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useTheme } from 'styled-components'
+import { useTheme } from '../utils/styled-components-wrapper.js'
 import { Theme } from '../theme/index.js'
 
 export const useBreakpoint = (

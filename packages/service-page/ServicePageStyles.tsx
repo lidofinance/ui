@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 
 export const ServicePageStyle = styled.div`
   height: 100vh;

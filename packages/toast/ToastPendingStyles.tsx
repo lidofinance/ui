@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { Loader } from '../loaders/index.js'
 
 export const ToastPendingStyle = styled.div`

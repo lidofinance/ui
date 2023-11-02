@@ -8,7 +8,7 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import { ThemeProvider as StyledThemeProvider } from '../utils/styled-components-wrapper.js'
 import {
   DEFAULT_THEME_NAME,
   prefersDarkThemeMediaQuery,

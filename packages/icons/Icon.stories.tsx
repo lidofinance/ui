@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import * as components from './index.js'
 
 type IconVariants = keyof typeof components

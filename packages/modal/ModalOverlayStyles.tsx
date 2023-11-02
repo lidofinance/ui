@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { TransitionInnerProps } from '../transition/index.js'
 
 type TransitionProps = {

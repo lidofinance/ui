@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { StoryFn, Meta } from '@storybook/react'
 import { Container, ContainerProps, ContainerSize } from './index.js'
 

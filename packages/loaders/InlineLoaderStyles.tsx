@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from '../utils/styled-components-wrapper.js'
 import { InlineLoaderColors } from './types.js'
 
 export const translation = keyframes`

@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect, FC, MouseEvent } from 'react'
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { ArrowLeft, ArrowRight } from '../icons/index.js'
 import { Box } from '../box/index.js'
 import {

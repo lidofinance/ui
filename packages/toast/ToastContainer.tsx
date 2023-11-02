@@ -1,5 +1,5 @@
 import { ToastContainer as SourceToastContainer } from 'react-toastify'
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 
 export const ToastContainer = styled(SourceToastContainer).attrs({
   draggable: false,
