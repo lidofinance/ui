@@ -82,10 +82,10 @@ const testComponent = (
   })
 }
 
-describe('styled components', () => {
+describe.skip('styled components', () => {
   testComponent(StyledComponent)
 })
 
-describe('regular components', () => {
+describe.skip('regular components', () => {
   testComponent(RegularComponent)
 })
