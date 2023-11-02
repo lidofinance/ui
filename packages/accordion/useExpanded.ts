@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import { AccordionProps } from './types.js'
-import useCollapse from 'react-collapsed'
+import _useCollapse from 'react-collapsed'
 import {
   GetCollapsePropsOutput,
   GetTogglePropsOutput,
 } from 'react-collapsed/dist/types.js'
+
+//@ts-expect-error Property default doesn't exist on type
+const useCollapse = _useCollapse.default || _useCollapse
 
 type UseExpanded = (props: Pick<AccordionProps, 'defaultExpanded'>) => {
   toggleProps: GetTogglePropsOutput
