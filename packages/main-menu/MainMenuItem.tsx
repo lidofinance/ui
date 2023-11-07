@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { MainMenuItemProps } from './types'
-import { NavLink } from './MainMenuItemStyles'
+import { MainMenuItemProps } from './types.js'
+import { NavLink } from './MainMenuItemStyles.js'
 
 export const MainMenuItem = forwardRef(
   (

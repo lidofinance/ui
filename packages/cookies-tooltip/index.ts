@@ -1,2 +1,2 @@
-export * from './cookies-tooltip'
-export { migrationAllowCookieToCrossDomainCookieClientSide } from './utils'
+export * from './cookies-tooltip.js'
+export { migrationAllowCookieToCrossDomainCookieClientSide } from './utils.js'

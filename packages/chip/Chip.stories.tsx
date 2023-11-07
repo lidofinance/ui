@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Chip, ChipVariant } from '.'
+import { Chip, ChipVariant } from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

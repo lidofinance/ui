@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { InputMessageStyle } from './InputStyles'
-import { InputGroupStyle, InputGroupContentStyle } from './InputGroupStyles'
-import { InputGroupProps } from './types'
+import { InputMessageStyle } from './InputStyles.js'
+import { InputGroupStyle, InputGroupContentStyle } from './InputGroupStyles.js'
+import { InputGroupProps } from './types.js'
 
 export const InputGroup = forwardRef(
   (

@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { InlineLoaderProps } from './types'
-import { InlineLoaderStyle } from './InlineLoaderStyles'
+import { InlineLoaderProps } from './types.js'
+import { InlineLoaderStyle } from './InlineLoaderStyles.js'
 
 export const InlineLoader = forwardRef(
   (

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { ArrowBottom } from '../icons'
+import styled from '../utils/styled-components-wrapper.js'
+import { ArrowBottom } from '../icons/index.js'
 
 export const AccordionStyle = styled.div`
   margin: 0 0 ${({ theme }) => theme.spaceMap.sm}px 0;

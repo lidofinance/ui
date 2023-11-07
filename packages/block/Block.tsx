@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { BlockStyle } from './BlockStyles'
-import { BlockProps } from './types'
+import { BlockStyle } from './BlockStyles.js'
+import { BlockProps } from './types.js'
 
 export const Block = forwardRef(
   (

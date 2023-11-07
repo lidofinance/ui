@@ -1,7 +1,7 @@
-import { InputProps } from '../input'
-import { PopupMenuItemProps } from '../popup-menu'
 import { ReactNode, RefObject } from 'react'
-export type { Theme } from '../theme'
+import { InputProps } from '../input/index.js'
+import { PopupMenuItemProps } from '../popup-menu/index.js'
+export type { Theme } from '../theme/index.js'
 
 export type OptionValue = string | number
 export type SelectHandleChange = (value: OptionValue) => void

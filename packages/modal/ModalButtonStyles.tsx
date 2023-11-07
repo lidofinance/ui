@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-
-import { Button } from '../button'
+import styled from '../utils/styled-components-wrapper.js'
+import { Button } from '../button/index.js'
 
 export const ModalButtonStyle = styled(Button)`
   border: ${({ active }) =>

@@ -1,13 +1,13 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { AccordionProps } from './types'
+import { AccordionProps } from './types.js'
 import {
   AccordionStyle,
   AccordionSummaryStyle,
   AccordionTitleStyle,
   AccordionArrowStyle,
   AccordionContentStyle,
-} from './AccordionStyles'
-import { useExpanded } from './useExpanded'
+} from './AccordionStyles.js'
+import { useExpanded } from './useExpanded.js'
 
 export const Accordion = forwardRef(
   (

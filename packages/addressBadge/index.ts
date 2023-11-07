@@ -1,2 +1,2 @@
-export * from './AddressBadge'
-export * from './types'
+export * from './AddressBadge.js'
+export * from './types.js'

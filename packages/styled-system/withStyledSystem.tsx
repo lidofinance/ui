@@ -9,7 +9,7 @@ import styled, {
   StyledComponentInnerOtherProps,
   StyledComponentInnerAttrs,
   DefaultTheme,
-} from 'styled-components'
+} from '../utils/styled-components-wrapper.js'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   compose,
@@ -24,8 +24,8 @@ import {
   position,
   shadow,
 } from 'styled-system'
-import { StyledSystemProps } from './types'
 import { ComponentType } from 'react'
+import { StyledSystemProps } from './types.js'
 
 type MergePropsWithSS<T extends object> = Omit<T, keyof StyledSystemProps> &
   StyledSystemProps

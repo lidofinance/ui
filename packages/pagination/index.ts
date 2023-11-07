@@ -1,3 +1,3 @@
-export * from './Pagination'
-export * from './PaginationItem'
-export * from './types'
+export * from './Pagination.js'
+export * from './PaginationItem.js'
+export * from './types.js'

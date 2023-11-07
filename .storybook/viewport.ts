@@ -1,4 +1,4 @@
-import { themeDefault } from '../packages/theme'
+import { themeDefault } from '../packages/theme/index.js'
 
 const { breakpointsMap } = themeDefault
 

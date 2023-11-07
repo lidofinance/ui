@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Pagination, PaginationProps } from '.'
+import { Pagination, PaginationProps } from './index.js'
 
 export default {
   component: Pagination,

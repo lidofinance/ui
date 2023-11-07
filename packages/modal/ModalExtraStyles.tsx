@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 
 export const ModalExtraStyle = styled.div`
   margin-top: ${({ theme }) => -theme.borderRadiusesMap.xl}px;

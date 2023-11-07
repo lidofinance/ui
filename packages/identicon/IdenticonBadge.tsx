@@ -1,8 +1,8 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { Address } from '../address'
-import { IdenticonBadgeProps } from './types'
-import { IdenticonBadgeStyle, AddressWrapperStyle } from './IdenticonStyles'
-import { Identicon } from './Identicon'
+import { Address } from '../address/index.js'
+import { IdenticonBadgeProps } from './types.js'
+import { IdenticonBadgeStyle, AddressWrapperStyle } from './IdenticonStyles.js'
+import { Identicon } from './Identicon.js'
 
 export const IdenticonBadge = forwardRef(
   (

@@ -1,2 +1,2 @@
-export * from './Divider'
-export * from './types'
+export * from './Divider.js'
+export * from './types.js'

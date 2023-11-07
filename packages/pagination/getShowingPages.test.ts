@@ -2,7 +2,7 @@ import getShowingPages, {
   range,
   numberSort,
   arrayPusher,
-} from './getShowingPages'
+} from './getShowingPages.js'
 
 describe('getShowingPages at siblingCount=1', () => {
   describe('pagesCount > 7', () => {

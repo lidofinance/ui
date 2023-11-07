@@ -1,6 +1,6 @@
 import { MouseEvent, ReactNode, useCallback, useState } from 'react'
-import { ButtonProps } from './types'
-import { ButtonRippleStyle } from './ButtonStyles'
+import { ButtonProps } from './types.js'
+import { ButtonRippleStyle } from './ButtonStyles.js'
 
 type UseRipple = (props: Pick<ButtonProps, 'onClick'>) => {
   ripple: ReactNode

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Check } from '../icons'
+import styled from '../utils/styled-components-wrapper.js'
+import { Check } from '../icons/index.js'
 
 export const CheckboxWrapperStyle = styled.label`
   flex-shrink: 0;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 
 export const SectionStyle = styled.section`
   margin: ${({ theme }) => theme.spaceMap.xxl}px 0;

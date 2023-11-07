@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef, MouseEvent, useCallback } from 'react'
-import { PopupMenuItem } from '../popup-menu'
-import { OptionProps } from './types'
+import { PopupMenuItem } from '../popup-menu/index.js'
+import { OptionProps } from './types.js'
 
 export const Option = forwardRef(
   (

@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { ServicePage, ServicePageProps } from '.'
+import { ServicePage, ServicePageProps } from './index.js'
 
 export default {
   component: ServicePage,

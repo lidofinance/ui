@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { TransitionInnerProps } from '../transition'
+import styled from '../utils/styled-components-wrapper.js'
+import { TransitionInnerProps } from '../transition/index.js'
 
 type TransitionProps = {
   $duration: number

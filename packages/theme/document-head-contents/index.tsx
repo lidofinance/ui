@@ -1,8 +1,11 @@
 import { FC } from 'react'
-import { Fonts } from './element-fonts'
-import { initGlobalColors, StyleThemeColors } from './element-theme-colors'
-import { initGlobalCookieTheme, ScriptThemeValue } from './element-theme-script'
-export { Fonts } from './element-fonts'
+import { Fonts } from './element-fonts.js'
+import { initGlobalColors, StyleThemeColors } from './element-theme-colors.js'
+import {
+  initGlobalCookieTheme,
+  ScriptThemeValue,
+} from './element-theme-script.js'
+export { Fonts } from './element-fonts.js'
 
 export const initColors = () => {
   initGlobalColors()

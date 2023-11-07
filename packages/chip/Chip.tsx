@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { ChipProps } from './types'
-import { ChipWrapperStyle } from './ChipStyles'
+import { ChipProps } from './types.js'
+import { ChipWrapperStyle } from './ChipStyles.js'
 
 export const Chip = forwardRef(
   (

@@ -1,6 +1,6 @@
-import { LidoComponentProps } from '../utils'
 import { ReactNode } from 'react'
-export type { Theme } from '../theme'
+import { LidoComponentProps } from '../utils/index.js'
+export type { Theme } from '../theme/index.js'
 
 export type DataTableProps = LidoComponentProps<'div'>
 

@@ -6,10 +6,10 @@ import {
   PropsWithoutRef,
   RefAttributes,
 } from 'react'
-import { useMergeRefs } from '../hooks'
 import { Transition } from 'react-transition-group'
-import { DEFAULT_DURATION } from './constants'
-import { TransitionWrapperProps, TransitionInnerProps } from './types'
+import { useMergeRefs } from '../hooks/index.js'
+import { DEFAULT_DURATION } from './constants.js'
+import { TransitionWrapperProps, TransitionInnerProps } from './types.js'
 
 type WrappedProps<T> = Omit<T, keyof TransitionInnerProps> &
   TransitionWrapperProps

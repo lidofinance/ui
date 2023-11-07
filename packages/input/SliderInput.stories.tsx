@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { useState } from 'react'
-import { SliderInput, SliderInputProps } from '.'
+import { SliderInput, SliderInputProps } from './index.js'
 
 export default {
   component: SliderInput,

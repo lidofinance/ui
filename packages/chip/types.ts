@@ -1,6 +1,6 @@
-import { LidoComponentProps } from '../utils'
 import { RefObject } from 'react'
-export type { Theme } from '../theme'
+import { LidoComponentProps } from '../utils/index.js'
+export type { Theme } from '../theme/index.js'
 
 export enum ChipVariant {
   positive,

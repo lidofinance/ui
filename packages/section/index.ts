@@ -1,2 +1,2 @@
-export * from './Section'
-export * from './types'
+export * from './Section.js'
+export * from './types.js'

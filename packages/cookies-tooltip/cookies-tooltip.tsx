@@ -1,7 +1,7 @@
 import { FC, useEffect, useState, useCallback } from 'react'
-import { Cookie, CookieInverse } from '../icons'
-import { ContentTheme } from '../content-theme'
-import { getCrossDomainCookieClientSide } from '../utils'
+import { Cookie, CookieInverse } from '../icons/index.js'
+import { ContentTheme } from '../content-theme/index.js'
+import { getCrossDomainCookieClientSide } from '../utils/index.js'
 import {
   Wrap,
   Box,
@@ -11,9 +11,9 @@ import {
   AllowButton,
   DeclineButton,
   Link,
-} from './styles'
-import { allowCookies, declineCookies } from './utils'
-import { COOKIE_ALLOWED_KEY } from './constants'
+} from './styles.js'
+import { allowCookies, declineCookies } from './utils.js'
+import { COOKIE_ALLOWED_KEY } from './constants.js'
 
 export const CookiesTooltip: FC = () => {
   const [isVisible, setVisibility] = useState(false)

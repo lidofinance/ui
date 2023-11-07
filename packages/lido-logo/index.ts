@@ -1,1 +1,1 @@
-export * from './LidoLogo'
+export * from './LidoLogo.js'

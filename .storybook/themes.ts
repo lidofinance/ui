@@ -1,5 +1,5 @@
 import { ThemeVars, create } from '@storybook/theming'
-import { themeLight, themeDark, Theme } from '../packages/theme'
+import { themeLight, themeDark, Theme } from '../packages/theme/index.js'
 
 const constructor = (base: ThemeVars['base'], theme: Theme) => ({
   base,

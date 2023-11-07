@@ -3,9 +3,9 @@ import {
   ButtonStyle,
   ButtonContentStyle,
   ButtonLoaderStyle,
-} from './ButtonStyles'
-import { ButtonProps } from './types'
-import { useRipple } from './useRipple'
+} from './ButtonStyles.js'
+import { ButtonProps } from './types.js'
+import { useRipple } from './useRipple.js'
 
 const loaderSizes = {
   xxs: 'small',

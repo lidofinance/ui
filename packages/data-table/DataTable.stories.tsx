@@ -1,5 +1,10 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { DataTable, DataTableRow, DataTableProps, DataTableRowProps } from '.'
+import {
+  DataTable,
+  DataTableRow,
+  DataTableProps,
+  DataTableRowProps,
+} from './index.js'
 
 export default {
   component: DataTable,

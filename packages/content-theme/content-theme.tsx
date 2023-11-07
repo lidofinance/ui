@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { ContentThemeOnlyDark, ContentThemeOnlyLight } from './styles'
-import { ContentThemeProps } from './types'
+import { ContentThemeOnlyDark, ContentThemeOnlyLight } from './styles.js'
+import { ContentThemeProps } from './types.js'
 
 export const ContentTheme: FC<ContentThemeProps> = ({
   darkContent,

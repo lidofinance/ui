@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { Button } from '../button'
-import { Dark, Light } from '../icons'
+import styled from '../utils/styled-components-wrapper.js'
+import { Button } from '../button/index.js'
+import { Dark, Light } from '../icons/index.js'
 
 export const CookieThemeTogglerStyle = styled(Button).attrs({
   variant: 'text',

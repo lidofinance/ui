@@ -1,9 +1,16 @@
 import { FC, PropsWithChildren } from 'react'
-import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { reverseThemeMap, themeDark, themeDefault, themeLight } from './themes'
-import { initColors } from './document-head-contents'
-import { generateCssColorVariables } from './utils/generate-css-color-variables'
-import { Theme } from './types'
+import styled, {
+  ThemeProvider as StyledThemeProvider,
+} from '../utils/styled-components-wrapper.js'
+import {
+  reverseThemeMap,
+  themeDark,
+  themeDefault,
+  themeLight,
+} from './themes.js'
+import { initColors } from './document-head-contents/index.js'
+import { generateCssColorVariables } from './utils/generate-css-color-variables.js'
+import { Theme } from './types.js'
 
 // we need to initialize this before react component code if we're using this provider or CookieThemeProvider
 initColors()

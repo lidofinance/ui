@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { DEFAULT_PLACEMENT } from './constants'
-import { PopoverStyle } from './PopoverStyles'
-import { PopoverProps } from './types'
+import { DEFAULT_PLACEMENT } from './constants.js'
+import { PopoverStyle } from './PopoverStyles.js'
+import { PopoverProps } from './types.js'
 
 export const Popover = forwardRef(
   (

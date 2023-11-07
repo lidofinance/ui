@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
-import { Eth, Steth, Solana } from '../icons'
-import { InputGroup, Input, InputColor } from '../input'
 import { useRef, useState } from 'react'
-import { Select, SelectIcon, SelectProps, Option } from '.'
+import { StoryFn, Meta } from '@storybook/react'
+import { Eth, Steth, Solana } from '../icons/index.js'
+import { InputGroup, Input, InputColor } from '../input/index.js'
+import { Select, SelectIcon, SelectProps, Option } from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Button } from '../button'
-import { Accordion } from '../accordion'
+import { Button } from '../button/index.js'
+import { Accordion } from '../accordion/index.js'
 import {
   toast,
   ToastPosition,
@@ -10,7 +10,7 @@ import {
   ToastInfo,
   ToastPending,
   ToastSuccess,
-} from '.'
+} from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

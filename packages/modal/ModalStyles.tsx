@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
-import { Close, ArrowBack } from '../icons'
-import { ButtonIcon } from '../button'
+import styled, { css } from '../utils/styled-components-wrapper.js'
+import { Close, ArrowBack } from '../icons/index.js'
+import { ButtonIcon } from '../button/index.js'
 
 export const ModalStyle = styled.div<{ $center: boolean }>`
   ${({

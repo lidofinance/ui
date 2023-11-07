@@ -1,12 +1,12 @@
 import { ForwardedRef, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
-import { modalRoot } from '../utils'
-import { useMergeRefs, useOutsideClick, useEscape } from '../hooks'
-import { withTransition } from '../transition'
-import { usePopoverPosition } from './usePopoverPosition'
-import { PopoverWrapperStyle, PopoverRootStyle } from './PopoverRootStyles'
-import { PopoverRootInnerProps } from './types'
-import { DEFAULT_PLACEMENT } from './constants'
+import { modalRoot } from '../utils/index.js'
+import { useMergeRefs, useOutsideClick, useEscape } from '../hooks/index.js'
+import { withTransition } from '../transition/index.js'
+import { usePopoverPosition } from './usePopoverPosition.js'
+import { PopoverWrapperStyle, PopoverRootStyle } from './PopoverRootStyles.js'
+import { PopoverRootInnerProps } from './types.js'
+import { DEFAULT_PLACEMENT } from './constants.js'
 
 export const PopoverRoot = withTransition(
   // eslint-disable-next-line react/display-name

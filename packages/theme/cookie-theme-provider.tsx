@@ -8,17 +8,17 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import { ThemeProvider as StyledThemeProvider } from '../utils/styled-components-wrapper.js'
 import {
   DEFAULT_THEME_NAME,
   prefersDarkThemeMediaQuery,
   ThemeName,
-} from './constants'
-import { themeMap } from './themes'
-import { getThemeNameFromCookies } from './utils/cookies'
-import { initColors } from './document-head-contents'
-import { updateGlobalTheme } from './document-head-contents/element-theme-script'
-import { ThemeContext } from './types'
+} from './constants.js'
+import { themeMap } from './themes.js'
+import { getThemeNameFromCookies } from './utils/cookies.js'
+import { initColors } from './document-head-contents/index.js'
+import { updateGlobalTheme } from './document-head-contents/element-theme-script.js'
+import { ThemeContext } from './types.js'
 
 const defaultThemeContext = {} as ThemeContext
 export const ThemeToggleContext =

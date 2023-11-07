@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { Popover } from '../popover'
-import { PopupMenuItemStyle } from './PopupMenuItemStyles'
+import styled from '../utils/styled-components-wrapper.js'
+import { Popover } from '../popover/index.js'
+import { PopupMenuItemStyle } from './PopupMenuItemStyles.js'
 
 export const PopupMenuStyle = styled(Popover)`
   outline: none;

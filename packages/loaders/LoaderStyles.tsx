@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components'
-import { LoaderColors } from './types'
+import styled, { keyframes } from '../utils/styled-components-wrapper.js'
+import { LoaderColors } from './types.js'
 
 export const rotation = keyframes`
   0% {

@@ -1,5 +1,5 @@
-import { IdenticonBadge } from '../identicon'
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
+import { IdenticonBadge } from '../identicon/index.js'
 
 export const AddressBadgeStyle = styled(IdenticonBadge)`
   max-width: 100%;

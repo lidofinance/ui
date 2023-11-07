@@ -1,2 +1,2 @@
-export * from './withTransition'
-export * from './types'
+export * from './withTransition.js'
+export * from './types.js'

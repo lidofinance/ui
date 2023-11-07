@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { ModalExtraStyle } from './ModalExtraStyles'
-import { ModalExtraProps } from './types'
+import { ModalExtraStyle } from './ModalExtraStyles.js'
+import { ModalExtraProps } from './types.js'
 
 export const ModalExtra = forwardRef(
   (props: ModalExtraProps, ref?: ForwardedRef<HTMLDivElement>) => {

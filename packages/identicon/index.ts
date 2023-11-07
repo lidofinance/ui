@@ -1,3 +1,3 @@
-export * from './IdenticonBadge'
-export * from './Identicon'
-export * from './types'
+export * from './IdenticonBadge.js'
+export * from './Identicon.js'
+export * from './types.js'

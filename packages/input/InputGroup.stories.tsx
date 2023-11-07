@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Input, InputGroup, InputGroupProps } from '.'
+import { Input, InputGroup, InputGroupProps } from './index.js'
 
 export default {
   component: Input,

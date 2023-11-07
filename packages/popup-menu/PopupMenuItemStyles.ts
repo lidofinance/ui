@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { PopupMenuVariants } from './types'
+import styled, { css } from '../utils/styled-components-wrapper.js'
+import { PopupMenuVariants } from './types.js'
 
 export const PopupMenuItemStyle = styled.button<{ $active: boolean }>`
   text-align: left;

@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react'
-import { ThemeProvider, themeDefault } from '../theme'
+import { ThemeProvider, themeDefault } from '../theme/index.js'
 import 'jest-styled-components'
 
-import { Button } from './Button'
+import { Button } from './Button.js'
 
 it('renders correctly', () => {
   const { container } = render(

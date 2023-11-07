@@ -6,9 +6,9 @@ import {
   useCallback,
   useRef,
 } from 'react'
-import { useInterceptFocus } from '../hooks'
-import { FOCUSABLE_ELEMENTS } from './constants'
-import { PopupMenuProps } from './types'
+import { useInterceptFocus } from '../hooks/index.js'
+import { FOCUSABLE_ELEMENTS } from './constants.js'
+import { PopupMenuProps } from './types.js'
 
 export const usePopupFocus = <T extends HTMLDivElement>({
   onMouseMove,

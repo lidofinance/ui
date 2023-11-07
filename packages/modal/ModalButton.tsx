@@ -1,6 +1,9 @@
 import { cloneElement, ForwardedRef, forwardRef } from 'react'
-import { ModalButtonStyle, ModalButtonContentStyle } from './ModalButtonStyles'
-import { ModalButtonIconProps } from './types'
+import {
+  ModalButtonStyle,
+  ModalButtonContentStyle,
+} from './ModalButtonStyles.js'
+import { ModalButtonIconProps } from './types.js'
 
 const iconSize = {
   xxs: {

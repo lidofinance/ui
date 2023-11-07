@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { LidoLogo } from '.'
+import { LidoLogo } from './index.js'
 
 export default {
   component: LidoLogo,

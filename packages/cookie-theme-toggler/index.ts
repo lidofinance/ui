@@ -1,1 +1,1 @@
-export * from './cookie-theme-toggler'
+export * from './cookie-theme-toggler.js'

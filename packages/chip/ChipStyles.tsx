@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { ChipVariants } from './types'
+import styled, { css } from '../utils/styled-components-wrapper.js'
+import { ChipVariants } from './types.js'
 
 type InjectedPropsTr = {
   $variant: ChipVariants

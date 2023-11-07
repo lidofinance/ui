@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import { StoryFn, Meta } from '@storybook/react'
-import { Button, ButtonProps, ButtonSize } from '../button'
-import { Loader } from '../loaders'
-import { Text } from '../text'
-import { Link } from '../link'
-import { Error, Success, Eth, Terra } from '../icons'
 import { useCallback, useState } from 'react'
-import { ModalProps, Modal, ModalExtra, ModalButton } from '.'
+import styled from '../utils/styled-components-wrapper.js'
+import { StoryFn, Meta } from '@storybook/react'
+import { Button, ButtonProps, ButtonSize } from '../button/index.js'
+import { Loader } from '../loaders/index.js'
+import { Text } from '../text/index.js'
+import { Link } from '../link/index.js'
+import { Error, Success, Eth, Terra } from '../icons/index.js'
+import { ModalProps, Modal, ModalExtra, ModalButton } from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

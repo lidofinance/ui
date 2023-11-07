@@ -1,8 +1,8 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Block } from '../block'
-import { ContentTheme } from '../content-theme'
-import { Text } from '../text'
-import { ThemeToggler } from '.'
+import { Block } from '../block/index.js'
+import { ContentTheme } from '../content-theme/index.js'
+import { Text } from '../text/index.js'
+import { ThemeToggler } from './index.js'
 
 export default {
   title: 'Theme/Cookie Theme Provider',

@@ -1,5 +1,5 @@
-import { LidoComponentProps } from '../utils'
-export type { Theme } from '../theme'
+import { LidoComponentProps } from '../utils/index.js'
+export type { Theme } from '../theme/index.js'
 
 export enum LoaderSize {
   small = 18,

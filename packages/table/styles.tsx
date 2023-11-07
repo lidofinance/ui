@@ -1,12 +1,12 @@
-import styled, { css } from 'styled-components'
-import { ArrowTop, ArrowBottom } from '../icons'
+import styled, { css } from '../utils/styled-components-wrapper.js'
+import { ArrowTop, ArrowBottom } from '../icons/index.js'
 import {
   TableAligns,
   TableTextColors,
   Theme,
   ThTdVariants,
   TrHighlights,
-} from './types'
+} from './types.js'
 
 type InjectedPropsTr = {
   $highlight?: TrHighlights

@@ -1,7 +1,7 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Question } from '../icons'
-import { PopoverOffset, PopoverPlacement } from '../popover'
-import { Tooltip, TooltipProps } from '.'
+import { Question } from '../icons/index.js'
+import { PopoverOffset, PopoverPlacement } from '../popover/index.js'
+import { Tooltip, TooltipProps } from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

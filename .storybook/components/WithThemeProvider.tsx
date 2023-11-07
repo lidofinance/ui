@@ -1,6 +1,6 @@
 import { Decorator } from '@storybook/react'
 import { createGlobalStyle } from 'styled-components'
-import { CookieThemeProvider, ThemeName } from '../../packages/theme'
+import { CookieThemeProvider, ThemeName } from '../../packages/theme/index.js'
 
 const GlobalStyle = createGlobalStyle`
   body {

@@ -1,2 +1,2 @@
-export * from './ServicePage'
-export * from './types'
+export * from './ServicePage.js'
+export * from './types.js'

@@ -1,5 +1,5 @@
 import { StoryFn } from '@storybook/react'
-import { Loader, LoaderProps, LoaderColor, LoaderSize } from '.'
+import { Loader, LoaderProps, LoaderColor, LoaderSize } from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')

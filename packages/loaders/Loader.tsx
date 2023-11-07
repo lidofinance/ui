@@ -1,10 +1,10 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { LoaderProps, LoaderSize } from './types'
+import { LoaderProps, LoaderSize } from './types.js'
 import {
   LoaderStyle,
   LoaderCircleBgStyle,
   LoaderCircleFgStyle,
-} from './LoaderStyles'
+} from './LoaderStyles.js'
 
 export const Loader = forwardRef(
   (

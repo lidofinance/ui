@@ -1,5 +1,5 @@
-import { themeDefault } from './themes'
-import { ThemeName } from './constants'
+import { themeDefault } from './themes.js'
+import { ThemeName } from './constants.js'
 
 export type Theme = typeof themeDefault
 

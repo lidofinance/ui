@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
-import { Theme } from '../theme'
-import { DividerIndents, DividerTypes } from './types'
+import styled, { css } from '../utils/styled-components-wrapper.js'
+import { Theme } from '../theme/index.js'
+import { DividerIndents, DividerTypes } from './types.js'
 
 type InjectedProps = {
   $type: DividerTypes

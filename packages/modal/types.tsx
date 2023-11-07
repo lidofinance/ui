@@ -1,7 +1,10 @@
-import { LidoComponentProps } from '../utils'
-import { TransitionWrapperProps, TransitionInnerProps } from '../transition'
-import { ButtonProps } from '../button'
 import { ReactElement, ReactNode } from 'react'
+import { LidoComponentProps } from '../utils/index.js'
+import {
+  TransitionWrapperProps,
+  TransitionInnerProps,
+} from '../transition/index.js'
+import { ButtonProps } from '../button/index.js'
 
 export type ModalOverlayOwnProps = LidoComponentProps<
   'div',

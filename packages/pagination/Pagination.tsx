@@ -1,14 +1,14 @@
 import { useMemo, useState, useEffect, FC, MouseEvent } from 'react'
-import styled from 'styled-components'
-import { ArrowLeft, ArrowRight } from '../icons'
-import { Box } from '../box'
+import styled from '../utils/styled-components-wrapper.js'
+import { ArrowLeft, ArrowRight } from '../icons/index.js'
+import { Box } from '../box/index.js'
 import {
   PaginationProps,
   PaginationItemProps,
   PaginationItemVariant,
-} from './types'
-import getShowingPages from './getShowingPages'
-import { PaginationItem } from './PaginationItem'
+} from './types.js'
+import getShowingPages from './getShowingPages.js'
+import { PaginationItem } from './PaginationItem.js'
 
 const getActiveItem = (length: number, activeItem: number): number => {
   const isActiveNotInRange: boolean = activeItem >= length || activeItem < 0

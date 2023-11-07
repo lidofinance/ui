@@ -3,12 +3,12 @@ import {
   getDomainCookieClientSide,
   removeCookiesClientSide,
   setDomainCookieClientSide,
-} from '../utils'
+} from '../utils/index.js'
 import {
   COOKIE_ALLOWED_KEY,
   COOKIE_VALUE_NO,
   COOKIE_VALUE_YES,
-} from './constants'
+} from './constants.js'
 
 export const allowCookies = (): void => {
   // For top level domain - *.some-domain.fi

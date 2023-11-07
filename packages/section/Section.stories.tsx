@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from '../utils/styled-components-wrapper.js'
 import { StoryFn, Meta } from '@storybook/react'
-import { Block } from '../block'
-import { Section, SectionProps } from '.'
+import { Block } from '../block/index.js'
+import { Section, SectionProps } from './index.js'
 
 export default {
   component: Section,

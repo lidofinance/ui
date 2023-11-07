@@ -3,8 +3,8 @@ import {
   ToastPendingLoaderStyle,
   ToastPendingStyle,
   ToastPendingTextStyle,
-} from './ToastPendingStyles'
-import { TOASTS_PENDING_OPTIONS } from './toastsDefaultOptions'
+} from './ToastPendingStyles.js'
+import { TOASTS_PENDING_OPTIONS } from './toastsDefaultOptions.js'
 
 export function ToastPending(content: JSX.Element, options?: ToastOptions) {
   return toast(

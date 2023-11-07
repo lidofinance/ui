@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from 'react'
-import { TbodyProps } from './types'
-import { TbodyStyle } from './styles'
+import { TbodyProps } from './types.js'
+import { TbodyStyle } from './styles.js'
 
 export const Tbody = forwardRef(
   (props: TbodyProps, ref?: ForwardedRef<HTMLTableSectionElement>) => {
