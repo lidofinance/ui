@@ -56,7 +56,7 @@ export const Modal = forwardRef(
     )
 
     return (
-      <ModalOverlay in={open} {...rest} ref={ref}>
+      <ModalOverlay in={open} ref={ref} onClose={onClose} {...rest}>
         <ModalStyle $center={center}>
           <ModalBaseStyle>
             {modalHeader}
