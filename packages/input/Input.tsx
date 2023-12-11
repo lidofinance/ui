@@ -76,6 +76,8 @@ export const Input = forwardRef(
               aria-invalid={hasError}
               type='text'
               ref={ref}
+              id={id}
+              disabled={disabled}
               {...rest}
             />
             {hasLabel && (
