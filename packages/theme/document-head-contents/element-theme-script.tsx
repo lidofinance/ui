@@ -2,6 +2,15 @@ import { VOID_FN } from '../../utils/index.js'
 import { themeCookieKey, ThemeName } from '../constants.js'
 import { setThemeCookie } from '../utils/set-theme-cookie.js'
 
+export const getThemeNameFromUrl = (): ThemeName | undefined => {
+  if (typeof window === 'undefined') return undefined
+  const url = new URL(window.location.href)
+  const queryTheme = url.searchParams.get('theme')?.toLowerCase()
+  if (queryTheme === 'light') return ThemeName.light
+  if (queryTheme === 'dark') return ThemeName.dark
+  return undefined
+}
+
 /**
  * What is happening here:
  * We want to have React dehydrated HTML to be loaded after theme is initialized.
@@ -18,6 +27,13 @@ import { setThemeCookie } from '../utils/set-theme-cookie.js'
  * */
 /*#__PURE__*/
 const themeScriptValueString = function (key: string) {
+  const url = new URL(window.location.href)
+  const queryTheme = url.searchParams.get('theme')?.toLowerCase()
+  if (queryTheme === 'light' || queryTheme === 'dark') {
+    document.documentElement.dataset.lidoTheme = queryTheme
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    return () => {}
+  }
   if (!window.matchMedia) {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     return () => {}
