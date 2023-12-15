@@ -17,7 +17,10 @@ import {
 import { themeMap } from './themes.js'
 import { getThemeNameFromCookies } from './utils/cookies.js'
 import { initColors } from './document-head-contents/index.js'
-import { updateGlobalTheme } from './document-head-contents/element-theme-script.js'
+import {
+  getThemeNameFromUrl,
+  updateGlobalTheme,
+} from './document-head-contents/element-theme-script.js'
 import { ThemeContext } from './types.js'
 
 const defaultThemeContext = {} as ThemeContext
@@ -56,7 +59,7 @@ export const CookieThemeProvider: FC<
     // we always start with default theme, or, if server wants to provide
     // specific default theme, with server-provided theme to avoid hydration errors
     const [internalThemeName, setThemeName] = useState<ThemeName>(
-      initialThemeName || DEFAULT_THEME_NAME,
+      getThemeNameFromUrl() || initialThemeName || DEFAULT_THEME_NAME,
     )
     // since we're using this component to provide cookie-theme,
     // we eventually want to respect theme provided in cookie, not general theme,
@@ -78,10 +81,13 @@ export const CookieThemeProvider: FC<
         const systemThemeName = prefersDarkThemeMediaQuery?.matches
           ? ThemeName.dark
           : ThemeName.light
+        const themeNameUrl = getThemeNameFromUrl()
         const themeNameCookie = getThemeNameFromCookies()
         const newThemeName =
           // first, if we have some override (e.g. in Storybook), we respect it
           overrideThemeName ||
+          // url query has higher priority than cookie
+          themeNameUrl ||
           // then, if we have cookie theme, we use theme from cookie
           themeNameCookie ||
           // else, we follow theme we were provided in initialization from server,
