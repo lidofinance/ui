@@ -10,7 +10,12 @@ import styled, {
   StyledComponentInnerAttrs,
   DefaultTheme,
 } from '../utils/styled-components-wrapper.js'
-import shouldForwardProp from '@styled-system/should-forward-prop'
+
+// The `@styled-system/should-forward-prop` has issues with ESM modules:
+import _shouldForwardProp from '@styled-system/should-forward-prop'
+// @ts-expect-error Property 'default' does not exist on type 'genericShouldForwardProp'
+const shouldForwardProp = _shouldForwardProp.default || _shouldForwardProp
+
 import {
   compose,
   space,
