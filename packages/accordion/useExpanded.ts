@@ -7,15 +7,21 @@ import {
 } from 'react-collapsed/dist/types.js'
 
 //@ts-expect-error Property default doesn't exist on type
-const useCollapse = _useCollapse.default || _useCollapse
+const useCollapse: typeof _useCollapse = _useCollapse.default || _useCollapse
 
-type UseExpanded = (props: Pick<AccordionProps, 'defaultExpanded'>) => {
+type UseExpanded = (
+  props: Pick<AccordionProps, 'defaultExpanded' | 'onExpand' | 'onCollapse'>,
+) => {
   toggleProps: GetTogglePropsOutput
   collapseProps: GetCollapsePropsOutput
   isExpanded: boolean
 }
 
-export const useExpanded: UseExpanded = ({ defaultExpanded = false }) => {
+export const useExpanded: UseExpanded = ({
+  defaultExpanded = false,
+  onExpand,
+  onCollapse,
+}) => {
   const [isExpanded, setExpanded] = useState(defaultExpanded)
 
   useEffect(() => {
@@ -27,7 +33,11 @@ export const useExpanded: UseExpanded = ({ defaultExpanded = false }) => {
     [],
   )
 
-  const { getToggleProps, getCollapseProps } = useCollapse({ isExpanded })
+  const { getToggleProps, getCollapseProps } = useCollapse({
+    isExpanded,
+    onExpandEnd: onExpand,
+    onCollapseEnd: onCollapse,
+  })
 
   return {
     toggleProps: getToggleProps({ onClick: handleToggle }),

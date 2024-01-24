@@ -7,5 +7,7 @@ export type AccordionProps = LidoComponentProps<
   {
     defaultExpanded?: boolean
     summary: ReactNode
+    onExpand?: () => void
+    onCollapse?: () => void
   }
 >

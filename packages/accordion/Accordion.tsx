@@ -11,11 +11,20 @@ import { useExpanded } from './useExpanded.js'
 
 export const Accordion = forwardRef(
   (
-    { defaultExpanded, summary, children, ...rest }: AccordionProps,
+    {
+      defaultExpanded,
+      summary,
+      children,
+      onExpand,
+      onCollapse,
+      ...rest
+    }: AccordionProps,
     ref?: ForwardedRef<HTMLDivElement>,
   ) => {
     const { toggleProps, collapseProps, isExpanded } = useExpanded({
       defaultExpanded,
+      onExpand,
+      onCollapse,
     })
 
     return (
