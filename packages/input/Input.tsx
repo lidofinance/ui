@@ -93,7 +93,7 @@ export const Input = forwardRef(
         </InputContentStyle>
 
         {hasErrorMessage && (
-          <InputMessageStyle $variant='error' $bordered>
+          <InputMessageStyle $variant='error' $bordered $wrap>
             {error}
           </InputMessageStyle>
         )}
