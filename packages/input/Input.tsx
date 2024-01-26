@@ -98,7 +98,7 @@ export const Input = forwardRef(
           </InputMessageStyle>
         )}
         {hasWarningMessage && (
-          <InputMessageStyle $variant='warning' $bordered>
+          <InputMessageStyle $variant='warning' $bordered $wrap>
             {warning}
           </InputMessageStyle>
         )}
