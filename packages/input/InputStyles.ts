@@ -293,6 +293,7 @@ const messageVariants = {
 export const InputMessageStyle = styled.span<{
   $variant: InputMessageVariants
   $bordered?: boolean
+  $wrap?: boolean
 }>`
   margin-top: ${({ $bordered }) => ($bordered ? 5 : 6)}px;
   left: ${({ $bordered }) => ($bordered ? -1 : 0)}px;
@@ -303,7 +304,7 @@ export const InputMessageStyle = styled.span<{
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   border-radius: ${({ theme }) => theme.borderRadiusesMap.sm}px;
   padding: 6px 10px;
-  white-space: nowrap;
+  white-space: ${({ $wrap }) => ($wrap ? 'wrap' : 'nowrap')};
   overflow: hidden;
   box-sizing: border-box;
   text-overflow: ellipsis;
