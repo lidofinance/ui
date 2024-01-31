@@ -9,6 +9,9 @@
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
   },
+  "engines": {
+    "node": ">=20.0.0 <21.0.0"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
