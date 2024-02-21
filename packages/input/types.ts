@@ -62,6 +62,7 @@ export type InputGroupProps = LidoComponentProps<
     fullwidth?: boolean
     error?: ReactNode
     success?: ReactNode
+    warning?: ReactNode
   }
 >
 
