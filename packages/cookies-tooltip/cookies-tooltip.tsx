@@ -10,7 +10,7 @@ import {
   ButtonsWrap,
   AllowButton,
   DeclineButton,
-  Link,
+  ExternalLink,
 } from './styles.js'
 import { allowCookies, declineCookies } from './utils.js'
 import { COOKIE_ALLOWED_KEY } from './constants.js'
@@ -51,10 +51,12 @@ export const CookiesTooltip: FC = () => {
           />
         </CookieIconWrap>
         <Text>
-          We use cookies to collect anonymous site visitation data
-          to&nbsp;improve performance of&nbsp;our&nbsp;website. For&nbsp;more
-          info, read our&nbsp;
-          <Link href='https://lido.fi/privacy-notice'>Privacy Notice</Link>
+          Cookies are used to collect anonymous site visitation data
+          to&nbsp;improve performance of&nbsp;website. For&nbsp;more info,
+          read&nbsp;
+          <ExternalLink href='https://lido.fi/privacy-notice'>
+            Privacy Notice
+          </ExternalLink>
         </Text>
         <ButtonsWrap>
           <AllowButton

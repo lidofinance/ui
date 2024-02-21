@@ -1,10 +1,16 @@
 import styled from '../utils/styled-components-wrapper.js'
 
-const ExternalLink = styled.a.attrs({
+export const ExternalLink = styled.a.attrs({
   target: '_blank',
   rel: 'nofollow noopener',
 })`
   cursor: pointer;
+  color: var(--lido-color-primary);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--lido-color-primaryHover);
+  }
 `
 
 export const Wrap = styled.div`
@@ -122,9 +128,4 @@ export const DeclineButton = styled(ButtonBasic)`
   &:hover {
     background-color: var(--lido-color-background);
   }
-`
-
-export const Link = styled(ExternalLink)`
-  color: inherit;
-  text-decoration: underline !important;
 `
