@@ -18,6 +18,7 @@ export const themeLight = {
     secondary: '#273852',
     secondaryHover: '#212f45',
     secondaryContrast: '#fff',
+    outlineSecondary: 'fff',
 
     background: '#f2f4f6',
     backgroundDarken: '#dae0e5',
@@ -62,8 +63,8 @@ export const themeDark = {
     lightDisplay: 'none',
     darkDisplay: 'initial',
 
-    secondary: 'rgba(255, 255, 255, .8)',
-    secondaryHover: '#fff',
+    secondary: '#fff',
+    secondaryHover: '#F5F5F7',
     secondaryContrast: '#273852',
 
     background: '#1c1c21',

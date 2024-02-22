@@ -1,11 +1,8 @@
 import { FC, useEffect, useState, useCallback } from 'react'
-import { Cookie, CookieInverse } from '../icons/index.js'
-import { ContentTheme } from '../content-theme/index.js'
 import { getCrossDomainCookieClientSide } from '../utils/index.js'
 import {
   Wrap,
   Box,
-  CookieIconWrap,
   Text,
   ButtonsWrap,
   AllowButton,
@@ -44,12 +41,6 @@ export const CookiesTooltip: FC = () => {
   return (
     <Wrap>
       <Box>
-        <CookieIconWrap>
-          <ContentTheme
-            darkContent={<CookieInverse />}
-            lightContent={<Cookie />}
-          />
-        </CookieIconWrap>
         <Text>
           Cookies are used to collect anonymous site visitation data
           to&nbsp;improve performance of&nbsp;website. For&nbsp;more info,
