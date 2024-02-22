@@ -18,7 +18,6 @@ export const themeLight = {
     secondary: '#273852',
     secondaryHover: '#212f45',
     secondaryContrast: '#fff',
-    outlineSecondary: 'fff',
 
     background: '#f2f4f6',
     backgroundDarken: '#dae0e5',
