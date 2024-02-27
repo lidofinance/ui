@@ -43,8 +43,7 @@ export const CookiesTooltip: FC = () => {
       <Box>
         <Text>
           Cookies are used to collect anonymous site visitation data
-          to&nbsp;improve performance of&nbsp;website. For&nbsp;more info,
-          read&nbsp;
+          to&nbsp;improve website performance. For&nbsp;more info, read&nbsp;
           <ExternalLink href='https://lido.fi/privacy-notice'>
             Privacy Notice
           </ExternalLink>
