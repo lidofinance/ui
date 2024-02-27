@@ -1,16 +1,13 @@
 import { FC, useEffect, useState, useCallback } from 'react'
-import { Cookie, CookieInverse } from '../icons/index.js'
-import { ContentTheme } from '../content-theme/index.js'
 import { getCrossDomainCookieClientSide } from '../utils/index.js'
 import {
   Wrap,
   Box,
-  CookieIconWrap,
   Text,
   ButtonsWrap,
   AllowButton,
   DeclineButton,
-  Link,
+  ExternalLink,
 } from './styles.js'
 import { allowCookies, declineCookies } from './utils.js'
 import { COOKIE_ALLOWED_KEY } from './constants.js'
@@ -44,17 +41,12 @@ export const CookiesTooltip: FC = () => {
   return (
     <Wrap>
       <Box>
-        <CookieIconWrap>
-          <ContentTheme
-            darkContent={<CookieInverse />}
-            lightContent={<Cookie />}
-          />
-        </CookieIconWrap>
         <Text>
-          We use cookies to collect anonymous site visitation data
-          to&nbsp;improve performance of&nbsp;our&nbsp;website. For&nbsp;more
-          info, read our&nbsp;
-          <Link href='https://lido.fi/privacy-notice'>Privacy Notice</Link>
+          Cookies are used to collect anonymous site visitation data
+          to&nbsp;improve website performance. For&nbsp;more info, read&nbsp;
+          <ExternalLink href='https://lido.fi/privacy-notice'>
+            Privacy Notice
+          </ExternalLink>
         </Text>
         <ButtonsWrap>
           <AllowButton

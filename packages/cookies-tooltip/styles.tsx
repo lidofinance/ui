@@ -1,10 +1,16 @@
 import styled from '../utils/styled-components-wrapper.js'
 
-const ExternalLink = styled.a.attrs({
+export const ExternalLink = styled.a.attrs({
   target: '_blank',
   rel: 'nofollow noopener',
 })`
   cursor: pointer;
+  color: var(--lido-color-primary);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--lido-color-primaryHover);
+  }
 `
 
 export const Wrap = styled.div`
@@ -39,27 +45,13 @@ export const Box = styled.div`
   }
 `
 
-export const CookieIconWrap = styled.div`
-  margin-right: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    display: none;
-  }
-`
-
 export const Text = styled.div`
   margin-right: 8px;
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
   color: var(--lido-color-textSecondary);
-  width: 340px;
+  max-width: 500px;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     margin-right: 0;
@@ -106,11 +98,11 @@ const ButtonBasic = styled.button.attrs({ type: 'button' })`
 `
 
 export const AllowButton = styled(ButtonBasic)`
-  background-color: var(--lido-color-text);
-  color: var(--lido-color-foreground);
+  background-color: var(--lido-color-secondary);
+  color: var(--lido-color-secondaryContrast);
 
   &:hover {
-    background-color: var(--lido-color-textSecondary);
+    background-color: var(--lido-color-secondaryHover);
   }
 `
 
@@ -120,11 +112,7 @@ export const DeclineButton = styled(ButtonBasic)`
   border: 1px solid var(--lido-color-text);
 
   &:hover {
-    background-color: var(--lido-color-background);
+    background-color: var(--lido-color-secondary);
+    color: var(--lido-color-secondaryContrast);
   }
-`
-
-export const Link = styled(ExternalLink)`
-  color: inherit;
-  text-decoration: underline !important;
 `
