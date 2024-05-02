@@ -22,7 +22,7 @@ const isVerticalScroll = (element: HTMLElement): boolean => {
   const isBody = document.body === element
 
   return isBody
-    ? window.innerWidth > document.documentElement.clientWidth
+    ? document.documentElement.scrollHeight > window.innerHeight
     : element.scrollHeight > element.clientHeight
 }
 
