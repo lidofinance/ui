@@ -1,4 +1,10 @@
-import { FC, useEffect, useState, useCallback, ComponentPropsWithoutRef } from 'react'
+import {
+  FC,
+  useEffect,
+  useState,
+  useCallback,
+  ComponentPropsWithoutRef,
+} from 'react'
 import { getCrossDomainCookieClientSide } from '../utils/index.js'
 import {
   Wrap,
@@ -12,12 +18,21 @@ import {
 import { allowCookies, declineCookies } from './utils.js'
 import { COOKIE_ALLOWED_KEY } from './constants.js'
 
-export type CookiesTooltipProps = ComponentPropsWithoutRef<'div'> & {
-  privacyNoticeUrl?: string
-}
+const DefaultContent = () => (
+  <>
+    Cookies are used to collect anonymous site visitation data to&nbsp;improve
+    website performance. For&nbsp;more info, read&nbsp;
+    <ExternalLink href='https://lido.fi/privacy-notice'>
+      Privacy Notice
+    </ExternalLink>
+  </>
+)
+
+export type CookiesTooltipProps = ComponentPropsWithoutRef<'div'>
 
 export const CookiesTooltip: FC<CookiesTooltipProps> = ({
-  privacyNoticeUrl = 'https://lido.fi/privacy-notice'
+  children,
+  ...rest
 }) => {
   const [isVisible, setVisibility] = useState(false)
 
@@ -45,15 +60,9 @@ export const CookiesTooltip: FC<CookiesTooltipProps> = ({
   if (!isVisible) return <></>
 
   return (
-    <Wrap>
+    <Wrap {...rest}>
       <Box>
-        <Text>
-          Cookies are used to collect anonymous site visitation data
-          to&nbsp;improve website performance. For&nbsp;more info, read&nbsp;
-          <ExternalLink href={privacyNoticeUrl}>
-            Privacy Notice
-          </ExternalLink>
-        </Text>
+        <Text>{children ?? <DefaultContent />}</Text>
         <ButtonsWrap>
           <AllowButton
             onClick={() => {
