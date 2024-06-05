@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useCallback } from 'react'
+import { FC, useEffect, useState, useCallback, ComponentPropsWithoutRef } from 'react'
 import { getCrossDomainCookieClientSide } from '../utils/index.js'
 import {
   Wrap,
@@ -12,7 +12,13 @@ import {
 import { allowCookies, declineCookies } from './utils.js'
 import { COOKIE_ALLOWED_KEY } from './constants.js'
 
-export const CookiesTooltip: FC = () => {
+export type CookiesTooltipProps = ComponentPropsWithoutRef<'div'> & {
+  privacyNoticeUrl?: string
+}
+
+export const CookiesTooltip: FC<CookiesTooltipProps> = ({
+  privacyNoticeUrl = 'https://lido.fi/privacy-notice'
+}) => {
   const [isVisible, setVisibility] = useState(false)
 
   const checkCookieAllowedEarlier = useCallback(() => {
@@ -44,7 +50,7 @@ export const CookiesTooltip: FC = () => {
         <Text>
           Cookies are used to collect anonymous site visitation data
           to&nbsp;improve website performance. For&nbsp;more info, read&nbsp;
-          <ExternalLink href='https://lido.fi/privacy-notice'>
+          <ExternalLink href={privacyNoticeUrl}>
             Privacy Notice
           </ExternalLink>
         </Text>
