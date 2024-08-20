@@ -184,6 +184,7 @@ export const ButtonStyle = styled.button<InjectedProps>`
   font-family: inherit;
   font-weight: 700;
   width: ${({ $fullwidth }) => ($fullwidth ? ' 100%' : 'auto')};
+  -webkit-tap-highlight-color: transparent;
 
   ::before {
     content: '';
