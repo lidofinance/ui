@@ -13,6 +13,7 @@ exports[`renders correctly 1`] = `
   font-family: inherit;
   font-weight: 700;
   width: auto;
+  -webkit-tap-highlight-color: transparent;
   line-height: 1em;
   font-size: 14px;
   border-radius: 10px;
