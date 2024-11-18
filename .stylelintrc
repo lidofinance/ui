@@ -5,7 +5,6 @@
   "plugins": [
     "stylelint-prettier"
   ],
-  "customSyntax": "postcss-styled-syntax",
   "rules": {
     "prettier/prettier": true,
     "custom-property-pattern": null,

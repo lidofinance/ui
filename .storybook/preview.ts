@@ -1,10 +1,8 @@
 import { WithThemeProvider } from './components/WithThemeProvider.js'
-import themesParameters from './themes.js'
-import viewportParameters from './viewport.js'
+
+import "../styles/global.css";
 
 export const parameters = {
-  ...themesParameters,
-  ...viewportParameters,
   controls: { hideNoControlsWarning: true },
 }
 export const args = {

@@ -1,4 +1,3 @@
-export * from './useBreakpoint.js'
 export * from './useEscape.js'
 export * from './useInterceptFocus.js'
 export * from './useLockScroll.js'

@@ -2,7 +2,7 @@
 
 ## Overview
 
-[Release workflow](https://github.com/lidofinance/ui/blob/main/.github/workflows/deploy.yml) is triggered automatically on pushes to `main`. It will:
+[Release workflow](https://github.com/lidofinance/ui/blob/main/.github/workflows/deploy.yml) is triggered automatically on pushes to `lido-ui-v2`. It will:
 
 - Build all packages
 - Run tests
