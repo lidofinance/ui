@@ -1,0 +1,42 @@
+.infoIcon {
+  display: block;
+  transition: color .5s;
+
+  &:hover {
+    transition: color .3s;
+  }
+}
+
+.big {
+  width: 24px;
+  height: 24px;
+}
+
+.small {
+  width: 15px;
+  height: 15px;
+}
+
+.black {
+  color: var(--lido-color-primary-72);
+
+  &:hover {
+    color: var(--lido-color-primary-50);
+  }
+}
+
+.ocean {
+  color: var(--lido-color-accent-ocean);
+
+  &:hover {
+    color: var(--lido-color-accent-sky);
+  }
+}
+
+.white {
+  color: var(--lido-color-secondary-72);
+
+  &:hover {
+    color: var(--lido-color-secondary);
+  }
+}

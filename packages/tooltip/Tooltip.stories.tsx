@@ -1,46 +1,33 @@
-import { StoryFn, Meta } from '@storybook/react'
-import { Question } from '../icons/index.js'
-import { PopoverOffset, PopoverPlacement } from '../popover/index.js'
-import { Tooltip, TooltipProps } from './index.js'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Tooltip } from ".";
 
-const getOptions = (enumObject: Record<string, string | number>) =>
-  Object.values(enumObject).filter((value) => typeof value === 'string')
-
-export default {
+const meta = {
+  title: "Dialogs/Tooltip",
   component: Tooltip,
-  title: 'Dialogs/Tooltip',
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   args: {
-    title:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum voluptates pariatur culpa consectetur velit iste rem, aspernatur voluptatem aperiam itaque obcaecati vero non quis id iure vitae, quae quibusdam quidem.',
-    offset: 'xs',
-    placement: 'bottom',
+    icon: {
+      size: 'big',
+      color: 'black'
+    },
+    position: "right",
+    content: "Under normal circumstances. The withdrawal time may take longer under special circumstances",
   },
-  argTypes: {
-    title: {
-      control: 'text',
-    },
-    offset: {
-      options: getOptions(PopoverOffset),
-      control: 'inline-radio',
-    },
-    placement: {
-      options: getOptions(PopoverPlacement),
-      control: 'radio',
-    },
+  tags: ["autodocs"],
+} satisfies Meta<typeof Tooltip>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Basic: Story = {};
+
+export const Content: Story = {
+  args: {
+    children: "Hover me",
+    position: "right",
+    content: "Under normal circumstances. The withdrawal time may take longer under special circumstances",
   },
-} as Meta
-
-export const Basic: StoryFn<TooltipProps> = (props) => (
-  <Tooltip {...props}>
-    <span>Hover me</span>
-  </Tooltip>
-)
-
-export const Icon: StoryFn<TooltipProps> = (props) => (
-  <Tooltip {...props}>
-    <Question />
-  </Tooltip>
-)
+};

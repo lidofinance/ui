@@ -1,0 +1,70 @@
+.text {
+  margin: 0;
+  padding: 0;
+}
+
+.xxs {
+  font-size: var(--lido-font-size-xxs);
+  line-height: 1.5em;
+}
+
+.xs {
+  font-size: var(--lido-font-size-xs);
+  line-height: 1.5em;
+}
+
+.sm {
+  font-size: var(--lido-font-size-sm);
+  line-height: 1.5em;
+}
+
+.md {
+  font-size: var(--lido-font-size-md);
+  line-height: 1.5em;
+}
+
+.lg {
+  font-size: var(--lido-font-size-lg);
+  line-height: 1.4em;
+}
+
+.xl {
+  font-size: var(--lido-font-size-xl);
+  line-height: 1.4em;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.strikeThrough {
+  text-decoration: line-through;
+}
+
+.default {
+  color: var(--lido-color-text);
+}
+
+.secondary {
+  color: var(--lido-color-text-secondary);
+}
+
+.primary {
+  color: var(--lido-color-primary);
+}
+
+.warning {
+  color: var(--lido-color-warning);
+}
+
+.error {
+  color: var(--lido-color-error);
+}
+
+.success {
+  color: var(--lido-color-success);
+}
