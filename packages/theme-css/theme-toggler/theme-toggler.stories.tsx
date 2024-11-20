@@ -1,7 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Block } from '../../block'
 import { ContentTheme } from '../content-theme'
-import { Text } from '../../text'
 import { ThemeToggler } from './'
 
 export default {
@@ -20,11 +19,11 @@ export const Basic: StoryFn = () => (
     <ThemeToggler /> and reload page!
     <br />
     <br />
-    <Text>The block depended by theme cookie</Text>
+    <p>The block depended by theme cookie</p>
     <Block>Lorem ipsum dolor sit amet...</Block>
     <br />
     <br />
-    <Text>Example of using ContentTheme component</Text>
+    <p>Example of using ContentTheme component</p>
     <ContentTheme
       darkContent={<Block>You see only dark content!</Block>}
       lightContent={<Block>You see only light content!</Block>}
