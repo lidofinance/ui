@@ -302,22 +302,6 @@ export const ArrowBottom = React.forwardRef(function ArrowBottom(
   )
 })
 
-export const ArrowIcon = React.forwardRef(function ArrowIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
-) {
-  return (
-    <svg viewBox='0 0 24 24' fill='currentColor' ref={svgRef} {...props}>
-      <path
-        fillRule='evenodd'
-        clipRule='evenodd'
-        d='M12 15.848l-4-4L8.849 11l3.575 3.576L16 11l.849.848-4 4a.6.6 0 01-.849 0z'
-        fill='#000'
-      />
-    </svg>
-  )
-})
-
 export const ArrowLeft = React.forwardRef(function ArrowLeft(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>,
