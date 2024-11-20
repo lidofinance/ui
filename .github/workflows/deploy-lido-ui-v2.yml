@@ -1,4 +1,4 @@
-name: Deploy lido-ui-4
+name: Deploy lido-ui-v4
 
 on:
   push:
