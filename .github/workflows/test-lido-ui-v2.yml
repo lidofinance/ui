@@ -1,10 +1,10 @@
-name: Test lido-ui-v2
+name: Test lido-ui-v4
 
 on:
   workflow_dispatch:
   pull_request:
     branches:
-      - lido-ui-v2
+      - lido-ui-4
 
 permissions:
   contents: read

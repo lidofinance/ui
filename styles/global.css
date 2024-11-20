@@ -1,14 +1,14 @@
 /* reset */
-@import url("./reset.css");
+@import url('./reset.css');
 
 /* theme */
-@import url("./theme.css");
+@import url('./theme.css');
 
 /* theme */
-@import url("./breakpoints.css");
+@import url('./breakpoints.css');
 
 /* typography */
-@import url("./typography.css");
+@import url('./typography.css');
 
 html,
 body {

@@ -1,7 +1,6 @@
 .icon {
   grid-area: a;
-  align-self: center;
-  justify-self: center;
+  place-self: center center;
 }
 
 .light {
@@ -30,7 +29,7 @@
       by aiming explicit "span:first-child" we're verifying that this is what we are aiming for
       witout breaking our SVGs 
     */
-  &>span:first-child {
+  & > span:first-child {
     display: contents;
   }
 }

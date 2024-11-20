@@ -7,8 +7,8 @@ body,
 p {
   color: var(--lido-color-primary);
   font-feature-settings:
-    "clig" off,
-    "liga" off;
+    'clig' off,
+    'liga' off;
   font-style: normal;
 }
 

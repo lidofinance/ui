@@ -52,10 +52,10 @@
 
 .icon-black {
   color: var(--lido-color-primary-72);
-  transition: color .5s;
+  transition: color 0.5s;
 
   &:hover {
     color: var(--lido-color-primary-50);
-    transition: color .3s;
+    transition: color 0.3s;
   }
 }

@@ -1,6 +1,6 @@
 module.exports = {
   branches: [
-    { name: 'lido-ui-v2' },
+    { name: 'lido-ui-v4' },
     { name: 'next', channel: 'next', prerelease: true },
   ],
   plugins: [

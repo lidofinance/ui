@@ -14,12 +14,9 @@
   cursor: pointer;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
-    top: -7px;
-    right: -7px;
-    bottom: -7px;
-    left: -7px;
+    inset: -7px;
     border: 3px solid transparent;
     border-radius: var(--lido-border-radius-100);
     transition: border-color 0.35s ease;

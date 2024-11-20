@@ -1,6 +1,6 @@
-# Lido UI Components v2
+# Lido UI Components v4
 
-> React components (v2) for Lido Finance projects.
+> React components (v4) for Lido Finance projects.
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 

@@ -1,9 +1,9 @@
-name: Deploy lido-ui-v2
+name: Deploy lido-ui-4
 
 on:
   push:
     branches:
-      - lido-ui-v2
+      - lido-ui-v4
 
 permissions:
   contents: write

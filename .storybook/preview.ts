@@ -1,6 +1,6 @@
 import { WithThemeProvider } from './components/WithThemeProvider.js'
 
-import "../styles/global.css";
+import '../styles/global.css'
 
 export const parameters = {
   controls: { hideNoControlsWarning: true },

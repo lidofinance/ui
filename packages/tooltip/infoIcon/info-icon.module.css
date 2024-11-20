@@ -1,9 +1,9 @@
 .infoIcon {
   display: block;
-  transition: color .5s;
+  transition: color 0.5s;
 
   &:hover {
-    transition: color .3s;
+    transition: color 0.3s;
   }
 }
 

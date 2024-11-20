@@ -11,7 +11,7 @@ const ModalRoot = ((): HTMLElement | null => {
     }
 
     return modalRoot
-  } catch (error) {
+  } catch {
     return null
   }
 })()

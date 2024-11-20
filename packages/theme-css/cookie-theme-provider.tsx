@@ -29,8 +29,7 @@ const defaultThemeContext = {} as ThemeContext
 export const ThemeToggleContext =
   createContext<ThemeContext>(defaultThemeContext)
 
-  
-  initGlobalCookieTheme()
+initGlobalCookieTheme()
 
 /**
  * This is really complicated logic here. Comments will be added on specific lines
@@ -77,7 +76,6 @@ export const CookieThemeProvider: FC<
         return
       }
 
-      
       const setTheme = () => {
         const systemThemeName = prefersDarkThemeMediaQuery?.matches
           ? ThemeName.dark
