@@ -1,9 +1,9 @@
-name: Deploy lido-ui-v4
+name: Deploy canary lido-ui-v4
 
 on:
   push:
     branches:
-      - lido-ui-v4
+      - lido-ui-v4-canary
 
 permissions:
   contents: write
@@ -41,13 +41,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-          yarn release
-
-      - name: Build Storybook
-        run: yarn build-storybook
-
-      - name: Deploy to GitHub Pages
-        uses: lidofinance/github-pages-action@v1
-        with:
-          branch: gh-pages
-          folder: storybook-static
+          yarn release:dry
