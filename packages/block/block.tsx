@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import cn from 'classnames'
-import styles from './block.module.css'
+import styles from './Block.module.css'
 
 export enum BlockVariant {
   flat,

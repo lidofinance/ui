@@ -35,7 +35,7 @@
     "lint:js": "eslint .",
     "lint:js:fix": "eslint --fix .",
     "lint:css": "stylelint '**/*.css'",
-    "lint:css:fix": "yarn lint:css  --fix",
+    "lint:css:fix": "yarn lint:css --fix",
     "types": "tsc --noEmit",
     "prepare": "husky install",
     "release": "semantic-release",

@@ -47,19 +47,24 @@ import { Button } from '../lido-ui'
 
 ### Initial setup
 
-1. To get started, install the dependencies:
+1. Install the required node version
+```
+nvm use
+```
+
+2. To get started, install the dependencies:
 
 ```
 yarn install
 ```
 
-2. Build the packages:
+3. Build the packages:
 
 ```
 yarn build
 ```
 
-3. Run the storybook:
+4. Run the storybook:
 
 ```
 yarn dev
