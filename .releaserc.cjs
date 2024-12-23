@@ -1,7 +1,9 @@
 module.exports = {
   branches: [
-    { name: 'main' },
-    { name: 'next', channel: 'next', prerelease: true },
+    { name: 'lido-ui-v4' },
+    {
+      name: 'lido-ui-v4-canary', "channel": "alpha", "prerelease": "alpha"
+    },
   ],
   plugins: [
     ['@semantic-release/commit-analyzer', { preset: 'conventionalcommits' }],

@@ -1,0 +1,27 @@
+/* reset */
+@import url('./reset.css');
+
+/* theme */
+@import url('./theme.css');
+
+/* theme */
+@import url('./breakpoints.css');
+
+/* typography */
+@import url('./typography.css');
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fff9f9;
+}
+
+/* should be main instead of html or body, otherwise chrome devtools behaves weirdly */
+main {
+  overflow: clip;
+}

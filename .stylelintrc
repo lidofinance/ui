@@ -5,10 +5,20 @@
   "plugins": [
     "stylelint-prettier"
   ],
-  "customSyntax": "postcss-styled-syntax",
+  "ignoreFiles": [
+    "dist/**/*"
+  ],
   "rules": {
     "prettier/prettier": true,
     "custom-property-pattern": null,
-    "no-empty-source": null
+    "no-empty-source": null,
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["composes"]
+      }
+    ]
   }
 }

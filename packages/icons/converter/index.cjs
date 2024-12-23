@@ -2,7 +2,7 @@ const svgr = require('@svgr/core').default
 const svgrSvgo = require('@svgr/plugin-svgo').default
 const svgrJsx = require('@svgr/plugin-jsx').default
 const svgrPrettier = require('@svgr/plugin-prettier').default
-const indexTemplate = require('./template.index.js')
+const indexTemplate = require('./template.index.cjs')
 
 const fs = require('fs/promises')
 const { extname, resolve } = require('path')
@@ -80,7 +80,7 @@ const convertFiles = async () => {
             fill: 'currentColor',
           },
           plugins: [svgrSvgo, svgrJsx, svgrPrettier],
-          template: require('./template.component.js'),
+          template: require('./template.component.cjs'),
         },
         { componentName },
       )

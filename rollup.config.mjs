@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
+import autoprefixer from 'autoprefixer';
+import postcss from 'rollup-plugin-postcss';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -40,6 +42,12 @@ export default {
       exclude: 'node_modules/**',
       babelHelpers: 'bundled',
       extensions,
+    }),
+    postcss({
+      plugins: [autoprefixer()],
+      extract: true,
+      minimize: true,
+      modules: true,
     }),
   ],
   external,

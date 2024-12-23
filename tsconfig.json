@@ -22,16 +22,22 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "strictFunctionTypes": false,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "paths": {
+      "react": [ "./node_modules/@types/react" ]
+    }
   },
   "files": ["packages/index.ts"],
   "include": [
+    "**/*.d.ts",
     ".storybook/**/*.ts",
     ".storybook/**/*.tsx",
     "packages/**/*.test.ts",
     "packages/**/*.test.tsx",
     "packages/**/*.stories.ts",
     "packages/**/*.stories.tsx",
+    "global.d.ts"
   ],
   "exclude": ["node_modules"]
 }

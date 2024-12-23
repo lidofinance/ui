@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Block, BlockProps, BlockColor, BlockVariant } from './index.js'
+import { Block, BlockProps, BlockColor, BlockVariant } from '.'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -23,6 +23,6 @@ export default {
       control: 'inline-radio',
     },
   },
-} as Meta
+} satisfies Meta
 
 export const Basic: StoryFn<BlockProps> = (props) => <Block {...props} />
