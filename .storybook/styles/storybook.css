@@ -1,0 +1,20 @@
+/* normalize.css */
+@import url('./normalize.css');
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/Manrope-VariableFont_wght.ttf");
+}
+
+/* generated via https://deploy-preview-15--upbeat-shirley-608546.netlify.app/perfect-ish-font-fallback/?font=Manrope */
+@font-face {
+  font-family: "Manrope-fallback";
+  size-adjust: 102.91000000000001%;
+  ascent-override: 110%;
+  src: local("Arial");
+}
+
+html,
+body {
+  font-family: "Manrope", "Manrope-fallback";
+}

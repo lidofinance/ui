@@ -1,0 +1,22 @@
+.foreground {
+  background: var(--lido-color-foreground);
+  color: var(--lido-color-text-secondary);
+}
+
+.background {
+  background: var(--lido-color-background);
+  color: var(--lido-color-text-secondary);
+}
+
+.flat {
+  box-shadow: none;
+}
+
+.block {
+  font-weight: 400;
+  font-size: var(--lido-font-size-description);
+  line-height: 1.6em;
+  border-radius: var(--lido-border-radius-4);
+  margin: 0;
+  padding: 10px 4px;
+}

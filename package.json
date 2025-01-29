@@ -43,6 +43,7 @@
     "icons:convert": "node ./packages/icons/converter/index.cjs"
   },
   "peerDependencies": {
+    "next": ">=12.0.0 <15.0.0",
     "react": "16 || 17 || 18",
     "react-dom": "16 || 17 || 18",
     "react-is": "16 || 17 || 18"
@@ -67,6 +68,7 @@
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@semrel-extra/npm": "^1.2.2",
+    "@storybook/addon-actions": "^8.4.7",
     "@storybook/addon-docs": "^7.2.3",
     "@storybook/addon-essentials": "^7.2.3",
     "@storybook/addons": "^7.2.3",
@@ -108,7 +110,11 @@
     "jest-resolve": "^29.0.1",
     "jest-runner": "^29.0.1",
     "lint-staged": "11.1.2",
+    "next": "^14.0.0",
     "postcss": "^8.4.27",
+    "postcss-custom-media": "^11.0.5",
+    "postcss-loader": "^8.1.1",
+    "postcss-nested": "^7.0.2",
     "prettier": "^3.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

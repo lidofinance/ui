@@ -1,5 +1,6 @@
 import { WithThemeProvider } from './components/WithThemeProvider.js'
 
+import './styles/storybook.css'
 import '../styles/global.css'
 
 export const parameters = {

@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Block } from '../../block'
 import { ContentTheme } from './'
+import { Block } from '../block'
 
 export default {
   title: 'Theme/Content Theme',

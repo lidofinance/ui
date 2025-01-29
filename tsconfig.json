@@ -28,7 +28,6 @@
       "react": [ "./node_modules/@types/react" ]
     }
   },
-  "files": ["packages/index.ts"],
   "include": [
     "**/*.d.ts",
     ".storybook/**/*.ts",
@@ -37,6 +36,8 @@
     "packages/**/*.test.tsx",
     "packages/**/*.stories.ts",
     "packages/**/*.stories.tsx",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
     "global.d.ts"
   ],
   "exclude": ["node_modules"]

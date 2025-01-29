@@ -1,11 +1,5 @@
-/* reset */
-@import url('./reset.css');
-
-/* theme */
-@import url('./theme.css');
-
-/* theme */
-@import url('./breakpoints.css');
+/* variables */
+@import url('./variables.css');
 
 /* typography */
 @import url('./typography.css');

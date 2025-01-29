@@ -18,9 +18,6 @@ export const ThemeToggler = forwardRef(
 
     return (
       <button
-        // variant='text'
-        // size='xs'
-        // color='secondary'
         className={cn(styles.themeToggler, className)}
         ref={ref}
         {...rest}

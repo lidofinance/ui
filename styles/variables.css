@@ -1,0 +1,75 @@
+:root {
+  /* Static colors */
+  --lido-color-primary-6-static: #1312170f;
+  --lido-color-primary-5-static: #1312170d;
+  --lido-color-white-static: #fff;
+  --lido-color-accent-ocean-static: #0085ff;
+  --lido-color-accent-light-ocean-static: #0085ff33;
+  --lido-color-accent-sky-static: #00a3ff;
+  --lido-color-accent-coral-static: #ff8e76;
+  --lido-color-accent-light-coral-static: #ff8e7633;
+  --lido-color-accent-berry-static: #d74758;
+  --lido-color-accent-light-berry-static: #d7475833;
+  --lido-color-accent-leaf-static: #29c38c;
+  --lido-color-accent-light-leaf-static: #29c38c33;
+  --lido-color-borders-mist-static: #3c425447;
+  --lido-color-borders-water-static: #0085ff99;
+
+  /* border radius */
+  --lido-border-radius-4: 4px;
+  --lido-border-radius-60: 60px;
+
+  /* easings */
+  --ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* theme */
+:root,
+[data-lido-theme='light'] {
+  --lido-light-mode-visibility: visible;
+  --lido-dark-mode-visibility: hidden;
+  --lido-light-display: initial;
+  --lido-dark-display: none;
+  --lido-color-background: #fff;
+  --lido-color-foreground: #fff;
+  --lido-color-shadow-light: rgb(39 56 82 / 8%);
+  --lido-color-text: #273852;
+  --lido-color-text-secondary: #7a8aa0;
+
+  /* colors */
+  --lido-color-primary: #000;
+  --lido-color-primary-reverse: #fff;
+  --lido-color-primary-72: #131217b8;
+  --lido-color-primary-50: #13121780;
+  --lido-color-primary-32: #13121752;
+  --lido-color-primary-20: #13121733;
+  --lido-color-primary-8: #13121714;
+  --lido-color-borders-fog: #0000001a;
+  --lido-color-borders-fog-reverse: #ffffff52;
+  --lido-color-borders-mist: #3c425447;
+}
+
+[data-lido-theme='dark'] {
+  --lido-light-mode-visibility: hidden;
+  --lido-dark-mode-visibility: visible;
+  --lido-light-display: none;
+  --lido-dark-display: initial;
+  --lido-color-background: #000;
+  --lido-color-foreground: #34343d;
+  --lido-color-shadow-light: rgb(0 0 0 / 25%);
+  --lido-color-text: #fff;
+  --lido-color-text-secondary: rgb(255 255 255 / 80%);
+  --lido-color-primary: #fff;
+  --lido-color-primary-reverse: #000;
+  --lido-color-primary-72: #ffffffb8;
+  --lido-color-primary-50: #ffffff80;
+  --lido-color-primary-32: #ffffff52;
+  --lido-color-primary-20: #fff3;
+  --lido-color-primary-8: #ffffff14;
+  --lido-color-primary-6: #1312170f;
+  --lido-color-primary-5: #1312170d;
+  --lido-color-borders-fog: #ffffff52;
+  --lido-color-borders-fog-reverse: #0000001a;
+  --lido-color-borders-mist: var(--lido-color-primary-32);
+}

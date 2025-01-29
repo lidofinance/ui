@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Block } from '../../block'
+import { Block } from '../block'
 import { ContentTheme } from '../content-theme'
 import { ThemeToggler } from './'
 
