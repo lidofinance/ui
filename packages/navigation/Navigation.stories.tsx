@@ -33,8 +33,8 @@ export const Basic: StoryFn<NavigationButtonProps> = (props) => (
 )
 
 export const AllStates: StoryFn<NavigationButtonProps> = () => {
-  const variants: NavigationButtonVariant[] = ['left', 'right', 'down'] as const
-  const colors: ButtonColor[] = ['default', 'transparent'] as const
+  const variants: NavigationButtonVariant[] = ['left', 'right', 'down']
+  const colors: ButtonColor[] = ['default', 'transparent']
   const disabledStates: boolean[] = [false, true]
 
   return (
@@ -51,6 +51,8 @@ export const AllStates: StoryFn<NavigationButtonProps> = () => {
                   href='#'
                   color={color as NavigaitonButtonColor}
                   // this error is OK
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
                   disabled={disabled}
                 ></NavigationButton>
               )),
