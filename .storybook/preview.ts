@@ -2,6 +2,7 @@ import { WithThemeProvider } from './components/WithThemeProvider.js'
 
 import './styles/storybook.css'
 import '../styles/global.css'
+import { Decorator } from '@storybook/react'
 
 export const parameters = {
   controls: { hideNoControlsWarning: true },
@@ -16,4 +17,4 @@ export const argTypes = {
   },
 }
 
-export const decorators = [WithThemeProvider]
+export const decorators: Decorator[] = [WithThemeProvider]

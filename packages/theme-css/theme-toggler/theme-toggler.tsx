@@ -14,7 +14,7 @@ export const ThemeToggler = forwardRef(
     { className, ...rest }: ThemeTogglerProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
-    const { toggleTheme, themeName } = useThemeToggle()
+    const { toggleTheme } = useThemeToggle()
 
     return (
       <button
@@ -25,7 +25,6 @@ export const ThemeToggler = forwardRef(
       >
         <>
           <Light className={styles.light} />
-          {themeName}
           <Dark className={styles.dark} />
         </>
       </button>

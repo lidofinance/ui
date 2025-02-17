@@ -8,7 +8,7 @@ For release a new version of the library you need to create a commit with `!` li
 
 ## Breaking Changes
 
-`useSystemTheme` hook will no longer return light theme as a fallback when system theme was not identified. A check needs to be added after upgrading.
+`useBreakpoint` has been deleted, because getting styles in js is a legacy of styled-components, but the library has switched to module-css. This can be created locally in your project.
 
 ## Getting Started
 

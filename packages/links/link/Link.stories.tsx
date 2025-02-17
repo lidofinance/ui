@@ -6,6 +6,12 @@ const meta: Meta<typeof Link> = {
   component: Link,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        story:
+          'The Link component uses a DynamicLink component that automatically detects whether the link is internal or external and accordingly uses Next Link or a standard <a> tag. The external link will be opened in a separate tab.',
+      },
+    },
   },
   args: {
     children: 'Example link',
@@ -37,27 +43,36 @@ export default meta
 export const Basic: StoryFn<LinkProps> = (props) => <Link {...props} />
 
 export const AllStates: StoryFn<LinkProps> = () => {
-  const colors: LinkProps['color'][] = ['default', 'inherit']
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      {colors.map((color) => (
+    <div style={{ fontSize: '16px', lineHeight: '1.5', padding: '16px' }}>
+      <p>
+        This is an example paragraph that includes a{' '}
         <Link
-          key={`${color}`}
-          color={color}
-          href={'/link'}
-          onClick={() => {
-            console.log(1)
-          }}
+          color='default'
+          href='/link'
+          onClick={() => console.log('Default link clicked')}
         >
-          {color}
+          default link
         </Link>
-      ))}
+        , styled with the standard appearance.
+      </p>
+      <p>
+        Here is another paragraph featuring a{' '}
+        <Link
+          color='inherit'
+          href='/link'
+          onClick={() => console.log('Inherit link clicked')}
+        >
+          link with inherited text color
+        </Link>
+        , which adopts the surrounding text color.
+      </p>
     </div>
   )
 }
 
 AllStates.parameters = {
+  controls: { disable: true },
   docs: {
     description: {
       story: 'Displays all possible Link states for easy review',

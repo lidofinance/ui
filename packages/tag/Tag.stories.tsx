@@ -126,6 +126,7 @@ export const AllStates: Story = {
 }
 
 AllStates.parameters = {
+  controls: { disable: true },
   docs: {
     description: {
       story: 'Displays all possible Tag states for easy review.',

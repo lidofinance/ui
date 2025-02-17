@@ -258,13 +258,24 @@
   background-color: transparent;
   color: var(--lido-color-primary);
   outline: none;
+  transition: color 0.5s;
 
   &:hover {
     background-color: transparent;
+    color: var(--lido-color-accent-ocean-static);
+    transition: color 0.3s;
   }
 
   &:disabled {
     background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+
+      .arrow {
+        transform: translateX(0);
+      }
+    }
   }
 }
 

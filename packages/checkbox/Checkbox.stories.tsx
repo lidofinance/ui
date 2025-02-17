@@ -36,17 +36,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
-
 export const AllStates: Story = () => {
   const variants: CheckboxVariant[] = ['accent', 'primary']
   const sizes: CheckboxSize[] = ['xs', 's', 'm', 'l']
   const disabledStates: boolean[] = [false, true]
-  const labels: { label: boolean; checked: boolean }[] = [
-    { label: true, checked: true },
-    { label: true, checked: false },
-    { label: false, checked: true },
-    { label: false, checked: false },
-  ]
+  const labelStates: boolean[] = [true, false]
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -54,24 +48,74 @@ export const AllStates: Story = () => {
         <div key={variant}>
           <h2>Variant: {variant.charAt(0).toUpperCase() + variant.slice(1)}</h2>
           {sizes.map((size) => (
-            <div key={size} style={{ marginBottom: '24px' }}>
+            <div key={size} style={{ marginBottom: '100px' }}>
               <h3>Size: {size.toUpperCase()}</h3>
-              <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-                {disabledStates.map((disabled) =>
-                  labels.map((label) => (
-                    <Checkbox
-                      key={`${variant}-${size}-${disabled}-${label}`}
-                      variant={variant}
-                      size={size}
-                      disabled={disabled}
-                      checked={label.checked}
-                      style={{ display: 'flex', alignItems: 'center' }}
-                    >
-                      {label.label ? 'Checkbox Label' : ''}
-                    </Checkbox>
-                  )),
-                )}
-              </div>
+              {disabledStates.map((disabled) => (
+                <div key={disabled.toString()} style={{ marginBottom: '30px' }}>
+                  <h4
+                    style={{
+                      margin: '10px 0 0 0',
+                      fontSize: '20px',
+                      opacity: '.7',
+                    }}
+                  >
+                    Disabled: {disabled.toString()}
+                  </h4>
+                  <div
+                    style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}
+                  >
+                    {labelStates.map((hasLabel) => (
+                      <div
+                        key={hasLabel.toString()}
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          gap: '8px',
+                        }}
+                      >
+                        <h5
+                          style={{
+                            margin: '6px 0',
+                            fontSize: '15px',
+                            opacity: '.7',
+                          }}
+                        >
+                          Label: {hasLabel ? 'Yes' : 'No'}
+                        </h5>
+                        <div
+                          style={{
+                            display: 'flex',
+                            gap: '24px',
+                            alignItems: 'center',
+                          }}
+                        >
+                          <Checkbox
+                            key={`${variant}-${size}-${disabled}-${hasLabel}-checked`}
+                            variant={variant}
+                            size={size}
+                            disabled={disabled}
+                            checked={true}
+                            style={{ display: 'flex', alignItems: 'center' }}
+                          >
+                            {hasLabel ? 'Checkbox Label' : ''}
+                          </Checkbox>
+                          <Checkbox
+                            key={`${variant}-${size}-${disabled}-${hasLabel}-unchecked`}
+                            variant={variant}
+                            size={size}
+                            disabled={disabled}
+                            checked={false}
+                            style={{ display: 'flex', alignItems: 'center' }}
+                          >
+                            {hasLabel ? 'Checkbox Label' : ''}
+                          </Checkbox>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
@@ -81,6 +125,7 @@ export const AllStates: Story = () => {
 }
 
 AllStates.parameters = {
+  controls: { disable: true },
   docs: {
     description: {
       story: 'Displays all possible Checkbox states for easy review.',

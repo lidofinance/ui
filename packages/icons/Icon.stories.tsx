@@ -88,6 +88,7 @@ SelectedIcon.args = {
 }
 
 SelectedIcon.parameters = {
+  controls: { disable: true },
   docs: {
     description: {
       story:

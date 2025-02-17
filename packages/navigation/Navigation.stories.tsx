@@ -65,6 +65,7 @@ export const AllStates: StoryFn<NavigationButtonProps> = () => {
 }
 
 AllStates.parameters = {
+  controls: { disable: true },
   docs: {
     description: {
       story:

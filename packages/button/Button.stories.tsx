@@ -275,6 +275,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
 }
 
 AllStates.parameters = {
+  controls: { disable: true },
   docs: {
     description: {
       story: 'Displays all possible Button states for easy review.',
