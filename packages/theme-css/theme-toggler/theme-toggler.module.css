@@ -1,4 +1,6 @@
 .icon {
+  --local-icon-size: 24px;
+
   grid-area: a;
   place-self: center center;
 }
@@ -16,13 +18,6 @@
 .themeToggler {
   display: inline-grid;
   grid-template-areas: 'a';
-  min-width: 0;
-  margin-left: var(--lido-space-sm);
-  line-height: 0;
-  font-size: 0;
-  padding: 0;
-  width: 44px;
-  height: 44px;
 
   /* 
       button element contains span as children container, we want to bypass it.

@@ -113,6 +113,7 @@
     "next": "^14.0.0",
     "postcss": "^8.4.27",
     "postcss-custom-media": "^11.0.5",
+    "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
     "postcss-nested": "^7.0.2",
     "prettier": "^3.0.1",

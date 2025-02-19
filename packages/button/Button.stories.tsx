@@ -69,204 +69,72 @@ export const AllStates: StoryFn<ButtonProps> = () => {
     'transparent',
   ]
   const sizes: ButtonProps['size'][] = ['s', 'm', 'l', 'xl']
-  const shapes: ButtonProps['shape'][] = ['oval', 'circle']
   const textStyles: ButtonProps['textStyle'][] = [
     'normal',
     'semibold',
     'subhead',
     'description',
   ]
+
+  const gridContainerStyle: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '32px',
+  }
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-      <div>
-        <h3>Default Buttons</h3>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {colors.map((color) => (
-            <Button
-              key={`default-${color}`}
-              color={color}
-              size='m'
-              shape='oval'
-              textStyle='semibold'
-              icon={undefined}
-              withArrow={false}
-              loading={false}
-            >
-              {color}
-            </Button>
-          ))}
-        </div>
-      </div>
-      <div>
-        <h3>Disabled Buttons</h3>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {colors.map((color) => (
-            <Button
-              key={`disabled-${color}`}
-              color={color}
-              size='m'
-              shape='oval'
-              textStyle='semibold'
-              disabled={true}
-              icon={undefined}
-              withArrow={false}
-              loading={false}
-              loaderVariant='transparent'
-            >
-              {color}
-            </Button>
-          ))}
-        </div>
-      </div>
+    <div style={gridContainerStyle}>
+      {sizes.map((size) => (
+        <div
+          key={size}
+          style={{ padding: '16px', border: '1px solid #eaeaea' }}
+        >
+          <h3>Size: {size}</h3>
 
-      <div>
-        <h3>Loading Buttons</h3>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {colors.map((color) => (
-            <Button
-              key={`loading-${color}`}
-              color={color}
-              size='m'
-              shape='oval'
-              textStyle='semibold'
-              disabled={false}
-              icon={undefined}
-              withArrow={false}
-              loading={true}
-              loaderVariant='opaque'
-            >
-              {color}
-            </Button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h3>Buttons with Icon</h3>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {colors.map((color) => (
-            <Button
-              key={`icon-${color}`}
-              color={color}
-              size='m'
-              shape='oval'
-              textStyle='semibold'
-              disabled={false}
-              icon={<Eth />}
-              withArrow={false}
-              loading={false}
-              loaderVariant='transparent'
-            >
-              {color}
-            </Button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h3>Buttons with Arrow</h3>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {colors.map((color) => (
-            <Button
-              key={`arrow-${color}`}
-              color={color}
-              size='m'
-              shape='oval'
-              textStyle='semibold'
-              disabled={false}
-              icon={undefined}
-              withArrow={true}
-              loading={false}
-              loaderVariant='transparent'
-            >
-              {color}
-            </Button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h3>Buttons with Icon and Arrow</h3>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {colors.map((color) => (
-            <Button
-              key={`icon-arrow-${color}`}
-              color={color}
-              size='m'
-              shape='oval'
-              textStyle='semibold'
-              disabled={false}
-              icon={<Eth />}
-              withArrow={true}
-              loading={false}
-              loaderVariant='transparent'
-            >
-              {color}
-            </Button>
-          ))}
-        </div>
-      </div>
-
-      {colors.map((color) => (
-        <div key={color}>
-          <h3>Color: {color}</h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-            {sizes.map((size) => (
-              <div key={size} style={{ marginBottom: '16px' }}>
-                <h4>Size: {size}</h4>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-                  {shapes.map((shape) => (
-                    <div key={shape}>
-                      <h5>Shape: {shape}</h5>
-                      <div
-                        style={{
-                          display: 'flex',
-                          gap: '8px',
-                          flexWrap: 'wrap',
-                        }}
-                      >
-                        {textStyles.map((textStyle, index) => (
-                          <>
-                            {shape === 'circle' && index === 0 && (
-                              <Button
-                                key={`${color}-${size}-${shape}-${textStyle}`}
-                                color={color}
-                                size={size}
-                                shape={shape}
-                                textStyle={textStyle}
-                                disabled={false}
-                                icon={<Eth />}
-                                withArrow={false}
-                                loading={false}
-                                loaderVariant='transparent'
-                              >
-                                {`${textStyle}`}
-                              </Button>
-                            )}
-                            {shape !== 'circle' && (
-                              <Button
-                                key={`${color}-${size}-${shape}-${textStyle}`}
-                                color={color}
-                                size={size}
-                                shape={shape}
-                                textStyle={textStyle}
-                                disabled={false}
-                                icon={<Eth />}
-                                withArrow={false}
-                                loading={false}
-                                loaderVariant='transparent'
-                              >
-                                {`${textStyle}`}
-                              </Button>
-                            )}
-                          </>
-                        ))}
-                      </div>
-                    </div>
+          <div>
+            {colors.map((color) => (
+              <div key={color} style={{ marginBottom: '16px' }}>
+                <h5>Color: {color}</h5>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {textStyles.map((textStyle) => (
+                    <Button
+                      key={`oval-${size}-${color}-${textStyle}`}
+                      color={color}
+                      size={size}
+                      shape='oval'
+                      textStyle={textStyle}
+                      disabled={false}
+                      icon={undefined}
+                      withArrow={false}
+                      loading={false}
+                      loaderVariant='transparent'
+                    >
+                      {textStyle}
+                    </Button>
                   ))}
                 </div>
               </div>
             ))}
+          </div>
+
+          <div style={{ marginBottom: '16px' }}>
+            <h5>Shape: Circle</h5>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <Button
+                key={`circle-${size}`}
+                color='default'
+                size={size}
+                shape='circle'
+                textStyle='normal'
+                disabled={false}
+                icon={<Eth />}
+                withArrow={false}
+                loading={false}
+                loaderVariant='transparent'
+              >
+                Circle
+              </Button>
+            </div>
           </div>
         </div>
       ))}

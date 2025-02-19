@@ -70,52 +70,79 @@ export const AllStates: Story = {
     const iconOptions: boolean[] = [false, true]
     const onCloseOptions: boolean[] = [false, true]
 
+    const gridContainerStyle: React.CSSProperties = {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: '24px',
+    }
+
+    const variantCardStyle: React.CSSProperties = {
+      padding: '16px',
+      border: '1px solid #eaeaea',
+      borderRadius: '4px',
+    }
+    const colorSectionStyle: React.CSSProperties = {
+      marginBottom: '16px',
+    }
+    const sizesGridStyle: React.CSSProperties = {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: '16px',
+    }
+    const sizeCardStyle: React.CSSProperties = {
+      padding: '8px',
+      borderRadius: '4px',
+    }
+
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div style={gridContainerStyle}>
         {variants.map((variant) => (
-          <div key={variant}>
+          <div key={variant} style={variantCardStyle}>
             <h2>
               Variant: {variant.charAt(0).toUpperCase() + variant.slice(1)}
             </h2>
             {colors.map((color) => (
-              <div key={color} style={{ marginLeft: '16px' }}>
+              <div key={color} style={colorSectionStyle}>
                 <h3>Color: {color.charAt(0).toUpperCase() + color.slice(1)}</h3>
-                {sizes.map((size) => (
-                  <div
-                    key={size}
-                    style={{ marginLeft: '16px', marginBottom: '16px' }}
-                  >
-                    <h4>Size: {size.toUpperCase()}</h4>
-                    <div
-                      style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}
-                    >
-                      {iconOptions.map((hasIcon) =>
-                        onCloseOptions.map((hasOnClose) => (
-                          <Tag
-                            key={`${variant}-${color}-${size}-${hasIcon}-${hasOnClose}`}
-                            variant={variant}
-                            color={color}
-                            size={size}
-                            icon={hasIcon ? <Icon /> : undefined}
-                            onClose={
-                              hasOnClose
-                                ? () => {
-                                    console.log(1)
-                                  }
-                                : undefined
-                            }
-                          >
-                            {hasOnClose
-                              ? 'Closable Tag'
-                              : hasIcon
-                                ? 'Tag with Icon'
-                                : 'Tag'}
-                          </Tag>
-                        )),
-                      )}
+                <div style={sizesGridStyle}>
+                  {sizes.map((size) => (
+                    <div key={size} style={sizeCardStyle}>
+                      <h4>Size: {size.toUpperCase()}</h4>
+                      <div
+                        style={{
+                          display: 'flex',
+                          gap: '16px',
+                          flexWrap: 'wrap',
+                        }}
+                      >
+                        {iconOptions.map((hasIcon) =>
+                          onCloseOptions.map((hasOnClose) => (
+                            <Tag
+                              key={`${variant}-${color}-${size}-${hasIcon}-${hasOnClose}`}
+                              variant={variant}
+                              color={color}
+                              size={size}
+                              icon={hasIcon ? <Icon /> : undefined}
+                              onClose={
+                                hasOnClose
+                                  ? () => {
+                                      console.log('Tag closed')
+                                    }
+                                  : undefined
+                              }
+                            >
+                              {hasOnClose
+                                ? 'Closable Tag'
+                                : hasIcon
+                                  ? 'Tag with Icon'
+                                  : 'Tag'}
+                            </Tag>
+                          )),
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             ))}
           </div>

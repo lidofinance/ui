@@ -4,6 +4,7 @@ import { babel } from '@rollup/plugin-babel'
 import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
 import postcssNested from 'postcss-nested'
+import postcssImport from 'postcss-import'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -48,7 +49,7 @@ export default {
     }),
     /** typography.css
      * We put the typography in a separate folder so that library users can decide
-     * for themselves whether to use these styles or not. */ 
+     * for themselves whether to use these styles or not. */
     postcss({
       plugins: [postcssNested(), autoprefixer()],
       include: /styles\/typography\.css$/,
@@ -57,11 +58,14 @@ export default {
       extract: 'styles/typography.css',
       minimize: true,
     }),
-    // index.css (without typography)
+    /** index.css – combining styles, including global.css (without typography) */
     postcss({
-      plugins: [postcssNested(), autoprefixer()],
+      plugins: [postcssImport(), postcssNested(), autoprefixer()],
       exclude: /styles\/typography\.css$/,
-      modules: true,
+      // Disable CSS modules for global.css, and leave the modules for the rest.
+      modules: {
+        auto: (id) => !/styles[\\\/]global\.css$/.test(id),
+      },
       inject: false,
       extract: 'index.css',
       minimize: true,

@@ -47,7 +47,24 @@ export default {
   },
 } as Meta
 
-// История для отображения всех иконок в сетке
+export const SelectedIcon: StoryFn<GenericIconProps> = (args) => (
+  <GenericIcon {...args} />
+)
+
+SelectedIcon.args = {
+  type: iconKeys[0],
+  color: '#000000',
+  size: 24,
+}
+
+SelectedIcon.parameters = {
+  docs: {
+    description: {
+      story: 'Allows you to select one icon using controls and display it.',
+    },
+  },
+}
+
 export const AllIcons = () => {
   const iconEntries = Object.entries(components) as [
     IconVariants,
@@ -70,29 +87,10 @@ export const AllIcons = () => {
   )
 }
 AllIcons.parameters = {
-  docs: {
-    description: {
-      story: 'Displays all available icons in a grid view.',
-    },
-  },
-}
-
-export const SelectedIcon: StoryFn<GenericIconProps> = (args) => (
-  <GenericIcon {...args} />
-)
-
-SelectedIcon.args = {
-  type: iconKeys[0],
-  color: '#000000',
-  size: 24,
-}
-
-SelectedIcon.parameters = {
   controls: { disable: true },
   docs: {
     description: {
-      story:
-        'Позволяет выбрать одну иконку с помощью контролов и отобразить её.',
+      story: 'Displays all available icons in a grid view.',
     },
   },
 }

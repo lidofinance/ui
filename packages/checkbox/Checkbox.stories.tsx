@@ -36,84 +36,88 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
+
 export const AllStates: Story = () => {
   const variants: CheckboxVariant[] = ['accent', 'primary']
   const sizes: CheckboxSize[] = ['xs', 's', 'm', 'l']
   const disabledStates: boolean[] = [false, true]
   const labelStates: boolean[] = [true, false]
 
+  const gridContainerStyle: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '32px',
+  }
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-      {variants.map((variant) => (
-        <div key={variant}>
-          <h2>Variant: {variant.charAt(0).toUpperCase() + variant.slice(1)}</h2>
-          {sizes.map((size) => (
-            <div key={size} style={{ marginBottom: '100px' }}>
-              <h3>Size: {size.toUpperCase()}</h3>
+    <div style={gridContainerStyle}>
+      {sizes.map((size) => (
+        <div
+          key={size}
+          style={{
+            padding: '16px',
+            border: '1px solid #eaeaea',
+            borderRadius: '4px',
+          }}
+        >
+          <h3>Size: {size.toUpperCase()}</h3>
+          {variants.map((variant) => (
+            <div key={variant} style={{ marginBottom: '16px' }}>
+              <h4>
+                Variant: {variant.charAt(0).toUpperCase() + variant.slice(1)}
+              </h4>
               {disabledStates.map((disabled) => (
-                <div key={disabled.toString()} style={{ marginBottom: '30px' }}>
-                  <h4
-                    style={{
-                      margin: '10px 0 0 0',
-                      fontSize: '20px',
-                      opacity: '.7',
-                    }}
+                <div key={disabled.toString()} style={{ marginBottom: '16px' }}>
+                  <h5
+                    style={{ opacity: 0.7, fontSize: '20px', margin: '5px 0' }}
                   >
                     Disabled: {disabled.toString()}
-                  </h4>
-                  <div
-                    style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}
-                  >
-                    {labelStates.map((hasLabel) => (
-                      <div
-                        key={hasLabel.toString()}
+                  </h5>
+                  {labelStates.map((hasLabel) => (
+                    <div
+                      key={hasLabel.toString()}
+                      style={{ marginBottom: '16px' }}
+                    >
+                      <h5
                         style={{
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          gap: '8px',
+                          opacity: 0.7,
+                          fontSize: '14px',
+                          margin: '5px 0',
                         }}
                       >
-                        <h5
-                          style={{
-                            margin: '6px 0',
-                            fontSize: '15px',
-                            opacity: '.7',
-                          }}
+                        Label: {hasLabel ? 'Yes' : 'No'}
+                      </h5>
+                      <div
+                        style={{
+                          display: 'flex',
+                          gap: '16px',
+                          flexWrap: 'wrap',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <Checkbox
+                          key={`${size}-${variant}-${disabled}-${hasLabel}-checked`}
+                          variant={variant}
+                          size={size}
+                          disabled={disabled}
+                          checked={true}
+                          style={{ display: 'flex', alignItems: 'center' }}
                         >
-                          Label: {hasLabel ? 'Yes' : 'No'}
-                        </h5>
-                        <div
-                          style={{
-                            display: 'flex',
-                            gap: '24px',
-                            alignItems: 'center',
-                          }}
+                          {hasLabel ? 'Checkbox Label' : ''}
+                        </Checkbox>
+                        <Checkbox
+                          key={`${size}-${variant}-${disabled}-${hasLabel}-unchecked`}
+                          variant={variant}
+                          size={size}
+                          disabled={disabled}
+                          checked={false}
+                          style={{ display: 'flex', alignItems: 'center' }}
                         >
-                          <Checkbox
-                            key={`${variant}-${size}-${disabled}-${hasLabel}-checked`}
-                            variant={variant}
-                            size={size}
-                            disabled={disabled}
-                            checked={true}
-                            style={{ display: 'flex', alignItems: 'center' }}
-                          >
-                            {hasLabel ? 'Checkbox Label' : ''}
-                          </Checkbox>
-                          <Checkbox
-                            key={`${variant}-${size}-${disabled}-${hasLabel}-unchecked`}
-                            variant={variant}
-                            size={size}
-                            disabled={disabled}
-                            checked={false}
-                            style={{ display: 'flex', alignItems: 'center' }}
-                          >
-                            {hasLabel ? 'Checkbox Label' : ''}
-                          </Checkbox>
-                        </div>
+                          {hasLabel ? 'Checkbox Label' : ''}
+                        </Checkbox>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>

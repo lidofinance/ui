@@ -1,3 +1,4 @@
+import '../styles/global.css'
 import '../styles/typography.css'
 
 export * from './hooks/index.js'

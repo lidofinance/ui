@@ -60,10 +60,6 @@ export const Button = forwardRef(
   ) => {
     const isCircle = shape === 'circle'
 
-    if (isCircle) {
-      icon
-    }
-
     const content = (
       <>
         <WaveLoader

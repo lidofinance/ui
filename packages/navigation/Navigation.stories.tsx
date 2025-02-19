@@ -37,27 +37,45 @@ export const AllStates: StoryFn<NavigationButtonProps> = () => {
   const colors: ButtonColor[] = ['default', 'transparent']
   const disabledStates: boolean[] = [false, true]
 
+  const gridContainerStyle: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '24px',
+  }
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div style={gridContainerStyle}>
       {variants.map((variant) => (
-        <div key={variant}>
+        <div
+          key={variant}
+          style={{
+            padding: '16px',
+            border: '1px solid #eaeaea',
+            borderRadius: '4px',
+          }}
+        >
           <h3>Variant: {variant.charAt(0).toUpperCase() + variant.slice(1)}</h3>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            {colors.map((color) =>
-              disabledStates.map((disabled) => (
-                <NavigationButton
-                  key={`${variant}-${color}-${disabled}`}
-                  variant={variant}
-                  href='#'
-                  color={color as NavigaitonButtonColor}
-                  // this error is OK
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  disabled={disabled}
-                ></NavigationButton>
-              )),
-            )}
-          </div>
+          {colors.map((color) => (
+            <div key={color} style={{ marginBottom: '16px' }}>
+              <h4>Color: {color.charAt(0).toUpperCase() + color.slice(1)}</h4>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                {disabledStates.map((disabled) => (
+                  <NavigationButton
+                    key={`${variant}-${color}-${disabled}`}
+                    variant={variant}
+                    href='#'
+                    color={color as NavigaitonButtonColor}
+                    // this error is OK
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    disabled={disabled}
+                  >
+                    {disabled ? 'Disabled' : 'Enabled'}
+                  </NavigationButton>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       ))}
     </div>
