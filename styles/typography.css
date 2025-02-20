@@ -87,7 +87,7 @@ p {
   font-style: normal;
 }
 
-h1,
+/* h1 */
 .ui-typography-h1 {
   font-size: var(--lido-font-size-h1);
   font-weight: var(--lido-font-weight-regular);
@@ -95,64 +95,66 @@ h1,
   letter-spacing: -1px;
 }
 
-h2,
+/* h2 */
 .ui-typography-h2 {
   font-size: var(--lido-font-size-h2);
   font-weight: var(--lido-font-weight-regular);
   line-height: var(--lido-line-height-h2);
 }
 
-h3,
+/* h3 */
 .ui-typography-h3 {
   font-size: var(--lido-font-size-h3);
   font-weight: var(--lido-font-weight-light);
   line-height: var(--lido-line-height-h3);
 }
 
-h3.medium,
+/* h3.medium */
 .ui-typography-h3.medium {
   font-weight: var(--lido-font-weight-medium);
 }
 
-h4,
+/* h4 */
 .ui-typography-h4 {
   font-size: var(--lido-font-size-h4);
   font-weight: var(--lido-font-weight-light);
   line-height: var(--lido-line-height-h4);
 }
 
-h4.medium,
+/* h4.medium */
 .ui-typography-h4.medium {
   font-weight: var(--lido-font-weight-medium);
 }
 
-h5,
+/* h5 */
 .ui-typography-subheader {
   font-size: var(--lido-font-size-subheader);
   font-weight: var(--lido-font-weight-light);
   line-height: var(--lido-line-height-subheader);
 }
 
-h5.bold,
+/* h5.bold */
 .ui-typography-subheader.bold {
   font-weight: var(--lido-font-weight-bold);
 }
 
-input,
-label,
+/* input */
+
+/* label */
 .ui-typography-control {
   font-size: var(--lido-font-size-control);
   font-weight: var(--lido-font-weight-regular);
   line-height: var(--lido-line-height-control);
 }
 
-input.bold,
-label.bold,
+/* input.bold */
+
+/* label.bold */
 .ui-typography-control.bold {
   font-weight: var(--lido-font-weight-bold);
 }
 
-body,
+/* body */
 .ui-typography-body {
   font-size: var(--lido-font-size-body);
   font-weight: var(--lido-font-weight-regular);
@@ -163,20 +165,20 @@ body,
   font-weight: var(--lido-font-weight-bold);
 }
 
-p,
+/* p */
 .ui-typography-description {
   font-size: var(--lido-font-size-description);
   font-weight: var(--lido-font-weight-regular);
   line-height: var(--lido-line-height-description);
 }
 
-p.bold,
+/* p.bold */
 .ui-typography-description.bold {
   font-weight: var(--lido-font-weight-bold);
 }
 
 @media (width <= 899px) {
-  h1,
+  /* h1 */
   .ui-typography-h1 {
     letter-spacing: normal;
   }

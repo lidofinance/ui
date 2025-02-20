@@ -5,40 +5,8 @@ export default {
 }
 
 const storyDescription = `
-In typography, styles are applied to tags h1, h2, h3, input, body, etc. It contains in the TypographyByTags story.\n
-And to the classes .ui-typography-h1, .ui-typography-h2, .ui-typography-control, etc. It contains in the TypographyByClasses story
+In typography, styles are applied to classes .ui-typography-h1, .ui-typography-h2, .ui-typography-control, etc. It contains in the TypographyByClasses story
 `
-
-export const TypographyByTags = () => (
-  <div style={{ padding: 20 }}>
-    <p>{storyDescription}</p>
-    <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
-    <h3>Heading 3</h3>
-    <h3 className='medium'>Heading 3 medium</h3>
-    <h4>Heading 4</h4>
-    <h4 className='medium'>Heading 4 medium</h4>
-    <h5>Heading 5</h5>
-    <h5 className='bold'>Heading 5 bold</h5>
-    <div>
-      <input value='Control'></input>
-    </div>
-    <div>
-      <input className='bold' value='Control bold'></input>
-    </div>
-    <body>Body</body>
-    <p>Paragraph</p>
-    <p className='bold'>Paragraph bold</p>
-  </div>
-)
-
-TypographyByTags.parameters = {
-  docs: {
-    description: {
-      story: storyDescription,
-    },
-  },
-}
 
 export const TypographyByClasses = () => (
   <div style={{ padding: 20 }}>
