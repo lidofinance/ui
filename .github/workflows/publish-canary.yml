@@ -42,3 +42,12 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           yarn release
+
+      - name: Build Storybook
+        run: yarn build-storybook
+
+      - name: Deploy to GitHub Pages
+        uses: lidofinance/github-pages-action@v1
+        with:
+          branch: gh-pages
+          folder: storybook-static
