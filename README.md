@@ -1,25 +1,27 @@
 # Lido UI Components v4
 
-> React components (v4) for Lido Finance projects.
+> React components (v4) for Lido Finance projects. (Released February 2025)
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 
+For release a new version of the library you need to create a commit with `!` like this - `feat!: ui v4`
+
 ## Breaking Changes
 
-`useSystemTheme` hook will no longer return light theme as a fallback when system theme was not identified. A check needs to be added after upgrading.
+`useBreakpoint` has been deleted, because getting styles in js is a legacy of styled-components, but the library has switched to module-css. This can be created locally in your project.
 
 ## Getting Started
 
-Simply add `lido-ui` to your dependencies:
+1. Simply add `lido-ui` to your dependencies:
 
 ```bash
 yarn add @lidofinance/lido-ui
 ```
 
-Then, import Lido theme provider and wrap your components in `_app.js`:
+2. Import Lido theme provider and wrap your components in `_app.js`:
 
 ```js
-import { ThemeProvider } from '../lido-ui'
+import { ThemeProvider } from '@lidofinance/lido-ui'
 
 function App({ Component }) {
   return (
@@ -30,12 +32,23 @@ function App({ Component }) {
 }
 ```
 
+3. Import styles into your `_app.js` file:
+```tsx
+import '@lidofinance/lido-ui/index.css';
+```
+
+4. To use typography across your application, you need to import the provided CSS styles for typography.
+Insert the following line at the top of `_app.js` file to import the typography styles
+```tsx
+import '@lidofinance/lido-ui/styles/typography.css';
+```
+
 ## Usage
 
 Simply import any components and use in your project:
 
 ```js
-import { Button } from '../lido-ui'
+import { Button } from '@lidofinance/lido-ui'
 ```
 
 ## Developing

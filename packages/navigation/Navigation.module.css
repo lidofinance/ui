@@ -1,0 +1,15 @@
+.button.navigationButton {
+  --local-button-size: 52px;
+}
+
+.arrow {
+  --local-icon-size: 20px;
+}
+
+.left {
+  transform: rotate(180deg);
+}
+
+.down {
+  transform: rotate(90deg);
+}

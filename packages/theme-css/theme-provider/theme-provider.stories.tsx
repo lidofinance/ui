@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { DarkThemeProvider, LightThemeProvider } from '.'
-import { Block } from '../../block'
+import { Block } from '../block'
 
 export default {
   title: 'Theme/Providers',

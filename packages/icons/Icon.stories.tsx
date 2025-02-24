@@ -1,232 +1,96 @@
 import { StoryFn, Meta } from '@storybook/react'
 import * as components from './index.js'
 
-type IconVariants = keyof typeof components
+export type IconVariants = keyof typeof components
 const iconKeys = Object.keys(components) as IconVariants[]
 
-export default {
-  title: 'Images/Icons',
-} as Meta
-
-export const Base: StoryFn<{ color: string; type: IconVariants }> = ({
-  color,
-  type,
-}) => {
-  const Component = components[type]
-
-  return <Component style={{ fill: color || `var(--lido-color-text)` }} />
+interface GenericIconProps {
+  color?: string
+  size?: number
+  type: IconVariants
 }
 
-Base.argTypes = {
-  color: { control: 'color' },
-  type: {
-    options: iconKeys,
-    control: 'select',
+const GenericIcon: React.FC<GenericIconProps> = ({
+  color,
+  size = 24,
+  type,
+  ...props
+}) => {
+  const IconComponent = components[type]
+
+  if (!IconComponent) {
+    console.warn(`Icon "${type}" does not exist.`)
+    return null
+  }
+
+  return (
+    <IconComponent
+      style={{ fill: color || 'currentColor', width: size, height: size }}
+      {...props}
+    />
+  )
+}
+export default {
+  title: 'Images/Icons',
+  component: GenericIcon,
+  argTypes: {
+    type: {
+      control: 'select',
+      options: iconKeys,
+      description: 'Select an icon',
+    },
+    color: { control: 'color', description: 'Цвет иконки' },
+    size: {
+      control: { type: 'number', min: 10, max: 100, step: 1 },
+      description: 'Size of an icon in px',
+    },
+  },
+} as Meta
+
+export const SelectedIcon: StoryFn<GenericIconProps> = (args) => (
+  <GenericIcon {...args} />
+)
+
+SelectedIcon.args = {
+  type: iconKeys[0],
+  color: '#000000',
+  size: 24,
+}
+
+SelectedIcon.parameters = {
+  docs: {
+    description: {
+      story: 'Allows you to select one icon using controls and display it.',
+    },
   },
 }
 
-Base.args = {
-  type: 'History',
+export const AllIcons = () => {
+  const iconEntries = Object.entries(components) as [
+    IconVariants,
+    React.FC<React.SVGProps<SVGSVGElement>>,
+  ][]
+
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+      {iconEntries.map(([name, IconComponent]) => (
+        <div key={name} style={{ textAlign: 'center', width: '100px' }}>
+          <IconComponent
+            style={{ fill: 'currentColor' }}
+            width={48}
+            height={48}
+          />
+          <div style={{ marginTop: '8px', fontSize: '12px' }}>{name}</div>
+        </div>
+      ))}
+    </div>
+  )
 }
-
-// const IconList = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-// `
-
-// const IconListItem = styled.div`
-//   text-align: center;
-//   font-size: 13px;
-//   line-height: 15px;
-//   width: 120px;
-//   margin: 2px;
-//   padding: 10px;
-//   border-radius: 4px;
-//   color: var(--lido-color-text);
-// `
-
-// const IconListTitle = styled.div`
-//   opacity: 0.5;
-// `
-
-// export const List: StoryFn = () => (
-//   <IconList>
-//     {iconKeys.map((componentName) => {
-//       const Icon = components[componentName]
-
-//       return (
-//         <IconListItem key={componentName}>
-//           <Icon width={24} height={24} />
-//           <IconListTitle>{componentName}</IconListTitle>
-//         </IconListItem>
-//       )
-//     })}
-//   </IconList>
-// )
-
-// const SocialList = styled.div`
-//   display: flex;
-// `
-
-// const SocialListItem = styled.div<{ $color: string }>`
-//   background: ${({ $color }) => $color};
-//   line-height: 0;
-//   border-radius: 6px;
-//   margin: 4px;
-//   padding: 4px;
-
-//   svg {
-//     fill: #fff;
-//   }
-// `
-
-// export const Social: StoryFn = () => {
-//   const { Facebook, Twitter, Linkedin, Email, Telegram } = components
-
-//   return (
-//     <SocialList>
-//       <SocialListItem $color='#3B5998'>
-//         <Facebook />
-//       </SocialListItem>
-//       <SocialListItem $color='linear-gradient(203.2deg, #37AEE2 21.67%, #1E96C8 70%)'>
-//         <Telegram />
-//       </SocialListItem>
-//       <SocialListItem $color='#55ACEE'>
-//         <Twitter />
-//       </SocialListItem>
-//       <SocialListItem $color='#007BB5'>
-//         <Linkedin />
-//       </SocialListItem>
-//       <SocialListItem $color='#52A573;'>
-//         <Email />
-//       </SocialListItem>
-//     </SocialList>
-//   )
-// }
-
-// export const CryptoCurrencies: StoryFn = () => {
-//   const { Eth, Weth, Steth, Wsteth, Beth, Ldo, Ldopl, Solana, Stsol, Terra } =
-//     components
-//   const iconKeys = Object.keys({
-//     Eth,
-//     Weth,
-//     Steth,
-//     Wsteth,
-//     Beth,
-//     Ldo,
-//     Ldopl,
-//     Solana,
-//     Stsol,
-//     Terra,
-//   }) as IconVariants[]
-
-//   return (
-//     <IconList>
-//       {iconKeys.map((componentName) => {
-//         const Icon = components[componentName]
-
-//         return (
-//           <IconListItem key={componentName}>
-//             <Icon width={24} height={24} />
-//             <IconListTitle>{componentName}</IconListTitle>
-//           </IconListItem>
-//         )
-//       })}
-//     </IconList>
-//   )
-// }
-
-// export const CryptoWallets: StoryFn = () => {
-//   const {
-//     MetaMask,
-//     MetaMaskCircle,
-//     MetaMaskCircleInversion,
-//     WalletConnect,
-//     WalletConnectCircle,
-//     Coinbase,
-//     Ledger,
-//     LedgerCircle,
-//     LedgerCircleInversion,
-//     Trust,
-//     TrustCircle,
-//     Imtoken,
-//     ImtokenCircle,
-//     MathWalletCircle,
-//     MathWalletCircleInversion,
-//     Coin98Circle,
-//     Ambire,
-//     Blochainwallet,
-//     BlochainwalletInversion,
-//     Exodus,
-//     OperaWallet,
-//     Unstoppabledomains,
-//     Zengo,
-//     Gamestop,
-//     XdefiWallet,
-//   } = components
-//   const iconKeys = Object.keys({
-//     MetaMask,
-//     MetaMaskCircle,
-//     MetaMaskCircleInversion,
-//     WalletConnect,
-//     WalletConnectCircle,
-//     Coinbase,
-//     Ledger,
-//     LedgerCircle,
-//     LedgerCircleInversion,
-//     Trust,
-//     TrustCircle,
-//     Imtoken,
-//     ImtokenCircle,
-//     MathWalletCircle,
-//     MathWalletCircleInversion,
-//     Coin98Circle,
-//     Ambire,
-//     Zengo,
-//     Blochainwallet,
-//     BlochainwalletInversion,
-//     Exodus,
-//     OperaWallet,
-//     Unstoppabledomains,
-//     Gamestop,
-//     XdefiWallet,
-//   }) as IconVariants[]
-
-//   return (
-//     <IconList>
-//       {iconKeys.map((componentName) => {
-//         const Icon = components[componentName]
-
-//         return (
-//           <IconListItem key={componentName}>
-//             <Icon width={24} height={24} />
-//             <IconListTitle>{componentName}</IconListTitle>
-//           </IconListItem>
-//         )
-//       })}
-//     </IconList>
-//   )
-// }
-
-// export const CryptoExchanges: StoryFn = () => {
-//   const { Uniswap, OneInch } = components
-//   const iconKeys = Object.keys({
-//     Uniswap,
-//     OneInch,
-//   }) as IconVariants[]
-
-//   return (
-//     <IconList>
-//       {iconKeys.map((componentName) => {
-//         const Icon = components[componentName]
-
-//         return (
-//           <IconListItem key={componentName}>
-//             <Icon width={24} height={24} />
-//             <IconListTitle>{componentName}</IconListTitle>
-//           </IconListItem>
-//         )
-//       })}
-//     </IconList>
-//   )
-// }
+AllIcons.parameters = {
+  controls: { disable: true },
+  docs: {
+    description: {
+      story: 'Displays all available icons in a grid view.',
+    },
+  },
+}

@@ -1,3 +1,78 @@
+:root {
+  --lido-font-size-h1: 100px;
+  --lido-font-size-h2: 76px;
+  --lido-font-size-h2-not-adaptive: 76px;
+  --lido-font-size-h3: 34px;
+  --lido-font-size-h3-not-adaptive: 34px;
+  --lido-font-size-h4: 28px;
+  --lido-font-size-subheader: 22px;
+  --lido-font-size-subheader-not-adaptive: 22px;
+  --lido-font-size-control: 17px;
+  --lido-font-size-control-not-adaptive: 17px;
+  --lido-font-size-body: 15px;
+  --lido-font-size-description: 14px;
+  --lido-font-weight-bold: 600;
+  --lido-font-weight-medium: 500;
+  --lido-font-weight-regular: 400;
+  --lido-font-weight-light: 300;
+  --lido-font-weight-extra-light: 200;
+  --lido-line-height-h1: 100px;
+  --lido-line-height-h2: 76px;
+  --lido-line-height-h2-not-adaptive: 76px;
+  --lido-line-height-h3: 48px;
+  --lido-line-height-h3-not-adaptive: 48px;
+  --lido-line-height-h4: 38px;
+  --lido-line-height-subheader: 40px;
+  --lido-line-height-subheader-not-adaptive: 40px;
+  --lido-line-height-control: 26px;
+  --lido-line-height-control-not-adaptive: 26px;
+  --lido-line-height-body: 27px;
+  --lido-line-height-description: 24px;
+}
+
+/* media */
+@media (width <= 1499px) {
+  :root {
+    --lido-font-size-h1: 80px;
+    --lido-font-size-h2: 66px;
+    --lido-font-size-h3: 26px;
+    --lido-font-size-h4: 22px;
+    --lido-font-size-subheader: 19px;
+    --lido-font-size-control: 17px;
+    --lido-font-size-body: 15px;
+    --lido-font-size-description: 14px;
+    --lido-line-height-h1: 80px;
+    --lido-line-height-h2: 66px;
+    --lido-line-height-h3: 40px;
+    --lido-line-height-h4: 32px;
+    --lido-line-height-subheader: 32px;
+    --lido-line-height-control: 26px;
+    --lido-line-height-body: 27px;
+    --lido-line-height-description: 24px;
+  }
+}
+
+@media (width <= 899px) {
+  :root {
+    --lido-font-size-h1: 56px;
+    --lido-font-size-h2: 36px;
+    --lido-font-size-h3: 22px;
+    --lido-font-size-h4: 18px;
+    --lido-font-size-subheader: 17px;
+    --lido-font-size-control: 14px;
+    --lido-font-size-body: 15px;
+    --lido-font-size-description: 14px;
+    --lido-line-height-h1: 56px;
+    --lido-line-height-h2: 36px;
+    --lido-line-height-h3: 40px;
+    --lido-line-height-h4: 32px;
+    --lido-line-height-subheader: 32px;
+    --lido-line-height-control: 26px;
+    --lido-line-height-body: 27px;
+    --lido-line-height-description: 24px;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -12,91 +87,99 @@ p {
   font-style: normal;
 }
 
-h1,
-.typography-h1 {
+/* h1 */
+.ui-typography-h1 {
   font-size: var(--lido-font-size-h1);
   font-weight: var(--lido-font-weight-regular);
   line-height: var(--lido-line-height-h1);
   letter-spacing: -1px;
 }
 
-h2,
-.typography-h2 {
+/* h2 */
+.ui-typography-h2 {
   font-size: var(--lido-font-size-h2);
   font-weight: var(--lido-font-weight-regular);
   line-height: var(--lido-line-height-h2);
 }
 
-h3,
-.typography-h3 {
+/* h3 */
+.ui-typography-h3 {
   font-size: var(--lido-font-size-h3);
   font-weight: var(--lido-font-weight-light);
   line-height: var(--lido-line-height-h3);
 }
 
-h3.medium {
+/* h3.medium */
+.ui-typography-h3.medium {
   font-weight: var(--lido-font-weight-medium);
 }
 
-h4 {
+/* h4 */
+.ui-typography-h4 {
   font-size: var(--lido-font-size-h4);
   font-weight: var(--lido-font-weight-light);
   line-height: var(--lido-line-height-h4);
 }
 
-h4.medium {
+/* h4.medium */
+.ui-typography-h4.medium {
   font-weight: var(--lido-font-weight-medium);
 }
 
-h5,
-.typography-subheader {
+/* h5 */
+.ui-typography-subheader {
   font-size: var(--lido-font-size-subheader);
   font-weight: var(--lido-font-weight-light);
   line-height: var(--lido-line-height-subheader);
 }
 
-input,
-label,
-.typography-control {
+/* h5.bold */
+.ui-typography-subheader.bold {
+  font-weight: var(--lido-font-weight-bold);
+}
+
+/* input */
+
+/* label */
+.ui-typography-control {
   font-size: var(--lido-font-size-control);
   font-weight: var(--lido-font-weight-regular);
   line-height: var(--lido-line-height-control);
 }
 
-body,
-.typography-body {
+/* input.bold */
+
+/* label.bold */
+.ui-typography-control.bold {
+  font-weight: var(--lido-font-weight-bold);
+}
+
+/* body */
+.ui-typography-body {
   font-size: var(--lido-font-size-body);
   font-weight: var(--lido-font-weight-regular);
   line-height: var(--lido-line-height-body);
 }
 
-p,
-.typography-description {
+.ui-typography-body.bold {
+  font-weight: var(--lido-font-weight-bold);
+}
+
+/* p */
+.ui-typography-description {
   font-size: var(--lido-font-size-description);
   font-weight: var(--lido-font-weight-regular);
   line-height: var(--lido-line-height-description);
 }
 
-strong,
-.bold {
+/* p.bold */
+.ui-typography-description.bold {
   font-weight: var(--lido-font-weight-bold);
 }
 
-@media (--lido-breakpoint-md-down) {
-  h1,
-  .typography-h1 {
+@media (width <= 899px) {
+  /* h1 */
+  .ui-typography-h1 {
     letter-spacing: normal;
-  }
-
-  h3.medium {
-    font-weight: var(--lido-font-weight-bold);
-  }
-
-  h4.medium {
-    font-weight: var(--lido-font-weight-bold);
-  }
-
-  h5 {
-    font-weight: var(--lido-font-weight-regular);
   }
 }

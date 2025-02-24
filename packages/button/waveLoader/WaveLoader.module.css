@@ -1,0 +1,94 @@
+.wave,
+.wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.wrap {
+  animation: appearing 2s var(--ease-out-quad) 1;
+
+  &.disappearing {
+    animation: disappearing 0.25s var(--ease-in-sine) 1;
+  }
+}
+
+@keyframes appearing {
+  0% {
+    opacity: 0;
+    transform: translateY(20%) scale(1.8, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes disappearing {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(0%) scale(2);
+  }
+}
+
+.wave {
+  --source-svg-width: 355px;
+  --source-svg-height: 165px;
+  --source-svg-wave-low-offset: 45px;
+
+  background-size: calc(var(--source-svg-width) * var(--wave-svg-scale))
+    calc(var(--source-svg-height) * var(--wave-svg-scale));
+  background-position-x: calc(var(--source-svg-width) * var(--wave-svg-scale));
+  background-repeat: repeat no-repeat;
+
+  &.high {
+    background-position-x: calc(
+      var(--source-svg-width) * var(--wave-svg-scale)
+    );
+    background-position-y: calc(-9% * var(--wave-svg-scale));
+    animation: they-float-high 5.6s linear infinite;
+  }
+
+  &.low {
+    background-position-x: calc(
+      (var(--source-svg-width) + var(--source-svg-wave-low-offset)) *
+        var(--wave-svg-scale)
+    );
+    background-position-y: calc(-21% * var(--wave-svg-scale));
+    animation: they-float-low 5s linear infinite;
+  }
+
+  &.variant--transparent {
+    /*
+      <svg xmlns="http://www.w3.org/2000/svg" width="355" height="165" fill="none"><path fill="url(#a)" fill-rule="evenodd" d="M0 164.81V0c44.145.047 66.293 7.023 88.44 14 22.222 7 44.445 14 88.89 14 44.446 0 66.669-7 88.89-14C288.425 7.004 310.628.01 355 0v164.81H0Z" clip-rule="evenodd"/><defs><linearGradient id="a" x1="177.5" x2="177.5" y1="0" y2="164.81" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity=".25"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs></svg>
+    */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNTUiIGhlaWdodD0iMTY1IiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSJ1cmwoI2EpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDE2NC44MVYwYzQ0LjE0NS4wNDcgNjYuMjkzIDcuMDIzIDg4LjQ0IDE0IDIyLjIyMiA3IDQ0LjQ0NSAxNCA4OC44OSAxNCA0NC40NDYgMCA2Ni42NjktNyA4OC44OS0xNEMyODguNDI1IDcuMDA0IDMxMC42MjguMDEgMzU1IDB2MTY0LjgxSDBaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIxNzcuNSIgeDI9IjE3Ny41IiB5MT0iMCIgeTI9IjE2NC44MSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iLjI1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48L3N2Zz4K');
+  }
+
+  &.variant--opaque {
+    /*
+      <svg xmlns="http://www.w3.org/2000/svg" width="355" height="165" fill="none"><path fill="url(#a)" fill-rule="evenodd" d="M0 164.81V0c44.145.047 66.293 7.023 88.44 14 22.222 7 44.445 14 88.89 14 44.446 0 66.669-7 88.89-14C288.425 7.004 310.628.01 355 0v164.81H0Z" clip-rule="evenodd"/><defs><linearGradient id="a" x1="177.5" x2="177.5" y1="0" y2="164.81" gradientUnits="userSpaceOnUse"><stop stop-color="#B3B5EB" stop-opacity=".25"/><stop offset="1" stop-color="#B3B5EB" stop-opacity="0"/></linearGradient></defs></svg>
+    */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNTUiIGhlaWdodD0iMTY1IiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSJ1cmwoI2EpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDE2NC44MVYwYzQ0LjE0NS4wNDcgNjYuMjkzIDcuMDIzIDg4LjQ0IDE0IDIyLjIyMiA3IDQ0LjQ0NSAxNCA4OC44OSAxNCA0NC40NDYgMCA2Ni42NjktNyA4OC44OS0xNEMyODguNDI1IDcuMDA0IDMxMC42MjguMDEgMzU1IDB2MTY0LjgxSDBaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIxNzcuNSIgeDI9IjE3Ny41IiB5MT0iMCIgeTI9IjE2NC44MSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiNCM0I1RUIiIHN0b3Atb3BhY2l0eT0iLjI1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQjNCNUVCIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48L3N2Zz4K');
+  }
+}
+
+@keyframes they-float-high {
+  100% {
+    background-position-x: 0;
+  }
+}
+
+@keyframes they-float-low {
+  100% {
+    background-position-x: calc(
+      var(--source-svg-wave-low-offset) * var(--wave-svg-scale)
+    );
+  }
+}

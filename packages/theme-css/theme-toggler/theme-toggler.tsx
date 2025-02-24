@@ -1,13 +1,12 @@
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 import { useThemeToggle } from '../use-theme-toggle'
 import { Dark, Light } from '../../icons'
 import cn from 'classnames'
 import styles from './theme-toggler.module.css'
+import { Button, ButtonProps } from '../../button'
+import { DEFAULT_THEME_NAME } from '../constants'
 
-export interface ThemeTogglerProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-}
+export type ThemeTogglerProps = ButtonProps
 
 export const ThemeToggler = forwardRef(
   (
@@ -16,22 +15,24 @@ export const ThemeToggler = forwardRef(
   ) => {
     const { toggleTheme, themeName } = useThemeToggle()
 
+    const isLightTheme = themeName === DEFAULT_THEME_NAME
+
     return (
-      <button
-        // variant='text'
-        // size='xs'
-        // color='secondary'
+      <Button
         className={cn(styles.themeToggler, className)}
         ref={ref}
-        {...rest}
         onClick={toggleTheme}
-      >
-        <>
-          <Light className={styles.light} />
-          {themeName}
-          <Dark className={styles.dark} />
-        </>
-      </button>
+        shape='circle'
+        size='s'
+        icon={
+          isLightTheme ? (
+            <Light className={styles.icon} />
+          ) : (
+            <Dark className={styles.icon} />
+          )
+        }
+        {...rest}
+      ></Button>
     )
   },
 )
