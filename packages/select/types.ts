@@ -21,6 +21,7 @@ export type SelectProps = Omit<
   value?: OptionValue
   defaultValue?: OptionValue
   onChange: SelectHandleChange
+  popupStyle: React.CSSProperties
 }
 
 export type SelectIconProps = Omit<

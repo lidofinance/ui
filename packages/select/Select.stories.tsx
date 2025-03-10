@@ -150,3 +150,28 @@ export const Small: StoryFn<SelectProps> = (props) => (
     <Option value={3}>Third</Option>
   </Select>
 )
+
+export const WithStyles: StoryFn<SelectProps> = (props) => (
+  <Select {...props} popupStyle={{ maxHeight: '350px' }} value={1}>
+    <Option value={1}>First</Option>
+    <Option value={2}>Second</Option>
+    <Option value={3}>Third</Option>
+    <Option value={4}>Fourth</Option>
+    <Option value={5}>Fifth</Option>
+    <Option value={6}>Sixth</Option>
+    <Option value={7}>Seventh</Option>
+    <Option value={8}>Eighth</Option>
+    <Option value={9}>Ninth</Option>
+    <Option value={10}>Tenth</Option>
+    <Option value={11}>Eleventh</Option>
+    <Option value={12}>Twelfth</Option>
+    <Option value={13}>Thirteenth</Option>
+    <Option value={14}>Fourteenth</Option>
+    <Option value={15}>Fifteenth</Option>
+    <Option value={16}>Sixteenth</Option>
+    <Option value={17}>Seventeenth</Option>
+    <Option value={18}>Eighteenth</Option>
+    <Option value={19}>Nineteenth</Option>
+    <Option value={20}>Twentieth</Option>
+  </Select>
+)

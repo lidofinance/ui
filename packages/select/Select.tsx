@@ -21,6 +21,7 @@ export const Select = forwardRef(
       onClick,
       onKeyDown,
       onChange,
+      popupStyle,
       ...rest
     }: SelectProps,
     ref?: ForwardedRef<HTMLInputElement>,
@@ -61,7 +62,7 @@ export const Select = forwardRef(
           open={opened}
           variant={variant}
           anchorRef={anchorRef}
-          style={{ minWidth: width }}
+          style={{ minWidth: width, ...popupStyle }}
           onClose={handleClose}
         >
           {options}
