@@ -51,6 +51,7 @@ jobs:
         run: |
           # Get the published files from the gh-pages branch (if any)
           git fetch origin gh-pages:gh-pages-temp || echo "gh-pages branch not found"
+          git worktree add gh-pages-temp origin/gh-pages
           # In the current build, the v3 build is already in storybook-static
           # If the published files contain a v4 folder, copy it to storybook-static/v4
           if [ -d gh-pages-temp/v4 ]; then
