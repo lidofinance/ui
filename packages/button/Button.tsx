@@ -28,6 +28,7 @@ export type ButtonProps = (
   loading?: boolean
   textStyle?: ButtonTextStyle
   loaderVariant?: WaveLoaderVariant
+  hideArrowOnMobile?: boolean
 }
 
 export type ButtonSize = 's' | 'm' | 'l' | 'xl' | 'xxl' // "s" and "xxl" sizes are only for Circle shape
@@ -54,6 +55,7 @@ export const Button = forwardRef(
       loading,
       textStyle = 'semibold',
       loaderVariant,
+      hideArrowOnMobile,
       ...rest
     }: ButtonProps,
     ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
@@ -93,7 +95,14 @@ export const Button = forwardRef(
             <>
               <span className={cn(styles.content, styles[textStyle])}>
                 {children}
-                {withArrow && <ArrowRight className={styles.arrow} />}
+                {withArrow && (
+                  <ArrowRight
+                    className={cn(
+                      styles.arrow,
+                      hideArrowOnMobile && styles.hideArrowOnMobile,
+                    )}
+                  />
+                )}
               </span>
               <span className={styles.spacer} />
             </>

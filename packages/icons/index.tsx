@@ -980,6 +980,29 @@ export const SunFilled = React.forwardRef(function SunFilled(
   )
 })
 
+export const ThinClose = React.forwardRef(function ThinClose(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={40}
+      height={40}
+      viewBox='0 0 40 40'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M21.59 20l6.705 6.705-1.59 1.59L20 21.592l-6.705 6.705-1.59-1.591L18.408 20l-6.705-6.704 1.591-1.591L20 18.409l6.704-6.704 1.591 1.59L21.591 20z'
+        fill='currentColor'
+      />
+    </svg>
+  )
+})
+
 export const Time = React.forwardRef(function Time(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>,
