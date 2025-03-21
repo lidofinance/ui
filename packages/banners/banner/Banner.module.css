@@ -1,0 +1,83 @@
+.banner {
+  color: var(--lido-color-white-static);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.variantPrimary {
+  background: linear-gradient(91deg, #000 49.11%, #000 65.68%);
+}
+
+.variantSecondary {
+  background: linear-gradient(90deg, #4584ff 23.14%, #2770ff 64.16%);
+
+  &:hover {
+    color: var(--lido-color-primary-72);
+  }
+
+  .mainButton,
+  .closeButton {
+    &:hover {
+      color: rgba(255 255 255 / 50%);
+    }
+  }
+
+  .closeButton {
+    border-color: rgba(255 255 255 / 50%);
+  }
+}
+
+.title {
+  font-weight: var(--lido-font-weight-bold);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--lido-font-size-control);
+  line-height: var(--lido-line-height-control);
+  flex-direction: row;
+}
+
+.buttonContent {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.mainButton {
+  width: 100%;
+}
+
+.closeButton {
+  border-color: rgba(255 255 255 / 32%);
+}
+
+.mainButton,
+.closeButton {
+  color: white;
+}
+
+@media (width <= 899px) {
+  .content {
+    justify-content: space-around;
+  }
+
+  .mainButton {
+    width: auto;
+    padding: 10px;
+  }
+
+  .buttonContent {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,14 @@
+<svg
+		width='40'
+		height='40'
+		fill='none'
+		viewBox='0 0 40 40'
+		xmlns='http://www.w3.org/2000/svg'
+>
+	<path
+			fill-rule='evenodd'
+			clip-rule='evenodd'
+			d='M21.5906 20.0001L28.2951 26.7046L26.7041 28.2956L19.9996 21.5911L13.2951 28.2956L11.7041 26.7046L18.4086 20.0001L11.7041 13.2956L13.2951 11.7046L19.9996 18.4091L26.7041 11.7046L28.2951 13.2956L21.5906 20.0001Z'
+			fill='currentColor'
+	/>
+</svg>

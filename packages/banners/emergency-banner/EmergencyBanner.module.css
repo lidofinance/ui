@@ -1,0 +1,49 @@
+.banner {
+  color: var(--lido-color-white-static);
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+  width: 100%;
+  background: radial-gradient(
+    37.01% 248.43% at 50% 50%,
+    #c00734 10.3%,
+    #ff265a 100%
+  );
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
+  gap: 10px;
+  font-size: var(--lido-font-size-subheader);
+  line-height: var(--lido-line-height-subheader);
+}
+
+.title {
+  color: var(--lido-color-white-static);
+  font-weight: var(--lido-font-weight-bold);
+  text-align: center;
+  font-size: var(--lido-font-size-h4);
+}
+
+.description {
+  color: var(--lido-color-white-static);
+  text-align: center;
+  line-height: 1.4;
+  font-size: var(--lido-font-size-subheader);
+}
+
+.button {
+  margin-top: 5px;
+}
+
+.icon {
+  margin-bottom: -5px;
+}
+
+.buttonContent {
+  font-size: var(--lido-font-size-control);
+}
