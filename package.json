@@ -42,6 +42,10 @@
     "release:dry": "yarn release --dry-run",
     "icons:convert": "node ./packages/icons/converter/index.cjs"
   },
+  "lint-staged": {
+    "*.{ts,tsx,js,cjs,mjs}": "eslint --fix",
+    "*.css": "stylelint --fix"
+  },
   "peerDependencies": {
     "next": ">=12.0.0 <15.0.0",
     "react": "16 || 17 || 18",
@@ -109,7 +113,7 @@
     "jest-haste-map": "^29.0.1",
     "jest-resolve": "^29.0.1",
     "jest-runner": "^29.0.1",
-    "lint-staged": "11.1.2",
+    "lint-staged": "^15.5.0",
     "next": "^14.0.0",
     "postcss": "^8.4.27",
     "postcss-custom-media": "^11.0.5",
