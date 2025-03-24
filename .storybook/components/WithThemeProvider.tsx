@@ -26,7 +26,7 @@ export const WithThemeProvider: Decorator<{
 
       <div
         style={{
-          minHeight: '100vh',
+          minHeight: '10vh',
           color: 'var(--lido-color-text)',
           padding: '1em',
           background: 'var(--lido-color-background)',

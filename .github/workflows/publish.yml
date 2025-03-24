@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - lido-ui-v4
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -45,6 +46,26 @@ jobs:
 
       - name: Build Storybook
         run: yarn build-storybook
+
+      - name: Merge Storybook builds
+        run: |
+          # Get the published files from the gh-pages branch (if any)
+          git fetch origin gh-pages:gh-pages-temp || echo "gh-pages branch not found"
+          git worktree add gh-pages-temp origin/gh-pages
+          # Save the current build (v4) to a temporary folder
+          mv storybook-static storybook-static-temp
+          # Create a clean storybook-static directory
+          mkdir -p storybook-static
+          # Copy the v4 build to the nested storybook-static/v4 folder
+          mkdir -p storybook-static/v4
+          cp -r storybook-static-temp/* storybook-static/v4/
+          # If the published files contain a main version build (v3),
+          # Copy it to the root storybook-static, excluding the v4 folder to avoid overwriting the v4 build.
+          if [ -d gh-pages-temp ]; then
+            rsync -av --exclude 'v4' gh-pages-temp/ storybook-static/
+          else
+            echo "No main version found in gh-pages"
+          fi
 
       - name: Deploy to GitHub Pages
         uses: lidofinance/github-pages-action@v1

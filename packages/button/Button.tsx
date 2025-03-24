@@ -35,6 +35,7 @@ export type ButtonProps = (
   loading?: boolean
   textStyle?: ButtonTextStyle
   loaderVariant?: WaveLoaderVariant
+  hideArrowOnMobile?: boolean
   dataTestId?: ButtonDataTestId
 }
 
@@ -62,6 +63,7 @@ export const Button = forwardRef(
       loading,
       textStyle = 'semibold',
       loaderVariant,
+      hideArrowOnMobile,
       dataTestId,
       ...rest
     }: ButtonProps,
@@ -107,7 +109,14 @@ export const Button = forwardRef(
                 data-testid={dataTestId?.content}
               >
                 {children}
-                {withArrow && <ArrowRight className={styles.arrow} />}
+                {withArrow && (
+                  <ArrowRight
+                    className={cn(
+                      styles.arrow,
+                      hideArrowOnMobile && styles.hideArrowOnMobile,
+                    )}
+                  />
+                )}
               </span>
               <span className={styles.spacer} />
             </>
