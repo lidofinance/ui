@@ -10,26 +10,26 @@ import {
 import { Button } from '../../button'
 import styles from './SimpleCard.module.css'
 
-export type CardProps = ComponentPropsWithoutRef<'div'> & {
+export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
   title: string
   text: string
   titleImgSrc?: string
   buttonText?: string
-  hasArrow?: boolean
   href?: string
+  largeTitle?: boolean
 }
 
 export const SimpleCard = forwardRef(
   (
     {
       title,
+      largeTitle,
       text,
       buttonText,
       titleImgSrc,
-      hasArrow,
 
       ...rest
-    }: CardProps,
+    }: SimpleCardProps,
     ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
   ) => {
     const [hasHover, setHasHover] = useState(false)
@@ -43,14 +43,14 @@ export const SimpleCard = forwardRef(
         ref={ref as RefObject<HTMLAnchorElement>}
       >
         <div className={styles.header}>
-          <div className={styles.titleImage}>
-            {titleImgSrc && (
+          {titleImgSrc && (
+            <div className={styles.titleImage}>
               <Image src={titleImgSrc} width={56} height={56} alt={''} />
-            )}
-          </div>
+            </div>
+          )}
         </div>
         <div
-          className={styles.titleItem}
+          className={cn(styles.titleItem, largeTitle && styles.largeTitle)}
           data-testid='steth-section__blockThreeTitle'
         >
           {title}
@@ -67,7 +67,7 @@ export const SimpleCard = forwardRef(
           textStyle={'normal'}
           color={buttonText ? 'outline' : 'transparent'}
           className={cn(styles.button, !buttonText && styles.empty)}
-          withArrow={hasArrow}
+          withArrow={true}
         >
           {buttonText}
         </Button>

@@ -39,11 +39,11 @@ export const RichCard = forwardRef(
         ref={ref as RefObject<HTMLAnchorElement>}
       >
         <div className={styles.header}>
-          <div className={styles.titleImage}>
-            {titleImgSrc && (
+          {titleImgSrc && (
+            <div className={styles.titleImage}>
               <Image src={titleImgSrc} width={56} height={56} alt={''} />
-            )}
-          </div>
+            </div>
+          )}
           <div className={styles.headerLogos}>
             {logosToShow?.map((logo, index) => (
               <div key={index} className={styles.headerLogo}>

@@ -4,7 +4,6 @@
 
   position: relative;
   padding: 60px 0;
-
   width: 220px;
   cursor: pointer;
   height: 280px;
@@ -34,48 +33,6 @@
   margin-bottom: 16px;
 }
 
-.headerLogos {
-  display: flex;
-
-  & > *:not(:first-child) {
-    margin-left: -10px;
-  }
-
-  .empty {
-    backdrop-filter: blur(12px);
-    font-size: var(--lido-font-size-body);
-    line-height: var(--lido-line-height-body);
-  }
-}
-
-.headerLogo {
-  width: 38px;
-  height: 38px;
-  background: rgb(0 0 0 / 6%);
-  border-radius: 40px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.logoWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 86px;
-  height: 86px;
-  border-radius: 100%;
-  border: 1px solid var(--lido-color-borders-fog);
-  box-sizing: border-box;
-}
-
 .button {
   margin-top: 20px;
 
@@ -92,6 +49,11 @@
   margin-bottom: 4px;
   color: var(--local-color);
   transition: color 0.3s;
+
+  &.largeTitle {
+    font-size: var(--lido-font-size-h1);
+    line-height: var(--lido-line-height-h1);
+  }
 }
 
 .descriptionItem {
@@ -100,12 +62,4 @@
   color: var(--local-description-color);
   font-weight: var(--lido-font-weight-regular);
   transition: color 0.3s;
-}
-
-.buttonContent {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  top: 0;
-  height: 100%;
 }
