@@ -36,6 +36,7 @@
   --lido-color-shadow-light: rgb(39 56 82 / 8%);
   --lido-color-text: #273852;
   --lido-color-text-secondary: #7a8aa0;
+  --lido-black-50: rgb(0 0 0 / 50%);
 
   /* colors */
   --lido-color-primary: #000;
@@ -58,6 +59,7 @@
   --lido-color-background: #000;
   --lido-color-foreground: #34343d;
   --lido-color-shadow-light: rgb(0 0 0 / 25%);
+  --lido-black-50: rgb(0 0 0 / 50%);
   --lido-color-text: #fff;
   --lido-color-text-secondary: rgb(255 255 255 / 80%);
   --lido-color-primary: #fff;
