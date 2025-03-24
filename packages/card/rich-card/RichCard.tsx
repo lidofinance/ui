@@ -6,37 +6,29 @@ import {
   forwardRef,
   RefObject,
 } from 'react'
-import { Button } from '../button'
-import { Tag } from '../tag'
-import styles from './Card.module.css'
+import { Tag } from '../../tag'
+import styles from './RichCard.module.css'
 
-export type CardProps = ComponentPropsWithoutRef<'div'> & {
+export type RichCardProps = ComponentPropsWithoutRef<'div'> & {
   title: string
   text: string
   titleImgSrc?: string
-  withButton?: boolean
-  buttonText?: string
-  hasArrow?: boolean
-  href?: string
   tags: string[]
   logosArray?: string[]
   extraLogosAmount?: number
 }
 
-export const Card = forwardRef(
+export const RichCard = forwardRef(
   (
     {
       title,
       text,
-      buttonText,
       titleImgSrc,
-      hasArrow,
       tags,
-      withButton,
       logosArray,
       extraLogosAmount,
       ...rest
-    }: CardProps,
+    }: RichCardProps,
     ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
   ) => {
     const logosToShow = logosArray?.slice(0, 2)
@@ -84,20 +76,9 @@ export const Card = forwardRef(
             </Tag>
           ))}
         </div>
-        {withButton && (
-          <Button
-            size={'s'}
-            textStyle={'normal'}
-            color={buttonText ? 'outline' : 'transparent'}
-            withArrow={hasArrow}
-            className={cn(styles.button, !buttonText && styles.empty)}
-          >
-            {buttonText}
-          </Button>
-        )}
       </div>
     )
   },
 )
 
-Card.displayName = 'Card'
+RichCard.displayName = 'RichCard'

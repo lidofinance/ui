@@ -1,9 +1,8 @@
 .card {
   position: relative;
-  padding: 30px;
-  background: var(--lido-color-white-static);
+  padding: 60px 0;
   color: var(--lido-color-text);
-  width: 100%;
+  width: 220px;
 }
 
 .titleImage {
@@ -71,6 +70,7 @@
   margin-top: 20px;
 
   &.empty {
+    margin-top: 8px;
     padding-left: 0;
   }
 }
@@ -87,5 +87,4 @@
   line-height: var(--lido-line-height-body);
   color: var(--lido-black-50);
   font-weight: var(--lido-font-weight-regular);
-  margin-bottom: 16px;
 }

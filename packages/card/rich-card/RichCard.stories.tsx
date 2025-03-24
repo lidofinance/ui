@@ -1,14 +1,11 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { Card, CardProps } from '../index'
+import { RichCard, RichCardProps } from './RichCard'
 
 export default {
-  component: Card,
-  title: 'Cards/Card',
+  component: RichCard,
+  title: 'Cards/RichCard',
   args: {
     title: 'Name',
-    withButton: true,
-    hasArrow: true,
-    href: 'example.com',
     text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
     titleImgSrc: 'https://lido.fi/static/index/defi/metamask.svg',
     tags: ['one', 'two', 'three'],
@@ -21,12 +18,10 @@ export default {
   },
 } satisfies Meta
 
-export const Basic: StoryFn<CardProps> = (props) => {
+export const Basic: StoryFn<RichCardProps> = (props) => {
   return (
-    <div style={{ width: '100%', background: 'lightgray', padding: '20px' }}>
-      <div style={{ width: '500px' }}>
-        <Card {...props} />
-      </div>
+    <div style={{ width: '500px' }}>
+      <RichCard {...props} />
     </div>
   )
 }
