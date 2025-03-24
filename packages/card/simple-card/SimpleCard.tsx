@@ -5,6 +5,7 @@ import {
   ForwardedRef,
   forwardRef,
   RefObject,
+  useState,
 } from 'react'
 import { Button } from '../../button'
 import styles from './SimpleCard.module.css'
@@ -31,10 +32,14 @@ export const SimpleCard = forwardRef(
     }: CardProps,
     ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
   ) => {
+    const [hasHover, setHasHover] = useState(false)
+
     return (
       <div
         className={styles.card}
         {...rest}
+        onMouseEnter={() => setHasHover(true)}
+        onMouseLeave={() => setHasHover(false)}
         ref={ref as RefObject<HTMLAnchorElement>}
       >
         <div className={styles.header}>
@@ -56,13 +61,13 @@ export const SimpleCard = forwardRef(
         >
           {text}
         </div>
-
         <Button
+          imitateHover={hasHover}
           size={'s'}
           textStyle={'normal'}
           color={buttonText ? 'outline' : 'transparent'}
-          withArrow={hasArrow}
           className={cn(styles.button, !buttonText && styles.empty)}
+          withArrow={hasArrow}
         >
           {buttonText}
         </Button>

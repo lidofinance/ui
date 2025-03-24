@@ -18,6 +18,7 @@
   overflow: hidden;
   cursor: pointer;
 
+  &.imitateHover,
   &:hover {
     .arrow {
       transform: translateX(3px);
@@ -31,6 +32,7 @@
     color: var(--lido-color-primary-20);
     background-color: var(--lido-color-primary-8);
 
+    &.imitateHover,
     &:hover {
       color: var(--lido-color-primary-20);
       background-color: var(--lido-color-primary-8);
@@ -199,6 +201,7 @@
   background-color: var(--lido-color-primary);
   transition: background-color 0.5s;
 
+  &.imitateHover,
   &:hover {
     background-color: var(--lido-color-accent-ocean-static);
     transition: background-color 0.3s;
@@ -210,6 +213,7 @@
   background-color: var(--lido-color-accent-ocean-static);
   transition: background-color 0.5s;
 
+  &.imitateHover,
   &:hover {
     background-color: var(--lido-color-accent-sky-static);
     transition: background-color 0.3s;
@@ -226,6 +230,7 @@
     color 0.5s,
     border-color 0.5s;
 
+  &.imitateHover,
   &:hover {
     color: var(--lido-color-accent-ocean-static);
     border-color: var(--lido-color-accent-ocean-static);
@@ -239,6 +244,7 @@
     border-color: var(--lido-color-primary-20);
     background-color: transparent;
 
+    &.imitateHover,
     &:hover {
       background-color: transparent;
     }
@@ -261,6 +267,7 @@
   outline: none;
   transition: color 0.5s;
 
+  &.imitateHover,
   &:hover {
     background-color: transparent;
     color: var(--lido-color-accent-ocean-static);
@@ -270,6 +277,7 @@
   &:disabled {
     background-color: transparent;
 
+    &.imitateHover,
     &:hover {
       background-color: transparent;
 
@@ -292,6 +300,7 @@
     color 0.5s,
     border-color 0.5s;
 
+  &.imitateHover,
   &:hover {
     background-color: transparent;
     color: var(--lido-color-accent-ocean-static);
@@ -306,6 +315,7 @@
     border-color: var(--lido-color-primary-20);
     background-color: transparent;
 
+    &.imitateHover,
     &:hover {
       background-color: transparent;
     }

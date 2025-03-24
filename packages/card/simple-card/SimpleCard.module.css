@@ -1,8 +1,18 @@
 .card {
+  --local-color: var(--lido-color-text);
+  --local-description-color: var(--lido-black-50);
+
   position: relative;
   padding: 60px 0;
-  color: var(--lido-color-text);
+
   width: 220px;
+  cursor: pointer;
+  height: 280px;
+
+  &:hover {
+    --local-color: var(--lido-color-accent-ocean-static);
+    --local-description-color: var(--lido-color-accent-ocean-static);
+  }
 }
 
 .titleImage {
@@ -80,11 +90,22 @@
   line-height: var(--lido-line-height-subheader-not-adaptive);
   font-weight: var(--lido-font-weight-regular);
   margin-bottom: 4px;
+  color: var(--local-color);
+  transition: color 0.3s;
 }
 
 .descriptionItem {
   font-size: var(--lido-font-size-body);
   line-height: var(--lido-line-height-body);
-  color: var(--lido-black-50);
+  color: var(--local-description-color);
   font-weight: var(--lido-font-weight-regular);
+  transition: color 0.3s;
+}
+
+.buttonContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 0;
+  height: 100%;
 }
