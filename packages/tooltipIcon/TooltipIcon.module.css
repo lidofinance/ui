@@ -1,0 +1,38 @@
+.tooltipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s var(--ease-out-quad);
+}
+
+.default {
+  color: var(--lido-color-primary-72);
+}
+
+.primary {
+  color: var(--lido-color-accent-ocean-static);
+}
+
+.tooltipIcon:hover .default {
+  color: var(--lido-color-primary-50);
+}
+
+.tooltipIcon:hover .primary {
+  color: var(--lido-color-accent-sky-static);
+}
+
+.sizeS {
+  width: 24px;
+  height: 24px;
+}
+
+.sizeM {
+  width: 16px;
+  height: 16px;
+} 

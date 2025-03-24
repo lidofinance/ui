@@ -1,7 +1,48 @@
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import {
+  Typography,
+  H1,
+  H2,
+  H3,
+  H4,
+  Subheader,
+  Control,
+  Body,
+  Description,
+} from './Typography'
 
-export default {
+const meta: Meta<typeof Typography> = {
   title: 'Typography/Typography',
+  component: Typography,
+  tags: ['autodocs'],
+}
+
+export default meta
+type Story = StoryObj<typeof Typography>
+
+export const AllStates: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <H1>Heading 1</H1>
+      <H2>Heading 2</H2>
+      <H3>Heading 3</H3>
+      <H3 weight='medium'>Heading 3 Medium</H3>
+      <H4>Heading 4</H4>
+      <H4 weight='medium'>Heading 4 Medium</H4>
+      <Subheader>Subheader</Subheader>
+      <Subheader weight='bold'>Subheader Bold</Subheader>
+      <Control>Control Text</Control>
+      <Control weight='bold'>Control Text Bold</Control>
+      <Body>Body Text</Body>
+      <Body weight='bold'>Body Text Bold</Body>
+      <Description>Description Text</Description>
+      <Description weight='bold'>Description Text Bold</Description>
+    </div>
+  ),
+}
+
+AllStates.parameters = {
+  controls: { disable: true },
 }
 
 const storyDescription = `
@@ -60,6 +101,7 @@ export const TypographyByClasses = () => (
 )
 
 TypographyByClasses.parameters = {
+  controls: { disable: true },
   docs: {
     description: {
       story: storyDescription,

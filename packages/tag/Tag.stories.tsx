@@ -3,7 +3,7 @@ import { Tag, TagColor, TagSize, TagVariant } from '.'
 import { Eth } from '../icons'
 
 const meta: Meta<typeof Tag> = {
-  title: 'Layout/Tag',
+  title: 'Feedback/Tag',
   component: Tag,
   parameters: {
     layout: 'centered',

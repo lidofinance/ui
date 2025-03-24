@@ -2,6 +2,7 @@
   /* Static colors */
   --lido-color-primary-6-static: #1312170f;
   --lido-color-primary-5-static: #1312170d;
+  --lido-color-primary-72-static: #131217b8;
   --lido-color-white-static: #fff;
   --lido-color-accent-ocean-static: #0085ff;
   --lido-color-accent-light-ocean-static: #0085ff33;
@@ -17,7 +18,10 @@
 
   /* border radius */
   --lido-border-radius-4: 4px;
+  --lido-border-radius-40: 40px;
+  --lido-border-radius-50: 50px;
   --lido-border-radius-60: 60px;
+  --lido-border-radius-70: 70px;
 
   /* easings */
   --ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
@@ -42,6 +46,7 @@
   --lido-color-primary-reverse: #fff;
   --lido-color-primary-72: #131217b8;
   --lido-color-primary-50: #13121780;
+  --lido-color-primary-50-reverse: #ffffff80;
   --lido-color-primary-32: #13121752;
   --lido-color-primary-20: #13121733;
   --lido-color-primary-8: #13121714;
@@ -64,6 +69,7 @@
   --lido-color-primary-reverse: #000;
   --lido-color-primary-72: #ffffffb8;
   --lido-color-primary-50: #ffffff80;
+  --lido-color-primary-50-reverse: #13121780;
   --lido-color-primary-32: #ffffff52;
   --lido-color-primary-20: #fff3;
   --lido-color-primary-8: #ffffff14;

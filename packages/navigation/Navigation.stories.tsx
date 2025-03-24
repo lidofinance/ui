@@ -9,7 +9,7 @@ import { ButtonColor } from 'packages/button'
 
 export default {
   component: NavigationButton,
-  title: 'Buttons/NavigationButton',
+  title: 'Navigation/NavigationButton',
   args: {
     variant: 'left',
     href: '',
