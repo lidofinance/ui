@@ -16,21 +16,21 @@
   border: 1px solid var(--lido-color-borders-fog);
   background-color: transparent;
   cursor: pointer;
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
-    top: -7px;
-    right: -7px;
-    bottom: -7px;
-    left: -7px;
+    inset: -7px;
     border: 3px solid transparent;
     border-radius: var(--lido-border-radius-70);
     transition: border-color 0.2s ease;
   }
 
-  &:hover:not(.active):not(:disabled) {
+  &:hover:not(.active, :disabled) {
     color: var(--lido-color-accent-ocean-static);
     border-color: var(--lido-color-accent-ocean-static);
   }
