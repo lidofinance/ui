@@ -1,21 +1,26 @@
 import cn from 'classnames'
 import Image from 'next/image'
-import {
-  ComponentPropsWithoutRef,
-  ForwardedRef,
-  forwardRef,
-  RefObject,
-} from 'react'
+import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { Tag } from '../../tag'
 import styles from './RichCard.module.css'
+
+export type RichCardDataTestId = {
+  root?: string
+  button?: string
+  title?: string
+  tags?: string
+  logos?: string
+  description?: string
+}
 
 export type RichCardProps = ComponentPropsWithoutRef<'div'> & {
   title: string
   text: string
-  titleImgSrc?: string
-  tags: string[]
+  titleImgSrc: string
+  tags?: string[]
   logosArray?: string[]
   extraLogosAmount?: number
+  dataTestId?: RichCardDataTestId
 }
 
 export const RichCard = forwardRef(
@@ -26,17 +31,19 @@ export const RichCard = forwardRef(
       titleImgSrc,
       tags,
       logosArray,
+      dataTestId,
       extraLogosAmount,
       ...rest
     }: RichCardProps,
-    ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
+    ref?: ForwardedRef<HTMLDivElement>,
   ) => {
     const logosToShow = logosArray?.slice(0, 2)
     return (
       <div
         className={styles.card}
+        data-testid={dataTestId?.root}
         {...rest}
-        ref={ref as RefObject<HTMLAnchorElement>}
+        ref={ref}
       >
         <div className={styles.header}>
           {titleImgSrc && (
@@ -44,7 +51,7 @@ export const RichCard = forwardRef(
               <Image src={titleImgSrc} width={56} height={56} alt={''} />
             </div>
           )}
-          <div className={styles.headerLogos}>
+          <div className={styles.headerLogos} data-testid={dataTestId?.logos}>
             {logosToShow?.map((logo, index) => (
               <div key={index} className={styles.headerLogo}>
                 <Image src={logo} width={38} height={38} alt={''} />
@@ -57,25 +64,24 @@ export const RichCard = forwardRef(
             )}
           </div>
         </div>
-        <div
-          className={styles.titleItem}
-          data-testid='steth-section__blockThreeTitle'
-        >
+        <div className={styles.titleItem} data-testid={dataTestId?.title}>
           {title}
         </div>
         <div
           className={styles.descriptionItem}
-          data-testid='steth-section__blockThreeDescription'
+          data-testid={dataTestId?.description}
         >
           {text}
         </div>
-        <div className={styles.tags}>
-          {tags.map((tag) => (
-            <Tag key={tag} size={'s'} variant={'filled'}>
-              {tag}
-            </Tag>
-          ))}
-        </div>
+        {tags?.length && (
+          <div className={styles.tags} data-testid={dataTestId?.tags}>
+            {tags?.map((tag) => (
+              <Tag key={tag} size={'s'} variant={'filled'}>
+                {tag}
+              </Tag>
+            ))}
+          </div>
+        )}
       </div>
     )
   },

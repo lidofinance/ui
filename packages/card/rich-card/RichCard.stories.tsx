@@ -25,3 +25,32 @@ export const Basic: StoryFn<RichCardProps> = (props) => {
     </div>
   )
 }
+
+export const AllStates: StoryFn<RichCardProps> = (props) => {
+  return (
+    <>
+      <div style={{ width: '500px' }}>
+        <RichCard {...props} />
+      </div>
+
+      <br />
+      <div style={{ width: '600px' }}>
+        <RichCard
+          titleImgSrc={props.titleImgSrc}
+          title={props.title}
+          text={props.text}
+          logosArray={['https://lido.fi/static/index/defi/mellow.svg']}
+        />
+      </div>
+      <br />
+      <div style={{ width: '400px' }}>
+        <RichCard
+          titleImgSrc={props.titleImgSrc}
+          title={props.title}
+          text={props.text}
+          tags={['one', 'hello im a long tag', 'two', 'three', 'four']}
+        />
+      </div>
+    </>
+  )
+}

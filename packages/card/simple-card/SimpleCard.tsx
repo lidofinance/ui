@@ -1,22 +1,33 @@
 import cn from 'classnames'
-import Image from 'next/image'
-import {
+import React, {
   ComponentPropsWithoutRef,
   ForwardedRef,
   forwardRef,
-  RefObject,
   useState,
 } from 'react'
+import NextImage from 'next/image'
 import { Button } from '../../button'
+import { Link } from '../../links'
 import styles from './SimpleCard.module.css'
+
+export type SimpleCardDataTestId = {
+  root?: string
+  button?: string
+  title?: string
+  subtitle?: string
+  description?: string
+}
 
 export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
   title: string
   text: string
+  subtitle?: string
   titleImgSrc?: string
   buttonText?: string
-  href?: string
+  href: string
   largeTitle?: boolean
+  onClick?: () => void
+  dataTestId?: SimpleCardDataTestId
 }
 
 export const SimpleCard = forwardRef(
@@ -27,51 +38,74 @@ export const SimpleCard = forwardRef(
       text,
       buttonText,
       titleImgSrc,
-
-      ...rest
+      href,
+      subtitle,
+      className,
+      onClick,
+      dataTestId,
     }: SimpleCardProps,
-    ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
+    ref?: ForwardedRef<HTMLAnchorElement>,
   ) => {
     const [hasHover, setHasHover] = useState(false)
 
     return (
-      <div
-        className={styles.card}
-        {...rest}
-        onMouseEnter={() => setHasHover(true)}
-        onMouseLeave={() => setHasHover(false)}
-        ref={ref as RefObject<HTMLAnchorElement>}
+      <Link
+        href={href}
+        target={'_blank'}
+        className={cn(className, styles.card, largeTitle && styles.largeTitle)}
+        onClick={onClick}
+        data-testid={dataTestId?.root}
+        ref={ref}
       >
-        <div className={styles.header}>
-          {titleImgSrc && (
-            <div className={styles.titleImage}>
-              <Image src={titleImgSrc} width={56} height={56} alt={''} />
+        <div
+          className={styles.cardContainer}
+          onMouseEnter={() => setHasHover(true)}
+          onMouseLeave={() => setHasHover(false)}
+        >
+          <div className={styles.cardContent}>
+            <div className={styles.header}>
+              {titleImgSrc && (
+                <div className={styles.titleImage}>
+                  <NextImage
+                    src={titleImgSrc}
+                    width={56}
+                    height={56}
+                    alt={''}
+                  />
+                </div>
+              )}
             </div>
-          )}
+            <div className={styles.titleItem} data-testid={dataTestId?.title}>
+              {title}
+            </div>
+            {subtitle && (
+              <div
+                className={styles.subtitleItem}
+                data-testid={dataTestId?.subtitle}
+              >
+                {subtitle}
+              </div>
+            )}
+            <div
+              className={styles.descriptionItem}
+              data-testid={dataTestId?.description}
+            >
+              {text}
+            </div>
+          </div>
+          <Button
+            data-testid={dataTestId?.button}
+            imitateHover={hasHover}
+            size={'l'}
+            textStyle={'normal'}
+            color={buttonText ? 'outline' : 'transparent'}
+            className={cn(styles.button, !buttonText && styles.empty)}
+            withArrow={true}
+          >
+            {buttonText}
+          </Button>
         </div>
-        <div
-          className={cn(styles.titleItem, largeTitle && styles.largeTitle)}
-          data-testid='steth-section__blockThreeTitle'
-        >
-          {title}
-        </div>
-        <div
-          className={styles.descriptionItem}
-          data-testid='steth-section__blockThreeDescription'
-        >
-          {text}
-        </div>
-        <Button
-          imitateHover={hasHover}
-          size={'s'}
-          textStyle={'normal'}
-          color={buttonText ? 'outline' : 'transparent'}
-          className={cn(styles.button, !buttonText && styles.empty)}
-          withArrow={true}
-        >
-          {buttonText}
-        </Button>
-      </div>
+      </Link>
     )
   },
 )

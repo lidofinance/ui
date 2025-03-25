@@ -2,16 +2,47 @@
   --local-color: var(--lido-color-text);
   --local-description-color: var(--lido-black-50);
 
+  display: flex;
   position: relative;
   padding: 60px 0;
-  width: 220px;
+  width: 100%;
   cursor: pointer;
-  height: 280px;
+  height: 400px;
+  box-sizing: border-box;
+  overflow: hidden;
 
   &:hover {
     --local-color: var(--lido-color-accent-ocean-static);
     --local-description-color: var(--lido-color-accent-ocean-static);
   }
+
+  &.largeTitle {
+    padding: 60px 30px;
+  }
+}
+
+.largeTitle {
+  .descriptionItem {
+    margin: 20px 0;
+  }
+
+  .titleItem {
+    font-size: var(--lido-font-size-h2);
+    line-height: var(--lido-line-height-h2);
+  }
+}
+
+.cardContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cardContent {
+  height: 100%;
 }
 
 .titleImage {
@@ -34,7 +65,7 @@
 }
 
 .button {
-  margin-top: 20px;
+  flex-shrink: 0;
 
   &.empty {
     margin-top: 8px;
@@ -49,11 +80,14 @@
   margin-bottom: 4px;
   color: var(--local-color);
   transition: color 0.3s;
+}
 
-  &.largeTitle {
-    font-size: var(--lido-font-size-h1);
-    line-height: var(--lido-line-height-h1);
-  }
+.subtitleItem {
+  font-size: var(--lido-font-size-h3);
+  line-height: var(--lido-line-height-h3);
+  font-weight: var(--lido-font-weight-light);
+  color: var(--local-color);
+  transition: color 0.3s;
 }
 
 .descriptionItem {
