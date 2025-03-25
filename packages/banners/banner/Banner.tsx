@@ -11,12 +11,19 @@ import { Button } from '../../button'
 import { ThinClose } from '../../icons'
 import styles from './Banner.module.css'
 
+export type BannerDataTestId = {
+  root?: string
+  mainButton?: string
+  closeButton?: string
+}
+
 export type BannerProps = {
   variant?: 'primary' | 'secondary'
   className?: string
   href: string
   text: string
   title?: string
+  dataTestId?: BannerDataTestId
   onClose?: MouseEventHandler
   onLinkClick?: MouseEventHandler
 }
@@ -30,6 +37,7 @@ export const Banner = forwardRef(
       title,
       text,
       onClose,
+      dataTestId,
       onLinkClick,
       ...rest
     }: BannerProps,
@@ -47,12 +55,14 @@ export const Banner = forwardRef(
           [styles.variantPrimary]: variant == 'primary',
           [styles.variantSecondary]: variant == 'secondary',
         })}
+        data-testid={dataTestId?.root}
         {...rest}
       >
         <Button
           ref={ref as RefObject<HTMLAnchorElement>}
           textStyle={'normal'}
           onClick={handleAnchorClick}
+          data-testid={dataTestId?.mainButton}
           href={href}
           className={styles.mainButton}
           withArrow={true}
@@ -71,6 +81,7 @@ export const Banner = forwardRef(
           shape={'circle'}
           icon={<ThinClose />}
           color={'outline'}
+          data-testid={dataTestId?.closeButton}
           className={styles.closeButton}
           onClick={handleCloseBanner}
         ></Button>
