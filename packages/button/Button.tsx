@@ -29,6 +29,7 @@ export type ButtonProps = (
   textStyle?: ButtonTextStyle
   loaderVariant?: WaveLoaderVariant
   hideArrowOnMobile?: boolean
+  imitateHover?: boolean
 }
 
 export type ButtonSize = 's' | 'm' | 'l' | 'xl' | 'xxl' // "s" and "xxl" sizes are only for Circle shape
@@ -56,6 +57,7 @@ export const Button = forwardRef(
       textStyle = 'semibold',
       loaderVariant,
       hideArrowOnMobile,
+      imitateHover,
       ...rest
     }: ButtonProps,
     ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
@@ -124,6 +126,7 @@ export const Button = forwardRef(
           [styles.withIcon]: Boolean(icon),
           [styles[`${shape}-${size}`]]: shape === 'circle',
           [styles[shape]]: shape === 'circle',
+          [styles.imitateHover]: imitateHover,
         },
       ),
       children: content,
