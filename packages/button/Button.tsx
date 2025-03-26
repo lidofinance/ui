@@ -119,7 +119,6 @@ export const Button = forwardRef(
       className: cn(
         styles.button,
         className,
-        imitateHover && styles.imitateHover,
         styles[`size--${size}`],
         styles[color],
         styles[shape],
@@ -127,6 +126,7 @@ export const Button = forwardRef(
           [styles.withIcon]: Boolean(icon),
           [styles[`${shape}-${size}`]]: shape === 'circle',
           [styles[shape]]: shape === 'circle',
+          [styles.imitateHover]: imitateHover,
         },
       ),
       children: content,

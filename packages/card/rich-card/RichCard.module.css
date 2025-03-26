@@ -86,7 +86,7 @@
 .descriptionItem {
   font-size: var(--lido-font-size-body);
   line-height: var(--lido-line-height-body);
-  color: var(--lido-black-50);
+  color: var(--lido-color-primary-7-static);
   font-weight: var(--lido-font-weight-regular);
   margin-bottom: 16px;
 }

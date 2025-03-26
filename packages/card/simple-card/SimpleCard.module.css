@@ -1,6 +1,6 @@
 .card {
   --local-color: var(--lido-color-text);
-  --local-description-color: var(--lido-black-50);
+  --local-description-color: var(--lido-color-primary-7-static);
 
   display: flex;
   position: relative;
