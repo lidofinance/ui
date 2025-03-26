@@ -5,12 +5,10 @@ export default {
   component: EmergencyBanner,
   title: 'Banners/EmergencyBanner',
   args: {
-    description:
-      'Please exercise caution interacting with any DeFi front-ends right now',
-    title:
-      'Please note Lido front-ends have been switched off as a precautionary measure whilst the Ledger connect issue is being investigated.',
+    description: 'Keep calm and carry on',
+    title: 'Important announcement',
     link: 'https://example.com',
-    linkText: 'Keep an eye on @LidoFinance Twitter for any updates',
+    linkText: 'Check out important details here',
   },
 } satisfies Meta
 
