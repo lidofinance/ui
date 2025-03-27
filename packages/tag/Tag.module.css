@@ -40,6 +40,7 @@
   background-color: var(--lido-color-primary-6-static);
   color: var(--lido-color-primary-72);
   border: 1px solid var(--lido-color-borders-fog);
+  border-color: transparent;
 
   &.color--accent {
     background-color: var(--lido-color-accent-light-ocean-static);

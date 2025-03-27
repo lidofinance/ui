@@ -1,8 +1,9 @@
 import fs from 'node:fs'
+import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
-import autoprefixer from 'autoprefixer';
-import postcss from 'rollup-plugin-postcss';
+import autoprefixer from 'autoprefixer'
+import postcss from 'rollup-plugin-postcss'
 import postcssNested from 'postcss-nested'
 import postcssImport from 'postcss-import'
 
@@ -41,6 +42,7 @@ export default {
     },
   ],
   plugins: [
+    commonjs(),
     resolve({ extensions, preferBuiltins: true }),
     babel({
       exclude: 'node_modules/**',
@@ -64,7 +66,7 @@ export default {
       exclude: /styles\/typography\.css$/,
       // Disable CSS modules for global.css, and leave the modules for the rest.
       modules: {
-        auto: (id) => !/styles[\\\/]global\.css$/.test(id),
+        auto: (id) => !/styles[\\/]global\.css$/.test(id),
       },
       inject: false,
       extract: 'index.css',

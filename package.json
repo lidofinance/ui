@@ -53,6 +53,7 @@
     "react-is": "16 || 17 || 18"
   },
   "dependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
     "classnames": "^2.5.1",
     "react-collapsed": "3.0.2",
     "react-jazzicon": "^1.0.4",

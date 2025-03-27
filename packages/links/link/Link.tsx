@@ -11,6 +11,7 @@ export type LinkProps = {
   children: ReactNode
   color?: 'default' | 'inherit'
   className?: string
+  target?: '_blank' | '_self' | '_parent' | '_top'
   dataTestId?: LinkDataTestId
 } & NextLinkProps
 
@@ -18,6 +19,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   (
     {
       href,
+      target,
       color = 'default',
       children,
       className,
@@ -30,6 +32,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     if (!legacyBehavior) {
       return (
         <NextLink
+          target={target}
           className={cn(styles.link, className, styles[color])}
           href={href}
           data-testid={dataTestId?.root}
@@ -40,7 +43,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       )
     } else {
       return (
-        <NextLink href={href} legacyBehavior {...props}>
+        <NextLink href={href} target={target} legacyBehavior {...props}>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
             className={cn(styles.link, className, styles[color])}

@@ -36,6 +36,7 @@ export type ButtonProps = (
   textStyle?: ButtonTextStyle
   loaderVariant?: WaveLoaderVariant
   hideArrowOnMobile?: boolean
+  imitateHover?: boolean
   dataTestId?: ButtonDataTestId
 }
 
@@ -64,6 +65,7 @@ export const Button = forwardRef(
       textStyle = 'semibold',
       loaderVariant,
       hideArrowOnMobile,
+      imitateHover,
       dataTestId,
       ...rest
     }: ButtonProps,
@@ -138,6 +140,7 @@ export const Button = forwardRef(
           [styles.withIcon]: Boolean(icon),
           [styles[`${shape}-${size}`]]: shape === 'circle',
           [styles[shape]]: shape === 'circle',
+          [styles.imitateHover]: imitateHover,
         },
       ),
       children: content,
