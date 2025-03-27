@@ -508,6 +508,35 @@ export const InfoFilled = React.forwardRef(function InfoFilled(
   )
 })
 
+export const InfoIcon = React.forwardRef(function InfoIcon(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M12 21.2a9.2 9.2 0 100-18.4 9.2 9.2 0 000 18.4zm0 1.8c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11z'
+        fill='currentColor'
+        fillOpacity={0.72}
+      />
+      <path
+        d='M12.752 7.484c-.456 0-.774-.084-.954-.252a.863.863 0 01-.27-.63c0-.072.006-.156.018-.252.012-.096.03-.198.054-.306.06-.324.192-.576.396-.756.216-.192.552-.288 1.008-.288.456 0 .774.09.954.27.18.168.27.372.27.612 0 .072-.006.156-.018.252-.012.096-.03.198-.054.306-.06.324-.198.582-.414.774-.204.18-.534.27-.99.27zm-1.044 11.214c-.576 0-1.008-.15-1.296-.45-.288-.3-.432-.69-.432-1.17 0-.156.012-.312.036-.468.024-.156.054-.342.09-.558l1.026-5.292H8l.252-1.566h5.094l-1.512 7.794.36.144 3.114-2.862 1.098.99-1.404 1.404c-.372.372-.708.69-1.008.954-.3.252-.576.462-.828.63-.252.156-.498.27-.738.342a2.377 2.377 0 01-.72.108z'
+        fill='currentColor'
+        fillOpacity={0.72}
+      />
+    </svg>
+  )
+})
+
 export const InfoOutline = React.forwardRef(function InfoOutline(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>,
@@ -1021,6 +1050,28 @@ export const Time = React.forwardRef(function Time(
         clipRule='evenodd'
         d='M12.73 12.09l-4.35 5.897h8.701l-4.35-5.898zm.001-.122l4.364-5.955H8.367l4.364 5.955zm2.19.057l4.559-6.22a1 1 0 00-.807-1.592H6.79a1 1 0 00-.807 1.591l4.56 6.221-4.55 6.168a1 1 0 00.804 1.594h11.87a1 1 0 00.804-1.594l-4.55-6.168z'
         fill='currentColor'
+      />
+    </svg>
+  )
+})
+
+export const TooltipTriangle = React.forwardRef(function TooltipTriangle(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={20}
+      height={10}
+      viewBox='0 0 20 10'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path
+        d='M11.414 8.586a2 2 0 01-2.828 0L0 0h20l-8.586 8.586z'
+        fill='#131217'
+        fillOpacity={0.72}
       />
     </svg>
   )

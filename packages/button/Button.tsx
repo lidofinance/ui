@@ -12,6 +12,13 @@ import { DynamicLink } from '../links'
 import { ArrowRight } from '../icons'
 import { WaveLoader, WaveLoaderVariant } from './waveLoader/WaveLoader'
 
+export type ButtonDataTestId = {
+  root?: string
+  wave?: string
+  icon?: string
+  content?: string
+}
+
 export type ButtonProps = (
   | (ComponentPropsWithoutRef<'a'> & {
       href: string
@@ -30,6 +37,7 @@ export type ButtonProps = (
   loaderVariant?: WaveLoaderVariant
   hideArrowOnMobile?: boolean
   imitateHover?: boolean
+  dataTestId?: ButtonDataTestId
 }
 
 export type ButtonSize = 's' | 'm' | 'l' | 'xl' | 'xxl' // "s" and "xxl" sizes are only for Circle shape
@@ -58,6 +66,7 @@ export const Button = forwardRef(
       loaderVariant,
       hideArrowOnMobile,
       imitateHover,
+      dataTestId,
       ...rest
     }: ButtonProps,
     ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
@@ -70,7 +79,7 @@ export const Button = forwardRef(
           isVisible={loading}
           variant={loaderVariant}
           scale={size === 'l' ? 1 : size === 'xl' ? 1.2 : 0.8}
-          data-testid='button__wave'
+          data-testid={dataTestId?.wave}
         />
         {icon && (
           <>
@@ -79,6 +88,7 @@ export const Button = forwardRef(
                 {cloneElement(icon, {
                   ...icon.props,
                   className: cn(styles.icon, icon.props.className),
+                  'data-testid': dataTestId?.icon,
                 })}
               </>
             ) : (
@@ -86,6 +96,7 @@ export const Button = forwardRef(
                 {cloneElement(icon, {
                   ...icon.props,
                   className: cn(styles.icon, icon.props.className),
+                  'data-testid': dataTestId?.icon,
                 })}
               </span>
             )}
@@ -95,7 +106,10 @@ export const Button = forwardRef(
         <>
           {!isCircle ? (
             <>
-              <span className={cn(styles.content, styles[textStyle])}>
+              <span
+                className={cn(styles.content, styles[textStyle])}
+                data-testid={dataTestId?.content}
+              >
                 {children}
                 {withArrow && (
                   <ArrowRight
@@ -130,6 +144,7 @@ export const Button = forwardRef(
         },
       ),
       children: content,
+      'data-testid': dataTestId?.root,
       ...(rest as object),
     }
 

@@ -2,9 +2,16 @@ import { ComponentProps, forwardRef, ForwardedRef } from 'react'
 import styles from './Checkbox.module.css'
 import cn from 'classnames'
 
+export type CheckboxDataTestId = {
+  root?: string
+  input?: string
+  text?: string
+}
+
 export type CheckboxProps = Omit<ComponentProps<'input'>, 'type' | 'size'> & {
   variant?: CheckboxVariant
   size?: CheckboxSize
+  dataTestId?: CheckboxDataTestId
 }
 
 export type CheckboxVariant = 'accent' | 'primary'
@@ -19,6 +26,7 @@ export const Checkbox = forwardRef(
       className,
       style,
       children,
+      dataTestId,
       ...rest
     }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
@@ -29,6 +37,7 @@ export const Checkbox = forwardRef(
           [styles.containerDisabled]: disabled,
         })}
         style={style}
+        data-testid={dataTestId?.root}
       >
         <input
           ref={ref}
@@ -39,6 +48,7 @@ export const Checkbox = forwardRef(
           )}
           type='checkbox'
           disabled={disabled}
+          data-testid={dataTestId?.input}
           {...rest}
         />
         <span
@@ -49,6 +59,7 @@ export const Checkbox = forwardRef(
               [styles.textDisabled]: disabled,
             },
           )}
+          data-testid={dataTestId?.text}
         >
           {children}
         </span>

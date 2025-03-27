@@ -8,12 +8,20 @@ import styles from './Tag.module.css'
 import cn from 'classnames'
 import { Close } from '../icons'
 
+export type TagDataTestId = {
+  root?: string
+  icon?: string
+  content?: string
+  closeButton?: string
+}
+
 export type TagProps = Omit<ComponentPropsWithoutRef<'div'>, 'color'> & {
   variant?: TagVariant
   color?: TagColor
   size?: TagSize
   icon?: ReactNode
   onClose?: () => void
+  dataTestId?: TagDataTestId
 }
 
 export type TagVariant = 'outline' | 'filled'
@@ -36,6 +44,7 @@ export const Tag = forwardRef(
       className,
       children,
       onClose,
+      dataTestId,
       ...rest
     }: TagProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -55,15 +64,19 @@ export const Tag = forwardRef(
           styles[`variant--${variant}`],
           styles[`color--${color}`],
         )}
+        data-testid={dataTestId?.root}
         {...rest}
         ref={ref}
       >
-        <span className={styles.icon}>{icon}</span>
+        <span className={styles.icon} data-testid={dataTestId?.icon}>
+          {icon}
+        </span>
         <span
           className={cn(styles[`size--${size}`], {
             [styles.withIcon]: icon != null,
             [styles.withOnClose]: Boolean(onClose),
           })}
+          data-testid={dataTestId?.content}
         >
           {children}
         </span>
@@ -74,6 +87,7 @@ export const Tag = forwardRef(
             onKeyDown={handleKeyDown}
             role='button'
             tabIndex={0}
+            data-testid={dataTestId?.closeButton}
           >
             <Close width='20px' height='20px' style={{ marginRight: '10px' }} />
           </span>

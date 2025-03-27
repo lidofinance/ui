@@ -1,0 +1,97 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip:hover .contentWrapper {
+  display: block;
+}
+
+.contentWrapper {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  padding: 10px;
+}
+
+.content {
+  position: relative;
+  display: block;
+  width: max-content;
+  max-width: 224px;
+  box-sizing: border-box;
+  padding: 24px;
+  background-color: var(--lido-color-primary-72-static);
+  backdrop-filter: blur(20px);
+  color: var(--lido-color-white-static);
+  border-radius: 24px;
+  font-family: var(--lido-font-family);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.triangle {
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.triangle::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4142 8.58578C10.6332 9.36683 9.36683 9.36683 8.58579 8.58579L8.74228e-07 -1.74846e-06L20 9.53674e-07L11.4142 8.58578Z" fill="%23131217" fill-opacity="0.72"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Position styles */
+.position--right {
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.position--right .triangle {
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.position--left {
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.position--left .triangle {
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.position--top {
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.position--top .triangle {
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.position--bottom {
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.position--bottom .triangle {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}

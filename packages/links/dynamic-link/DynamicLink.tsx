@@ -1,15 +1,27 @@
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import Link from 'next/link'
 
+export type DynamicLinkDataTestId = {
+  root?: string
+}
+
 export type DynamicLinkProps = ComponentPropsWithoutRef<'a'> & {
   href: string
   isExternal?: boolean
   prefetch?: boolean
+  dataTestId?: DynamicLinkDataTestId
 }
 
 export const DynamicLink = forwardRef(
   (
-    { href, isExternal, children, prefetch = false, ...rest }: DynamicLinkProps,
+    {
+      href,
+      isExternal,
+      children,
+      prefetch = false,
+      dataTestId,
+      ...rest
+    }: DynamicLinkProps,
     ref?: ForwardedRef<HTMLAnchorElement>,
   ) => {
     const external = isExternal ?? href?.startsWith('https://')
@@ -21,6 +33,7 @@ export const DynamicLink = forwardRef(
           rel={'noreferrer noopener'}
           href={href}
           ref={ref}
+          data-testid={dataTestId?.root}
           {...rest}
         >
           {children}
@@ -29,7 +42,13 @@ export const DynamicLink = forwardRef(
     }
 
     return (
-      <Link href={href} prefetch={prefetch} ref={ref} {...rest}>
+      <Link
+        href={href}
+        prefetch={prefetch}
+        ref={ref}
+        data-testid={dataTestId?.root}
+        {...rest}
+      >
         {children}
       </Link>
     )
