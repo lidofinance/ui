@@ -1,0 +1,50 @@
+.accordion {
+  --local-shevron-size: 24px;
+
+  border-top: 1px solid var(--lido-color-borders-fog, rgb(0 0 0 / 10%));
+  padding-top: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  font-size: var(--lido-font-size-h4);
+  font-weight: var(--lido-font-weight-medium);
+  line-height: var(--lido-line-height-h4);
+}
+
+.subheader {
+  font-size: var(--lido-font-size-subheader);
+  font-weight: var(--lido-font-weight-light);
+  line-height: var(--lido-line-height-subheader);
+}
+
+.shevronIcon {
+  width: var(--local-shevron-size);
+  height: var(--local-shevron-size);
+  cursor: pointer;
+  transition: 0.2s;
+  flex-shrink: 0;
+  color: var(--lido-color-primary);
+
+  &.opened {
+    transform: rotate(180deg);
+  }
+}
+
+@media (width <= 899px) {
+  .accordion {
+    padding-top: 30px;
+  }
+
+  .header {
+    font-weight: var(--lido-font-weight-bold);
+  }
+
+  .subheader {
+    font-weight: var(--lido-font-weight-regular);
+  }
+}
