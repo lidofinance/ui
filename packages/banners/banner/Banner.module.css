@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  height: 60px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -34,6 +35,7 @@
 
 .title {
   font-weight: var(--lido-font-weight-bold);
+  margin-bottom: -4px;
 }
 
 .content {
@@ -51,24 +53,30 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+  font-size: var(--lido-font-size-control);
 }
 
 .mainButton {
   width: 100%;
+  color: white;
+  flex-shrink: 0;
 }
 
 .closeButton {
   border-color: rgba(255 255 255 / 32%);
-}
-
-.mainButton,
-.closeButton {
   color: white;
 }
 
 @media (width <= 899px) {
   .content {
     justify-content: space-around;
+  }
+
+  .banner {
+    height: 80px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    align-items: start;
   }
 
   .mainButton {

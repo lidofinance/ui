@@ -36,7 +36,9 @@ export const CookieBanner = ({
       <span className={style.text}>
         Cookies are used to collect anonymous site visitation data to improve
         the performance of website. For more info read{' '}
-        <Link href={privacyUrl}>Privacy Notice</Link>
+        <Link target='_blank' href={privacyUrl}>
+          Privacy Notice
+        </Link>
       </span>
       <div className={style.buttons}>
         <Button

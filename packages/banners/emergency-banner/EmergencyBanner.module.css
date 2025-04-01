@@ -24,15 +24,16 @@
 
 .title {
   color: var(--lido-color-white-static);
-  font-weight: var(--lido-font-weight-bold);
+  font-weight: var(--lido-font-weight-medium);
   text-align: center;
   font-size: var(--lido-font-size-h4);
+  line-height: var(--lido-line-height-h4);
 }
 
 .description {
   color: var(--lido-color-white-static);
   text-align: center;
-  line-height: 1.4;
+  font-weight: var(--lido-font-weight-light);
   font-size: var(--lido-font-size-subheader);
 }
 
@@ -46,4 +47,15 @@
 
 .buttonContent {
   font-size: var(--lido-font-size-control);
+}
+
+@media (width <= 599px) {
+  .title {
+    font-size: 18px;
+    font-weight: var(--lido-font-weight-bold);
+  }
+
+  .description {
+    font-weight: var(--lido-font-weight-regular);
+  }
 }
