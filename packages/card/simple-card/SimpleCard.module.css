@@ -4,7 +4,6 @@
 
   display: flex;
   position: relative;
-  padding: 60px 0;
   width: 100%;
   cursor: pointer;
   height: 400px;
@@ -13,11 +12,14 @@
 
   &:hover {
     --local-color: var(--lido-color-accent-ocean-static);
-    --local-description-color: var(--lido-color-accent-ocean-static);
+    --local-description-color: var(
+      --lido-color-borders-water-static,
+      rgb(0 0 0 / 10%)
+    );
   }
 
   &.largeTitle {
-    padding: 60px 30px;
+    padding: 0 30px;
   }
 }
 
@@ -29,6 +31,7 @@
   .titleItem {
     font-size: var(--lido-font-size-h2);
     line-height: var(--lido-line-height-h2);
+    font-weight: var(--lido-font-weight-regular);
   }
 }
 
@@ -37,7 +40,9 @@
   width: 100%;
   height: 100%;
   display: flex;
+  padding: 60px 0;
   flex-direction: column;
+  box-sizing: border-box;
   align-items: flex-start;
 }
 
@@ -48,7 +53,6 @@
 .titleImage {
   padding: 15px;
   border-radius: 100%;
-  background-color: #fff9f9;
   border: 1px solid var(--lido-color-borders-fog);
   box-sizing: border-box;
   width: 86px;
@@ -76,7 +80,7 @@
 .titleItem {
   font-size: var(--lido-font-size-subheader-not-adaptive);
   line-height: var(--lido-line-height-subheader-not-adaptive);
-  font-weight: var(--lido-font-weight-regular);
+  font-weight: var(--lido-font-weight-light);
   margin-bottom: 4px;
   color: var(--local-color);
   transition: color 0.3s;

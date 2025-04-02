@@ -1,16 +1,15 @@
 .card {
   position: relative;
   padding: 30px;
-  color: var(--lido-color-text);
+  color: var(--lido-color-primary);
   width: 100%;
-  border-radius: var(--lido-border-radius-60);
+  border-radius: var(--lido-border-radius-40);
   border: 1px solid var(--lido-color-borders-fog);
 }
 
 .titleImage {
   padding: 15px;
   border-radius: 100%;
-  background-color: #fff9f9;
   border: 1px solid var(--lido-color-borders-fog);
   box-sizing: border-box;
   width: 86px;
