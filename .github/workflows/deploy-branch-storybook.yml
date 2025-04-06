@@ -1,0 +1,51 @@
+name: Deploy Storybook for the PR
+
+on:
+  pull_request:
+    types: [ synchronize, opened, reopened ] # todo: move closed workflow to another workflow
+    branches:
+      - lido-ui-v4-canary
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: pull_request
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install --immutable
+
+      - name: Build Components
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn build-storybook
+
+      - name: Merge Storybook builds
+        uses: ./.github/actions/merge-storybook-builds
+        with:
+          release_type: main
+          target_folder: release-target
+
+      - name: Deploy to GitHub Pages
+        uses: lidofinance/github-pages-action@v1
+        with:
+          branch: gh-pages
+          folder: release-target
