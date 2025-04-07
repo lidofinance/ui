@@ -100,4 +100,9 @@
   color: var(--local-description-color);
   font-weight: var(--lido-font-weight-regular);
   transition: color 0.3s;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
