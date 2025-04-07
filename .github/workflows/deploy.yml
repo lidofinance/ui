@@ -48,21 +48,13 @@ jobs:
         run: yarn build-storybook
 
       - name: Merge Storybook builds
-        run: |
-          # Get the published files from the gh-pages branch (if any)
-          git fetch origin gh-pages:gh-pages-temp || echo "gh-pages branch not found"
-          git worktree add gh-pages-temp origin/gh-pages
-          # In the current build, the v3 build is already in storybook-static
-          # If the published files contain a v4 folder, copy it to storybook-static/v4
-          if [ -d gh-pages-temp/v4 ]; then
-            mkdir -p storybook-static/v4
-            cp -r gh-pages-temp/v4/* storybook-static/v4/
-          else
-            echo "No v4 build found in gh-pages"
-          fi
+        uses: ./.github/actions/merge-storybook-builds
+        with:
+          release_type: main
+          target_folder: release-target
 
       - name: Deploy to GitHub Pages
         uses: lidofinance/github-pages-action@v1
         with:
           branch: gh-pages
-          folder: storybook-static
+          folder:  release-target
