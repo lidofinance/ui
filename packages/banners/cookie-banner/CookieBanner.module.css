@@ -36,8 +36,9 @@
 [data-lido-theme='dark'] {
   .banner {
     border: 1px solid rgb(255 255 255 / 10%);
-    background: rgb(78 79 103 / 72%);
-    box-shadow: 0 24px 80px 0 rgb(73 74 95 / 32%);
+    background: rgb(27 27 38 / 72%);
+    box-shadow: 0 24px 80px 0 rgb(27 27 38 / 32%);
+    backdrop-filter: blur(30px);
   }
 }
 
