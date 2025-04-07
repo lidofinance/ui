@@ -45,10 +45,6 @@
   margin-bottom: -5px;
 }
 
-.buttonContent {
-  font-size: var(--lido-font-size-control);
-}
-
 @media (width <= 599px) {
   .title {
     font-size: 18px;
