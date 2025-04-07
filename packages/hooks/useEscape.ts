@@ -11,7 +11,7 @@ export const useEscape = (callback?: () => void): void => {
   )
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('keydown1', handleKeyDown)
 
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [handleKeyDown])
