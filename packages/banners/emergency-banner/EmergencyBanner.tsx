@@ -50,7 +50,7 @@ export const EmergencyBanner = ({
           textStyle={'semibold'}
           target='_blank'
         >
-          <span className={styles.buttonContent}>{linkText}</span>
+          {linkText}
         </Button>
       </div>
     </div>

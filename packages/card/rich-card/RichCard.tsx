@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import Image from 'next/image'
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import { Link } from '../../links'
 import { Tag } from '../../tag'
 import styles from './RichCard.module.css'
 
@@ -20,6 +21,7 @@ export type RichCardProps = ComponentPropsWithoutRef<'div'> & {
   tags?: string[]
   logosArray?: string[]
   extraLogosAmount?: number
+  learnMoreLink?: string
   dataTestId?: RichCardDataTestId
 }
 
@@ -32,6 +34,7 @@ export const RichCard = forwardRef(
       tags,
       logosArray,
       dataTestId,
+      learnMoreLink,
       extraLogosAmount,
       ...rest
     }: RichCardProps,
@@ -72,6 +75,11 @@ export const RichCard = forwardRef(
           data-testid={dataTestId?.description}
         >
           {text}
+          {learnMoreLink && (
+            <Link target='_blank' href={learnMoreLink}>
+              Learn more
+            </Link>
+          )}
         </div>
         {tags?.length && (
           <div className={styles.tags} data-testid={dataTestId?.tags}>

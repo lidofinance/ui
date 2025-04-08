@@ -1,11 +1,11 @@
 import cn from 'classnames'
+import NextImage from 'next/image'
 import React, {
   ComponentPropsWithoutRef,
   ForwardedRef,
   forwardRef,
   useState,
 } from 'react'
-import NextImage from 'next/image'
 import { Button } from '../../button'
 import { Link } from '../../links'
 import styles from './SimpleCard.module.css'

@@ -1,16 +1,21 @@
 .card {
   position: relative;
   padding: 30px;
-  color: var(--lido-color-text);
+  color: var(--lido-color-primary);
   width: 100%;
-  border-radius: var(--lido-border-radius-60);
+  border-radius: var(--lido-border-radius-40);
   border: 1px solid var(--lido-color-borders-fog);
+
+  &:hover {
+    .headerLogos {
+      display: flex;
+    }
+  }
 }
 
 .titleImage {
   padding: 15px;
   border-radius: 100%;
-  background-color: #fff9f9;
   border: 1px solid var(--lido-color-borders-fog);
   box-sizing: border-box;
   width: 86px;
@@ -43,7 +48,7 @@
 .headerLogo {
   width: 38px;
   height: 38px;
-  background: rgb(0 0 0 / 6%);
+  background: #f0f0f0;
   border-radius: 40px;
   text-align: center;
   display: flex;
@@ -77,8 +82,8 @@
 }
 
 .titleItem {
-  font-size: var(--lido-font-size-subheader-not-adaptive);
-  line-height: var(--lido-line-height-subheader-not-adaptive);
+  font-size: var(--lido-font-size-subheader);
+  line-height: var(--lido-line-height-subheader);
   font-weight: var(--lido-font-weight-regular);
   margin-bottom: 4px;
 }
@@ -89,4 +94,21 @@
   color: var(--lido-color-primary-7-static);
   font-weight: var(--lido-font-weight-regular);
   margin-bottom: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media (width <= 899px) {
+  .card {
+    padding: 20px;
+
+    &:hover {
+      .headerLogos {
+        display: none;
+      }
+    }
+  }
 }
