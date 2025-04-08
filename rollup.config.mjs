@@ -1,5 +1,4 @@
 import fs from 'node:fs'
-import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import autoprefixer from 'autoprefixer'
@@ -13,9 +12,23 @@ const { dependencies = {}, peerDependencies = {} } = JSON.parse(
   fs.readFileSync('package.json', 'utf-8'),
 )
 
+// in esm build we need to have imports in a form on next/link.js instead of next/link for it tow work
+function addNextJsExtensions() {
+  return {
+    name: 'add-next-link-extension',
+    renderChunk(code) {
+      return code.replace(/from ['"]next\/([^'"]+)['"]/g, (full, mod) => {
+        return `from 'next/${mod}.js'`
+      })
+    },
+  }
+}
+
 const external = [
   'react/jsx-runtime',
+  'next',
   'next/link',
+  'next/image',
   'next/font/google',
   ...Object.keys({ ...dependencies, ...peerDependencies }),
 ]
@@ -42,13 +55,13 @@ export default {
     },
   ],
   plugins: [
-    commonjs(),
     resolve({ extensions, preferBuiltins: true }),
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'bundled',
       extensions,
     }),
+    addNextJsExtensions(),
     /** typography.css
      * We put the typography in a separate folder so that library users can decide
      * for themselves whether to use these styles or not. */
