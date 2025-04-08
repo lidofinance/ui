@@ -18,6 +18,14 @@
     ".": {
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.js"
+    },
+    "./index.css": {
+      "import": "./dist/esm/index.css",
+      "require": "./dist/cjs/index.css"
+    },
+    "./styles/typography.css": {
+      "import": "./dist/esm/styles/typography.css",
+      "require": "./dist/cjs/styles/typography.css"
     }
   },
   "types": "dist/types/index.d.ts",
