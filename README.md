@@ -1,6 +1,6 @@
 # Lido UI Components v4
 
-> React components (v4) for Lido Finance projects. (Released February 2025)
+> React components (v4) for Lido Finance projects. (Released February 2025) TEST
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 
