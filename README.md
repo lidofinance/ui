@@ -1,6 +1,7 @@
 # Lido UI Components
 
 > React components for Lido Finance projects.
+> TEST, TEST, TEST
 
 Check out our Storybook at [https://ui.lido.fi](https://ui.lido.fi)
 
