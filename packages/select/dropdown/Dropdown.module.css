@@ -1,0 +1,37 @@
+.dropdown {
+  position: relative;
+}
+
+.overlay {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  border-radius: 24px;
+  box-shadow: 0 4px 44px 0 #18284914;
+
+  /* unique color */
+  background-color: var(--lido-color-background-dropdown);
+  backdrop-filter: blur(27px);
+  margin-top: 8px;
+  z-index: 1;
+}
+
+.item {
+  font-size: var(--lido-font-size-control-not-adaptive);
+  line-height: var(--lido-line-height-control-not-adaptive);
+  cursor: pointer;
+
+  &.sizeL {
+    padding: 16px 24px;
+  }
+
+  &.sizeXL {
+    padding: 24px;
+  }
+
+  &:hover {
+    /* unique color */
+    background-color: var(--lido-color-background-dropdown-hover);
+  }
+}
