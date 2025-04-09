@@ -77,7 +77,7 @@ export const RichCard = forwardRef(
           {text}
           {learnMoreLink && (
             <Link target='_blank' href={learnMoreLink}>
-              Learn more
+              &nbsp;Learn more
             </Link>
           )}
         </div>
