@@ -5,7 +5,7 @@ export default {
   component: EmergencyBanner,
   title: 'Banners/EmergencyBanner',
   args: {
-    description: 'Keep calm and carry on',
+    description: 'Test text',
     title: 'Important announcement',
     link: 'https://example.com',
     linkText: 'Check out important details here',
