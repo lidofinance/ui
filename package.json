@@ -63,7 +63,7 @@
   "dependencies": {
     "@rollup/plugin-commonjs": "^28.0.3",
     "classnames": "^2.5.1",
-    "react-collapsed": "3.0.2",
+    "react-collapsed": "4.2.0",
     "react-jazzicon": "^1.0.4",
     "react-toastify": "7.0.4",
     "react-transition-group": "4",
