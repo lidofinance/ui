@@ -25,6 +25,7 @@
   position: relative;
   transition: border-color 0.1s ease;
   box-sizing: border-box;
+  min-width: 0; /* Позволяет input сжиматься меньше min-content */
 }
 
 /* Remove search input browser-specific decorations */
@@ -52,8 +53,7 @@
 }
 
 /* Disabled and loading states */
-.inputContent.isDisabled,
-.inputContent.isLoading {
+.inputContent.isDisabled {
   cursor: default;
 }
 
@@ -113,11 +113,19 @@
 }
 
 .inputWrapper {
+  position: relative;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+}
+
+.inputInnerWrapper {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
 }
 
 /* Size variants - consolidated padding rules */
@@ -210,7 +218,7 @@
 }
 
 .rightDecoratorText {
-  color: var(--lido-color-text-secondary);
+  color: var(--lido-color-primary-50);
   white-space: nowrap;
   letter-spacing: 0;
   text-align: right;
@@ -296,7 +304,7 @@
   width: var(--local-icon-size);
   height: var(--local-icon-size);
   align-self: center;
-  color: var(--lido-color-borders-fog);
+  color: var(--lido-color-primary);
   transition: color 0.1s ease;
 }
 
@@ -365,22 +373,6 @@
   caret-color: var(--lido-color-accent-ocean-60);
 }
 
-/* Loading animation */
-.waveLoaderContainer {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.waveLoader {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
 /* Floating label */
 .floatingLabel {
   position: absolute;
@@ -393,6 +385,10 @@
   line-height: var(--lido-line-height-control);
   background: transparent;
   padding: 0 4px;
+  width: calc(100% - 24px);
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1;
 }
 
 /* Floating label positioning by size */
@@ -405,46 +401,42 @@
 }
 
 /* Focused and filled input label transformation */
-.input:focus ~ .floatingLabel,
-.input:not(:placeholder-shown) ~ .floatingLabel {
+.inputInnerWrapper .input:focus ~ .floatingLabel,
+.inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
   transform: translateY(-14px) scale(0.75);
 }
 
-.size--l .input:focus ~ .floatingLabel,
-.size--l .input:not(:placeholder-shown) ~ .floatingLabel {
+.size--l .inputInnerWrapper .input:focus ~ .floatingLabel,
+.size--l .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
   transform: translateY(-12px) scale(0.75);
 }
 
-.size--xl .input:focus ~ .floatingLabel,
-.size--xl .input:not(:placeholder-shown) ~ .floatingLabel {
+.size--xl .inputInnerWrapper .input:focus ~ .floatingLabel,
+.size--xl .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
   transform: translateY(-16px) scale(0.75);
 }
 
 /* Label states */
-.isError .input:focus ~ .floatingLabel,
-.isError .input:not(:placeholder-shown) ~ .floatingLabel {
+.isError .inputInnerWrapper .input:focus ~ .floatingLabel,
+.isError .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
   color: var(--lido-color-primary-50);
 }
 
 /* Fixing disabled and loading state label colors */
-.isDisabled .floatingLabel {
-  color: var(--lido-color-primary-20);
-}
-
-.isLoading .floatingLabel {
+.isDisabled .inputInnerWrapper .floatingLabel {
   color: var(--lido-color-primary-20);
 }
 
 /* Hide label for search */
-.search .floatingLabel {
+.search .inputInnerWrapper .floatingLabel {
   display: none;
 }
 
 /* Size-specific padding for non-search inputs */
-.size--l .input:not([type='search']) {
+.size--l .inputInnerWrapper .input:not([type='search']) {
   padding-top: 25px;
 }
 
-.size--xl .input:not([type='search']) {
+.size--xl .inputInnerWrapper .input:not([type='search']) {
   padding-top: 30px;
 }

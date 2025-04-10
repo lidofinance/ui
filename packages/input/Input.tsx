@@ -10,7 +10,6 @@ import {
 } from 'react'
 import styles from './Input.module.css'
 import cn from 'classnames'
-import { WaveLoader } from '../button/waveLoader'
 import {
   useInputValidation,
   ValidationOptions,
@@ -51,7 +50,6 @@ export type InputProps = Omit<
   rightDecorator?: ReactNode | RightDecoratorButton
   rightDecoratorType?: RightDecoratorType
   leftDecorator?: ReactElement
-  isLoading?: boolean
   validation?: ValidationOptions
   onValidationChange?: (state: ValidationState) => void
   dataTestId?: InputDataTestId
@@ -72,7 +70,6 @@ export const Input = forwardRef(
       fullwidth = false,
       rightDecorator,
       rightDecoratorType = 'element',
-      isLoading = false,
       leftDecorator: propsLeftDecorator,
       'aria-label': ariaLabel,
       placeholder,
@@ -101,7 +98,7 @@ export const Input = forwardRef(
     })
 
     // Extract input style calculations
-    const { waveScale, buttonStyle } = useInputStyles({ size })
+    const { buttonStyle } = useInputStyles({ size })
 
     // Get left decorator based on props and input type
     const leftDecorator = getLeftDecorator({
@@ -140,7 +137,7 @@ export const Input = forwardRef(
     const showErrorMessage = hasErrorMessage || hasValidationErrors
     const errorMessage =
       error || (hasValidationErrors ? validationState.errors[0] : null)
-    const isActuallyLoading = isLoading || validationState.isValidating
+    const isValidating = validationState.isValidating
     const isSearchType = type === 'search'
     const showPlainPlaceholder = isSearchType || size === 'm'
 
@@ -159,19 +156,11 @@ export const Input = forwardRef(
           className={cn(styles.inputContent, styles[`size--${size}`], {
             [styles.isError]: hasError || shouldShowValidationError,
             [styles.isDisabled]: disabled,
-            [styles.isLoading]: isActuallyLoading,
+            [styles.isLoading]: isValidating,
             [styles.search]: isSearchType,
             [styles.noLeftDecorator]: !isSearchType && !leftDecorator,
           })}
         >
-          <div className={styles.waveLoaderContainer}>
-            <WaveLoader
-              isVisible={isLoading}
-              variant='opaque'
-              scale={waveScale}
-              className={styles.waveLoader}
-            />
-          </div>
           {leftDecorator && (
             <span
               className={cn(styles.leftDecorator, {
@@ -184,27 +173,37 @@ export const Input = forwardRef(
             </span>
           )}
           <div className={styles.inputControlWrapper}>
-            <div className={styles.inputWrapper}>
-              <input
-                className={cn(styles.input, styles[`size--${size}`])}
-                disabled={disabled || isLoading}
-                type={type}
-                aria-invalid={hasError || shouldShowValidationError}
-                aria-label={ariaLabel || placeholder}
-                aria-describedby={showErrorMessage ? `${id}-error` : undefined}
-                ref={ref}
-                placeholder={showPlainPlaceholder ? placeholder : ' '}
-                onFocus={handleInputFocus}
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={value}
-                {...rest}
-              />
-              {placeholder && !showPlainPlaceholder && (
-                <span className={styles.floatingLabel} aria-hidden='true'>
-                  {placeholder}
-                </span>
-              )}
+            <div
+              className={cn(styles.inputWrapper, {
+                [styles.hasRightDecorator]: !!rightDecorator,
+                [styles.hasRightDecoratorButton]:
+                  !!rightDecorator && rightDecoratorType === 'button',
+              })}
+            >
+              <div className={styles.inputInnerWrapper}>
+                <input
+                  className={cn(styles.input, styles[`size--${size}`])}
+                  disabled={disabled}
+                  type={type}
+                  aria-invalid={hasError || shouldShowValidationError}
+                  aria-label={ariaLabel || placeholder}
+                  aria-describedby={
+                    showErrorMessage ? `${id}-error` : undefined
+                  }
+                  ref={ref}
+                  placeholder={showPlainPlaceholder ? placeholder : ' '}
+                  onFocus={handleInputFocus}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={value}
+                  {...rest}
+                />
+                {placeholder && !showPlainPlaceholder && (
+                  <span className={styles.floatingLabel} aria-hidden='true'>
+                    {placeholder}
+                  </span>
+                )}
+              </div>
               {rightDecorator && (
                 <span
                   className={cn(styles.rightDecorator, {
