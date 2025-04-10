@@ -4,7 +4,6 @@ import { babel } from '@rollup/plugin-babel'
 import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
 import postcssNested from 'postcss-nested'
-import postcssImport from 'postcss-import'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -75,7 +74,9 @@ export default {
     }),
     /** index.css – combining styles, including global.css (without typography) */
     postcss({
-      plugins: [postcssImport(), postcssNested(), autoprefixer()],
+      config: {
+        path: './postcss.config.js',
+      },
       exclude: /styles\/typography\.css$/,
       // Disable CSS modules for global.css, and leave the modules for the rest.
       modules: {
