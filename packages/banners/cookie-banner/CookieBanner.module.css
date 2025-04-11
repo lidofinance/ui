@@ -30,7 +30,7 @@
 .text {
   font-size: var(--lido-font-size-body);
   line-height: var(--lido-line-height-body);
-  color: var(--lido-color-text);
+  color: var(--lido-color-primary);
 }
 
 [data-lido-theme='dark'] {
