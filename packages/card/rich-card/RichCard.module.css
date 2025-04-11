@@ -32,7 +32,7 @@
 }
 
 .headerLogos {
-  display: flex;
+  display: none;
 
   & > *:not(:first-child) {
     margin-left: -10px;
