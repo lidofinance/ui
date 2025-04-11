@@ -26,8 +26,8 @@
   color: var(--lido-color-white-static);
   border-radius: 24px;
   font-family: var(--lido-font-family);
-  font-size: 14px;
-  line-height: 20px;
+  font-size: var(--lido-font-size-description);
+  line-height: var(--lido-line-height-tooltip);
 }
 
 .triangle {

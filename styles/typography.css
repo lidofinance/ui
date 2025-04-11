@@ -28,10 +28,13 @@
   --lido-line-height-control-not-adaptive: 26px;
   --lido-line-height-body: 27px;
   --lido-line-height-description: 24px;
+
+  /* Specific typography */
+  --lido-line-height-tooltip: 20px;
 }
 
 /* media */
-@media (width <= 1499px) {
+@media (width <=1499px) {
   :root {
     --lido-font-size-h1: 80px;
     --lido-font-size-h2: 66px;
@@ -52,7 +55,7 @@
   }
 }
 
-@media (width <= 899px) {
+@media (width <=899px) {
   :root {
     --lido-font-size-h1: 56px;
     --lido-font-size-h2: 36px;
@@ -177,7 +180,7 @@ p {
   font-weight: var(--lido-font-weight-bold);
 }
 
-@media (width <= 899px) {
+@media (width <=899px) {
   /* h1 */
   .ui-typography-h1 {
     letter-spacing: normal;

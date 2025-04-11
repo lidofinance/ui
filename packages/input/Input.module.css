@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: stretch;
   box-sizing: border-box;
 }
@@ -128,27 +128,43 @@
   min-width: 0;
 }
 
+.inputInnerWrapperWithLeftDecorator {
+  transform: translateX(-4px);
+}
+
 /* Size variants - consolidated padding rules */
 .size--m {
   height: 46px;
-  padding: 7px 4px 7px 7px;
 }
 
 .size--l {
   height: 60px;
-  padding: 7px 6px 7px 7px;
 }
 
 .size--xl {
   height: 70px;
+}
+
+.padding--m {
+  padding: 7px 4px 7px 7px;
+}
+
+.padding--l {
+  padding: 7px 6px 7px 7px;
+}
+
+.padding--xl {
   padding: 7px;
 }
 
 /* Padding adjustments for different states */
 .size--m.noLeftDecorator:not(.search),
-.size--l.noLeftDecorator:not(.search),
-.size--xl.noLeftDecorator:not(.search) {
+.size--l.noLeftDecorator:not(.search) {
   padding-left: 16px;
+}
+
+.size--xl.noLeftDecorator:not(.search) {
+  padding-left: 18px;
 }
 
 .size--m.search,
@@ -157,17 +173,9 @@
   padding-left: 25px;
 }
 
+/* Additional right padding adjustments per size */
 .size--m:not(:has(.rightDecorator)),
 .size--l:not(:has(.rightDecorator)),
-.size--xl:not(:has(.rightDecorator)) {
-  padding-right: 16px;
-}
-
-/* Additional right padding adjustments per size */
-.size--l:not(:has(.rightDecorator)) {
-  padding-right: 16px;
-}
-
 .size--xl:not(:has(.rightDecorator)) {
   padding-right: 16px;
 }
@@ -225,8 +233,8 @@
   vertical-align: bottom;
   margin-top: auto;
   margin-bottom: 12px;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: var(--lido-font-size-description);
+  line-height: var(--lido-line-height-description);
 }
 
 /* Right decorator margins by size */
@@ -274,8 +282,13 @@
   height: 40px;
 }
 
-.leftDecoratorSizeXL {
+.leftDecoratorSizeM {
   padding: 5px;
+}
+
+.leftDecoratorSizeL,
+.leftDecoratorSizeXL {
+  padding: 5px 5px 5px 10px;
 }
 
 .leftDecoratorSizeXL > * {
@@ -401,19 +414,28 @@
 }
 
 /* Focused and filled input label transformation */
-.inputInnerWrapper .input:focus ~ .floatingLabel,
-.inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
-  transform: translateY(-14px) scale(0.75);
+.size--l:not(.search) .inputInnerWrapper .input:focus,
+.size--l:not(.search) .inputInnerWrapper .input:not(:placeholder-shown) {
+  transform: translateY(9px) translateX(9px);
+}
+
+.size--xl:not(.search) .inputInnerWrapper .input:focus,
+.size--xl:not(.search) .inputInnerWrapper .input:not(:placeholder-shown) {
+  transform: translateY(11px) translateX(9px);
 }
 
 .size--l .inputInnerWrapper .input:focus ~ .floatingLabel,
 .size--l .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
-  transform: translateY(-12px) scale(0.75);
+  transform: translateY(-12px) translateX(4px) scale(0.75);
 }
 
 .size--xl .inputInnerWrapper .input:focus ~ .floatingLabel,
 .size--xl .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
-  transform: translateY(-16px) scale(0.75);
+  transform: translateY(-11px) translateX(4px) scale(0.75);
+}
+
+.inputContent.search .input {
+  transform: translateX(5px);
 }
 
 /* Label states */
@@ -430,13 +452,4 @@
 /* Hide label for search */
 .search .inputInnerWrapper .floatingLabel {
   display: none;
-}
-
-/* Size-specific padding for non-search inputs */
-.size--l .inputInnerWrapper .input:not([type='search']) {
-  padding-top: 25px;
-}
-
-.size--xl .inputInnerWrapper .input:not([type='search']) {
-  padding-top: 30px;
 }

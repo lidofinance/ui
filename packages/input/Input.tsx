@@ -163,10 +163,13 @@ export const Input = forwardRef(
         >
           {leftDecorator && (
             <span
-              className={cn(styles.leftDecorator, {
-                [styles.leftDecoratorSizeXL]: size === 'xl',
-                [styles.searchLeftDecorator]: isSearchType,
-              })}
+              className={cn(
+                styles.leftDecorator,
+                styles[`leftDecoratorSize${size.toUpperCase()}`],
+                {
+                  [styles.searchLeftDecorator]: isSearchType,
+                },
+              )}
               aria-hidden='true'
             >
               {leftDecorator}
@@ -180,7 +183,11 @@ export const Input = forwardRef(
                   !!rightDecorator && rightDecoratorType === 'button',
               })}
             >
-              <div className={styles.inputInnerWrapper}>
+              <div
+                className={cn(styles.inputInnerWrapper, {
+                  [styles.inputInnerWrapperWithLeftDecorator]: !!leftDecorator,
+                })}
+              >
                 <input
                   className={cn(styles.input, styles[`size--${size}`])}
                   disabled={disabled}

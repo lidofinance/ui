@@ -27,12 +27,12 @@
   color: var(--lido-color-accent-sky-static);
 }
 
-.sizeS {
+.sizeM {
   width: 24px;
   height: 24px;
 }
 
-.sizeM {
+.sizeS {
   width: 16px;
   height: 16px;
 }
