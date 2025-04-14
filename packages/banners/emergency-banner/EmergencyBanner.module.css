@@ -1,5 +1,5 @@
 .banner {
-  color: var(--lido-color-white-static);
+  color: var(--lido-ui-color-white-static);
   display: flex;
   justify-content: center;
   padding: 20px 10px;
@@ -18,23 +18,23 @@
   align-items: center;
   padding: 0 40px;
   gap: 10px;
-  font-size: var(--lido-font-size-subheader);
-  line-height: var(--lido-line-height-subheader);
+  font-size: var(--lido-ui-font-size-subheader);
+  line-height: var(--lido-ui-line-height-subheader);
 }
 
 .title {
-  color: var(--lido-color-white-static);
-  font-weight: var(--lido-font-weight-medium);
+  color: var(--lido-ui-color-white-static);
+  font-weight: var(--lido-ui-font-weight-medium);
   text-align: center;
-  font-size: var(--lido-font-size-h4);
-  line-height: var(--lido-line-height-h4);
+  font-size: var(--lido-ui-font-size-h4);
+  line-height: var(--lido-ui-line-height-h4);
 }
 
 .description {
-  color: var(--lido-color-white-static);
+  color: var(--lido-ui-color-white-static);
   text-align: center;
-  font-weight: var(--lido-font-weight-light);
-  font-size: var(--lido-font-size-subheader);
+  font-weight: var(--lido-ui-font-weight-light);
+  font-size: var(--lido-ui-font-size-subheader);
 }
 
 .button {
@@ -48,10 +48,10 @@
 @media (width <= 599px) {
   .title {
     font-size: 18px;
-    font-weight: var(--lido-font-weight-bold);
+    font-weight: var(--lido-ui-font-weight-bold);
   }
 
   .description {
-    font-weight: var(--lido-font-weight-regular);
+    font-weight: var(--lido-ui-font-weight-regular);
   }
 }

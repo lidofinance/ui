@@ -1,10 +1,10 @@
 .card {
   position: relative;
   padding: 30px;
-  color: var(--lido-color-primary);
+  color: var(--lido-ui-color-primary);
   width: 100%;
-  border-radius: var(--lido-border-radius-40);
-  border: 1px solid var(--lido-color-borders-fog);
+  border-radius: var(--lido-ui-border-radius-40);
+  border: 1px solid var(--lido-ui-color-borders-fog);
 
   &:hover {
     .headerLogos {
@@ -16,7 +16,7 @@
 .titleImage {
   padding: 15px;
   border-radius: 100%;
-  border: 1px solid var(--lido-color-borders-fog);
+  border: 1px solid var(--lido-ui-color-borders-fog);
   box-sizing: border-box;
   width: 86px;
   height: 86px;
@@ -40,8 +40,8 @@
 
   .empty {
     backdrop-filter: blur(12px);
-    font-size: var(--lido-font-size-body);
-    line-height: var(--lido-line-height-body);
+    font-size: var(--lido-ui-font-size-body);
+    line-height: var(--lido-ui-line-height-body);
   }
 }
 
@@ -69,7 +69,7 @@
   width: 86px;
   height: 86px;
   border-radius: 100%;
-  border: 1px solid var(--lido-color-borders-fog);
+  border: 1px solid var(--lido-ui-color-borders-fog);
   box-sizing: border-box;
 }
 
@@ -82,17 +82,17 @@
 }
 
 .titleItem {
-  font-size: var(--lido-font-size-subheader);
-  line-height: var(--lido-line-height-subheader);
-  font-weight: var(--lido-font-weight-regular);
+  font-size: var(--lido-ui-font-size-subheader);
+  line-height: var(--lido-ui-line-height-subheader);
+  font-weight: var(--lido-ui-font-weight-regular);
   margin-bottom: 4px;
 }
 
 .descriptionItem {
-  font-size: var(--lido-font-size-body);
-  line-height: var(--lido-line-height-body);
-  color: var(--lido-color-primary-7-static);
-  font-weight: var(--lido-font-weight-regular);
+  font-size: var(--lido-ui-font-size-body);
+  line-height: var(--lido-ui-line-height-body);
+  color: var(--lido-ui-color-primary-7-static);
+  font-weight: var(--lido-ui-font-weight-regular);
   margin-bottom: 16px;
   text-overflow: ellipsis;
   overflow: hidden;

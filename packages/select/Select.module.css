@@ -14,11 +14,11 @@
   box-sizing: border-box;
   background-color: transparent;
   outline: none;
-  border: 1px solid var(--lido-color-borders-fog);
-  border-radius: var(--lido-border-radius-50);
-  font-size: var(--lido-font-size-control-not-adaptive);
-  line-height: var(--lido-line-height-control-not-adaptive);
-  color: var(--lido-color-primary-50);
+  border: 1px solid var(--lido-ui-color-borders-fog);
+  border-radius: var(--lido-ui-border-radius-50);
+  font-size: var(--lido-ui-font-size-control-not-adaptive);
+  line-height: var(--lido-ui-line-height-control-not-adaptive);
+  color: var(--lido-ui-color-primary-50);
   transition:
     color,
     border 0.5s;
@@ -32,21 +32,21 @@
   }
 
   &:hover {
-    border-color: var(--lido-color-borders-water-static);
-    color: var(--lido-color-primary);
+    border-color: var(--lido-ui-color-borders-water-static);
+    color: var(--lido-ui-color-primary);
     transition:
       color,
       border 0.3s;
   }
 
   &.open {
-    color: var(--lido-color-primary-50);
-    border-color: var(--lido-color-borders-water-static);
+    color: var(--lido-ui-color-primary-50);
+    border-color: var(--lido-ui-color-borders-water-static);
   }
 
   &:disabled {
-    color: var(--lido-color-primary-20);
-    border-color: var(--lido-color-borders-fog);
+    color: var(--lido-ui-color-primary-20);
+    border-color: var(--lido-ui-color-borders-fog);
     cursor: not-allowed;
   }
 }
@@ -67,7 +67,7 @@
     cursor: initial;
 
     path {
-      fill: var(--lido-color-primary-20) !important;
+      fill: var(--lido-ui-color-primary-20) !important;
     }
   }
 

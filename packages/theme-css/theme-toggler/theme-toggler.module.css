@@ -7,12 +7,12 @@
 
 .light {
   composes: icon;
-  visibility: var(--lido-dark-mode-visibility);
+  visibility: var(--lido-ui-dark-mode-visibility);
 }
 
 .dark {
   composes: icon;
-  visibility: var(--lido-light-mode-visibility);
+  visibility: var(--lido-ui-light-mode-visibility);
 }
 
 .themeToggler {

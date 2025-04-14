@@ -9,7 +9,7 @@ import fs, { glob } from 'node:fs/promises'
 
 const getDefinedVariables = async () => {
   const content = await fs.readFile('./packages/theme/theme.css', 'utf-8')
-  const matches = content.match(/--lido-[^:]+/g)
+  const matches = content.match(/--lido-ui-[^:]+/g)
   return new Set(matches)
 }
 
@@ -19,9 +19,9 @@ const getUsedVariables = async () => {
     await Promise.all(
       files.map(async (file) => {
         const content = await fs.readFile(file, 'utf-8')
-        const matches = content.match(/var\(--lido-[^,)]+[),]/g)
+        const matches = content.match(/var\(--lido-ui-[^,)]+[),]/g)
         const vars = matches?.map(
-          (rawVariable) => rawVariable.match(/--lido-[^,)]+/)?.[0],
+          (rawVariable) => rawVariable.match(/--lido-ui-[^,)]+/)?.[0],
         )
         return vars
       }),

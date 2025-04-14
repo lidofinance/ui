@@ -122,7 +122,7 @@ export const AllStates: StoryFn<TabsProps> = () => {
                 key={size}
                 style={{
                   padding: '16px',
-                  border: '1px solid var(--lido-color-borders-fog)',
+                  border: '1px solid var(--lido-ui-color-borders-fog)',
                 }}
               >
                 <h5 style={subHeadingStyle}>Size: {size}</h5>
