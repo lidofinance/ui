@@ -25,8 +25,8 @@
   backdrop-filter: blur(20px);
   color: var(--lido-ui-color-white-static);
   border-radius: 24px;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: var(--lido-ui-font-size-description);
+  line-height: var(--lido-ui-line-height-tooltip);
 }
 
 .triangle {

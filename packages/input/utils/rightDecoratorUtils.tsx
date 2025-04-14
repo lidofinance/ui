@@ -19,6 +19,7 @@ export type RightDecoratorButtonProps = Pick<
 
 export type RightDecoratorButton = Omit<RightDecoratorButtonProps, 'type'> & {
   type?: ButtonType
+  withArrow?: boolean
 }
 
 // Define a common interface for rendering parameters

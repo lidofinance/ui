@@ -12,10 +12,10 @@ const BUTTON_SIZE_MAP: Record<InputSize, number> = {
   xl: 56,
 }
 
-const WAVE_SCALE_FACTORS: Record<InputSize, number> = {
-  m: 0.8,
-  l: 1,
-  xl: 1.2,
+const BUTTON_MARGIN_MAP: Record<InputSize, number> = {
+  m: 4,
+  l: 6,
+  xl: 7,
 }
 
 /**
@@ -23,18 +23,16 @@ const WAVE_SCALE_FACTORS: Record<InputSize, number> = {
  * Returns style-related values for consistent rendering across different input sizes
  */
 export const useInputStyles = ({ size }: UseInputStylesProps) => {
-  const waveScale = useMemo(() => WAVE_SCALE_FACTORS[size], [size])
-
   const buttonStyle = useMemo(
     () => ({
       height: BUTTON_SIZE_MAP[size],
       minWidth: BUTTON_SIZE_MAP[size],
+      marginRight: BUTTON_MARGIN_MAP[size],
     }),
     [size],
   )
 
   return {
-    waveScale,
     buttonStyle,
   }
 }
