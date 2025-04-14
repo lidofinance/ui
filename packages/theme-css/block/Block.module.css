@@ -1,11 +1,11 @@
 .foreground {
-  background: var(--lido-color-foreground);
-  color: var(--lido-color-text-secondary);
+  background: var(--lido-ui-color-foreground);
+  color: var(--lido-ui-color-text-secondary);
 }
 
 .background {
-  background: var(--lido-color-background);
-  color: var(--lido-color-text-secondary);
+  background: var(--lido-ui-color-background);
+  color: var(--lido-ui-color-text-secondary);
 }
 
 .flat {
@@ -13,10 +13,10 @@
 }
 
 .block {
-  font-weight: var(--lido-font-weight-regular);
-  font-size: var(--lido-font-size-description);
+  font-weight: var(--lido-ui-font-weight-regular);
+  font-size: var(--lido-ui-font-size-description);
   line-height: 1.6em;
-  border-radius: var(--lido-border-radius-4);
+  border-radius: var(--lido-ui-border-radius-4);
   margin: 0;
   padding: 10px 4px;
 }

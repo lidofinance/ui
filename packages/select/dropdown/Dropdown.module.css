@@ -11,15 +11,15 @@
   box-shadow: 0 4px 44px 0 #18284914;
 
   /* unique color */
-  background-color: var(--lido-color-background-dropdown);
+  background-color: var(--lido-ui-color-background-dropdown);
   backdrop-filter: blur(27px);
   margin-top: 8px;
   z-index: 1;
 }
 
 .item {
-  font-size: var(--lido-font-size-control-not-adaptive);
-  line-height: var(--lido-line-height-control-not-adaptive);
+  font-size: var(--lido-ui-font-size-control-not-adaptive);
+  line-height: var(--lido-ui-line-height-control-not-adaptive);
   cursor: pointer;
 
   &.sizeL {
@@ -32,6 +32,6 @@
 
   &:hover {
     /* unique color */
-    background-color: var(--lido-color-background-dropdown-hover);
+    background-color: var(--lido-ui-color-background-dropdown-hover);
   }
 }

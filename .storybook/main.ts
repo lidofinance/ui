@@ -24,7 +24,9 @@ export default {
     },
     reactDocgen: 'none',
   },
-
+  features: {
+    postcss: true,
+  },
   webpackFinal: async (config: any) => {
     const customConfig = { ...config }
     // Configure webpack to allow using .js extension for typescript file imports.
@@ -32,11 +34,21 @@ export default {
     customConfig.resolve.extensionAlias = {
       '.js': ['.tsx', '.ts', '.js'],
     }
-    return customConfig
-  },
 
-  features: {
-    postcss: false,
+    const cssRule = customConfig.module.rules.find(
+      (rule: any) =>
+        rule.test instanceof RegExp &&
+        rule.test.test('test.css') &&
+        Array.isArray(rule.use),
+    )
+
+    cssRule.use.push({
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: require('../postcss.config.js'),
+      },
+    })
+    return customConfig
   },
 
   framework: {

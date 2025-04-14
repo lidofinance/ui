@@ -12,8 +12,8 @@
 
 .tab {
   position: relative;
-  color: var(--lido-color-primary);
-  border: 1px solid var(--lido-color-borders-fog);
+  color: var(--lido-ui-color-primary);
+  border: 1px solid var(--lido-ui-color-borders-fog);
   background-color: transparent;
   cursor: pointer;
   transition:
@@ -26,22 +26,22 @@
     position: absolute;
     inset: -7px;
     border: 3px solid transparent;
-    border-radius: var(--lido-border-radius-70);
+    border-radius: var(--lido-ui-border-radius-70);
     transition: border-color 0.2s ease;
   }
 
   &:hover:not(.active, :disabled) {
-    color: var(--lido-color-accent-ocean-static);
-    border-color: var(--lido-color-accent-ocean-static);
+    color: var(--lido-ui-color-accent-ocean-static);
+    border-color: var(--lido-ui-color-accent-ocean-static);
   }
 
   &.active {
-    color: var(--lido-color-primary-reverse);
-    background-color: var(--lido-color-primary);
+    color: var(--lido-ui-color-primary-reverse);
+    background-color: var(--lido-ui-color-primary);
 
     &:disabled {
-      color: var(--lido-color-primary-20);
-      border-color: var(--lido-color-borders-fog);
+      color: var(--lido-ui-color-primary-20);
+      border-color: var(--lido-ui-color-borders-fog);
       background-color: transparent;
       cursor: not-allowed;
 
@@ -52,12 +52,12 @@
   }
 
   &.active::before {
-    border-color: var(--lido-color-accent-ocean-static);
+    border-color: var(--lido-ui-color-accent-ocean-static);
   }
 
   &:disabled {
-    color: var(--lido-color-primary-20);
-    border-color: var(--lido-color-borders-fog);
+    color: var(--lido-ui-color-primary-20);
+    border-color: var(--lido-ui-color-borders-fog);
     cursor: not-allowed;
   }
 }
@@ -65,28 +65,28 @@
 /* Shape modifiers */
 .shape--oval {
   flex: 1;
-  border-radius: var(--lido-border-radius-70);
-  font-weight: var(--lido-font-weight-bold);
+  border-radius: var(--lido-ui-border-radius-70);
+  font-weight: var(--lido-ui-font-weight-bold);
 
   .rightDecorator {
-    color: var(--lido-color-primary-50);
-    font-weight: var(--lido-font-weight-regular);
-    font-size: var(--lido-font-size-subheader);
-    line-height: var(--lido-line-height-subheader);
+    color: var(--lido-ui-color-primary-50);
+    font-weight: var(--lido-ui-font-weight-regular);
+    font-size: var(--lido-ui-font-size-subheader);
+    line-height: var(--lido-ui-line-height-subheader);
     margin-left: 6px;
     transition: color 0.2s ease;
   }
 
   &:hover .rightDecorator {
-    color: var(--lido-color-accent-ocean-static);
+    color: var(--lido-ui-color-accent-ocean-static);
   }
 
   &.active .rightDecorator {
-    color: var(--lido-color-primary-50-reverse);
+    color: var(--lido-ui-color-primary-50-reverse);
   }
 
   &:disabled .rightDecorator {
-    color: var(--lido-color-primary-20);
+    color: var(--lido-ui-color-primary-20);
   }
 }
 
@@ -109,7 +109,7 @@
   }
 
   &:disabled svg path {
-    fill: var(--lido-color-primary-20) !important;
+    fill: var(--lido-ui-color-primary-20) !important;
   }
 }
 
@@ -117,8 +117,8 @@
 .size--M {
   min-height: 52px;
   padding: 10px 20px;
-  font-size: 17px;
-  line-height: 31px;
+  font-size: var(--lido-ui-font-size-control-not-adaptive);
+  line-height: var(--lido-ui-line-height-tabs);
 
   &.shape--circle {
     min-height: initial;
@@ -131,8 +131,8 @@
 .size--L {
   min-height: 70px;
   padding: 15px 30px;
-  font-size: var(--lido-font-size-subheader);
-  line-height: var(--lido-line-height-subheader);
+  font-size: var(--lido-ui-font-size-subheader);
+  line-height: var(--lido-ui-line-height-subheader);
 
   &.shape--circle {
     min-height: initial;
@@ -145,8 +145,8 @@
 .size--XL {
   min-height: 120px;
   padding: 20px 40px;
-  font-size: var(--lido-font-size-header);
-  line-height: var(--lido-line-height-header);
+  font-size: var(--lido-ui-font-size-subheader);
+  line-height: var(--lido-ui-line-height-subheader);
 
   &.shape--circle {
     min-height: initial;

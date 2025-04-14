@@ -18,8 +18,8 @@ export const Providers: StoryFn = (props) => (
     <div
       style={
         {
-          '--lido-color-text': '#ffa29a',
-          '--lido-color-foreground': '#323161',
+          '--lido-ui-color-text': '#ffa29a',
+          '--lido-ui-color-foreground': '#323161',
         } as any
       }
       {...props}

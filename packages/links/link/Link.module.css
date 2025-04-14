@@ -1,11 +1,11 @@
 .link {
   text-decoration: none;
-  color: var(--lido-color-accent-ocean-static);
+  color: var(--lido-ui-color-accent-ocean-static);
   transition: color 0.5s;
 }
 
 .link:hover {
-  color: var(--lido-color-accent-sky-static);
+  color: var(--lido-ui-color-accent-sky-static);
   transition: color 0.3s;
 }
 
@@ -24,6 +24,6 @@
 
 .inherit:hover,
 .inherit:focus {
-  color: var(--lido-color-accent-ocean-static);
+  color: var(--lido-ui-color-accent-ocean-static);
   transition: color 0.3s;
 }

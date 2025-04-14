@@ -12,7 +12,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 68px;
-  border: 1px solid var(--lido-color-borders-fog, rgb(0 0 0 / 10%));
+  border: 1px solid var(--lido-ui-color-borders-fog, rgb(0 0 0 / 10%));
   background: rgb(255 255 255 / 72%);
   box-shadow: 0 24px 80px 0 rgb(138 136 196 / 32%);
   backdrop-filter: blur(30px);
@@ -28,9 +28,9 @@
 }
 
 .text {
-  font-size: var(--lido-font-size-body);
-  line-height: var(--lido-line-height-body);
-  color: var(--lido-color-text);
+  font-size: var(--lido-ui-font-size-body);
+  line-height: var(--lido-ui-line-height-body);
+  color: var(--lido-ui-color-primary);
 }
 
 [data-lido-theme='dark'] {

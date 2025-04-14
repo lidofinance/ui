@@ -14,7 +14,7 @@
   border: none;
   font-family: inherit;
   text-decoration: none;
-  border-radius: var(--lido-border-radius-60);
+  border-radius: var(--lido-ui-border-radius-60);
   overflow: hidden;
   cursor: pointer;
 
@@ -29,13 +29,13 @@
   &:disabled {
     cursor: not-allowed;
     outline: none;
-    color: var(--lido-color-primary-20);
-    background-color: var(--lido-color-primary-8);
+    color: var(--lido-ui-color-primary-20);
+    background-color: var(--lido-ui-color-primary-8);
 
     &.imitateHover,
     &:hover {
-      color: var(--lido-color-primary-20);
-      background-color: var(--lido-color-primary-8);
+      color: var(--lido-ui-color-primary-20);
+      background-color: var(--lido-ui-color-primary-8);
 
       .arrow {
         transform: translateX(0);
@@ -43,26 +43,26 @@
     }
 
     .icon {
-      border-color: var(--lido-color-borders-fog);
-      color: var(--lido-color-primary-20);
+      border-color: var(--lido-ui-color-borders-fog);
+      color: var(--lido-ui-color-primary-20);
     }
   }
 
   &:not(:disabled):focus-visible {
-    outline: 2px solid var(--lido-color-borders-water-static);
+    outline: 2px solid var(--lido-ui-color-borders-water-static);
     outline-offset: 1px;
   }
 
   &.size--l .icon,
   &.size--xl .icon {
     border-radius: 50%;
-    border: 1px solid var(--lido-color-borders-fog-reverse);
+    border: 1px solid var(--lido-ui-color-borders-fog-reverse);
     box-sizing: border-box;
   }
 
   &:disabled.size--l .icon,
   &:disabled.size--xl .icon {
-    border-color: var(--lido-color-borders-fog);
+    border-color: var(--lido-ui-color-borders-fog);
   }
 
   &.circle {
@@ -175,51 +175,50 @@
 
 /* Fonts */
 .normal {
-  font-size: var(--lido-font-size-control-not-adaptive);
-  font-weight: var(--lido-font-weight-regular);
+  font-size: var(--lido-ui-font-size-control-not-adaptive);
+  font-weight: var(--lido-ui-font-weight-regular);
 }
 
 .semibold {
-  font-size: var(--lido-font-size-control-not-adaptive);
-  font-weight: var(--lido-font-weight-bold);
-  line-height: var(--lido-line-height-control-not-adaptive);
+  font-size: var(--lido-ui-font-size-control-not-adaptive);
+  font-weight: var(--lido-ui-font-weight-bold);
+  line-height: var(--lido-ui-line-height-control-not-adaptive);
 }
 
 .subhead {
-  font-size: var(--lido-font-size-subheader);
-  font-size: 22px;
-  font-weight: var(--lido-font-weight-light);
-  line-height: var(--lido-line-height-subheader);
+  font-size: var(--lido-ui-font-size-subheader);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-subheader);
 }
 
 .description {
-  font-size: var(--lido-font-size-description);
-  font-weight: var(--lido-font-weight-regular);
-  line-height: var(--lido-line-height-description);
+  font-size: var(--lido-ui-font-size-description);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-description);
 }
 
 /* Colors */
 .default {
-  color: var(--lido-color-primary-reverse);
-  font-weight: var(--lido-font-weight-bold);
-  background-color: var(--lido-color-primary);
+  color: var(--lido-ui-color-primary-reverse);
+  font-weight: var(--lido-ui-font-weight-bold);
+  background-color: var(--lido-ui-color-primary);
   transition: background-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    background-color: var(--lido-color-accent-ocean-static);
+    background-color: var(--lido-ui-color-accent-ocean-static);
     transition: background-color 0.3s;
   }
 }
 
 .secondary {
-  color: var(--lido-color-white-static);
-  background-color: var(--lido-color-accent-ocean-static);
+  color: var(--lido-ui-color-white-static);
+  background-color: var(--lido-ui-color-accent-ocean-static);
   transition: background-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    background-color: var(--lido-color-accent-sky-static);
+    background-color: var(--lido-ui-color-accent-sky-static);
     transition: background-color 0.3s;
   }
 }
@@ -227,25 +226,25 @@
 .outline {
   --local-button-border-width: 1px;
 
-  color: var(--lido-color-primary);
+  color: var(--lido-ui-color-primary);
   background-color: transparent;
-  border: 1px solid var(--lido-color-borders-fog);
+  border: 1px solid var(--lido-ui-color-borders-fog);
   transition:
     color 0.5s,
     border-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    color: var(--lido-color-accent-ocean-static);
-    border-color: var(--lido-color-accent-ocean-static);
+    color: var(--lido-ui-color-accent-ocean-static);
+    border-color: var(--lido-ui-color-accent-ocean-static);
     transition:
       color 0.3s,
       border-color 0.3s;
   }
 
   &:disabled {
-    color: var(--lido-color-primary-20);
-    border-color: var(--lido-color-primary-20);
+    color: var(--lido-ui-color-primary-20);
+    border-color: var(--lido-ui-color-primary-20);
     background-color: transparent;
 
     &.imitateHover,
@@ -255,26 +254,26 @@
   }
 
   & > * {
-    font-weight: var(--lido-font-weight-regular);
+    font-weight: var(--lido-ui-font-weight-regular);
   }
 }
 
 .success {
-  background-color: var(--lido-color-accent-leaf-static);
-  color: var(--lido-color-white-static);
+  background-color: var(--lido-ui-color-accent-leaf-static);
+  color: var(--lido-ui-color-white-static);
   transition: background-color 0.5s;
 }
 
 .transparent {
   background-color: transparent;
-  color: var(--lido-color-primary);
+  color: var(--lido-ui-color-primary);
   outline: none;
   transition: color 0.5s;
 
   &.imitateHover,
   &:hover {
     background-color: transparent;
-    color: var(--lido-color-accent-ocean-static);
+    color: var(--lido-ui-color-accent-ocean-static);
     transition: color 0.3s;
   }
 
@@ -298,8 +297,8 @@
 
   border-radius: 50%;
   background-color: transparent;
-  color: var(--lido-color-primary);
-  border: 1px solid var(--lido-color-borders-fog);
+  color: var(--lido-ui-color-primary);
+  border: 1px solid var(--lido-ui-color-borders-fog);
   transition:
     color 0.5s,
     border-color 0.5s;
@@ -307,20 +306,20 @@
   &.imitateHover,
   &:hover {
     background-color: transparent;
-    color: var(--lido-color-accent-ocean-static);
-    border-color: var(--lido-color-accent-ocean-static);
+    color: var(--lido-ui-color-accent-ocean-static);
+    border-color: var(--lido-ui-color-accent-ocean-static);
     transition:
       color 0.3s,
       border-color 0.3s;
   }
 
   &:disabled {
-    color: var(--lido-color-primary-20);
-    border-color: var(--lido-color-primary-20);
+    color: var(--lido-ui-color-primary-20);
+    border-color: var(--lido-ui-color-primary-20);
     background-color: transparent;
 
     .icon {
-      color: var(--lido-color-primary-20);
+      color: var(--lido-ui-color-primary-20);
       border: none;
     }
 

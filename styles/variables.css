@@ -1,28 +1,28 @@
 :root {
   /* Static colors */
-  --lido-color-primary-6-static: #1312170f;
-  --lido-color-primary-5-static: #1312170d;
-  --lido-color-primary-72-static: #131217b8;
-  --lido-color-primary-7-static: rgb(0 0 0 / 50%);
-  --lido-color-white-static: #fff;
-  --lido-color-accent-ocean-static: #0085ff;
-  --lido-color-accent-light-ocean-static: #0085ff33;
-  --lido-color-accent-sky-static: #00a3ff;
-  --lido-color-accent-coral-static: #ff8e76;
-  --lido-color-accent-light-coral-static: #ff8e7633;
-  --lido-color-accent-berry-static: #d74758;
-  --lido-color-accent-light-berry-static: #d7475833;
-  --lido-color-accent-leaf-static: #29c38c;
-  --lido-color-accent-light-leaf-static: #29c38c33;
-  --lido-color-borders-mist-static: #3c425447;
-  --lido-color-borders-water-static: #0085ff99;
+  --lido-ui-color-primary-6-static: #1312170f;
+  --lido-ui-color-primary-5-static: #1312170d;
+  --lido-ui-color-primary-72-static: #131217b8;
+  --lido-ui-color-primary-7-static: rgb(0 0 0 / 50%);
+  --lido-ui-color-white-static: #fff;
+  --lido-ui-color-accent-ocean-static: #0085ff;
+  --lido-ui-color-accent-light-ocean-static: #0085ff33;
+  --lido-ui-color-accent-sky-static: #00a3ff;
+  --lido-ui-color-accent-coral-static: #ff8e76;
+  --lido-ui-color-accent-light-coral-static: #ff8e7633;
+  --lido-ui-color-accent-berry-static: #d74758;
+  --lido-ui-color-accent-light-berry-static: #d7475833;
+  --lido-ui-color-accent-leaf-static: #29c38c;
+  --lido-ui-color-accent-light-leaf-static: #29c38c33;
+  --lido-ui-color-borders-mist-static: #3c425447;
+  --lido-ui-color-borders-water-static: #0085ff99;
 
   /* border radius */
-  --lido-border-radius-4: 4px;
-  --lido-border-radius-40: 40px;
-  --lido-border-radius-50: 50px;
-  --lido-border-radius-60: 60px;
-  --lido-border-radius-70: 70px;
+  --lido-ui-border-radius-4: 4px;
+  --lido-ui-border-radius-40: 40px;
+  --lido-ui-border-radius-50: 50px;
+  --lido-ui-border-radius-60: 60px;
+  --lido-ui-border-radius-70: 70px;
 
   /* easings */
   --ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
@@ -32,63 +32,63 @@
 /* theme */
 :root,
 [data-lido-theme='light'] {
-  --lido-light-mode-visibility: visible;
-  --lido-dark-mode-visibility: hidden;
-  --lido-light-display: initial;
-  --lido-dark-display: none;
+  --lido-ui-light-mode-visibility: visible;
+  --lido-ui-dark-mode-visibility: hidden;
+  --lido-ui-light-display: initial;
+  --lido-ui-dark-display: none;
 
   /* colors */
-  --lido-color-background: #fff;
-  --lido-color-foreground: #fff;
-  --lido-color-shadow-light: rgb(39 56 82 / 8%);
-  --lido-color-text: #273852;
-  --lido-color-text-secondary: #7a8aa0;
-  --lido-color-primary: #000;
-  --lido-color-primary-reverse: #fff;
-  --lido-color-primary-72: #131217b8;
-  --lido-color-primary-50: #13121780;
-  --lido-color-primary-50-reverse: #ffffff80;
-  --lido-color-primary-32: #13121752;
-  --lido-color-primary-20: #13121733;
-  --lido-color-primary-8: #13121714;
-  --lido-color-borders-fog: #0000001a;
-  --lido-color-borders-fog-reverse: #ffffff52;
-  --lido-color-borders-mist: #3c425447;
+  --lido-ui-color-background: #fff;
+  --lido-ui-color-foreground: #fff;
+  --lido-ui-color-shadow-light: rgb(39 56 82 / 8%);
+  --lido-ui-color-text: #273852;
+  --lido-ui-color-text-secondary: #7a8aa0;
+  --lido-ui-color-primary: #000;
+  --lido-ui-color-primary-reverse: #fff;
+  --lido-ui-color-primary-72: #131217b8;
+  --lido-ui-color-primary-50: #13121780;
+  --lido-ui-color-primary-50-reverse: #ffffff80;
+  --lido-ui-color-primary-32: #13121752;
+  --lido-ui-color-primary-20: #13121733;
+  --lido-ui-color-primary-8: #13121714;
+  --lido-ui-color-borders-fog: #0000001a;
+  --lido-ui-color-borders-fog-reverse: #ffffff52;
+  --lido-ui-color-borders-mist: #3c425447;
 
   /* Specific colors */
-  --lido-color-background-dropdown: var(--lido-color-borders-fog-reverse);
-  --lido-color-background-dropdown-hover: #00a3ff14;
+  --lido-ui-color-background-dropdown: var(--lido-ui-color-borders-fog-reverse);
+  --lido-ui-color-background-dropdown-hover: #00a3ff14;
 }
 
 [data-lido-theme='dark'] {
-  --lido-light-mode-visibility: hidden;
-  --lido-dark-mode-visibility: visible;
-  --lido-light-display: none;
-  --lido-dark-display: initial;
+  --lido-ui-light-mode-visibility: hidden;
+  --lido-ui-dark-mode-visibility: visible;
+  --lido-ui-light-display: none;
+  --lido-ui-dark-display: initial;
 
   /* colors */
-  --lido-color-background: #000;
-  --lido-color-foreground: #34343d;
-  --lido-color-shadow-light: rgb(0 0 0 / 25%);
-  --lido-color-text: #fff;
-  --lido-color-text-secondary: rgb(255 255 255 / 80%);
-  --lido-color-primary: #fff;
-  --lido-color-primary-reverse: #000;
-  --lido-color-primary-72: #ffffffb8;
-  --lido-color-primary-50: #ffffff80;
-  --lido-color-primary-50-reverse: #13121780;
-  --lido-color-primary-32: #ffffff52;
-  --lido-color-primary-20: #fff3;
-  --lido-color-primary-8: #ffffff14;
-  --lido-color-primary-6: #1312170f;
-  --lido-color-primary-5: #1312170d;
-  --lido-color-borders-fog: #ffffff52;
-  --lido-color-borders-fog-reverse: #0000001a;
-  --lido-color-borders-mist: var(--lido-color-primary-32);
+  --lido-ui-color-background: #000;
+  --lido-ui-color-foreground: #34343d;
+  --lido-ui-color-shadow-light: rgb(0 0 0 / 25%);
+  --lido-ui-color-text: #fff;
+  --lido-ui-color-text-secondary: rgb(255 255 255 / 80%);
+  --lido-ui-color-primary: #fff;
+  --lido-ui-color-primary-reverse: #000;
+  --lido-ui-color-primary-72: #ffffffb8;
+  --lido-ui-color-primary-50: #ffffff80;
+  --lido-ui-color-primary-50-reverse: #13121780;
+  --lido-ui-color-primary-32: #ffffff52;
+  --lido-ui-color-primary-20: #fff3;
+  --lido-ui-color-primary-8: #ffffff14;
+  --lido-ui-color-primary-6: #1312170f;
+  --lido-ui-color-primary-5: #1312170d;
+  --lido-ui-color-borders-fog: #ffffff52;
+  --lido-ui-color-borders-fog-reverse: #0000001a;
+  --lido-ui-color-borders-mist: var(--lido-ui-color-primary-32);
 
   /* Specific colors */
-  --lido-color-background-dropdown: var(--lido-color-primary-8);
-  --lido-color-background-dropdown-hover: var(
-    --lido-color-accent-light-ocean-static
+  --lido-ui-color-background-dropdown: var(--lido-ui-color-primary-8);
+  --lido-ui-color-background-dropdown-hover: var(
+    --lido-ui-color-accent-light-ocean-static
   );
 }
