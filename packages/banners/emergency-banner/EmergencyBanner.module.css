@@ -1,6 +1,7 @@
 .banner {
   color: var(--lido-ui-color-white-static);
   display: flex;
+  box-sizing: border-box;
   justify-content: center;
   padding: 20px 10px;
   width: 100%;
