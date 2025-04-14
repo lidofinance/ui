@@ -4,70 +4,70 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: var(--lido-border-radius-60);
+  border-radius: var(--lido-ui-border-radius-60);
 }
 
 .variant--outline {
-  border: 1px solid var(--lido-color-borders-fog);
+  border: 1px solid var(--lido-ui-color-borders-fog);
 
   &.color--accent {
-    border-color: var(--lido-color-borders-water-static);
-    color: var(--lido-color-accent-ocean-static);
+    border-color: var(--lido-ui-color-borders-water-static);
+    color: var(--lido-ui-color-accent-ocean-static);
   }
 
   &.color--disabled {
-    border-color: var(--lido-color-borders-fog);
-    color: var(--lido-color-primary-20);
+    border-color: var(--lido-ui-color-borders-fog);
+    color: var(--lido-ui-color-primary-20);
   }
 
   &.color--negative {
-    border-color: var(--lido-color-accent-light-berry-static);
-    color: var(--lido-color-accent-berry-static);
+    border-color: var(--lido-ui-color-accent-light-berry-static);
+    color: var(--lido-ui-color-accent-berry-static);
   }
 
   &.color--warning {
-    border-color: var(--lido-color-accent-light-coral-static);
-    color: var(--lido-color-accent-coral-static);
+    border-color: var(--lido-ui-color-accent-light-coral-static);
+    color: var(--lido-ui-color-accent-coral-static);
   }
 
   &.color--positive {
-    border-color: var(--lido-color-accent-light-leaf-static);
-    color: var(--lido-color-accent-leaf-static);
+    border-color: var(--lido-ui-color-accent-light-leaf-static);
+    color: var(--lido-ui-color-accent-leaf-static);
   }
 }
 
 .variant--filled {
-  background-color: var(--lido-color-primary-6-static);
-  color: var(--lido-color-primary-72);
-  border: 1px solid var(--lido-color-borders-fog);
+  background-color: var(--lido-ui-color-primary-6-static);
+  color: var(--lido-ui-color-primary-72);
+  border: 1px solid var(--lido-ui-color-borders-fog);
   border-color: transparent;
 
   &.color--accent {
-    background-color: var(--lido-color-accent-light-ocean-static);
-    color: var(--lido-color-accent-ocean-static);
+    background-color: var(--lido-ui-color-accent-light-ocean-static);
+    color: var(--lido-ui-color-accent-ocean-static);
     border-color: transparent;
   }
 
   &.color--disabled {
-    background-color: var(--lido-color-primary-5-static);
-    color: var(--lido-color-primary-20);
+    background-color: var(--lido-ui-color-primary-5-static);
+    color: var(--lido-ui-color-primary-20);
   }
 
   &.color--negative {
-    background-color: var(--lido-color-accent-light-berry-static);
-    color: var(--lido-color-accent-berry-static);
+    background-color: var(--lido-ui-color-accent-light-berry-static);
+    color: var(--lido-ui-color-accent-berry-static);
     border-color: transparent;
   }
 
   &.color--warning {
-    background-color: var(--lido-color-accent-light-coral-static);
-    color: var(--lido-color-accent-coral-static);
+    background-color: var(--lido-ui-color-accent-light-coral-static);
+    color: var(--lido-ui-color-accent-coral-static);
     border-color: transparent;
   }
 
   &.color--positive {
-    background-color: var(--lido-color-accent-light-leaf-static);
-    color: var(--lido-color-accent-leaf-static);
+    background-color: var(--lido-ui-color-accent-light-leaf-static);
+    color: var(--lido-ui-color-accent-leaf-static);
     border-color: transparent;
   }
 }

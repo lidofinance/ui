@@ -1,75 +1,78 @@
 :root {
-  --lido-font-size-h1: 100px;
-  --lido-font-size-h2: 76px;
-  --lido-font-size-h2-not-adaptive: 76px;
-  --lido-font-size-h3: 34px;
-  --lido-font-size-h3-not-adaptive: 34px;
-  --lido-font-size-h4: 28px;
-  --lido-font-size-subheader: 22px;
-  --lido-font-size-subheader-not-adaptive: 22px;
-  --lido-font-size-control: 17px;
-  --lido-font-size-control-not-adaptive: 17px;
-  --lido-font-size-body: 15px;
-  --lido-font-size-description: 14px;
-  --lido-font-weight-bold: 600;
-  --lido-font-weight-medium: 500;
-  --lido-font-weight-regular: 400;
-  --lido-font-weight-light: 300;
-  --lido-font-weight-extra-light: 200;
-  --lido-line-height-h1: 100px;
-  --lido-line-height-h2: 76px;
-  --lido-line-height-h2-not-adaptive: 76px;
-  --lido-line-height-h3: 48px;
-  --lido-line-height-h3-not-adaptive: 48px;
-  --lido-line-height-h4: 38px;
-  --lido-line-height-subheader: 40px;
-  --lido-line-height-subheader-not-adaptive: 40px;
-  --lido-line-height-control: 26px;
-  --lido-line-height-control-not-adaptive: 26px;
-  --lido-line-height-body: 27px;
-  --lido-line-height-description: 24px;
+  --lido-ui-font-size-h1: 100px;
+  --lido-ui-font-size-h2: 76px;
+  --lido-ui-font-size-h2-not-adaptive: 76px;
+  --lido-ui-font-size-h3: 34px;
+  --lido-ui-font-size-h3-not-adaptive: 34px;
+  --lido-ui-font-size-h4: 28px;
+  --lido-ui-font-size-subheader: 22px;
+  --lido-ui-font-size-subheader-not-adaptive: 22px;
+  --lido-ui-font-size-control: 17px;
+  --lido-ui-font-size-control-not-adaptive: 17px;
+  --lido-ui-font-size-body: 15px;
+  --lido-ui-font-size-description: 14px;
+  --lido-ui-font-weight-bold: 600;
+  --lido-ui-font-weight-medium: 500;
+  --lido-ui-font-weight-regular: 400;
+  --lido-ui-font-weight-light: 300;
+  --lido-ui-font-weight-extra-light: 200;
+  --lido-ui-line-height-h1: 100px;
+  --lido-ui-line-height-h2: 76px;
+  --lido-ui-line-height-h2-not-adaptive: 76px;
+  --lido-ui-line-height-h3: 48px;
+  --lido-ui-line-height-h3-not-adaptive: 48px;
+  --lido-ui-line-height-h4: 38px;
+  --lido-ui-line-height-subheader: 40px;
+  --lido-ui-line-height-subheader-not-adaptive: 40px;
+  --lido-ui-line-height-control: 26px;
+  --lido-ui-line-height-control-not-adaptive: 26px;
+  --lido-ui-line-height-body: 27px;
+  --lido-ui-line-height-description: 24px;
+
+  /* Specific typography */
+  --lido-ui-line-height-tabs: 31px;
 }
 
 /* media */
 @media (width <= 1499px) {
   :root {
-    --lido-font-size-h1: 80px;
-    --lido-font-size-h2: 66px;
-    --lido-font-size-h3: 26px;
-    --lido-font-size-h4: 22px;
-    --lido-font-size-subheader: 19px;
-    --lido-font-size-control: 17px;
-    --lido-font-size-body: 15px;
-    --lido-font-size-description: 14px;
-    --lido-line-height-h1: 80px;
-    --lido-line-height-h2: 66px;
-    --lido-line-height-h3: 40px;
-    --lido-line-height-h4: 32px;
-    --lido-line-height-subheader: 32px;
-    --lido-line-height-control: 26px;
-    --lido-line-height-body: 27px;
-    --lido-line-height-description: 24px;
+    --lido-ui-font-size-h1: 80px;
+    --lido-ui-font-size-h2: 66px;
+    --lido-ui-font-size-h3: 26px;
+    --lido-ui-font-size-h4: 22px;
+    --lido-ui-font-size-subheader: 19px;
+    --lido-ui-font-size-control: 17px;
+    --lido-ui-font-size-body: 15px;
+    --lido-ui-font-size-description: 14px;
+    --lido-ui-line-height-h1: 80px;
+    --lido-ui-line-height-h2: 66px;
+    --lido-ui-line-height-h3: 40px;
+    --lido-ui-line-height-h4: 32px;
+    --lido-ui-line-height-subheader: 32px;
+    --lido-ui-line-height-control: 26px;
+    --lido-ui-line-height-body: 27px;
+    --lido-ui-line-height-description: 24px;
   }
 }
 
 @media (width <= 899px) {
   :root {
-    --lido-font-size-h1: 56px;
-    --lido-font-size-h2: 36px;
-    --lido-font-size-h3: 22px;
-    --lido-font-size-h4: 18px;
-    --lido-font-size-subheader: 17px;
-    --lido-font-size-control: 14px;
-    --lido-font-size-body: 15px;
-    --lido-font-size-description: 14px;
-    --lido-line-height-h1: 56px;
-    --lido-line-height-h2: 36px;
-    --lido-line-height-h3: 40px;
-    --lido-line-height-h4: 32px;
-    --lido-line-height-subheader: 32px;
-    --lido-line-height-control: 26px;
-    --lido-line-height-body: 27px;
-    --lido-line-height-description: 24px;
+    --lido-ui-font-size-h1: 56px;
+    --lido-ui-font-size-h2: 36px;
+    --lido-ui-font-size-h3: 22px;
+    --lido-ui-font-size-h4: 18px;
+    --lido-ui-font-size-subheader: 17px;
+    --lido-ui-font-size-control: 14px;
+    --lido-ui-font-size-body: 15px;
+    --lido-ui-font-size-description: 14px;
+    --lido-ui-line-height-h1: 56px;
+    --lido-ui-line-height-h2: 36px;
+    --lido-ui-line-height-h3: 40px;
+    --lido-ui-line-height-h4: 32px;
+    --lido-ui-line-height-subheader: 32px;
+    --lido-ui-line-height-control: 26px;
+    --lido-ui-line-height-body: 27px;
+    --lido-ui-line-height-description: 24px;
   }
 }
 
@@ -80,7 +83,7 @@ h4,
 h5,
 body,
 p {
-  color: var(--lido-color-primary);
+  color: var(--lido-ui-color-primary);
   font-feature-settings:
     'clig' off,
     'liga' off;
@@ -89,92 +92,92 @@ p {
 
 /* h1 */
 .ui-typography-h1 {
-  font-size: var(--lido-font-size-h1);
-  font-weight: var(--lido-font-weight-regular);
-  line-height: var(--lido-line-height-h1);
+  font-size: var(--lido-ui-font-size-h1);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-h1);
   letter-spacing: -1px;
 }
 
 /* h2 */
 .ui-typography-h2 {
-  font-size: var(--lido-font-size-h2);
-  font-weight: var(--lido-font-weight-regular);
-  line-height: var(--lido-line-height-h2);
+  font-size: var(--lido-ui-font-size-h2);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-h2);
 }
 
 /* h3 */
 .ui-typography-h3 {
-  font-size: var(--lido-font-size-h3);
-  font-weight: var(--lido-font-weight-light);
-  line-height: var(--lido-line-height-h3);
+  font-size: var(--lido-ui-font-size-h3);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-h3);
 }
 
 /* h3.medium */
 .ui-typography-h3.medium {
-  font-weight: var(--lido-font-weight-medium);
+  font-weight: var(--lido-ui-font-weight-medium);
 }
 
 /* h4 */
 .ui-typography-h4 {
-  font-size: var(--lido-font-size-h4);
-  font-weight: var(--lido-font-weight-light);
-  line-height: var(--lido-line-height-h4);
+  font-size: var(--lido-ui-font-size-h4);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-h4);
 }
 
 /* h4.medium */
 .ui-typography-h4.medium {
-  font-weight: var(--lido-font-weight-medium);
+  font-weight: var(--lido-ui-font-weight-medium);
 }
 
 /* h5 */
 .ui-typography-subheader {
-  font-size: var(--lido-font-size-subheader);
-  font-weight: var(--lido-font-weight-light);
-  line-height: var(--lido-line-height-subheader);
+  font-size: var(--lido-ui-font-size-subheader);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-subheader);
 }
 
 /* h5.bold */
 .ui-typography-subheader.bold {
-  font-weight: var(--lido-font-weight-bold);
+  font-weight: var(--lido-ui-font-weight-bold);
 }
 
 /* input */
 
 /* label */
 .ui-typography-control {
-  font-size: var(--lido-font-size-control);
-  font-weight: var(--lido-font-weight-regular);
-  line-height: var(--lido-line-height-control);
+  font-size: var(--lido-ui-font-size-control);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-control);
 }
 
 /* input.bold */
 
 /* label.bold */
 .ui-typography-control.bold {
-  font-weight: var(--lido-font-weight-bold);
+  font-weight: var(--lido-ui-font-weight-bold);
 }
 
 /* body */
 .ui-typography-body {
-  font-size: var(--lido-font-size-body);
-  font-weight: var(--lido-font-weight-regular);
-  line-height: var(--lido-line-height-body);
+  font-size: var(--lido-ui-font-size-body);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-body);
 }
 
 .ui-typography-body.bold {
-  font-weight: var(--lido-font-weight-bold);
+  font-weight: var(--lido-ui-font-weight-bold);
 }
 
 /* p */
 .ui-typography-description {
-  font-size: var(--lido-font-size-description);
-  font-weight: var(--lido-font-weight-regular);
-  line-height: var(--lido-line-height-description);
+  font-size: var(--lido-ui-font-size-description);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-description);
 }
 
 /* p.bold */
 .ui-typography-description.bold {
-  font-weight: var(--lido-font-weight-bold);
+  font-weight: var(--lido-ui-font-weight-bold);
 }
 
 @media (width <= 899px) {

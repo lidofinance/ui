@@ -12,19 +12,19 @@
 }
 
 .default {
-  color: var(--lido-color-primary-72);
+  color: var(--lido-ui-color-primary-72);
 }
 
 .primary {
-  color: var(--lido-color-accent-ocean-static);
+  color: var(--lido-ui-color-accent-ocean-static);
 }
 
 .tooltipIcon:hover .default {
-  color: var(--lido-color-primary-50);
+  color: var(--lido-ui-color-primary-50);
 }
 
 .tooltipIcon:hover .primary {
-  color: var(--lido-color-accent-sky-static);
+  color: var(--lido-ui-color-accent-sky-static);
 }
 
 .sizeS {

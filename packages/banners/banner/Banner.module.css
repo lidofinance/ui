@@ -1,5 +1,5 @@
 .banner {
-  color: var(--lido-color-white-static);
+  color: var(--lido-ui-color-white-static);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +18,7 @@
   background: linear-gradient(90deg, #4584ff 23.14%, #2770ff 64.16%);
 
   &:hover {
-    color: var(--lido-color-primary-72);
+    color: var(--lido-ui-color-primary-72);
   }
 
   .mainButton,
@@ -34,7 +34,7 @@
 }
 
 .title {
-  font-weight: var(--lido-font-weight-bold);
+  font-weight: var(--lido-ui-font-weight-bold);
   margin-bottom: -4px;
 }
 
@@ -44,8 +44,8 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
-  font-size: var(--lido-font-size-control);
-  line-height: var(--lido-line-height-control);
+  font-size: var(--lido-ui-font-size-control);
+  line-height: var(--lido-ui-line-height-control);
   flex-direction: row;
 }
 
@@ -53,7 +53,7 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
-  font-size: var(--lido-font-size-control);
+  font-size: var(--lido-ui-font-size-control);
 }
 
 .mainButton {
