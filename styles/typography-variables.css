@@ -1,0 +1,78 @@
+:root {
+  --lido-ui-font-size-h1: 100px;
+  --lido-ui-font-size-h2: 76px;
+  --lido-ui-font-size-h2-not-adaptive: 76px;
+  --lido-ui-font-size-h3: 34px;
+  --lido-ui-font-size-h3-not-adaptive: 34px;
+  --lido-ui-font-size-h4: 28px;
+  --lido-ui-font-size-subheader: 22px;
+  --lido-ui-font-size-subheader-not-adaptive: 22px;
+  --lido-ui-font-size-control: 17px;
+  --lido-ui-font-size-control-not-adaptive: 17px;
+  --lido-ui-font-size-body: 15px;
+  --lido-ui-font-size-description: 14px;
+  --lido-ui-font-weight-bold: 600;
+  --lido-ui-font-weight-medium: 500;
+  --lido-ui-font-weight-regular: 400;
+  --lido-ui-font-weight-light: 300;
+  --lido-ui-font-weight-extra-light: 200;
+  --lido-ui-line-height-h1: 100px;
+  --lido-ui-line-height-h2: 76px;
+  --lido-ui-line-height-h2-not-adaptive: 76px;
+  --lido-ui-line-height-h3: 48px;
+  --lido-ui-line-height-h3-not-adaptive: 48px;
+  --lido-ui-line-height-h4: 38px;
+  --lido-ui-line-height-subheader: 40px;
+  --lido-ui-line-height-subheader-not-adaptive: 40px;
+  --lido-ui-line-height-control: 26px;
+  --lido-ui-line-height-control-not-adaptive: 26px;
+  --lido-ui-line-height-body: 27px;
+  --lido-ui-line-height-description: 24px;
+
+  /* Specific typography */
+  --lido-ui-line-height-tabs: 31px;
+  --lido-ui-line-height-tooltip: 20px;
+}
+
+/* media */
+@media (width <=1499px) {
+  :root {
+    --lido-ui-font-size-h1: 80px;
+    --lido-ui-font-size-h2: 66px;
+    --lido-ui-font-size-h3: 26px;
+    --lido-ui-font-size-h4: 22px;
+    --lido-ui-font-size-subheader: 19px;
+    --lido-ui-font-size-control: 17px;
+    --lido-ui-font-size-body: 15px;
+    --lido-ui-font-size-description: 14px;
+    --lido-ui-line-height-h1: 80px;
+    --lido-ui-line-height-h2: 66px;
+    --lido-ui-line-height-h3: 40px;
+    --lido-ui-line-height-h4: 32px;
+    --lido-ui-line-height-subheader: 32px;
+    --lido-ui-line-height-control: 26px;
+    --lido-ui-line-height-body: 27px;
+    --lido-ui-line-height-description: 24px;
+  }
+}
+
+@media (width <=899px) {
+  :root {
+    --lido-ui-font-size-h1: 56px;
+    --lido-ui-font-size-h2: 36px;
+    --lido-ui-font-size-h3: 22px;
+    --lido-ui-font-size-h4: 18px;
+    --lido-ui-font-size-subheader: 17px;
+    --lido-ui-font-size-control: 14px;
+    --lido-ui-font-size-body: 15px;
+    --lido-ui-font-size-description: 14px;
+    --lido-ui-line-height-h1: 56px;
+    --lido-ui-line-height-h2: 36px;
+    --lido-ui-line-height-h3: 40px;
+    --lido-ui-line-height-h4: 32px;
+    --lido-ui-line-height-subheader: 32px;
+    --lido-ui-line-height-control: 26px;
+    --lido-ui-line-height-body: 27px;
+    --lido-ui-line-height-description: 24px;
+  }
+}

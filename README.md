@@ -37,7 +37,8 @@ function App({ Component }) {
 import '@lidofinance/lido-ui/index.css';
 ```
 
-4. To use typography across your application, you need to import the provided CSS styles for typography.
+4. To use typography classes across your application, you need to import the provided CSS styles for typography.
+Сss variables are initially embedded in the `index.css` file. If you want to use ready-made classes with styles, you need to import an additional css file.
 Insert the following line at the top of `_app.js` file to import the typography styles
 ```tsx
 import '@lidofinance/lido-ui/styles/typography.css';
