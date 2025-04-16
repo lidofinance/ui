@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import Image from 'next/image'
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { Link } from '../../links'
 import { Tag } from '../../tag'
@@ -51,13 +50,13 @@ export const RichCard = forwardRef(
         <div className={styles.header}>
           {titleImgSrc && (
             <div className={styles.titleImage}>
-              <Image src={titleImgSrc} width={56} height={56} alt={''} />
+              <img src={titleImgSrc} width={56} height={56} alt={''} />
             </div>
           )}
           <div className={styles.headerLogos} data-testid={dataTestId?.logos}>
             {logosToShow?.map((logo, index) => (
               <div key={index} className={styles.headerLogo}>
-                <Image src={logo} width={38} height={38} alt={''} />
+                <img src={logo} width={38} height={38} alt={''} />
               </div>
             ))}
             {extraLogosAmount && (

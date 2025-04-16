@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import NextImage from 'next/image'
 import React, {
   ComponentPropsWithoutRef,
   ForwardedRef,
@@ -66,12 +65,7 @@ export const SimpleCard = forwardRef(
             <div className={styles.header}>
               {titleImgSrc && (
                 <div className={styles.titleImage}>
-                  <NextImage
-                    src={titleImgSrc}
-                    width={56}
-                    height={56}
-                    alt={''}
-                  />
+                  <img src={titleImgSrc} width={56} height={56} alt={''} />
                 </div>
               )}
             </div>
