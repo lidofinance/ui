@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "MODIFIED_BRANCH_NAME=${name/\//-}" >> $GITHUB_ENV
 
-      - run: rm -rf branch/${{ env.MODIFIED_BRANCH_NAME}}
+      - run: rm -rf branch/$MODIFIED_BRANCH_NAME
 
       - name: Deploy to GitHub Pages
         uses: lidofinance/github-pages-action@v1
