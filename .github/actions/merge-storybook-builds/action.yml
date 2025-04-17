@@ -24,7 +24,6 @@ inputs:
     default: storybook-static
 runs:
   using: 'composite'
-
   steps:
     - run: |
         git fetch origin gh-pages:gh-pages-temp || echo "gh-pages branch not found"
@@ -32,35 +31,48 @@ runs:
       shell: bash
 
     - run: |
-        mkdir -p ${{inputs.target_folder}}
-        rsync -av gh-pages-temp/* ${{inputs.target_folder}}
+        mkdir -p $TARGET_FOLDER
+        rsync -av gh-pages-temp/* $TARGET_FOLDER
       shell: bash
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+
 
     - name: 'If we are deploying storybook for v4'
       if: inputs.release_type == 'v4'
       run: |
-        rm -rf ${{inputs.target_folder}}/v4
-        mkdir -p ${{inputs.target_folder}}/v4
+        rm -rf $TARGET_FOLDER/v4
+        mkdir -p $TARGET_FOLDER/v4
         
-        cp -r ${{inputs.source_folder}}/* ${{inputs.target_folder}}/v4/
+        cp -r $SOURCE_FOLDER/* $TARGET_FOLDER/v4/
       shell: bash
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+        SOURCE_FOLDER: ${{ inputs.source_folder }}
+
 
     - name: 'If we are deploying storybook for the branch'
       if: inputs.release_type == 'branch'
       run: |
-        rm -rf ${{inputs.target_folder}}/branch/${{ inputs.branch_name }}
-        mkdir -p ${{inputs.target_folder}}/branch/${{ inputs.branch_name }}
+        rm -rf $TARGET_FOLDER/branch/$BRANCH_NAME
+        mkdir -p $TARGET_FOLDER/branch/$BRANCH_NAME
 
-        cp -r ${{inputs.source_folder}}/* ${{inputs.target_folder}}/branch/${{ inputs.branch_name }}
+        cp -r $SOURCE_FOLDER/* $TARGET_FOLDER/branch/$BRANCH_NAME
       shell: bash
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+        SOURCE_FOLDER: ${{ inputs.source_folder }}
+        BRANCH_NAME: ${{ inputs.branch_name }}
 
     - name: 'If we are deploying main storybook'
       if: inputs.release_type == 'main'
       run: |
         shopt -s extglob
-        cd ${{inputs.target_folder}}
+        cd $TARGET_FOLDER
         rm -rf !(CNAME|branch|v4)
         cd -  
-        cp -r ${{inputs.source_folder}}/* ${{inputs.target_folder}}/
+        cp -r $SOURCE_FOLDER/* $TARGET_FOLDER/
       shell: bash
-
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+        SOURCE_FOLDER: ${{ inputs.source_folder }}
