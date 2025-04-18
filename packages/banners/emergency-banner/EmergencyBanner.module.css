@@ -24,11 +24,11 @@
 }
 
 .title {
+  @mixin font-h4;
+
   color: var(--lido-ui-color-white-static);
   font-weight: var(--lido-ui-font-weight-medium);
   text-align: center;
-  font-size: var(--lido-ui-font-size-h4);
-  line-height: var(--lido-ui-line-height-h4);
 }
 
 .description {

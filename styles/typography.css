@@ -1,3 +1,6 @@
+@import url('./typography-mixins.css');
+
+/* Typography Classes */
 h1,
 h2,
 h3,
@@ -14,95 +17,78 @@ p {
 
 /* h1 */
 .ui-typography-h1 {
-  font-size: var(--lido-ui-font-size-h1);
-  font-weight: var(--lido-ui-font-weight-regular);
-  line-height: var(--lido-ui-line-height-h1);
-  letter-spacing: -1px;
+  @mixin font-h1;
 }
 
 /* h2 */
 .ui-typography-h2 {
-  font-size: var(--lido-ui-font-size-h2);
-  font-weight: var(--lido-ui-font-weight-regular);
-  line-height: var(--lido-ui-line-height-h2);
+  @mixin font-h2;
 }
 
 /* h3 */
 .ui-typography-h3 {
-  font-size: var(--lido-ui-font-size-h3);
-  font-weight: var(--lido-ui-font-weight-light);
-  line-height: var(--lido-ui-line-height-h3);
+  @mixin font-h3;
 }
 
 /* h3.medium */
 .ui-typography-h3.medium {
-  font-weight: var(--lido-ui-font-weight-medium);
+  @mixin font-h3-medium;
 }
 
 /* h4 */
 .ui-typography-h4 {
-  font-size: var(--lido-ui-font-size-h4);
-  font-weight: var(--lido-ui-font-weight-light);
-  line-height: var(--lido-ui-line-height-h4);
+  @mixin font-h4;
 }
 
 /* h4.medium */
 .ui-typography-h4.medium {
-  font-weight: var(--lido-ui-font-weight-medium);
+  @mixin font-h4-medium;
 }
 
 /* h5 */
 .ui-typography-subheader {
-  font-size: var(--lido-ui-font-size-subheader);
-  font-weight: var(--lido-ui-font-weight-light);
-  line-height: var(--lido-ui-line-height-subheader);
+  @mixin font-subheader;
 }
 
 /* h5.bold */
 .ui-typography-subheader.bold {
-  font-weight: var(--lido-ui-font-weight-bold);
+  @mixin font-subheader-bold;
 }
 
 /* input */
 
 /* label */
 .ui-typography-control {
-  font-size: var(--lido-ui-font-size-control);
-  font-weight: var(--lido-ui-font-weight-regular);
-  line-height: var(--lido-ui-line-height-control);
+  @mixin font-control;
 }
 
 /* input.bold */
 
 /* label.bold */
 .ui-typography-control.bold {
-  font-weight: var(--lido-ui-font-weight-bold);
+  @mixin font-control-bold;
 }
 
 /* body */
 .ui-typography-body {
-  font-size: var(--lido-ui-font-size-body);
-  font-weight: var(--lido-ui-font-weight-regular);
-  line-height: var(--lido-ui-line-height-body);
+  @mixin font-body;
 }
 
 .ui-typography-body.bold {
-  font-weight: var(--lido-ui-font-weight-bold);
+  @mixin font-body-bold;
 }
 
 /* p */
 .ui-typography-description {
-  font-size: var(--lido-ui-font-size-description);
-  font-weight: var(--lido-ui-font-weight-regular);
-  line-height: var(--lido-ui-line-height-description);
+  @mixin font-description;
 }
 
 /* p.bold */
 .ui-typography-description.bold {
-  font-weight: var(--lido-ui-font-weight-bold);
+  @mixin font-description-bold;
 }
 
-@media (width <=899px) {
+@media (width <= 899px) {
   /* h1 */
   .ui-typography-h1 {
     letter-spacing: normal;

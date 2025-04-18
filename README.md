@@ -49,12 +49,35 @@ export const manrope = localFont({
 import '@lidofinance/lido-ui/index.css';
 ```
 
-5. To use typography classes across your application, you need to import the provided CSS styles for typography.
-Сss variables are initially embedded in the `index.css` file. If you want to use ready-made classes with styles, you need to import an additional css file.
-Insert the following line at the top of `_app.js` file to import the typography styles
-```tsx
-import '@lidofinance/lido-ui/styles/typography.css';
-```
+5. CSS variables are initially embedded in the `index.css` file. To use typography styles across your application, you have two options:
+
+   1. **Include the CSS file**:  
+      If you want to use ready-made classes with styles, you need to import an additional CSS file.  
+      Insert the following line at the top of your `_app.js` file to import the typography styles:
+      ```tsx
+      import '@lidofinance/lido-ui/styles/typography.css';
+      ```
+
+   2. **Use PostCSS mixins**:  
+      If you prefer to use PostCSS mixins for typography, you need to configure PostCSS in your project. Add the `postcss-mixins` plugin to your PostCSS configuration and include the typography mixins provided by the library.  
+      Example `postcss.config.js` configuration:
+      ```js
+      module.exports = {
+        plugins: [
+          ...
+          [
+            "postcss-mixins",
+            {
+               mixinsDir: path.resolve('./node_modules/@lidofinance/lido-ui/dist/styles'),
+            },
+         ],
+        ],
+      };
+      ```  
+      Once configured, you can use the typography mixins directly in your CSS files. For example:
+      ```css
+      @mixin typography-heading;
+      ```
 
 ## Usage
 
