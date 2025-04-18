@@ -29,7 +29,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version-file: .nvmrc
+          node-version: '20'
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
@@ -52,7 +52,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version-file: .nvmrc
+          node-version: '20'
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
@@ -78,7 +78,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version-file: .nvmrc
+          node-version: '20'
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
@@ -104,7 +104,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version-file: .nvmrc
+          node-version: '20'
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
@@ -130,7 +130,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version-file: .nvmrc
+          node-version: '20'
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
@@ -156,7 +156,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version-file: .nvmrc
+          node-version: '20'
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
