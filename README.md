@@ -32,12 +32,24 @@ function App({ Component }) {
 }
 ```
 
-3. Import styles into your `_app.js` file:
+3. Use Lido UI fonts with Next.js:
+
+```js
+import localFont from "next/font/local";
+
+// Available fonts: Manrope, IBM Plex Serif, Fira Code
+export const manrope = localFont({
+  src: "@lidofinance/lido-ui/fonts/Manrope-VariableFont_wght.woff2",
+  display: "swap",
+});
+```
+
+4. Import styles into your `_app.js` file:
 ```tsx
 import '@lidofinance/lido-ui/index.css';
 ```
 
-4. To use typography classes across your application, you need to import the provided CSS styles for typography.
+5. To use typography classes across your application, you need to import the provided CSS styles for typography.
 Сss variables are initially embedded in the `index.css` file. If you want to use ready-made classes with styles, you need to import an additional css file.
 Insert the following line at the top of `_app.js` file to import the typography styles
 ```tsx
@@ -80,8 +92,7 @@ yarn build
 
 4. Run the storybook:
 
-```
-yarn dev
+```yarn dev
 ```
 
 ## Publishing

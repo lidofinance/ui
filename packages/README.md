@@ -88,3 +88,36 @@ await expect(page.locator('[data-testid="submit-button-icon"]')).toBeVisible();
 - Use unique and meaningful names
 - Follow the format `[component]-[purpose]-[element]`
 - Use kebab-case for word separation
+
+# Lido UI Fonts
+
+The library contains fonts used in Lido UI.
+
+## Available fonts
+
+- FiraCode-VariableFont_wght.woff2
+- IBMPlexSerif-Medium.woff2
+- Manrope-VariableFont_wght.woff2
+
+
+## Usage with Next.js
+
+```js
+import localFont from "next/font/local";
+
+export const manrope = localFont({
+  src: "@lidofinance/lido-ui/fonts/Manrope-VariableFont_wght.woff2",
+  display: "swap",
+});
+
+export const ibmPlexSerif = localFont({
+  src: "@lidofinance/lido-ui/fonts/IBMPlexSerif-Medium.woff2",
+  display: "swap",
+});
+
+export const firacode = localFont({
+  src: "@lidofinance/lido-ui/fonts/FiraCode-VariableFont_wght.woff2",
+  display: "swap",
+  variable: "--font-firacode",
+});
+``` 
