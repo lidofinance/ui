@@ -1,10 +1,10 @@
-name: Publish lido-ui-v4
+name: Deploy Storybook for the PR
 
 on:
-  push:
+  pull_request:
+    types: [ synchronize, opened, reopened ]
     branches:
-      - lido-ui-v4
-  workflow_dispatch:
+      - lido-ui-v4-canary
 
 permissions:
   contents: write
@@ -13,14 +13,13 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment: pull_request
     env:
       NODE_OPTIONS: --max_old_space_size=4096
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          fetch-depth: 0
           persist-credentials: false
 
       - name: Setup Node
@@ -35,23 +34,22 @@ jobs:
       - name: Build Components
         run: yarn build
 
-      - name: Publish to NPM
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-          yarn release
-
       - name: Build Storybook
         run: yarn build-storybook
+
+      - name: Escape branch name
+        env:
+          name: "${{github.head_ref}}"
+        run: |
+          echo "MODIFIED_BRANCH_NAME=${name/\//-}" >> $GITHUB_ENV
+      
 
       - name: Merge Storybook builds
         uses: ./.github/actions/merge-storybook-builds
         with:
-          release_type: v4
+          release_type: branch
           target_folder: release-target
+          branch_name: ${{ env.MODIFIED_BRANCH_NAME }}
 
       - name: Deploy to GitHub Pages
         uses: lidofinance/github-pages-action@v1
@@ -59,3 +57,5 @@ jobs:
           branch: gh-pages
           folder: release-target
 
+
+# todo: publish comment to a PR

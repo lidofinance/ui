@@ -18,13 +18,12 @@ jobs:
       NODE_OPTIONS: --max_old_space_size=4096
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          fetch-depth: 0
           persist-credentials: false
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .nvmrc
           cache: 'yarn'
@@ -49,29 +48,16 @@ jobs:
 
       # It's temporary solution in this workflow until deploy the production version
       # We need this to display the storybook on a website
-      # TODO: Remove this step when the production version will be deployed
+      # TODO: Update this step when the production version will be deployed
       - name: Merge Storybook builds
-        run: |
-          # Get the published files from the gh-pages branch (if any)
-          git fetch origin gh-pages:gh-pages-temp || echo "gh-pages branch not found"
-          git worktree add gh-pages-temp origin/gh-pages
-          # Save the current build (v4) to a temporary folder
-          mv storybook-static storybook-static-temp
-          # Create a clean storybook-static directory
-          mkdir -p storybook-static
-          # Copy the v4 build to the nested storybook-static/v4 folder
-          mkdir -p storybook-static/v4
-          cp -r storybook-static-temp/* storybook-static/v4/
-          # If the published files contain a main version build (v3),
-          # Copy it to the root storybook-static, excluding the v4 folder to avoid overwriting the v4 build.
-          if [ -d gh-pages-temp ]; then
-            rsync -av --exclude 'v4' gh-pages-temp/ storybook-static/
-          else
-            echo "No main version found in gh-pages"
-          fi
+        uses: ./.github/actions/merge-storybook-builds
+        with:
+          release_type: v4
+          target_folder: release-target
 
       - name: Deploy to GitHub Pages
         uses: lidofinance/github-pages-action@v1
         with:
           branch: gh-pages
-          folder: storybook-static
+          folder: release-target
+

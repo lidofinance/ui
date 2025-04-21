@@ -1,0 +1,37 @@
+name: Delete deployed storybook branch
+
+on:
+  pull_request:
+    types: [ closed ]
+
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: gh-pages
+
+      - name: Sets MODIFIED_BRANCH_NAME
+        env:
+          name: "${{github.head_ref}}"
+        run: |
+          echo "MODIFIED_BRANCH_NAME=${name/\//-}" >> $GITHUB_ENV
+
+      - run: rm -rf branch/$MODIFIED_BRANCH_NAME
+
+      - name: Deploy to GitHub Pages
+        uses: lidofinance/github-pages-action@v1
+        with:
+          branch: gh-pages
+          folder: .
+
+
