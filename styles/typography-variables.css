@@ -35,7 +35,7 @@
 }
 
 /* media */
-@media (width <=1499px) {
+@media (width <= 1499px) {
   :root {
     --lido-ui-font-size-h1: 80px;
     --lido-ui-font-size-h2: 66px;
@@ -56,7 +56,7 @@
   }
 }
 
-@media (width <=899px) {
+@media (width <= 899px) {
   :root {
     --lido-ui-font-size-h1: 56px;
     --lido-ui-font-size-h2: 36px;

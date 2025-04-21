@@ -4,6 +4,7 @@ import { babel } from '@rollup/plugin-babel'
 import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
 import postcssNested from 'postcss-nested'
+import copy from 'rollup-plugin-copy'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -23,23 +24,6 @@ function addNextJsExtensions() {
   }
 }
 
-// Copy fonts from assets/fonts to dist/fonts
-function copyFonts() {
-  return {
-    name: 'copy-fonts',
-    writeBundle() {
-      fs.mkdirSync('./dist/fonts', { recursive: true })
-
-      const fontFiles = fs.readdirSync('./assets/fonts')
-      fontFiles.forEach((file) => {
-        if (file.endsWith('.woff2')) {
-          fs.copyFileSync(`./assets/fonts/${file}`, `./dist/fonts/${file}`)
-        }
-      })
-    },
-  }
-}
-
 const external = [
   'react/jsx-runtime',
   'next',
@@ -49,61 +33,81 @@ const external = [
   ...Object.keys({ ...dependencies, ...peerDependencies }),
 ]
 
-export default {
-  input: './packages/index.ts',
-  output: [
-    {
-      dir: 'dist/cjs',
-      format: 'cjs',
-      preserveModules: true,
-      preserveModulesRoot: 'packages',
-      generatedCode: 'es2015',
-      sourcemap: true,
-    },
-    {
-      dir: 'dist/esm',
-      format: 'esm',
-      preserveModules: true,
-      preserveModulesRoot: 'packages',
-      entryFileNames: '[name].mjs',
-      generatedCode: 'es2015',
-      sourcemap: true,
-    },
-  ],
-  plugins: [
-    resolve({ extensions, preferBuiltins: true }),
-    babel({
-      exclude: 'node_modules/**',
-      babelHelpers: 'bundled',
-      extensions,
-    }),
-    addNextJsExtensions(),
-    /** typography.css
-     * We put the typography in a separate folder so that library users can decide
-     * for themselves whether to use these styles or not. */
-    postcss({
-      plugins: [postcssNested(), autoprefixer()],
-      include: /styles\/typography\.css$/,
-      modules: false,
-      inject: false,
-      extract: 'styles/typography.css',
-      minimize: true,
-    }),
-    /** index.css – combining styles, including global.css (without typography) */
-    postcss({
-      config: {
-        path: './postcss.config.js',
+export default [
+  {
+    input: './packages/index.ts',
+    output: [
+      {
+        dir: 'dist/cjs',
+        format: 'cjs',
+        preserveModules: true,
+        preserveModulesRoot: 'packages',
+        generatedCode: 'es2015',
+        sourcemap: true,
       },
-      exclude: /styles\/typography\.css$/,
-      // Disable CSS modules for global.css, and leave the modules for the rest.
-      modules: {
-        auto: (id) => !/styles[\\/]global\.css$/.test(id),
+      {
+        dir: 'dist/esm',
+        format: 'esm',
+        preserveModules: true,
+        preserveModulesRoot: 'packages',
+        entryFileNames: '[name].mjs',
+        generatedCode: 'es2015',
+        sourcemap: true,
       },
-      inject: false,
-      extract: 'index.css',
-      minimize: true,
-    }),
-    copyFonts(),
-  ],
-  external,
-}
+    ],
+    plugins: [
+      resolve({ extensions, preferBuiltins: true }),
+      babel({
+        exclude: 'node_modules/**',
+        babelHelpers: 'bundled',
+        extensions,
+      }),
+      addNextJsExtensions(),
+      /** index.css – combining styles, including global.css (without typography) */
+      postcss({
+        config: {
+          path: './postcss.config.js',
+        },
+        exclude: /styles\/typography\.css$/,
+        // Disable CSS modules for global.css, and leave the modules for the rest.
+        modules: {
+          auto: (id) => !/styles[\\/]global\.css$/.test(id),
+        },
+        inject: false,
+        extract: 'index.css',
+        minimize: true,
+      }),
+    ],
+    external,
+  },
+  {
+    input: 'styles/typography.css',
+    output: {
+      // we dont need js output
+      file: 'dist/ignore.js',
+      format: 'es',
+    },
+    plugins: [
+      postcss({
+        plugins: [postcssNested(), autoprefixer()],
+        include: /styles\/typography\.css$/,
+        modules: false,
+        inject: false,
+        extract: 'styles/typography.css',
+        minimize: true,
+      }),
+      copy({
+        targets: [
+          {
+            src: 'styles/typography-mixins.css',
+            dest: 'dist/styles',
+          },
+          {
+            src: './assets/fonts/*.woff2',
+            dest: 'dist/fonts',
+          },
+        ],
+      }),
+    ],
+  },
+]

@@ -1,0 +1,84 @@
+@define-mixin font-h1 {
+  font-size: var(--lido-ui-font-size-h1);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-h1);
+  letter-spacing: -1px;
+}
+
+@define-mixin font-h2 {
+  font-size: var(--lido-ui-font-size-h2);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-h2);
+}
+
+@define-mixin font-h3 {
+  font-size: var(--lido-ui-font-size-h3);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-h3);
+}
+
+@define-mixin font-h3-medium {
+  @mixin font-h3;
+
+  font-weight: var(--lido-ui-font-weight-medium);
+}
+
+@define-mixin font-h4 {
+  font-size: var(--lido-ui-font-size-h4);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-h4);
+}
+
+@define-mixin font-h4-medium {
+  @mixin font-h4;
+
+  font-weight: var(--lido-ui-font-weight-medium);
+}
+
+@define-mixin font-subheader {
+  font-size: var(--lido-ui-font-size-subheader);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-subheader);
+}
+
+@define-mixin font-subheader-bold {
+  @mixin font-subheader;
+
+  font-weight: var(--lido-ui-font-weight-bold);
+}
+
+@define-mixin font-control {
+  font-size: var(--lido-ui-font-size-control);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-control);
+}
+
+@define-mixin font-control-bold {
+  @mixin font-control;
+
+  font-weight: var(--lido-ui-font-weight-bold);
+}
+
+@define-mixin font-body {
+  font-size: var(--lido-ui-font-size-body);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-body);
+}
+
+@define-mixin font-body-bold {
+  @mixin font-body;
+
+  font-weight: var(--lido-ui-font-weight-bold);
+}
+
+@define-mixin font-description {
+  font-size: var(--lido-ui-font-size-description);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-description);
+}
+
+@define-mixin font-description-bold {
+  @mixin font-description;
+
+  font-weight: var(--lido-ui-font-weight-bold);
+}
