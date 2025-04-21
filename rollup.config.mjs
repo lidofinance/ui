@@ -23,6 +23,23 @@ function addNextJsExtensions() {
   }
 }
 
+// Copy fonts from assets/fonts to dist/fonts
+function copyFonts() {
+  return {
+    name: 'copy-fonts',
+    writeBundle() {
+      fs.mkdirSync('./dist/fonts', { recursive: true })
+
+      const fontFiles = fs.readdirSync('./assets/fonts')
+      fontFiles.forEach((file) => {
+        if (file.endsWith('.woff2')) {
+          fs.copyFileSync(`./assets/fonts/${file}`, `./dist/fonts/${file}`)
+        }
+      })
+    },
+  }
+}
+
 const external = [
   'react/jsx-runtime',
   'next',
@@ -86,6 +103,7 @@ export default {
       extract: 'index.css',
       minimize: true,
     }),
+    copyFonts(),
   ],
   external,
 }
