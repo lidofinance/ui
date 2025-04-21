@@ -1,0 +1,78 @@
+name: 'Merge Storybook builds'
+description: 'Merge Storybook builds from different branches'
+
+inputs:
+  branch_name:
+    description: 'Branch name to merge'
+    type: string
+  release_type:
+    description: 'Which release type to merge'
+    required: true
+    type: string
+    options:
+      - v4
+      - branch
+      - main
+  target_folder:
+    description: 'Target folder which would be pushed to github pages'
+    required: true
+    type: string
+    default: release-target
+  source_folder:
+    description: 'Source folder of the build'
+    type: string
+    default: storybook-static
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        git fetch origin gh-pages:gh-pages-temp || echo "gh-pages branch not found"
+        git worktree add gh-pages-temp origin/gh-pages
+      shell: bash
+
+    - run: |
+        mkdir -p $TARGET_FOLDER
+        rsync -av gh-pages-temp/* $TARGET_FOLDER
+      shell: bash
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+
+
+    - name: 'If we are deploying storybook for v4'
+      if: inputs.release_type == 'v4'
+      run: |
+        rm -rf $TARGET_FOLDER/v4
+        mkdir -p $TARGET_FOLDER/v4
+        
+        cp -r $SOURCE_FOLDER/* $TARGET_FOLDER/v4/
+      shell: bash
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+        SOURCE_FOLDER: ${{ inputs.source_folder }}
+
+
+    - name: 'If we are deploying storybook for the branch'
+      if: inputs.release_type == 'branch'
+      run: |
+        rm -rf $TARGET_FOLDER/branch/$BRANCH_NAME
+        mkdir -p $TARGET_FOLDER/branch/$BRANCH_NAME
+
+        cp -r $SOURCE_FOLDER/* $TARGET_FOLDER/branch/$BRANCH_NAME
+      shell: bash
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+        SOURCE_FOLDER: ${{ inputs.source_folder }}
+        BRANCH_NAME: ${{ inputs.branch_name }}
+
+    - name: 'If we are deploying main storybook'
+      if: inputs.release_type == 'main'
+      run: |
+        shopt -s extglob
+        cd $TARGET_FOLDER
+        rm -rf !(CNAME|branch|v4)
+        cd -  
+        cp -r $SOURCE_FOLDER/* $TARGET_FOLDER/
+      shell: bash
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+        SOURCE_FOLDER: ${{ inputs.source_folder }}
