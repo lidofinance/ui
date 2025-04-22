@@ -1,4 +1,5 @@
 .dropdown {
+  font-family: var(--lido-ui-font-family);
   position: relative;
 }
 

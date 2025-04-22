@@ -2,6 +2,7 @@
   --local-color: var(--lido-ui-color-text);
   --local-description-color: var(--lido-ui-color-primary-7-static);
 
+  font-family: var(--lido-ui-font-family);
   display: flex;
   position: relative;
   width: 100%;

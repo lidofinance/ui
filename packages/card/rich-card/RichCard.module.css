@@ -1,4 +1,5 @@
 .card {
+  font-family: var(--lido-ui-font-family);
   position: relative;
   padding: 30px;
   color: var(--lido-ui-color-primary);

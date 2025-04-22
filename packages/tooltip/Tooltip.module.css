@@ -1,4 +1,5 @@
 .tooltip {
+  font-family: var(--lido-ui-font-family);
   position: relative;
   display: inline-block;
 }

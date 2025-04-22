@@ -1,4 +1,5 @@
 .banner {
+  font-family: var(--lido-ui-font-family);
   z-index: 100;
   position: fixed;
   bottom: 40px;

@@ -13,6 +13,7 @@
 }
 
 .block {
+  font-family: var(--lido-ui-font-family);
   font-weight: var(--lido-ui-font-weight-regular);
   font-size: var(--lido-ui-font-size-description);
   line-height: 1.6em;

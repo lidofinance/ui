@@ -23,7 +23,7 @@
       "import": "./dist/esm/index.css",
       "require": "./dist/cjs/index.css"
     },
-    "./styles/*":"./dist/styles/*"
+    "./styles/*": "./dist/styles/*"
   },
   "types": "dist/types/index.d.ts",
   "files": [

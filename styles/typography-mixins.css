@@ -1,4 +1,5 @@
 @define-mixin font-h1 {
+  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-h1);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-h1);
@@ -6,12 +7,14 @@
 }
 
 @define-mixin font-h2 {
+  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-h2);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-h2);
 }
 
 @define-mixin font-h3 {
+  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-h3);
   font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-h3);
@@ -24,6 +27,7 @@
 }
 
 @define-mixin font-h4 {
+  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-h4);
   font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-h4);
@@ -36,6 +40,7 @@
 }
 
 @define-mixin font-subheader {
+  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-subheader);
   font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-subheader);
@@ -48,6 +53,7 @@
 }
 
 @define-mixin font-control {
+  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-control);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-control);
@@ -60,6 +66,7 @@
 }
 
 @define-mixin font-body {
+  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-body);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-body);
@@ -72,6 +79,7 @@
 }
 
 @define-mixin font-description {
+  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-description);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-description);

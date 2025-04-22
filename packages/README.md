@@ -89,28 +89,57 @@ await expect(page.locator('[data-testid="submit-button-icon"]')).toBeVisible();
 - Follow the format `[component]-[purpose]-[element]`
 - Use kebab-case for word separation
 
-# Lido UI Fonts
+## Font Family Implementation
 
-The library contains fonts used in Lido UI.
+### General Principles
 
-## Available fonts
+Each component in the library should specify `font-family` in its root element CSS to ensure consistent typography across different applications.
 
-- FiraCode-VariableFont_wght.woff2
-- IBMPlexSerif-Medium.woff2
-- Manrope-VariableFont_wght.woff2
+### Implementation
 
+1. **Use CSS Variables**
 
-## Usage with Next.js
+Always use the CSS variable `--lido-ui-font-family` for specifying the font family:
 
-
-```js
-import { manrope, ibmPlexSerif, firacode } from '@lidofinance/lido-ui/fonts';
-
-export default function App({ Component, pageProps }) {
-  return (
-    <div className={`${manrope.className} ${firacode.variable}`}>
-      <Component {...pageProps} />
-    </div>
-  );
+```css
+.componentRoot {
+  font-family: var(--lido-ui-font-family);
+  /* other styles */
 }
-``` 
+```
+
+2. **Root Element Application**
+
+The font-family should be applied to the root element of each component, ensuring that all text within the component inherits the correct font.
+
+3. **Independence from Host Application**
+
+This approach ensures that components are not dependent on the font settings of the host application where they are integrated.
+
+4. **Customization by Host Applications**
+
+Host applications can override the default font family by modifying the `--lido-ui-font-family` variable in their own CSS:
+
+```css
+:root {
+  --lido-ui-font-family: "CustomFont", sans-serif;
+}
+```
+
+The default value is defined in `typography-variables.css`:
+
+```css
+--lido-ui-font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+```
+
+5. **Examples**
+
+Component implementation example:
+
+```css
+/* Component.module.css */
+.component {
+  font-family: var(--lido-ui-font-family);
+  /* other styles */
+}
+```

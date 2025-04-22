@@ -1,6 +1,7 @@
 .icon {
   --local-icon-size: 24px;
 
+  font-family: var(--lido-ui-font-family);
   grid-area: a;
   place-self: center center;
 }
