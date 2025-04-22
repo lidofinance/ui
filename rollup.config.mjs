@@ -30,6 +30,7 @@ const external = [
   'next/link',
   'next/image',
   'next/font/google',
+  'next/font/local',
   ...Object.keys({ ...dependencies, ...peerDependencies }),
 ]
 
@@ -103,8 +104,8 @@ export default [
             dest: 'dist/styles',
           },
           {
-            src: './assets/fonts/*.woff2',
-            dest: 'dist/fonts',
+            src: './assets/fonts/*',
+            dest: 'dist/assets/fonts',
           },
         ],
       }),

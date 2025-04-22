@@ -102,22 +102,15 @@ The library contains fonts used in Lido UI.
 
 ## Usage with Next.js
 
+
 ```js
-import localFont from "next/font/local";
+import { manrope, ibmPlexSerif, firacode } from '@lidofinance/lido-ui/fonts';
 
-export const manrope = localFont({
-  src: "@lidofinance/lido-ui/fonts/Manrope-VariableFont_wght.woff2",
-  display: "swap",
-});
-
-export const ibmPlexSerif = localFont({
-  src: "@lidofinance/lido-ui/fonts/IBMPlexSerif-Medium.woff2",
-  display: "swap",
-});
-
-export const firacode = localFont({
-  src: "@lidofinance/lido-ui/fonts/FiraCode-VariableFont_wght.woff2",
-  display: "swap",
-  variable: "--font-firacode",
-});
+export default function App({ Component, pageProps }) {
+  return (
+    <div className={`${manrope.className} ${firacode.variable}`}>
+      <Component {...pageProps} />
+    </div>
+  );
+}
 ``` 
