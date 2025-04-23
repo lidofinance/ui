@@ -88,7 +88,7 @@
     "@types/react-is": "17.0.2",
     "@types/react-transition-group": "^4.4.6",
     "@types/styled-components": "^5.1.26",
-    "@types/styled-system": "^5.1.16",
+    "@types/styled-system": "^5.1.23",
     "@types/styled-system__should-forward-prop": "^5.1.2",
     "@types/ua-parser-js": "^0.7.36",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
