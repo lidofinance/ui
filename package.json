@@ -52,7 +52,7 @@
     "@styled-system/should-forward-prop": "5.1.5",
     "react-collapsed": "3.0.2",
     "react-jazzicon": "^1.0.4",
-    "react-toastify": "7.0.4",
+    "react-toastify": "11.0.5",
     "react-transition-group": "4",
     "styled-system": "5.1.5",
     "ua-parser-js": "^1.0.35",
