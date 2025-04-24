@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
+import styles from './Typography.module.css'
 import cn from 'classnames'
 
 export type TypographyVariant =
@@ -50,7 +51,7 @@ export const Typography: FC<TypographyProps> = ({
     return ''
   }
 
-  const classes = cn(baseClass, getWeightClass(), className)
+  const classes = cn(baseClass, getWeightClass(), styles.typography, className)
 
   const componentMap: Record<TypographyVariant, keyof JSX.IntrinsicElements> = {
     h1: 'h1',

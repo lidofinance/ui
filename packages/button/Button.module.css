@@ -79,6 +79,7 @@
 }
 
 .content {
+  font-family: var(--lido-ui-font-family);
   flex: 1;
   position: relative;
   display: inline-flex;

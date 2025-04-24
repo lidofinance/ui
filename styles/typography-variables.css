@@ -1,4 +1,7 @@
 :root {
+  --lido-ui-font-family:
+    'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
+    oxygen-sans, ubuntu, cantarell, 'Helvetica Neue', sans-serif;
   --lido-ui-font-size-h1: 100px;
   --lido-ui-font-size-h2: 76px;
   --lido-ui-font-size-h2-not-adaptive: 76px;

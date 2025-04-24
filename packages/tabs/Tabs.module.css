@@ -1,6 +1,7 @@
 .tabs {
   --local-tabs-gap: 20px;
 
+  font-family: var(--lido-ui-font-family);
   display: flex;
   gap: var(--local-tabs-gap);
   padding: 6px;

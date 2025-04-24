@@ -30,7 +30,6 @@ const external = [
   'next/link',
   'next/image',
   'next/font/google',
-  'next/font/local',
   ...Object.keys({ ...dependencies, ...peerDependencies }),
 ]
 

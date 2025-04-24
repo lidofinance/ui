@@ -1,4 +1,5 @@
 .container {
+  font-family: var(--lido-ui-font-family);
   display: flex;
   align-items: center;
   cursor: pointer;

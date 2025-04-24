@@ -1,4 +1,5 @@
 .link {
+  font-family: var(--lido-ui-font-family);
   text-decoration: none;
   color: var(--lido-ui-color-accent-ocean-static);
   transition: color 0.5s;

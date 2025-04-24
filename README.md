@@ -32,24 +32,12 @@ function App({ Component }) {
 }
 ```
 
-3. Use Lido UI fonts with Next.js:
-
-```js
-import localFont from "next/font/local";
-
-// Available fonts: Manrope, IBM Plex Serif, Fira Code
-export const manrope = localFont({
-  src: "@lidofinance/lido-ui/fonts/Manrope-VariableFont_wght.woff2",
-  display: "swap",
-});
-```
-
-4. Import styles into your `_app.js` file:
+3. Import styles into your `_app.js` file:
 ```tsx
 import '@lidofinance/lido-ui/index.css';
 ```
 
-5. CSS variables are initially embedded in the `index.css` file. To use typography styles across your application, you have two options:
+4. CSS variables are initially embedded in the `index.css` file. To use typography styles across your application, you have two options:
 
    1. **Include the CSS file**:  
       If you want to use ready-made classes with styles, you need to import an additional CSS file.  
@@ -123,3 +111,66 @@ yarn build
 Packages are automatically published to npm when you push to master. The publication is based on [semantic-release](https://github.com/semantic-release/semantic-release) and [@qiwi/multi-semantic-release](https://github.com/qiwi/multi-semantic-release).
 
 For correct version detection, please follow the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/).
+
+## Customizing CSS Variables
+
+Lido UI provides a comprehensive set of CSS variables that can be overridden to match your application's design system. This allows you to maintain the functionality of Lido UI components while adapting their appearance to your brand.
+
+### Override Method
+
+To customize the CSS variables, create a CSS file in your project with new definitions:
+
+```css
+:root {
+  /* Override typography */
+  --lido-ui-font-family: "Your-Custom-Font", sans-serif;
+  --lido-ui-font-size-body: 16px;
+  --lido-ui-line-height-body: 24px;
+  
+  /* Override colors */
+  --lido-ui-color-accent-ocean-static: #your-primary-color;
+  --lido-ui-color-background: #your-background-color;
+}
+```
+
+Import this file after the Lido UI styles in your application:
+
+```tsx
+import '@lidofinance/lido-ui/index.css';
+import './your-custom-variables.css'; // Import your overrides after Lido UI styles
+```
+
+### Customizable Categories
+
+Lido UI provides several categories of CSS variables that can be customized:
+
+1. **Typography**
+   - Font family: `--lido-ui-font-family`
+   - Font sizes: `--lido-ui-font-size-*` (h1, h2, h3, h4, subheader, control, body, description)
+   - Font weights: `--lido-ui-font-weight-*` (bold, medium, regular, light, extra-light)
+   - Line heights: `--lido-ui-line-height-*` (h1, h2, h3, h4, subheader, control, body, description)
+
+2. **Colors**
+   - Theme colors: `--lido-ui-color-*` (background, foreground, primary, text, etc.)
+   - Accent colors: `--lido-ui-color-accent-*` (ocean-static, berry-static, leaf-static, etc.)
+   - Border colors: `--lido-ui-color-borders-*` (fog, mist, etc.)
+
+3. **Border Radiuses**
+   - `--lido-ui-border-radius-*` (4, 40, 50, 60, 70)
+
+4. **Theme-Specific Variables**
+   - Light/dark mode visibility: `--lido-ui-light-mode-visibility`, `--lido-ui-dark-mode-visibility`
+   - Display properties: `--lido-ui-light-display`, `--lido-ui-dark-display`
+
+### Media Queries
+
+Some variables like font sizes and line heights have responsive variants defined in media queries. You can also override these for specific breakpoints:
+
+```css
+@media (width <= 899px) {
+  :root {
+    --lido-ui-font-size-h1: 48px;
+    --lido-ui-line-height-h1: 52px;
+  }
+}
+```

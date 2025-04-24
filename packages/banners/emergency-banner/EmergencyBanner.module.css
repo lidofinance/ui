@@ -1,4 +1,5 @@
 .banner {
+  font-family: var(--lido-ui-font-family);
   color: var(--lido-ui-color-white-static);
   display: flex;
   box-sizing: border-box;

@@ -1,4 +1,5 @@
 .tag {
+  font-family: var(--lido-ui-font-family);
   position: relative;
   width: fit-content;
   display: flex;
