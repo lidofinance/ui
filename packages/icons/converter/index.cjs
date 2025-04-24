@@ -1,4 +1,4 @@
-const svgr = require('@svgr/core').default
+const { transform } = require('@svgr/core')
 const svgrSvgo = require('@svgr/plugin-svgo').default
 const svgrJsx = require('@svgr/plugin-jsx').default
 const svgrPrettier = require('@svgr/plugin-prettier').default
@@ -68,7 +68,7 @@ const convertFiles = async () => {
     svgData.map(async ({ code, name }) => {
       const componentName = convertToPascalCase(name)
 
-      return await svgr(
+      return await transform(
         code,
         {
           icon: false,
