@@ -9,12 +9,7 @@ export default {
         backgrounds: false,
       },
     },
-    {
-      name: 'storybook-addon-swc',
-      options: {
-        enableSwcMinify: false,
-      },
-    },
+    '@storybook/addon-webpack5-compiler-swc',
   ],
 
   typescript: {
@@ -22,10 +17,11 @@ export default {
     checkOptions: {
       formatter: 'codeframe',
     },
-    reactDocgen: 'none',
+    reactDocgen: 'react-docgen',
   },
   features: {
     postcss: true,
+    legacyDecoratorFileOrder: false,
   },
   webpackFinal: async (config: any) => {
     const customConfig = { ...config }
@@ -53,13 +49,15 @@ export default {
 
   framework: {
     name: '@storybook/react-webpack5',
-
     options: {
       strictMode: false,
+      builder: {
+        useSWC: true,
+      },
     },
   },
 
   docs: {
-    autodocs: true,
+    autodocs: 'tag',
   },
 }
