@@ -5,13 +5,15 @@ import { ThemeToggler } from '../../packages'
 
 export const WithThemeProvider: Decorator<{
   themeOverride?: ThemeName | 'follow cookie and system'
-}> = (Story, { args }): JSX.Element => {
+}> = (Story, context): JSX.Element => {
+  const { globals } = context
+
   return (
     <CookieThemeProvider
       overrideThemeName={
-        args.themeOverride === 'follow cookie and system'
+        globals.themeOverride === 'follow cookie and system'
           ? undefined
-          : args.themeOverride
+          : globals.themeOverride
       }
     >
       <div
