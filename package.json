@@ -42,7 +42,7 @@
     "lint:css": "stylelint '**/*.css'",
     "lint:css:fix": "yarn lint:css --fix",
     "types": "tsc --noEmit",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "semantic-release",
     "release:dry": "yarn release --dry-run",
     "icons:convert": "node ./packages/icons/converter/index.cjs"
