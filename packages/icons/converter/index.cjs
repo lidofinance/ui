@@ -1,7 +1,7 @@
 const { transform } = require('@svgr/core')
 const svgrSvgo = require('@svgr/plugin-svgo').default
 const svgrJsx = require('@svgr/plugin-jsx').default
-const svgrPrettier = require('@svgr/plugin-prettier').default
+const svgrPrettier = require('@svgr/plugin-prettier')
 const indexTemplate = require('./template.index.cjs')
 
 const fs = require('fs/promises')
