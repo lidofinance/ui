@@ -16,6 +16,7 @@ export type RichCardDataTestId = {
 export type RichCardProps = ComponentPropsWithoutRef<'div'> & {
   title: string
   text: string
+  href?: string
   titleImgSrc: string
   tags?: string[]
   logosArray?: string[]
@@ -32,9 +33,11 @@ export const RichCard = forwardRef(
       titleImgSrc,
       tags,
       logosArray,
+      href,
       dataTestId,
       learnMoreLink,
       extraLogosAmount,
+      className,
       ...rest
     }: RichCardProps,
     ref?: ForwardedRef<HTMLDivElement>,
@@ -42,7 +45,7 @@ export const RichCard = forwardRef(
     const logosToShow = logosArray?.slice(0, 2)
     return (
       <div
-        className={styles.card}
+        className={cn(className, styles.card)}
         data-testid={dataTestId?.root}
         {...rest}
         ref={ref}
@@ -59,10 +62,12 @@ export const RichCard = forwardRef(
                 <img src={logo} width={38} height={38} alt={''} />
               </div>
             ))}
-            {extraLogosAmount && (
+            {extraLogosAmount ? (
               <div className={cn(styles.headerLogo, styles.empty)}>
                 <span>+{extraLogosAmount}</span>
               </div>
+            ) : (
+              <></>
             )}
           </div>
         </div>
