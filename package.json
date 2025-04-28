@@ -95,7 +95,7 @@
     "@svgr/plugin-jsx": "5.5.0",
     "@svgr/plugin-prettier": "8.1.0",
     "@svgr/plugin-svgo": "5.5.0",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^15.0.7",
     "@types/jest": "^29.5.3",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
