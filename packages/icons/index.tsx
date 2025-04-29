@@ -1,10 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React from 'react'
+import React, { SVGProps, Ref } from 'react'
 
 export const ArrowBack = React.forwardRef(function ArrowBack(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -12,7 +12,7 @@ export const ArrowBack = React.forwardRef(function ArrowBack(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -28,8 +28,8 @@ export const ArrowBack = React.forwardRef(function ArrowBack(
 })
 
 export const ArrowBottom = React.forwardRef(function ArrowBottom(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -37,7 +37,7 @@ export const ArrowBottom = React.forwardRef(function ArrowBottom(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -49,8 +49,8 @@ export const ArrowBottom = React.forwardRef(function ArrowBottom(
 })
 
 export const ArrowLeft = React.forwardRef(function ArrowLeft(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -58,7 +58,7 @@ export const ArrowLeft = React.forwardRef(function ArrowLeft(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -70,8 +70,8 @@ export const ArrowLeft = React.forwardRef(function ArrowLeft(
 })
 
 export const ArrowRight = React.forwardRef(function ArrowRight(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -79,7 +79,7 @@ export const ArrowRight = React.forwardRef(function ArrowRight(
       height={12}
       viewBox='0 0 20 12'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -91,8 +91,8 @@ export const ArrowRight = React.forwardRef(function ArrowRight(
 })
 
 export const ArrowTop = React.forwardRef(function ArrowTop(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -100,7 +100,7 @@ export const ArrowTop = React.forwardRef(function ArrowTop(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -112,8 +112,8 @@ export const ArrowTop = React.forwardRef(function ArrowTop(
 })
 
 export const BagFilled = React.forwardRef(function BagFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -121,7 +121,7 @@ export const BagFilled = React.forwardRef(function BagFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <g clipPath='url(#prefix__prefix__clip0_2489_2937)'>
@@ -141,8 +141,8 @@ export const BagFilled = React.forwardRef(function BagFilled(
 })
 
 export const BagOutline = React.forwardRef(function BagOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -150,7 +150,7 @@ export const BagOutline = React.forwardRef(function BagOutline(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <g clipPath='url(#prefix__prefix__clip0_284_2126)'>
@@ -169,8 +169,8 @@ export const BagOutline = React.forwardRef(function BagOutline(
 })
 
 export const Burger = React.forwardRef(function Burger(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -178,7 +178,7 @@ export const Burger = React.forwardRef(function Burger(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path d='M3 6h17v2H3V6zm0 6h17v2H3v-2zm0 6h12v2H3z' fill='currentColor' />
@@ -187,8 +187,8 @@ export const Burger = React.forwardRef(function Burger(
 })
 
 export const CheckLarge = React.forwardRef(function CheckLarge(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -196,7 +196,7 @@ export const CheckLarge = React.forwardRef(function CheckLarge(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -209,8 +209,8 @@ export const CheckLarge = React.forwardRef(function CheckLarge(
 })
 
 export const Check = React.forwardRef(function Check(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -218,7 +218,7 @@ export const Check = React.forwardRef(function Check(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -231,8 +231,8 @@ export const Check = React.forwardRef(function Check(
 })
 
 export const Close = React.forwardRef(function Close(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -240,7 +240,7 @@ export const Close = React.forwardRef(function Close(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path d='M17.707 7.707a1 1 0 00-1.414-1.414L12 10.586 7.707 6.293a1 1 0 00-1.414 1.414L10.586 12l-4.293 4.293a1 1 0 101.414 1.414L12 13.414l4.293 4.293a1 1 0 001.414-1.414L13.414 12l4.293-4.293z' />
@@ -249,8 +249,8 @@ export const Close = React.forwardRef(function Close(
 })
 
 export const Copy = React.forwardRef(function Copy(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -258,7 +258,7 @@ export const Copy = React.forwardRef(function Copy(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <rect
@@ -281,8 +281,8 @@ export const Copy = React.forwardRef(function Copy(
 })
 
 export const CrescentFilled = React.forwardRef(function CrescentFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -290,7 +290,7 @@ export const CrescentFilled = React.forwardRef(function CrescentFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <mask id='prefix__a' fill='#fff'>
@@ -316,8 +316,8 @@ export const CrescentFilled = React.forwardRef(function CrescentFilled(
 })
 
 export const CrescentOutline = React.forwardRef(function CrescentOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -325,7 +325,7 @@ export const CrescentOutline = React.forwardRef(function CrescentOutline(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <mask id='prefix__a' fill='#fff'>
@@ -345,8 +345,8 @@ export const CrescentOutline = React.forwardRef(function CrescentOutline(
 })
 
 export const Dark = React.forwardRef(function Dark(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -354,7 +354,7 @@ export const Dark = React.forwardRef(function Dark(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -367,8 +367,8 @@ export const Dark = React.forwardRef(function Dark(
 })
 
 export const DashboardFilled = React.forwardRef(function DashboardFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -376,7 +376,7 @@ export const DashboardFilled = React.forwardRef(function DashboardFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -390,8 +390,8 @@ export const DashboardFilled = React.forwardRef(function DashboardFilled(
 })
 
 export const DashboardOutline = React.forwardRef(function DashboardOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -399,7 +399,7 @@ export const DashboardOutline = React.forwardRef(function DashboardOutline(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -413,8 +413,8 @@ export const DashboardOutline = React.forwardRef(function DashboardOutline(
 })
 
 export const Enter = React.forwardRef(function Enter(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -422,7 +422,7 @@ export const Enter = React.forwardRef(function Enter(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -436,8 +436,8 @@ export const Enter = React.forwardRef(function Enter(
 })
 
 export const Eth = React.forwardRef(function Eth(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -445,7 +445,7 @@ export const Eth = React.forwardRef(function Eth(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path opacity={0.6} d='M11.999 3.75v6.098l5.248 2.303-5.248-8.401z' />
@@ -459,8 +459,8 @@ export const Eth = React.forwardRef(function Eth(
 })
 
 export const External = React.forwardRef(function External(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -468,7 +468,7 @@ export const External = React.forwardRef(function External(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -482,8 +482,8 @@ export const External = React.forwardRef(function External(
 })
 
 export const InfoFilled = React.forwardRef(function InfoFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -491,7 +491,7 @@ export const InfoFilled = React.forwardRef(function InfoFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -509,8 +509,8 @@ export const InfoFilled = React.forwardRef(function InfoFilled(
 })
 
 export const InfoIcon = React.forwardRef(function InfoIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -518,7 +518,7 @@ export const InfoIcon = React.forwardRef(function InfoIcon(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -538,8 +538,8 @@ export const InfoIcon = React.forwardRef(function InfoIcon(
 })
 
 export const InfoOutline = React.forwardRef(function InfoOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -547,7 +547,7 @@ export const InfoOutline = React.forwardRef(function InfoOutline(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -565,8 +565,8 @@ export const InfoOutline = React.forwardRef(function InfoOutline(
 })
 
 export const KeyFilled = React.forwardRef(function KeyFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -574,7 +574,7 @@ export const KeyFilled = React.forwardRef(function KeyFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -588,8 +588,8 @@ export const KeyFilled = React.forwardRef(function KeyFilled(
 })
 
 export const KeyOutline = React.forwardRef(function KeyOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -597,7 +597,7 @@ export const KeyOutline = React.forwardRef(function KeyOutline(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -611,8 +611,8 @@ export const KeyOutline = React.forwardRef(function KeyOutline(
 })
 
 export const Light = React.forwardRef(function Light(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -620,7 +620,7 @@ export const Light = React.forwardRef(function Light(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path d='M12 3a1 1 0 011 1v1.455a1 1 0 11-2 0V4a1 1 0 011-1zm0 12.636a3.636 3.636 0 100-7.272 3.636 3.636 0 000 7.272zm1 2.91a1 1 0 10-2 0V20a1 1 0 102 0v-1.454zM5.635 5.634a1 1 0 011.414 0l1.033 1.033A1 1 0 116.668 8.08L5.635 7.048a1 1 0 010-1.414zm11.697 10.284a1 1 0 00-1.414 1.414l1.033 1.033a1 1 0 101.414-1.414l-1.033-1.033zM3 12a1 1 0 011-1h1.455a1 1 0 110 2H4a1 1 0 01-1-1zm15.546-1a1 1 0 100 2H20a1 1 0 100-2h-1.454zM8.082 15.918a1 1 0 010 1.414L7.05 18.365a1 1 0 11-1.414-1.414l1.033-1.033a1 1 0 011.414 0zm10.283-8.87a1 1 0 10-1.414-1.414l-1.033 1.033a1 1 0 001.414 1.414l1.033-1.033z' />
@@ -629,8 +629,8 @@ export const Light = React.forwardRef(function Light(
 })
 
 export const ModulesFilled = React.forwardRef(function ModulesFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -638,7 +638,7 @@ export const ModulesFilled = React.forwardRef(function ModulesFilled(
       height={24}
       viewBox='0 0 25 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -686,8 +686,8 @@ export const ModulesFilled = React.forwardRef(function ModulesFilled(
 })
 
 export const ModulesOutline = React.forwardRef(function ModulesOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -695,7 +695,7 @@ export const ModulesOutline = React.forwardRef(function ModulesOutline(
       height={24}
       viewBox='0 0 25 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -709,8 +709,8 @@ export const ModulesOutline = React.forwardRef(function ModulesOutline(
 })
 
 export const Perfect = React.forwardRef(function Perfect(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -718,7 +718,7 @@ export const Perfect = React.forwardRef(function Perfect(
       height={24}
       viewBox='0 0 25 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -732,8 +732,8 @@ export const Perfect = React.forwardRef(function Perfect(
 })
 
 export const Plus = React.forwardRef(function Plus(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -741,7 +741,7 @@ export const Plus = React.forwardRef(function Plus(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -755,8 +755,8 @@ export const Plus = React.forwardRef(function Plus(
 })
 
 export const QuestionFilled = React.forwardRef(function QuestionFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -764,7 +764,7 @@ export const QuestionFilled = React.forwardRef(function QuestionFilled(
       height={24}
       viewBox='0 0 25 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -778,8 +778,8 @@ export const QuestionFilled = React.forwardRef(function QuestionFilled(
 })
 
 export const QuestionOutline = React.forwardRef(function QuestionOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -787,7 +787,7 @@ export const QuestionOutline = React.forwardRef(function QuestionOutline(
       height={24}
       viewBox='0 0 25 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -805,8 +805,8 @@ export const QuestionOutline = React.forwardRef(function QuestionOutline(
 })
 
 export const SearchFilled = React.forwardRef(function SearchFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -814,7 +814,7 @@ export const SearchFilled = React.forwardRef(function SearchFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -833,8 +833,8 @@ export const SearchFilled = React.forwardRef(function SearchFilled(
 })
 
 export const SearchOutline = React.forwardRef(function SearchOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -842,7 +842,7 @@ export const SearchOutline = React.forwardRef(function SearchOutline(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -856,8 +856,8 @@ export const SearchOutline = React.forwardRef(function SearchOutline(
 })
 
 export const SettingFilled = React.forwardRef(function SettingFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -865,7 +865,7 @@ export const SettingFilled = React.forwardRef(function SettingFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <g clipPath='url(#prefix__prefix__clip0_2494_231)'>
@@ -887,8 +887,8 @@ export const SettingFilled = React.forwardRef(function SettingFilled(
 })
 
 export const ShevronBottom = React.forwardRef(function ShevronBottom(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -896,7 +896,7 @@ export const ShevronBottom = React.forwardRef(function ShevronBottom(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -910,8 +910,8 @@ export const ShevronBottom = React.forwardRef(function ShevronBottom(
 })
 
 export const ShevronLeft = React.forwardRef(function ShevronLeft(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -919,7 +919,7 @@ export const ShevronLeft = React.forwardRef(function ShevronLeft(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -933,8 +933,8 @@ export const ShevronLeft = React.forwardRef(function ShevronLeft(
 })
 
 export const ShevronRight = React.forwardRef(function ShevronRight(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -942,7 +942,7 @@ export const ShevronRight = React.forwardRef(function ShevronRight(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -956,8 +956,8 @@ export const ShevronRight = React.forwardRef(function ShevronRight(
 })
 
 export const ShevronTop = React.forwardRef(function ShevronTop(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -965,7 +965,7 @@ export const ShevronTop = React.forwardRef(function ShevronTop(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -979,8 +979,8 @@ export const ShevronTop = React.forwardRef(function ShevronTop(
 })
 
 export const SunFilled = React.forwardRef(function SunFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -988,7 +988,7 @@ export const SunFilled = React.forwardRef(function SunFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <circle
@@ -1010,8 +1010,8 @@ export const SunFilled = React.forwardRef(function SunFilled(
 })
 
 export const ThinClose = React.forwardRef(function ThinClose(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -1019,7 +1019,7 @@ export const ThinClose = React.forwardRef(function ThinClose(
       height={40}
       viewBox='0 0 40 40'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -1033,8 +1033,8 @@ export const ThinClose = React.forwardRef(function ThinClose(
 })
 
 export const Time = React.forwardRef(function Time(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -1042,7 +1042,7 @@ export const Time = React.forwardRef(function Time(
       height={24}
       viewBox='0 0 25 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -1056,8 +1056,8 @@ export const Time = React.forwardRef(function Time(
 })
 
 export const TooltipTriangle = React.forwardRef(function TooltipTriangle(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -1065,7 +1065,7 @@ export const TooltipTriangle = React.forwardRef(function TooltipTriangle(
       height={10}
       viewBox='0 0 20 10'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -1078,8 +1078,8 @@ export const TooltipTriangle = React.forwardRef(function TooltipTriangle(
 })
 
 export const VipWalletFilled = React.forwardRef(function VipWalletFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -1087,7 +1087,7 @@ export const VipWalletFilled = React.forwardRef(function VipWalletFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <g clipPath='url(#prefix__prefix__clip0_2512_37)' fill='currentColor'>
@@ -1108,8 +1108,8 @@ export const VipWalletFilled = React.forwardRef(function VipWalletFilled(
 })
 
 export const VipWalletOutline = React.forwardRef(function VipWalletOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -1117,7 +1117,7 @@ export const VipWalletOutline = React.forwardRef(function VipWalletOutline(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -1135,8 +1135,8 @@ export const VipWalletOutline = React.forwardRef(function VipWalletOutline(
 })
 
 export const WalletFilled = React.forwardRef(function WalletFilled(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -1144,7 +1144,7 @@ export const WalletFilled = React.forwardRef(function WalletFilled(
       height={24}
       viewBox='0 0 24 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -1158,8 +1158,8 @@ export const WalletFilled = React.forwardRef(function WalletFilled(
 })
 
 export const Warning = React.forwardRef(function Warning(
-  props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
 ) {
   return (
     <svg
@@ -1167,7 +1167,7 @@ export const Warning = React.forwardRef(function Warning(
       height={24}
       viewBox='0 0 25 24'
       fill='currentColor'
-      ref={svgRef}
+      ref={ref}
       {...props}
     >
       <path
