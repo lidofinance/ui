@@ -6,10 +6,21 @@
   width: 100%;
   border-radius: var(--lido-ui-border-radius-40);
   border: 1px solid var(--lido-ui-color-borders-fog);
+  justify-content: space-between;
+  display: block;
+  transition: none;
 
   &:hover {
     .headerLogos {
       display: flex;
+    }
+
+    .titleItem {
+      color: var(--lido-ui-color-primary);
+    }
+
+    .headerLogo {
+      color: var(--lido-ui-color-primary);
     }
   }
 }
@@ -100,6 +111,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  height: 100%;
 }
 
 @media (width <= 899px) {

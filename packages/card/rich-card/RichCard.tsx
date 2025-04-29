@@ -40,16 +40,11 @@ export const RichCard = forwardRef(
       className,
       ...rest
     }: RichCardProps,
-    ref?: ForwardedRef<HTMLDivElement>,
+    ref?: ForwardedRef<HTMLDivElement> | ForwardedRef<HTMLAnchorElement>,
   ) => {
     const logosToShow = logosArray?.slice(0, 2)
-    return (
-      <div
-        className={cn(className, styles.card)}
-        data-testid={dataTestId?.root}
-        {...rest}
-        ref={ref}
-      >
+    const cardContents = (
+      <>
         <div className={styles.header}>
           {titleImgSrc && (
             <div className={styles.titleImage}>
@@ -94,6 +89,26 @@ export const RichCard = forwardRef(
             ))}
           </div>
         )}
+      </>
+    )
+    return href ? (
+      <Link
+        href={href}
+        target={'_blank'}
+        className={cn(className, styles.card)}
+        data-testid={dataTestId?.root}
+        ref={ref as ForwardedRef<HTMLAnchorElement>}
+      >
+        {cardContents}
+      </Link>
+    ) : (
+      <div
+        className={cn(className, styles.card)}
+        data-testid={dataTestId?.root}
+        {...rest}
+        ref={ref as ForwardedRef<HTMLDivElement>}
+      >
+        {cardContents}
       </div>
     )
   },

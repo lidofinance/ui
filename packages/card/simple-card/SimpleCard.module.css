@@ -1,5 +1,5 @@
 .card {
-  --local-color: var(--lido-ui-color-text);
+  --local-color: var(--lido-ui-color-primary);
   --local-description-color: var(--lido-ui-color-primary-7-static);
 
   font-family: var(--lido-ui-font-family);
