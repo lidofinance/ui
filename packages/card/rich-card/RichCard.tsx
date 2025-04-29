@@ -16,6 +16,7 @@ export type RichCardDataTestId = {
 export type RichCardProps = ComponentPropsWithoutRef<'div'> & {
   title: string
   text: string
+  href?: string
   titleImgSrc: string
   tags?: string[]
   logosArray?: string[]
@@ -32,21 +33,18 @@ export const RichCard = forwardRef(
       titleImgSrc,
       tags,
       logosArray,
+      href,
       dataTestId,
       learnMoreLink,
       extraLogosAmount,
+      className,
       ...rest
     }: RichCardProps,
-    ref?: ForwardedRef<HTMLDivElement>,
+    ref?: ForwardedRef<HTMLDivElement> | ForwardedRef<HTMLAnchorElement>,
   ) => {
     const logosToShow = logosArray?.slice(0, 2)
-    return (
-      <div
-        className={styles.card}
-        data-testid={dataTestId?.root}
-        {...rest}
-        ref={ref}
-      >
+    const cardContents = (
+      <>
         <div className={styles.header}>
           {titleImgSrc && (
             <div className={styles.titleImage}>
@@ -59,10 +57,12 @@ export const RichCard = forwardRef(
                 <img src={logo} width={38} height={38} alt={''} />
               </div>
             ))}
-            {extraLogosAmount && (
+            {extraLogosAmount ? (
               <div className={cn(styles.headerLogo, styles.empty)}>
                 <span>+{extraLogosAmount}</span>
               </div>
+            ) : (
+              <></>
             )}
           </div>
         </div>
@@ -89,6 +89,26 @@ export const RichCard = forwardRef(
             ))}
           </div>
         )}
+      </>
+    )
+    return href ? (
+      <Link
+        href={href}
+        target={'_blank'}
+        className={cn(className, styles.card)}
+        data-testid={dataTestId?.root}
+        ref={ref as ForwardedRef<HTMLAnchorElement>}
+      >
+        {cardContents}
+      </Link>
+    ) : (
+      <div
+        className={cn(className, styles.card)}
+        data-testid={dataTestId?.root}
+        {...rest}
+        ref={ref as ForwardedRef<HTMLDivElement>}
+      >
+        {cardContents}
       </div>
     )
   },

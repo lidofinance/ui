@@ -3,6 +3,7 @@ import React, {
   ComponentPropsWithoutRef,
   ForwardedRef,
   forwardRef,
+  MouseEventHandler,
   useState,
 } from 'react'
 import { Button } from '../../button'
@@ -15,6 +16,8 @@ export type SimpleCardDataTestId = {
   title?: string
   subtitle?: string
   description?: string
+  img?: string
+  arrow?: string
 }
 
 export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
@@ -25,7 +28,7 @@ export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
   buttonText?: string
   href: string
   largeTitle?: boolean
-  onClick?: () => void
+  onClick?: MouseEventHandler<HTMLAnchorElement>
   dataTestId?: SimpleCardDataTestId
 }
 
@@ -64,7 +67,10 @@ export const SimpleCard = forwardRef(
           <div className={styles.cardContent}>
             <div className={styles.header}>
               {titleImgSrc && (
-                <div className={styles.titleImage}>
+                <div
+                  className={styles.titleImage}
+                  data-testid={dataTestId?.img}
+                >
                   <img src={titleImgSrc} width={56} height={56} alt={''} />
                 </div>
               )}

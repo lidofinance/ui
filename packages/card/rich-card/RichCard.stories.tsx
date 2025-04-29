@@ -6,6 +6,7 @@ export default {
   title: 'Cards/RichCard',
   args: {
     title: 'Name',
+    href: 'https://lido.fi',
     text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
     titleImgSrc: 'https://lido.fi/static/index/defi/metamask.svg',
     tags: ['one', 'two', 'three'],
@@ -48,6 +49,7 @@ export const AllStates: StoryFn<RichCardProps> = (props) => {
         <RichCard
           titleImgSrc={props.titleImgSrc}
           title={props.title}
+          href='https://lido.fi'
           text={props.text}
           tags={['one', 'hello im a long tag', 'two', 'three', 'four']}
         />
