@@ -5,7 +5,7 @@ export enum ThemeName {
 
 export const DEFAULT_THEME_NAME = ThemeName.light
 
-export const themeCookieKey = 'lido-theme-manual'
+export const themeCookieKey = 'lido-theme-manual-new'
 
 export const themeCookieMaxAge = 365 * 24 * 3600 // 365 days in seconds
 
