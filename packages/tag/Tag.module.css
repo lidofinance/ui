@@ -10,6 +10,7 @@
 
 .variant--outline {
   border: 1px solid var(--lido-ui-color-borders-fog);
+  color: var(--lido-ui-color-primary);
 
   &.color--accent {
     border-color: var(--lido-ui-color-borders-water-static);
@@ -73,15 +74,25 @@
   }
 }
 
+/* Text */
 .size--s {
-  padding: 6.5px 20px;
+  @mixin font-control;
+
+  padding: 6px 20px;
+
+  /* Manually set font size to override default font size */
+  font-size: var(--lido-ui-font-size-body);
 }
 
 .size--m {
+  @mixin font-control;
+
   padding: 10px 30px;
 }
 
 .size--l {
+  @mixin font-control;
+
   padding: 17px 30px;
 }
 
@@ -93,9 +104,22 @@
   padding-left: 8px;
 }
 
+/* Icon */
 .icon {
   display: flex;
   align-items: center;
+}
+
+.icon-size--s {
+  padding-left: 4px;
+}
+
+.icon-size--m {
+  padding-left: 6px;
+}
+
+.icon-size--l {
+  padding-left: 12px;
 }
 
 .closeButton {

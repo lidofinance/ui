@@ -4,7 +4,8 @@
 }
 
 .overlay {
-  overflow: hidden;
+  max-height: 300px;
+  overflow: hidden auto;
   position: absolute;
   width: 100%;
   top: 100%;

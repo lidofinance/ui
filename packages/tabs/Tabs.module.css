@@ -116,8 +116,8 @@
 
 /* Size modifiers */
 .size--M {
-  min-height: 52px;
-  padding: 10px 20px;
+  min-height: 50px;
+  padding: 9px 20px;
   font-size: var(--lido-ui-font-size-control-not-adaptive);
   line-height: var(--lido-ui-line-height-tabs);
 
