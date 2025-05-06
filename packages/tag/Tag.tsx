@@ -68,9 +68,14 @@ export const Tag = forwardRef(
         {...rest}
         ref={ref}
       >
-        <span className={styles.icon} data-testid={dataTestId?.icon}>
-          {icon}
-        </span>
+        {icon && (
+          <span
+            className={cn(styles.icon, styles[`icon-size--${size}`])}
+            data-testid={dataTestId?.icon}
+          >
+            {icon}
+          </span>
+        )}
         <span
           className={cn(styles[`size--${size}`], {
             [styles.withIcon]: icon != null,
