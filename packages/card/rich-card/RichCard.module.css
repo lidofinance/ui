@@ -18,15 +18,13 @@
     .titleItem {
       color: var(--lido-ui-color-primary);
     }
-
-    .headerLogo {
-      color: var(--lido-ui-color-primary);
-    }
   }
 }
 
 .titleImage {
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 100%;
   border: 1px solid var(--lido-ui-color-borders-fog);
   box-sizing: border-box;
@@ -49,12 +47,6 @@
   & > *:not(:first-child) {
     margin-left: -10px;
   }
-
-  .empty {
-    backdrop-filter: blur(12px);
-    font-size: var(--lido-ui-font-size-body);
-    line-height: var(--lido-ui-line-height-body);
-  }
 }
 
 .headerLogo {
@@ -66,6 +58,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &.empty {
+    border-radius: 40px;
+    background: rgb(0 0 0 / 6%);
+    backdrop-filter: blur(12px);
+    font-size: var(--lido-ui-font-size-body);
+    line-height: var(--lido-ui-line-height-body);
+    color: var(--lido-ui-color-primary-50);
+  }
 }
 
 .tags {
