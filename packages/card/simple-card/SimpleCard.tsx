@@ -96,7 +96,7 @@ export const SimpleCard = forwardRef(
           <Button
             data-testid={dataTestId?.button}
             imitateHover={hasHover}
-            size={'l'}
+            size={'m'}
             textStyle={'normal'}
             color={buttonText ? 'outline' : 'transparent'}
             className={cn(styles.button, !buttonText && styles.empty)}
