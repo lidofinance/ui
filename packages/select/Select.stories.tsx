@@ -84,7 +84,11 @@ export const AllStates: StoryFn<SelectProps> = () => {
         <div style={stateContainerStyle}>
           <h5>State: Default</h5>
           <div style={selectContainerStyle}>
-            <Select size='l' options={commonOptions} defaultValue={1} />
+            <Select
+              size='l'
+              options={commonOptions}
+              placeholder='Select option'
+            />
           </div>
         </div>
 
@@ -110,7 +114,11 @@ export const AllStates: StoryFn<SelectProps> = () => {
         <div style={stateContainerStyle}>
           <h5>State: Default</h5>
           <div style={selectContainerStyle}>
-            <Select size='xl' options={commonOptions} defaultValue={1} />
+            <Select
+              size='xl'
+              options={commonOptions}
+              placeholder='Select option'
+            />
           </div>
         </div>
 
