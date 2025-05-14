@@ -42,7 +42,7 @@ export const Tooltip = ({
         className={cn(styles.contentWrapper, styles[`position--${position}`])}
       >
         <div className={styles.content} data-testid={dataTestId?.content}>
-          {content}
+          <div className={styles.text}>{content}</div>
           <div className={styles.triangle} />
         </div>
       </div>
