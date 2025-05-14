@@ -19,10 +19,15 @@
   border-radius: var(--lido-ui-border-radius-50);
   font-size: var(--lido-ui-font-size-control-not-adaptive);
   line-height: var(--lido-ui-line-height-control-not-adaptive);
-  color: var(--lido-ui-color-primary-50);
+  color: var(--lido-ui-color-primary);
   transition:
-    color,
-    border 0.5s;
+    color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
+
+  &::placeholder {
+    color: var(--lido-ui-color-primary-50);
+    transition: color 0.3s ease-in-out;
+  }
 
   &.sizeL {
     padding: 17px 58px 17px 26px;
@@ -35,9 +40,10 @@
   &:hover {
     border-color: var(--lido-ui-color-borders-water-static);
     color: var(--lido-ui-color-primary);
-    transition:
-      color,
-      border 0.3s;
+  }
+
+  &:hover::placeholder {
+    color: var(--lido-ui-color-primary);
   }
 
   &.open {
