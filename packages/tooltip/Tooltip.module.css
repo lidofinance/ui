@@ -5,14 +5,21 @@
 }
 
 .tooltip:hover .contentWrapper {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
 .contentWrapper {
   z-index: 1;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   position: absolute;
-  padding: 10px;
+  transition:
+    opacity 0.1s ease-in-out,
+    visibility 0s linear 0.1s;
 }
 
 .content {
@@ -26,8 +33,10 @@
   backdrop-filter: blur(20px);
   color: var(--lido-ui-color-white-static);
   border-radius: 18px;
-  font-size: var(--lido-ui-font-size-description);
-  line-height: var(--lido-ui-line-height-tooltip);
+}
+
+.text {
+  @mixin font-description;
 }
 
 .triangle {
@@ -49,7 +58,8 @@
 
 /* Position styles */
 .position--right {
-  left: calc(100% + 10px);
+  left: 100%;
+  padding-left: 15px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -61,7 +71,8 @@
 }
 
 .position--left {
-  right: calc(100% + 10px);
+  right: 100%;
+  padding-right: 15px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -73,7 +84,8 @@
 }
 
 .position--top {
-  bottom: calc(100% + 10px);
+  bottom: 100%;
+  padding-bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -85,7 +97,8 @@
 }
 
 .position--bottom {
-  top: calc(100% + 10px);
+  top: 100%;
+  padding-top: 15px;
   left: 50%;
   transform: translateX(-50%);
 }
