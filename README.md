@@ -126,7 +126,7 @@ To customize the CSS variables, create a CSS file in your project with new defin
   --lido-ui-font-family: "Your-Custom-Font", sans-serif;
   --lido-ui-font-size-body: 16px;
   --lido-ui-line-height-body: 24px;
-  
+
   /* Override colors */
   --lido-ui-color-accent-ocean-static: #your-primary-color;
   --lido-ui-color-background: #your-background-color;
@@ -174,3 +174,21 @@ Some variables like font sizes and line heights have responsive variants defined
   }
 }
 ```
+
+### Theme Initialization
+
+By default, the theme will be set to the value obtained after calling the `themeScriptValueString` method and will be the same as all other Lido products. This ensures consistent theming across the Lido ecosystem.
+
+### When to Use Different Theme Providers
+
+- **For products with theme switching**: You must use `CookieThemeProvider` and `ThemeToggler` components
+- **For products without theme switching**: You must use `ThemeProvider` with your chosen theme. Or `CookieThemeProvider` with hardcoded `overrideThemeName` and `initialThemeName`
+
+
+The `CookieThemeProvider` determines the theme based on the following priority:
+1. Override theme (if provided)
+2. URL query parameter
+3. Cookie value
+4. Initial theme (if provided)
+5. System preference (light/dark mode)
+6. Default theme
