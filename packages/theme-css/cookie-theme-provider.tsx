@@ -75,7 +75,6 @@ export const CookieThemeProvider: FC<
       if (!isTopLevelProvider) {
         return
       }
-      console.log(overrideThemeName)
       const setTheme = () => {
         const systemThemeName = prefersDarkThemeMediaQuery?.matches
           ? ThemeName.dark
