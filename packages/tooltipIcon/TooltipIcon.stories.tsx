@@ -13,7 +13,16 @@ const meta: Meta<typeof TooltipIcon> = {
   },
   argTypes: {
     position: {
-      options: ['top', 'right', 'bottom', 'left'],
+      options: [
+        'top',
+        'right',
+        'bottom',
+        'left',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+      ],
       control: { type: 'radio' },
     },
     size: {
@@ -84,6 +93,30 @@ export const AllStates = () => {
                   variant='default'
                   content='Position: left'
                 />
+                <TooltipIcon
+                  position='top-left'
+                  size='M'
+                  variant='default'
+                  content='Position: top-left'
+                />
+                <TooltipIcon
+                  position='top-right'
+                  size='M'
+                  variant='default'
+                  content='Position: top-right'
+                />
+                <TooltipIcon
+                  position='bottom-left'
+                  size='M'
+                  variant='default'
+                  content='Position: bottom-left'
+                />
+                <TooltipIcon
+                  position='bottom-right'
+                  size='M'
+                  variant='default'
+                  content='Position: bottom-right'
+                />
               </div>
             </div>
             <div style={{ padding: '16px' }}>
@@ -109,6 +142,30 @@ export const AllStates = () => {
                 />
                 <TooltipIcon
                   position='left'
+                  size='M'
+                  variant='default'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='top-left'
+                  size='M'
+                  variant='default'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='top-right'
+                  size='M'
+                  variant='default'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='bottom-left'
+                  size='M'
+                  variant='default'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='bottom-right'
                   size='M'
                   variant='default'
                   content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
@@ -151,6 +208,30 @@ export const AllStates = () => {
                   variant='default'
                   content='Position: left'
                 />
+                <TooltipIcon
+                  position='top-left'
+                  size='S'
+                  variant='default'
+                  content='Position: top-left'
+                />
+                <TooltipIcon
+                  position='top-right'
+                  size='S'
+                  variant='default'
+                  content='Position: top-right'
+                />
+                <TooltipIcon
+                  position='bottom-left'
+                  size='S'
+                  variant='default'
+                  content='Position: bottom-left'
+                />
+                <TooltipIcon
+                  position='bottom-right'
+                  size='S'
+                  variant='default'
+                  content='Position: bottom-right'
+                />
               </div>
             </div>
             <div style={{ padding: '16px' }}>
@@ -176,6 +257,30 @@ export const AllStates = () => {
                 />
                 <TooltipIcon
                   position='left'
+                  size='S'
+                  variant='default'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='top-left'
+                  size='S'
+                  variant='default'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='top-right'
+                  size='S'
+                  variant='default'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='bottom-left'
+                  size='S'
+                  variant='default'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='bottom-right'
                   size='S'
                   variant='default'
                   content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
@@ -228,6 +333,30 @@ export const AllStates = () => {
                   variant='primary'
                   content='Position: left'
                 />
+                <TooltipIcon
+                  position='top-left'
+                  size='M'
+                  variant='primary'
+                  content='Position: top-left'
+                />
+                <TooltipIcon
+                  position='top-right'
+                  size='M'
+                  variant='primary'
+                  content='Position: top-right'
+                />
+                <TooltipIcon
+                  position='bottom-left'
+                  size='M'
+                  variant='primary'
+                  content='Position: bottom-left'
+                />
+                <TooltipIcon
+                  position='bottom-right'
+                  size='M'
+                  variant='primary'
+                  content='Position: bottom-right'
+                />
               </div>
             </div>
             <div style={{ padding: '16px' }}>
@@ -253,6 +382,30 @@ export const AllStates = () => {
                 />
                 <TooltipIcon
                   position='left'
+                  size='M'
+                  variant='primary'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='top-left'
+                  size='M'
+                  variant='primary'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='top-right'
+                  size='M'
+                  variant='primary'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='bottom-left'
+                  size='M'
+                  variant='primary'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='bottom-right'
                   size='M'
                   variant='primary'
                   content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
@@ -295,6 +448,30 @@ export const AllStates = () => {
                   variant='primary'
                   content='Position: left'
                 />
+                <TooltipIcon
+                  position='top-left'
+                  size='S'
+                  variant='primary'
+                  content='Position: top-left'
+                />
+                <TooltipIcon
+                  position='top-right'
+                  size='S'
+                  variant='primary'
+                  content='Position: top-right'
+                />
+                <TooltipIcon
+                  position='bottom-left'
+                  size='S'
+                  variant='primary'
+                  content='Position: bottom-left'
+                />
+                <TooltipIcon
+                  position='bottom-right'
+                  size='S'
+                  variant='primary'
+                  content='Position: bottom-right'
+                />
               </div>
             </div>
             <div style={{ padding: '16px' }}>
@@ -320,6 +497,30 @@ export const AllStates = () => {
                 />
                 <TooltipIcon
                   position='left'
+                  size='S'
+                  variant='primary'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='top-left'
+                  size='S'
+                  variant='primary'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='top-right'
+                  size='S'
+                  variant='primary'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='bottom-left'
+                  size='S'
+                  variant='primary'
+                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                />
+                <TooltipIcon
+                  position='bottom-right'
                   size='S'
                   variant='primary'
                   content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
