@@ -2,7 +2,15 @@ import { ComponentPropsWithoutRef, ReactNode } from 'react'
 import cn from 'classnames'
 import styles from './Tooltip.module.css'
 
-export type TooltipPosition = 'top' | 'right' | 'bottom' | 'left'
+export type TooltipPosition =
+  | 'top'
+  | 'right'
+  | 'bottom'
+  | 'left'
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right'
 
 export type TooltipDataTestId = {
   root?: string
@@ -31,6 +39,8 @@ export const Tooltip = ({
     )
   }
 
+  const showTriangle = ['top', 'right', 'bottom', 'left'].includes(position)
+
   return (
     <div
       className={cn(styles.tooltip, className)}
@@ -43,7 +53,7 @@ export const Tooltip = ({
       >
         <div className={styles.content} data-testid={dataTestId?.content}>
           <div className={styles.text}>{content}</div>
-          <div className={styles.triangle} />
+          {showTriangle && <div className={styles.triangle} />}
         </div>
       </div>
     </div>
