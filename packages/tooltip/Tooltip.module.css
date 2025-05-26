@@ -5,23 +5,15 @@
 }
 
 .tooltip:hover .contentWrapper {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition-delay: 0s;
+  display: block;
 }
 
 .contentWrapper {
   --tooltip-bridge-size: 30px;
 
   z-index: 1;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  display: none;
   position: absolute;
-  transition:
-    opacity 0.1s ease-in-out,
-    visibility 0s linear 0.1s;
 }
 
 .content {
