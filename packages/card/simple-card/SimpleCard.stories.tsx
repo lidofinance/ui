@@ -36,7 +36,7 @@ export const AllStates: StoryFn<SimpleCardProps> = (props) => {
         }}
       >
         <div style={{ padding: '16px', border: '1px solid #eaeaea' }}>
-          <h3>With large title</h3>
+          <h3>Narrow, With large title</h3>
           <div style={{ width: '240px' }}>
             <SimpleCard
               largeTitle
@@ -63,7 +63,7 @@ export const AllStates: StoryFn<SimpleCardProps> = (props) => {
         </div>
 
         <div style={{ padding: '16px', border: '1px solid #eaeaea' }}>
-          <h3>With image</h3>
+          <h3>Wide, With image</h3>
           <div style={{ width: '220px' }}>
             <SimpleCard
               largeTitle={false}
@@ -84,6 +84,30 @@ export const AllStates: StoryFn<SimpleCardProps> = (props) => {
               title='Name'
               titleImgSrc={props.titleImgSrc}
               text='Explore more apps on Lido Ecosystem page'
+              buttonText='Explore'
+            />
+          </div>
+        </div>
+
+        <div style={{ padding: '16px', border: '1px solid #eaeaea' }}>
+          <h3>Narrow, Text overflow</h3>
+          <div style={{ width: '220px' }}>
+            <SimpleCard
+              largeTitle={false}
+              title='Name Name NameNameName Name Name NameNameName Name Name NameNameName Name Name NameNameName Name Name NameNameName Name Name NameNameName '
+              href='https://example.com'
+              titleImgSrc={props.titleImgSrc}
+              text='Explore more apps on Lido'
+              buttonText='Explore'
+            />
+          </div>
+          <div style={{ width: '220px' }}>
+            <SimpleCard
+              largeTitle={false}
+              title='Name'
+              href='https://example.com'
+              titleImgSrc={props.titleImgSrc}
+              text='Explore more apps on Lido Ecosystem page Explore more apps on Lido Ecosystem page Explore more apps on Lido Ecosystem page Explore more apps on Lido Ecosystem page'
               buttonText='Explore'
             />
           </div>
