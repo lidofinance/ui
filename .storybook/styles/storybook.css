@@ -22,15 +22,15 @@ body {
   scroll-behavior: smooth;
   /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font-family: Manrope, Manrope-fallback;
-  background: var(--lido-ui-color-background);
+  background: var(--deprecated-lido-ui-color-background);
 }
 
 #storybook-root {
   width: 100%;
-  background: var(--lido-ui-color-background);
+  background: var(--deprecated-lido-ui-color-background);
 }
 
 .docs-story > div > div {
   width: 100%;
-  background: var(--lido-ui-color-background);
+  background: var(--deprecated-lido-ui-color-background);
 }

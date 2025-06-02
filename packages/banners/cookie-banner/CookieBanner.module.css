@@ -1,5 +1,6 @@
 [data-lido-theme='light'] {
-  --local-border: 1px solid var(--lido-ui-color-borders-fog, rgb(0 0 0 / 10%));
+  --local-border: 1px solid
+    var(--deprecated-lido-ui-color-borders-fog, rgb(0 0 0 / 10%));
   --local-background: rgb(255 255 255 / 72%);
   --local-box-shadow: 0 24px 80px 0 rgb(138 136 196 / 32%);
 }
@@ -43,7 +44,7 @@
 .text {
   font-size: var(--lido-ui-font-size-body);
   line-height: var(--lido-ui-line-height-body);
-  color: var(--lido-ui-color-primary);
+  color: var(--deprecated-lido-ui-color-primary);
 }
 
 @media (width <= 899px) {

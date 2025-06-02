@@ -1,6 +1,6 @@
 .card {
-  --local-color: var(--lido-ui-color-primary);
-  --local-description-color: var(--lido-ui-color-primary-7-static);
+  --local-color: var(--deprecated-lido-ui-color-primary);
+  --local-description-color: var(--deprecated-lido-ui-color-primary-7-static);
 
   font-family: var(--lido-ui-font-family);
   display: flex;
@@ -12,9 +12,9 @@
   overflow: hidden;
 
   &:hover {
-    --local-color: var(--lido-ui-color-accent-ocean-static);
+    --local-color: var(--deprecated-lido-ui-color-accent-ocean-static);
     --local-description-color: var(
-      --lido-ui-color-borders-water-static,
+      --deprecated-lido-ui-color-borders-water-static,
       rgb(0 0 0 / 10%)
     );
   }
@@ -52,7 +52,7 @@
 .titleImage {
   padding: 15px;
   border-radius: 100%;
-  border: 1px solid var(--lido-ui-color-borders-fog);
+  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
   box-sizing: border-box;
   width: 86px;
   height: 86px;

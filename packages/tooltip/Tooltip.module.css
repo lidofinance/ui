@@ -23,9 +23,9 @@
   max-width: 224px;
   box-sizing: border-box;
   padding: 24px;
-  background-color: var(--lido-ui-color-primary-72-static);
+  background-color: var(--deprecated-lido-ui-color-primary-72-static);
   backdrop-filter: blur(20px);
-  color: var(--lido-ui-color-white-static);
+  color: var(--deprecated-lido-ui-color-white-static);
   border-radius: 18px;
 }
 

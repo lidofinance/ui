@@ -29,13 +29,13 @@
   &:disabled {
     cursor: not-allowed;
     outline: none;
-    color: var(--lido-ui-color-primary-20);
-    background-color: var(--lido-ui-color-primary-8);
+    color: var(--deprecated-lido-ui-color-primary-20);
+    background-color: var(--deprecated-lido-ui-color-primary-8);
 
     &.imitateHover,
     &:hover {
-      color: var(--lido-ui-color-primary-20);
-      background-color: var(--lido-ui-color-primary-8);
+      color: var(--deprecated-lido-ui-color-primary-20);
+      background-color: var(--deprecated-lido-ui-color-primary-8);
 
       .arrow {
         transform: translateX(0);
@@ -43,26 +43,26 @@
     }
 
     .icon {
-      border-color: var(--lido-ui-color-borders-fog);
-      color: var(--lido-ui-color-primary-20);
+      border-color: var(--deprecated-lido-ui-color-borders-fog);
+      color: var(--deprecated-lido-ui-color-primary-20);
     }
   }
 
   &:not(:disabled):focus-visible {
-    outline: 2px solid var(--lido-ui-color-borders-water-static);
+    outline: 2px solid var(--deprecated-lido-ui-color-borders-water-static);
     outline-offset: 1px;
   }
 
   &.size--l .icon,
   &.size--xl .icon {
     border-radius: 50%;
-    border: 1px solid var(--lido-ui-color-borders-fog-reverse);
+    border: 1px solid var(--deprecated-lido-ui-color-borders-fog-reverse);
     box-sizing: border-box;
   }
 
   &:disabled.size--l .icon,
   &:disabled.size--xl .icon {
-    border-color: var(--lido-ui-color-borders-fog);
+    border-color: var(--deprecated-lido-ui-color-borders-fog);
   }
 
   &.circle {
@@ -200,26 +200,26 @@
 
 /* Colors */
 .default {
-  color: var(--lido-ui-color-primary-reverse);
+  color: var(--deprecated-lido-ui-color-primary-reverse);
   font-weight: var(--lido-ui-font-weight-bold);
-  background-color: var(--lido-ui-color-primary);
+  background-color: var(--deprecated-lido-ui-color-primary);
   transition: background-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    background-color: var(--lido-ui-color-accent-ocean-static);
+    background-color: var(--deprecated-lido-ui-color-accent-ocean-static);
     transition: background-color 0.3s;
   }
 }
 
 .secondary {
-  color: var(--lido-ui-color-white-static);
-  background-color: var(--lido-ui-color-accent-ocean-static);
+  color: var(--deprecated-lido-ui-color-white-static);
+  background-color: var(--deprecated-lido-ui-color-accent-ocean-static);
   transition: background-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    background-color: var(--lido-ui-color-accent-sky-static);
+    background-color: var(--deprecated-lido-ui-color-accent-sky-static);
     transition: background-color 0.3s;
   }
 }
@@ -227,25 +227,25 @@
 .outline {
   --local-button-border-width: 1px;
 
-  color: var(--lido-ui-color-primary);
+  color: var(--deprecated-lido-ui-color-primary);
   background-color: transparent;
-  border: 1px solid var(--lido-ui-color-borders-fog);
+  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
   transition:
     color 0.5s,
     border-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    color: var(--lido-ui-color-accent-ocean-static);
-    border-color: var(--lido-ui-color-accent-ocean-static);
+    color: var(--deprecated-lido-ui-color-accent-ocean-static);
+    border-color: var(--deprecated-lido-ui-color-accent-ocean-static);
     transition:
       color 0.3s,
       border-color 0.3s;
   }
 
   &:disabled {
-    color: var(--lido-ui-color-primary-20);
-    border-color: var(--lido-ui-color-primary-20);
+    color: var(--deprecated-lido-ui-color-primary-20);
+    border-color: var(--deprecated-lido-ui-color-primary-20);
     background-color: transparent;
 
     &.imitateHover,
@@ -260,21 +260,21 @@
 }
 
 .success {
-  background-color: var(--lido-ui-color-accent-leaf-static);
-  color: var(--lido-ui-color-white-static);
+  background-color: var(--deprecated-lido-ui-color-accent-leaf-static);
+  color: var(--deprecated-lido-ui-color-white-static);
   transition: background-color 0.5s;
 }
 
 .transparent {
   background-color: transparent;
-  color: var(--lido-ui-color-primary);
+  color: var(--deprecated-lido-ui-color-primary);
   outline: none;
   transition: color 0.5s;
 
   &.imitateHover,
   &:hover {
     background-color: transparent;
-    color: var(--lido-ui-color-accent-ocean-static);
+    color: var(--deprecated-lido-ui-color-accent-ocean-static);
     transition: color 0.3s;
   }
 
@@ -298,8 +298,8 @@
 
   border-radius: 50%;
   background-color: transparent;
-  color: var(--lido-ui-color-primary);
-  border: 1px solid var(--lido-ui-color-borders-fog);
+  color: var(--deprecated-lido-ui-color-primary);
+  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
   transition:
     color 0.5s,
     border-color 0.5s;
@@ -307,20 +307,20 @@
   &.imitateHover,
   &:hover {
     background-color: transparent;
-    color: var(--lido-ui-color-accent-ocean-static);
-    border-color: var(--lido-ui-color-accent-ocean-static);
+    color: var(--deprecated-lido-ui-color-accent-ocean-static);
+    border-color: var(--deprecated-lido-ui-color-accent-ocean-static);
     transition:
       color 0.3s,
       border-color 0.3s;
   }
 
   &:disabled {
-    color: var(--lido-ui-color-primary-20);
-    border-color: var(--lido-ui-color-primary-20);
+    color: var(--deprecated-lido-ui-color-primary-20);
+    border-color: var(--deprecated-lido-ui-color-primary-20);
     background-color: transparent;
 
     .icon {
-      color: var(--lido-ui-color-primary-20);
+      color: var(--deprecated-lido-ui-color-primary-20);
       border: none;
     }
 

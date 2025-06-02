@@ -17,7 +17,7 @@
   font-weight: var(--lido-ui-font-weight-regular);
   font-size: var(--lido-ui-font-size-control);
   line-height: var(--lido-ui-line-height-control);
-  color: var(--lido-ui-color-primary);
+  color: var(--deprecated-lido-ui-color-primary);
   padding: 0;
   background: transparent;
   box-shadow: none;
@@ -48,7 +48,7 @@
   cursor: text;
   font-weight: var(--lido-ui-font-weight-regular);
   font-size: var(--lido-ui-font-size-control);
-  border: 1px solid var(--lido-ui-color-borders-fog);
+  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
   border-radius: var(--lido-ui-border-radius-50);
   transition: border-color 0.1s ease;
 }
@@ -66,41 +66,41 @@
 
 /* Focus states */
 .inputContent:focus-within {
-  border-color: var(--lido-ui-color-borders-water-static);
+  border-color: var(--deprecated-lido-ui-color-borders-water-static);
 }
 
 .inputContent:focus-within .searchLeftDecorator svg {
-  color: var(--lido-ui-color-accent-ocean-static);
+  color: var(--deprecated-lido-ui-color-accent-ocean-static);
 }
 
 .inputContent.search:focus-within input::placeholder {
-  color: var(--lido-ui-color-borders-water-static);
+  color: var(--deprecated-lido-ui-color-borders-water-static);
 }
 
 /* Hover states (not for disabled or error) */
 .inputContent:not(.isDisabled, .isError):hover {
-  border-color: var(--lido-ui-color-borders-water-static);
+  border-color: var(--deprecated-lido-ui-color-borders-water-static);
 }
 
 .inputContent:not(.isDisabled, .isError):hover .searchLeftDecorator svg {
-  color: var(--lido-ui-color-accent-ocean-static);
+  color: var(--deprecated-lido-ui-color-accent-ocean-static);
 }
 
 .inputContent.search:not(.isDisabled, .isError):hover input::placeholder {
-  color: var(--lido-ui-color-borders-water-static);
+  color: var(--deprecated-lido-ui-color-borders-water-static);
 }
 
 /* Focus and input styles */
 .input:focus {
-  caret-color: var(--lido-ui-color-borders-water-static);
+  caret-color: var(--deprecated-lido-ui-color-borders-water-static);
 }
 
 .inputContent:not(.isDisabled, .isError) .input[type='search']:hover {
-  caret-color: var(--lido-ui-color-borders-water-static);
+  caret-color: var(--deprecated-lido-ui-color-borders-water-static);
 }
 
 .input::placeholder {
-  color: var(--lido-ui-color-primary-50);
+  color: var(--deprecated-lido-ui-color-primary-50);
   transition: color 0.1s ease;
 }
 
@@ -183,32 +183,32 @@
 
 /* Accent color */
 .accentColor {
-  color: var(--lido-ui-color-borders-water);
+  color: var(--deprecated-lido-ui-color-borders-water);
 }
 
 /* State styles */
 .isDisabled {
-  border-color: var(--lido-ui-color-borders-fog);
-  background-color: var(--lido-ui-color-primary-8);
+  border-color: var(--deprecated-lido-ui-color-borders-fog);
+  background-color: var(--deprecated-lido-ui-color-primary-8);
 }
 
 .input:disabled {
-  color: var(--lido-ui-color-primary-20);
+  color: var(--deprecated-lido-ui-color-primary-20);
 }
 
 .input:disabled::placeholder {
-  color: var(--lido-ui-color-primary-20);
+  color: var(--deprecated-lido-ui-color-primary-20);
   position: relative;
 }
 
 .isError {
-  border-color: var(--lido-ui-color-accent-berry-static);
+  border-color: var(--deprecated-lido-ui-color-accent-berry-static);
 }
 
 .isError:hover,
 .isError:focus-within {
-  border-color: var(--lido-ui-color-accent-berry-static);
-  color: var(--lido-ui-color-accent-berry-static);
+  border-color: var(--deprecated-lido-ui-color-accent-berry-static);
+  color: var(--deprecated-lido-ui-color-accent-berry-static);
 }
 
 /* Decorators */
@@ -227,7 +227,7 @@
 }
 
 .rightDecoratorText {
-  color: var(--lido-ui-color-primary-50);
+  color: var(--deprecated-lido-ui-color-primary-50);
   white-space: nowrap;
   letter-spacing: 0;
   text-align: right;
@@ -318,7 +318,7 @@
   width: var(--local-icon-size);
   height: var(--local-icon-size);
   align-self: center;
-  color: var(--lido-ui-color-primary);
+  color: var(--deprecated-lido-ui-color-primary);
   transition: color 0.1s ease;
 }
 
@@ -338,33 +338,33 @@
   text-overflow: ellipsis;
   max-width: calc(100% + 2px);
   z-index: 3;
-  background: var(--lido-ui-color-accent-berry-static);
-  color: var(--lido-ui-color-background);
+  background: var(--deprecated-lido-ui-color-accent-berry-static);
+  color: var(--deprecated-lido-ui-color-background);
 }
 
 /* Dark theme overrides */
 .dark .input {
-  color: var(--lido-ui-color-secondary);
+  color: var(--deprecated-lido-ui-color-secondary);
 }
 
 .dark .input::placeholder {
-  color: var(--lido-ui-color-secondary-72);
+  color: var(--deprecated-lido-ui-color-secondary-72);
 }
 
 .dark .inputContent {
-  border-color: var(--lido-ui-color-borders-light);
+  border-color: var(--deprecated-lido-ui-color-borders-light);
 }
 
 .dark .inputContent:focus-within {
-  border-color: var(--lido-ui-color-accent-ocean-60);
+  border-color: var(--deprecated-lido-ui-color-accent-ocean-60);
 }
 
 .dark .inputContent:focus-within .searchLeftDecorator svg {
-  color: var(--lido-ui-color-accent-ocean-60);
+  color: var(--deprecated-lido-ui-color-accent-ocean-60);
 }
 
 .dark .inputContent.search:focus-within input::placeholder {
-  color: var(--lido-ui-color-accent-ocean-60);
+  color: var(--deprecated-lido-ui-color-accent-ocean-60);
 }
 
 .dark .inputContent:not(.isDisabled, .isError):hover {
@@ -380,18 +380,18 @@
 }
 
 .dark .searchLeftDecorator > * {
-  color: var(--lido-ui-color-borders-light);
+  color: var(--deprecated-lido-ui-color-borders-light);
 }
 
 .dark .input:focus {
-  caret-color: var(--lido-ui-color-accent-ocean-60);
+  caret-color: var(--deprecated-lido-ui-color-accent-ocean-60);
 }
 
 /* Floating label */
 .floatingLabel {
   position: absolute;
   left: 2px;
-  color: var(--lido-ui-color-primary-50);
+  color: var(--deprecated-lido-ui-color-primary-50);
   transition: all 0.2s ease;
   pointer-events: none;
   transform-origin: left top;
@@ -442,12 +442,12 @@
 /* Label states */
 .isError .inputInnerWrapper .input:focus ~ .floatingLabel,
 .isError .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
-  color: var(--lido-ui-color-primary-50);
+  color: var(--deprecated-lido-ui-color-primary-50);
 }
 
 /* Fixing disabled and loading state label colors */
 .isDisabled .inputInnerWrapper .floatingLabel {
-  color: var(--lido-ui-color-primary-20);
+  color: var(--deprecated-lido-ui-color-primary-20);
 }
 
 /* Hide label for search */
