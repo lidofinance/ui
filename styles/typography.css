@@ -34,7 +34,7 @@ p {
 }
 
 .ui-typography-h4-bold {
-  @mixin font-h4-bols;
+  @mixin font-h4-bold;
 }
 
 .ui-typography-h4 {
