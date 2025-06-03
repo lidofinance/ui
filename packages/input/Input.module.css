@@ -15,8 +15,8 @@
   width: 100%;
   font-family: inherit;
   font-weight: var(--lido-ui-font-weight-regular);
-  font-size: var(--lido-ui-font-size-control);
-  line-height: var(--lido-ui-line-height-control);
+  font-size: var(--deprecated-lido-ui-font-size-control);
+  line-height: var(--deprecated-lido-ui-line-height-control);
   color: var(--deprecated-lido-ui-color-primary);
   padding: 0;
   background: transparent;
@@ -47,7 +47,7 @@
   box-sizing: border-box;
   cursor: text;
   font-weight: var(--lido-ui-font-weight-regular);
-  font-size: var(--lido-ui-font-size-control);
+  font-size: var(--deprecated-lido-ui-font-size-control);
   border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
   border-radius: var(--lido-ui-border-radius-50);
   transition: border-color 0.1s ease;
@@ -234,8 +234,8 @@
   vertical-align: bottom;
   margin-top: auto;
   margin-bottom: 12px;
-  font-size: var(--lido-ui-font-size-description);
-  line-height: var(--lido-ui-line-height-description);
+  font-size: var(--deprecated-lido-ui-font-size-description);
+  line-height: var(--deprecated-lido-ui-line-height-description);
 }
 
 /* Right decorator margins by size */
@@ -329,7 +329,7 @@
   position: absolute;
   top: 100%;
   font-weight: var(--lido-ui-font-weight-bold);
-  font-size: var(--lido-ui-font-size-description);
+  font-size: var(--deprecated-lido-ui-font-size-description);
   border-radius: var(--lido-ui-border-radius-40);
   padding: 6px 16px;
   white-space: nowrap;
@@ -395,8 +395,8 @@
   transition: all 0.2s ease;
   pointer-events: none;
   transform-origin: left top;
-  font-size: var(--lido-ui-font-size-control);
-  line-height: var(--lido-ui-line-height-control);
+  font-size: var(--deprecated-lido-ui-font-size-control);
+  line-height: var(--deprecated-lido-ui-line-height-control);
   background: transparent;
   padding: 0 4px;
   width: calc(100% - 24px);

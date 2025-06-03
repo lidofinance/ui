@@ -64,7 +64,7 @@ import '@lidofinance/lido-ui/index.css';
       ```  
       Once configured, you can use the typography mixins directly in your CSS files. For example:
       ```css
-      @mixin typography-heading;
+      @mixin font-h2;
       ```
 
 ## Usage

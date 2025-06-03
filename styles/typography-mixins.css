@@ -1,92 +1,97 @@
+/* H1 */
 @define-mixin font-h1 {
-  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-h1);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-h1);
-  letter-spacing: -1px;
 }
 
+/* H2 */
 @define-mixin font-h2 {
-  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-h2);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-h2);
 }
 
+/* H3 */
+@define-mixin font-h3-bold {
+  font-size: var(--lido-ui-font-size-h3);
+  font-weight: var(--lido-ui-font-weight-medium);
+  line-height: var(--lido-ui-line-height-h3);
+}
+
 @define-mixin font-h3 {
-  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-h3);
   font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-h3);
 }
 
-@define-mixin font-h3-medium {
-  @mixin font-h3;
-
+/* H4 */
+@define-mixin font-h4-bols {
+  font-size: var(--lido-ui-font-size-h4);
   font-weight: var(--lido-ui-font-weight-medium);
+  line-height: var(--lido-ui-line-height-h4);
 }
 
 @define-mixin font-h4 {
-  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-h4);
   font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-h4);
 }
 
-@define-mixin font-h4-medium {
-  @mixin font-h4;
-
+/* H5 */
+@define-mixin font-h5-bold {
+  font-size: var(--lido-ui-font-size-h5);
   font-weight: var(--lido-ui-font-weight-medium);
+  line-height: var(--lido-ui-line-height-h5);
 }
 
-@define-mixin font-subheader {
-  font-family: var(--lido-ui-font-family);
-  font-size: var(--lido-ui-font-size-subheader);
+@define-mixin font-h5 {
+  font-size: var(--lido-ui-font-size-h5);
   font-weight: var(--lido-ui-font-weight-light);
-  line-height: var(--lido-ui-line-height-subheader);
+  line-height: var(--lido-ui-line-height-h5);
 }
 
-@define-mixin font-subheader-bold {
-  @mixin font-subheader;
-
-  font-weight: var(--lido-ui-font-weight-bold);
+/* Body Large */
+@define-mixin font-body-large {
+  font-size: var(--lido-ui-font-size-body-large);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-body-large);
 }
 
-@define-mixin font-control {
-  font-family: var(--lido-ui-font-family);
-  font-size: var(--lido-ui-font-size-control);
+@define-mixin font-body-large-medium {
+  font-size: var(--lido-ui-font-size-body-large);
   font-weight: var(--lido-ui-font-weight-regular);
-  line-height: var(--lido-ui-line-height-control);
+  line-height: var(--lido-ui-line-height-body-large);
 }
 
-@define-mixin font-control-bold {
-  @mixin font-control;
-
-  font-weight: var(--lido-ui-font-weight-bold);
+@define-mixin font-body-large-bold {
+  font-size: var(--lido-ui-font-size-body-large);
+  font-weight: var(--lido-ui-font-weight-medium);
+  line-height: var(--lido-ui-line-height-body-large);
 }
 
+/* Body */
 @define-mixin font-body {
-  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-body);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-body);
 }
 
 @define-mixin font-body-bold {
-  @mixin font-body;
-
+  font-size: var(--lido-ui-font-size-body);
   font-weight: var(--lido-ui-font-weight-bold);
+  line-height: var(--lido-ui-line-height-body);
 }
 
+/* Description */
 @define-mixin font-description {
-  font-family: var(--lido-ui-font-family);
   font-size: var(--lido-ui-font-size-description);
   font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-description);
 }
 
 @define-mixin font-description-bold {
-  @mixin font-description;
-
+  font-size: var(--lido-ui-font-size-description);
   font-weight: var(--lido-ui-font-weight-bold);
+  line-height: var(--lido-ui-line-height-description);
 }

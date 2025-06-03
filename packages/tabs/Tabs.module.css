@@ -72,8 +72,8 @@
   .rightDecorator {
     color: var(--deprecated-lido-ui-color-primary-50);
     font-weight: var(--lido-ui-font-weight-regular);
-    font-size: var(--lido-ui-font-size-subheader);
-    line-height: var(--lido-ui-line-height-subheader);
+    font-size: var(--deprecated-lido-ui-font-size-subheader);
+    line-height: var(--deprecated-lido-ui-line-height-subheader);
     margin-left: 6px;
     transition: color 0.2s ease;
   }
@@ -118,8 +118,8 @@
 .size--M {
   min-height: 50px;
   padding: 9px 20px;
-  font-size: var(--lido-ui-font-size-control-not-adaptive);
-  line-height: var(--lido-ui-line-height-tabs);
+  font-size: var(--deprecated-lido-ui-font-size-control-not-adaptive);
+  line-height: 30px;
 
   &.shape--circle {
     min-height: initial;
@@ -132,8 +132,8 @@
 .size--L {
   min-height: 70px;
   padding: 15px 30px;
-  font-size: var(--lido-ui-font-size-subheader);
-  line-height: var(--lido-ui-line-height-subheader);
+  font-size: var(--deprecated-lido-ui-font-size-subheader);
+  line-height: var(--deprecated-lido-ui-line-height-subheader);
 
   &.shape--circle {
     min-height: initial;
@@ -146,8 +146,8 @@
 .size--XL {
   min-height: 120px;
   padding: 20px 40px;
-  font-size: var(--lido-ui-font-size-subheader);
-  line-height: var(--lido-ui-line-height-subheader);
+  font-size: var(--deprecated-lido-ui-font-size-subheader);
+  line-height: var(--deprecated-lido-ui-line-height-subheader);
 
   &.shape--circle {
     min-height: initial;

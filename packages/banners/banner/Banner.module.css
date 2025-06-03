@@ -45,8 +45,8 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
-  font-size: var(--lido-ui-font-size-control);
-  line-height: var(--lido-ui-line-height-control);
+  font-size: var(--deprecated-lido-ui-font-size-control);
+  line-height: var(--deprecated-lido-ui-line-height-control);
   flex-direction: row;
 }
 
@@ -54,7 +54,7 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
-  font-size: var(--lido-ui-font-size-control);
+  font-size: var(--deprecated-lido-ui-font-size-control);
 }
 
 .mainButton {

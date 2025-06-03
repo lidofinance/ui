@@ -16,82 +16,63 @@ p {
   font-style: normal;
 }
 
-/* h1 */
+/* Typography Utility Classes */
 .ui-typography-h1 {
   @mixin font-h1;
 }
 
-/* h2 */
 .ui-typography-h2 {
   @mixin font-h2;
 }
 
-/* h3 */
+.ui-typography-h3-bold {
+  @mixin font-h3-bold;
+}
+
 .ui-typography-h3 {
   @mixin font-h3;
 }
 
-/* h3.medium */
-.ui-typography-h3.medium {
-  @mixin font-h3-medium;
+.ui-typography-h4-bold {
+  @mixin font-h4-bols;
 }
 
-/* h4 */
 .ui-typography-h4 {
   @mixin font-h4;
 }
 
-/* h4.medium */
-.ui-typography-h4.medium {
-  @mixin font-h4-medium;
+.ui-typography-h5-bold {
+  @mixin font-h5-bold;
 }
 
-/* h5 */
-.ui-typography-subheader {
-  @mixin font-subheader;
+.ui-typography-h5 {
+  @mixin font-h5;
 }
 
-/* h5.bold */
-.ui-typography-subheader.bold {
-  @mixin font-subheader-bold;
+.ui-typography-body-large {
+  @mixin font-body-large;
 }
 
-/* input */
-
-/* label */
-.ui-typography-control {
-  @mixin font-control;
+.ui-typography-body-large-medium {
+  @mixin font-body-large-medium;
 }
 
-/* input.bold */
-
-/* label.bold */
-.ui-typography-control.bold {
-  @mixin font-control-bold;
+.ui-typography-body-large-bold {
+  @mixin font-body-large-bold;
 }
 
-/* body */
 .ui-typography-body {
   @mixin font-body;
 }
 
-.ui-typography-body.bold {
+.ui-typography-body-bold {
   @mixin font-body-bold;
 }
 
-/* p */
 .ui-typography-description {
   @mixin font-description;
 }
 
-/* p.bold */
-.ui-typography-description.bold {
+.ui-typography-description-bold {
   @mixin font-description-bold;
-}
-
-@media (width <= 899px) {
-  /* h1 */
-  .ui-typography-h1 {
-    letter-spacing: normal;
-  }
 }
