@@ -128,8 +128,7 @@ To customize the CSS variables, create a CSS file in your project with new defin
   --lido-ui-line-height-body: 24px;
 
   /* Override colors */
-  --lido-ui-color-accent-ocean-static: #your-primary-color;
-  --lido-ui-color-background: #your-background-color;
+  --lido-ui-color-text-primary: #your-primary-color;
 }
 ```
 
@@ -152,8 +151,6 @@ Lido UI provides several categories of CSS variables that can be customized:
 
 2. **Colors**
    - Theme colors: `--lido-ui-color-*` (background, foreground, primary, text, etc.)
-   - Accent colors: `--lido-ui-color-accent-*` (ocean-static, berry-static, leaf-static, etc.)
-   - Border colors: `--lido-ui-color-borders-*` (fog, mist, etc.)
 
 3. **Border Radiuses**
    - `--lido-ui-border-radius-*` (4, 40, 50, 60, 70)

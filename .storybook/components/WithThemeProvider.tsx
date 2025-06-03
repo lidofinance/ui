@@ -27,9 +27,9 @@ export const WithThemeProvider: Decorator<{
       <div
         style={{
           minHeight: '10vh',
-          color: 'var(--lido-ui-color-primary)',
+          color: 'var(--deprecated-lido-ui-color-primary)',
           padding: '1em',
-          background: 'var(--lido-ui-color-background)',
+          background: 'var(--deprecated-lido-ui-color-background)',
         }}
       >
         <Story />

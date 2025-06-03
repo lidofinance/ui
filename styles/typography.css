@@ -6,9 +6,10 @@ h2,
 h3,
 h4,
 h5,
+span,
+div,
 body,
 p {
-  color: var(--lido-ui-color-primary);
   font-feature-settings:
     'clig' off,
     'liga' off;

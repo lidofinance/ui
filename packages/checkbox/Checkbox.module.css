@@ -18,7 +18,7 @@
   font-size: inherit;
   appearance: none;
   margin: 0;
-  border: 1px solid var(--lido-ui-color-borders-mist);
+  border: 1px solid var(--deprecated-lido-ui-color-borders-mist);
   border-radius: var(--lido-ui-border-radius-4);
   position: relative;
   transition: background-color 200ms;
@@ -30,7 +30,7 @@
   --checkmark-height: 10px;
 
   content: '';
-  background-color: var(--lido-ui-color-primary-reverse);
+  background-color: var(--deprecated-lido-ui-color-primary-reverse);
   mask-image: url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2014%2010%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M4.26456%209.73064L0%205.36458L1.20621%204.06401L4.86767%207.77979L12.7938%200L14%201.30057L5.47078%209.73064C5.13769%2010.0898%204.59765%2010.0898%204.26456%209.73064Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E');
   background-size: var(--checkmark-width) var(--checkmark-height);
   width: var(--checkmark-width);
@@ -80,39 +80,39 @@
 
 /* Variants */
 .accent:checked {
-  background-color: var(--lido-ui-color-accent-ocean-static);
+  background-color: var(--deprecated-lido-ui-color-accent-ocean-static);
 }
 
 .primary:checked {
-  background-color: var(--lido-ui-color-primary);
+  background-color: var(--deprecated-lido-ui-color-primary);
 }
 
 /* Input states */
 .input:disabled {
   cursor: not-allowed;
-  border-color: var(--lido-ui-color-borders-fog);
-  background-color: var(--lido-ui-color-primary-8);
+  border-color: var(--deprecated-lido-ui-color-borders-fog);
+  background-color: var(--deprecated-lido-ui-color-primary-8);
 }
 
 .input:disabled::before {
-  background-color: var(--lido-ui-color-primary-20);
+  background-color: var(--deprecated-lido-ui-color-primary-20);
 }
 
 .input:focus-visible {
-  outline: 3px solid var(--lido-ui-color-borders-water-static);
+  outline: 3px solid var(--deprecated-lido-ui-color-borders-water-static);
   outline-offset: 3px;
 }
 
 .input:not(:disabled):hover {
-  border-color: var(--lido-ui-color-borders-water-static);
+  border-color: var(--deprecated-lido-ui-color-borders-water-static);
 
   &:checked {
     &.accent {
-      background-color: var(--lido-ui-color-primary);
+      background-color: var(--deprecated-lido-ui-color-primary);
     }
 
     &.primary {
-      background-color: var(--lido-ui-color-accent-ocean-static);
+      background-color: var(--deprecated-lido-ui-color-accent-ocean-static);
     }
   }
 }
@@ -123,5 +123,5 @@
 }
 
 .textDisabled {
-  color: var(--lido-ui-color-primary-20);
+  color: var(--deprecated-lido-ui-color-primary-20);
 }

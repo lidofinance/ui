@@ -13,8 +13,8 @@
 
 .tab {
   position: relative;
-  color: var(--lido-ui-color-primary);
-  border: 1px solid var(--lido-ui-color-borders-fog);
+  color: var(--deprecated-lido-ui-color-primary);
+  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
   background-color: transparent;
   cursor: pointer;
   transition:
@@ -32,17 +32,17 @@
   }
 
   &:hover:not(.active, :disabled) {
-    color: var(--lido-ui-color-accent-ocean-static);
-    border-color: var(--lido-ui-color-accent-ocean-static);
+    color: var(--deprecated-lido-ui-color-accent-ocean-static);
+    border-color: var(--deprecated-lido-ui-color-accent-ocean-static);
   }
 
   &.active {
-    color: var(--lido-ui-color-primary-reverse);
-    background-color: var(--lido-ui-color-primary);
+    color: var(--deprecated-lido-ui-color-primary-reverse);
+    background-color: var(--deprecated-lido-ui-color-primary);
 
     &:disabled {
-      color: var(--lido-ui-color-primary-20);
-      border-color: var(--lido-ui-color-borders-fog);
+      color: var(--deprecated-lido-ui-color-primary-20);
+      border-color: var(--deprecated-lido-ui-color-borders-fog);
       background-color: transparent;
       cursor: not-allowed;
 
@@ -53,12 +53,12 @@
   }
 
   &.active::before {
-    border-color: var(--lido-ui-color-accent-ocean-static);
+    border-color: var(--deprecated-lido-ui-color-accent-ocean-static);
   }
 
   &:disabled {
-    color: var(--lido-ui-color-primary-20);
-    border-color: var(--lido-ui-color-borders-fog);
+    color: var(--deprecated-lido-ui-color-primary-20);
+    border-color: var(--deprecated-lido-ui-color-borders-fog);
     cursor: not-allowed;
   }
 }
@@ -70,7 +70,7 @@
   font-weight: var(--lido-ui-font-weight-bold);
 
   .rightDecorator {
-    color: var(--lido-ui-color-primary-50);
+    color: var(--deprecated-lido-ui-color-primary-50);
     font-weight: var(--lido-ui-font-weight-regular);
     font-size: var(--lido-ui-font-size-subheader);
     line-height: var(--lido-ui-line-height-subheader);
@@ -79,15 +79,15 @@
   }
 
   &:hover .rightDecorator {
-    color: var(--lido-ui-color-accent-ocean-static);
+    color: var(--deprecated-lido-ui-color-accent-ocean-static);
   }
 
   &.active .rightDecorator {
-    color: var(--lido-ui-color-primary-50-reverse);
+    color: var(--deprecated-lido-ui-color-primary-50-reverse);
   }
 
   &:disabled .rightDecorator {
-    color: var(--lido-ui-color-primary-20);
+    color: var(--deprecated-lido-ui-color-primary-20);
   }
 }
 
@@ -110,7 +110,7 @@
   }
 
   &:disabled svg path {
-    fill: var(--lido-ui-color-primary-20) !important;
+    fill: var(--deprecated-lido-ui-color-primary-20) !important;
   }
 }
 

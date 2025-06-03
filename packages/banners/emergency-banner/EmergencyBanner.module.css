@@ -1,6 +1,6 @@
 .banner {
   font-family: var(--lido-ui-font-family);
-  color: var(--lido-ui-color-white-static);
+  color: var(--deprecated-lido-ui-color-white-static);
   display: flex;
   box-sizing: border-box;
   justify-content: center;
@@ -27,13 +27,13 @@
 .title {
   @mixin font-h4;
 
-  color: var(--lido-ui-color-white-static);
+  color: var(--deprecated-lido-ui-color-white-static);
   font-weight: var(--lido-ui-font-weight-medium);
   text-align: center;
 }
 
 .description {
-  color: var(--lido-ui-color-white-static);
+  color: var(--deprecated-lido-ui-color-white-static);
   text-align: center;
   font-weight: var(--lido-ui-font-weight-light);
   font-size: var(--lido-ui-font-size-subheader);

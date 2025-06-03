@@ -13,7 +13,7 @@
   box-shadow: 0 4px 44px 0 #18284914;
 
   /* unique color */
-  background-color: var(--lido-ui-color-background-dropdown);
+  background-color: var(--deprecated-lido-ui-color-background-dropdown);
   backdrop-filter: blur(27px);
   margin-top: 8px;
   z-index: 1;
@@ -34,6 +34,6 @@
 
   &:hover {
     /* unique color */
-    background-color: var(--lido-ui-color-background-dropdown-hover);
+    background-color: var(--deprecated-lido-ui-color-background-dropdown-hover);
   }
 }

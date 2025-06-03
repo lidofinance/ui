@@ -15,17 +15,17 @@
   box-sizing: border-box;
   background-color: transparent;
   outline: none;
-  border: 1px solid var(--lido-ui-color-borders-fog);
+  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
   border-radius: var(--lido-ui-border-radius-50);
   font-size: var(--lido-ui-font-size-control-not-adaptive);
   line-height: var(--lido-ui-line-height-control-not-adaptive);
-  color: var(--lido-ui-color-primary);
+  color: var(--deprecated-lido-ui-color-primary);
   transition:
     color 0.3s ease-in-out,
     border-color 0.3s ease-in-out;
 
   &::placeholder {
-    color: var(--lido-ui-color-primary-50);
+    color: var(--deprecated-lido-ui-color-primary-50);
     transition: color 0.3s ease-in-out;
   }
 
@@ -38,22 +38,22 @@
   }
 
   &:hover {
-    border-color: var(--lido-ui-color-borders-water-static);
-    color: var(--lido-ui-color-primary);
+    border-color: var(--deprecated-lido-ui-color-borders-water-static);
+    color: var(--deprecated-lido-ui-color-primary);
   }
 
   &:hover::placeholder {
-    color: var(--lido-ui-color-primary);
+    color: var(--deprecated-lido-ui-color-primary);
   }
 
   &.open {
-    color: var(--lido-ui-color-primary-50);
-    border-color: var(--lido-ui-color-borders-water-static);
+    color: var(--deprecated-lido-ui-color-primary-50);
+    border-color: var(--deprecated-lido-ui-color-borders-water-static);
   }
 
   &:disabled {
-    color: var(--lido-ui-color-primary-20);
-    border-color: var(--lido-ui-color-borders-fog);
+    color: var(--deprecated-lido-ui-color-primary-20);
+    border-color: var(--deprecated-lido-ui-color-borders-fog);
     cursor: not-allowed;
   }
 }
@@ -74,7 +74,7 @@
     cursor: initial;
 
     path {
-      fill: var(--lido-ui-color-primary-20) !important;
+      fill: var(--deprecated-lido-ui-color-primary-20) !important;
     }
   }
 

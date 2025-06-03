@@ -1,11 +1,11 @@
 .foreground {
-  background: var(--lido-ui-color-foreground);
-  color: var(--lido-ui-color-text-secondary);
+  background: var(--deprecated-lido-ui-color-foreground);
+  color: var(--deprecated-lido-ui-color-text-secondary);
 }
 
 .background {
-  background: var(--lido-ui-color-background);
-  color: var(--lido-ui-color-text-secondary);
+  background: var(--deprecated-lido-ui-color-background);
+  color: var(--deprecated-lido-ui-color-text-secondary);
 }
 
 .flat {
