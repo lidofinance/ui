@@ -124,8 +124,8 @@ To customize the CSS variables, create a CSS file in your project with new defin
 :root {
   /* Override typography */
   --lido-ui-font-family: "Your-Custom-Font", sans-serif;
-  --deprecated-lido-ui-font-size-body: 16px;
-  --deprecated-lido-ui-line-height-body: 24px;
+  --lido-ui-font-size-body: 16px;
+  --lido-ui-line-height-body: 24px;
 
   /* Override colors */
   --lido-ui-color-text-primary: #your-primary-color;
@@ -145,9 +145,9 @@ Lido UI provides several categories of CSS variables that can be customized:
 
 1. **Typography**
    - Font family: `--lido-ui-font-family`
-   - Font sizes: `--deprecated-lido-ui-font-size-*` (h1, h2, h3, h4, subheader, control, body, description)
+   - Font sizes: `--lido-ui-font-size-*` (h1, h2, h3, h4, subheader, control, body, description)
    - Font weights: `--lido-ui-font-weight-*` (bold, medium, regular, light, extra-light)
-   - Line heights: `--deprecated-lido-ui-line-height-*` (h1, h2, h3, h4, subheader, control, body, description)
+   - Line heights: `--lido-ui-line-height-*` (h1, h2, h3, h4, subheader, control, body, description)
 
 2. **Colors**
    - Theme colors: `--lido-ui-color-*` (background, foreground, primary, text, etc.)
