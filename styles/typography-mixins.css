@@ -26,7 +26,7 @@
 }
 
 /* H4 */
-@define-mixin font-h4-bols {
+@define-mixin font-h4-bold {
   font-size: var(--lido-ui-font-size-h4);
   font-weight: var(--lido-ui-font-weight-medium);
   line-height: var(--lido-ui-line-height-h4);
