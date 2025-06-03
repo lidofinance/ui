@@ -1,97 +1,97 @@
 /* H1 */
 @define-mixin font-h1 {
   font-size: var(--lido-ui-font-size-h1);
-  font-weight: 400;
+  font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-h1);
 }
 
 /* H2 */
 @define-mixin font-h2 {
   font-size: var(--lido-ui-font-size-h2);
-  font-weight: 400;
+  font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-h2);
 }
 
 /* H3 */
 @define-mixin font-h3-bold {
   font-size: var(--lido-ui-font-size-h3);
-  font-weight: 500;
+  font-weight: var(--lido-ui-font-weight-medium);
   line-height: var(--lido-ui-line-height-h3);
 }
 
 @define-mixin font-h3 {
   font-size: var(--lido-ui-font-size-h3);
-  font-weight: 300;
+  font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-h3);
 }
 
 /* H4 */
 @define-mixin font-h4-bols {
   font-size: var(--lido-ui-font-size-h4);
-  font-weight: 500;
+  font-weight: var(--lido-ui-font-weight-medium);
   line-height: var(--lido-ui-line-height-h4);
 }
 
 @define-mixin font-h4 {
   font-size: var(--lido-ui-font-size-h4);
-  font-weight: 300;
+  font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-h4);
 }
 
 /* H5 */
 @define-mixin font-h5-bold {
   font-size: var(--lido-ui-font-size-h5);
-  font-weight: 500;
+  font-weight: var(--lido-ui-font-weight-medium);
   line-height: var(--lido-ui-line-height-h5);
 }
 
 @define-mixin font-h5 {
   font-size: var(--lido-ui-font-size-h5);
-  font-weight: 300;
+  font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-h5);
 }
 
 /* Body Large */
 @define-mixin font-body-large {
   font-size: var(--lido-ui-font-size-body-large);
-  font-weight: 300;
+  font-weight: var(--lido-ui-font-weight-light);
   line-height: var(--lido-ui-line-height-body-large);
 }
 
 @define-mixin font-body-large-medium {
   font-size: var(--lido-ui-font-size-body-large);
-  font-weight: 400;
+  font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-body-large);
 }
 
 @define-mixin font-body-large-bold {
   font-size: var(--lido-ui-font-size-body-large);
-  font-weight: 500;
+  font-weight: var(--lido-ui-font-weight-medium);
   line-height: var(--lido-ui-line-height-body-large);
 }
 
 /* Body */
 @define-mixin font-body {
   font-size: var(--lido-ui-font-size-body);
-  font-weight: 400;
+  font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-body);
 }
 
 @define-mixin font-body-bold {
   font-size: var(--lido-ui-font-size-body);
-  font-weight: 600;
+  font-weight: var(--lido-ui-font-weight-bold);
   line-height: var(--lido-ui-line-height-body);
 }
 
 /* Description */
 @define-mixin font-description {
   font-size: var(--lido-ui-font-size-description);
-  font-weight: 400;
+  font-weight: var(--lido-ui-font-weight-regular);
   line-height: var(--lido-ui-line-height-description);
 }
 
 @define-mixin font-description-bold {
   font-size: var(--lido-ui-font-size-description);
-  font-weight: 600;
+  font-weight: var(--lido-ui-font-weight-bold);
   line-height: var(--lido-ui-line-height-description);
 }
