@@ -30,7 +30,7 @@
   }
 
   .titleItem {
-    @mixin font-h2;
+    @mixin font-h3;
   }
 }
 
@@ -86,15 +86,15 @@
 }
 
 .titleItem {
-  font-size: var(--lido-ui-font-size-subheader-not-adaptive);
-  line-height: var(--lido-ui-line-height-subheader-not-adaptive);
+  font-size: var(--deprecated-lido-ui-font-size-subheader-not-adaptive);
+  line-height: var(--deprecated-lido-ui-line-height-subheader-not-adaptive);
   font-weight: var(--lido-ui-font-weight-light);
   color: var(--local-color);
   transition: color 0.3s;
 }
 
 .subtitleItem {
-  @mixin font-h3;
+  @mixin font-h5;
 
   color: var(--local-color);
   transition: color 0.3s;

@@ -15,7 +15,7 @@
 .block {
   font-family: var(--lido-ui-font-family);
   font-weight: var(--lido-ui-font-weight-regular);
-  font-size: var(--lido-ui-font-size-description);
+  font-size: var(--deprecated-lido-ui-font-size-description);
   line-height: 1.6em;
   border-radius: var(--lido-ui-border-radius-4);
   margin: 0;

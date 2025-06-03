@@ -20,8 +20,8 @@
 }
 
 .item {
-  font-size: var(--lido-ui-font-size-control-not-adaptive);
-  line-height: var(--lido-ui-line-height-control-not-adaptive);
+  font-size: var(--deprecated-lido-ui-font-size-control-not-adaptive);
+  line-height: var(--deprecated-lido-ui-line-height-control-not-adaptive);
   cursor: pointer;
 
   &.sizeL {

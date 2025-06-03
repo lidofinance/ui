@@ -2,79 +2,99 @@
   --lido-ui-font-family:
     'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
     oxygen-sans, ubuntu, cantarell, 'Helvetica Neue', sans-serif;
+
+  /* Desktop */
   --lido-ui-font-size-h1: 100px;
-  --lido-ui-font-size-h2: 76px;
-  --lido-ui-font-size-h2-not-adaptive: 76px;
-  --lido-ui-font-size-h3: 34px;
-  --lido-ui-font-size-h3-not-adaptive: 34px;
-  --lido-ui-font-size-h4: 28px;
-  --lido-ui-font-size-subheader: 22px;
-  --lido-ui-font-size-subheader-not-adaptive: 22px;
-  --lido-ui-font-size-control: 17px;
-  --lido-ui-font-size-control-not-adaptive: 17px;
-  --lido-ui-font-size-body: 15px;
+  --lido-ui-line-height-h1: 110px;
+  --lido-ui-font-size-h2: 72px;
+  --lido-ui-line-height-h2: 80px;
+  --lido-ui-font-size-h3: 46px;
+  --lido-ui-line-height-h3: 64px;
+  --lido-ui-font-size-h4: 36px;
+  --lido-ui-line-height-h4: 50px;
+  --lido-ui-font-size-h5: 24px;
+  --lido-ui-line-height-h5: 38px;
+  --lido-ui-font-size-body-large: 18px;
+  --lido-ui-line-height-body-large: 32px;
+  --lido-ui-font-size-body: 16px;
+  --lido-ui-line-height-body: 28px;
   --lido-ui-font-size-description: 14px;
+  --lido-ui-line-height-description: 20px;
+  --deprecated-lido-ui-font-size-subheader: 22px;
+  --deprecated-lido-ui-font-size-subheader-not-adaptive: 22px;
+  --deprecated-lido-ui-font-size-control: 17px;
+  --deprecated-lido-ui-font-size-control-not-adaptive: 17px;
+  --deprecated-lido-ui-font-size-body: 15px;
+  --deprecated-lido-ui-font-size-description: 14px;
   --lido-ui-font-weight-bold: 600;
   --lido-ui-font-weight-medium: 500;
   --lido-ui-font-weight-regular: 400;
   --lido-ui-font-weight-light: 300;
   --lido-ui-font-weight-extra-light: 200;
-  --lido-ui-line-height-h1: 100px;
-  --lido-ui-line-height-h2: 76px;
-  --lido-ui-line-height-h2-not-adaptive: 76px;
-  --lido-ui-line-height-h3: 48px;
-  --lido-ui-line-height-h3-not-adaptive: 48px;
-  --lido-ui-line-height-h4: 38px;
-  --lido-ui-line-height-subheader: 40px;
-  --lido-ui-line-height-subheader-not-adaptive: 40px;
-  --lido-ui-line-height-control: 26px;
-  --lido-ui-line-height-control-not-adaptive: 26px;
-  --lido-ui-line-height-body: 27px;
-  --lido-ui-line-height-description: 24px;
-
-  /* Specific typography */
-  --lido-ui-line-height-tabs: 30px;
+  --deprecated-lido-ui-line-height-subheader: 40px;
+  --deprecated-lido-ui-line-height-subheader-not-adaptive: 40px;
+  --deprecated-lido-ui-line-height-control: 26px;
+  --deprecated-lido-ui-line-height-control-not-adaptive: 26px;
+  --deprecated-lido-ui-line-height-body: 27px;
+  --deprecated-lido-ui-line-height-description: 24px;
 }
 
-/* media */
-@media (width <= 1499px) {
+@media (width <= 1440px) {
   :root {
-    --lido-ui-font-size-h1: 80px;
-    --lido-ui-font-size-h2: 62px;
-    --lido-ui-font-size-h3: 26px;
-    --lido-ui-font-size-h4: 22px;
-    --lido-ui-font-size-subheader: 19px;
-    --lido-ui-font-size-control: 17px;
-    --lido-ui-font-size-body: 15px;
-    --lido-ui-font-size-description: 14px;
+    /* Mid */
+    --lido-ui-font-size-h1: 76px;
     --lido-ui-line-height-h1: 80px;
-    --lido-ui-line-height-h2: 66px;
-    --lido-ui-line-height-h3: 40px;
-    --lido-ui-line-height-h4: 32px;
-    --lido-ui-line-height-subheader: 32px;
-    --lido-ui-line-height-control: 26px;
-    --lido-ui-line-height-body: 27px;
-    --lido-ui-line-height-description: 24px;
+    --lido-ui-font-size-h2: 60px;
+    --lido-ui-line-height-h2: 64px;
+    --lido-ui-font-size-h3: 38px;
+    --lido-ui-line-height-h3: 48px;
+    --lido-ui-font-size-h4: 28px;
+    --lido-ui-line-height-h4: 40px;
+    --lido-ui-font-size-h5: 20px;
+    --lido-ui-line-height-h5: 34px;
+    --lido-ui-font-size-body-large: 18px;
+    --lido-ui-line-height-body-large: 32px;
+    --lido-ui-font-size-body: 16px;
+    --lido-ui-line-height-body: 28px;
+    --lido-ui-font-size-description: 14px;
+    --lido-ui-line-height-description: 20px;
+    --deprecated-lido-ui-font-size-subheader: 19px;
+    --deprecated-lido-ui-font-size-control: 17px;
+    --deprecated-lido-ui-font-size-body: 15px;
+    --deprecated-lido-ui-font-size-description: 14px;
+    --deprecated-lido-ui-line-height-subheader: 32px;
+    --deprecated-lido-ui-line-height-control: 26px;
+    --deprecated-lido-ui-line-height-body: 27px;
+    --deprecated-lido-ui-line-height-description: 24px;
   }
 }
 
-@media (width <= 899px) {
+@media (width <= 900px) {
   :root {
-    --lido-ui-font-size-h1: 56px;
-    --lido-ui-font-size-h2: 36px;
-    --lido-ui-font-size-h3: 22px;
-    --lido-ui-font-size-h4: 18px;
-    --lido-ui-font-size-subheader: 17px;
-    --lido-ui-font-size-control: 14px;
-    --lido-ui-font-size-body: 15px;
-    --lido-ui-font-size-description: 14px;
+    /* Mobile (до 900px) */
+    --lido-ui-font-size-h1: 50px;
     --lido-ui-line-height-h1: 56px;
-    --lido-ui-line-height-h2: 36px;
-    --lido-ui-line-height-h3: 40px;
+    --lido-ui-font-size-h2: 38px;
+    --lido-ui-line-height-h2: 46px;
+    --lido-ui-font-size-h3: 28px;
+    --lido-ui-line-height-h3: 36px;
+    --lido-ui-font-size-h4: 22px;
     --lido-ui-line-height-h4: 32px;
-    --lido-ui-line-height-subheader: 32px;
-    --lido-ui-line-height-control: 26px;
-    --lido-ui-line-height-body: 27px;
-    --lido-ui-line-height-description: 24px;
+    --lido-ui-font-size-h5: 18px;
+    --lido-ui-line-height-h5: 32px;
+    --lido-ui-font-size-body-large: 16px;
+    --lido-ui-line-height-body-large: 28px;
+    --lido-ui-font-size-body: 14px;
+    --lido-ui-line-height-body: 24px;
+    --lido-ui-font-size-description: 12px;
+    --lido-ui-line-height-description: 18px;
+    --deprecated-lido-ui-font-size-subheader: 17px;
+    --deprecated-lido-ui-font-size-control: 14px;
+    --deprecated-lido-ui-font-size-body: 15px;
+    --deprecated-lido-ui-font-size-description: 14px;
+    --deprecated-lido-ui-line-height-subheader: 32px;
+    --deprecated-lido-ui-line-height-control: 26px;
+    --deprecated-lido-ui-line-height-body: 27px;
+    --deprecated-lido-ui-line-height-description: 24px;
   }
 }

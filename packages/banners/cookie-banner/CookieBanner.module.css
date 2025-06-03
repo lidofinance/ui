@@ -42,8 +42,8 @@
 }
 
 .text {
-  font-size: var(--lido-ui-font-size-body);
-  line-height: var(--lido-ui-line-height-body);
+  font-size: var(--deprecated-lido-ui-font-size-body);
+  line-height: var(--deprecated-lido-ui-line-height-body);
   color: var(--deprecated-lido-ui-color-primary);
 }
 

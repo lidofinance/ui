@@ -74,25 +74,22 @@
   }
 }
 
+.size--s,
+.size--m,
+.size--l {
+  @mixin font-body;
+}
+
 /* Text */
 .size--s {
-  @mixin font-control;
-
   padding: 6px 20px;
-
-  /* Manually set font size to override default font size */
-  font-size: var(--lido-ui-font-size-body);
 }
 
 .size--m {
-  @mixin font-control;
-
   padding: 10px 30px;
 }
 
 .size--l {
-  @mixin font-control;
-
   padding: 17px 30px;
 }
 

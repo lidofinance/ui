@@ -20,12 +20,12 @@
   align-items: center;
   padding: 0 40px;
   gap: 10px;
-  font-size: var(--lido-ui-font-size-subheader);
-  line-height: var(--lido-ui-line-height-subheader);
+  font-size: var(--deprecated-lido-ui-font-size-subheader);
+  line-height: var(--deprecated-lido-ui-line-height-subheader);
 }
 
 .title {
-  @mixin font-h4;
+  @mixin font-body;
 
   color: var(--deprecated-lido-ui-color-white-static);
   font-weight: var(--lido-ui-font-weight-medium);
@@ -36,7 +36,7 @@
   color: var(--deprecated-lido-ui-color-white-static);
   text-align: center;
   font-weight: var(--lido-ui-font-weight-light);
-  font-size: var(--lido-ui-font-size-subheader);
+  font-size: var(--deprecated-lido-ui-font-size-subheader);
 }
 
 .button {

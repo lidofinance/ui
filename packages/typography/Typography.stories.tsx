@@ -61,41 +61,47 @@ export const TypographyByClasses = () => (
     <div className='ui-typography-h3' style={{ marginBottom: 20 }}>
       .ui-typography-h3
     </div>
-    <div className='ui-typography-h3 medium' style={{ marginBottom: 20 }}>
-      .ui-typography-h3.medium
+    <div className='ui-typography-h3-bold' style={{ marginBottom: 20 }}>
+      .ui-typography-h3-bold
     </div>
     <div className='ui-typography-h4' style={{ marginBottom: 20 }}>
       .ui-typography-h4
     </div>
-    <div className='ui-typography-h4 medium' style={{ marginBottom: 20 }}>
-      .ui-typography-h4.medium
+    <div className='ui-typography-h4-bold' style={{ marginBottom: 20 }}>
+      .ui-typography-h4-bold
     </div>
-    <div className='ui-typography-subheader' style={{ marginBottom: 20 }}>
-      .ui-typography-subheader
+    <div className='ui-typography-h5' style={{ marginBottom: 20 }}>
+      .ui-typography-h5
     </div>
-    <div className='ui-typography-subheader bold' style={{ marginBottom: 20 }}>
-      .ui-typography-subheader.bold
+    <div className='ui-typography-h5-bold' style={{ marginBottom: 20 }}>
+      .ui-typography-h5-bold
     </div>
-    <div className='ui-typography-control' style={{ marginBottom: 20 }}>
-      .ui-typography-control
+    <div className='ui-typography-body-large' style={{ marginBottom: 20 }}>
+      .ui-typography-body-large
     </div>
-    <div className='ui-typography-control bold' style={{ marginBottom: 20 }}>
-      .ui-typography-control.bold
+    <div
+      className='ui-typography-body-large-medium'
+      style={{ marginBottom: 20 }}
+    >
+      .ui-typography-body-large-medium
+    </div>
+    <div className='ui-typography-body-large-bold' style={{ marginBottom: 20 }}>
+      .ui-typography-body-large-bold
     </div>
     <div className='ui-typography-body' style={{ marginBottom: 20 }}>
       .ui-typography-body
     </div>
-    <div className='ui-typography-body bold' style={{ marginBottom: 20 }}>
-      .ui-typography-body.bold
+    <div className='ui-typography-body-bold' style={{ marginBottom: 20 }}>
+      .ui-typography-body-bold
     </div>
     <div className='ui-typography-description' style={{ marginBottom: 20 }}>
       .ui-typography-description
     </div>
     <div
-      className='ui-typography-description bold'
+      className='ui-typography-description-bold'
       style={{ marginBottom: 20 }}
     >
-      .ui-typography-description.bold
+      .ui-typography-description-bold
     </div>
   </div>
 )

@@ -59,23 +59,23 @@
 }
 
 .textSize--L {
-  font-size: var(--lido-ui-font-size-subheader);
-  line-height: var(--lido-ui-line-height-subheader);
+  font-size: var(--deprecated-lido-ui-font-size-subheader);
+  line-height: var(--deprecated-lido-ui-line-height-subheader);
 }
 
 .textSize--M {
-  font-size: var(--lido-ui-font-size-control);
-  line-height: var(--lido-ui-line-height-control);
+  font-size: var(--deprecated-lido-ui-font-size-control);
+  line-height: var(--deprecated-lido-ui-line-height-control);
 }
 
 .textSize--S {
-  font-size: var(--lido-ui-font-size-body);
-  line-height: var(--lido-ui-line-height-body);
+  font-size: var(--deprecated-lido-ui-font-size-body);
+  line-height: var(--deprecated-lido-ui-line-height-body);
 }
 
 .XS {
-  font-size: var(--lido-ui-font-size-description);
-  line-height: var(--lido-ui-line-height-description);
+  font-size: var(--deprecated-lido-ui-font-size-description);
+  line-height: var(--deprecated-lido-ui-line-height-description);
 }
 
 /* Variants */

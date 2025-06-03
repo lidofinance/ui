@@ -176,26 +176,26 @@
 
 /* Fonts */
 .normal {
-  font-size: var(--lido-ui-font-size-control-not-adaptive);
+  font-size: var(--deprecated-lido-ui-font-size-control-not-adaptive);
   font-weight: var(--lido-ui-font-weight-regular);
 }
 
 .semibold {
-  font-size: var(--lido-ui-font-size-control-not-adaptive);
+  font-size: var(--deprecated-lido-ui-font-size-control-not-adaptive);
   font-weight: var(--lido-ui-font-weight-bold);
-  line-height: var(--lido-ui-line-height-control-not-adaptive);
+  line-height: var(--deprecated-lido-ui-line-height-control-not-adaptive);
 }
 
 .subhead {
-  font-size: var(--lido-ui-font-size-subheader);
+  font-size: var(--deprecated-lido-ui-font-size-subheader);
   font-weight: var(--lido-ui-font-weight-light);
-  line-height: var(--lido-ui-line-height-subheader);
+  line-height: var(--deprecated-lido-ui-line-height-subheader);
 }
 
 .description {
-  font-size: var(--lido-ui-font-size-description);
+  font-size: var(--deprecated-lido-ui-font-size-description);
   font-weight: var(--lido-ui-font-weight-regular);
-  line-height: var(--lido-ui-line-height-description);
+  line-height: var(--deprecated-lido-ui-line-height-description);
 }
 
 /* Colors */
