@@ -38,6 +38,23 @@ export default {
         Array.isArray(rule.use),
     )
 
+    // Find css-loader in the rule
+    const cssLoaderIndex = cssRule.use.findIndex(
+      (use: any) => use.loader && use.loader.includes('css-loader'),
+    )
+
+    if (cssLoaderIndex !== -1) {
+      // Update css-loader options to not obfuscate class names in Storybook
+      const cssLoader = cssRule.use[cssLoaderIndex]
+      cssLoader.options = {
+        ...cssLoader.options,
+        modules: {
+          ...cssLoader.options?.modules,
+          localIdentName: '[name]__[local]', // Use readable class names
+        },
+      }
+    }
+
     cssRule.use.push({
       loader: 'postcss-loader',
       options: {

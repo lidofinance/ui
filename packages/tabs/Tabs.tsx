@@ -3,6 +3,7 @@ import {
   MouseEvent,
   ReactNode,
   useEffect,
+  useRef,
   useState,
 } from 'react'
 import styles from './Tabs.module.css'
@@ -10,61 +11,28 @@ import cn from 'classnames'
 
 export type TabBaseItem = {
   key: string
-  disabled?: boolean
   children?: ReactNode
   dataTestId?: TabsDataTestId
+  disabled?: boolean
 }
-
-export type TabCircleItem = TabBaseItem & {
-  rightDecorator?: never
-}
-
-export type TabOvalItem = TabBaseItem & {
-  rightDecorator?: ReactNode
-}
-
-export type TabsDirection = 'vertical' | 'horizontal'
-
-export type TabsSize = 'm' | 'l' | 'xl'
-
-export type TabsShape = 'oval' | 'circle'
 
 export type TabsDataTestId = {
   tab?: string
   tabTitle?: string
-  rightDecorator?: string
   root?: string
 }
 
-export type TabsBaseProps = Omit<
-  ComponentPropsWithoutRef<'div'>,
-  'onChange'
-> & {
-  size?: TabsSize
-  shape?: TabsShape
-  direction?: TabsDirection
+export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   defaultKey?: string
   activeKey?: string
   onKeyChange?: (key: string, scrollIntoView: boolean) => unknown
   dataTestId?: TabsDataTestId
+  type: 'icon' | 'text'
+  items?: TabBaseItem[]
 }
-
-export type TabsOvalProps = TabsBaseProps & {
-  shape?: 'oval'
-  items?: TabOvalItem[]
-}
-
-export type TabsCircleProps = TabsBaseProps & {
-  shape?: 'circle'
-  items?: TabCircleItem[]
-}
-
-export type TabsProps = TabsOvalProps | TabsCircleProps
 
 export const Tabs = ({
-  size = 'm',
-  shape = 'oval',
-  direction = 'horizontal',
+  type = 'text',
   defaultKey,
   activeKey: _activeKey,
   items,
@@ -76,6 +44,8 @@ export const Tabs = ({
   const [activeKey, setActiveKey] = useState<string | number | undefined>(
     undefined,
   )
+  const activeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const selectionRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     setActiveKey(defaultKey)
@@ -93,45 +63,69 @@ export const Tabs = ({
     }
   }, [_activeKey, items])
 
-  const handleClick = (key: string) => (event: MouseEvent) => {
-    event.preventDefault()
-    onKeyChange?.(key, true)
-    if (_activeKey != null) {
-      return
+  // Update selection div position and size to match active button
+  useEffect(() => {
+    const updateSelectionPosition = () => {
+      if (activeButtonRef.current && selectionRef.current) {
+        const buttonRect = activeButtonRef.current.getBoundingClientRect()
+        const tabsRect =
+          activeButtonRef.current.parentElement?.getBoundingClientRect()
+
+        if (tabsRect) {
+          // Position the selection div under the active button
+          selectionRef.current.style.width = `${buttonRect.width}px`
+          selectionRef.current.style.height = `${buttonRect.height}px`
+          selectionRef.current.style.left = `${buttonRect.left - tabsRect.left - 1}px`
+          selectionRef.current.style.top = `${buttonRect.top - tabsRect.top}px`
+        }
+      }
     }
-    setActiveKey(key)
-  }
+
+    // Update position immediately
+    updateSelectionPosition()
+
+    // Also update on window resize
+    window.addEventListener('resize', updateSelectionPosition)
+    return () => {
+      window.removeEventListener('resize', updateSelectionPosition)
+    }
+  }, [activeKey, type, items])
+
+  const handleClick =
+    (key: string, itemDisabled?: boolean) => (event: MouseEvent) => {
+      event.preventDefault()
+      if (itemDisabled) {
+        return
+      }
+      onKeyChange?.(key, true)
+      if (_activeKey != null) {
+        return
+      }
+      setActiveKey(key)
+    }
 
   return (
     <div
-      className={cn(styles.tabs, className, {
-        [styles.vertical]: direction === 'vertical',
-      })}
+      className={cn(styles.tabs, className)}
       data-testid={dataTestId?.root}
       {...rest}
     >
+      <div ref={selectionRef} className={styles.selection}></div>
       {items?.map((item) => (
         <button
+          ref={item.key === activeKey ? activeButtonRef : undefined}
           data-id={item.key === activeKey ? 'active' : undefined}
           className={cn(styles.tab, {
             [styles.active]: item.key === activeKey,
-            [styles[`size--${size.toUpperCase()}`]]: size,
-            [styles[`shape--${shape}`]]: shape,
+            [styles.disabled]: item.disabled,
+            [styles[`shape--${type}`]]: type,
           })}
           key={item.key}
+          onClick={handleClick(item.key, item.disabled)}
           disabled={item.disabled}
-          onClick={handleClick(item.key)}
           data-testid={item.dataTestId?.tab}
         >
           <span data-testid={item.dataTestId?.tabTitle}>{item.children}</span>
-          {item.rightDecorator != null && (
-            <span
-              className={styles.rightDecorator}
-              data-testid={item.dataTestId?.rightDecorator}
-            >
-              {item.rightDecorator}
-            </span>
-          )}
         </button>
       ))}
     </div>

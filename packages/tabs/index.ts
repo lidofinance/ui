@@ -9,6 +9,5 @@ export type {
   TabCircleItem,
   TabOvalItem,
   TabsDirection,
-  TabsSize,
   TabsShape,
 } from './Tabs'

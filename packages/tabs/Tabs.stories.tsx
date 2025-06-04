@@ -6,28 +6,38 @@ export default {
   component: Tabs,
   title: 'Navigation/Tabs',
   args: {
-    size: 'l',
-    shape: 'oval',
-    direction: 'horizontal',
+    type: 'text',
     items: [
       { key: '1', children: 'Tab 1' },
-      { key: '2', children: 'Tab 2' },
+      { key: '2', children: 'Tab 222222' },
       { key: '3', children: 'Tab 3' },
     ],
   },
   argTypes: {
     onKeyChange: { action: 'changed' },
-    size: {
-      options: ['m', 'l', 'xl'],
-      control: { type: 'radio' },
+    items: {
+      control: 'object',
+      description:
+        'Array of tab items. Each item can have a disabled property to disable individual tabs.',
     },
-    shape: {
-      options: ['oval', 'circle'],
+
+    type: {
+      options: ['text', 'icon'],
       control: { type: 'radio' },
+      description:
+        'Type of content: text for oval shape, icon for circle shape',
     },
-    direction: {
-      options: ['horizontal', 'vertical'],
-      control: { type: 'radio' },
+    defaultKey: {
+      control: 'text',
+      description: 'Key of the initially active tab (uncontrolled mode)',
+    },
+    activeKey: {
+      control: 'text',
+      description: 'Key of the active tab (controlled mode)',
+    },
+    dataTestId: {
+      control: 'object',
+      description: 'Test IDs for automated testing',
     },
   },
   tags: ['autodocs'],
@@ -36,28 +46,19 @@ export default {
 export const Basic: StoryFn<TabsProps> = (props) => <Tabs {...props} />
 
 export const AllStates: StoryFn<TabsProps> = () => {
-  const baselineSizes: NonNullable<TabsProps['size']>[] = ['m', 'l']
-  const shapes: NonNullable<TabsProps['shape']>[] = ['oval', 'circle']
-  const directions: NonNullable<TabsProps['direction']>[] = [
-    'horizontal',
-    'vertical',
-  ]
-
-  const ovalItems = [
+  const textItems = [
     { key: '1', children: 'Tab 1' },
     { key: '2', children: 'Tab 2' },
     { key: '3', children: 'Tab 3' },
   ]
-
-  const ovalItemsWithDecorator = [
-    { key: '1', children: 'Tab 1', rightDecorator: '(1)' },
-    { key: '2', children: 'Tab 2', rightDecorator: '(2)' },
-    { key: '3', children: 'Tab 3', rightDecorator: '(3)' },
-  ]
-
   const circleItems = [
     { key: '1', children: <Eth /> },
-    { key: '2', children: <Eth /> },
+    {
+      key: '2',
+      children: (
+        <img src='https://lido.fi/static/index/defi/metamask.svg' alt={'img'} />
+      ),
+    },
     { key: '3', children: <Eth /> },
   ]
 
@@ -72,41 +73,11 @@ export const AllStates: StoryFn<TabsProps> = () => {
     marginBottom: '16px',
   }
 
-  const subHeadingStyle: React.CSSProperties = {
-    fontSize: '20px',
-    marginBottom: '12px',
-  }
-
-  const sectionHeadingStyle: React.CSSProperties = {
-    fontSize: '18px',
-    marginBottom: '8px',
-  }
-
-  const partiallyDisabledOvalItems = [
-    { key: '1', children: 'Active Tab' },
-    {
-      key: '2',
-      children: 'Disabled Tab',
-      disabled: true,
-    },
-    { key: '3', children: 'Active Tab' },
-  ]
-
-  const partiallyDisabledCircleItems = [
-    { key: '1', children: <Eth /> },
-    {
-      key: '2',
-      children: <Eth />,
-      disabled: true,
-    },
-    { key: '3', children: <Eth /> },
-  ]
-
   return (
     <div style={gridContainerStyle}>
-      {shapes.map((shape) => (
-        <div key={shape}>
-          <h3 style={headingStyle}>Shape: {shape}</h3>
+      {['text', 'icon'].map((type: 'text' | 'icon') => (
+        <div key={type}>
+          <h3 style={headingStyle}>Type: {type}</h3>
           <div
             style={{
               display: 'flex',
@@ -114,67 +85,56 @@ export const AllStates: StoryFn<TabsProps> = () => {
               flexDirection: 'column',
             }}
           >
-            {[
-              ...baselineSizes,
-              ...(shape === 'circle' ? ['xl' as const] : []),
-            ].map((size) => (
-              <div
-                key={size}
-                style={{
-                  padding: '16px',
-                  border:
-                    '1px solid var(--deprecated-lido-ui-color-borders-fog)',
-                }}
-              >
-                <h5 style={subHeadingStyle}>Size: {size}</h5>
-                {directions.map((direction) => (
-                  <div key={direction} style={{ marginBottom: '16px' }}>
-                    <h6 style={sectionHeadingStyle}>Direction: {direction}</h6>
-                    <Tabs
-                      size={size}
-                      shape={shape}
-                      direction={direction}
-                      items={shape === 'oval' ? ovalItems : circleItems}
-                    />
-                  </div>
-                ))}
-                {shape === 'oval' && (
-                  <div style={{ marginBottom: '16px' }}>
-                    <h6 style={sectionHeadingStyle}>With Decorators</h6>
-                    <Tabs
-                      size={size}
-                      shape={shape}
-                      items={ovalItemsWithDecorator}
-                    />
-                  </div>
-                )}
-                <div style={{ marginBottom: '16px' }}>
-                  <h6 style={sectionHeadingStyle}>Partially Disabled</h6>
-                  <Tabs
-                    size={size}
-                    shape={shape}
-                    items={
-                      shape === 'oval'
-                        ? partiallyDisabledOvalItems
-                        : partiallyDisabledCircleItems
-                    }
-                  />
-                </div>
-                <div>
-                  <h6 style={sectionHeadingStyle}>All Disabled</h6>
-                  <Tabs
-                    size={size}
-                    shape={shape}
-                    items={(shape === 'oval' ? ovalItems : circleItems).map(
-                      (item) => ({
-                        ...item,
-                        disabled: true,
-                      }),
-                    )}
-                  />
-                </div>
+            <div
+              style={{
+                padding: '16px',
+                border: '1px solid var(--deprecated-lido-ui-color-borders-fog)',
+              }}
+            >
+              <div style={{ marginBottom: '16px' }}>
+                <h6 style={{ marginBottom: '8px' }}>Regular:</h6>
+                <Tabs
+                  type={type}
+                  items={type === 'text' ? textItems : circleItems}
+                />
               </div>
-            ))}
+
+              <div style={{ marginBottom: '16px' }}>
+                <h6 style={{ marginBottom: '8px' }}>
+                  With individual disabled items:
+                </h6>
+                <Tabs
+                  type={type}
+                  items={
+                    type === 'text'
+                      ? [
+                          { key: '1', children: 'Tab 1' },
+                          {
+                            key: '2',
+                            children: 'Tab 2',
+                            disabled: true,
+                          },
+                          { key: '3', children: 'Tab 3' },
+                        ]
+                      : [
+                          { key: '1', children: <Eth /> },
+                          { key: '4', children: <Eth /> },
+                          {
+                            key: '2',
+                            children: (
+                              <img
+                                src='https://lido.fi/static/index/defi/metamask.svg'
+                                alt={'img'}
+                              />
+                            ),
+                            disabled: true,
+                          },
+                          { key: '3', children: <Eth />, disabled: true },
+                        ]
+                  }
+                />
+              </div>
+            </div>
           </div>
         </div>
       ))}
@@ -186,7 +146,8 @@ AllStates.parameters = {
   controls: { disable: true },
   docs: {
     description: {
-      story: 'Displays all possible Tabs states for easy review.',
+      story:
+        'Displays all possible Tabs states for easy review. The tabs automatically adjust their size based on screen width: small on mobile screens (max-width: 768px), medium on tablets and small desktops, and large on larger screens (min-width: 1200px).',
     },
   },
 }
