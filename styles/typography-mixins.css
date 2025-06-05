@@ -81,6 +81,28 @@
   letter-spacing: normal;
 }
 
+/* Body Large */
+@define-mixin font-body-large-static {
+  font-size: var(--lido-ui-font-size-body-large-static);
+  font-weight: var(--lido-ui-font-weight-light);
+  line-height: var(--lido-ui-line-height-body-large-static);
+  letter-spacing: normal;
+}
+
+@define-mixin font-body-large-medium-static {
+  font-size: var(--lido-ui-font-size-body-large-static);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-body-large-static);
+  letter-spacing: normal;
+}
+
+@define-mixin font-body-large-bold-static {
+  font-size: var(--lido-ui-font-size-body-large-static);
+  font-weight: var(--lido-ui-font-weight-medium);
+  line-height: var(--lido-ui-line-height-body-large-static);
+  letter-spacing: normal;
+}
+
 /* Body */
 @define-mixin font-body {
   font-size: var(--lido-ui-font-size-body);

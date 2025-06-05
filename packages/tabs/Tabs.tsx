@@ -28,11 +28,13 @@ export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   onKeyChange?: (key: string, scrollIntoView: boolean) => unknown
   dataTestId?: TabsDataTestId
   type: 'icon' | 'text'
+  size?: 's' | 'm' | 'l'
   items?: TabBaseItem[]
 }
 
 export const Tabs = ({
   type = 'text',
+  size = 'l',
   defaultKey,
   activeKey: _activeKey,
   items,
@@ -75,7 +77,7 @@ export const Tabs = ({
           // Position the selection div under the active button
           selectionRef.current.style.width = `${buttonRect.width}px`
           selectionRef.current.style.height = `${buttonRect.height}px`
-          selectionRef.current.style.left = `${buttonRect.left - tabsRect.left - 1}px`
+          selectionRef.current.style.left = `${buttonRect.left - tabsRect.left}px`
           selectionRef.current.style.top = `${buttonRect.top - tabsRect.top}px`
         }
       }
@@ -106,7 +108,7 @@ export const Tabs = ({
 
   return (
     <div
-      className={cn(styles.tabs, className)}
+      className={cn(styles.tabs, styles[`size--${size}`], className)}
       data-testid={dataTestId?.root}
       {...rest}
     >
