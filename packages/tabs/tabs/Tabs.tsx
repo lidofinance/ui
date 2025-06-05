@@ -65,7 +65,6 @@ export const Tabs = ({
     }
   }, [_activeKey, items])
 
-  // Update selection div position and size to match active button
   useEffect(() => {
     const updateSelectionPosition = () => {
       if (activeButtonRef.current && selectionRef.current) {
@@ -74,7 +73,6 @@ export const Tabs = ({
           activeButtonRef.current.parentElement?.getBoundingClientRect()
 
         if (tabsRect) {
-          // Position the selection div under the active button
           selectionRef.current.style.width = `${buttonRect.width}px`
           selectionRef.current.style.height = `${buttonRect.height}px`
           selectionRef.current.style.left = `${buttonRect.left - tabsRect.left}px`
@@ -83,10 +81,8 @@ export const Tabs = ({
       }
     }
 
-    // Update position immediately
     updateSelectionPosition()
 
-    // Also update on window resize
     window.addEventListener('resize', updateSelectionPosition)
     return () => {
       window.removeEventListener('resize', updateSelectionPosition)

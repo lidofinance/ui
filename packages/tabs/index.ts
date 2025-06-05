@@ -1,13 +1,8 @@
-export * from './Tabs'
+export * from './tabs/Tabs'
+export * from './textTabs/TextTabs'
+export type { TabsDataTestId, TabsProps, TabBaseItem } from './tabs/Tabs'
 export type {
-  TabsDataTestId,
-  TabsProps,
-  TabsBaseProps,
-  TabsOvalProps,
-  TabsCircleProps,
-  TabBaseItem,
-  TabCircleItem,
-  TabOvalItem,
-  TabsDirection,
-  TabsShape,
-} from './Tabs'
+  TextTabsDataTestId,
+  TextTabsProps,
+  TextTabItem,
+} from './textTabs/TextTabs'
