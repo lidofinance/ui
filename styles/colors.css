@@ -1,90 +1,115 @@
-/* NEW COLORS */
-
-:root {
-  --lido-ui-color-buttons-primary: #000f;
-  --lido-ui-color-buttons-primary-hover: #0085ffff;
-  --lido-ui-color-buttons-secondary: #0085ffff;
-  --lido-ui-color-buttons-secondary-hover: #00a3ffff;
-  --lido-ui-color-buttons-disabled: #1312171a;
-  --lido-ui-color-borders-active: #13121733;
-  --lido-ui-color-borders-inverted: #ffffff4d;
-  --lido-ui-color-borders-hover: #0085ff80;
-  --lido-ui-color-borders-success: #29c38c66;
-  --lido-ui-color-borders-error: #d7475866;
-  --lido-ui-color-borders-warning: #fabd6966;
-  --lido-ui-color-borders-featured: linear-gradient(
-    90deg,
-    8.17% rgb(85 0 255 / 60%),
-    50.48% rgb(85 0 255 / 30%),
-    100% rgb(85 0 255 / 20%)
-  );
-  --lido-ui-color-backgrounds-cards: #ffffffb3;
-  --lido-ui-color-backgrounds-cards-hover: #ffff;
-  --lido-ui-color-backgrounds-error: #d7475833;
-  --lido-ui-color-backgrounds-sucess: #29c38c33;
-  --lido-ui-color-backgrounds-warning: #fabd6933;
-  --lido-ui-color-backgrounds-grey: #1312170a;
-  --lido-ui-color-backgrounds-highlighted: #0085ff33;
-  --lido-ui-color-backgrounds-featured: radial-gradient(
-    50% 50% at 50% 50%,
-    0% rgb(0 133 255 / 0%),
-    65.38% rgb(0 133 255 / 5%),
-    100% rgb(0 133 255 / 20%)
-  );
-}
-
 /* Color Styles  */
 :root,
 [data-lido-theme='light'] {
-  --lido-ui-color-text-primary: #000f;
-  --lido-ui-color-text-primary-hover: #0085ffff;
-  --lido-ui-color-text-secondary: #131217b8;
-  --lido-ui-color-text-secondary-hover: #0085ffb8;
-  --lido-ui-color-text-tertiary: #13121780;
-  --lido-ui-color-text-tertiary-hover: #0085ff99;
-  --lido-ui-color-text-quaternary: #13121752;
-  --lido-ui-color-text-quaternary-hover: #0085ff52;
-  --lido-ui-color-text-inverted: #ffff;
-  --lido-ui-color-text-link: #0085ffff;
-  --lido-ui-color-text-success: #11b690ff;
-  --lido-ui-color-text-warning: #eb9925ff;
-  --lido-ui-color-text-error: #d74758ff;
-  --lido-ui-color-icons-primary: #000f;
-  --lido-ui-color-icons-secondary: #131217b8;
-  --lido-ui-color-icons-tertiary: #13121780;
-  --lido-ui-color-icons-quaternary: #13121752;
-  --lido-ui-color-icons-inverted: #ffff;
-  --lido-ui-color-icons-active: #0085ff;
-  --lido-ui-color-icons-success: #11b690ff;
-  --lido-ui-color-icons-error: #d74758ff;
-  --lido-ui-color-icons-warning: #eb9925ff;
-  --lido-ui-color-backgrounds-surface: #fff9f9ff;
-  --lido-ui-color-borders-default: #1312171a;
+  --lido-ui-color-text-primary: rgb(0 0 0 / 100%);
+  --lido-ui-color-text-primary-hover: rgb(0 133 255 / 100%);
+  --lido-ui-color-text-secondary: rgb(19 18 23 / 72%);
+  --lido-ui-color-text-secondary-hover: rgb(0 133 255 / 72%);
+  --lido-ui-color-text-tertiary: rgb(19 18 23 / 50%);
+  --lido-ui-color-text-tertiary-hover: rgb(0 133 255 / 60%);
+  --lido-ui-color-text-quaternary: rgb(19 18 23 / 32%);
+  --lido-ui-color-text-quaternary-hover: rgb(0 133 255 / 32%);
+  --lido-ui-color-text-inverted: rgb(255 255 255 / 100%);
+  --lido-ui-color-text-link: rgb(0 133 255 / 100%);
+  --lido-ui-color-text-success: rgb(17 182 144 / 100%);
+  --lido-ui-color-text-warning: rgb(235 153 37 / 100%);
+  --lido-ui-color-text-error: rgb(215 71 88 / 100%);
+  --lido-ui-color-icons-primary: rgb(0 0 0 / 100%);
+  --lido-ui-color-icons-secondary: rgb(19 18 23 / 72%);
+  --lido-ui-color-icons-tertiary: rgb(19 18 23 / 50%);
+  --lido-ui-color-icons-quaternary: rgb(19 18 23 / 32%);
+  --lido-ui-color-icons-inverted: rgb(255 255 255 / 100%);
+  --lido-ui-color-icons-active: rgb(0 133 255 / 100%);
+  --lido-ui-color-icons-success: rgb(17 182 144 / 100%);
+  --lido-ui-color-icons-error: rgb(215 71 88 / 100%);
+  --lido-ui-color-icons-warning: rgb(235 153 37 / 100%);
+  --lido-ui-color-backgrounds-surface: rgb(255 249 249 / 100%);
+  --lido-ui-color-backgrounds-cards: rgb(255 255 255 / 70%);
+  --lido-ui-color-backgrounds-cards-hover: rgb(255 255 255 / 100%);
+  --lido-ui-color-backgrounds-error: rgb(215 71 88 / 20%);
+  --lido-ui-color-backgrounds-sucess: rgb(41 195 140 / 20%);
+  --lido-ui-color-backgrounds-warning: rgb(250 189 105 / 20%);
+  --lido-ui-color-backgrounds-grey: rgb(19 18 23 / 4%);
+  --lido-ui-color-backgrounds-highlighted: rgb(0 133 255 / 20%);
+  --lido-ui-color-backgrounds-featured: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(0 133 255 / 0%) 0%,
+    rgb(0 133 255 / 5%) 65.39%,
+    rgb(0 133 255 / 20%) 100%
+  );
+  --lido-ui-color-borders-default: rgb(19 18 23 / 10%);
+  --lido-ui-color-borders-active: rgb(19 18 23 / 20%);
+  --lido-ui-color-borders-inverted: rgb(255 255 255 / 30%);
+  --lido-ui-color-borders-hover: rgb(0 133 255 / 50%);
+  --lido-ui-color-borders-success: rgb(41 195 140 / 40%);
+  --lido-ui-color-borders-error: rgb(215 71 88 / 40%);
+  --lido-ui-color-borders-warning: rgb(250 189 105 / 40%);
+  --lido-ui-color-borders-featured: linear-gradient(
+    180deg,
+    rgb(85 0 255 / 60%) 8.17%,
+    rgb(85 0 255 / 30%) 50.48%,
+    rgb(85 0 255 / 20%) 100%
+  );
+  --lido-ui-color-buttons-primary: rgb(0 0 0 / 100%);
+  --lido-ui-color-buttons-primary-hover: rgb(0 133 255 / 100%);
+  --lido-ui-color-buttons-secondary: rgb(0 133 255 / 100%);
+  --lido-ui-color-buttons-secondary-hover: rgb(0 163 255 / 100%);
+  --lido-ui-color-buttons-disabled: rgb(19 18 23 / 10%);
 }
 
 [data-lido-theme='dark'] {
-  --lido-ui-color-text-primary: #ffff;
-  --lido-ui-color-text-primary-hover: #45a6ffff;
-  --lido-ui-color-text-secondary: #ffffffb3;
-  --lido-ui-color-text-secondary-hover: #45a6ffb8;
-  --lido-ui-color-text-tertiary-hover: #45a6ff99;
-  --lido-ui-color-text-tertiary: #ffffff80;
-  --lido-ui-color-text-quaternary: #ffffff52;
-  --lido-ui-color-text-quaternary-hover: #45a6ff52;
-  --lido-ui-color-text-inverted: #000f;
-  --lido-ui-color-text-link: #45a6ffff;
-  --lido-ui-color-text-success: #11b690ff;
-  --lido-ui-color-text-warning: #ffd572ff;
-  --lido-ui-color-text-error: #ff596dff;
-  --lido-ui-color-icons-primary: #ffff;
-  --lido-ui-color-icons-secondary: #ffffffb8;
-  --lido-ui-color-icons-tertiary: #ffffff80;
-  --lido-ui-color-icons-quaternary: #ffffff52;
-  --lido-ui-color-icons-inverted: #000f;
-  --lido-ui-color-icons-active: #45a6ffff;
-  --lido-ui-color-icons-success: #11b690ff;
-  --lido-ui-color-icons-errror: #ff596dff;
-  --lido-ui-color-icons-warning: #ffd572ff;
-  --lido-ui-color-backgrounds-surface: #020307;
-  --lido-ui-color-borders-default: #1312171a;
+  --lido-ui-color-text-primary: rgb(255 255 255 / 100%);
+  --lido-ui-color-text-secondary: rgb(255 255 255 / 72%);
+  --lido-ui-color-text-tertiary: rgb(255 255 255 / 50%);
+  --lido-ui-color-text-quaternary: rgb(255 255 255 / 32%);
+  --lido-ui-color-text-inverted: rgb(0 0 0 / 100%);
+  --lido-ui-color-text-link: rgb(0 133 255 / 100%);
+  --lido-ui-color-text-success: rgb(17 182 144 / 100%);
+  --lido-ui-color-text-warning: rgb(255 213 114 / 100%);
+  --lido-ui-color-text-error: rgb(255 89 109 / 100%);
+  --lido-ui-color-text-primary-hover: rgb(0 133 255 / 100%);
+  --lido-ui-color-text-secondary-hover: rgb(0 133 255 / 72%);
+  --lido-ui-color-text-tertiary-hover: rgb(0 133 255 / 60%);
+  --lido-ui-color-text-quaternary-hover: rgb(0 133 255 / 32%);
+  --lido-ui-color-icons-primary: rgb(255 255 255 / 100%);
+  --lido-ui-color-icons-secondary: rgb(255 255 255 / 72%);
+  --lido-ui-color-icons-tertiary: rgb(255 255 255 / 50%);
+  --lido-ui-color-icons-quaternary: rgb(255 255 255 / 32%);
+  --lido-ui-color-icons-inverted: rgb(0 0 0 / 100%);
+  --lido-ui-color-icons-active: rgb(0 133 255 / 100%);
+  --lido-ui-color-icons-success: rgb(17 182 144 / 100%);
+  --lido-ui-color-icons-warning: rgb(255 213 114 / 100%);
+  --lido-ui-color-icons-errror: rgb(255 89 109 / 100%);
+  --lido-ui-color-backgrounds-surface: rgb(2 3 7 / 100%);
+  --lido-ui-color-backgrounds-cards: rgb(255 255 255 / 8%);
+  --lido-ui-color-backgrounds-grey: rgb(255 255 255 / 12%);
+  --lido-ui-color-backgrounds-cards-hover: rgb(255 255 255 / 12%);
+  --lido-ui-color-backgrounds-success: rgb(41 195 140 / 30%);
+  --lido-ui-color-backgrounds-warning: rgb(255 176 91 / 30%);
+  --lido-ui-color-backgrounds-error: rgb(255 89 109 / 30%);
+  --lido-ui-color-backgrounds-highlighted: rgb(0 133 255 / 30%);
+  --lido-ui-color-backgrounds-featured: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(69 166 255 / 0%) 0%,
+    rgb(69 166 255 / 5%) 65.39%,
+    rgb(69 166 255 / 30%) 100%
+  );
+  --lido-ui-color-borders-default: rgb(255 255 255 / 14%);
+  --lido-ui-color-borders-inverted: rgb(0 0 0 / 10%);
+  --lido-ui-color-borders-active: rgb(255 255 255 / 32%);
+  --lido-ui-color-borders-hover: rgb(0 133 255 / 50%);
+  --lido-ui-color-borders-success: rgb(41 195 140 / 40%);
+  --lido-ui-color-borders-warning: rgb(255 176 91 / 40%);
+  --lido-ui-color-borders-error: rgb(255 89 109 / 40%);
+  --lido-ui-color-borders-featured: linear-gradient(
+    180deg,
+    rgb(85 0 255 / 80%) 8.17%,
+    rgb(85 0 255 / 50%) 50.48%,
+    rgb(85 0 255 / 40%) 100%
+  );
+  --lido-ui-color-buttons-primary: rgb(255 255 255 / 100%);
+  --lido-ui-color-buttons-primary-hover: rgb(0 133 255 / 100%);
+  --lido-ui-color-buttons-secondary: rgb(0 133 255 / 100%);
+  --lido-ui-color-buttons-secondary-hover: rgb(0 163 255 / 100%);
+  --lido-ui-color-buttons-disabled: rgb(255 255 255 / 10%);
 }

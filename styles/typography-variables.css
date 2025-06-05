@@ -3,6 +3,13 @@
     'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
     oxygen-sans, ubuntu, cantarell, 'Helvetica Neue', sans-serif;
 
+  /* Letter Spacing */
+  --lido-ui-letter-spacing-h1: -3px;
+  --lido-ui-letter-spacing-h2: -2.16px;
+  --lido-ui-letter-spacing-h3: -0.92px;
+  --lido-ui-letter-spacing-h4: -0.72px;
+  --lido-ui-letter-spacing-h5: -0.24px;
+
   /* Desktop */
   --lido-ui-font-size-h1: 100px;
   --lido-ui-line-height-h1: 110px;
@@ -66,6 +73,13 @@
     --deprecated-lido-ui-line-height-control: 26px;
     --deprecated-lido-ui-line-height-body: 27px;
     --deprecated-lido-ui-line-height-description: 24px;
+
+    /* Letter Spacing */
+    --lido-ui-letter-spacing-h1: -2.28px;
+    --lido-ui-letter-spacing-h2: -1.8px;
+    --lido-ui-letter-spacing-h3: -0.38px;
+    --lido-ui-letter-spacing-h4: -0.28px;
+    --lido-ui-letter-spacing-h5: -0.28px;
   }
 }
 
@@ -96,5 +110,12 @@
     --deprecated-lido-ui-line-height-control: 26px;
     --deprecated-lido-ui-line-height-body: 27px;
     --deprecated-lido-ui-line-height-description: 24px;
+
+    /* Letter Spacing */
+    --lido-ui-letter-spacing-h1: -1.5px;
+    --lido-ui-letter-spacing-h2: -1.14px;
+    --lido-ui-letter-spacing-h3: -0.28px;
+    --lido-ui-letter-spacing-h4: -0.44px;
+    --lido-ui-letter-spacing-h5: -0.18px;
   }
 }
