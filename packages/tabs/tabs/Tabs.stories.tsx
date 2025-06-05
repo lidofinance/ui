@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Tabs, TabsProps } from './Tabs'
-import { Check } from '../icons'
+import { Check } from '../../icons'
 
 export default {
   component: Tabs,
@@ -50,74 +50,6 @@ export default {
 } satisfies Meta<TabsProps>
 
 export const Basic: StoryFn<TabsProps> = (props) => <Tabs {...props} />
-
-export const AllSizes: StoryFn<TabsProps> = () => {
-  const textItems = [
-    { key: '1', children: 'Tab text 1' },
-    { key: '2', children: 'Tab text 2222' },
-    { key: '3', children: 'Tab text 3' },
-  ]
-  const iconItems = [
-    { key: '1', children: <Check /> },
-    { key: '2', children: <Check /> },
-    { key: '3', children: <Check /> },
-  ]
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '32px' }}>
-      <div
-        style={{
-          display: 'flex',
-          gap: '32px',
-          flexDirection: 'column',
-        }}
-      >
-        <h3 style={{ marginBottom: '16px' }}>Text Tabs - Different Sizes</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div>
-            <h4 style={{ marginBottom: '8px' }}>Small (s)</h4>
-            <Tabs type='text' size='s' items={textItems} />
-          </div>
-          <div>
-            <h4 style={{ marginBottom: '8px' }}>Medium (m)</h4>
-            <Tabs type='text' size='m' items={textItems} />
-          </div>
-          <div>
-            <h4 style={{ marginBottom: '8px' }}>Large (l)</h4>
-            <Tabs type='text' size='l' items={textItems} />
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3 style={{ marginBottom: '16px' }}>Icon Tabs - Different Sizes</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div>
-            <h4 style={{ marginBottom: '8px' }}>Small (s)</h4>
-            <Tabs type='icon' size='s' items={iconItems} />
-          </div>
-          <div>
-            <h4 style={{ marginBottom: '8px' }}>Medium (m)</h4>
-            <Tabs type='icon' size='m' items={iconItems} />
-          </div>
-          <div>
-            <h4 style={{ marginBottom: '8px' }}>Large (l)</h4>
-            <Tabs type='icon' size='l' items={iconItems} />
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-AllSizes.parameters = {
-  controls: { disable: true },
-  docs: {
-    description: {
-      story:
-        'Displays all available sizes for the Tabs component. The size property can be set to "s" (small), "m" (medium), or "l" (large).',
-    },
-  },
-}
 
 export const AllStates: StoryFn<TabsProps> = () => {
   const textItems = [
