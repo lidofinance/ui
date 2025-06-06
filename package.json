@@ -106,7 +106,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "^10.4.20",
     "browserslist": "^4.21.10",
-    "conventional-changelog-conventionalcommits": "4.6.3",
+    "conventional-changelog-conventionalcommits": "9.0.0",
     "eslint": "8.46.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "^4.3.4",
