@@ -1,0 +1,588 @@
+// THIS FILE IS AUTO GENERATED
+
+import React, { SVGProps, Ref } from 'react'
+
+export const PeopleCulture = React.forwardRef(function PeopleCulture(
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={501}
+      height={500}
+      viewBox='0 0 501 500'
+      fill='none'
+      ref={ref}
+      {...props}
+    >
+      <g filter='url(#PeopleCulture__PeopleCulture__a)' opacity={0.6}>
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__b)'
+          d='M140.714 197.128l93.59 53.499V54l-93.59 143.128z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__c)'
+          d='M140.714 197.128l93.59 53.499V54l-93.59 143.128z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__d)'
+          d='M327.738 197.128l-93.434 53.499V54l93.434 143.128z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__e)'
+          d='M233.614 162.92c10.295 0 18.64 8.345 18.64 18.64 0 2.635-.549 5.141-1.535 7.414 31.433 1.868 58.566 8.819 76.675 18.756-.62-.06-1.23-.089-1.86-.089-11.37 0-20.591 9.219-20.591 20.589 0 .41.01.811.04 1.21-24.739 9.231-44.37 28.921-53.5 53.701l-.179.479c-5.77.35-11.68.54-17.69.54h-.551c-5.879-.01-11.669-.2-17.309-.55l-.18-.48c-9.12-24.74-28.7-44.41-53.39-53.65.02-.359.03-.72.03-1.08 0-11.37-9.21-20.589-20.59-20.589-.74 0-1.48.04-2.2.12 18.096-10.026 45.548-17.063 77.086-18.952a18.573 18.573 0 01-1.536-7.419c0-10.295 8.346-18.64 18.64-18.64z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__f)'
+          d='M343.023 217.41c-3.63-5.86-10.1-9.78-17.5-9.78-11.37 0-20.59 9.22-20.59 20.59s9.22 20.59 20.59 20.59c1.8 0 3.54-.25 5.2-.69-10.68 12.56-27.8 22.79-48.72 29.06l-29.43 13.4-1.32.6-13.92 6.34c31.28 1.92 56.05 27.89 56.05 59.65 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 20.48-10.3 38.55-26 49.31-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-1.94.19-3.9.29-5.89.29.75 0 1.5 0 2.25-.02 3.79-.06 7.53-.28 11.23-.66h.05c40.86-4.11 76.26-26.63 97.68-59.09.8-1.21 1.58-2.44 2.34-3.68 12.28-20.03 19.35-43.52 19.35-68.67 0-27.86-8.69-53.7-23.49-75.01v.01z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__g)'
+          d='M343.023 217.41c-3.63-5.86-10.1-9.78-17.5-9.78-11.37 0-20.59 9.22-20.59 20.59s9.22 20.59 20.59 20.59c1.8 0 3.54-.25 5.2-.69-10.68 12.56-27.8 22.79-48.72 29.06l-29.43 13.4-1.32.6-13.92 6.34c31.28 1.92 56.05 27.89 56.05 59.65 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 20.48-10.3 38.55-26 49.31-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-1.94.19-3.9.29-5.89.29.75 0 1.5 0 2.25-.02 3.79-.06 7.53-.28 11.23-.66h.05c40.86-4.11 76.26-26.63 97.68-59.09.8-1.21 1.58-2.44 2.34-3.68 12.28-20.03 19.35-43.52 19.35-68.67 0-27.86-8.69-53.7-23.49-75.01v.01z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__h)'
+          d='M233.614 284.03c-17.38 0-33.81-2.46-48.39-6.84-20.79-6.23-37.82-16.36-48.52-28.81 1.58.39 3.22.62 4.92.62 11.37 0 20.59-9.22 20.59-20.59s-9.22-20.59-20.59-20.59c-7.19 0-13.51 3.69-17.19 9.28-14.95 21.35-23.72 47.32-23.72 75.32 0 24.71 6.83 47.83 18.71 67.61.96 1.6 1.95 3.18 2.98 4.74 21.63 32.77 57.51 55.42 98.88 59.2 2.57.24 5.15.41 7.76.48.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02a58.65 58.65 0 01-4.22-.25 59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21-15.7-10.76-26-28.83-26-49.31 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-33.01 26.76-59.77 59.77-59.77 1.25 0 2.49.04 3.72.12l13.92-6.34 1.32-.6 29.43-13.4c-14.58 4.38-31.01 6.84-48.39 6.84z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__i)'
+          fillOpacity={0.6}
+          d='M233.614 284.03c-17.38 0-33.81-2.46-48.39-6.84-20.79-6.23-37.82-16.36-48.52-28.81 1.58.39 3.22.62 4.92.62 11.37 0 20.59-9.22 20.59-20.59s-9.22-20.59-20.59-20.59c-7.19 0-13.51 3.69-17.19 9.28-14.95 21.35-23.72 47.32-23.72 75.32 0 24.71 6.83 47.83 18.71 67.61.96 1.6 1.95 3.18 2.98 4.74 21.63 32.77 57.51 55.42 98.88 59.2 2.57.24 5.15.41 7.76.48.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02a58.65 58.65 0 01-4.22-.25 59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21-15.7-10.76-26-28.83-26-49.31 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-33.01 26.76-59.77 59.77-59.77 1.25 0 2.49.04 3.72.12l13.92-6.34 1.32-.6 29.43-13.4c-14.58 4.38-31.01 6.84-48.39 6.84z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__j)'
+          d='M347.384 356.99c0 1.37-.07 2.74-.22 4.09-.76 1.25-1.54 2.48-2.34 3.69-21.42 32.46-56.82 54.98-97.68 59.09h-.05c-.86.06-1.72.12-2.58.16-1.64.1-3.29.18-4.95.23 8.83-.88 17.09-3.67 24.36-7.96 1.18-.69 2.33-1.43 3.46-2.21 15.7-10.76 26-28.83 26-49.31 0-.66 0-1.33-.04-1.98.03-.6.04-1.21.04-1.82 0-.61-.03-1.22-.05-1.83.02-.65.05-1.31.05-1.96 0-31.76-24.77-57.73-56.05-59.65-1.23-.08-2.47-.12-3.72-.12-33.01 0-59.77 26.76-59.77 59.77 0 .65.03 1.31.05 1.96-.02.61-.05 1.22-.05 1.83 0 .61.01 1.22.04 1.82a43.3 43.3 0 00-.04 1.98c0 20.48 10.3 38.55 26 49.31 1.13.78 2.28 1.52 3.46 2.21a59.192 59.192 0 0024.66 7.98 206.34 206.34 0 01-6.68-.3c-41.37-3.78-77.25-26.43-98.88-59.2-1.03-1.56-2.02-3.14-2.98-4.74-.08-1.01-.12-2.02-.12-3.04 0-37.2 51.05-67.36 114.04-67.36 6.55 0 12.98.33 19.23.96 53.82 5.39 94.81 33.07 94.81 66.4z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__k)'
+          d='M251.254 291.19a112.747 112.747 0 00-17.64-1.38c-5.26 0-10.52.37-15.57 1.07-40.75 5.67-71.66 33.2-71.66 66.3 0 15.65 6.9 30.04 18.48 41.48 14.03 13.84 34.93 23.34 58.74 25.44 1.79.16 3.61.28 5.44.35.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02.47.02.95.02 1.43.02.75 0 1.5 0 2.25-.02 2.92-.06 5.81-.23 8.65-.5 23.41-2.25 43.94-11.67 57.79-25.32 11.62-11.44 18.54-25.85 18.54-41.52 0-32.54-29.87-59.69-69.59-65.99zm16.13 122.89c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c-3.82-7.87-5.96-16.71-5.96-26.05 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-28.27 19.62-51.95 45.99-58.17a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44 26.45 6.16 46.16 29.88 46.16 58.21 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 9.37-2.15 18.24-6 26.13a59.969 59.969 0 01-20 23.18z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__l)'
+          d='M287.384 390.9a59.969 59.969 0 01-20 23.18c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c24.91-16.21 41.37-44.29 41.37-76.22 0-5.32-.46-10.53-1.34-15.59a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44-.88 5.08-1.34 10.3-1.34 15.63 0 31.98 16.52 60.1 41.5 76.3z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__m)'
+          d='M287.384 390.9a59.969 59.969 0 01-20 23.18c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c24.91-16.21 41.37-44.29 41.37-76.22 0-5.32-.46-10.53-1.34-15.59a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44-.88 5.08-1.34 10.3-1.34 15.63 0 31.98 16.52 60.1 41.5 76.3z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__n)'
+          d='M233.613 284.03c-26.52 0-50.68 1.85-70.31 4.34-2.37.3-4.67.61-6.89.94-2.88.29-5.84.45-8.82.48-.85.02-1.7.02-2.55 0-2.71-.12-5.42-.64-8.07-1.58-1.71-.6-3.32-1.36-4.84-2.26-13.46-7.92-19.25-26.6-12.94-44.4.81-2.3 1.79-4.49 2.92-6.55 2.25 6.65 7.8 11.77 14.7 13.42 8.77 10.32 21.9 19.06 37.91 25.33 2.11.82 4.28 1.61 6.5 2.35 1.42.48 2.86.93 4.32 1.37 14.58 4.38 30.69 6.56 48.07 6.56z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__o)'
+          d='M335.103 285.95c-1.52.9-3.13 1.66-4.84 2.26-2.65.94-5.36 1.46-8.07 1.58-.85.02-1.7.02-2.55 0-2.98-.03-5.94-.19-8.82-.48-2.22-.33-4.52-.64-6.89-.94-19.63-2.49-43.8-4.34-70.32-4.34 17.38 0 33.5-2.18 48.08-6.56 1.46-.44 2.9-.89 4.32-1.37 2.22-.74 4.39-1.53 6.5-2.35 16.13-6.32 29.34-15.15 38.11-25.57a20.59 20.59 0 0014.41-13.35c1.16 2.11 2.17 4.35 3.01 6.72 6.31 17.8.52 36.48-12.94 44.4z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__p)'
+          d='M136.814 248.42c-6.9-1.65-12.45-6.77-14.7-13.42a.185.185 0 01-.02-.07c0 .04.01.07.01.1 1.35 12.73 9.77 22.54 19.96 22.54 1.24 0 2.46-.15 3.64-.43-3.32-2.76-6.3-5.67-8.89-8.72z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__q)'
+          d='M321.424 257.06c1.18.28 2.4.43 3.64.43 10.19 0 18.61-9.81 19.96-22.54 0-.03.01-.06.01-.1 0 .02-.01.05-.02.07-2.25 6.65-7.8 11.77-14.7 13.42-2.59 3.05-5.57 5.96-8.89 8.72z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__r)'
+          d='M215.754 283.61l-.18-.48c-9.12-24.74-28.7-44.41-53.39-53.65.02-.36.03-.72.03-1.08v-.07c31.9 1.67 56.42 23.23 56.68 55.1.01.17.01.35.01.52-5.88-.01 2.49 0-3.15-.34z'
+        />
+        <path
+          fill='url(#PeopleCulture__PeopleCulture__s)'
+          d='M304.994 229.49c-24.73 9.22-44.35 28.89-53.49 53.65-.07.17-.14.35-.2.52-5.64.35 2.73.33-3.15.34 0-.19 0-.38.01-.56.28-31.88 24.85-53.44 56.78-55.06 0 .37.02.74.05 1.11z'
+        />
+      </g>
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__t)'
+        d='M159.714 197.128l93.59 53.499V54l-93.59 143.128z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__u)'
+        d='M159.714 197.128l93.59 53.499V54l-93.59 143.128z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__v)'
+        d='M346.738 197.128l-93.434 53.499V54l93.434 143.128z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__w)'
+        d='M252.614 162.92c10.295 0 18.64 8.345 18.64 18.64 0 2.635-.549 5.141-1.535 7.414 31.433 1.868 58.566 8.819 76.675 18.756-.62-.06-1.23-.089-1.86-.089-11.37 0-20.591 9.219-20.591 20.589 0 .41.01.811.04 1.21-24.739 9.231-44.37 28.921-53.5 53.701l-.179.479c-5.77.35-11.68.54-17.69.54h-.551c-5.879-.01-11.669-.2-17.309-.55l-.18-.48c-9.12-24.74-28.7-44.41-53.39-53.65.02-.359.03-.72.03-1.08 0-11.37-9.21-20.589-20.59-20.589-.74 0-1.48.04-2.2.12 18.096-10.026 45.548-17.063 77.086-18.952a18.573 18.573 0 01-1.536-7.419c0-10.295 8.346-18.64 18.64-18.64z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__x)'
+        d='M362.023 217.41c-3.63-5.86-10.1-9.78-17.5-9.78-11.37 0-20.59 9.22-20.59 20.59s9.22 20.59 20.59 20.59c1.8 0 3.54-.25 5.2-.69-10.68 12.56-27.8 22.79-48.72 29.06l-29.43 13.4-1.32.6-13.92 6.34c31.28 1.92 56.05 27.89 56.05 59.65 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 20.48-10.3 38.55-26 49.31-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-1.94.19-3.9.29-5.89.29.75 0 1.5 0 2.25-.02 3.79-.06 7.53-.28 11.23-.66h.05c40.86-4.11 76.26-26.63 97.68-59.09.8-1.21 1.58-2.44 2.34-3.68 12.28-20.03 19.35-43.52 19.35-68.67 0-27.86-8.69-53.7-23.49-75.01v.01z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__y)'
+        d='M362.023 217.41c-3.63-5.86-10.1-9.78-17.5-9.78-11.37 0-20.59 9.22-20.59 20.59s9.22 20.59 20.59 20.59c1.8 0 3.54-.25 5.2-.69-10.68 12.56-27.8 22.79-48.72 29.06l-29.43 13.4-1.32.6-13.92 6.34c31.28 1.92 56.05 27.89 56.05 59.65 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 20.48-10.3 38.55-26 49.31-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-1.94.19-3.9.29-5.89.29.75 0 1.5 0 2.25-.02 3.79-.06 7.53-.28 11.23-.66h.05c40.86-4.11 76.26-26.63 97.68-59.09.8-1.21 1.58-2.44 2.34-3.68 12.28-20.03 19.35-43.52 19.35-68.67 0-27.86-8.69-53.7-23.49-75.01v.01z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__z)'
+        d='M252.614 284.03c-17.38 0-33.81-2.46-48.39-6.84-20.79-6.23-37.82-16.36-48.52-28.81 1.58.39 3.22.62 4.92.62 11.37 0 20.59-9.22 20.59-20.59s-9.22-20.59-20.59-20.59c-7.19 0-13.51 3.69-17.19 9.28-14.95 21.35-23.72 47.32-23.72 75.32 0 24.71 6.83 47.83 18.71 67.61.96 1.6 1.95 3.18 2.98 4.74 21.63 32.77 57.51 55.42 98.88 59.2 2.57.24 5.15.41 7.76.48.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02a58.65 58.65 0 01-4.22-.25 59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21-15.7-10.76-26-28.83-26-49.31 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-33.01 26.76-59.77 59.77-59.77 1.25 0 2.49.04 3.72.12l13.92-6.34 1.32-.6 29.43-13.4c-14.58 4.38-31.01 6.84-48.39 6.84z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__A)'
+        fillOpacity={0.6}
+        d='M252.614 284.03c-17.38 0-33.81-2.46-48.39-6.84-20.79-6.23-37.82-16.36-48.52-28.81 1.58.39 3.22.62 4.92.62 11.37 0 20.59-9.22 20.59-20.59s-9.22-20.59-20.59-20.59c-7.19 0-13.51 3.69-17.19 9.28-14.95 21.35-23.72 47.32-23.72 75.32 0 24.71 6.83 47.83 18.71 67.61.96 1.6 1.95 3.18 2.98 4.74 21.63 32.77 57.51 55.42 98.88 59.2 2.57.24 5.15.41 7.76.48.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02a58.65 58.65 0 01-4.22-.25 59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21-15.7-10.76-26-28.83-26-49.31 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-33.01 26.76-59.77 59.77-59.77 1.25 0 2.49.04 3.72.12l13.92-6.34 1.32-.6 29.43-13.4c-14.58 4.38-31.01 6.84-48.39 6.84z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__B)'
+        d='M366.384 356.99c0 1.37-.07 2.74-.22 4.09-.76 1.25-1.54 2.48-2.34 3.69-21.42 32.46-56.82 54.98-97.68 59.09h-.05c-.86.06-1.72.12-2.58.16-1.64.1-3.29.18-4.95.23 8.83-.88 17.09-3.67 24.36-7.96 1.18-.69 2.33-1.43 3.46-2.21 15.7-10.76 26-28.83 26-49.31 0-.66 0-1.33-.04-1.98.03-.6.04-1.21.04-1.82 0-.61-.03-1.22-.05-1.83.02-.65.05-1.31.05-1.96 0-31.76-24.77-57.73-56.05-59.65-1.23-.08-2.47-.12-3.72-.12-33.01 0-59.77 26.76-59.77 59.77 0 .65.03 1.31.05 1.96-.02.61-.05 1.22-.05 1.83 0 .61.01 1.22.04 1.82a43.3 43.3 0 00-.04 1.98c0 20.48 10.3 38.55 26 49.31 1.13.78 2.28 1.52 3.46 2.21a59.192 59.192 0 0024.66 7.98 206.34 206.34 0 01-6.68-.3c-41.37-3.78-77.25-26.43-98.88-59.2-1.03-1.56-2.02-3.14-2.98-4.74-.08-1.01-.12-2.02-.12-3.04 0-37.2 51.05-67.36 114.04-67.36 6.55 0 12.98.33 19.23.96 53.82 5.39 94.81 33.07 94.81 66.4z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__C)'
+        d='M270.254 291.19a112.747 112.747 0 00-17.64-1.38c-5.26 0-10.52.37-15.57 1.07-40.75 5.67-71.66 33.2-71.66 66.3 0 15.65 6.9 30.04 18.48 41.48 14.03 13.84 34.93 23.34 58.74 25.44 1.79.16 3.61.28 5.44.35.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02.47.02.95.02 1.43.02.75 0 1.5 0 2.25-.02 2.92-.06 5.81-.23 8.65-.5 23.41-2.25 43.94-11.67 57.79-25.32 11.62-11.44 18.54-25.85 18.54-41.52 0-32.54-29.87-59.69-69.59-65.99zm16.13 122.89c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c-3.82-7.87-5.96-16.71-5.96-26.05 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-28.27 19.62-51.95 45.99-58.17a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44 26.45 6.16 46.16 29.88 46.16 58.21 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 9.37-2.15 18.24-6 26.13a59.969 59.969 0 01-20 23.18z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__D)'
+        d='M306.384 390.9a59.969 59.969 0 01-20 23.18c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c24.91-16.21 41.37-44.29 41.37-76.22 0-5.32-.46-10.53-1.34-15.59a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44-.88 5.08-1.34 10.3-1.34 15.63 0 31.98 16.52 60.1 41.5 76.3z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__E)'
+        d='M306.384 390.9a59.969 59.969 0 01-20 23.18c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c24.91-16.21 41.37-44.29 41.37-76.22 0-5.32-.46-10.53-1.34-15.59a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44-.88 5.08-1.34 10.3-1.34 15.63 0 31.98 16.52 60.1 41.5 76.3z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__F)'
+        d='M252.613 284.03c-26.52 0-50.68 1.85-70.31 4.34-2.37.3-4.67.61-6.89.94-2.88.29-5.84.45-8.82.48-.85.02-1.7.02-2.55 0-2.71-.12-5.42-.64-8.07-1.58-1.71-.6-3.32-1.36-4.84-2.26-13.46-7.92-19.25-26.6-12.94-44.4.81-2.3 1.79-4.49 2.92-6.55 2.25 6.65 7.8 11.77 14.7 13.42 8.77 10.32 21.9 19.06 37.91 25.33 2.11.82 4.28 1.61 6.5 2.35 1.42.48 2.86.93 4.32 1.37 14.58 4.38 30.69 6.56 48.07 6.56z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__G)'
+        d='M354.103 285.95c-1.52.9-3.13 1.66-4.84 2.26-2.65.94-5.36 1.46-8.07 1.58-.85.02-1.7.02-2.55 0-2.98-.03-5.94-.19-8.82-.48-2.22-.33-4.52-.64-6.89-.94-19.63-2.49-43.8-4.34-70.32-4.34 17.38 0 33.5-2.18 48.08-6.56 1.46-.44 2.9-.89 4.32-1.37 2.22-.74 4.39-1.53 6.5-2.35 16.13-6.32 29.34-15.15 38.11-25.57a20.59 20.59 0 0014.41-13.35c1.16 2.11 2.17 4.35 3.01 6.72 6.31 17.8.52 36.48-12.94 44.4z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__H)'
+        d='M155.814 248.42c-6.9-1.65-12.45-6.77-14.7-13.42a.185.185 0 01-.02-.07c0 .04.01.07.01.1 1.35 12.73 9.77 22.54 19.96 22.54 1.24 0 2.46-.15 3.64-.43-3.32-2.76-6.3-5.67-8.89-8.72z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__I)'
+        d='M340.424 257.06c1.18.28 2.4.43 3.64.43 10.19 0 18.61-9.81 19.96-22.54 0-.03.01-.06.01-.1 0 .02-.01.05-.02.07-2.25 6.65-7.8 11.77-14.7 13.42-2.59 3.05-5.57 5.96-8.89 8.72z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__J)'
+        d='M234.754 283.61l-.18-.48c-9.12-24.74-28.7-44.41-53.39-53.65.02-.36.03-.72.03-1.08v-.07c31.9 1.67 56.42 23.23 56.68 55.1.01.17.01.35.01.52-5.88-.01 2.49 0-3.15-.34z'
+      />
+      <path
+        fill='url(#PeopleCulture__PeopleCulture__K)'
+        d='M323.994 229.49c-24.73 9.22-44.35 28.89-53.49 53.65-.07.17-.14.35-.2.52-5.64.35 2.73.33-3.15.34 0-.19 0-.38.01-.56.28-31.88 24.85-53.44 56.78-55.06 0 .37.02.74.05 1.11z'
+      />
+      <defs>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__b'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(-16.49973 91.50005 -229.65305 -41.41215 241.714 139)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#00A3FF' />
+          <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__c'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(-3.50002 170.50008 -315.41455 -6.47482 181.214 38)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#FF7272' />
+          <stop offset={0.18} stopColor='#FF72A7' />
+          <stop offset={0.817} stopColor='#7A51FF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__d'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(20.99753 286.00024 -192.7602 14.15204 224.214 45.501)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#FFBFAB' />
+          <stop offset={0.319} stopColor='#FF67A8' stopOpacity={0.87} />
+          <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__e'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(0 258 -154.813 0 233.714 176)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#06F' />
+          <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__f'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(130.00034 -34.0002 48.10756 183.94004 263.713 293.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#35C2FF' />
+          <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__g'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(25.98042 91.41326 -70.1283 19.93106 237.111 201.482)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__h'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='rotate(144.736 103.432 162.52) scale(328.229 323.392)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#FFBFAB' />
+          <stop offset={0.365} stopColor='#FF67A8' stopOpacity={0.87} />
+          <stop offset={0.833} stopColor='#6BAFFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__j'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(15.00016 195.99985 -215.84382 16.51885 233.714 228)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__k'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(0 509 -686.074 0 233.714 -33.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__l'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(0 217 -117.811 0 233.714 263)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3687FF' />
+          <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__m'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(7.00001 76.5 -134.4503 12.30266 233.714 424)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3687FF' />
+          <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__n'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(7.0001 120.49985 -175.67183 10.20516 143.713 184)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__o'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='rotate(139.338 156.34 180.755) scale(154.238 224.96)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__p'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(32.99998 65.50005 -83.19254 41.91374 107.714 208.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__q'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(-70.00071 103.49953 -131.45664 -88.90918 381.714 188)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__r'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='translate(213.124 207.69) scale(88.75)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#4051F2' />
+          <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__s'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='translate(299.204 207.74) scale(88.75)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#4051F2' />
+          <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__t'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(-16.49973 91.50005 -229.65305 -41.41215 260.714 139)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#00A3FF' />
+          <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__u'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(-3.50002 170.50008 -315.41455 -6.47482 200.214 38)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#FF7272' />
+          <stop offset={0.18} stopColor='#FF72A7' />
+          <stop offset={0.817} stopColor='#7A51FF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__v'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(20.99753 286.00024 -192.7602 14.15204 243.215 45.502)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#FFBFAB' />
+          <stop offset={0.319} stopColor='#FF67A8' stopOpacity={0.87} />
+          <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__w'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(0 258 -154.813 0 252.714 176)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#06F' />
+          <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__x'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(130.00034 -34.0002 48.10756 183.94004 282.713 293.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#35C2FF' />
+          <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__y'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(25.98042 91.41326 -70.1283 19.93106 256.111 201.482)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__z'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='rotate(144.736 112.932 165.538) scale(328.229 323.392)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#FFBFAB' />
+          <stop offset={0.365} stopColor='#FF67A8' stopOpacity={0.87} />
+          <stop offset={0.833} stopColor='#6BAFFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__B'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(15.00016 195.99985 -215.84382 16.51885 252.714 228)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__C'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(0 509 -686.074 0 252.714 -33.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__D'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(0 217 -117.811 0 252.714 263)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3687FF' />
+          <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__E'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(7.00001 76.5 -134.4503 12.30266 252.714 424)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3687FF' />
+          <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__F'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(7.0001 120.49985 -175.67183 10.20516 162.713 184)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__G'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='rotate(139.338 165.84 184.275) scale(154.238 224.96)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__H'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(32.99998 65.50005 -83.19254 41.91374 126.714 208.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__I'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(-70.00071 103.49953 -131.45664 -88.90918 400.714 188)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#3B52FC' />
+          <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__J'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='translate(232.124 207.69) scale(88.75)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#4051F2' />
+          <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='PeopleCulture__PeopleCulture__K'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='translate(318.204 207.74) scale(88.75)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#4051F2' />
+          <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
+        </radialGradient>
+        <linearGradient
+          id='PeopleCulture__PeopleCulture__i'
+          x1={99.756}
+          x2={187.4}
+          y1={398.338}
+          y2={328.088}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#29EDFE' />
+          <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
+        </linearGradient>
+        <linearGradient
+          id='PeopleCulture__PeopleCulture__A'
+          x1={118.756}
+          x2={206.4}
+          y1={398.338}
+          y2={328.088}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#29EDFE' />
+          <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
+        </linearGradient>
+        <filter
+          id='PeopleCulture__PeopleCulture__a'
+          width={373.8}
+          height={478.54}
+          x={46.714}
+          y={0}
+          colorInterpolationFilters='sRGB'
+          filterUnits='userSpaceOnUse'
+        >
+          <feFlood floodOpacity={0} result='BackgroundImageFix' />
+          <feBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
+          <feGaussianBlur
+            result='effect1_foregroundBlur_369_6049'
+            stdDeviation={27}
+          />
+        </filter>
+      </defs>
+    </svg>
+  )
+})

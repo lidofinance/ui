@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" fill="none" viewBox="0 0 500 500">
+  <g filter="url(#a)" opacity=".5">
+    <circle cx="233" cy="302" r="133" fill="url(#b)" fill-opacity=".8"/>
+    <path fill="url(#c)" d="m139 207.128 93.59 53.499V64L139 207.128Z"/>
+    <path fill="url(#d)" d="m139 207.128 93.59 53.499V64L139 207.128Z"/>
+    <path fill="url(#e)" d="m326.023 207.128-93.434 53.499V64l93.434 143.128Z"/>
+    <path fill="url(#f)" d="m326.023 207.128-93.434 53.499V64l93.434 143.128Z"/>
+    <path fill="url(#g)" fill-opacity=".6" d="m326.023 207.128-93.434 53.499V64l93.434 143.128Z"/>
+    <path fill="url(#h)" fill-rule="evenodd" d="M366 303.78C366 376.803 306.454 436 233 436c-73.454 0-133-59.197-133-132.22 0-11.781 1.55-23.202 4.458-34.073 18.347-4.913 33.355 2.376 51.905 11.385 23.992 11.652 53.408 32.682 104.137 27.408 40.8-5.6 77.4-61.733 83.4-77.733-.3-.258.3.254 0 0 13.965 20.922 22.1 46.023 22.1 73.013Z" clip-rule="evenodd"/>
+    <path fill="url(#i)" fill-rule="evenodd" d="M366 303.78C366 376.803 306.454 436 233 436c-73.454 0-133-59.197-133-132.22 0-11.781 1.55-23.202 4.458-34.073 18.347-4.913 33.355 2.376 51.905 11.385 23.992 11.652 53.408 32.682 104.137 27.408 40.8-5.6 77.4-61.733 83.4-77.733-.3-.258.3.254 0 0 13.965 20.922 22.1 46.023 22.1 73.013Z" clip-rule="evenodd"/>
+    <path fill="url(#j)" fill-rule="evenodd" d="M366 303.395c0 73.023-59.546 132.22-133 132.22-73.454 0-133-59.197-133-132.22 0-25.878 7.478-50.02 20.404-70.406.973-1.535 2.521-2.613 4.316-2.9 19.965-3.203 56.056 2.817 103.28 50.411 51.893 43.428 112.879 19.69 137.683 13.692.21 3.041.317 6.109.317 9.203Z" clip-rule="evenodd"/>
+    <path fill="url(#k)" fill-rule="evenodd" d="M366 303.395c0 73.023-59.546 132.22-133 132.22-73.454 0-133-59.197-133-132.22 0-25.878 7.478-50.02 20.404-70.406.973-1.535 2.521-2.613 4.316-2.9 19.965-3.203 56.056 2.817 103.28 50.411 51.893 43.428 112.879 19.69 137.683 13.692.21 3.041.317 6.109.317 9.203Z" clip-rule="evenodd"/>
+  </g>
+  <circle cx="250" cy="302" r="133" fill="url(#l)" fill-opacity=".8"/>
+  <path fill="url(#m)" d="m156 207.128 93.59 53.499V64L156 207.128Z"/>
+  <path fill="url(#n)" d="m156 207.128 93.59 53.499V64L156 207.128Z"/>
+  <path fill="url(#o)" d="m343.023 207.128-93.434 53.499V64l93.434 143.128Z"/>
+  <path fill="url(#p)" d="m343.023 207.128-93.434 53.499V64l93.434 143.128Z"/>
+  <path fill="url(#q)" fill-opacity=".6" d="m343.023 207.128-93.434 53.499V64l93.434 143.128Z"/>
+  <path fill="url(#r)" fill-rule="evenodd" d="M383 303.78C383 376.803 323.454 436 250 436c-73.454 0-133-59.197-133-132.22 0-11.781 1.55-23.202 4.458-34.073 18.347-4.913 48.493-2.716 67.042 6.293 27.5 13.356 52.5 37.51 89 32.5 40.8-5.6 77.4-61.733 83.4-77.733-.3-.258.3.254 0 0 13.965 20.922 22.1 46.023 22.1 73.013Z" clip-rule="evenodd"/>
+  <path fill="url(#s)" fill-rule="evenodd" d="M383 303.78C383 376.803 323.454 436 250 436c-73.454 0-133-59.197-133-132.22 0-11.781 1.55-23.202 4.458-34.073 18.347-4.913 48.493-2.716 67.042 6.293 27.5 13.356 52.5 37.51 89 32.5 40.8-5.6 77.4-61.733 83.4-77.733-.3-.258.3.254 0 0 13.965 20.922 22.1 46.023 22.1 73.013Z" clip-rule="evenodd"/>
+  <path fill="url(#t)" fill-rule="evenodd" d="M383 303.395c0 73.023-59.546 132.22-133 132.22-73.454 0-133-59.197-133-132.22 0-25.878 7.478-50.02 20.404-70.406.973-1.535 2.521-2.613 4.316-2.9 19.965-3.203 56.056 2.817 103.28 50.411 51.893 43.428 112.879 19.69 137.683 13.692.21 3.041.317 6.109.317 9.203Z" clip-rule="evenodd"/>
+  <path fill="url(#u)" fill-rule="evenodd" d="M383 303.395c0 73.023-59.546 132.22-133 132.22-73.454 0-133-59.197-133-132.22 0-25.878 7.478-50.02 20.404-70.406.973-1.535 2.521-2.613 4.316-2.9 19.965-3.203 56.056 2.817 103.28 50.411 51.893 43.428 112.879 19.69 137.683 13.692.21 3.041.317 6.109.317 9.203Z" clip-rule="evenodd"/>
+  <defs>
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientTransform="matrix(-27.50029 -88.49995 123.28028 -38.30786 326.5 306.5)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00F0FF"/>
+      <stop offset="1" stop-color="#35C2FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="c" cx="0" cy="0" r="1" gradientTransform="matrix(-42.87833 71.96047 -180.61097 -107.61876 232.378 162.039)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00A3FF"/>
+      <stop offset=".944" stop-color="#00A3FF" stop-opacity=".29"/>
+    </radialGradient>
+    <radialGradient id="d" cx="0" cy="0" r="1" gradientTransform="matrix(25.9801 131.39925 -243.07924 48.06133 191.122 86.483)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7272"/>
+      <stop offset=".18" stop-color="#FF72A7"/>
+      <stop offset="1" stop-color="#7A51FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="e" cx="0" cy="0" r="1" gradientTransform="rotate(84.193 71.758 158.412) scale(325.923 134.229)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFBFAB"/>
+      <stop offset=".365" stop-color="#FF67A8" stop-opacity=".87"/>
+      <stop offset=".724" stop-color="#6BAFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="f" cx="0" cy="0" r="1" gradientTransform="matrix(63.45134 -76.44107 115.93229 96.23175 232.589 229.872)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2238FF"/>
+      <stop offset="1" stop-color="#0047FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="h" cx="0" cy="0" r="1" gradientTransform="rotate(-151.508 198.592 162.737) scale(192.858 232.177)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AFBED" stop-opacity="0"/>
+      <stop offset=".671" stop-color="#00A3FF" stop-opacity=".457"/>
+      <stop offset="1" stop-color="#198CF6"/>
+    </radialGradient>
+    <radialGradient id="i" cx="0" cy="0" r="1" gradientTransform="matrix(123.49968 -83.99964 191.5155 281.57389 109.5 399)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#654BFF"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="j" cx="0" cy="0" r="1" gradientTransform="rotate(172.816 135.236 208.617) scale(246.434 302.967)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AAAFB" stop-opacity=".24"/>
+      <stop offset=".671" stop-color="#00D1FF" stop-opacity=".457"/>
+      <stop offset="1" stop-color="#0083FB"/>
+    </radialGradient>
+    <radialGradient id="k" cx="0" cy="0" r="1" gradientTransform="matrix(-59.99937 137.0006 -316.70725 -138.70184 281.5 175.5)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#654BFF"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="l" cx="0" cy="0" r="1" gradientTransform="matrix(-27.50029 -88.49995 123.28028 -38.30786 343.5 306.5)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00F0FF"/>
+      <stop offset="1" stop-color="#35C2FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="m" cx="0" cy="0" r="1" gradientTransform="matrix(-42.87833 71.96047 -180.61097 -107.61876 249.378 162.039)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00A3FF"/>
+      <stop offset=".944" stop-color="#00A3FF" stop-opacity=".29"/>
+    </radialGradient>
+    <radialGradient id="n" cx="0" cy="0" r="1" gradientTransform="matrix(25.9801 131.39925 -243.07924 48.06133 208.122 86.483)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7272"/>
+      <stop offset=".18" stop-color="#FF72A7"/>
+      <stop offset="1" stop-color="#7A51FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="o" cx="0" cy="0" r="1" gradientTransform="rotate(84.193 80.258 167.82) scale(325.923 134.229)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFBFAB"/>
+      <stop offset=".365" stop-color="#FF67A8" stop-opacity=".87"/>
+      <stop offset=".724" stop-color="#6BAFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="p" cx="0" cy="0" r="1" gradientTransform="matrix(63.45134 -76.44107 115.93229 96.23175 249.588 229.872)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#227AFF"/>
+      <stop offset="1" stop-color="#0047FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="r" cx="0" cy="0" r="1" gradientTransform="rotate(-151.508 207.092 160.58) scale(192.858 232.177)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AFBED" stop-opacity="0"/>
+      <stop offset=".671" stop-color="#00A3FF" stop-opacity=".457"/>
+      <stop offset="1" stop-color="#198CF6"/>
+    </radialGradient>
+    <radialGradient id="s" cx="0" cy="0" r="1" gradientTransform="matrix(127.50016 -21.00003 22.8987 139.02784 132 345)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4B5DFF"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="t" cx="0" cy="0" r="1" gradientTransform="rotate(172.816 143.736 209.15) scale(246.434 302.967)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AAAFB" stop-opacity=".24"/>
+      <stop offset=".671" stop-color="#00D1FF" stop-opacity=".457"/>
+      <stop offset="1" stop-color="#0083FB"/>
+    </radialGradient>
+    <radialGradient id="u" cx="0" cy="0" r="1" gradientTransform="matrix(156.50041 118.00005 -272.78343 361.78559 82 194.5)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#654BFF"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="g" x1="326.517" x2="265.064" y1="236.867" y2="208.889" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#29EDFE"/>
+      <stop offset="1" stop-color="#29EDFE" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="q" x1="343.517" x2="282.064" y1="236.867" y2="208.889" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#29EDFE"/>
+      <stop offset="1" stop-color="#29EDFE" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="a" width="374" height="480" x="46" y="10" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_369_5768" stdDeviation="27"/>
+    </filter>
+  </defs>
+</svg>

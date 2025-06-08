@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="81" height="80" fill="none" viewBox="0 0 81 80">
+  <g filter="url(#a)" opacity=".6">
+    <path fill="#3F6FF6" fill-rule="evenodd" d="m60.907 36.07 1.426 1.43.374.374c-.094.086-.17.158-.24.225-.237.224-.416.393-1.017.864a39.794 39.794 0 0 1-2.41 1.77 34.677 34.677 0 0 1-19.609 5.75 34.68 34.68 0 0 1-19.441-6.295 36.555 36.555 0 0 1-2.275-1.736l-.646-.578 1.8-1.804L39.889 15l21.018 21.07Zm-36.333.85a39.455 39.455 0 0 1 20.849 5.855 31.467 31.467 0 0 0 11.308-4.39c-10.799-6.23-22.548-5.651-32.157-1.464Zm15.28 23.788 11.614-11.51a35.29 35.29 0 0 1-17.37 5.806l5.756 5.704Z" clip-rule="evenodd"/>
+  </g>
+  <path fill="#3F6FF6" fill-rule="evenodd" d="m60.907 38.07 1.426 1.43.374.374c-.094.086-.17.158-.24.225-.237.224-.416.393-1.017.864a39.794 39.794 0 0 1-2.41 1.77 34.677 34.677 0 0 1-19.609 5.75 34.68 34.68 0 0 1-19.441-6.295 36.555 36.555 0 0 1-2.275-1.736l-.646-.578 1.8-1.804L39.889 17l21.018 21.07Zm-36.333.85a39.455 39.455 0 0 1 20.849 5.855 31.467 31.467 0 0 0 11.308-4.39c-10.799-6.23-22.548-5.651-32.157-1.464Zm15.28 23.788 11.614-11.51a35.29 35.29 0 0 1-17.37 5.806l5.756 5.704Z" clip-rule="evenodd"/>
+  <defs>
+    <filter id="a" width="73.638" height="73.708" x="3.069" y="1" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_52_17197" stdDeviation="7"/>
+    </filter>
+  </defs>
+</svg>

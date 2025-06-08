@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none" viewBox="0 0 80 80">
+  <g clip-path="url(#a)">
+    <path fill="url(#b)" fill-rule="evenodd" d="M41.61 15H23.571v47.143h37.143v-28.04L41.61 15Z" clip-rule="evenodd" opacity=".7"/>
+    <path fill="url(#c)" fill-rule="evenodd" d="M41.61 15h-.181v19.286h19.285v-.182L41.611 15Z" clip-rule="evenodd" opacity=".8"/>
+    <g filter="url(#d)">
+      <path fill="url(#e)" fill-rule="evenodd" d="M38.04 17.857H20V65h37.143V36.96L38.039 17.858Z" clip-rule="evenodd" opacity=".7"/>
+      <path fill="url(#f)" fill-rule="evenodd" d="M38.04 17.857h-.183v19.286h19.286v-.182L38.04 17.857Z" clip-rule="evenodd" opacity=".8"/>
+    </g>
+  </g>
+  <defs>
+    <linearGradient id="b" x1="1.071" x2="69.269" y1="-6.786" y2="6.338" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D8EFF"/>
+      <stop offset="1" stop-color="#2D8EFF" stop-opacity=".4"/>
+    </linearGradient>
+    <linearGradient id="c" x1="38.922" x2="63.308" y1="8.728" y2="14.685" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D8EFF"/>
+      <stop offset="1" stop-color="#2D8EFF" stop-opacity=".4"/>
+    </linearGradient>
+    <linearGradient id="e" x1="-2.5" x2="65.697" y1="-3.929" y2="9.195" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D8EFF"/>
+      <stop offset="1" stop-color="#2D8EFF" stop-opacity=".4"/>
+    </linearGradient>
+    <linearGradient id="f" x1="35.351" x2="59.737" y1="11.585" y2="17.542" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D8EFF"/>
+      <stop offset="1" stop-color="#2D8EFF" stop-opacity=".4"/>
+    </linearGradient>
+    <clipPath id="a">
+      <path fill="#fff" d="M0 0h80v80H0z"/>
+    </clipPath>
+    <filter id="d" width="69.144" height="79.143" x="4" y="1.857" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_55_2120" stdDeviation="8"/>
+    </filter>
+  </defs>
+</svg>

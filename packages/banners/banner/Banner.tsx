@@ -8,7 +8,7 @@ import {
   RefObject,
 } from 'react'
 import { Button } from '../../button'
-import { ThinClose } from '../../icons'
+import { Close } from '../../icons'
 import styles from './Banner.module.css'
 
 export type BannerDataTestId = {
@@ -79,7 +79,7 @@ export const Banner = forwardRef(
         <Button
           size={'s'}
           shape={'circle'}
-          icon={<ThinClose />}
+          icon={<Close />}
           color={'outline'}
           data-testid={dataTestId?.closeButton}
           className={styles.closeButton}

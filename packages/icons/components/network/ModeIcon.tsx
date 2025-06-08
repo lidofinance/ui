@@ -1,0 +1,48 @@
+// THIS FILE IS AUTO GENERATED
+
+import React, { SVGProps, Ref } from 'react'
+
+export const ModeIcon = React.forwardRef(function ModeIcon(
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={81}
+      height={80}
+      viewBox='0 0 81 80'
+      fill='none'
+      ref={ref}
+      {...props}
+    >
+      <g filter='url(#ModeIcon__ModeIcon__a)'>
+        <path
+          fill='#DFFE00'
+          d='M58.2 52.197h-7.098V36.152L53.944 27l-2.016-.717-9.203 25.914h-5.402l-9.21-25.914-2.01.717 2.842 9.152v16.051h-7.097V19.998h10.566l6.554 18.432v5.415h2.144V38.43l6.553-18.432h10.567v32.199H58.2z'
+        />
+      </g>
+      <path
+        fill='#000'
+        d='M58.2 56.043h-7.098V39.998l2.842-9.152-2.016-.716-9.203 25.913h-5.402l-9.21-25.913-2.01.716 2.842 9.152V56.05h-7.097V23.845h10.566l6.554 18.432v5.414h2.144v-5.414l6.553-18.432h10.567v32.198H58.2z'
+      />
+      <defs>
+        <filter
+          id='ModeIcon__ModeIcon__a'
+          width={64.384}
+          height={60.205}
+          x={7.848}
+          y={5.998}
+          colorInterpolationFilters='sRGB'
+          filterUnits='userSpaceOnUse'
+        >
+          <feFlood floodOpacity={0} result='BackgroundImageFix' />
+          <feBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
+          <feGaussianBlur
+            result='effect1_foregroundBlur_52_23772'
+            stdDeviation={7}
+          />
+        </filter>
+      </defs>
+    </svg>
+  )
+})

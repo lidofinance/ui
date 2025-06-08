@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none" viewBox="0 0 80 80">
+  <g clip-path="url(#a)">
+    <g filter="url(#b)" opacity=".5">
+      <path fill="#7180F5" fill-rule="evenodd" d="M36.47 44h7.97v-8h-7.97v-8h15.942v24H28.498v-8h-7.971V12h31.885v8H28.498v24h7.971Z" clip-rule="evenodd"/>
+      <path fill="#FF8099" d="M60.383 20h-7.971v8h7.971v-8Z"/>
+      <path fill="#1E1C2D" d="M28.498 52h-7.971v8h7.971v-8Z"/>
+    </g>
+    <path fill="#7180F5" fill-rule="evenodd" d="M37.943 50h7.971v-8h-7.971v-8h15.942v24H29.971v-8H22V18h31.885v8H29.971v24h7.972Z" clip-rule="evenodd"/>
+    <path fill="#FF8099" d="M61.856 26h-7.971v8h7.971v-8Z"/>
+    <path fill="#1E1C2D" d="M29.971 58H22v8h7.971v-8Z"/>
+  </g>
+  <defs>
+    <clipPath id="a">
+      <path fill="#fff" d="M0 0h80v80H0z"/>
+    </clipPath>
+    <filter id="b" width="67.856" height="76" x="6.527" y="-2" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_52_21595" stdDeviation="7"/>
+    </filter>
+  </defs>
+</svg>

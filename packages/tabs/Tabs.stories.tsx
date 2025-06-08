@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Tabs, TabsProps } from './Tabs'
-import { Eth } from '../icons'
+import { ETH } from '../icons'
 
 export default {
   component: Tabs,
@@ -56,9 +56,9 @@ export const AllStates: StoryFn<TabsProps> = () => {
   ]
 
   const circleItems = [
-    { key: '1', children: <Eth /> },
-    { key: '2', children: <Eth /> },
-    { key: '3', children: <Eth /> },
+    { key: '1', children: <ETH /> },
+    { key: '2', children: <ETH /> },
+    { key: '3', children: <ETH /> },
   ]
 
   const gridContainerStyle: React.CSSProperties = {
@@ -93,13 +93,13 @@ export const AllStates: StoryFn<TabsProps> = () => {
   ]
 
   const partiallyDisabledCircleItems = [
-    { key: '1', children: <Eth /> },
+    { key: '1', children: <ETH /> },
     {
       key: '2',
-      children: <Eth />,
+      children: <ETH />,
       disabled: true,
     },
-    { key: '3', children: <Eth /> },
+    { key: '3', children: <ETH /> },
   ]
 
   return (
