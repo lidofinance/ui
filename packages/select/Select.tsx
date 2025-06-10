@@ -9,7 +9,7 @@ import {
 import { Dropdown } from './dropdown'
 import styles from './Select.module.css'
 import cn from 'classnames'
-import { ShevronBottom } from '../icons'
+import { DownChevron } from '../icons'
 
 export type SelectProps = Omit<ComponentPropsWithoutRef<'input'>, 'size'> & {
   size?: SelectSize
@@ -91,7 +91,7 @@ export const Select = ({
         {...rest}
         readOnly
       />
-      <ShevronBottom
+      <DownChevron
         className={cn(styles.icon, styles[`size${size.toUpperCase()}`], {
           [styles.open]: open,
           [styles.disabled]: disabled,

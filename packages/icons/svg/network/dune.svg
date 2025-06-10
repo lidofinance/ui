@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none" viewBox="0 0 80 80">
+  <g filter="url(#a)" opacity=".5">
+    <path fill="#F1603F" d="M47 57c10.493 0 19-8.507 19-19s-8.507-19-19-19-19 8.507-19 19 8.507 19 19 19Z"/>
+    <mask id="b" width="38" height="38" x="28" y="19" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+      <path fill="#F1603F" d="M47 57c10.493 0 19-8.507 19-19s-8.507-19-19-19-19 8.507-19 19 8.507 19 19 19Z"/>
+    </mask>
+    <g mask="url(#b)">
+      <path fill="#2B286C" d="M78.271 33.25 29.583 49.083v11.084h48.688V33.25Z"/>
+    </g>
+  </g>
+  <path fill="#F1603F" d="M40 61c11.598 0 21-9.402 21-21s-9.402-21-21-21-21 9.402-21 21 9.402 21 21 21Z"/>
+  <path fill="#2B286C" d="M61 40c0 11.598-9.402 21-21 21-7.28 0-13.695-3.705-17.462-9.331l38.446-12.503c.01.277.016.555.016.834Z"/>
+  <defs>
+    <filter id="a" width="60" height="60" x="17" y="8" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_52_21239" stdDeviation="5.5"/>
+    </filter>
+  </defs>
+</svg>

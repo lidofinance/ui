@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Tag, TagColor, TagSize, TagVariant } from '.'
-import { Eth } from '../icons'
+import { ETH } from '../icons'
 
 const meta: Meta<typeof Tag> = {
   title: 'Feedback/Tag',
@@ -51,7 +51,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const Icon = () => <Eth width='34px' height='34px' />
+const Icon = () => <ETH width='34px' height='34px' />
 
 export const Basic: Story = {}
 

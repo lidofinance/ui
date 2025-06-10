@@ -9,7 +9,7 @@ import {
 import cn from 'classnames'
 import styles from './Button.module.css'
 import { DynamicLink } from '../links'
-import { ArrowRight } from '../icons'
+import { RightArrow } from '../icons'
 import { WaveLoader, WaveLoaderVariant } from './waveLoader/WaveLoader'
 
 export type ButtonDataTestId = {
@@ -112,7 +112,7 @@ export const Button = forwardRef(
               >
                 {children}
                 {withArrow && (
-                  <ArrowRight
+                  <RightArrow
                     className={cn(
                       styles.arrow,
                       hideArrowOnMobile && styles.hideArrowOnMobile,
@@ -123,7 +123,7 @@ export const Button = forwardRef(
               <span className={styles.spacer} />
             </>
           ) : (
-            <>{withArrow && <ArrowRight className={styles.arrow} />}</>
+            <>{withArrow && <RightArrow className={styles.arrow} />}</>
           )}
         </>
       </>

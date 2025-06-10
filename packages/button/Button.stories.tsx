@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Button, ButtonProps } from './Button'
-import { Eth } from '../icons'
+import { ETH } from '../icons'
 
 export default {
   component: Button,
@@ -51,7 +51,7 @@ export default {
   },
   decorators: [
     (Story, context) => {
-      const icon = context.args.icon ? <Eth /> : null
+      const icon = context.args.icon ? <ETH /> : null
       return <Story {...context} args={{ ...context.args, icon }} />
     },
   ],
@@ -127,7 +127,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 shape='circle'
                 textStyle='normal'
                 disabled={false}
-                icon={<Eth />}
+                icon={<ETH />}
                 withArrow={false}
                 loading={false}
                 loaderVariant='transparent'

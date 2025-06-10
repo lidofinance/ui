@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react'
 import cn from 'classnames'
 import { Tooltip, TooltipPosition } from '../tooltip'
-import { InfoIcon } from '../icons'
+import { Info } from '../icons'
 import styles from './TooltipIcon.module.css'
 
 export type TooltipIconSize = 'S' | 'M'
@@ -48,7 +48,7 @@ export const TooltipIcon = ({
         className={cn(styles.icon, styles[`size${size}`], styles[variant])}
         data-testid={dataTestId?.root}
       >
-        <InfoIcon data-testid={dataTestId?.icon} />
+        <Info data-testid={dataTestId?.icon} />
       </div>
     </Tooltip>
   )

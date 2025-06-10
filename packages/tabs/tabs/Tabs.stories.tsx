@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Tabs, TabsProps } from './Tabs'
-import { Check } from '../../icons'
+import { Checkmark, MetamaskIcon } from '../../icons'
 
 export default {
   component: Tabs,
@@ -58,14 +58,12 @@ export const AllStates: StoryFn<TabsProps> = () => {
     { key: '3', children: 'Tab text 3' },
   ]
   const circleItems = [
-    { key: '1', children: <Check /> },
+    { key: '1', children: <Checkmark /> },
     {
       key: '2',
-      children: (
-        <img src='https://lido.fi/static/index/defi/metamask.svg' alt={'img'} />
-      ),
+      children: <MetamaskIcon />,
     },
-    { key: '3', children: <Check /> },
+    { key: '3', children: <Checkmark /> },
   ]
 
   const gridContainerStyle: React.CSSProperties = {
@@ -132,8 +130,8 @@ export const AllStates: StoryFn<TabsProps> = () => {
                             { key: '3', children: 'Tab text 3' },
                           ]
                         : [
-                            { key: '1', children: <Check /> },
-                            { key: '4', children: <Check /> },
+                            { key: '1', children: <Checkmark /> },
+                            { key: '4', children: <Checkmark /> },
                             {
                               key: '2',
                               children: (
@@ -144,7 +142,11 @@ export const AllStates: StoryFn<TabsProps> = () => {
                               ),
                               disabled: true,
                             },
-                            { key: '3', children: <Check />, disabled: true },
+                            {
+                              key: '3',
+                              children: <Checkmark />,
+                              disabled: true,
+                            },
                           ]
                     }
                   />
