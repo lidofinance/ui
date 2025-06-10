@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuCSM = React.forwardRef(function MenuCSM(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='url(#MenuCSM__MenuCSM__a)'
         d='M38.223 67.863h-.001l-.348.19-.006.003c-1.238.553-3.207.318-6.146-1.323-2.566-1.434-4.395-3.133-5.696-4.798a16.347 16.347 0 01-2.525-4.558c-.59-1.648-.672-2.772-.672-2.772l5.154 2.007s.276 4.332 3.463 6.223c3.187 1.89 3.935-1.733 1.18-4.175a78.798 78.798 0 01-3.072-2.868 48.429 48.429 0 01-2.874-3.072c-1.267-1.492-2.317-2.987-2.789-4.263-.593-1.605-.684-3.557.29-4.679.232-.266.523-.485.881-.641 1.138-.498 2.953-.368 5.688.89 7.234 3.329 8.445 10.523 8.445 10.523l-5.113-1.678c-.983-5.828-5.862-6.497-5.361-3.602.5 2.896 8.195 7.736 10.033 11.59 1.125 2.358 1.364 5.774-.531 7.003z'
@@ -747,4 +737,4 @@ export const MenuCSM = React.forwardRef(function MenuCSM(
       </defs>
     </svg>
   )
-})
+}

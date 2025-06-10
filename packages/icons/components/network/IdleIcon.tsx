@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const IdleIcon = React.forwardRef(function IdleIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const IdleIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#1300D3'
         fillRule='evenodd'
@@ -49,4 +39,4 @@ export const IdleIcon = React.forwardRef(function IdleIcon(
       </defs>
     </svg>
   )
-})
+}

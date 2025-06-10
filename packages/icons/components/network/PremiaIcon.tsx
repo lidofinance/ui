@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PremiaIcon = React.forwardRef(function PremiaIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PremiaIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#PremiaIcon__PremiaIcon__a)' opacity={0.45}>
         <path
           fill='#5294FF'
@@ -49,4 +39,4 @@ export const PremiaIcon = React.forwardRef(function PremiaIcon(
       </defs>
     </svg>
   )
-})
+}

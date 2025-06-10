@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LDO = React.forwardRef(function LDO(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LDO = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#LDO__LDO__a)'>
         <rect width={80} height={80} x={0.429} fill='#FFAA7D' rx={40} />
         <path
@@ -59,4 +49,4 @@ export const LDO = React.forwardRef(function LDO(
       </defs>
     </svg>
   )
-})
+}

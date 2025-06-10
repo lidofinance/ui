@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PeopleCulture = React.forwardRef(function PeopleCulture(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g filter='url(#PeopleCulture__PeopleCulture__a)' opacity={0.6}>
         <path
           fill='url(#PeopleCulture__PeopleCulture__b)'
@@ -585,4 +575,4 @@ export const PeopleCulture = React.forwardRef(function PeopleCulture(
       </defs>
     </svg>
   )
-})
+}

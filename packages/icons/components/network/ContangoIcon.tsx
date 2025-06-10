@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ContangoIcon = React.forwardRef(function ContangoIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ContangoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={99}
-      height={98}
-      viewBox='0 0 99 98'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={99} height={98} viewBox='0 0 99 98' fill='none' {...props}>
       <g filter='url(#ContangoIcon__ContangoIcon__a)' opacity={0.7}>
         <path
           fill='url(#ContangoIcon__ContangoIcon__b)'
@@ -74,4 +64,4 @@ export const ContangoIcon = React.forwardRef(function ContangoIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const KarakIcon = React.forwardRef(function KarakIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const KarakIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#KarakIcon__KarakIcon__a)'>
         <path
           fill='#DF5E00'
@@ -51,4 +41,4 @@ export const KarakIcon = React.forwardRef(function KarakIcon(
       </defs>
     </svg>
   )
-})
+}

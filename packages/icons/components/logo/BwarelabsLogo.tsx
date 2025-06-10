@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BwarelabsLogo = React.forwardRef(function BwarelabsLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BwarelabsLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <mask
         id='BwarelabsLogo__a'
         width={179}
@@ -35,4 +25,4 @@ export const BwarelabsLogo = React.forwardRef(function BwarelabsLogo(
       </g>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SimplyvcLogo = React.forwardRef(function SimplyvcLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SimplyvcLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M56.7 28.157l.378.206.379-.208v-.457l-.379-.207-.379.207v.46zm15.18 25.976l-.379-.206v-.457l.379-.207.377.207v.457l-.377.206zm-5.078-14.314l.378.206.377-.208v-.458l-.377-.206-.379.206v.46zm-19.767.206l-.38-.206v-.46l.38-.206.379.206v.458l-.38.208zm-5.129 13.902l.378.206.38-.206v-.457l-.38-.207-.378.207v.457zm15.172 2.786l-.379-.206v-.458l.379-.206.379.206v.458l-.379.206z'
@@ -41,4 +31,4 @@ export const SimplyvcLogo = React.forwardRef(function SimplyvcLogo(
       />
     </svg>
   )
-})
+}

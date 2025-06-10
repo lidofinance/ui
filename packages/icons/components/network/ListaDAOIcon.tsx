@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ListaDAOIcon = React.forwardRef(function ListaDAOIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ListaDAOIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#FFD600'
         d='M43.657 42.002c.826-9.803 9.377-13.98 14.7-11.685 5.324 2.294 7.1 9.727 4.44 16.793-4.267 11.342-19.062 18.757-30.87 13.667 10.854-2.03 11.005-10.172 11.73-18.775z'
@@ -53,4 +43,4 @@ export const ListaDAOIcon = React.forwardRef(function ListaDAOIcon(
       </defs>
     </svg>
   )
-})
+}

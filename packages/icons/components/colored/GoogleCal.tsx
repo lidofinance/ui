@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const GoogleCal = React.forwardRef(function GoogleCal(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const GoogleCal = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g
         clipPath='url(#GoogleCal__GoogleCal__a)'
         filter='url(#GoogleCal__GoogleCal__b)'
@@ -113,4 +103,4 @@ export const GoogleCal = React.forwardRef(function GoogleCal(
       </defs>
     </svg>
   )
-})
+}

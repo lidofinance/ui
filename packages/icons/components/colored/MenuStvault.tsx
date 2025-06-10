@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuStvault = React.forwardRef(function MenuStvault(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuStvault = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='url(#MenuStvault__MenuStvault__a)'
         fillOpacity={0.14}
@@ -284,4 +274,4 @@ export const MenuStvault = React.forwardRef(function MenuStvault(
       </defs>
     </svg>
   )
-})
+}

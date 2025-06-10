@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PhantomIcon = React.forwardRef(function PhantomIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PhantomIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#PhantomIcon__PhantomIcon__a)'>
         <g clipPath='url(#PhantomIcon__PhantomIcon__b)'>
           <path
@@ -55,4 +45,4 @@ export const PhantomIcon = React.forwardRef(function PhantomIcon(
       </defs>
     </svg>
   )
-})
+}

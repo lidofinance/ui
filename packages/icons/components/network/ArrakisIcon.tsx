@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ArrakisIcon = React.forwardRef(function ArrakisIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ArrakisIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#ArrakisIcon__ArrakisIcon__a)'>
         <g filter='url(#ArrakisIcon__ArrakisIcon__b)' opacity={0.7}>
           <path
@@ -54,4 +44,4 @@ export const ArrakisIcon = React.forwardRef(function ArrakisIcon(
       </defs>
     </svg>
   )
-})
+}

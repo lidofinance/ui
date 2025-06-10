@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const StarknetIcon = React.forwardRef(function StarknetIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const StarknetIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g
         clipPath='url(#StarknetIcon__StarknetIcon__a)'
         fillRule='evenodd'
@@ -135,4 +125,4 @@ export const StarknetIcon = React.forwardRef(function StarknetIcon(
       </defs>
     </svg>
   )
-})
+}

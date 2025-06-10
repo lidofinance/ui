@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuForum = React.forwardRef(function MenuForum(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuForum = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={82}
-      height={84}
-      viewBox='0 0 82 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={82} height={84} viewBox='0 0 82 84' fill='none' {...props}>
       <g opacity={0.7} fillRule='evenodd' clipRule='evenodd'>
         <path
           fill='url(#MenuForum__MenuForum__a)'
@@ -104,4 +94,4 @@ export const MenuForum = React.forwardRef(function MenuForum(
       </defs>
     </svg>
   )
-})
+}

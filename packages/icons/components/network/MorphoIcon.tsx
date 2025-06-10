@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MorphoIcon = React.forwardRef(function MorphoIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MorphoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#MorphoIcon__MorphoIcon__a)'>
         <path
           fill='#A9D6FF'
@@ -117,4 +107,4 @@ export const MorphoIcon = React.forwardRef(function MorphoIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AbracadabraIcon = React.forwardRef(function AbracadabraIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AbracadabraIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#AbracadabraIcon__AbracadabraIcon__a)' opacity={0.6}>
         <path fill='#4229EF' d='M50.052 55l9.99-10.003h-9.99V55z' />
         <path fill='#5552FD' d='M60.042 35.004l-9.99 10.003h9.99V35.004z' />
@@ -81,4 +71,4 @@ export const AbracadabraIcon = React.forwardRef(function AbracadabraIcon(
       </defs>
     </svg>
   )
-})
+}

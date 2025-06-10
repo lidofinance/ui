@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AaveIcon = React.forwardRef(function AaveIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AaveIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#AaveIcon__AaveIcon__a)'>
         <path
           fill='#9391F7'
@@ -53,4 +43,4 @@ export const AaveIcon = React.forwardRef(function AaveIcon(
       </defs>
     </svg>
   )
-})
+}

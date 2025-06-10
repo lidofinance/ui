@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Immunefi = React.forwardRef(function Immunefi(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Immunefi = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#Immunefi__Immunefi__a)' opacity={0.4}>
         <path
           fill='url(#Immunefi__Immunefi__b)'
@@ -122,4 +112,4 @@ export const Immunefi = React.forwardRef(function Immunefi(
       </defs>
     </svg>
   )
-})
+}

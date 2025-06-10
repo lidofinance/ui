@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MmfinanceIcon = React.forwardRef(function MmfinanceIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MmfinanceIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#MmfinanceIcon__MmfinanceIcon__a)' opacity={0.6}>
         <path
           fill='#A8A8A8'
@@ -3512,4 +3502,4 @@ export const MmfinanceIcon = React.forwardRef(function MmfinanceIcon(
       </defs>
     </svg>
   )
-})
+}

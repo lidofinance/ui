@@ -4,10 +4,8 @@ module.exports = function template(
 ) {
   return tpl`
     ${interfaces}
-    export const ${componentName} = React.forwardRef(
-      function ${componentName}(${props}) {
+    export const ${componentName} = (${props}) =>{
         return ${jsx};
       }
-    )
   `
 }

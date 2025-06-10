@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const CeffuIcon = React.forwardRef(function CeffuIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const CeffuIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#1CD264'
         d='M34.564 19l5.974 5.974L46.51 19l14 14.002a8.452 8.452 0 01-11.953 0l-8.019-8.022L25.518 40l-5.975-5.977L34.563 19zM19.538 45.977L25.514 40l15.02 15.023L34.558 61l-15.02-15.023zm20.996 9.046l8.023-8.025a8.452 8.452 0 0111.952 0L46.51 61l-5.976-5.977z'
@@ -45,4 +35,4 @@ export const CeffuIcon = React.forwardRef(function CeffuIcon(
       </defs>
     </svg>
   )
-})
+}

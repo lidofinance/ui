@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const METISIcon = React.forwardRef(function METISIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const METISIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#METISIcon__METISIcon__a)'>
         <g filter='url(#METISIcon__METISIcon__b)'>
           <path
@@ -55,4 +45,4 @@ export const METISIcon = React.forwardRef(function METISIcon(
       </defs>
     </svg>
   )
-})
+}

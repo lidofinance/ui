@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const DVT = React.forwardRef(function DVT(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const DVT = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g filter='url(#DVT__DVT__a)' opacity={0.5}>
         <path
           fill='url(#DVT__DVT__b)'
@@ -1355,4 +1345,4 @@ export const DVT = React.forwardRef(function DVT(
       </defs>
     </svg>
   )
-})
+}

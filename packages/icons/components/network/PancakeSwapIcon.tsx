@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PancakeSwapIcon = React.forwardRef(function PancakeSwapIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PancakeSwapIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#PancakeSwapIcon__PancakeSwapIcon__a)'>
         <g filter='url(#PancakeSwapIcon__PancakeSwapIcon__b)' opacity={0.6}>
           <path
@@ -78,4 +68,4 @@ export const PancakeSwapIcon = React.forwardRef(function PancakeSwapIcon(
       </defs>
     </svg>
   )
-})
+}

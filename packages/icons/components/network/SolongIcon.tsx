@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SolongIcon = React.forwardRef(function SolongIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SolongIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#SolongIcon__SolongIcon__a)' opacity={0.5} fill='#26F8C2'>
         <path d='M40.118 18h4.343a5.938 5.938 0 00-.488 7.452l.488.69.488.692a5.938 5.938 0 01-.488 7.452h-4.343a5.938 5.938 0 00.488-7.452l-.488-.691-.488-.691A5.937 5.937 0 0140.118 18zm-8.685 0h4.342a5.938 5.938 0 00-.487 7.452l.975 1.382a5.937 5.937 0 01-.488 7.452h-4.342a5.937 5.937 0 00.488-7.452l-.976-1.382A5.938 5.938 0 0131.433 18z' />
         <path
@@ -62,4 +52,4 @@ export const SolongIcon = React.forwardRef(function SolongIcon(
       </defs>
     </svg>
   )
-})
+}

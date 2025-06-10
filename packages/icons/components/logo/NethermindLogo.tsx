@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const NethermindLogo = React.forwardRef(function NethermindLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const NethermindLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M54.447 36.554c1.3 0 2.559.466 3.551 1.315a5.557 5.557 0 011.867 3.32l6.277-1.468a12.017 12.017 0 00-2.543-5.423 11.859 11.859 0 00-4.83-3.495 11.751 11.751 0 00-5.904-.689 11.796 11.796 0 00-5.494 2.29l3.918 5.16a5.44 5.44 0 013.158-1.01zm-23.331 0c.886.002 1.76.223 2.542.643a5.565 5.565 0 012.343 2.362l5.017-3.81a12.06 12.06 0 00-4.338-4.217l-3.022 5.665 3.018-5.667a11.729 11.729 0 00-13.18 1.089 11.943 11.943 0 00-3.946 5.77 12.048 12.048 0 00-.057 7.01 12.002 12.002 0 002.933 5.032 11.847 11.847 0 004.943 3.034c1.87.584 3.854.692 5.776.314a11.82 11.82 0 005.237-2.479l-3.748-4.934a5.453 5.453 0 01-6.746.23 5.548 5.548 0 01-1.998-2.767 5.586 5.586 0 01.363-4.312 5.526 5.526 0 011.76-1.988l-4.516-4.91 4.519 4.904a5.418 5.418 0 013.103-.97h-.003zm18.585 8.342l-5.035 3.867a11.936 11.936 0 006.16 4.65c.362-1.115.783-2.382 1.169-3.54.316-.95.608-1.826.821-2.485a5.523 5.523 0 01-3.115-2.492z'
@@ -41,4 +31,4 @@ export const NethermindLogo = React.forwardRef(function NethermindLogo(
       />
     </svg>
   )
-})
+}

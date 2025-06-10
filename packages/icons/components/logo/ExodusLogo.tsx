@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ExodusLogo = React.forwardRef(function ExodusLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <g clipPath='url(#ExodusLogo__a)'>
         <path
           fill='#000'
@@ -78,4 +68,4 @@ export const ExodusLogo = React.forwardRef(function ExodusLogo(
       </defs>
     </svg>
   )
-})
+}

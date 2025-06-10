@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AvailIcon = React.forwardRef(function AvailIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AvailIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#AvailIcon__a)'>
         <g filter='url(#AvailIcon__b)' opacity={0.8}>
           <path
@@ -1047,4 +1037,4 @@ export const AvailIcon = React.forwardRef(function AvailIcon(
       </defs>
     </svg>
   )
-})
+}

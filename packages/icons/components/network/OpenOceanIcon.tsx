@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const OpenOceanIcon = React.forwardRef(function OpenOceanIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const OpenOceanIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#OpenOceanIcon__OpenOceanIcon__a)'>
         <g filter='url(#OpenOceanIcon__OpenOceanIcon__b)' opacity={0.35}>
           <path
@@ -50,4 +40,4 @@ export const OpenOceanIcon = React.forwardRef(function OpenOceanIcon(
       </defs>
     </svg>
   )
-})
+}

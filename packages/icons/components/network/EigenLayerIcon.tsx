@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const EigenLayerIcon = React.forwardRef(function EigenLayerIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const EigenLayerIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#1A0C6D'
         fillRule='evenodd'
@@ -50,4 +40,4 @@ export const EigenLayerIcon = React.forwardRef(function EigenLayerIcon(
       </defs>
     </svg>
   )
-})
+}

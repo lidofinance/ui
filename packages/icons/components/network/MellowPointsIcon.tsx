@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MellowPointsIcon = React.forwardRef(function MellowPointsIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MellowPointsIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#MellowPointsIcon__a)'>
         <g
           clipPath='url(#MellowPointsIcon__b)'
@@ -132,4 +122,4 @@ export const MellowPointsIcon = React.forwardRef(function MellowPointsIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const USDC = React.forwardRef(function USDC(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const USDC = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#USDC__USDC__a)'>
         <rect width={80} height={80} x={0.857} fill='#2775CA' rx={40} />
         <path
@@ -60,4 +50,4 @@ export const USDC = React.forwardRef(function USDC(
       </defs>
     </svg>
   )
-})
+}

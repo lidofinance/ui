@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const KyberswapLogo = React.forwardRef(function KyberswapLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const KyberswapLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M42.224 41.761l17.718 10.183a.935.935 0 00.932 0 .936.936 0 00.47-.799V32.392a.949.949 0 00-.123-.466.936.936 0 00-1.274-.338L42.224 41.762zM58.91 27.2l-11.756-9.01a.929.929 0 00-.89-.132.926.926 0 00-.59.675l-4.3 20.057L58.82 28.75a1 1 0 00.333-.314.947.947 0 00.052-.89.911.911 0 00-.29-.351l-.004.005zM47.144 65.346l11.79-9.018a.895.895 0 00.28-.357.96.96 0 00.082-.447.928.928 0 00-.138-.432.9.9 0 00-.324-.319L41.368 44.747l4.307 20.057a.936.936 0 00.585.684.912.912 0 00.884-.133v-.009z'
@@ -29,4 +19,4 @@ export const KyberswapLogo = React.forwardRef(function KyberswapLogo(
       />
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const GauntletIcon = React.forwardRef(function GauntletIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const GauntletIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#GauntletIcon__GauntletIcon__a)'>
         <g filter='url(#GauntletIcon__GauntletIcon__b)' opacity={0.5}>
           <path
@@ -58,4 +48,4 @@ export const GauntletIcon = React.forwardRef(function GauntletIcon(
       </defs>
     </svg>
   )
-})
+}

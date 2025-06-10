@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const FRAXIcon = React.forwardRef(function FRAXIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const FRAXIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#000'
         d='M21.17 15l6.708 6.72c2.047-1.318 4.193-2.302 6.5-2.907 5.928-1.551 11.531-.72 16.823 2.32 1.068.614 1.044.638 1.938-.246 1.964-1.945 3.933-3.88 5.853-5.775l6.018 6.012-6.753 6.633c1.376 2.135 2.355 4.253 2.96 6.533 1.58 5.942.75 11.567-2.304 16.878-.615 1.066-.638 1.043.247 1.936 1.946 1.959 3.886 3.927 5.783 5.842l-6.021 6.016c-2.161-2.194-4.399-4.47-6.595-6.703-8.29 4.929-16.396 4.926-24.446.079-2.258 2.241-4.506 4.474-6.712 6.662l-6.126-6.121 6.715-6.595c-4.945-8.277-4.93-16.376-.089-24.412-2.24-2.26-4.474-4.51-6.662-6.715 2.082-2.077 4.096-4.09 6.162-6.157zm18.85 38.265c7.31.006 13.21-5.866 13.28-13.218.07-7.288-5.915-13.292-13.265-13.306-7.317-.015-13.332 6-13.285 13.291.047 7.332 5.959 13.227 13.27 13.233z'
@@ -45,4 +35,4 @@ export const FRAXIcon = React.forwardRef(function FRAXIcon(
       </defs>
     </svg>
   )
-})
+}

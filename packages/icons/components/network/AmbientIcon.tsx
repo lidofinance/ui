@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AmbientIcon = React.forwardRef(function AmbientIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AmbientIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g
         clipPath='url(#AmbientIcon__AmbientIcon__a)'
         fill='#7371FC'
@@ -59,4 +49,4 @@ export const AmbientIcon = React.forwardRef(function AmbientIcon(
       </defs>
     </svg>
   )
-})
+}

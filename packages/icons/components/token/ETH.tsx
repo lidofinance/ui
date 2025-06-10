@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ETH = React.forwardRef(function ETH(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ETH = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#ETH__ETH__a)' fill='#000'>
         <g filter='url(#ETH__ETH__b)' opacity={0.3}>
           <path
@@ -79,4 +69,4 @@ export const ETH = React.forwardRef(function ETH(
       </defs>
     </svg>
   )
-})
+}

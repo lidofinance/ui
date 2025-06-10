@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Alliance = React.forwardRef(function Alliance(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Alliance = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g clipPath='url(#Alliance__Alliance__a)'>
         <g filter='url(#Alliance__Alliance__b)'>
           <path
@@ -388,4 +378,4 @@ export const Alliance = React.forwardRef(function Alliance(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MetamaskIcon = React.forwardRef(function MetamaskIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MetamaskIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#MetamaskIcon__MetamaskIcon__a)'>
         <g filter='url(#MetamaskIcon__MetamaskIcon__b)' opacity={0.5}>
           <path
@@ -94,4 +84,4 @@ export const MetamaskIcon = React.forwardRef(function MetamaskIcon(
       </defs>
     </svg>
   )
-})
+}

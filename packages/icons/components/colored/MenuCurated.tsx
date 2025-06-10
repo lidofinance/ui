@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuCurated = React.forwardRef(function MenuCurated(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#MenuCurated__MenuCurated__a)'>
         <path
           fill='url(#MenuCurated__MenuCurated__b)'
@@ -148,4 +138,4 @@ export const MenuCurated = React.forwardRef(function MenuCurated(
       </defs>
     </svg>
   )
-})
+}

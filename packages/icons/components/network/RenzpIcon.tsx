@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const RenzpIcon = React.forwardRef(function RenzpIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const RenzpIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#RenzpIcon__RenzpIcon__a)'>
         <path
           fill='#ACE730'
@@ -55,4 +45,4 @@ export const RenzpIcon = React.forwardRef(function RenzpIcon(
       </defs>
     </svg>
   )
-})
+}

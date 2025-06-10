@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LidoProjectRewards = React.forwardRef(function LidoProjectRewards(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LidoProjectRewards = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g filter='url(#LidoProjectRewards__LidoProjectRewards__a)' opacity={0.5}>
         <path
           fill='url(#LidoProjectRewards__LidoProjectRewards__b)'
@@ -439,4 +429,4 @@ export const LidoProjectRewards = React.forwardRef(function LidoProjectRewards(
       </defs>
     </svg>
   )
-})
+}

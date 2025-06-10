@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SymbioticIcon = React.forwardRef(function SymbioticIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SymbioticIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g
         clipPath='url(#SymbioticIcon__SymbioticIcon__a)'
         fill='#C6FD63'
@@ -55,4 +45,4 @@ export const SymbioticIcon = React.forwardRef(function SymbioticIcon(
       </defs>
     </svg>
   )
-})
+}

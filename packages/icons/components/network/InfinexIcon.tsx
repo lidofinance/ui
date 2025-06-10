@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const InfinexIcon = React.forwardRef(function InfinexIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const InfinexIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#FE6F39'
         d='M48.132 33.825v21.527H21.455V24.648h7.369v4.982h-2.25v20.95h16.439V33.826h5.119z'
@@ -51,4 +41,4 @@ export const InfinexIcon = React.forwardRef(function InfinexIcon(
       </defs>
     </svg>
   )
-})
+}

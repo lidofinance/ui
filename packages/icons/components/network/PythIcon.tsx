@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PythIcon = React.forwardRef(function PythIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PythIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#PythIcon__PythIcon__a)' fill='#E4DAFB'>
         <path d='M52.623 34.523a4.127 4.127 0 01-4.125 4.127v4.128a8.252 8.252 0 008.25-8.255 8.253 8.253 0 00-12.375-7.153 8.247 8.247 0 00-4.125 7.151V55.16l3.709 3.714.416.415V34.524a4.126 4.126 0 118.25 0v-.001z' />
         <path d='M48.5 18c-3.007 0-5.824.805-8.25 2.211a16.502 16.502 0 00-4.125 3.382A16.457 16.457 0 0032 34.513v12.385l4.125 4.127V34.511a12.357 12.357 0 014.125-9.23 12.351 12.351 0 018.25-3.154c6.834 0 12.375 5.545 12.375 12.386 0 6.837-5.541 12.383-12.376 12.383v4.128C57.613 51.025 65 43.632 65 34.511 65 25.392 57.613 18 48.5 18z' />
@@ -47,4 +37,4 @@ export const PythIcon = React.forwardRef(function PythIcon(
       </defs>
     </svg>
   )
-})
+}

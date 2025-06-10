@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const QA = React.forwardRef(function QA(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const QA = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g clipPath='url(#QA__QA__a)'>
         <g filter='url(#QA__QA__b)' opacity={0.5}>
           <path
@@ -605,4 +595,4 @@ export const QA = React.forwardRef(function QA(
       </defs>
     </svg>
   )
-})
+}

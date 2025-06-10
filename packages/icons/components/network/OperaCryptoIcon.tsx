@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const OperaCryptoIcon = React.forwardRef(function OperaCryptoIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const OperaCryptoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#OperaCryptoIcon__OperaCryptoIcon__a)' opacity={0.35}>
         <path
           fill='url(#OperaCryptoIcon__OperaCryptoIcon__b)'
@@ -105,4 +95,4 @@ export const OperaCryptoIcon = React.forwardRef(function OperaCryptoIcon(
       </defs>
     </svg>
   )
-})
+}

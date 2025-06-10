@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LidoBugBounty = React.forwardRef(function LidoBugBounty(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LidoBugBounty = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g clipPath='url(#LidoBugBounty__LidoBugBounty__a)'>
         <g filter='url(#LidoBugBounty__LidoBugBounty__b)'>
           <path
@@ -1077,4 +1067,4 @@ export const LidoBugBounty = React.forwardRef(function LidoBugBounty(
       </defs>
     </svg>
   )
-})
+}

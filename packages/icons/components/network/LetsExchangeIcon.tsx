@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LetsExchangeIcon = React.forwardRef(function LetsExchangeIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LetsExchangeIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#159DFF'
         fillRule='evenodd'
@@ -49,4 +39,4 @@ export const LetsExchangeIcon = React.forwardRef(function LetsExchangeIcon(
       </defs>
     </svg>
   )
-})
+}

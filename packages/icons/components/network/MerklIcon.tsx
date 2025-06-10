@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MerklIcon = React.forwardRef(function MerklIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MerklIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#MerklIcon__MerklIcon__a)'>
         <path
           fill='#B9AAFD'
@@ -56,4 +46,4 @@ export const MerklIcon = React.forwardRef(function MerklIcon(
       </defs>
     </svg>
   )
-})
+}

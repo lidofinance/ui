@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const HextrustLogo = React.forwardRef(function HextrustLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const HextrustLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <g clipPath='url(#HextrustLogo__HextrustLogo__a)' fill='#000'>
         <path d='M45.4 31h-.098a.665.665 0 00-.175.023l-15.643 4.288a.661.661 0 00-.484.634.657.657 0 00.484.634l9.645 2.647 5.996 1.642a.666.666 0 00.175.024h.098a.646.646 0 00.174-.024l5.997-1.642 9.646-2.647a.66.66 0 00.483-.634.658.658 0 00-.483-.634l-15.642-4.288A.646.646 0 0045.4 31z' />
         <path d='M45.567 42.137h-.434a.654.654 0 01-.173-.023l-8.002-2.194a.667.667 0 00-.35 0l-7.124 1.953a.66.66 0 00-.484.633.654.654 0 00.484.632l9.651 2.647 5.992 1.643a.665.665 0 00.175.023h.098a.646.646 0 00.173-.023l5.993-1.643 9.652-2.647a.657.657 0 000-1.265l-7.126-1.953a.659.659 0 00-.348 0l-8.002 2.194a.654.654 0 01-.175.023z' />
@@ -29,4 +19,4 @@ export const HextrustLogo = React.forwardRef(function HextrustLogo(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuDVT = React.forwardRef(function MenuDVT(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuDVT = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='url(#MenuDVT__MenuDVT__a)'
         d='M69.523 53.978c1.96 1.117 1.97 2.927.023 4.044l-26.41 15.14c-1.948 1.117-5.117 1.117-7.077 0L9.477 58.022c-1.96-1.117-1.97-2.927-.023-4.044l26.41-15.14c1.948-1.117 5.117-1.117 7.077 0l26.582 15.14z'
@@ -172,4 +162,4 @@ export const MenuDVT = React.forwardRef(function MenuDVT(
       </defs>
     </svg>
   )
-})
+}

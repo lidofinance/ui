@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SlopeIcon = React.forwardRef(function SlopeIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SlopeIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#SlopeIcon__SlopeIcon__a)' opacity={0.4}>
         <path
           fill='url(#SlopeIcon__SlopeIcon__b)'
@@ -113,4 +103,4 @@ export const SlopeIcon = React.forwardRef(function SlopeIcon(
       </defs>
     </svg>
   )
-})
+}

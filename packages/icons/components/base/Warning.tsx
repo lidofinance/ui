@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Warning = React.forwardRef(function Warning(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Warning = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={24}
-      height={24}
-      viewBox='0 0 24 24'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={24} height={24} viewBox='0 0 24 24' fill='none' {...props}>
       <path
         fill='currentColor'
         d='M10.094 4.012c.847-1.466 2.964-1.466 3.81 0l7.585 13.135c.82 1.42-.148 3.186-1.748 3.295l-.157.006v-1.4a.8.8 0 00.692-1.201L12.693 4.712a.8.8 0 00-1.386 0L3.723 17.847a.8.8 0 00.694 1.2v1.4l-.158-.005c-1.549-.106-2.505-1.762-1.822-3.157l.074-.138 7.583-13.135zm9.49 15.035v1.4H4.417v-1.4h15.167z'
@@ -25,4 +15,4 @@ export const Warning = React.forwardRef(function Warning(
       />
     </svg>
   )
-})
+}

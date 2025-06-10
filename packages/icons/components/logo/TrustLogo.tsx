@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const TrustLogo = React.forwardRef(function TrustLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const TrustLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M28 28.002l17.306-5.625v38.94C32.945 56.126 28 46.175 28 40.55V28.002z'
@@ -46,4 +36,4 @@ export const TrustLogo = React.forwardRef(function TrustLogo(
       </defs>
     </svg>
   )
-})
+}

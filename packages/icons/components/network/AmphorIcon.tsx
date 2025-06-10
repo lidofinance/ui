@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AmphorIcon = React.forwardRef(function AmphorIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AmphorIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#AmphorIcon__AmphorIcon__a)' opacity={0.6}>
         <path
           fill='#D37E00'
@@ -49,4 +39,4 @@ export const AmphorIcon = React.forwardRef(function AmphorIcon(
       </defs>
     </svg>
   )
-})
+}

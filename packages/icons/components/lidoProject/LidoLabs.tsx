@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LidoLabs = React.forwardRef(function LidoLabs(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={500}
-      height={500}
-      viewBox='0 0 500 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={500} height={500} viewBox='0 0 500 500' fill='none' {...props}>
       <g clipPath='url(#LidoLabs__a)'>
         <g filter='url(#LidoLabs__LidoLabs__b)'>
           <path
@@ -1097,4 +1087,4 @@ export const LidoLabs = React.forwardRef(function LidoLabs(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const HtxIcon = React.forwardRef(function HtxIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const HtxIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#HtxIcon__HtxIcon__a)'>
         <g filter='url(#HtxIcon__HtxIcon__b)' opacity={0.5}>
           <path
@@ -58,4 +48,4 @@ export const HtxIcon = React.forwardRef(function HtxIcon(
       </defs>
     </svg>
   )
-})
+}

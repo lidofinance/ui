@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LinenIcon = React.forwardRef(function LinenIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LinenIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#LinenIcon__LinenIcon__a)' opacity={0.8}>
         <path
           fill='#62FFAA'
@@ -45,4 +35,4 @@ export const LinenIcon = React.forwardRef(function LinenIcon(
       </defs>
     </svg>
   )
-})
+}

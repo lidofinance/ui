@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Rewards = React.forwardRef(function Rewards(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Rewards = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#Rewards__Rewards__a)'>
         <g filter='url(#Rewards__Rewards__b)' opacity={0.5}>
           <path fill='url(#Rewards__Rewards__c)' d='M39 9v33.5L49.5 28 39 9z' />
@@ -624,4 +614,4 @@ export const Rewards = React.forwardRef(function Rewards(
       </defs>
     </svg>
   )
-})
+}

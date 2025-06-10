@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Cult = React.forwardRef(function Cult(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Cult = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g filter='url(#Cult__Cult__a)' opacity={0.4}>
         <path
           fill='url(#Cult__Cult__b)'
@@ -622,4 +612,4 @@ export const Cult = React.forwardRef(function Cult(
       </defs>
     </svg>
   )
-})
+}

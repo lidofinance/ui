@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MeteoraIcon = React.forwardRef(function MeteoraIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MeteoraIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <mask
         id='MeteoraIcon__a'
         width={55}
@@ -129,4 +119,4 @@ export const MeteoraIcon = React.forwardRef(function MeteoraIcon(
       </defs>
     </svg>
   )
-})
+}

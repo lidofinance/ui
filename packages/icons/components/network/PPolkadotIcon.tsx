@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PPolkadotIcon = React.forwardRef(function PPolkadotIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PPolkadotIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#E6007A'
         d='M40.245 61.136c4.141 0 7.498-1.953 7.498-4.361 0-2.409-3.357-4.36-7.498-4.36-4.14 0-7.497 1.951-7.497 4.36 0 2.408 3.357 4.36 7.498 4.36zM58.25 50.741c2.07-3.586 2.058-7.469-.027-8.673-2.086-1.204-5.455.727-7.526 4.313-2.07 3.586-2.058 7.469.028 8.673 2.085 1.204 5.454-.727 7.525-4.313zM40.245 28.279c4.141 0 7.498-1.953 7.498-4.361 0-2.409-3.357-4.36-7.498-4.36-4.14 0-7.497 1.951-7.497 4.36 0 2.408 3.357 4.36 7.498 4.36zm-10.448 6.036c2.07-3.586 2.057-7.47-.03-8.675-2.087-1.205-5.457.725-7.528 4.311-2.07 3.587-2.057 7.47.03 8.675 2.087 1.205 5.458-.725 7.528-4.31zm-.029 20.738c2.087-1.205 2.1-5.089.03-8.675-2.07-3.586-5.441-5.516-7.528-4.311-2.087 1.205-2.1 5.089-.03 8.675 2.07 3.586 5.44 5.516 7.528 4.311zm28.456-16.426c2.086-1.204 2.098-5.087.028-8.674-2.071-3.586-5.44-5.517-7.526-4.312-2.085 1.204-2.098 5.087-.027 8.673 2.07 3.586 5.44 5.517 7.525 4.313z'
@@ -45,4 +35,4 @@ export const PPolkadotIcon = React.forwardRef(function PPolkadotIcon(
       </defs>
     </svg>
   )
-})
+}

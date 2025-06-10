@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const StargateIcon = React.forwardRef(function StargateIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const StargateIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#999'
         d='M44.402 19.75l1.17 2.742a22.704 22.704 0 0011.973 11.973l2.742 1.17c.718.305 1.3.745 1.75 1.268C60.675 27.113 52.93 19.365 43.135 18a4.71 4.71 0 011.267 1.75zM19.79 35.637l2.742-1.17a22.717 22.717 0 0011.976-11.972l1.17-2.743a4.738 4.738 0 011.267-1.75c-9.793 1.363-17.54 9.11-18.905 18.903a4.731 4.731 0 011.75-1.268zm40.5 8.726l-2.742 1.17a22.7 22.7 0 00-11.973 11.975l-1.17 2.742a4.74 4.74 0 01-1.267 1.753c9.792-1.365 17.537-9.113 18.905-18.905a4.731 4.731 0 01-1.75 1.267l-.003-.002zM35.678 60.25l-1.17-2.742a22.722 22.722 0 00-11.976-11.975l-2.742-1.17a4.731 4.731 0 01-1.75-1.268c1.365 9.793 9.113 17.54 18.905 18.905a4.748 4.748 0 01-1.267-1.752v.002z'
@@ -53,4 +43,4 @@ export const StargateIcon = React.forwardRef(function StargateIcon(
       </defs>
     </svg>
   )
-})
+}

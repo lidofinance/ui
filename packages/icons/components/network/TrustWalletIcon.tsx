@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const TrustWalletIcon = React.forwardRef(function TrustWalletIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const TrustWalletIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#TrustWalletIcon__TrustWalletIcon__a)'>
         <g filter='url(#TrustWalletIcon__TrustWalletIcon__b)' opacity={0.35}>
           <path
@@ -122,4 +112,4 @@ export const TrustWalletIcon = React.forwardRef(function TrustWalletIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ClaystackIcon = React.forwardRef(function ClaystackIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ClaystackIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#ClaystackIcon__ClaystackIcon__a)'>
         <path
           fill='url(#ClaystackIcon__ClaystackIcon__b)'
@@ -85,4 +75,4 @@ export const ClaystackIcon = React.forwardRef(function ClaystackIcon(
       </defs>
     </svg>
   )
-})
+}

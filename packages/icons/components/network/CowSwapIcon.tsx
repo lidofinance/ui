@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const CowSwapIcon = React.forwardRef(function CowSwapIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const CowSwapIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#CowSwapIcon__CowSwapIcon__a)'>
         <path
           fill='#012F7A'
@@ -54,4 +44,4 @@ export const CowSwapIcon = React.forwardRef(function CowSwapIcon(
       </defs>
     </svg>
   )
-})
+}

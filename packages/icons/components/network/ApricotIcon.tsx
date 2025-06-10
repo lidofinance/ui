@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ApricotIcon = React.forwardRef(function ApricotIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ApricotIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#ApricotIcon__ApricotIcon__a)' opacity={0.6}>
         <path
           fill='url(#ApricotIcon__ApricotIcon__b)'
@@ -109,4 +99,4 @@ export const ApricotIcon = React.forwardRef(function ApricotIcon(
       </defs>
     </svg>
   )
-})
+}

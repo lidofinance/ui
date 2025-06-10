@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const JojoIcon = React.forwardRef(function JojoIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const JojoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#JojoIcon__JojoIcon__a)'>
         <path
           fill='#6EDBAF'
@@ -54,4 +44,4 @@ export const JojoIcon = React.forwardRef(function JojoIcon(
       </defs>
     </svg>
   )
-})
+}

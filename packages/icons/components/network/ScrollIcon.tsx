@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ScrollIcon = React.forwardRef(function ScrollIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ScrollIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#FFEEDA'
         d='M56.362 46.433V25.206A3.247 3.247 0 0053.107 22h-22.39c-4.83.072-8.713 3.986-8.713 8.78 0 1.617.438 3.003 1.11 4.216.568 1.011 1.459 1.964 2.334 2.672.249.202.132.115.89.578 1.052.635 2.249.953 2.249.953l-.015 12.693c.03.606.088 1.184.248 1.718a5.673 5.673 0 003.46 3.827 6.969 6.969 0 002.378.476l17.88.058c3.561 0 6.451-2.86 6.451-6.397.015-2.094-1.036-3.971-2.627-5.14z'
@@ -37,4 +27,4 @@ export const ScrollIcon = React.forwardRef(function ScrollIcon(
       />
     </svg>
   )
-})
+}

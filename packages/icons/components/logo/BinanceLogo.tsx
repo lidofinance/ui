@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BinanceLogo = React.forwardRef(function BinanceLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BinanceLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M41.198 39.925l5.205-5.048 5.207 5.052 3.027-2.939L46.403 29l-8.234 7.988 3.029 2.937zM33 42.001l3.027-2.936L39.054 42l-3.027 2.937L33 42zm8.198 2.074l5.205 5.05 5.207-5.052 3.029 2.935h-.002L46.403 55l-8.238-7.99 3.033-2.935zm12.546-2.074l3.027-2.936L59.797 42l-3.026 2.937L53.744 42z'
@@ -25,4 +15,4 @@ export const BinanceLogo = React.forwardRef(function BinanceLogo(
       />
     </svg>
   )
-})
+}

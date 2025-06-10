@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const TREASURY = React.forwardRef(function TREASURY(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g filter='url(#TREASURY__TREASURY__a)' opacity={0.5}>
         <circle
           cx={215.143}
@@ -561,4 +551,4 @@ export const TREASURY = React.forwardRef(function TREASURY(
       </defs>
     </svg>
   )
-})
+}

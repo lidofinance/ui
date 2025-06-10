@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const KoiIcon = React.forwardRef(function KoiIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const KoiIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#KoiIcon__KoiIcon__a)'>
         <path
           fill='#ACD754'
@@ -50,4 +40,4 @@ export const KoiIcon = React.forwardRef(function KoiIcon(
       </defs>
     </svg>
   )
-})
+}

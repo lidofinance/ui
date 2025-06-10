@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const NOM = React.forwardRef(function NOM(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const NOM = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g clipPath='url(#NOM__NOM__a)'>
         <path
           fill='url(#NOM__NOM__b)'
@@ -508,4 +498,4 @@ export const NOM = React.forwardRef(function NOM(
       </defs>
     </svg>
   )
-})
+}

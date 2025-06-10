@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const EtherscanIcon = React.forwardRef(function EtherscanIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const EtherscanIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#21325B'
         d='M27.76 39.115a1.808 1.808 0 01.526-1.273 1.787 1.787 0 011.268-.523l2.975.01c.475 0 .93.189 1.265.526.336.338.524.795.524 1.273v11.316c.335-.1.765-.206 1.236-.318.327-.077.618-.263.827-.528.208-.265.322-.593.322-.93V34.63c0-.478.188-.935.523-1.273.336-.337.79-.527 1.265-.527h2.981c.475 0 .93.19 1.265.527.336.338.524.795.524 1.273v13.028s.746-.304 1.473-.613a1.496 1.496 0 00.912-1.382V30.132c0-.478.188-.935.524-1.273.335-.337.79-.527 1.264-.527h2.982c.474 0 .929.19 1.264.527.336.338.524.795.524 1.272v12.79c2.585-1.884 5.204-4.15 7.282-6.875a3.026 3.026 0 00.457-2.82 21.207 21.207 0 00-4.49-7.492 21.057 21.057 0 00-7.117-5.027 20.948 20.948 0 00-17.019.203 21.064 21.064 0 00-6.997 5.196 21.212 21.212 0 00-4.312 7.598 21.298 21.298 0 001.79 17.025 2.65 2.65 0 002.54 1.324c.564-.05 1.266-.12 2.1-.219.364-.041.7-.216.943-.49.244-.275.379-.63.379-.997V39.115z'
@@ -53,4 +43,4 @@ export const EtherscanIcon = React.forwardRef(function EtherscanIcon(
       </defs>
     </svg>
   )
-})
+}

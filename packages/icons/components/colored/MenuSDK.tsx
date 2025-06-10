@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuSDK = React.forwardRef(function MenuSDK(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuSDK = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#MenuSDK__MenuSDK__a)'>
         <g filter='url(#MenuSDK__MenuSDK__b)' opacity={0.3}>
           <path
@@ -299,4 +289,4 @@ export const MenuSDK = React.forwardRef(function MenuSDK(
       </defs>
     </svg>
   )
-})
+}

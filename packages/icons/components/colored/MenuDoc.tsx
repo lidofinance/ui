@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuDoc = React.forwardRef(function MenuDoc(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuDoc = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#MenuDoc__MenuDoc__a)'>
         <path
           fill='url(#MenuDoc__MenuDoc__b)'
@@ -122,4 +112,4 @@ export const MenuDoc = React.forwardRef(function MenuDoc(
       </defs>
     </svg>
   )
-})
+}

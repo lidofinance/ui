@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Re7Icon = React.forwardRef(function Re7Icon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Re7Icon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path fill='url(#Re7Icon__Re7Icon__a)' d='M26 18.415h29v43.17H26z' />
       <g filter='url(#Re7Icon__Re7Icon__b)' opacity={0.7}>
         <path fill='url(#Re7Icon__Re7Icon__c)' d='M22 18.415h29v43.17H22z' />
@@ -62,4 +52,4 @@ export const Re7Icon = React.forwardRef(function Re7Icon(
       </defs>
     </svg>
   )
-})
+}

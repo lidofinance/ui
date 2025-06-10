@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const RadiantIcon = React.forwardRef(function RadiantIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const RadiantIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='url(#RadiantIcon__RadiantIcon__a)'
         d='M47.682 43.182L67 40l-19.318-3.182 11.41-15.91-15.91 11.41L40 13l-3.182 19.318-15.91-11.41 11.41 15.91L13 40l19.318 3.182-11.41 15.91 15.91-11.41L40 67l3.182-19.318 15.91 11.41-11.41-15.91z'
@@ -67,4 +57,4 @@ export const RadiantIcon = React.forwardRef(function RadiantIcon(
       </defs>
     </svg>
   )
-})
+}

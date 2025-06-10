@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SonneIcon = React.forwardRef(function SonneIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SonneIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#FCA86C'
         d='M40.257 16.724c1.065.426 1.5 1.214 1.39 2.352-.05.512.015 1.036-.03 1.548-.075.862-.643 1.34-1.43 1.483-.746.135-1.405-.234-1.639-.924-.386-1.144-.359-2.344 0-3.509.142-.455.661-.592.93-.95h.779z'
@@ -85,4 +75,4 @@ export const SonneIcon = React.forwardRef(function SonneIcon(
       </defs>
     </svg>
   )
-})
+}

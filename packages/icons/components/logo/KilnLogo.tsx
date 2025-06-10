@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const KilnLogo = React.forwardRef(function KilnLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const KilnLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M133.705 39.88v22.887c0 .647.523 1.17 1.17 1.17h6.436c.647 0 1.17-.523 1.17-1.17V43.115c0-1.104.891-1.995 1.994-1.995h4.778c1.104 0 1.995.891 1.995 1.995v19.652c0 .647.523 1.17 1.17 1.17h6.436c.647 0 1.17-.523 1.17-1.17V39.88a7.534 7.534 0 00-7.535-7.535H141.24a7.534 7.534 0 00-7.535 7.535zm-16.966-7.536h-6.436c-.647 0-1.17.523-1.17 1.17v29.253c0 .647.523 1.17 1.17 1.17h6.436c.647 0 1.17-.523 1.17-1.17V33.514c0-.647-.523-1.17-1.17-1.17zM51.81 44.542l3.843-3.842a.66.66 0 01.94 0l3.843 3.842a1.15 1.15 0 001.631 0l3.369-3.368a1.15 1.15 0 000-1.631l-6.804-6.804a3.547 3.547 0 00-5.013 0l-6.803 6.804a1.15 1.15 0 000 1.63l3.368 3.37a1.15 1.15 0 001.631 0h-.004z'
@@ -25,4 +15,4 @@ export const KilnLogo = React.forwardRef(function KilnLogo(
       />
     </svg>
   )
-})
+}

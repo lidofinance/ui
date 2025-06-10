@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LYBRAIcon = React.forwardRef(function LYBRAIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LYBRAIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#LYBRAIcon__LYBRAIcon__a)' opacity={0.3}>
         <circle
           cx={40.511}
@@ -77,4 +67,4 @@ export const LYBRAIcon = React.forwardRef(function LYBRAIcon(
       </defs>
     </svg>
   )
-})
+}

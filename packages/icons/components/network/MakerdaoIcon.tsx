@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MakerdaoIcon = React.forwardRef(function MakerdaoIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MakerdaoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#MakerdaoIcon__MakerdaoIcon__a)'>
         <path
           fill='#1AAB9B'
@@ -62,4 +52,4 @@ export const MakerdaoIcon = React.forwardRef(function MakerdaoIcon(
       </defs>
     </svg>
   )
-})
+}

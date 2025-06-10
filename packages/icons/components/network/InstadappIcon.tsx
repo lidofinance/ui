@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const InstadappIcon = React.forwardRef(function InstadappIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const InstadappIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#InstadappIcon__InstadappIcon__a)'>
         <path
           fill='#3F75FF'
@@ -50,4 +40,4 @@ export const InstadappIcon = React.forwardRef(function InstadappIcon(
       </defs>
     </svg>
   )
-})
+}

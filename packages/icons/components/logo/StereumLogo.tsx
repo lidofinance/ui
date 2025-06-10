@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const StereumLogo = React.forwardRef(function StereumLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const StereumLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M57.324 47.36h6.114c-.176-.952-.494-1.676-.953-2.17-.44-.494-1.12-.74-2.038-.74-.6 0-1.103.105-1.508.317a2.882 2.882 0 00-.953.741c-.23.3-.397.618-.503.953a4.85 4.85 0 00-.159.9z'
@@ -66,4 +56,4 @@ export const StereumLogo = React.forwardRef(function StereumLogo(
       />
     </svg>
   )
-})
+}

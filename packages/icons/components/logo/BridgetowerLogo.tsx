@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BridgetowerLogo = React.forwardRef(function BridgetowerLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BridgetowerLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M48.806 42c0 1.041-.102 2.059-.297 3.045-4.072-1.341-9.515-2.527-14.934-2.188-.298.019-.59.04-.878.062v-1.192c0-1.033 1.604-2.584 3.514-2.584 2.23 0 2.817 1.612 3.205 2.679l.106.286 1.568.14a.445.445 0 00.49-.436v-6.087a.215.215 0 00-.029-.109l-.902-1.55a.228.228 0 00-.39 0l-.747 1.283a.228.228 0 01-.386.009l-2.792-4.303a.228.228 0 00-.38 0l-2.785 4.294a.228.228 0 01-.389-.014l-.68-1.243a.227.227 0 00-.397 0l-.836 1.526a.215.215 0 00-.026.104v7.372c-3.277.371-5.943 1.012-8.3 1.9v-2.042c0-.761 1.036-1.714 2.442-1.714 1.405 0 2.148.953 2.44 1.714l1.289-.221a.442.442 0 00.371-.432v-3.48a.216.216 0 00-.029-.107l-.605-1.042a.227.227 0 00-.391 0l-.45.773a.228.228 0 01-.385.01l-1.953-3.017a.228.228 0 00-.38 0l-1.947 3.007a.228.228 0 01-.388-.014l-.4-.733a.227.227 0 00-.397 0l-.557 1.018a.214.214 0 00-.026.103v6.733a31.114 31.114 0 00-4.089 2.187A15.616 15.616 0 0116 42c0-8.837 7.344-16 16.403-16 9.059 0 16.403 7.163 16.403 16z'
@@ -88,4 +78,4 @@ export const BridgetowerLogo = React.forwardRef(function BridgetowerLogo(
       />
     </svg>
   )
-})
+}

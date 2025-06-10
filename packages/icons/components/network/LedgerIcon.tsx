@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LedgerIcon = React.forwardRef(function LedgerIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LedgerIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#LedgerIcon__LedgerIcon__a)'>
         <path
           fill='#000'
@@ -50,4 +40,4 @@ export const LedgerIcon = React.forwardRef(function LedgerIcon(
       </defs>
     </svg>
   )
-})
+}

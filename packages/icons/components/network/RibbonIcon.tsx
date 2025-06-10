@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const RibbonIcon = React.forwardRef(function RibbonIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const RibbonIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#RibbonIcon__RibbonIcon__a)' opacity={0.3}>
         <path
           fill='#FC0A54'
@@ -49,4 +39,4 @@ export const RibbonIcon = React.forwardRef(function RibbonIcon(
       </defs>
     </svg>
   )
-})
+}

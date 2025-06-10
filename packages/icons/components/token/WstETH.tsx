@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const WstETH = React.forwardRef(function WstETH(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const WstETH = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#WstETH__WstETH__a)'>
         <rect width={80} height={80} x={0.571} fill='#00A3FF' rx={40} />
         <path
@@ -104,4 +94,4 @@ export const WstETH = React.forwardRef(function WstETH(
       </defs>
     </svg>
   )
-})
+}

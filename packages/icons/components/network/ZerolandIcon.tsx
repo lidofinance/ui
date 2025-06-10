@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ZerolandIcon = React.forwardRef(function ZerolandIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ZerolandIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#ZerolandIcon__ZerolandIcon__a)'>
         <path
           fill='#7A55FF'
@@ -50,4 +40,4 @@ export const ZerolandIcon = React.forwardRef(function ZerolandIcon(
       </defs>
     </svg>
   )
-})
+}

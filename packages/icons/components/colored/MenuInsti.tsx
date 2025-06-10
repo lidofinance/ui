@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuInsti = React.forwardRef(function MenuInsti(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuInsti = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#MenuInsti__MenuInsti__a)' opacity={0.5} fill='#021A27'>
         <path
           d='M53.767 39.471l.403.614c4.546 6.92 3.53 15.984-2.44 21.79C48.215 65.291 43.611 67 39.007 67l14.76-27.529z'
@@ -89,4 +79,4 @@ export const MenuInsti = React.forwardRef(function MenuInsti(
       </defs>
     </svg>
   )
-})
+}

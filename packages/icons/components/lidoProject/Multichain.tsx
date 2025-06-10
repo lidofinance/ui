@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Multichain = React.forwardRef(function Multichain(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Multichain = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <path
         fill='url(#Multichain__Multichain__a)'
         d='M158.233 197.468l93.159 53.252V55l-93.159 142.468z'
@@ -266,4 +256,4 @@ export const Multichain = React.forwardRef(function Multichain(
       </defs>
     </svg>
   )
-})
+}

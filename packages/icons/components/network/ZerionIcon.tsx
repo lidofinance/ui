@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ZerionIcon = React.forwardRef(function ZerionIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ZerionIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#ZerionIcon__ZerionIcon__a)' opacity={0.3}>
         <path
           fill='#4452D3'
@@ -45,4 +35,4 @@ export const ZerionIcon = React.forwardRef(function ZerionIcon(
       </defs>
     </svg>
   )
-})
+}

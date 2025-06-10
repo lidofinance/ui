@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AaveVault = React.forwardRef(function AaveVault(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AaveVault = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={405}
-      height={405}
-      viewBox='0 0 405 405'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={405} height={405} viewBox='0 0 405 405' fill='none' {...props}>
       <path
         fill='url(#AaveVault__AaveVault__a)'
         d='M317.777 185.75l-90.031 52.597c-13.693 7.995-35.957 7.995-49.738 0L87.383 185.75c-13.781-8.003-13.853-20.963-.16-28.966l90.031-52.597c13.693-7.995 35.957-7.995 49.738 0l90.625 52.597c13.781 8.003 13.853 20.963.16 28.966z'
@@ -112,4 +102,4 @@ export const AaveVault = React.forwardRef(function AaveVault(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const FluidIcon = React.forwardRef(function FluidIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const FluidIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#FluidIcon__FluidIcon__a)'>
         <g filter='url(#FluidIcon__FluidIcon__b)' opacity={0.7}>
           <path
@@ -58,4 +48,4 @@ export const FluidIcon = React.forwardRef(function FluidIcon(
       </defs>
     </svg>
   )
-})
+}

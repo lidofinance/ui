@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SSVIcon = React.forwardRef(function SSVIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SSVIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#SSVIcon__SSVIcon__a)' fill='#2DB1FF'>
         <path
           d='M32.319 55.05l6.396-8.042a1.642 1.642 0 012.594 0l6.397 8.042a1.745 1.745 0 010 2.149l-6.397 8.042a1.642 1.642 0 01-2.593 0l-6.397-8.042a1.745 1.745 0 010-2.149z'
@@ -52,4 +42,4 @@ export const SSVIcon = React.forwardRef(function SSVIcon(
       </defs>
     </svg>
   )
-})
+}

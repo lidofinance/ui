@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ArgentIcon = React.forwardRef(function ArgentIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ArgentIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#FF875B'
         d='M44.915 23h-9.779c-.327 0-.589.281-.596.63-.197 9.825-5.002 19.15-13.272 25.754a.668.668 0 00-.13.887l5.721 8.463a.575.575 0 00.841.141c5.171-4.102 9.33-9.051 12.325-14.537 2.995 5.486 7.155 10.435 12.326 14.537a.575.575 0 00.84-.141l5.722-8.463a.67.67 0 00-.13-.887c-8.27-6.605-13.075-15.93-13.272-25.753-.008-.35-.27-.631-.596-.631z'
@@ -45,4 +35,4 @@ export const ArgentIcon = React.forwardRef(function ArgentIcon(
       </defs>
     </svg>
   )
-})
+}

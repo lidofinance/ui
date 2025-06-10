@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const StakestoneIcon = React.forwardRef(function StakestoneIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const StakestoneIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#StakestoneIcon__a)' opacity={0.8} fill='#E5AA0B'>
         <path
           fillRule='evenodd'
@@ -102,4 +92,4 @@ export const StakestoneIcon = React.forwardRef(function StakestoneIcon(
       </defs>
     </svg>
   )
-})
+}

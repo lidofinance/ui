@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Twitter = React.forwardRef(function Twitter(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Twitter = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#000'
         d='M51.502 22h6.134l-13.4 15.673L60 59H47.657l-9.668-12.935L26.927 59H20.79l14.333-16.764L20 22h12.657l8.738 11.823L51.502 22zM49.35 55.243h3.398L30.81 25.56h-3.647L49.35 55.243z'
@@ -45,4 +35,4 @@ export const Twitter = React.forwardRef(function Twitter(
       </defs>
     </svg>
   )
-})
+}

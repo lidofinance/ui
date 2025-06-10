@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const JumperIcon = React.forwardRef(function JumperIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const JumperIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#JumperIcon__JumperIcon__a)' opacity={0.6}>
         <path
           fill='#2C0375'
@@ -53,4 +43,4 @@ export const JumperIcon = React.forwardRef(function JumperIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const HashKeyLogo = React.forwardRef(function HashKeyLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const HashKeyLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <g clipPath='url(#HashKeyLogo__a)'>
         <mask
           id='HashKeyLogo__a'
@@ -101,4 +91,4 @@ export const HashKeyLogo = React.forwardRef(function HashKeyLogo(
       </defs>
     </svg>
   )
-})
+}

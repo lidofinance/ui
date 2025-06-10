@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BridgeMutualIcon = React.forwardRef(function BridgeMutualIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BridgeMutualIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#BridgeMutualIcon__BridgeMutualIcon__a)'>
         <path
           fill='#2683BB'
@@ -82,4 +72,4 @@ export const BridgeMutualIcon = React.forwardRef(function BridgeMutualIcon(
       </defs>
     </svg>
   )
-})
+}

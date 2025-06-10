@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const UniswapIcon = React.forwardRef(function UniswapIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const UniswapIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#FF007A'
         d='M31.367 21.745c-.556-.087-.58-.097-.317-.137.501-.077 1.685.028 2.5.222 1.906.454 3.639 1.616 5.489 3.679l.491.548.703-.114c2.963-.476 5.976-.098 8.496 1.069.694.32 1.787.96 1.924 1.123.043.052.123.39.177.748.187 1.243.094 2.196-.286 2.908-.206.387-.218.51-.08.841.112.265.42.46.727.46.626-.001 1.3-1.015 1.613-2.426l.124-.56.245.278c1.349 1.53 2.408 3.617 2.59 5.102l.047.387-.227-.352c-.39-.606-.782-1.018-1.283-1.35-.905-.6-1.861-.804-4.394-.938-2.288-.12-3.583-.316-4.867-.736-2.184-.713-3.286-1.663-5.88-5.073-1.153-1.514-1.865-2.352-2.574-3.027-1.61-1.533-3.192-2.338-5.218-2.652z'
@@ -67,4 +57,4 @@ export const UniswapIcon = React.forwardRef(function UniswapIcon(
       </defs>
     </svg>
   )
-})
+}

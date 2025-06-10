@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const StakefishLogo = React.forwardRef(function StakefishLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const StakefishLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M52.347 31.461C55.198 28.115 59.383 26 64.047 26c8.59 0 15.553 7.164 15.553 16 0 8.837-6.963 16-15.552 16-4.663 0-8.846-2.112-11.696-5.456a17.707 17.707 0 008.582-4.18 25.004 25.004 0 004.493-4.962l.72-1.113a.533.533 0 000-.576l-.724-1.113a25.27 25.27 0 00-4.495-4.963 17.772 17.772 0 00-8.58-4.176z'
@@ -55,4 +45,4 @@ export const StakefishLogo = React.forwardRef(function StakefishLogo(
       />
     </svg>
   )
-})
+}

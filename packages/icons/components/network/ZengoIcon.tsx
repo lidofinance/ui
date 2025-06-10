@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ZengoIcon = React.forwardRef(function ZengoIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ZengoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#ZengoIcon__ZengoIcon__a)' fill='#EA9C2F'>
         <path d='M53.358 44.126H39.146l8.893-11.372c.662-.842.045-2.066-1.04-2.066H29.626l-3.79 4.85h12.809c1.027 0 .548.808.217 1.235l-7.021 8.98c-1.016 1.303-.08 3.188 1.598 3.188h16.199l3.721-4.804v-.011z' />
         <path d='M52.856 25.827c1.667 0 3.094.876 3.813 2.358.72 1.482.331 3.12-.708 4.4L50.3 39.803h6.416l3.287-4.21c2.215-2.716 2.637-6.364 1.096-9.508-1.53-3.143-4.691-5.085-8.23-5.085H37.32l-3.767 4.827h19.315-.012zM26.155 54.173c-1.666 0-3.093-.876-3.812-2.358-.72-1.481-.331-3.12.707-4.4l5.96-7.6h-6.416l-3.585 4.591c-2.214 2.717-2.637 6.366-1.096 9.509C19.443 57.058 22.605 59 26.144 59h15.537l3.767-4.827H26.155z' />
@@ -51,4 +41,4 @@ export const ZengoIcon = React.forwardRef(function ZengoIcon(
       </defs>
     </svg>
   )
-})
+}

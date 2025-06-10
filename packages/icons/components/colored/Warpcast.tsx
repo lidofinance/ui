@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Warpcast = React.forwardRef(function Warpcast(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Warpcast = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#472A91'
         d='M50.592 60.987H29.395C23.663 60.987 19 56.324 19 50.592V29.396C19 23.664 23.663 19 29.395 19h21.197c5.732 0 10.395 4.664 10.395 10.396v21.196c0 5.732-4.663 10.395-10.395 10.395z'
@@ -49,4 +39,4 @@ export const Warpcast = React.forwardRef(function Warpcast(
       </defs>
     </svg>
   )
-})
+}

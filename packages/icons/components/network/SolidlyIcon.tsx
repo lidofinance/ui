@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SolidlyIcon = React.forwardRef(function SolidlyIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SolidlyIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#SolidlyIcon__SolidlyIcon__a)'>
         <g filter='url(#SolidlyIcon__SolidlyIcon__b)' opacity={0.6}>
           <path
@@ -79,4 +69,4 @@ export const SolidlyIcon = React.forwardRef(function SolidlyIcon(
       </defs>
     </svg>
   )
-})
+}

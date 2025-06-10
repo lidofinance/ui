@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SenseiLogo = React.forwardRef(function SenseiLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SenseiLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M35.607 36.22a.359.359 0 00-.286-.187.354.354 0 00-.311.142c-.466.42-.932.828-1.43 1.239-.408.356-.41.425-.065.837l6.873 8.338c.303.359.286.428-.043.727a1859.994 1859.994 0 01-3.978 3.474c-.323.29-.449.267-.729-.072-.954-1.141-1.903-2.288-2.858-3.428-.954-1.141-1.869-2.21-2.806-3.31l-1.572-1.853a.22.22 0 00-.243-.066.22.22 0 00-.146.208l-.051 3.654a.216.216 0 00.054.148l.06.075c2.427 2.843 4.787 5.692 7.22 8.547.342.394.44.402.831.064 2.757-2.386 5.52-4.767 8.288-7.143.251-.223.266-.402.051-.654-2.395-2.864-6.45-7.884-8.86-10.74z'
@@ -25,4 +15,4 @@ export const SenseiLogo = React.forwardRef(function SenseiLogo(
       />
     </svg>
   )
-})
+}

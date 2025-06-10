@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const TERMIcon = React.forwardRef(function TERMIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const TERMIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#TERMIcon__TERMIcon__a)'>
         <path
           fill='#0A5ED9'
@@ -46,4 +36,4 @@ export const TERMIcon = React.forwardRef(function TERMIcon(
       </defs>
     </svg>
   )
-})
+}

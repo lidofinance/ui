@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MuteIcon = React.forwardRef(function MuteIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MuteIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g opacity={0.4}>
         <g filter='url(#MuteIcon__MuteIcon__a)'>
           <path
@@ -73,4 +63,4 @@ export const MuteIcon = React.forwardRef(function MuteIcon(
       </defs>
     </svg>
   )
-})
+}

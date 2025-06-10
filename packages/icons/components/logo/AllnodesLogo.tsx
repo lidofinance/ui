@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AllnodesLogo = React.forwardRef(function AllnodesLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AllnodesLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M59.123 42c0-7.732-6.295-14-14.061-14S31 34.268 31 42c0 3.334 1.17 6.395 3.124 8.8l3.92-7.49a2.446 2.446 0 012.04-1.307l.13-.003h3.316a.608.608 0 01.572.825l-.03.065-5.918 11.307A14.045 14.045 0 0045.062 56c2.49 0 4.83-.645 6.859-1.776l-9.756-18.638a.607.607 0 01.542-.89h3.317c.911 0 1.747.504 2.169 1.31l2.256 4.309.034.06.033.06 5.448 10.408A13.905 13.905 0 0059.124 42zm27.611 8.876h3.162v-17.69h-3.162v17.69zm6.667 0h3.162v-17.69H93.4v17.69zm16.789-11.2c-.858-.903-1.961-1.342-3.309-1.342-1.667 0-2.892.561-3.652 1.708v-1.367h-3.161v12.201h3.161v-6.588c0-2.025 1.054-3.026 2.696-3.026 1.471 0 2.427.879 2.427 2.513v7.101h3.161v-7.491c0-1.586-.441-2.806-1.323-3.71z'
@@ -37,4 +27,4 @@ export const AllnodesLogo = React.forwardRef(function AllnodesLogo(
       />
     </svg>
   )
-})
+}

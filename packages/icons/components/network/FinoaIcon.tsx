@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const FinoaIcon = React.forwardRef(function FinoaIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const FinoaIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#FinoaIcon__FinoaIcon__a)'>
         <path
           fill='#33C6A1'
@@ -50,4 +40,4 @@ export const FinoaIcon = React.forwardRef(function FinoaIcon(
       </defs>
     </svg>
   )
-})
+}

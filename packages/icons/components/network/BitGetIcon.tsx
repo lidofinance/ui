@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BitGetIcon = React.forwardRef(function BitGetIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BitGetIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#00E0FF'
         d='M37.151 34.375h10.523L58.44 45.071c.7.695.704 1.828.007 2.527L44.64 61.474H33.802l3.278-3.187 12.032-11.956-11.88-11.957'
@@ -51,4 +41,4 @@ export const BitGetIcon = React.forwardRef(function BitGetIcon(
       </defs>
     </svg>
   )
-})
+}

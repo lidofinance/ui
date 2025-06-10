@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const NektarIcon = React.forwardRef(function NektarIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const NektarIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g
         clipPath='url(#NektarIcon__NektarIcon__a)'
         fillRule='evenodd'
@@ -62,4 +52,4 @@ export const NektarIcon = React.forwardRef(function NektarIcon(
       </defs>
     </svg>
   )
-})
+}

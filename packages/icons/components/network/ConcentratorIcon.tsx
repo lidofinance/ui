@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ConcentratorIcon = React.forwardRef(function ConcentratorIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ConcentratorIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#ConcentratorIcon__ConcentratorIcon__a)'>
         <g filter='url(#ConcentratorIcon__ConcentratorIcon__b)' opacity={0.8}>
           <path
@@ -1202,4 +1192,4 @@ export const ConcentratorIcon = React.forwardRef(function ConcentratorIcon(
       </defs>
     </svg>
   )
-})
+}

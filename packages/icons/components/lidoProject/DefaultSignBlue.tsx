@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const DefaultSignBlue = React.forwardRef(function DefaultSignBlue(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={500}
-      height={500}
-      viewBox='0 0 500 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={500} height={500} viewBox='0 0 500 500' fill='none' {...props}>
       <g clipPath='url(#DefaultSignBlue__DefaultSignBlue__a)'>
         <g filter='url(#DefaultSignBlue__DefaultSignBlue__b)' opacity={0.7}>
           <path
@@ -504,4 +494,4 @@ export const DefaultSignBlue = React.forwardRef(function DefaultSignBlue(
       </defs>
     </svg>
   )
-})
+}

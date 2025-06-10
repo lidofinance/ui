@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BingxIcon = React.forwardRef(function BingxIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BingxIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='url(#BingxIcon__BingxIcon__a)'
         d='M60.008 23.734c-7.716-.027-15.258 3.32-20.418 9.031-1.857 1.922-3.095 4.275-4.585 6.454-3.567 4.882-9.135 7.704-15.17 7.701v8.78c7.714.03 15.256-3.328 20.42-9.04 1.848-1.922 3.104-4.272 4.584-6.454 3.567-4.876 9.136-7.698 15.17-7.695v-8.777z'
@@ -77,4 +67,4 @@ export const BingxIcon = React.forwardRef(function BingxIcon(
       </defs>
     </svg>
   )
-})
+}

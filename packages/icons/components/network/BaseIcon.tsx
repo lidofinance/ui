@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BaseIcon = React.forwardRef(function BaseIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BaseIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#BaseIcon__BaseIcon__a)'>
         <path
           fill='#1A3FF5'
@@ -46,4 +36,4 @@ export const BaseIcon = React.forwardRef(function BaseIcon(
       </defs>
     </svg>
   )
-})
+}

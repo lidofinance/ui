@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const FXProtocolIcon = React.forwardRef(function FXProtocolIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const FXProtocolIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#FXProtocolIcon__FXProtocolIcon__a)'>
         <path
           fill='url(#FXProtocolIcon__FXProtocolIcon__b)'
@@ -126,4 +116,4 @@ export const FXProtocolIcon = React.forwardRef(function FXProtocolIcon(
       </defs>
     </svg>
   )
-})
+}

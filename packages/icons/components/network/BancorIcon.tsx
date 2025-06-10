@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BancorIcon = React.forwardRef(function BancorIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BancorIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#000'
         d='M39.094 16l-11.101 6.676 11.101 6.678 11.311-6.678L39.095 16zm1.826 35.646V65L56 56.17V42.814l-15.08 8.832zm11.31-24.771V40.23l-11.311 6.68V33.553l11.313-6.678zM25 40.23l11.313 6.679V33.553L25 26.875V40.23zm0 18.093L36.313 65V51.646L25 44.97v13.354z'
@@ -45,4 +35,4 @@ export const BancorIcon = React.forwardRef(function BancorIcon(
       </defs>
     </svg>
   )
-})
+}

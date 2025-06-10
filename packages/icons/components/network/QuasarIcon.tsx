@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const QuasarIcon = React.forwardRef(function QuasarIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const QuasarIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#QuasarIcon__a)' opacity={0.8}>
         <mask
           id='QuasarIcon__a'
@@ -122,4 +112,4 @@ export const QuasarIcon = React.forwardRef(function QuasarIcon(
       </defs>
     </svg>
   )
-})
+}

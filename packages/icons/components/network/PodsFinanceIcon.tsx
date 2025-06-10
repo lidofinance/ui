@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PodsFinanceIcon = React.forwardRef(function PodsFinanceIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PodsFinanceIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#PodsFinanceIcon__PodsFinanceIcon__a)' fill='#C0C1F5'>
         <path d='M21.948 50.012V44.8c.532.722 1.64 1.313 3.147 1.313 3.08 0 5.142-2.408 5.142-5.67 0-3.197-1.84-5.605-5.031-5.605-1.64 0-2.86.722-3.347 1.554V35.08H19v14.933h2.948zm5.385-9.546c0 1.926-1.196 3.043-2.704 3.043-1.507 0-2.726-1.139-2.726-3.043 0-1.905 1.22-3.022 2.726-3.022 1.508 0 2.704 1.117 2.704 3.022z' />
         <path d='M35.152 43.531c-1.441 0-2.77-1.051-2.77-3.065 0-2.037 1.329-3.066 2.77-3.066 1.44 0 2.77 1.03 2.77 3.066 0 2.036-1.33 3.065-2.77 3.065zm0-8.78c-3.258 0-5.718 2.387-5.718 5.715 0 3.306 2.46 5.714 5.718 5.714s5.718-2.408 5.718-5.714c0-3.328-2.46-5.715-5.718-5.715z' />
@@ -57,4 +47,4 @@ export const PodsFinanceIcon = React.forwardRef(function PodsFinanceIcon(
       </defs>
     </svg>
   )
-})
+}

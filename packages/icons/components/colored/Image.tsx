@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Image = React.forwardRef(function Image(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Image = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#Image__Image__a)'>
         <g filter='url(#Image__Image__b)' opacity={0.7}>
           <circle cx={40} cy={44} r={25} fill='url(#Image__Image__c)' />
@@ -150,4 +140,4 @@ export const Image = React.forwardRef(function Image(
       </defs>
     </svg>
   )
-})
+}

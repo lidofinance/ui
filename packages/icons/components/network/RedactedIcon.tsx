@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const RedactedIcon = React.forwardRef(function RedactedIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const RedactedIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <circle cx={40.511} cy={41.5} r={21.5} fill='#000' />
       <g filter='url(#RedactedIcon__RedactedIcon__a)'>
         <circle cx={40.511} cy={40.5} r={21.5} fill='#000' fillOpacity={0.4} />
@@ -61,4 +51,4 @@ export const RedactedIcon = React.forwardRef(function RedactedIcon(
       </defs>
     </svg>
   )
-})
+}

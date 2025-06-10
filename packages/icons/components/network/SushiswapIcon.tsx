@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SushiswapIcon = React.forwardRef(function SushiswapIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SushiswapIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#SushiswapIcon__a)'>
         <g filter='url(#SushiswapIcon__SushiswapIcon__b)' opacity={0.4}>
           <path
@@ -161,4 +151,4 @@ export const SushiswapIcon = React.forwardRef(function SushiswapIcon(
       </defs>
     </svg>
   )
-})
+}

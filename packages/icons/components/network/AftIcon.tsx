@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AftIcon = React.forwardRef(function AftIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AftIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#AftIcon__AftIcon__a)' opacity={0.3}>
         <path
           fill='url(#AftIcon__AftIcon__b)'
@@ -157,4 +147,4 @@ export const AftIcon = React.forwardRef(function AftIcon(
       </defs>
     </svg>
   )
-})
+}

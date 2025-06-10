@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ZKLENDIcon = React.forwardRef(function ZKLENDIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ZKLENDIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#ZKLENDIcon__a)' opacity={0.6}>
         <mask
           id='ZKLENDIcon__a'
@@ -151,4 +141,4 @@ export const ZKLENDIcon = React.forwardRef(function ZKLENDIcon(
       </defs>
     </svg>
   )
-})
+}

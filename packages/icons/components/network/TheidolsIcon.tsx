@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const TheidolsIcon = React.forwardRef(function TheidolsIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const TheidolsIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#TheidolsIcon__TheidolsIcon__a)'>
         <g filter='url(#TheidolsIcon__TheidolsIcon__b)'>
           <path
@@ -98,4 +88,4 @@ export const TheidolsIcon = React.forwardRef(function TheidolsIcon(
       </defs>
     </svg>
   )
-})
+}

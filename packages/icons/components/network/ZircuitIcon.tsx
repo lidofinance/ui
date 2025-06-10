@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ZircuitIcon = React.forwardRef(function ZircuitIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ZircuitIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#ZircuitIcon__ZircuitIcon__a)'>
         <path
           fill='url(#ZircuitIcon__ZircuitIcon__b)'
@@ -74,4 +64,4 @@ export const ZircuitIcon = React.forwardRef(function ZircuitIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const InceptionLRTIcon = React.forwardRef(function InceptionLRTIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const InceptionLRTIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#InceptionLRTIcon__InceptionLRTIcon__a)' opacity={0.7}>
         <path
           fill='#fff'
@@ -75,4 +65,4 @@ export const InceptionLRTIcon = React.forwardRef(function InceptionLRTIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AnyblockLogo = React.forwardRef(function AnyblockLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AnyblockLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M102.14 40.298c.456-.87.911-1.275 1.803-1.662.872-.367 2.199-.386 3.051-.038 1.526.618 2.279 2.667 2.299 6.088 0 4.349-1.011 6.32-3.329 6.552-1.169.097-2.199-.193-3.031-.87-1.11-.908-1.169-1.217-1.169-5.47 0-3.42.039-3.962.376-4.6zm21.124-1.698c-.872.368-1.783 1.47-2.199 2.668-.278.792-.357 1.604-.357 3.537 0 2.88.317 4.117 1.328 5.257.772.85 1.624 1.218 2.813 1.218 1.704 0 2.695-.696 3.487-2.416.357-.774.476-1.43.535-3.344.139-3.827-.574-5.934-2.318-6.803-.911-.445-2.377-.503-3.289-.117z'
@@ -31,4 +21,4 @@ export const AnyblockLogo = React.forwardRef(function AnyblockLogo(
       />
     </svg>
   )
-})
+}

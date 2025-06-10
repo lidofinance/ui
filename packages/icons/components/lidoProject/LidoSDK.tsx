@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LidoSDK = React.forwardRef(function LidoSDK(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g clipPath='url(#LidoSDK__LidoSDK__a)'>
         <g
           clipPath='url(#LidoSDK__LidoSDK__b)'
@@ -554,4 +544,4 @@ export const LidoSDK = React.forwardRef(function LidoSDK(
       </defs>
     </svg>
   )
-})
+}

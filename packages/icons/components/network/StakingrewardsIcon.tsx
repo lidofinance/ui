@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const StakingrewardsIcon = React.forwardRef(function StakingrewardsIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const StakingrewardsIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#StakingrewardsIcon__StakingrewardsIcon__a)'>
         <path
           fill='#023BFF'
@@ -53,4 +43,4 @@ export const StakingrewardsIcon = React.forwardRef(function StakingrewardsIcon(
       </defs>
     </svg>
   )
-})
+}

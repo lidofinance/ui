@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const RockxIcon = React.forwardRef(function RockxIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const RockxIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#RockxIcon__RockxIcon__a)' opacity={0.6}>
         <path
           fill='#79DEB8'
@@ -57,4 +47,4 @@ export const RockxIcon = React.forwardRef(function RockxIcon(
       </defs>
     </svg>
   )
-})
+}

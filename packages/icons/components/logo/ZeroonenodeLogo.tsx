@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ZeroonenodeLogo = React.forwardRef(function ZeroonenodeLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ZeroonenodeLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M61.946 41.903a5.76 5.76 0 01-.615 2.588l-1.54 1.81a5.345 5.345 0 01-2.485.596 4.311 4.311 0 01-2.485-.596 4.64 4.64 0 01-1.64-1.81 5.763 5.763 0 010-5.176 4.633 4.633 0 011.553-1.786 5.35 5.35 0 012.485-.596 4.28 4.28 0 012.485.596 4.641 4.641 0 011.627 1.786c.405.805.615 1.69.615 2.588z'
@@ -41,4 +31,4 @@ export const ZeroonenodeLogo = React.forwardRef(function ZeroonenodeLogo(
       />
     </svg>
   )
-})
+}

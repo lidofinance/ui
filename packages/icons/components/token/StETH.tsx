@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const StETH = React.forwardRef(function StETH(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const StETH = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#StETH__StETH__a)' fill='#00A3FF'>
         <g filter='url(#StETH__StETH__b)' opacity={0.7}>
           <path
@@ -82,4 +72,4 @@ export const StETH = React.forwardRef(function StETH(
       </defs>
     </svg>
   )
-})
+}

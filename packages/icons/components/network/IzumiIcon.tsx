@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const IzumiIcon = React.forwardRef(function IzumiIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const IzumiIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#IzumiIcon__IzumiIcon__a)' opacity={0.7}>
         <path
           fill='#7F48FD'
@@ -61,4 +51,4 @@ export const IzumiIcon = React.forwardRef(function IzumiIcon(
       </defs>
     </svg>
   )
-})
+}

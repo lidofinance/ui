@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const DAOInfraTeam = React.forwardRef(function DAOInfraTeam(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const DAOInfraTeam = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <path
         fill='url(#DAOInfraTeam__DAOInfraTeam__a)'
         d='M228.802 452.786c0 .075-.445.151-1.245.214-2.668-4.246-9.314-7.245-17.077-7.245-7.764 0-16.277 3.049-19.187 6.98-4.129-2.835-10.533-5.783-18.474-5.972-6.404-.151-25.934 4.687-29.962 6.237 38.144-16.997 51.346-23.738 68.69-32.672 7.827-4.031 17.179 1.601 17.242 10.345.064 10.332.115 21.533 0 22.113h.013z'
@@ -891,4 +881,4 @@ export const DAOInfraTeam = React.forwardRef(function DAOInfraTeam(
       </defs>
     </svg>
   )
-})
+}

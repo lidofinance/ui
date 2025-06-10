@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const RhinoIcon = React.forwardRef(function RhinoIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const RhinoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#RhinoIcon__RhinoIcon__a)'>
         <path
           fill='url(#RhinoIcon__RhinoIcon__b)'
@@ -68,4 +58,4 @@ export const RhinoIcon = React.forwardRef(function RhinoIcon(
       </defs>
     </svg>
   )
-})
+}

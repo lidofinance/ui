@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuSmartContract = React.forwardRef(function MenuSmartContract(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuSmartContract = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#MenuSmartContract__MenuSmartContract__a)' opacity={0.6}>
         <path
           fill='url(#MenuSmartContract__MenuSmartContract__b)'
@@ -114,4 +104,4 @@ export const MenuSmartContract = React.forwardRef(function MenuSmartContract(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PolynomialIcon = React.forwardRef(function PolynomialIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PolynomialIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <mask
         id='PolynomialIcon__a'
         width={44}
@@ -207,4 +197,4 @@ export const PolynomialIcon = React.forwardRef(function PolynomialIcon(
       </defs>
     </svg>
   )
-})
+}

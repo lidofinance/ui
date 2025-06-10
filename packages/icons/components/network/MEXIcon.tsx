@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MEXIcon = React.forwardRef(function MEXIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MEXIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#MEXIcon__MEXIcon__a)'>
         <g filter='url(#MEXIcon__MEXIcon__b)'>
           <g clipPath='url(#MEXIcon__MEXIcon__c)'>
@@ -64,4 +54,4 @@ export const MEXIcon = React.forwardRef(function MEXIcon(
       </defs>
     </svg>
   )
-})
+}

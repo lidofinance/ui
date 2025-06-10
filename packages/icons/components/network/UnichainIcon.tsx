@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const UnichainIcon = React.forwardRef(function UnichainIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const UnichainIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#UnichainIcon__UnichainIcon__a)'>
         <path
           fill='#FC0FA4'
@@ -46,4 +36,4 @@ export const UnichainIcon = React.forwardRef(function UnichainIcon(
       </defs>
     </svg>
   )
-})
+}

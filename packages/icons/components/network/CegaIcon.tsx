@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const CegaIcon = React.forwardRef(function CegaIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const CegaIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#CegaIcon__CegaIcon__a)'>
         <g filter='url(#CegaIcon__CegaIcon__b)' opacity={0.5}>
           <path
@@ -54,4 +44,4 @@ export const CegaIcon = React.forwardRef(function CegaIcon(
       </defs>
     </svg>
   )
-})
+}

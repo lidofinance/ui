@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LOL = React.forwardRef(function LOL(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LOL = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={500}
-      height={500}
-      viewBox='0 0 500 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={500} height={500} viewBox='0 0 500 500' fill='none' {...props}>
       <g filter='url(#LOL__LOL__a)' opacity={0.5}>
         <circle
           cx={233}
@@ -369,4 +359,4 @@ export const LOL = React.forwardRef(function LOL(
       </defs>
     </svg>
   )
-})
+}

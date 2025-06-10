@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PufferIcon = React.forwardRef(function PufferIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PufferIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#PufferIcon__PufferIcon__a)'>
         <g filter='url(#PufferIcon__PufferIcon__b)' opacity={0.8}>
           <path
@@ -86,4 +76,4 @@ export const PufferIcon = React.forwardRef(function PufferIcon(
       </defs>
     </svg>
   )
-})
+}

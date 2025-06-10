@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AtrixIcon = React.forwardRef(function AtrixIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AtrixIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#000'
         d='M54.737 49.98l-19.995 6.414 23.71.046-3.715-6.46zM32.95 35.817L21.033 56.368l7.467.015 4.45-20.566zM39.805 24l-3.83 6.603 15.932 14.452L39.805 24z'
@@ -45,4 +35,4 @@ export const AtrixIcon = React.forwardRef(function AtrixIcon(
       </defs>
     </svg>
   )
-})
+}

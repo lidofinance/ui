@@ -156,7 +156,6 @@ const convertFiles = async () => {
       code,
       {
         icon: false,
-        ref: true,
         svgo: true,
         typescript: true,
         prettier: true,
@@ -205,7 +204,7 @@ const convertFiles = async () => {
     // Add the React import to the component file
     const fullComponentCode = [
       '// THIS FILE IS AUTO GENERATED\n',
-      "import React, { SVGProps, Ref } from 'react'\n",
+      "import React, { SVGProps } from 'react'\n",
       componentCode,
     ].join('\n')
 

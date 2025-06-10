@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const TaurusIcon = React.forwardRef(function TaurusIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const TaurusIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#TaurusIcon__TaurusIcon__a)'>
         <g filter='url(#TaurusIcon__TaurusIcon__b)'>
           <path
@@ -52,4 +42,4 @@ export const TaurusIcon = React.forwardRef(function TaurusIcon(
       </defs>
     </svg>
   )
-})
+}

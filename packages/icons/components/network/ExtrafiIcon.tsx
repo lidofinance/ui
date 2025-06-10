@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ExtrafiIcon = React.forwardRef(function ExtrafiIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ExtrafiIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#336DE6'
         d='M19.128 40.579c-.72-1.003-1.607-1.895-2.121-3.04-.948-2.111-1.297-4.28-.693-6.545.319.011.483.25.67.444.9.935 1.778 1.891 2.684 2.818 2.423 2.477 4.871 4.928 7.27 7.43.491.513 1.09.972 1.374 1.657-.807.041-1.612.08-2.42.125-2.012.114-3.98 2.161-3.974 4.089.008 3 2.378 4.727 4.866 4.675 1.805-.035 3.616.01 5.422.022.008.198.131.31.28.435 1.327 1.117 2.62 2.272 3.976 3.36.531.426.959.989 1.624 1.25.09.44.05.706-.556.701-3.826-.03-7.65.02-11.476-.04-5.3-.082-9.802-4.437-10.011-9.61-.1-2.49.522-4.757 2.169-6.714.522.245 1.037.5 1.565.729 1.604.696 3.278 1.054 5.05.927-1.64-.283-3.105-.949-4.463-1.86-.417-.28-.735-.69-1.236-.856v.003z'
@@ -117,4 +107,4 @@ export const ExtrafiIcon = React.forwardRef(function ExtrafiIcon(
       </defs>
     </svg>
   )
-})
+}

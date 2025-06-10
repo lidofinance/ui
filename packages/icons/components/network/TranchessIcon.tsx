@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const TranchessIcon = React.forwardRef(function TranchessIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const TranchessIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#TranchessIcon__TranchessIcon__a)'>
         <g
           filter='url(#TranchessIcon__TranchessIcon__b)'
@@ -62,4 +52,4 @@ export const TranchessIcon = React.forwardRef(function TranchessIcon(
       </defs>
     </svg>
   )
-})
+}

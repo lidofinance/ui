@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SolsticeLogo = React.forwardRef(function SolsticeLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SolsticeLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='url(#SolsticeLogo__SolsticeLogo__a)'
         d='M29.694 38.426a5.383 5.383 0 110 10.767V38.426z'
@@ -47,4 +37,4 @@ export const SolsticeLogo = React.forwardRef(function SolsticeLogo(
       </defs>
     </svg>
   )
-})
+}

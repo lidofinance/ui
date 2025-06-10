@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuMulti = React.forwardRef(function MenuMulti(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#MenuMulti__MenuMulti__a)' opacity={0.5}>
         <path
           fill='url(#MenuMulti__MenuMulti__b)'
@@ -531,4 +521,4 @@ export const MenuMulti = React.forwardRef(function MenuMulti(
       </defs>
     </svg>
   )
-})
+}

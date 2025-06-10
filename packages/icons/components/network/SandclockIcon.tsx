@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SandclockIcon = React.forwardRef(function SandclockIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SandclockIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#SandclockIcon__SandclockIcon__a)'>
         <path
           fill='#01FF97'
@@ -50,4 +40,4 @@ export const SandclockIcon = React.forwardRef(function SandclockIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const DuneIcon = React.forwardRef(function DuneIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const DuneIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#DuneIcon__a)' opacity={0.5}>
         <path
           fill='#F1603F'
@@ -68,4 +58,4 @@ export const DuneIcon = React.forwardRef(function DuneIcon(
       </defs>
     </svg>
   )
-})
+}

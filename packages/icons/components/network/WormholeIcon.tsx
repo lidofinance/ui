@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const WormholeIcon = React.forwardRef(function WormholeIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const WormholeIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#WormholeIcon__WormholeIcon__a)' fill='#0F0C48'>
         <path d='M40 66.087a25.985 25.985 0 01-18.372-7.631A26.115 26.115 0 0114 40.045a26.118 26.118 0 017.628-18.412A25.987 25.987 0 0140 14a25.987 25.987 0 0118.372 7.633A26.118 26.118 0 0166 40.045a26.115 26.115 0 01-7.628 18.41A25.985 25.985 0 0140 66.088zm0-50.082a23.986 23.986 0 00-16.959 7.045A24.107 24.107 0 0016 40.045a24.09 24.09 0 007.038 16.998A23.97 23.97 0 0040 64.082a23.97 23.97 0 0016.962-7.04A24.09 24.09 0 0064 40.046a24.107 24.107 0 00-7.041-16.995A23.986 23.986 0 0040 16.005z' />
         <path d='M43.287 61.966a21.529 21.529 0 01-15.22-6.323 21.638 21.638 0 01-6.32-15.254 21.638 21.638 0 016.32-15.253 21.53 21.53 0 0115.22-6.324 21.53 21.53 0 0115.22 6.324 21.638 21.638 0 016.32 15.253 21.639 21.639 0 01-6.32 15.254 21.53 21.53 0 01-15.22 6.323zm0-41.597a19.975 19.975 0 00-14.12 5.868 20.076 20.076 0 00-5.863 14.152 20.075 20.075 0 005.864 14.15 19.974 19.974 0 0014.12 5.867 19.975 19.975 0 0014.119-5.867 20.076 20.076 0 005.863-14.15 20.076 20.076 0 00-5.863-14.15 19.975 19.975 0 00-14.12-5.866v-.004z' />
@@ -50,4 +40,4 @@ export const WormholeIcon = React.forwardRef(function WormholeIcon(
       </defs>
     </svg>
   )
-})
+}

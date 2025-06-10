@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SparkIcon = React.forwardRef(function SparkIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SparkIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#SparkIcon__SparkIcon__a)'>
         <g filter='url(#SparkIcon__SparkIcon__b)' opacity={0.4}>
           <path
@@ -76,4 +66,4 @@ export const SparkIcon = React.forwardRef(function SparkIcon(
       </defs>
     </svg>
   )
-})
+}

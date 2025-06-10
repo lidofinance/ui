@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const NexusMutualIcon = React.forwardRef(function NexusMutualIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const NexusMutualIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#0AB682'
         fillRule='evenodd'
@@ -49,4 +39,4 @@ export const NexusMutualIcon = React.forwardRef(function NexusMutualIcon(
       </defs>
     </svg>
   )
-})
+}

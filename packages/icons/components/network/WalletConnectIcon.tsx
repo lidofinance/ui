@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const WalletConnectIcon = React.forwardRef(function WalletConnectIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const WalletConnectIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#WalletConnectIcon__WalletConnectIcon__a)' opacity={0.35}>
         <path
           fill='#5194F7'
@@ -45,4 +35,4 @@ export const WalletConnectIcon = React.forwardRef(function WalletConnectIcon(
       </defs>
     </svg>
   )
-})
+}

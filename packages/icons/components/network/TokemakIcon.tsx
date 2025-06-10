@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const TokemakIcon = React.forwardRef(function TokemakIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const TokemakIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#TokemakIcon__TokemakIcon__a)'>
         <path
           fill='#C5FD50'
@@ -49,4 +39,4 @@ export const TokemakIcon = React.forwardRef(function TokemakIcon(
       </defs>
     </svg>
   )
-})
+}

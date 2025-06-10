@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Frame3Icon = React.forwardRef(function Frame3Icon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Frame3Icon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='url(#Frame3Icon__Frame3Icon__a)'
         d='M39.903 16.566l-6.025 6.025a.8.8 0 000 1.131l1.027 1.028a.8.8 0 001.132 0l6.025-6.025a.8.8 0 000-1.132l-1.028-1.027a.8.8 0 00-1.131 0z'
@@ -517,4 +507,4 @@ export const Frame3Icon = React.forwardRef(function Frame3Icon(
       </defs>
     </svg>
   )
-})
+}

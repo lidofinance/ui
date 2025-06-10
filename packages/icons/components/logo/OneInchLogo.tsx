@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const OneInchLogo = React.forwardRef(function OneInchLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const OneInchLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M91.686 31.005h4.755v18.902h4.754V26.279h-4.754c-2.615 0-4.755 2.126-4.755 4.726zm14.263 18.902h4.754v-9.451c0-2.6-2.139-4.726-4.754-4.726v14.177zm9.509-14.177v14.177h4.754v-9.451h4.754v4.725c0 2.6 2.14 4.726 4.755 4.726v-9.451c0-2.6-2.14-4.726-4.755-4.726h-9.508zm42.787 0h-4.754v-4.725c0-2.6-2.139-4.726-4.754-4.726V45.18h-9.508v-4.725h4.754V35.73h-4.754c-2.615 0-4.754 2.127-4.754 4.726v4.725c0 2.6 2.139 4.726 4.754 4.726h14.262v-9.451h4.754v4.725c0 2.6 2.14 4.726 4.755 4.726v-9.451c0-2.6-2.14-4.726-4.755-4.726zm-52.296-4.725h4.754c0-2.6-2.139-4.726-4.754-4.726v4.726z'
@@ -37,4 +27,4 @@ export const OneInchLogo = React.forwardRef(function OneInchLogo(
       />
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const WETH = React.forwardRef(function WETH(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const WETH = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#WETH__WETH__a)'>
         <g filter='url(#WETH__WETH__b)'>
           <circle cx={38.786} cy={36.5} r={23.5} fill='#D23774' />
@@ -59,4 +49,4 @@ export const WETH = React.forwardRef(function WETH(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const DAI = React.forwardRef(function DAI(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const DAI = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#DAI__DAI__a)'>
         <rect width={80} height={80} fill='#F5AC37' rx={40} />
         <path
@@ -56,4 +46,4 @@ export const DAI = React.forwardRef(function DAI(
       </defs>
     </svg>
   )
-})
+}

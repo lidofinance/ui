@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BADGERIcon = React.forwardRef(function BADGERIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BADGERIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#BADGERIcon__BADGERIcon__a)'>
         <path
           fill='#F2A52B'
@@ -223,4 +213,4 @@ export const BADGERIcon = React.forwardRef(function BADGERIcon(
       </defs>
     </svg>
   )
-})
+}

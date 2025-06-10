@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const DeriIcon = React.forwardRef(function DeriIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const DeriIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#DeriIcon__DeriIcon__a)' opacity={0.9}>
         <path
           fill='#3756CD'
@@ -49,4 +39,4 @@ export const DeriIcon = React.forwardRef(function DeriIcon(
       </defs>
     </svg>
   )
-})
+}

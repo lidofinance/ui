@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ASTROPORTIcon = React.forwardRef(function ASTROPORTIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ASTROPORTIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#ASTROPORTIcon__ASTROPORTIcon__a)'>
         <path
           fill='url(#ASTROPORTIcon__ASTROPORTIcon__b)'
@@ -72,4 +62,4 @@ export const ASTROPORTIcon = React.forwardRef(function ASTROPORTIcon(
       </defs>
     </svg>
   )
-})
+}

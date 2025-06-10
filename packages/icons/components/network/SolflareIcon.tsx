@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SolflareIcon = React.forwardRef(function SolflareIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SolflareIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#SolflareIcon__SolflareIcon__a)'>
         <g filter='url(#SolflareIcon__SolflareIcon__b)' opacity={0.3}>
           <path
@@ -81,4 +71,4 @@ export const SolflareIcon = React.forwardRef(function SolflareIcon(
       </defs>
     </svg>
   )
-})
+}

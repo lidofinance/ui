@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SeamlessIcon = React.forwardRef(function SeamlessIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SeamlessIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#SeamlessIcon__SeamlessIcon__a)'>
         <path
           fill='url(#SeamlessIcon__SeamlessIcon__b)'
@@ -76,4 +66,4 @@ export const SeamlessIcon = React.forwardRef(function SeamlessIcon(
       </defs>
     </svg>
   )
-})
+}

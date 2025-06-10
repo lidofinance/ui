@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const BybitIcon = React.forwardRef(function BybitIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const BybitIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#BybitIcon__BybitIcon__a)' opacity={0.5}>
         <path fill='#E5A539' d='M52.015 46V14h6v32h-6z' />
       </g>
@@ -65,4 +55,4 @@ export const BybitIcon = React.forwardRef(function BybitIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const KitzuLogo = React.forwardRef(function KitzuLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const KitzuLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M37.91 17.275c15.446-1.073 26.23 1.08 40.53 4.996a.71.71 0 11-.379 1.37c-14.226-3.897-24.834-6.006-40.052-4.949a.711.711 0 11-.1-1.417zm40.11 7.823c-21.885-3.931-40.908-2.138-64.541 6.066a.71.71 0 10.469 1.342c23.432-8.134 42.205-9.892 63.819-6.01a.71.71 0 10.253-1.398z'
@@ -29,4 +19,4 @@ export const KitzuLogo = React.forwardRef(function KitzuLogo(
       />
     </svg>
   )
-})
+}

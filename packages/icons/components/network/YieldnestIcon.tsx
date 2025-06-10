@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const YieldnestIcon = React.forwardRef(function YieldnestIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const YieldnestIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#YieldnestIcon__YieldnestIcon__a)'>
         <path
           fill='#E8C787'
@@ -54,4 +44,4 @@ export const YieldnestIcon = React.forwardRef(function YieldnestIcon(
       </defs>
     </svg>
   )
-})
+}

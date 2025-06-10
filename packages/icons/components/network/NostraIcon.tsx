@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const NostraIcon = React.forwardRef(function NostraIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const NostraIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#NostraIcon__NostraIcon__a)' opacity={0.3}>
         <path
           fill='#FF4240'
@@ -45,4 +35,4 @@ export const NostraIcon = React.forwardRef(function NostraIcon(
       </defs>
     </svg>
   )
-})
+}

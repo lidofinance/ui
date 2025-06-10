@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SyncSwapIcon = React.forwardRef(function SyncSwapIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SyncSwapIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#8D8EF9'
         d='M38.09 36.667c2.47 1.931 5.279 3.374 7.56 5.58 3.653 3.544 5.406 8.317 3.147 13.24-2.366 5.134-8.237 9.144-14.953 7.531-5.702-1.379-9.651-6.28-9.841-12.2-.085-2.694.443-5.218 1.837-7.531.254-.403.233-.636-.211-.87-.338-.17-.887-.318-.866-.679.021-.36.591-.424.95-.615 1.711-.891 3.422-1.782 5.132-2.652.233-.127.444-.297.803-.297a1036.22 1036.22 0 01-.338 7.723c-.55-.17-.95-.488-1.373-.785-.359-.255-.549-.276-.802.148-2.915 5.092-.76 12.582 5.786 14.003 4.16.912 7.899-1.421 9.694-4.222 2.07-3.246 1.69-6.492-1.035-9.42a48.04 48.04 0 00-1.795-1.803c-.401-1.38-1.267-2.525-1.9-3.798-.592-1.104-1.352-2.143-1.796-3.353z'
@@ -53,4 +43,4 @@ export const SyncSwapIcon = React.forwardRef(function SyncSwapIcon(
       </defs>
     </svg>
   )
-})
+}

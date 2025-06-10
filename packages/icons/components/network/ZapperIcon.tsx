@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ZapperIcon = React.forwardRef(function ZapperIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ZapperIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#ZapperIcon__ZapperIcon__a)'>
         <g filter='url(#ZapperIcon__ZapperIcon__b)' opacity={0.3}>
           <path
@@ -54,4 +44,4 @@ export const ZapperIcon = React.forwardRef(function ZapperIcon(
       </defs>
     </svg>
   )
-})
+}

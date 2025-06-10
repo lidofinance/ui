@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AngleIcon = React.forwardRef(function AngleIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AngleIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#AngleIcon__AngleIcon__a)' opacity={0.6}>
         <path
           fill='#fff'
@@ -127,4 +117,4 @@ export const AngleIcon = React.forwardRef(function AngleIcon(
       </defs>
     </svg>
   )
-})
+}

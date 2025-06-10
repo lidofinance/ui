@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const GnosisSafeIcon = React.forwardRef(function GnosisSafeIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const GnosisSafeIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#6AF583'
         fillRule='evenodd'
@@ -49,4 +39,4 @@ export const GnosisSafeIcon = React.forwardRef(function GnosisSafeIcon(
       </defs>
     </svg>
   )
-})
+}

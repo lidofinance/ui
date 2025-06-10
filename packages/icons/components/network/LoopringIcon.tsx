@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LoopringIcon = React.forwardRef(function LoopringIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LoopringIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#LoopringIcon__LoopringIcon__a)'>
         <path
           fill='#3B5AF4'
@@ -50,4 +40,4 @@ export const LoopringIcon = React.forwardRef(function LoopringIcon(
       </defs>
     </svg>
   )
-})
+}

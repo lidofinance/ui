@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MatrixStakeLogo = React.forwardRef(function MatrixStakeLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MatrixStakeLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M102.787 30.532c.434.385.988.578 1.662.578.659 0 1.198-.193 1.618-.578.434-.4.651-.888.651-1.466 0-.592-.217-1.081-.651-1.466-.42-.4-.959-.6-1.618-.6-.674 0-1.228.2-1.662.6-.419.385-.629.874-.629 1.466 0 .578.21 1.067.629 1.466zm3.572 14.263V32.398h-3.841v12.397h3.841zM65.776 29.2v15.595h-3.841v-9.353l-3.527 9.353h-3.1L51.76 35.42v9.375h-3.84V29.2h4.537l4.425 10.797L61.26 29.2h4.515z'
@@ -115,4 +105,4 @@ export const MatrixStakeLogo = React.forwardRef(function MatrixStakeLogo(
       />
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const CianLogo = React.forwardRef(function CianLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const CianLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path fill='url(#CianLogo__CianLogo__a)' d='M41 25h117v35H41z' />
       <defs>
         <pattern
@@ -38,4 +28,4 @@ export const CianLogo = React.forwardRef(function CianLogo(
       </defs>
     </svg>
   )
-})
+}

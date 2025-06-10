@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ChainsecurityLogo = React.forwardRef(function ChainsecurityLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ChainsecurityLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <g clipPath='url(#ChainsecurityLogo__ChainsecurityLogo__a)'>
         <path
           fill='#000'
@@ -50,4 +40,4 @@ export const ChainsecurityLogo = React.forwardRef(function ChainsecurityLogo(
       </defs>
     </svg>
   )
-})
+}

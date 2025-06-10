@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const PolygonscanIcon = React.forwardRef(function PolygonscanIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const PolygonscanIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='url(#PolygonscanIcon__PolygonscanIcon__a)'
         d='M52.123 49.692l11.86-6.958A2.081 2.081 0 0065 40.943V27.025c0-.736-.39-1.423-1.017-1.791l-11.86-6.958a2.014 2.014 0 00-2.035 0l-11.86 6.958a2.081 2.081 0 00-1.017 1.791v24.87l-8.316 4.877-8.316-4.877v-9.76l8.316-4.878 5.486 3.218v-6.546l-4.468-2.621a2.015 2.015 0 00-2.035 0l-11.86 6.959A2.081 2.081 0 0015 40.056v13.917c0 .736.39 1.423 1.017 1.792l11.86 6.958a2.016 2.016 0 002.035 0l11.86-6.957a2.083 2.083 0 001.017-1.792v-24.87l.15-.087 8.166-4.79 8.315 4.879v9.758l-8.315 4.88-5.478-3.214v6.546l4.46 2.618a2.016 2.016 0 002.035 0l.001-.003z'
@@ -70,4 +60,4 @@ export const PolygonscanIcon = React.forwardRef(function PolygonscanIcon(
       </defs>
     </svg>
   )
-})
+}

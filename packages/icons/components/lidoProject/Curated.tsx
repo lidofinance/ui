@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const Curated = React.forwardRef(function Curated(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const Curated = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g clipPath='url(#Curated__Curated__a)'>
         <g filter='url(#Curated__Curated__b)' opacity={0.7}>
           <g opacity={0.3}>
@@ -2078,4 +2068,4 @@ export const Curated = React.forwardRef(function Curated(
       </defs>
     </svg>
   )
-})
+}

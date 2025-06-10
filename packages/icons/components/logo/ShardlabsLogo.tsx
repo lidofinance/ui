@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ShardlabsLogo = React.forwardRef(function ShardlabsLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ShardlabsLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M23 39.825L37.073 33l-6.809 14.108H23v-7.282zm18.271 6.256L31.125 51l4.91-10.168h5.236v5.25zm13.168-5.362l.711.17c3.862.75 5.512 2.064 5.495 4.397 0 2.688-2.453 4.496-6.124 4.496-3.947 0-6.4-1.989-6.4-5.185v-.123h2.558v.116c0 2.023 1.365 3.138 3.842 3.138 2.218 0 3.579-.917 3.579-2.387 0-1.416-1.218-1.938-3.467-2.408l-.708-.15c-3.123-.632-5.202-1.597-5.202-4.326 0-2.606 2.177-4.23 5.71-4.23 3.715 0 6.022 1.822 6.022 4.752v.396h-2.56v-.396c0-1.77-1.197-2.708-3.463-2.708-2 0-3.15.767-3.15 2.105 0 1.415 1.16 1.93 3.157 2.343zm11.051.127V34.45h-2.494v15.1h2.494V43.1h7.806v6.45h2.473v-15.1h-2.474v6.396H65.49z'
@@ -41,4 +31,4 @@ export const ShardlabsLogo = React.forwardRef(function ShardlabsLogo(
       />
     </svg>
   )
-})
+}

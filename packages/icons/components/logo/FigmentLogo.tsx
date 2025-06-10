@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const FigmentLogo = React.forwardRef(function FigmentLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const FigmentLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M44.247 36.321v-6.39h11.877V26H40v23.831h4.247v-9.578h10.596V36.32H44.248zm15.005-3.967v17.478h4.18V32.354h-4.18z'
@@ -41,4 +31,4 @@ export const FigmentLogo = React.forwardRef(function FigmentLogo(
       />
     </svg>
   )
-})
+}

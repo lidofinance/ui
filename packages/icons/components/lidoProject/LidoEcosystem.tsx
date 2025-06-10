@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const LidoEcosystem = React.forwardRef(function LidoEcosystem(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const LidoEcosystem = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={501}
-      height={500}
-      viewBox='0 0 501 500'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
       <g clipPath='url(#LidoEcosystem__LidoEcosystem__a)'>
         <g filter='url(#LidoEcosystem__LidoEcosystem__b)' opacity={0.6}>
           <path
@@ -995,4 +985,4 @@ export const LidoEcosystem = React.forwardRef(function LidoEcosystem(
       </defs>
     </svg>
   )
-})
+}

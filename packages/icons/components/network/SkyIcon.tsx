@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SkyIcon = React.forwardRef(function SkyIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SkyIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g filter='url(#SkyIcon__SkyIcon__a)' opacity={0.8}>
         <path
           fill='url(#SkyIcon__SkyIcon__b)'
@@ -463,4 +453,4 @@ export const SkyIcon = React.forwardRef(function SkyIcon(
       </defs>
     </svg>
   )
-})
+}

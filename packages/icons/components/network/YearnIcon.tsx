@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const YearnIcon = React.forwardRef(function YearnIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const YearnIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#YearnIcon__YearnIcon__a)' opacity={0.35}>
         <path
           fill='#DC568A'
@@ -49,4 +39,4 @@ export const YearnIcon = React.forwardRef(function YearnIcon(
       </defs>
     </svg>
   )
-})
+}

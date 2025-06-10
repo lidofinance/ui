@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const RaydiumIcon = React.forwardRef(function RaydiumIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const RaydiumIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#RaydiumIcon__RaydiumIcon__a)'>
         <g filter='url(#RaydiumIcon__RaydiumIcon__b)' opacity={0.8}>
           <path
@@ -78,4 +68,4 @@ export const RaydiumIcon = React.forwardRef(function RaydiumIcon(
       </defs>
     </svg>
   )
-})
+}

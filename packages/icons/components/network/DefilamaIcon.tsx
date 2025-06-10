@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const DefilamaIcon = React.forwardRef(function DefilamaIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#DefilamaIcon__a)' opacity={0.4}>
         <path
           fill='url(#DefilamaIcon__DefilamaIcon__b)'
@@ -274,4 +264,4 @@ export const DefilamaIcon = React.forwardRef(function DefilamaIcon(
       </defs>
     </svg>
   )
-})
+}

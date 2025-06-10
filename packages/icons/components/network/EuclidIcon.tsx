@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const EuclidIcon = React.forwardRef(function EuclidIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const EuclidIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#EuclidIcon__EuclidIcon__a)' opacity={0.8}>
         <path fill='#4477FA' d='M45.66 40.761H25.524V61H45.66V40.761z' />
         <path
@@ -55,4 +45,4 @@ export const EuclidIcon = React.forwardRef(function EuclidIcon(
       </defs>
     </svg>
   )
-})
+}

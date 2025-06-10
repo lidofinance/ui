@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const HashnoteLogo = React.forwardRef(function HashnoteLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const HashnoteLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <mask
         id='HashnoteLogo__a'
         width={170}
@@ -40,4 +30,4 @@ export const HashnoteLogo = React.forwardRef(function HashnoteLogo(
       </g>
     </svg>
   )
-})
+}

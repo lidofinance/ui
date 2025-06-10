@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const AttestantLogo = React.forwardRef(function AttestantLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const AttestantLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M43.142 24l-16.94 3.66h16.94V24zM26 29.49c.236 1.721.513 3.347.826 4.883h16.316V29.49H26zm1.222 6.713a59.4 59.4 0 001.349 4.882h14.571v-4.882h-15.92zm1.98 6.712a44.338 44.338 0 002.114 4.882h11.826v-4.882h-13.94zm3.109 6.712c1.14 1.965 2.322 3.571 3.466 4.882h7.365v-4.882h-10.83zm5.229 6.713c3.12 2.924 5.601 3.66 5.601 3.66v-3.66H37.54zM45.018 24v36s14.101-4.173 17.365-32.248L45.018 24z'
@@ -97,4 +87,4 @@ export const AttestantLogo = React.forwardRef(function AttestantLogo(
       />
     </svg>
   )
-})
+}

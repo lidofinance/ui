@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const GravitaIcon = React.forwardRef(function GravitaIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const GravitaIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g
         clipPath='url(#GravitaIcon__GravitaIcon__a)'
         fillRule='evenodd'
@@ -65,4 +55,4 @@ export const GravitaIcon = React.forwardRef(function GravitaIcon(
       </defs>
     </svg>
   )
-})
+}

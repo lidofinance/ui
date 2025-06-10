@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ExactlyIcon = React.forwardRef(function ExactlyIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ExactlyIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#ExactlyIcon__ExactlyIcon__a)' opacity={0.3}>
         <path
           fill='#000'
@@ -49,4 +39,4 @@ export const ExactlyIcon = React.forwardRef(function ExactlyIcon(
       </defs>
     </svg>
   )
-})
+}

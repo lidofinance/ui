@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const ChainlayerIcon = React.forwardRef(function ChainlayerIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const ChainlayerIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={81}
-      height={80}
-      viewBox='0 0 81 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath='url(#ChainlayerIcon__ChainlayerIcon__a)'>
         <path
           fill='#000'
@@ -54,4 +44,4 @@ export const ChainlayerIcon = React.forwardRef(function ChainlayerIcon(
       </defs>
     </svg>
   )
-})
+}

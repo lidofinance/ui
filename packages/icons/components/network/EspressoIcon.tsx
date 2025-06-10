@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const EspressoIcon = React.forwardRef(function EspressoIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const EspressoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g clipPath='url(#EspressoIcon__EspressoIcon__a)'>
         <path
           fill='#DE9F68'
@@ -55,4 +45,4 @@ export const EspressoIcon = React.forwardRef(function EspressoIcon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MenuAragon = React.forwardRef(function MenuAragon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MenuAragon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#MenuAragon__MenuAragon__a)' opacity={0.4} fill='#3E63F1'>
         <path
           fillRule='evenodd'
@@ -53,4 +43,4 @@ export const MenuAragon = React.forwardRef(function MenuAragon(
       </defs>
     </svg>
   )
-})
+}

@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const SSVR = React.forwardRef(function SSVR(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const SSVR = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={405}
-      height={405}
-      viewBox='0 0 405 405'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={405} height={405} viewBox='0 0 405 405' fill='none' {...props}>
       <path
         fill='#fff'
         fillOpacity={0.45}
@@ -404,4 +394,4 @@ export const SSVR = React.forwardRef(function SSVR(
       </defs>
     </svg>
   )
-})
+}

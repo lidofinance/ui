@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const MellowIcon = React.forwardRef(function MellowIcon(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const MellowIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={80}
-      height={80}
-      viewBox='0 0 80 80'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g filter='url(#MellowIcon__MellowIcon__a)' opacity={0.5}>
         <path
           fill='url(#MellowIcon__MellowIcon__b)'
@@ -136,4 +126,4 @@ export const MellowIcon = React.forwardRef(function MellowIcon(
       </defs>
     </svg>
   )
-})
+}

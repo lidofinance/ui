@@ -1,20 +1,10 @@
 // THIS FILE IS AUTO GENERATED
 
-import React, { SVGProps, Ref } from 'react'
+import React, { SVGProps } from 'react'
 
-export const RocketpoolLogo = React.forwardRef(function RocketpoolLogo(
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) {
+export const RocketpoolLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={200}
-      height={84}
-      viewBox='0 0 200 84'
-      fill='none'
-      ref={ref}
-      {...props}
-    >
+    <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
         fill='#000'
         d='M48.954 33.515c-4.68-4.687-12.265-4.687-16.945 0-4.212 4.218-4.632 10.797-1.26 15.486l2.457-2.46.516.516-2.525 2.53c.105.128.213.256.325.381l3.74-3.746.517.516-3.756 3.761c.12.119.238.234.361.346l2.56-2.564.517.517-2.524 2.527c4.706 3.828 11.636 3.547 16.017-.84 4.68-4.686 4.68-12.284 0-16.97zm-7.175 10.758l-.313 1.338a2.389 2.389 0 01-.77 1.268l-1.279 1.098-.713-2.142a8.501 8.501 0 01-1.27-.334l-.735.78-.98-.981.78-.737s-.245-.69-.334-1.271l-2.139-.715 1.097-1.28c.33-.386.773-.656 1.266-.771l1.335-.313s4.144-5.043 8.465-4.418c.624 4.328-4.41 8.478-4.41 8.478z'
@@ -25,4 +15,4 @@ export const RocketpoolLogo = React.forwardRef(function RocketpoolLogo(
       />
     </svg>
   )
-})
+}
