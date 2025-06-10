@@ -5,7 +5,7 @@ import React, { SVGProps } from 'react'
 export const ChainlayerLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
-      <g clipPath='url(#ChainlayerLogo__ChainlayerLogo__a)' fill='#000'>
+      <g clipPath='url(#ChainlayerLogo__ChainlayerLogo__a)' fill='currentColor'>
         <path
           fillRule='evenodd'
           d='M19.184 25.351c-4.52 0-8.184 3.772-8.184 8.426v8.425c0 4.21 2.999 7.699 6.917 8.325.61 4.035 3.998 7.122 8.087 7.122 4.52 0 8.184-3.772 8.184-8.426v-8.425c0-4.21-3-7.699-6.918-8.325-.608-4.034-3.997-7.122-8.086-7.122zm8.086 7.122a8.018 8.018 0 00-1.266-.1c-4.52 0-8.184 3.772-8.184 8.425v8.425c0 .444.033.88.097 1.304.413.066.836.1 1.267.1 4.52 0 8.184-3.772 8.184-8.425v-8.425a8.74 8.74 0 00-.098-1.304zm161.572 15.923h-2.654l-2.414-5.668h-2.09v5.668h-2.672V34.781h5.046c1.425 0 2.336.408 3.029 1.06a4.071 4.071 0 011.226 2.913c0 1.142-.512 2.296-1.334 3.023-.255.225-.48.401-.726.538l2.589 6.081zm-4.942-8.113h-2.216v-3.057h2.216c.772 0 1.108.184 1.346.449.237.264.396.672.396 1.1 0 .407-.159.815-.396 1.08-.238.265-.574.428-1.346.428z'
@@ -15,7 +15,7 @@ export const ChainlayerLogo = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <clipPath id='ChainlayerLogo__ChainlayerLogo__a'>
-          <path fill='#fff' d='M11 25h178v33H11z' />
+          <path fill='currentColor' d='M11 25h178v33H11z' />
         </clipPath>
       </defs>
     </svg>

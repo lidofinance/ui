@@ -117,9 +117,7 @@ const convertFiles = async () => {
       componentPath = dirNames.join('/')
     }
     const iconCategory = dirNames[0]?.toLowerCase() || 'root'
-    const replaceCurrentColor = ['logos', 'base', 'deprecated'].includes(
-      iconCategory,
-    )
+    const replaceCurrentColor = ['logo', 'base'].includes(iconCategory)
 
     // Convert just the name to PascalCase for the component name
     let componentName = convertToPascalCase(name)

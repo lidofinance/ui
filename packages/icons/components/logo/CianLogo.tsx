@@ -5,7 +5,7 @@ import React, { SVGProps } from 'react'
 export const CianLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
-      <path fill='url(#CianLogo__CianLogo__a)' d='M41 25h117v35H41z' />
+      <path fill='currentColor' d='M41 25h117v35H41z' />
       <defs>
         <pattern
           id='CianLogo__CianLogo__a'
