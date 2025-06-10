@@ -2,11 +2,11 @@
 
 import React, { SVGProps } from 'react'
 
-export const StETH = (props: SVGProps<SVGSVGElement>) => {
+export const STETH = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#StETH__StETH__a)' fill='#00A3FF'>
-        <g filter='url(#StETH__StETH__b)' opacity={0.7}>
+      <g clipPath='url(#STETH__STETH__a)' fill='#00A3FF'>
+        <g filter='url(#STETH__STETH__b)' opacity={0.7}>
           <path
             d='M53.932 35.868l.389.597c4.39 6.735 3.41 15.555-2.357 21.206-3.393 3.324-7.84 4.987-12.287 4.987l14.255-26.79z'
             opacity={0.6}
@@ -50,11 +50,11 @@ export const StETH = (props: SVGProps<SVGSVGElement>) => {
         <path d='M40.298 25.13l12.723 7.24L40.298 13v12.13z' opacity={0.6} />
       </g>
       <defs>
-        <clipPath id='StETH__StETH__a'>
+        <clipPath id='STETH__STETH__a'>
           <rect width={80} height={80} x={0.286} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='StETH__StETH__b'
+          id='STETH__STETH__b'
           width={70.768}
           height={84.658}
           x={4.286}

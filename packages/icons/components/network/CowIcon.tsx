@@ -2,17 +2,17 @@
 
 import React, { SVGProps } from 'react'
 
-export const CowSwapIcon = (props: SVGProps<SVGSVGElement>) => {
+export const CowIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#CowSwapIcon__CowSwapIcon__a)'>
+      <g clipPath='url(#CowIcon__CowIcon__a)'>
         <path
           fill='#012F7A'
           fillRule='evenodd'
           d='M33.963 57c-2.428 0-4.578-1.552-5.312-3.837l-3.775-11.746h-2.32c-2.43 0-4.579-1.553-5.313-3.837L15 30.6h8.414L18.976 24h42.048l-4.438 6.6H65l-2.243 6.98c-.734 2.284-2.883 3.837-5.312 3.837h-2.321l-3.775 11.746C50.615 55.448 48.466 57 46.037 57H33.963zm-2.852-18.792c0 1.772 1.34 3.209 2.994 3.209 1.654 0 2.994-1.437 2.994-3.209S35.759 35 34.105 35c-1.653 0-2.994 1.436-2.994 3.208zm17.778 0c0 1.772-1.34 3.209-2.994 3.209-1.653 0-2.994-1.437-2.994-3.209S44.241 35 45.895 35c1.653 0 2.994 1.436 2.994 3.208z'
           clipRule='evenodd'
         />
-        <g filter='url(#CowSwapIcon__CowSwapIcon__b)' opacity={0.4}>
+        <g filter='url(#CowIcon__CowIcon__b)' opacity={0.4}>
           <path
             fill='#012F7A'
             fillRule='evenodd'
@@ -22,11 +22,11 @@ export const CowSwapIcon = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='CowSwapIcon__CowSwapIcon__a'>
+        <clipPath id='CowIcon__CowIcon__a'>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='CowSwapIcon__CowSwapIcon__b'
+          id='CowIcon__CowIcon__b'
           width={74}
           height={57}
           x={8}

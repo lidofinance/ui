@@ -2,10 +2,10 @@
 
 import React, { SVGProps } from 'react'
 
-export const DeFiIcon = (props: SVGProps<SVGSVGElement>) => {
+export const DefiIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#DeFiIcon__DeFiIcon__a)' opacity={0.3}>
+      <g filter='url(#DefiIcon__DefiIcon__a)' opacity={0.3}>
         <path
           fill='#1452F0'
           fillRule='evenodd'
@@ -21,7 +21,7 @@ export const DeFiIcon = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='DeFiIcon__DeFiIcon__a'
+          id='DefiIcon__DefiIcon__a'
           width={64.022}
           height={60.687}
           x={13.978}

@@ -263,7 +263,7 @@ export const NetworksIcons = () => {
           textTransform: 'capitalize',
         }}
       >
-        Networks Icons{' '}
+        Projects Icons{' '}
         <div
           style={{
             fontSize: '0.7em',

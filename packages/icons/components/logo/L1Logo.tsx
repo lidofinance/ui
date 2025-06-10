@@ -2,7 +2,7 @@
 
 import React, { SVGProps } from 'react'
 
-export const Variant73Logo = (props: SVGProps<SVGSVGElement>) => {
+export const L1Logo = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path

@@ -2,10 +2,10 @@
 
 import React, { SVGProps } from 'react'
 
-export const WstETH = (props: SVGProps<SVGSVGElement>) => {
+export const WSTETH = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#WstETH__WstETH__a)'>
+      <g clipPath='url(#WSTETH__WSTETH__a)'>
         <rect width={80} height={80} x={0.571} fill='#00A3FF' rx={40} />
         <path
           fill='#fff'
@@ -42,7 +42,7 @@ export const WstETH = (props: SVGProps<SVGSVGElement>) => {
           d='M40.583 25.523l12.723 7.295L40.583 13.3v12.223z'
           opacity={0.6}
         />
-        <g filter='url(#WstETH__WstETH__b)' opacity={0.7} fill='#fff'>
+        <g filter='url(#WSTETH__WSTETH__b)' opacity={0.7} fill='#fff'>
           <path
             d='M62.809 45.237l.424.651c4.789 7.345 3.72 16.965-2.57 23.128-3.701 3.626-8.55 5.439-13.4 5.44l15.546-29.22z'
             opacity={0.6}
@@ -72,11 +72,11 @@ export const WstETH = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='WstETH__WstETH__a'>
+        <clipPath id='WSTETH__WSTETH__a'>
           <rect width={80} height={80} x={0.571} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='WstETH__WstETH__b'
+          id='WSTETH__WSTETH__b'
           width={105.92}
           height={121.069}
           x={-5.706}

@@ -2,10 +2,10 @@
 
 import React, { SVGProps } from 'react'
 
-export const BeefyFinanceIcon = (props: SVGProps<SVGSVGElement>) => {
+export const BeefyIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#BeefyFinanceIcon__BeefyFinanceIcon__a)'>
+      <g filter='url(#BeefyIcon__BeefyIcon__a)'>
         <path
           fill='#F6EEE4'
           fillRule='evenodd'
@@ -21,7 +21,7 @@ export const BeefyFinanceIcon = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='BeefyFinanceIcon__BeefyFinanceIcon__a'
+          id='BeefyIcon__BeefyIcon__a'
           width={68.326}
           height={69.639}
           x={10.015}
