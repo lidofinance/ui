@@ -5,17 +5,7 @@ import React, { SVGProps } from 'react'
 export const AztecLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
-      <mask
-        id='AztecLogo__a'
-        width={148}
-        height={37}
-        x={26}
-        y={23}
-        maskUnits='userSpaceOnUse'
-      >
-        <path fill='#fff' d='M174 23H26v37h148V23z' />
-      </mask>
-      <g mask='url(#AztecLogo__a)' fill='#000'>
+      <g mask='url(#AztecLogo__AztecLogo__a)' fill='currentColor'>
         <path
           fillRule='evenodd'
           d='M48.898 24.552l13.54 13.16a5.204 5.204 0 010 7.503l-13.54 13.233c-2.13 2.07-5.591 2.07-7.721 0l-13.58-13.196a5.204 5.204 0 010-7.504l13.58-13.196c2.13-2.07 5.59-2.07 7.721 0zm-4.755 3.327l-.038.037-13.008 12.641a1.258 1.258 0 00-.038 1.812l.038.037 12.97 12.604a1.348 1.348 0 001.864.037l.038-.037 12.97-12.604a1.312 1.312 0 000-1.886L46.008 27.953c-.494-.517-1.331-.517-1.864-.074zm1.142 5.582l8.025 7.799c.152.148.152.332 0 .48l-8.026 7.8c-.152.147-.342.147-.494 0l-8.026-7.8c-.152-.148-.152-.332 0-.48l8.026-7.8c.152-.147.342-.147.495 0z'

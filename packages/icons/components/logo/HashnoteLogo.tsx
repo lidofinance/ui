@@ -5,17 +5,7 @@ import React, { SVGProps } from 'react'
 export const HashnoteLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
-      <mask
-        id='HashnoteLogo__a'
-        width={170}
-        height={36}
-        x={15}
-        y={24}
-        maskUnits='userSpaceOnUse'
-      >
-        <path fill='#fff' d='M184.333 24H15v36h169.333V24z' />
-      </mask>
-      <g mask='url(#HashnoteLogo__a)' fill='#000'>
+      <g mask='url(#HashnoteLogo__HashnoteLogo__a)' fill='currentColor'>
         <path
           fillRule='evenodd'
           d='M24.296 46.257h2.415l-1.237 6.43h4.546l4.079-21.204c-2.51 0-4.93 1.998-5.405 4.464l-.453 2.354H25.76l-.418 2.273h2.463l-.656 3.41h-2.434l-.418 2.273zm15.991-14.774h-4.545l-3.906 21.236c2.51 0 4.914-2.002 5.368-4.47l.366-1.992h2.63l.418-2.273h-2.629l.627-3.41h2.629l.418-2.273h-2.629l1.254-6.818z'

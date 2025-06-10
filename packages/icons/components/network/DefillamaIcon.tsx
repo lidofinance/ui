@@ -2,16 +2,16 @@
 
 import React, { SVGProps } from 'react'
 
-export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
+export const DefillamaIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#DefilamaIcon__a)' opacity={0.4}>
+      <g filter='url(#DefillamaIcon__a)' opacity={0.4}>
         <path
-          fill='url(#DefilamaIcon__DefilamaIcon__b)'
+          fill='url(#DefillamaIcon__DefillamaIcon__b)'
           d='M28 21.001A4.001 4.001 0 0132.001 17H43.35c10.968 0 19.86 8.891 19.86 19.86 0 10.968-8.892 19.859-19.86 19.859H32a4.001 4.001 0 01-4-4.001V21z'
         />
         <mask
-          id='DefilamaIcon__a'
+          id='DefillamaIcon__a'
           width={36}
           height={40}
           x={28}
@@ -23,21 +23,21 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
             d='M28 21.001A4.001 4.001 0 0132.001 17H43.35c10.968 0 19.86 8.891 19.86 19.86 0 10.968-8.892 19.859-19.86 19.859H32a4.001 4.001 0 01-4-4.001V21z'
           />
         </mask>
-        <g mask='url(#DefilamaIcon__a)'>
+        <g mask='url(#DefillamaIcon__a)'>
           <path
-            fill='url(#DefilamaIcon__DefilamaIcon__d)'
+            fill='url(#DefillamaIcon__DefillamaIcon__d)'
             d='M27.064 51.654c16.456 0 29.797-13.34 29.797-29.798 0-16.457-13.34-29.798-29.797-29.798S-2.734 5.4-2.734 21.856s13.34 29.798 29.797 29.798z'
           />
           <path
-            fill='url(#DefilamaIcon__DefilamaIcon__e)'
+            fill='url(#DefillamaIcon__DefillamaIcon__e)'
             d='M75.767 66.883c16.457 0 29.797-13.341 29.797-29.798S92.224 7.287 75.767 7.287s-29.798 13.34-29.798 29.798c0 16.457 13.34 29.798 29.798 29.798z'
           />
           <path
-            fill='url(#DefilamaIcon__DefilamaIcon__f)'
+            fill='url(#DefillamaIcon__DefillamaIcon__f)'
             d='M27.098 26.956c6.073 0 10.996-4.924 10.996-10.997 0-6.073-4.923-10.996-10.996-10.996S16.102 9.886 16.102 15.959s4.923 10.997 10.996 10.997z'
           />
           <path
-            fill='url(#DefilamaIcon__DefilamaIcon__g)'
+            fill='url(#DefillamaIcon__DefillamaIcon__g)'
             d='M39.257 36.408c-.445 8.27-.712 21.195-.712 21.195h13.997s-.295-13.181-.728-21.195c2.116-1.595 1.613-4.665-.312-5.307.104-.763 0-1.457-.763-2.098 1.786-.92 3.312-4.024 3.815-5.325.255-.66-.485-1.354-1.023-.972-2.463 1.752-3.243 1.752-3.833 2.672-.156-.92-1.474-1.37-2.376-.92-.555-1.752-3-1.752-3.573 0-.902-.555-2.151-.156-2.48.92-.694-1.128-.933-1.024-3.99-2.966-.416-.265-1.183.572-.763 1.266 2.081 3.434 2.567 4.665 3.833 5.325-.45.364-.867 1.04-.78 2.098-1.596.347-2.515 3.66-.313 5.307z'
           />
         </g>
@@ -79,23 +79,23 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <path
-        fill='url(#DefilamaIcon__DefilamaIcon__h)'
+        fill='url(#DefillamaIcon__DefillamaIcon__h)'
         d='M24.014 24.229a4.001 4.001 0 014.001-4.002h11.35c10.967 0 19.858 8.892 19.858 19.86s-8.89 19.86-19.859 19.86H28.015a4.001 4.001 0 01-4-4.002V24.23z'
       />
       <path
-        fill='url(#DefilamaIcon__DefilamaIcon__i)'
+        fill='url(#DefillamaIcon__DefillamaIcon__i)'
         d='M52.872 25.529a19.79 19.79 0 00-13.508-5.302H28.015a4.001 4.001 0 00-4 4.002v30.638c15.875-.49 28.624-13.399 28.857-29.338z'
       />
       <path
-        fill='url(#DefilamaIcon__DefilamaIcon__j)'
+        fill='url(#DefillamaIcon__DefillamaIcon__j)'
         d='M47.837 58.053c6.73-3.18 11.386-10.03 11.386-17.966 0-7.839-4.541-14.617-11.136-17.847a29.668 29.668 0 00-6.104 18.072 29.665 29.665 0 005.854 17.741z'
       />
       <path
-        fill='url(#DefilamaIcon__DefilamaIcon__k)'
+        fill='url(#DefillamaIcon__DefillamaIcon__k)'
         d='M34.06 20.227h-6.045a4.001 4.001 0 00-4 4.002v5.917a11 11 0 0010.045-9.919z'
       />
       <path
-        fill='url(#DefilamaIcon__DefilamaIcon__l)'
+        fill='url(#DefillamaIcon__DefillamaIcon__l)'
         d='M48.48 57.735a19.774 19.774 0 01-9.116 2.211h-4.785c.069-3.052.317-13.336.692-20.31-2.203-1.648-1.284-4.96.312-5.308-.087-1.058.33-1.734.78-2.098-.996-.519-1.51-1.393-2.698-3.416-.321-.547-.692-1.178-1.135-1.909-.42-.694.347-1.53.763-1.266a99.08 99.08 0 001.874 1.16c1.338.812 1.603.972 2.116 1.806.33-1.076 1.578-1.474 2.48-.92.572-1.751 3.018-1.751 3.573 0 .902-.45 2.22 0 2.376.92.334-.52.728-.746 1.454-1.162a25.72 25.72 0 002.38-1.51c.537-.382 1.278.313 1.023.972-.504 1.3-2.03 4.406-3.816 5.325.763.642.867 1.335.763 2.099 1.925.641 2.428 3.711.312 5.307.302 5.595.538 13.711.652 18.099z'
       />
       <path
@@ -136,7 +136,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__b'
+          id='DefillamaIcon__DefillamaIcon__b'
           x1={45.605}
           x2={45.605}
           y1={17}
@@ -147,7 +147,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#569BFF' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__d'
+          id='DefillamaIcon__DefillamaIcon__d'
           x1={27.064}
           x2={27.064}
           y1={-7.942}
@@ -158,7 +158,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0046A7' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__e'
+          id='DefillamaIcon__DefillamaIcon__e'
           x1={75.767}
           x2={75.767}
           y1={7.287}
@@ -169,7 +169,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0163FC' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__f'
+          id='DefillamaIcon__DefillamaIcon__f'
           x1={27.098}
           x2={27.098}
           y1={4.963}
@@ -180,7 +180,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#418EFF' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__g'
+          id='DefillamaIcon__DefillamaIcon__g'
           x1={45.5}
           x2={45.5}
           y1={22.361}
@@ -191,7 +191,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#B7D4FE' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__h'
+          id='DefillamaIcon__DefillamaIcon__h'
           x1={41.619}
           x2={41.619}
           y1={20.227}
@@ -202,7 +202,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#569BFF' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__i'
+          id='DefillamaIcon__DefillamaIcon__i'
           x1={23.078}
           x2={23.078}
           y1={-4.714}
@@ -213,7 +213,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0046A7' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__j'
+          id='DefillamaIcon__DefillamaIcon__j'
           x1={71.781}
           x2={71.781}
           y1={10.514}
@@ -224,7 +224,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0163FC' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__k'
+          id='DefillamaIcon__DefillamaIcon__k'
           x1={23.112}
           x2={23.112}
           y1={8.19}
@@ -235,7 +235,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#418EFF' />
         </linearGradient>
         <linearGradient
-          id='DefilamaIcon__DefilamaIcon__l'
+          id='DefillamaIcon__DefillamaIcon__l'
           x1={41.514}
           x2={41.514}
           y1={25.589}
@@ -246,7 +246,7 @@ export const DefilamaIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#B7D4FE' />
         </linearGradient>
         <filter
-          id='DefilamaIcon__DefilamaIcon__a'
+          id='DefillamaIcon__DefillamaIcon__a'
           width={55.209}
           height={59.719}
           x={18}

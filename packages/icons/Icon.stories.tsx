@@ -1,15 +1,15 @@
-import { StoryFn, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
 import * as BaseIconsComponents from './components/base'
 import * as ColoredIconsComponents from './components/colored'
+import * as LidoProjectsIconsComponents from './components/lidoProject'
 import * as LogosIconsComponents from './components/logo'
 import * as NetworksIconsComponents from './components/network'
 import * as TokensIconsComponents from './components/token'
 import * as VaultsIconsComponents from './components/vault'
-import * as LidoProjectsIconsComponents from './components/lidoProject'
 
-const components: any = {
+const components = {
   ...BaseIconsComponents,
   ...ColoredIconsComponents,
   ...LogosIconsComponents,
@@ -207,15 +207,17 @@ export const TokensIcons = () => {
           }}
         >
           {' '}
-          (blue color would be applied on hover to display ability to change
-          color)
+          these icons can not be custom colored
         </div>
       </h2>
       {renderIconGrid(TokensIconsComponents)}
     </div>
   )
 }
-
+TokensIcons.parameters = {
+  actions: { disable: true },
+  controls: { disable: true },
+}
 // Vaults Icons
 export const VaultsIcons = () => {
   return (
@@ -238,15 +240,17 @@ export const VaultsIcons = () => {
           }}
         >
           {' '}
-          (blue color would be applied on hover to display ability to change
-          color)
+          these icons can not be custom colored
         </div>
       </h2>
       {renderIconGrid(VaultsIconsComponents, 150, 150, 160)}
     </div>
   )
 }
-
+VaultsIcons.parameters = {
+  actions: { disable: true },
+  controls: { disable: true },
+}
 // Networks Icons
 export const NetworksIcons = () => {
   return (
@@ -259,7 +263,7 @@ export const NetworksIcons = () => {
           textTransform: 'capitalize',
         }}
       >
-        Networks Icons{' '}
+        Projects Icons{' '}
         <div
           style={{
             fontSize: '0.7em',
@@ -269,15 +273,17 @@ export const NetworksIcons = () => {
           }}
         >
           {' '}
-          (blue color would be applied on hover to display ability to change
-          color)
+          these icons can not be custom colored
         </div>
       </h2>
       {renderIconGrid(NetworksIconsComponents)}
     </div>
   )
 }
-
+NetworksIcons.parameters = {
+  actions: { disable: true },
+  controls: { disable: true },
+}
 // Lido Projects Icons
 export const LidoProjectsIcons = () => {
   return (
@@ -300,13 +306,16 @@ export const LidoProjectsIcons = () => {
           }}
         >
           {' '}
-          (blue color would be applied on hover to display ability to change
-          color)
+          these icons can not be custom colored
         </div>
       </h2>
       {renderIconGrid(LidoProjectsIconsComponents, 100, 100, 120)}
     </div>
   )
+}
+LidoProjectsIcons.parameters = {
+  actions: { disable: true },
+  controls: { disable: true },
 }
 
 // Logos Icons
@@ -340,6 +349,11 @@ export const LogosIcons = () => {
   )
 }
 
+LogosIcons.parameters = {
+  actions: { disable: true },
+  controls: { disable: true },
+}
+
 // Base Icons
 export const BaseIcons = () => {
   return (
@@ -371,6 +385,11 @@ export const BaseIcons = () => {
   )
 }
 
+BaseIcons.parameters = {
+  actions: { disable: true },
+  controls: { disable: true },
+}
+
 // Colored Icons
 export const ColoredIcons = () => {
   return (
@@ -393,11 +412,15 @@ export const ColoredIcons = () => {
           }}
         >
           {' '}
-          (blue color would be applied on hover to display ability to change
-          color)
+          these icons can not be custom colored
         </div>
       </h2>
       {renderIconGrid(ColoredIconsComponents)}
     </div>
   )
+}
+
+ColoredIcons.parameters = {
+  actions: { disable: true },
+  controls: { disable: true },
 }

@@ -2,13 +2,10 @@
 
 import React, { SVGProps } from 'react'
 
-export const BlockchainwalletIcon = (props: SVGProps<SVGSVGElement>) => {
+export const BlockchainIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g
-        filter='url(#BlockchainwalletIcon__BlockchainwalletIcon__a)'
-        opacity={0.5}
-      >
+      <g filter='url(#BlockchainIcon__BlockchainIcon__a)' opacity={0.5}>
         <path
           fill='#3D89F5'
           d='M26.437 38.54l-1.824 1.825a5.16 5.16 0 00-1.602 3.752 5.158 5.158 0 001.602 3.74L39.31 62.71c.352.352.756.652 1.2.873V45.59l-14.073-7.05z'
@@ -36,7 +33,7 @@ export const BlockchainwalletIcon = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='BlockchainwalletIcon__BlockchainwalletIcon__a'
+          id='BlockchainIcon__BlockchainIcon__a'
           width={54}
           height={53.583}
           x={16.011}

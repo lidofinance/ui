@@ -2,16 +2,16 @@
 
 import React, { SVGProps } from 'react'
 
-export const FfIcon = (props: SVGProps<SVGSVGElement>) => {
+export const FranciumIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#FfIcon__FfIcon__a)' opacity={0.6}>
+      <g filter='url(#FranciumIcon__FranciumIcon__a)' opacity={0.6}>
         <path
-          fill='url(#FfIcon__FfIcon__b)'
+          fill='url(#FranciumIcon__FranciumIcon__b)'
           d='M29.048 53.78c0 2.807 3.245 4.207 5.64 4.22.478.002.961.005 1.36-.307.633-.497.628-1.182.623-1.901-.054-8.178.047-16.357 0-24.535v-.01c-.01-1.827-.023-3.747 1.031-5.32 1.494-2.227 4.24-2.216 6.653-2.207h.009c4.783.019 9.581-.121 14.362.009 3.514.095 2.52-3.199.712-5.137-1.706-1.829-3.994-2.614-6.434-2.591-4.661.043-9.326.017-13.988 0h-.005c-3.455-.013-7.02.407-8.947 3.598C29.005 21.354 29 23.227 29 25.208c0 8.345.014 16.69.038 25.035.003 1.18.01 2.166.01 3.537z'
         />
         <path
-          fill='url(#FfIcon__FfIcon__c)'
+          fill='url(#FranciumIcon__FranciumIcon__c)'
           d='M54.984 31.967c-5.2 0-10.308 4.155-10.308 9.535h10.308c3.787 0 6.663-5.172 6.663-9.535h-6.663z'
         />
         <path
@@ -20,11 +20,11 @@ export const FfIcon = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <path
-        fill='url(#FfIcon__FfIcon__d)'
+        fill='url(#FranciumIcon__FranciumIcon__d)'
         d='M25.605 56.222c0 2.713 3.137 4.066 5.453 4.079.461.002.929.005 1.313-.297.613-.48.608-1.143.604-1.837-.053-7.906.044-15.813 0-23.719v-.01c-.01-1.766-.023-3.622.996-5.143 1.444-2.153 4.098-2.142 6.431-2.133h.009c4.624.018 9.263-.117 13.885.008 3.396.092 2.436-3.092.688-4.966-1.65-1.767-3.861-2.527-6.22-2.505-4.507.043-9.016.017-13.523.001h-.005c-3.34-.013-6.786.393-8.648 3.478-1.025 1.697-1.03 3.507-1.03 5.422 0 8.067.014 16.135.037 24.202.004 1.14.01 2.094.01 3.42z'
       />
       <path
-        fill='url(#FfIcon__FfIcon__e)'
+        fill='url(#FranciumIcon__FranciumIcon__e)'
         d='M50.678 35.135c-5.027 0-9.965 4.017-9.965 9.217h9.965c3.66 0 6.442-5 6.442-9.217h-6.442z'
       />
       <path
@@ -33,7 +33,7 @@ export const FfIcon = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <radialGradient
-          id='FfIcon__FfIcon__b'
+          id='FranciumIcon__FranciumIcon__b'
           cx={0}
           cy={0}
           r={1}
@@ -44,7 +44,7 @@ export const FfIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6390F8' />
         </radialGradient>
         <radialGradient
-          id='FfIcon__FfIcon__d'
+          id='FranciumIcon__FranciumIcon__d'
           cx={0}
           cy={0}
           r={1}
@@ -55,7 +55,7 @@ export const FfIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6390F8' />
         </radialGradient>
         <linearGradient
-          id='FfIcon__FfIcon__c'
+          id='FranciumIcon__FranciumIcon__c'
           x1={44.676}
           x2={61.647}
           y1={41.502}
@@ -66,7 +66,7 @@ export const FfIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#659EF1' />
         </linearGradient>
         <linearGradient
-          id='FfIcon__FfIcon__e'
+          id='FranciumIcon__FranciumIcon__e'
           x1={40.713}
           x2={57.12}
           y1={44.352}
@@ -77,7 +77,7 @@ export const FfIcon = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#659EF1' />
         </linearGradient>
         <filter
-          id='FfIcon__FfIcon__a'
+          id='FranciumIcon__FranciumIcon__a'
           width={55.558}
           height={64}
           x={18}

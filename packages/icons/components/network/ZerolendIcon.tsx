@@ -2,10 +2,10 @@
 
 import React, { SVGProps } from 'react'
 
-export const ZerolandIcon = (props: SVGProps<SVGSVGElement>) => {
+export const ZerolendIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#ZerolandIcon__ZerolandIcon__a)'>
+      <g filter='url(#ZerolendIcon__ZerolendIcon__a)'>
         <path
           fill='#7A55FF'
           fillOpacity={0.7}
@@ -22,7 +22,7 @@ export const ZerolandIcon = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='ZerolandIcon__ZerolandIcon__a'
+          id='ZerolendIcon__ZerolendIcon__a'
           width={68}
           height={68}
           x={6}

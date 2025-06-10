@@ -7,7 +7,7 @@ export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <g clipPath='url(#ExodusLogo__a)'>
         <path
-          fill='#000'
+          fill='currentColor'
           d='M53.808 34.935L40.18 26v4.995l8.742 5.681-1.029 3.254H40.18v4.14h7.713l1.029 3.254-8.742 5.68V58l13.627-8.906-2.229-7.08 2.229-7.08zM28.325 44.07h7.685v-4.14h-7.713l-1-3.254 8.713-5.68V26l-13.627 8.935 2.228 7.08-2.228 7.079L36.038 58v-4.995l-8.741-5.681 1.028-3.254z'
         />
         <mask
@@ -19,23 +19,19 @@ export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
           maskUnits='userSpaceOnUse'
         >
           <path
-            fill='url(#ExodusLogo__ExodusLogo__b)'
-            d='M53.808 34.935L40.18 26v4.995l8.742 5.681-1.029 3.254H40.18v4.14h7.713l1.029 3.254-8.742 5.68V58l13.627-8.906-2.229-7.08 2.229-7.08z'
-          />
-          <path
-            fill='url(#ExodusLogo__ExodusLogo__c)'
-            d='M28.325 44.07h7.685v-4.14h-7.713l-1-3.254 8.713-5.68V26l-13.627 8.935 2.228 7.08-2.228 7.079L36.038 58v-4.995l-8.741-5.681 1.028-3.254z'
+            fill='currentColor'
+            d='M53.808 34.935L40.18 26v4.995l8.742 5.681-1.029 3.254H40.18v4.14h7.713l1.029 3.254-8.742 5.68V58l13.627-8.906-2.229-7.08 2.229-7.08zM28.325 44.07h7.685v-4.14h-7.713l-1-3.254 8.713-5.68V26l-13.627 8.935 2.228 7.08-2.228 7.079L36.038 58v-4.995l-8.741-5.681 1.028-3.254z'
           />
         </mask>
         <g mask='url(#ExodusLogo__a)'>
-          <path fill='#000' d='M53.6 26H22.4v32h31.2V26z' />
+          <path fill='currentColor' d='M53.6 26H22.4v32h31.2V26z' />
         </g>
         <path
-          fill='#000'
+          fill='currentColor'
           d='M80.92 34.8v2.797H68.029v2.863h10.955v2.798H68.028v3.144h12.893V49.2h-16.2V34.8h16.2zm1.83 14.4l7.407-7.287L82.96 34.8h4.553l5.078 5.14 4.869-5.14h4.259l-7.176 7.113 7.407 7.287h-4.595l-4.764-5.292-5.434 5.292H82.75z'
         />
         <path
-          fill='#000'
+          fill='currentColor'
           d='M110.832 34.8c6.001 0 9.61 3.005 9.61 7.2s-3.609 7.2-9.61 7.2c-6.001 0-9.59-3.005-9.59-7.2s3.589-7.2 9.59-7.2zm0 2.692c-3.609 0-6.27 1.816-6.27 4.508s2.661 4.508 6.27 4.508c3.629 0 6.29-1.816 6.29-4.508s-2.661-4.508-6.29-4.508zm21.572-2.692c4.807 0 7.703 2.667 7.703 7.178 0 4.554-2.875 7.222-7.661 7.222h-9.739V34.8h9.697zm4.303 7.178c0-2.82-1.679-4.38-4.723-4.38h-5.982v8.804h5.982c3.044 0 4.723-1.583 4.723-4.424zm14.298 7.222c-5.061 0-8.9-2.297-8.9-6.53V34.8h3.312v7.55c0 2.617 2.72 3.83 5.588 3.83 2.89 0 5.61-1.192 5.61-3.83V34.8h3.29v7.87c0 4.233-3.817 6.53-8.9 6.53zm18.169 0c-2.719 0-5.651-.501-7.733-1.44l1.084-2.671c1.869.855 4.44 1.398 6.755 1.398 2.656 0 5.141-.564 5.141-1.566 0-.73-.786-1.043-2.422-1.293l-4.631-.501c-3.569-.48-5.311-1.712-5.311-3.882 0-2.796 2.953-4.445 7.287-4.445 2.613 0 6.203.48 8.051 1.315l-1.083 2.546c-1.827-.752-4.929-1.127-7.117-1.127-2.252 0-3.739.522-3.739 1.482 0 .667.744 1.001 2.656 1.273l4.503.5c3.442.48 5.226 1.65 5.226 3.924 0 2.88-3.781 4.487-8.667 4.487z'
         />
       </g>
@@ -48,8 +44,8 @@ export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
           y2={22.486}
           gradientUnits='userSpaceOnUse'
         >
-          <stop stopColor='#0B46F9' />
-          <stop offset={1} stopColor='#BBFBE0' />
+          <stop stopColor='currentColor' />
+          <stop offset={1} stopColor='currentColor' />
         </linearGradient>
         <linearGradient
           id='ExodusLogo__ExodusLogo__c'
@@ -59,11 +55,11 @@ export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
           y2={22.486}
           gradientUnits='userSpaceOnUse'
         >
-          <stop stopColor='#0B46F9' />
-          <stop offset={1} stopColor='#BBFBE0' />
+          <stop stopColor='currentColor' />
+          <stop offset={1} stopColor='currentColor' />
         </linearGradient>
         <clipPath id='ExodusLogo__ExodusLogo__a'>
-          <path fill='#fff' d='M22 26h156v32H22z' />
+          <path fill='currentColor' d='M22 26h156v32H22z' />
         </clipPath>
       </defs>
     </svg>

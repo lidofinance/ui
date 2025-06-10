@@ -2,11 +2,11 @@
 
 import React, { SVGProps } from 'react'
 
-export const PrismaFinanceIcon = (props: SVGProps<SVGSVGElement>) => {
+export const PrismaIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#PrismaFinanceIcon__PrismaFinanceIcon__a)'>
-        <g filter='url(#PrismaFinanceIcon__PrismaFinanceIcon__b)'>
+      <g clipPath='url(#PrismaIcon__PrismaIcon__a)'>
+        <g filter='url(#PrismaIcon__PrismaIcon__b)'>
           <path
             fill='#0CB875'
             d='M30 37.216a167.02 167.02 0 014.298-6.928c4.325 2.527 8.559 5.032 12.833 7.604.08.224.153.38.153.536 0 3.148-.01 6.295-.086 9.438A4283.647 4283.647 0 0130 38.128v-.912z'
@@ -122,11 +122,11 @@ export const PrismaFinanceIcon = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='PrismaFinanceIcon__PrismaFinanceIcon__a'>
+        <clipPath id='PrismaIcon__PrismaIcon__a'>
           <path fill='#fff' d='M0 0h80.004v80H0z' />
         </clipPath>
         <filter
-          id='PrismaFinanceIcon__PrismaFinanceIcon__b'
+          id='PrismaIcon__PrismaIcon__b'
           width={58.507}
           height={77.791}
           x={18}
