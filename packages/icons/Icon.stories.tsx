@@ -37,7 +37,7 @@ const GenericIcon: React.FC<GenericIconProps> = ({
   const IconComponent = components[type]
 
   if (!IconComponent) {
-    console.warn(`Icon "${type}" does not exist.`)
+    console.warn(`Icon "${type.toString()}" does not exist.`)
     return null
   }
 
@@ -142,8 +142,8 @@ Icon.parameters = {
 }
 const renderIconGrid = (
   icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>>>,
-  width = 36,
-  height = 36,
+  width: string | number = 36,
+  height: string | number = 36,
   cellWidth = 110,
 ) => {
   const entries = Object.entries(icons)
