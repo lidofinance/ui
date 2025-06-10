@@ -2,19 +2,25 @@
   /* local var */
   --local-icon-padding: 4px;
   --local-button-border-width: 0px;
+  --local-button-border-radius: var(--lido-ui-border-radius-34);
+
+  @mixin font-body-large-bold;
 
   position: relative;
   display: inline-flex;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  padding: 0
-    calc(var(--local-button-padding) - var(--local-button-border-width));
-  height: var(--local-button-height);
+  padding: calc(
+      var(--local-button-vertical-padding) - var(--local-button-border-width)
+    )
+    calc(
+      var(--local-button-horizontal-padding) - var(--local-button-border-width)
+    );
   border: none;
   font-family: inherit;
   text-decoration: none;
-  border-radius: var(--lido-ui-border-radius-60);
+  border-radius: var(--local-button-border-radius);
   overflow: hidden;
   cursor: pointer;
 
@@ -29,13 +35,13 @@
   &:disabled {
     cursor: not-allowed;
     outline: none;
-    color: var(--deprecated-lido-ui-color-primary-20);
-    background-color: var(--deprecated-lido-ui-color-primary-8);
+    color: var(--lido-ui-color-text-quaternary);
+    background-color: var(--lido-ui-color-buttons-disabled);
 
     &.imitateHover,
     &:hover {
-      color: var(--deprecated-lido-ui-color-primary-20);
-      background-color: var(--deprecated-lido-ui-color-primary-8);
+      color: var(--lido-ui-color-text-quaternary);
+      background-color: var(--lido-ui-color-buttons-disabled);
 
       .arrow {
         transform: translateX(0);
@@ -43,26 +49,22 @@
     }
 
     .icon {
-      border-color: var(--deprecated-lido-ui-color-borders-fog);
-      color: var(--deprecated-lido-ui-color-primary-20);
+      color: var(--lido-ui-color-icons-quaternary);
+
+      &.colored {
+        opacity: 0.3;
+      }
+    }
+
+    .iconWrapper::before {
+      border-color: var(--lido-ui-color-borders-active);
     }
   }
 
   &:not(:disabled):focus-visible {
-    outline: 2px solid var(--deprecated-lido-ui-color-borders-water-static);
+    /* TODO: change to focus-visible */
+    outline: 2px solid var(--lido-ui-color-text-primary-hover);
     outline-offset: 1px;
-  }
-
-  &.size--l .icon,
-  &.size--xl .icon {
-    border-radius: 50%;
-    border: 1px solid var(--deprecated-lido-ui-color-borders-fog-reverse);
-    box-sizing: border-box;
-  }
-
-  &:disabled.size--l .icon,
-  &:disabled.size--xl .icon {
-    border-color: var(--deprecated-lido-ui-color-borders-fog);
   }
 
   &.circle {
@@ -86,7 +88,7 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  gap: var(--local-gap);
+  gap: var(--local-button-gap);
 }
 
 .arrow {
@@ -97,49 +99,90 @@
   transform: translateX(0);
 }
 
-.spacer {
-  display: none;
-  flex: 0 1 calc(var(--local-gap) + var(--local-icon-size));
-  min-width: calc(
-    var(--local-button-spacer-min-width) - var(--local-button-padding)
-  );
-}
-
 .withIcon {
-  justify-content: space-between;
+  --local-icon-offset-left: 8px;
+
+  /* CSS variable for icon wrapper size based on button size */
+  --local-icon-wrapper-size: 52px;
+
+  position: relative;
 
   .iconWrapper {
-    position: relative;
-    display: inline-flex;
-    flex: 0 0 auto;
-    width: calc(var(--local-icon-size) + var(--local-gap));
-    height: var(--local-icon-size);
-    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: var(--local-icon-offset-left);
+    transform: translateY(-50%);
+    width: var(--local-icon-wrapper-size);
+    height: var(--local-icon-wrapper-size);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--local-icon-wrapper-size);
+      height: var(--local-icon-wrapper-size);
+      border: 1px solid var(--lido-ui-color-borders-inverted);
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
   }
 
   .content {
-    flex: 1 0 auto;
+    flex: 1;
     text-align: center;
-  }
 
-  .spacer {
-    display: inline-block;
+    /* Add padding to prevent text overlap with icon and border */
+    padding-left: calc(
+      var(--local-icon-wrapper-size) + var(--local-icon-offset-left) +
+        var(--local-button-gap) - var(--local-button-horizontal-padding)
+    );
   }
 
   .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: var(--local-icon-size);
     height: var(--local-icon-size);
+    pointer-events: none;
+  }
+
+  &.size--s:not(.circle) {
+    --local-icon-offset-left: 4px;
+    --local-icon-wrapper-size: 40px;
+    --local-icon-size: 30px;
+
+    .iconWrapper::before {
+      display: none;
+    }
+  }
+
+  &.size--m:not(.circle) {
+    --local-icon-offset-left: 6px;
+    --local-icon-wrapper-size: 48px;
+    --local-icon-size: 30px;
+  }
+
+  &.size--l:not(.circle) {
+    --local-icon-offset-left: 8px;
+    --local-icon-wrapper-size: 52px;
+    --local-icon-size: 32.5px;
   }
 }
 
 /* Sizes */
+.size--s {
+  --local-button-vertical-padding: 8px;
+  --local-button-horizontal-padding: 18px;
+  --local-button-border-radius: var(--lido-ui-border-radius-24);
+}
+
 .size--s,
 .size--m {
-  --local-button-height: 46px;
-  --local-button-padding: 24px;
   --local-arrow-size: 20px;
-  --local-gap: 14px;
-  --local-button-spacer-min-width: 24px;
+  --local-button-gap: 8px;
 
   &.withIcon {
     --local-button-padding: 4px;
@@ -147,109 +190,81 @@
   }
 }
 
+.size--m {
+  --local-button-vertical-padding: 14px;
+  --local-button-horizontal-padding: 24px;
+  --local-button-border-radius: var(--lido-ui-border-radius-30);
+}
+
 .size--l {
-  --local-button-height: 60px;
-  --local-button-padding: 30px;
+  --local-button-vertical-padding: 18px;
+  --local-button-horizontal-padding: 28px;
   --local-arrow-size: 24px;
-  --local-gap: 20px;
-  --local-button-spacer-min-width: 32px;
+  --local-button-gap: 8px;
+  --local-button-border-radius: var(--lido-ui-border-radius-34);
 
   &.withIcon {
     --local-button-padding: 10px;
-    --local-icon-size: 40px;
+    --local-icon-size: 32px;
   }
-}
-
-.size--xl,
-.size--xxl {
-  --local-button-height: 70px;
-  --local-button-padding: 36px;
-  --local-arrow-size: 24px;
-  --local-gap: 20px;
-  --local-button-spacer-min-width: 32px;
-
-  &.withIcon {
-    --local-button-padding: 10px;
-    --local-icon-size: 50px;
-  }
-}
-
-/* Fonts */
-.normal {
-  font-size: var(--deprecated-lido-ui-font-size-control-not-adaptive);
-  font-weight: var(--lido-ui-font-weight-regular);
-}
-
-.semibold {
-  font-size: var(--deprecated-lido-ui-font-size-control-not-adaptive);
-  font-weight: var(--lido-ui-font-weight-bold);
-  line-height: var(--deprecated-lido-ui-line-height-control-not-adaptive);
-}
-
-.subhead {
-  font-size: var(--deprecated-lido-ui-font-size-subheader);
-  font-weight: var(--lido-ui-font-weight-light);
-  line-height: var(--deprecated-lido-ui-line-height-subheader);
-}
-
-.description {
-  font-size: var(--deprecated-lido-ui-font-size-description);
-  font-weight: var(--lido-ui-font-weight-regular);
-  line-height: var(--deprecated-lido-ui-line-height-description);
 }
 
 /* Colors */
-.default {
-  color: var(--deprecated-lido-ui-color-primary-reverse);
-  font-weight: var(--lido-ui-font-weight-bold);
-  background-color: var(--deprecated-lido-ui-color-primary);
+.primary {
+  color: var(--lido-ui-color-text-inverted);
+  background-color: var(--lido-ui-color-buttons-primary);
   transition: background-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    background-color: var(--deprecated-lido-ui-color-accent-ocean-static);
-    transition: background-color 0.3s;
+    color: var(--lido-ui-color-buttons-text-primary-hover);
+    background-color: var(--lido-ui-color-buttons-primary-hover);
+    transition:
+      color 0.3s,
+      background-color 0.3s;
   }
 }
 
 .secondary {
-  color: var(--deprecated-lido-ui-color-white-static);
-  background-color: var(--deprecated-lido-ui-color-accent-ocean-static);
+  color: var(--lido-ui-color-buttons-text-static);
+  background-color: var(--lido-ui-color-buttons-secondary);
   transition: background-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    background-color: var(--deprecated-lido-ui-color-accent-sky-static);
+    background-color: var(--lido-ui-color-buttons-secondary-hover);
     transition: background-color 0.3s;
   }
 }
 
-.outline {
+.tertiary {
   --local-button-border-width: 1px;
 
-  color: var(--deprecated-lido-ui-color-primary);
+  color: var(--lido-ui-color-buttons-primary);
   background-color: transparent;
-  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
+  border: 1px solid var(--lido-ui-color-borders-active);
   transition:
     color 0.5s,
     border-color 0.5s;
 
   &.imitateHover,
   &:hover {
-    color: var(--deprecated-lido-ui-color-accent-ocean-static);
-    border-color: var(--deprecated-lido-ui-color-accent-ocean-static);
+    color: var(--lido-ui-color-buttons-primary-hover);
+    border-color: var(--lido-ui-color-borders-hover);
     transition:
       color 0.3s,
       border-color 0.3s;
   }
 
   &:disabled {
-    color: var(--deprecated-lido-ui-color-primary-20);
-    border-color: var(--deprecated-lido-ui-color-primary-20);
+    color: var(--lido-ui-color-text-quaternary);
+    border-color: var(--lido-ui-color-borders-default);
     background-color: transparent;
 
     &.imitateHover,
     &:hover {
+      color: var(--lido-ui-color-text-quaternary);
+      border-color: var(--lido-ui-color-borders-default);
       background-color: transparent;
     }
   }
@@ -259,47 +274,14 @@
   }
 }
 
-.success {
-  background-color: var(--deprecated-lido-ui-color-accent-leaf-static);
-  color: var(--deprecated-lido-ui-color-white-static);
-  transition: background-color 0.5s;
-}
-
-.transparent {
-  background-color: transparent;
-  color: var(--deprecated-lido-ui-color-primary);
-  outline: none;
-  transition: color 0.5s;
-
-  &.imitateHover,
-  &:hover {
-    background-color: transparent;
-    color: var(--deprecated-lido-ui-color-accent-ocean-static);
-    transition: color 0.3s;
-  }
-
-  &:disabled {
-    background-color: transparent;
-
-    &.imitateHover,
-    &:hover {
-      background-color: transparent;
-
-      .arrow {
-        transform: translateX(0);
-      }
-    }
-  }
-}
-
 /* Shapes */
 .circle {
   --local-button-border-width: 1px;
 
   border-radius: 50%;
   background-color: transparent;
-  color: var(--deprecated-lido-ui-color-primary);
-  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
+  color: var(--lido-ui-color-icons-primary);
+  border: 1px solid var(--lido-ui-color-borders-default);
   transition:
     color 0.5s,
     border-color 0.5s;
@@ -307,61 +289,68 @@
   &.imitateHover,
   &:hover {
     background-color: transparent;
-    color: var(--deprecated-lido-ui-color-accent-ocean-static);
-    border-color: var(--deprecated-lido-ui-color-accent-ocean-static);
+    color: var(--lido-ui-color-icons-active);
+    border-color: var(--lido-ui-color-borders-hover);
     transition:
       color 0.3s,
       border-color 0.3s;
   }
 
+  &.imitateActive,
+  &:active {
+    background-color: transparent;
+    border-color: var(--lido-ui-color-borders-active);
+    transition: border-color 0.3s;
+  }
+
   &:disabled {
-    color: var(--deprecated-lido-ui-color-primary-20);
-    border-color: var(--deprecated-lido-ui-color-primary-20);
     background-color: transparent;
 
-    .icon {
-      color: var(--deprecated-lido-ui-color-primary-20);
-      border: none;
+    .colored {
+      opacity: 0.2;
     }
 
     &.imitateHover,
     &:hover {
       background-color: transparent;
+      border-color: var(--lido-ui-color-borders-default);
     }
   }
 
   /* Cirsle sizes */
   &.circle-s {
-    --local-button-size: 40px;
-    --local-icon-size: 38px;
+    --local-button-size: 48px;
+    --local-icon-size: 24px;
+
+    .colored {
+      --local-icon-size: 30px;
+    }
   }
 
   &.circle-m {
-    --local-button-size: 56px;
-    --local-icon-size: 46px;
+    --local-button-size: 60px;
+    --local-icon-size: 32px;
+
+    .colored {
+      --local-icon-size: 37.5px;
+    }
   }
 
   &.circle-l {
-    --local-button-size: 70px;
-    --local-icon-size: 58px;
+    --local-button-size: 68px;
+    --local-icon-size: 32px;
+
+    .colored {
+      --local-icon-size: 42.5px;
+    }
   }
 
-  &.circle-xl {
-    --local-button-size: 86px;
-    --local-icon-size: 56px;
-  }
-
-  &.circle-xxl {
-    --local-button-size: 110px;
-    --local-icon-size: 70px;
-  }
-
-  &.transparent {
+  &.noBorder {
     border: none;
   }
 }
 
-@media (width <= 899px) {
+@media (width <=899px) {
   .hideArrowOnMobile {
     display: none;
   }

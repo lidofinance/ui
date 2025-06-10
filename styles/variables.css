@@ -4,6 +4,9 @@
 
 :root {
   --lido-ui-border-radius-4: 4px;
+  --lido-ui-border-radius-24: 24px;
+  --lido-ui-border-radius-30: 30px;
+  --lido-ui-border-radius-34: 34px;
   --lido-ui-border-radius-40: 40px;
   --lido-ui-border-radius-50: 50px;
   --lido-ui-border-radius-60: 60px;

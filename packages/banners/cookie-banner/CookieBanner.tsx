@@ -49,7 +49,8 @@ export const CookieBanner = ({
           Allow
         </Button>
         <Button
-          color={'outline'}
+          color={'tertiary'}
+          size={'m'}
           className={style.button}
           onClick={onDecline}
           data-testid={dataTestId?.declineButton}

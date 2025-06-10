@@ -10,7 +10,6 @@ import cn from 'classnames'
 import styles from './Button.module.css'
 import { DynamicLink } from '../links'
 import { ArrowRight } from '../icons'
-import { WaveLoader, WaveLoaderVariant } from './waveLoader/WaveLoader'
 
 export type ButtonDataTestId = {
   root?: string
@@ -29,31 +28,31 @@ export type ButtonProps = (
 ) & {
   color?: ButtonColor
   shape?: ButtonShape
-  icon?: ReactElement
+  icon?: ButtonIconProp
   withArrow?: boolean
   size?: ButtonSize
   loading?: boolean
-  textStyle?: ButtonTextStyle
-  loaderVariant?: WaveLoaderVariant
   hideArrowOnMobile?: boolean
   imitateHover?: boolean
+  imitateActive?: boolean
+  noBorder?: boolean
   dataTestId?: ButtonDataTestId
 }
 
-export type ButtonSize = 's' | 'm' | 'l' | 'xl' | 'xxl' // "s" and "xxl" sizes are only for Circle shape
-export type ButtonTextStyle = 'normal' | 'semibold' | 'subhead' | 'description'
-export type ButtonColor =
-  | 'default'
-  | 'secondary'
-  | 'outline'
-  | 'success'
-  | 'transparent'
+export type ButtonSize = 's' | 'm' | 'l'
+export type ButtonColor = 'primary' | 'secondary' | 'tertiary'
 export type ButtonShape = 'oval' | 'circle'
+export type ButtonIcon = {
+  icon: ReactElement
+  isColored?: boolean
+}
+
+export type ButtonIconProp = ButtonIcon | ReactElement
 
 export const Button = forwardRef(
   (
     {
-      color = 'default',
+      color = 'primary',
       shape = 'oval',
       icon,
       href,
@@ -62,10 +61,10 @@ export const Button = forwardRef(
       className,
       children,
       loading,
-      textStyle = 'semibold',
-      loaderVariant,
       hideArrowOnMobile,
       imitateHover,
+      imitateActive,
+      noBorder,
       dataTestId,
       ...rest
     }: ButtonProps,
@@ -73,32 +72,36 @@ export const Button = forwardRef(
   ) => {
     const isCircle = shape === 'circle'
 
+    // Helper to determine if icon is an object or ReactElement
+    const isIconObject = (iconProp: ButtonIconProp): iconProp is ButtonIcon => {
+      return iconProp && typeof iconProp === 'object' && 'icon' in iconProp
+    }
+
+    const getIconElement = () => {
+      if (!icon) return null
+
+      const iconElement = isIconObject(icon) ? icon.icon : icon
+      const isColored = isIconObject(icon) ? icon.isColored : false
+
+      return cloneElement(iconElement, {
+        ...iconElement.props,
+        className: cn(
+          styles.icon,
+          isColored && styles.colored,
+          iconElement.props.className,
+        ),
+        'data-testid': dataTestId?.icon,
+      })
+    }
+
     const content = (
       <>
-        <WaveLoader
-          isVisible={loading}
-          variant={loaderVariant}
-          scale={size === 'l' ? 1 : size === 'xl' ? 1.2 : 0.8}
-          data-testid={dataTestId?.wave}
-        />
         {icon && (
           <>
             {isCircle ? (
-              <>
-                {cloneElement(icon, {
-                  ...icon.props,
-                  className: cn(styles.icon, icon.props.className),
-                  'data-testid': dataTestId?.icon,
-                })}
-              </>
+              getIconElement()
             ) : (
-              <span className={styles.iconWrapper}>
-                {cloneElement(icon, {
-                  ...icon.props,
-                  className: cn(styles.icon, icon.props.className),
-                  'data-testid': dataTestId?.icon,
-                })}
-              </span>
+              <span className={styles.iconWrapper}>{getIconElement()}</span>
             )}
           </>
         )}
@@ -107,7 +110,7 @@ export const Button = forwardRef(
           {!isCircle ? (
             <>
               <span
-                className={cn(styles.content, styles[textStyle])}
+                className={styles.content}
                 data-testid={dataTestId?.content}
               >
                 {children}
@@ -120,7 +123,6 @@ export const Button = forwardRef(
                   />
                 )}
               </span>
-              <span className={styles.spacer} />
             </>
           ) : (
             <>{withArrow && <ArrowRight className={styles.arrow} />}</>
@@ -141,6 +143,8 @@ export const Button = forwardRef(
           [styles[`${shape}-${size}`]]: shape === 'circle',
           [styles[shape]]: shape === 'circle',
           [styles.imitateHover]: imitateHover,
+          [styles.imitateActive]: imitateActive,
+          [styles.noBorder]: shape === 'circle' && noBorder,
         },
       ),
       children: content,

@@ -41,7 +41,11 @@ export const ArrowBottom = React.forwardRef(function ArrowBottom(
       {...props}
     >
       <path
-        d='M18.535 16.808l-1.093-1.094-4.489 4.503V.828h-1.562v19.39l-4.503-4.504-1.08 1.094 6.364 6.364 6.363-6.364z'
+        d='M17.038 15.756a.2.2 0 010 .284l-4.928 4.928a.3.3 0 01-.424 0l-4.93-4.928a.2.2 0 010-.284l.709-.707a.2.2 0 01.282 0l3.432 3.432V3.585c0-.11.09-.2.2-.2h1c.11 0 .2.09.2.2v14.933l3.469-3.469a.2.2 0 01.282 0l.708.707z'
+        fill='currentColor'
+      />
+      <path
+        d='M6.757 16.04a.2.2 0 010-.283l.707-.707a.2.2 0 01.283 0l4.15 4.15 4.15-4.15a.2.2 0 01.284 0l.707.707a.2.2 0 010 .283l-4.928 4.928a.3.3 0 01-.425 0L6.757 16.04z'
         fill='currentColor'
       />
     </svg>
@@ -62,7 +66,11 @@ export const ArrowLeft = React.forwardRef(function ArrowLeft(
       {...props}
     >
       <path
-        d='M7.364 18.364l1.093-1.094-4.502-4.489h19.389V11.22H3.954l4.503-4.503-1.093-1.08L1 12l6.364 6.364z'
+        d='M8.424 17.423a.2.2 0 01-.283 0l-4.93-4.929a.3.3 0 010-.424l4.93-4.928a.2.2 0 01.283 0l.707.708a.2.2 0 010 .282l-3.432 3.431h14.897c.11 0 .2.09.2.2v1a.2.2 0 01-.2.2H5.662l3.469 3.47a.2.2 0 010 .282l-.707.708z'
+        fill='currentColor'
+      />
+      <path
+        d='M8.14 7.142a.2.2 0 01.283 0l.708.707a.2.2 0 010 .283l-4.15 4.15 4.15 4.15a.2.2 0 010 .283l-.708.708a.2.2 0 01-.283 0l-4.928-4.929a.3.3 0 010-.424L8.14 7.142z'
         fill='currentColor'
       />
     </svg>
@@ -75,15 +83,15 @@ export const ArrowRight = React.forwardRef(function ArrowRight(
 ) {
   return (
     <svg
-      width={20}
-      height={12}
-      viewBox='0 0 20 12'
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
       fill='currentColor'
       ref={ref}
       {...props}
     >
       <path
-        d='M14.15 11.303l-.911-.911L16.99 6.65H.833V5.349h16.158l-3.752-3.752.911-.9L19.453 6l-5.303 5.303z'
+        d='M15.372 7.142a.2.2 0 01.283 0l4.929 4.928a.3.3 0 010 .424l-4.929 4.929a.2.2 0 01-.283 0l-.707-.708a.2.2 0 010-.282L18.097 13H3.2a.2.2 0 01-.2-.2v-1c0-.11.09-.2.2-.2h14.934l-3.469-3.47a.2.2 0 010-.282l.707-.707z'
         fill='currentColor'
       />
     </svg>
@@ -104,7 +112,11 @@ export const ArrowTop = React.forwardRef(function ArrowTop(
       {...props}
     >
       <path
-        d='M5.808 7.192l1.094 1.094 4.489-4.503v19.389h1.562V3.782l4.503 4.504 1.08-1.094L12.171.828 5.808 7.192z'
+        d='M6.758 8.808a.2.2 0 010-.283l4.928-4.929a.3.3 0 01.424 0l4.929 4.929a.2.2 0 010 .283l-.708.707a.2.2 0 01-.282 0l-3.432-3.432V20.98a.2.2 0 01-.2.2h-1a.2.2 0 01-.2-.2V6.046l-3.469 3.47a.2.2 0 01-.282 0l-.708-.708z'
+        fill='currentColor'
+      />
+      <path
+        d='M17.038 8.525a.2.2 0 010 .283l-.707.707a.2.2 0 01-.283 0l-4.15-4.15-4.15 4.15a.2.2 0 01-.284 0l-.707-.707a.2.2 0 010-.283l4.928-4.929a.3.3 0 01.425 0l4.928 4.929z'
         fill='currentColor'
       />
     </svg>
@@ -477,6 +489,94 @@ export const External = React.forwardRef(function External(
         d='M5.5 8.75A3.25 3.25 0 018.75 5.5h1.132V4H8.75A4.75 4.75 0 004 8.75v7a4.75 4.75 0 004.75 4.75h7a4.75 4.75 0 004.75-4.75v-1.132H19v1.132A3.25 3.25 0 0115.75 19h-7a3.25 3.25 0 01-3.25-3.25v-7zm8.25-3.25h4.19l-7.8 7.799 1.061 1.06L19 6.561v4.189h1.5V4h-6.75v1.5z'
         fill='currentColor'
       />
+    </svg>
+  )
+})
+
+export const GradientCircle = React.forwardRef(function GradientCircle(
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={50}
+      height={50}
+      viewBox='0 0 50 50'
+      fill='currentColor'
+      ref={ref}
+      {...props}
+    >
+      <circle
+        cx={25}
+        cy={25}
+        r={25}
+        fill='url(#prefix__prefix__paint0_radial_91_13345)'
+      />
+      <circle
+        cx={25}
+        cy={25}
+        r={25}
+        fill='url(#prefix__prefix__paint1_linear_91_13345)'
+      />
+      <circle
+        cx={25}
+        cy={25}
+        r={25}
+        fill='url(#prefix__prefix__paint2_radial_91_13345)'
+      />
+      <circle
+        cx={25}
+        cy={25}
+        r={25}
+        fill='url(#prefix__prefix__paint3_radial_91_13345)'
+        fillOpacity={0.4}
+      />
+      <defs>
+        <radialGradient
+          id='prefix__prefix__paint0_radial_91_13345'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientUnits='userSpaceOnUse'
+          gradientTransform='matrix(3.5003 50.49994 -53.25722 3.69142 36.5 -3)'
+        >
+          <stop stopColor='#8A36FF' />
+          <stop offset={0.7} stopColor='#8A36FF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='prefix__prefix__paint2_radial_91_13345'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientUnits='userSpaceOnUse'
+          gradientTransform='rotate(167.593 7.397 15.728) scale(25.5979)'
+        >
+          <stop stopColor='#00D9FF' />
+          <stop offset={1} stopColor='#8FA8FF' stopOpacity={0} />
+        </radialGradient>
+        <radialGradient
+          id='prefix__prefix__paint3_radial_91_13345'
+          cx={0}
+          cy={0}
+          r={1}
+          gradientUnits='userSpaceOnUse'
+          gradientTransform='matrix(21.5 -31.49999 11.04914 7.54148 6.5 41)'
+        >
+          <stop stopColor='#08FF3E' />
+          <stop offset={1} stopColor='#08FF5B' stopOpacity={0} />
+        </radialGradient>
+        <linearGradient
+          id='prefix__prefix__paint1_linear_91_13345'
+          x1={25}
+          y1={0}
+          x2={74}
+          y2={16.5}
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#FF00D9' stopOpacity={0} />
+          <stop offset={1} stopColor='#FF00D9' />
+        </linearGradient>
+      </defs>
     </svg>
   )
 })
@@ -1024,6 +1124,27 @@ export const ThinClose = React.forwardRef(function ThinClose(
         fillRule='evenodd'
         clipRule='evenodd'
         d='M21.59 20l6.705 6.705-1.59 1.59L20 21.592l-6.705 6.705-1.59-1.591L18.408 20l-6.705-6.704 1.591-1.591L20 18.409l6.704-6.704 1.591 1.59L21.591 20z'
+        fill='currentColor'
+      />
+    </svg>
+  )
+})
+
+export const Tiles = React.forwardRef(function Tiles(
+  props: SVGProps<SVGSVGElement>,
+  ref: Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={25}
+      height={24}
+      viewBox='0 0 25 24'
+      fill='currentColor'
+      ref={ref}
+      {...props}
+    >
+      <path
+        d='M6.65 9.604h3.2V6.405h-3.2v3.2zm4.6 1l-.008.081a.401.401 0 01-.311.312l-.081.008h-5.2l-.08-.008a.401.401 0 01-.312-.312l-.008-.08v-5.2a.4.4 0 01.32-.393l.08-.007h5.2l.08.007a.4.4 0 01.32.393v5.2zm-4.6 7h3.2v-3.199h-3.2v3.2zm4.6 1l-.008.081a.401.401 0 01-.311.312l-.081.008h-5.2l-.08-.008a.401.401 0 01-.312-.312l-.008-.08v-5.2a.4.4 0 01.32-.393l.08-.007h5.2l.08.007a.4.4 0 01.32.393v5.2zm3.4-9h3.2V6.405h-3.2v3.2zm4.6 1l-.008.081a.401.401 0 01-.311.312l-.081.008h-5.2l-.08-.008a.401.401 0 01-.312-.312l-.008-.08v-5.2a.4.4 0 01.32-.393l.08-.007h5.2l.08.007a.4.4 0 01.32.393v5.2zm-4.6 7h3.2v-3.199h-3.2v3.2zm4.6 1l-.008.081a.401.401 0 01-.311.312l-.081.008h-5.2l-.08-.008a.401.401 0 01-.312-.312l-.008-.08v-5.2a.4.4 0 01.32-.393l.08-.007h5.2l.08.007a.4.4 0 01.32.393v5.2z'
         fill='currentColor'
       />
     </svg>
