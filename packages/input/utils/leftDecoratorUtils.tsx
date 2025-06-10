@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { SearchOutline } from '../../icons'
+import { Search } from '../../icons'
 
 export type GetLeftDecoratorParams = {
   leftDecorator?: ReactElement
@@ -20,7 +20,7 @@ export const getLeftDecorator = ({
   }
 
   if (type === 'search') {
-    return <SearchOutline width={24} height={24} />
+    return <Search width={24} height={24} />
   }
 
   return null

@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Button, ButtonProps } from './Button'
-import { GradientCircle, Tiles } from '../icons'
+import { Image, Icon } from '../icons'
 
 export default {
   component: Button,
@@ -92,7 +92,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 shape='circle'
                 size='l'
                 disabled={false}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
             <div style={stateColumnStyle}>
@@ -102,17 +102,12 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 size='l'
                 disabled={false}
                 imitateActive={true}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Disabled</p>
-              <Button
-                shape='circle'
-                size='l'
-                disabled={true}
-                icon={<Tiles />}
-              />
+              <Button shape='circle' size='l' disabled={true} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>No Border</p>
@@ -121,7 +116,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 size='l'
                 disabled={false}
                 noBorder={true}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
           </div>
@@ -135,27 +130,27 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               shape='circle'
               size='l'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='l'
               disabled={false}
               imitateActive={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='l'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='l'
               disabled={false}
               noBorder={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
           </div>
         </div>
@@ -173,7 +168,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 shape='circle'
                 size='m'
                 disabled={false}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
             <div style={stateColumnStyle}>
@@ -183,17 +178,12 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 size='m'
                 disabled={false}
                 imitateActive={true}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Disabled</p>
-              <Button
-                shape='circle'
-                size='m'
-                disabled={true}
-                icon={<Tiles />}
-              />
+              <Button shape='circle' size='m' disabled={true} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>No Border</p>
@@ -202,7 +192,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 size='m'
                 disabled={false}
                 noBorder={true}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
           </div>
@@ -215,27 +205,27 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               shape='circle'
               size='m'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='m'
               disabled={false}
               imitateActive={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='m'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='m'
               disabled={false}
               noBorder={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
           </div>
         </div>
@@ -252,7 +242,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 shape='circle'
                 size='s'
                 disabled={false}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
             <div style={stateColumnStyle}>
@@ -262,17 +252,12 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 size='s'
                 disabled={false}
                 imitateActive={true}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Disabled</p>
-              <Button
-                shape='circle'
-                size='s'
-                disabled={true}
-                icon={<Tiles />}
-              />
+              <Button shape='circle' size='s' disabled={true} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>No Border</p>
@@ -281,7 +266,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
                 size='s'
                 disabled={false}
                 noBorder={true}
-                icon={<Tiles />}
+                icon={<Icon />}
               />
             </div>
           </div>
@@ -294,27 +279,27 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               shape='circle'
               size='s'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='s'
               disabled={false}
               imitateActive={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='s'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
             <Button
               shape='circle'
               size='s'
               disabled={false}
               noBorder={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
             />
           </div>
         </div>

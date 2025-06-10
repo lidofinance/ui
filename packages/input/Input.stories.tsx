@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Input } from './Input'
-import { Eth } from '../icons'
+import { ETH } from '../icons'
 
 const meta: Meta<typeof Input> = {
   title: 'Controls/Input',
@@ -159,7 +159,7 @@ export const AllStates = () => {
                 <Input
                   size='m'
                   placeholder='Input with left icon'
-                  leftDecorator={<Eth width={24} height={24} />}
+                  leftDecorator={<ETH width={24} height={24} />}
                 />
               </div>
             </div>
@@ -432,7 +432,7 @@ export const AllStates = () => {
                 <Input
                   size='l'
                   placeholder='Input with left icon'
-                  leftDecorator={<Eth width={24} height={24} />}
+                  leftDecorator={<ETH width={24} height={24} />}
                 />
               </div>
             </div>
@@ -705,7 +705,7 @@ export const AllStates = () => {
                 <Input
                   size='xl'
                   placeholder='Input with left icon'
-                  leftDecorator={<Eth width={24} height={24} />}
+                  leftDecorator={<ETH width={24} height={24} />}
                 />
               </div>
             </div>

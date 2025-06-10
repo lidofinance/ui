@@ -23,8 +23,12 @@
   --lido-ui-line-height-h5: 38px;
   --lido-ui-font-size-body-large: 18px;
   --lido-ui-line-height-body-large: 32px;
+  --lido-ui-font-size-body-large-static: 18px;
+  --lido-ui-line-height-body-large-static: 32px;
   --lido-ui-font-size-body: 16px;
   --lido-ui-line-height-body: 28px;
+  --lido-ui-font-size-body-static: 16px;
+  --lido-ui-line-height-body-static: 28px;
   --lido-ui-font-size-description: 14px;
   --lido-ui-line-height-description: 20px;
   --deprecated-lido-ui-font-size-subheader: 22px;

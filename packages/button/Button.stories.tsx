@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Button, ButtonProps } from './Button'
-import { GradientCircle, Tiles } from '../icons'
+import { Image, Icon } from '../icons'
 
 export default {
   component: Button,
@@ -49,7 +49,7 @@ export default {
   },
   decorators: [
     (Story, context) => {
-      const icon = context.args.icon ? <GradientCircle /> : null
+      const icon = context.args.icon ? <Image /> : null
       return <Story {...context} args={{ ...context.args, icon }} />
     },
   ],
@@ -135,7 +135,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -146,7 +146,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -177,7 +177,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -188,7 +188,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -226,7 +226,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -237,7 +237,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -268,7 +268,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -279,7 +279,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -317,7 +317,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -328,7 +328,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -359,7 +359,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -370,7 +370,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='l'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -413,7 +413,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -424,7 +424,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -455,7 +455,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -466,7 +466,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -504,7 +504,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -515,7 +515,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -546,7 +546,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -557,7 +557,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -595,7 +595,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -606,7 +606,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -637,7 +637,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -648,7 +648,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='m'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -691,7 +691,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -702,7 +702,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -733,7 +733,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -744,7 +744,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -782,7 +782,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -793,7 +793,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -824,7 +824,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -835,7 +835,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -873,7 +873,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={false}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -884,7 +884,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={false}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >
@@ -915,7 +915,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={true}
-              icon={{ icon: <GradientCircle />, isColored: true }}
+              icon={{ icon: <Image />, isColored: true }}
               withArrow={false}
               loading={false}
             >
@@ -926,7 +926,7 @@ export const AllStates: StoryFn<ButtonProps> = () => {
               size='s'
               shape='oval'
               disabled={true}
-              icon={<Tiles />}
+              icon={<Icon />}
               withArrow={false}
               loading={false}
             >

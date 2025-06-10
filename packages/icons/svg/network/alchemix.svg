@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none" viewBox="0 0 80 80">
+  <path stroke="#F5C09A" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".771" d="M40.004 59c10.493 0 19-8.507 19-19s-8.507-19-19-19-19 8.507-19 19 8.506 19 19 19Zm0-13.51V59m0-38v3.997"/>
+  <path stroke="#F5C09A" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".771" d="M40.004 45.49 27.056 35.25l12.948-10.253L52.95 35.25l-5.784 4.571m3.794 6.576 1.991-1.583V35.25m-25.895 0v9.564l12.948 10.253 5.848-4.622"/>
+  <path stroke="#F5C09A" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".771" d="m29.33 46.614-2.21 3.83h7.049m5.835.001h12.884l-12.884-22.32-6.73 11.67"/>
+  <g filter="url(#a)">
+    <path stroke="#F5C09A" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".771" d="M46.004 59c10.493 0 19-8.507 19-19s-8.507-19-19-19-19 8.507-19 19 8.506 19 19 19Zm0-13.51V59m0-38v3.997"/>
+    <path stroke="#F5C09A" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".771" d="M46.004 45.49 33.056 35.25l12.948-10.253L58.95 35.25l-5.784 4.571m3.794 6.576 1.991-1.583V35.25m-25.895 0v9.564l12.948 10.253 5.848-4.622"/>
+    <path stroke="#F5C09A" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".771" d="m35.33 46.614-2.21 3.83h7.049m5.835.001h12.884l-12.884-22.32-6.73 11.67"/>
+  </g>
+  <defs>
+    <filter id="a" width="50.77" height="50.771" x="20.619" y="14.615" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_52_17177" stdDeviation="3"/>
+    </filter>
+  </defs>
+</svg>
