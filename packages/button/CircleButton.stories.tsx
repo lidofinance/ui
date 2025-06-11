@@ -1,9 +1,13 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Button, ButtonProps } from './Button'
+import {
+  CircleButton,
+  CircleButtonProps,
+  CircleButtonColored,
+} from './CircleButton'
 import { Image, Icon } from '../icons'
 
 export default {
-  component: Button,
+  component: CircleButton,
   title: 'Buttons/CircleButton',
   parameters: {
     docs: {
@@ -16,7 +20,7 @@ export default {
   tags: ['autodocs'],
 } satisfies Meta
 
-export const AllStates: StoryFn<ButtonProps> = () => {
+export const AllStates: StoryFn<CircleButtonProps> = () => {
   const containerStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
@@ -88,17 +92,11 @@ export const AllStates: StoryFn<ButtonProps> = () => {
           <div style={stateGroupStyle}>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Default</p>
-              <Button
-                shape='circle'
-                size='l'
-                disabled={false}
-                icon={<Icon />}
-              />
+              <CircleButton size='l' disabled={false} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Active</p>
-              <Button
-                shape='circle'
+              <CircleButton
                 size='l'
                 disabled={false}
                 imitateActive={true}
@@ -107,12 +105,11 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Disabled</p>
-              <Button shape='circle' size='l' disabled={true} icon={<Icon />} />
+              <CircleButton size='l' disabled={true} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>No Border</p>
-              <Button
-                shape='circle'
+              <CircleButton
                 size='l'
                 disabled={false}
                 noBorder={true}
@@ -126,31 +123,19 @@ export const AllStates: StoryFn<ButtonProps> = () => {
         <div style={{ ...iconGroupStyle, marginBottom: '0' }}>
           <h5 style={iconTitleStyle}>Colored Icon</h5>
           <div style={stateGroupStyle}>
-            <Button
-              shape='circle'
-              size='l'
-              disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
-            />
-            <Button
-              shape='circle'
+            <CircleButtonColored size='l' disabled={false} icon={<Image />} />
+            <CircleButtonColored
               size='l'
               disabled={false}
               imitateActive={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
             />
-            <Button
-              shape='circle'
-              size='l'
-              disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
-            />
-            <Button
-              shape='circle'
+            <CircleButtonColored size='l' disabled={true} icon={<Image />} />
+            <CircleButtonColored
               size='l'
               disabled={false}
               noBorder={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
             />
           </div>
         </div>
@@ -164,17 +149,11 @@ export const AllStates: StoryFn<ButtonProps> = () => {
           <div style={stateGroupStyle}>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Default</p>
-              <Button
-                shape='circle'
-                size='m'
-                disabled={false}
-                icon={<Icon />}
-              />
+              <CircleButton size='m' disabled={false} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Active</p>
-              <Button
-                shape='circle'
+              <CircleButton
                 size='m'
                 disabled={false}
                 imitateActive={true}
@@ -183,12 +162,11 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Disabled</p>
-              <Button shape='circle' size='m' disabled={true} icon={<Icon />} />
+              <CircleButton size='m' disabled={true} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>No Border</p>
-              <Button
-                shape='circle'
+              <CircleButton
                 size='m'
                 disabled={false}
                 noBorder={true}
@@ -201,31 +179,19 @@ export const AllStates: StoryFn<ButtonProps> = () => {
         <div style={{ ...iconGroupStyle, marginBottom: '0' }}>
           <h5 style={iconTitleStyle}>Colored Icon</h5>
           <div style={stateGroupStyle}>
-            <Button
-              shape='circle'
-              size='m'
-              disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
-            />
-            <Button
-              shape='circle'
+            <CircleButtonColored size='m' disabled={false} icon={<Image />} />
+            <CircleButtonColored
               size='m'
               disabled={false}
               imitateActive={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
             />
-            <Button
-              shape='circle'
-              size='m'
-              disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
-            />
-            <Button
-              shape='circle'
+            <CircleButtonColored size='m' disabled={true} icon={<Image />} />
+            <CircleButtonColored
               size='m'
               disabled={false}
               noBorder={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
             />
           </div>
         </div>
@@ -238,17 +204,11 @@ export const AllStates: StoryFn<ButtonProps> = () => {
           <div style={stateGroupStyle}>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Default</p>
-              <Button
-                shape='circle'
-                size='s'
-                disabled={false}
-                icon={<Icon />}
-              />
+              <CircleButton size='s' disabled={false} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Active</p>
-              <Button
-                shape='circle'
+              <CircleButton
                 size='s'
                 disabled={false}
                 imitateActive={true}
@@ -257,12 +217,11 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>Disabled</p>
-              <Button shape='circle' size='s' disabled={true} icon={<Icon />} />
+              <CircleButton size='s' disabled={true} icon={<Icon />} />
             </div>
             <div style={stateColumnStyle}>
               <p style={stateLabelStyle}>No Border</p>
-              <Button
-                shape='circle'
+              <CircleButton
                 size='s'
                 disabled={false}
                 noBorder={true}
@@ -275,31 +234,19 @@ export const AllStates: StoryFn<ButtonProps> = () => {
         <div style={{ ...iconGroupStyle, marginBottom: '0' }}>
           <h5 style={iconTitleStyle}>Colored Icon</h5>
           <div style={stateGroupStyle}>
-            <Button
-              shape='circle'
-              size='s'
-              disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
-            />
-            <Button
-              shape='circle'
+            <CircleButtonColored size='s' disabled={false} icon={<Image />} />
+            <CircleButtonColored
               size='s'
               disabled={false}
               imitateActive={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
             />
-            <Button
-              shape='circle'
-              size='s'
-              disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
-            />
-            <Button
-              shape='circle'
+            <CircleButtonColored size='s' disabled={true} icon={<Image />} />
+            <CircleButtonColored
               size='s'
               disabled={false}
               noBorder={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
             />
           </div>
         </div>

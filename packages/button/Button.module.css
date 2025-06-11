@@ -323,7 +323,7 @@
     --local-icon-size: 24px;
 
     .colored {
-      --local-icon-size: 30px;
+      --local-icon-size: 48px;
     }
   }
 
@@ -332,7 +332,7 @@
     --local-icon-size: 32px;
 
     .colored {
-      --local-icon-size: 37.5px;
+      --local-icon-size: 60px;
     }
   }
 
@@ -341,7 +341,7 @@
     --local-icon-size: 32px;
 
     .colored {
-      --local-icon-size: 42.5px;
+      --local-icon-size: 68px;
     }
   }
 
