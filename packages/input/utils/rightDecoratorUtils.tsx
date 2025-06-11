@@ -49,7 +49,7 @@ export const renderRightDecorator = ({
     return (
       <Button
         size='s'
-        color='default'
+        color='primary'
         type={buttonType}
         style={buttonStyle}
         disabled={disabled || buttonDisabled}

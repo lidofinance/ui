@@ -60,14 +60,13 @@ export const Banner = forwardRef(
       >
         <Button
           ref={ref as RefObject<HTMLAnchorElement>}
-          textStyle={'normal'}
           onClick={handleAnchorClick}
           data-testid={dataTestId?.mainButton}
           href={href}
           className={styles.mainButton}
           withArrow={true}
           hideArrowOnMobile={true}
-          color={'transparent'}
+          color={'tertiary'}
           size={'s'}
         >
           <div className={styles.buttonContent}>
@@ -75,12 +74,11 @@ export const Banner = forwardRef(
             {text && <div>{text}</div>}
           </div>
         </Button>
-
         <Button
           size={'s'}
           shape={'circle'}
           icon={<Close />}
-          color={'outline'}
+          color={'tertiary'}
           data-testid={dataTestId?.closeButton}
           className={styles.closeButton}
           onClick={handleCloseBanner}

@@ -47,7 +47,6 @@ export const EmergencyBanner = ({
           href={link}
           size={'s'}
           data-testid={dataTestId?.button}
-          textStyle={'semibold'}
           target='_blank'
         >
           {linkText}

@@ -51,10 +51,12 @@
     rgb(85 0 255 / 20%) 100%
   );
   --lido-ui-color-buttons-primary: rgb(0 0 0 / 100%);
+  --lido-ui-color-buttons-text-primary-hover: rgb(255 255 255 / 100%);
   --lido-ui-color-buttons-primary-hover: rgb(0 133 255 / 100%);
   --lido-ui-color-buttons-secondary: rgb(0 133 255 / 100%);
   --lido-ui-color-buttons-secondary-hover: rgb(0 163 255 / 100%);
   --lido-ui-color-buttons-disabled: rgb(19 18 23 / 10%);
+  --lido-ui-color-buttons-text-static: rgb(255 255 255 / 100%);
 }
 
 [data-lido-theme='dark'] {
@@ -108,8 +110,10 @@
     rgb(85 0 255 / 40%) 100%
   );
   --lido-ui-color-buttons-primary: rgb(255 255 255 / 100%);
+  --lido-ui-color-buttons-text-primary-hover: rgb(255 255 255 / 100%);
   --lido-ui-color-buttons-primary-hover: rgb(0 133 255 / 100%);
   --lido-ui-color-buttons-secondary: rgb(0 133 255 / 100%);
   --lido-ui-color-buttons-secondary-hover: rgb(0 163 255 / 100%);
   --lido-ui-color-buttons-disabled: rgb(255 255 255 / 10%);
+  --lido-ui-color-buttons-text-static: rgb(255 255 255 / 100%);
 }

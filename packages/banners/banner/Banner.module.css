@@ -61,6 +61,7 @@
   width: 100%;
   color: white;
   flex-shrink: 0;
+  border: none;
 }
 
 .closeButton {
