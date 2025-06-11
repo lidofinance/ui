@@ -1,6 +1,4 @@
 .tabs {
-  @mixin font-body-large-medium;
-
   position: relative;
   display: inline-flex;
   gap: 6px;
@@ -11,7 +9,7 @@
 .selection {
   position: absolute;
   bottom: 6px;
-  transition: all 0.2s ease;
+  transition: left 0.2s ease;
 
   &::after {
     content: '';
@@ -25,6 +23,8 @@
 }
 
 .tab {
+  @mixin font-body-large-medium;
+
   position: relative;
   min-height: 68px;
   color: var(--lido-ui-color-buttons-primary);
