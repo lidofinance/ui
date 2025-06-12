@@ -3,17 +3,17 @@ name: Deploy Storybook for the PR
 on:
   pull_request:
     types: [ synchronize, opened, reopened ]
-    branches:
-      - lido-ui-v4-canary
 
 permissions:
   contents: write
   pages: write
+  id-token: write   # to verify the deployment originates from an appropriate source
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
     runs-on: ubuntu-latest
-    environment: pull_request
     env:
       NODE_OPTIONS: --max_old_space_size=4096
     steps:
@@ -22,40 +22,33 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+#      - name: Setup Node
+#        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+#        with:
+#          node-version-file: .nvmrc
+#          cache: 'yarn'
+
+#      - name: Install Dependencies
+#        run: yarn install --immutable
+#
+#      - name: Build Storybook
+#        run: yarn build-storybook
+      - run: |
+          mkdir -p dist
+          touch dist/index.html
+          echo "This is a placeholder for the Storybook build." > dist/index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          node-version-file: .nvmrc
-          cache: 'yarn'
-
-      - name: Install Dependencies
-        run: yarn install --immutable
-
-      - name: Build Components
-        run: yarn build
-
-      - name: Build Storybook
-        run: yarn build-storybook
-
-      - name: Escape branch name
-        env:
-          name: "${{github.head_ref}}"
-        run: |
-          echo "MODIFIED_BRANCH_NAME=${name/\//-}" >> $GITHUB_ENV
-      
-
-      - name: Merge Storybook builds
-        uses: ./.github/actions/merge-storybook-builds
-        with:
-          release_type: branch
-          target_folder: release-target
-          branch_name: ${{ env.MODIFIED_BRANCH_NAME }}
+          path: 'dist'
 
       - name: Deploy to GitHub Pages
-        uses: lidofinance/github-pages-action@v1
+        uses: actions/deploy-pages@v4
         with:
-          branch: gh-pages
-          folder: release-target
-
+          preview: true
 
 # todo: publish comment to a PR
