@@ -6,7 +6,7 @@ import {
 } from 'react'
 import styles from './Tag.module.css'
 import cn from 'classnames'
-import { Close } from '../icons'
+import { Cross } from '../icons'
 
 export type TagDataTestId = {
   root?: string
@@ -18,28 +18,27 @@ export type TagDataTestId = {
 export type TagProps = Omit<ComponentPropsWithoutRef<'div'>, 'color'> & {
   variant?: TagVariant
   color?: TagColor
-  size?: TagSize
+  shape?: TagShape
   icon?: ReactNode
   onClose?: () => void
   dataTestId?: TagDataTestId
 }
 
-export type TagVariant = 'outline' | 'filled'
+export type TagVariant = 'primary' | 'secondary'
 export type TagColor =
   | 'default'
-  | 'accent'
-  | 'disabled'
-  | 'negative'
+  | 'highlighted'
+  | 'error'
   | 'warning'
-  | 'positive'
-export type TagSize = 's' | 'm' | 'l'
+  | 'success'
+export type TagShape = 'rounded' | 'squared'
 
 export const Tag = forwardRef(
   (
     {
-      variant = 'outline',
+      variant = 'secondary',
       color = 'default',
-      size = 's',
+      shape = 'rounded',
       icon,
       className,
       children,
@@ -63,38 +62,34 @@ export const Tag = forwardRef(
           className,
           styles[`variant--${variant}`],
           styles[`color--${color}`],
+          styles[`shape--${shape}`],
+          {
+            [styles.withIcon]: Boolean(icon),
+            [styles.withOnClose]: Boolean(onClose),
+          },
         )}
         data-testid={dataTestId?.root}
         {...rest}
         ref={ref}
       >
         {icon && (
-          <span
-            className={cn(styles.icon, styles[`icon-size--${size}`])}
-            data-testid={dataTestId?.icon}
-          >
-            {icon}
+          <span className={styles.iconWrapper} data-testid={dataTestId?.icon}>
+            <span className={styles.icon}>{icon}</span>
           </span>
         )}
-        <span
-          className={cn(styles[`size--${size}`], {
-            [styles.withIcon]: icon != null,
-            [styles.withOnClose]: Boolean(onClose),
-          })}
-          data-testid={dataTestId?.content}
-        >
+        <span className={styles.content} data-testid={dataTestId?.content}>
           {children}
         </span>
         {Boolean(onClose) && (
           <span
-            className={cn(styles.icon, styles.closeButton)}
+            className={styles.closeButton}
             onClick={onClose}
             onKeyDown={handleKeyDown}
             role='button'
             tabIndex={0}
             data-testid={dataTestId?.closeButton}
           >
-            <Close width='20px' height='20px' style={{ marginRight: '10px' }} />
+            <Cross width='16px' height='16px' />
           </span>
         )}
       </div>

@@ -167,3 +167,23 @@ export const Button = forwardRef(
 )
 
 Button.displayName = 'Button'
+
+export type ButtonWithColoredIconProps = ButtonProps & {
+  icon: ReactElement
+}
+
+export const ButtonWithColoredIcon = forwardRef(
+  (
+    { icon, ...props }: ButtonWithColoredIconProps,
+    ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
+  ) => {
+    const coloredIcon = {
+      icon,
+      isColored: true,
+    }
+
+    return <Button {...(props as ButtonProps)} ref={ref} icon={coloredIcon} />
+  },
+)
+
+ButtonWithColoredIcon.displayName = 'ButtonWithColoredIcon'

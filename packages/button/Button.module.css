@@ -152,23 +152,35 @@
   &.size--s:not(.circle) {
     --local-icon-offset-left: 4px;
     --local-icon-wrapper-size: 40px;
-    --local-icon-size: 30px;
+    --local-icon-size: 32px;
 
     .iconWrapper::before {
       display: none;
+    }
+
+    .colored {
+      --local-icon-size: 40px;
     }
   }
 
   &.size--m:not(.circle) {
     --local-icon-offset-left: 6px;
     --local-icon-wrapper-size: 48px;
-    --local-icon-size: 30px;
+    --local-icon-size: 32px;
+
+    .colored {
+      --local-icon-size: 48px;
+    }
   }
 
   &.size--l:not(.circle) {
     --local-icon-offset-left: 8px;
     --local-icon-wrapper-size: 52px;
-    --local-icon-size: 32.5px;
+    --local-icon-size: 32px;
+
+    .colored {
+      --local-icon-size: 52px;
+    }
   }
 }
 
@@ -266,6 +278,10 @@
       color: var(--lido-ui-color-text-quaternary);
       border-color: var(--lido-ui-color-borders-default);
       background-color: transparent;
+    }
+
+    .iconWrapper::before {
+      display: none;
     }
   }
 
