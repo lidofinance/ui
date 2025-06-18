@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Button, ButtonProps } from './Button'
+import { Button, ButtonProps, ButtonWithColoredIcon } from './Button'
 import { Image, Icon } from '../icons'
 
 export default {
@@ -130,17 +130,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='primary'
               size='l'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='primary'
               size='l'
@@ -172,17 +172,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='primary'
               size='l'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='primary'
               size='l'
@@ -221,17 +221,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='secondary'
               size='l'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='secondary'
               size='l'
@@ -263,17 +263,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='secondary'
               size='l'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='secondary'
               size='l'
@@ -312,17 +312,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='tertiary'
               size='l'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='tertiary'
               size='l'
@@ -354,17 +354,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='tertiary'
               size='l'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='tertiary'
               size='l'
@@ -408,17 +408,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='primary'
               size='m'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='primary'
               size='m'
@@ -450,17 +450,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='primary'
               size='m'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='primary'
               size='m'
@@ -499,17 +499,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='secondary'
               size='m'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='secondary'
               size='m'
@@ -541,17 +541,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='secondary'
               size='m'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='secondary'
               size='m'
@@ -590,17 +590,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='tertiary'
               size='m'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='tertiary'
               size='m'
@@ -632,17 +632,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='tertiary'
               size='m'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='tertiary'
               size='m'
@@ -686,17 +686,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='primary'
               size='s'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='primary'
               size='s'
@@ -728,17 +728,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='primary'
               size='s'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='primary'
               size='s'
@@ -777,17 +777,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='secondary'
               size='s'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='secondary'
               size='s'
@@ -819,17 +819,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='secondary'
               size='s'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='secondary'
               size='s'
@@ -868,17 +868,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='tertiary'
               size='s'
               shape='oval'
               disabled={false}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='tertiary'
               size='s'
@@ -910,17 +910,17 @@ export const AllStates: StoryFn<ButtonProps> = () => {
             >
               Button text
             </Button>
-            <Button
+            <ButtonWithColoredIcon
               color='tertiary'
               size='s'
               shape='oval'
               disabled={true}
-              icon={{ icon: <Image />, isColored: true }}
+              icon={<Image />}
               withArrow={false}
               loading={false}
             >
               Button text
-            </Button>
+            </ButtonWithColoredIcon>
             <Button
               color='tertiary'
               size='s'

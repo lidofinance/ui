@@ -83,7 +83,7 @@ export const RichCard = forwardRef(
         {tags?.length && (
           <div className={styles.tags} data-testid={dataTestId?.tags}>
             {tags?.map((tag) => (
-              <Tag key={tag} size={'s'} variant={'filled'}>
+              <Tag key={tag} variant={'primary'}>
                 {tag}
               </Tag>
             ))}

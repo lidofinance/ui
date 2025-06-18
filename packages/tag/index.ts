@@ -1,8 +1,8 @@
-export * from './Tag'
+export { Tag } from './Tag'
 export type {
   TagDataTestId,
   TagProps,
   TagColor,
-  TagSize,
   TagVariant,
+  TagShape,
 } from './Tag'
