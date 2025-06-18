@@ -2,7 +2,7 @@ import { StoryFn, Meta } from '@storybook/react'
 import {
   CircleButton,
   CircleButtonProps,
-  CircleButtonColored,
+  CircleButtonWithColoredIcon,
 } from './CircleButton'
 import { Image, Icon } from '../icons'
 
@@ -123,15 +123,23 @@ export const AllStates: StoryFn<CircleButtonProps> = () => {
         <div style={{ ...iconGroupStyle, marginBottom: '0' }}>
           <h5 style={iconTitleStyle}>Colored Icon</h5>
           <div style={stateGroupStyle}>
-            <CircleButtonColored size='l' disabled={false} icon={<Image />} />
-            <CircleButtonColored
+            <CircleButtonWithColoredIcon
+              size='l'
+              disabled={false}
+              icon={<Image />}
+            />
+            <CircleButtonWithColoredIcon
               size='l'
               disabled={false}
               imitateActive={true}
               icon={<Image />}
             />
-            <CircleButtonColored size='l' disabled={true} icon={<Image />} />
-            <CircleButtonColored
+            <CircleButtonWithColoredIcon
+              size='l'
+              disabled={true}
+              icon={<Image />}
+            />
+            <CircleButtonWithColoredIcon
               size='l'
               disabled={false}
               noBorder={true}
@@ -179,15 +187,23 @@ export const AllStates: StoryFn<CircleButtonProps> = () => {
         <div style={{ ...iconGroupStyle, marginBottom: '0' }}>
           <h5 style={iconTitleStyle}>Colored Icon</h5>
           <div style={stateGroupStyle}>
-            <CircleButtonColored size='m' disabled={false} icon={<Image />} />
-            <CircleButtonColored
+            <CircleButtonWithColoredIcon
+              size='m'
+              disabled={false}
+              icon={<Image />}
+            />
+            <CircleButtonWithColoredIcon
               size='m'
               disabled={false}
               imitateActive={true}
               icon={<Image />}
             />
-            <CircleButtonColored size='m' disabled={true} icon={<Image />} />
-            <CircleButtonColored
+            <CircleButtonWithColoredIcon
+              size='m'
+              disabled={true}
+              icon={<Image />}
+            />
+            <CircleButtonWithColoredIcon
               size='m'
               disabled={false}
               noBorder={true}
@@ -234,15 +250,23 @@ export const AllStates: StoryFn<CircleButtonProps> = () => {
         <div style={{ ...iconGroupStyle, marginBottom: '0' }}>
           <h5 style={iconTitleStyle}>Colored Icon</h5>
           <div style={stateGroupStyle}>
-            <CircleButtonColored size='s' disabled={false} icon={<Image />} />
-            <CircleButtonColored
+            <CircleButtonWithColoredIcon
+              size='s'
+              disabled={false}
+              icon={<Image />}
+            />
+            <CircleButtonWithColoredIcon
               size='s'
               disabled={false}
               imitateActive={true}
               icon={<Image />}
             />
-            <CircleButtonColored size='s' disabled={true} icon={<Image />} />
-            <CircleButtonColored
+            <CircleButtonWithColoredIcon
+              size='s'
+              disabled={true}
+              icon={<Image />}
+            />
+            <CircleButtonWithColoredIcon
               size='s'
               disabled={false}
               noBorder={true}

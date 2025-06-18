@@ -37,6 +37,7 @@
     rgb(0 133 255 / 5%) 65.39%,
     rgb(0 133 255 / 20%) 100%
   );
+  --lido-ui-color-backgrounds-tooltip: rgb(2 3 7 / 90%);
   --lido-ui-color-borders-default: rgb(19 18 23 / 10%);
   --lido-ui-color-borders-active: rgb(19 18 23 / 20%);
   --lido-ui-color-borders-inverted: rgb(255 255 255 / 30%);
@@ -96,6 +97,7 @@
     rgb(69 166 255 / 5%) 65.39%,
     rgb(69 166 255 / 30%) 100%
   );
+  --lido-ui-color-backgrounds-tooltip: rgb(255 255 255 / 10%);
   --lido-ui-color-borders-default: rgb(255 255 255 / 14%);
   --lido-ui-color-borders-inverted: rgb(0 0 0 / 10%);
   --lido-ui-color-borders-active: rgb(255 255 255 / 32%);

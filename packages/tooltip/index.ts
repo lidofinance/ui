@@ -3,4 +3,5 @@ export type {
   TooltipProps,
   TooltipPosition,
   TooltipDataTestId,
+  TooltipWidth,
 } from './Tooltip'

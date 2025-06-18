@@ -19,7 +19,7 @@ export const CircleButton = forwardRef(
   },
 )
 
-export const CircleButtonColored = forwardRef(
+export const CircleButtonWithColoredIcon = forwardRef(
   (
     { icon, ...props }: CircleButtonColoredProps,
     ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
@@ -41,4 +41,4 @@ export const CircleButtonColored = forwardRef(
 )
 
 CircleButton.displayName = 'CircleButton'
-CircleButtonColored.displayName = 'CircleButtonColored'
+CircleButtonWithColoredIcon.displayName = 'CircleButtonWithColoredIcon'

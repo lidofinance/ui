@@ -2,14 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { TooltipIcon } from './TooltipIcon'
 import React from 'react'
 
+const content =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+
 const meta: Meta<typeof TooltipIcon> = {
   title: 'Feedback/TooltipIcon',
   component: TooltipIcon,
   args: {
-    content: 'This is a tooltip content',
+    content: content,
     position: 'right',
-    size: 'M',
-    variant: 'default',
   },
   argTypes: {
     position: {
@@ -23,14 +24,6 @@ const meta: Meta<typeof TooltipIcon> = {
         'bottom-left',
         'bottom-right',
       ],
-      control: { type: 'radio' },
-    },
-    size: {
-      options: ['S', 'M'],
-      control: { type: 'radio' },
-    },
-    variant: {
-      options: ['default', 'primary'],
       control: { type: 'radio' },
     },
     content: {
@@ -58,472 +51,37 @@ export const AllStates = () => {
           padding: '16px 16px 16px 60px',
         }}
       >
-        <h2>Variant: Default</h2>
+        <h2>TooltipIcon</h2>
 
-        {/* Size M */}
         <div style={{ marginBottom: '32px' }}>
-          <h3>Size: M</h3>
           <div
             style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
           >
             <div style={{ padding: '16px' }}>
-              <h3>Short Content</h3>
               <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon
-                  position='top'
-                  size='M'
-                  variant='default'
-                  content='Position: top'
-                />
-                <TooltipIcon
-                  position='right'
-                  size='M'
-                  variant='default'
-                  content='Position: right'
-                />
-                <TooltipIcon
-                  position='bottom'
-                  size='M'
-                  variant='default'
-                  content='Position: bottom'
-                />
-                <TooltipIcon
-                  position='left'
-                  size='M'
-                  variant='default'
-                  content='Position: left'
-                />
+                <TooltipIcon position='top' width={352} content={content} />
+                <TooltipIcon position='right' width={352} content={content} />
+                <TooltipIcon position='bottom' width={352} content={content} />
+                <TooltipIcon position='left' content={content} />
                 <TooltipIcon
                   position='top-left'
-                  size='M'
-                  variant='default'
-                  content='Position: top-left'
+                  width={352}
+                  content={content}
                 />
                 <TooltipIcon
                   position='top-right'
-                  size='M'
-                  variant='default'
-                  content='Position: top-right'
+                  width={352}
+                  content={content}
                 />
                 <TooltipIcon
                   position='bottom-left'
-                  size='M'
-                  variant='default'
-                  content='Position: bottom-left'
+                  width={352}
+                  content={content}
                 />
                 <TooltipIcon
                   position='bottom-right'
-                  size='M'
-                  variant='default'
-                  content='Position: bottom-right'
-                />
-              </div>
-            </div>
-            <div style={{ padding: '16px' }}>
-              <h3>Long Content</h3>
-              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon
-                  position='top'
-                  size='M'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='right'
-                  size='M'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom'
-                  size='M'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='left'
-                  size='M'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='top-left'
-                  size='M'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='top-right'
-                  size='M'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom-left'
-                  size='M'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom-right'
-                  size='M'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Size S */}
-        <div style={{ marginBottom: '32px' }}>
-          <h3>Size: S</h3>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
-          >
-            <div style={{ padding: '16px' }}>
-              <h3>Short Content</h3>
-              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon
-                  position='top'
-                  size='S'
-                  variant='default'
-                  content='Position: top'
-                />
-                <TooltipIcon
-                  position='right'
-                  size='S'
-                  variant='default'
-                  content='Position: right'
-                />
-                <TooltipIcon
-                  position='bottom'
-                  size='S'
-                  variant='default'
-                  content='Position: bottom'
-                />
-                <TooltipIcon
-                  position='left'
-                  size='S'
-                  variant='default'
-                  content='Position: left'
-                />
-                <TooltipIcon
-                  position='top-left'
-                  size='S'
-                  variant='default'
-                  content='Position: top-left'
-                />
-                <TooltipIcon
-                  position='top-right'
-                  size='S'
-                  variant='default'
-                  content='Position: top-right'
-                />
-                <TooltipIcon
-                  position='bottom-left'
-                  size='S'
-                  variant='default'
-                  content='Position: bottom-left'
-                />
-                <TooltipIcon
-                  position='bottom-right'
-                  size='S'
-                  variant='default'
-                  content='Position: bottom-right'
-                />
-              </div>
-            </div>
-            <div style={{ padding: '16px' }}>
-              <h3>Long Content</h3>
-              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon
-                  position='top'
-                  size='S'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='right'
-                  size='S'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom'
-                  size='S'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='left'
-                  size='S'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='top-left'
-                  size='S'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='top-right'
-                  size='S'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom-left'
-                  size='S'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom-right'
-                  size='S'
-                  variant='default'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        style={{
-          flex: 1,
-          border: '1px solid #eaeaea',
-          padding: '16px 16px 16px 60px',
-        }}
-      >
-        <h2>Variant: Primary</h2>
-
-        {/* Size M */}
-        <div style={{ marginBottom: '32px' }}>
-          <h3>Size: M</h3>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
-          >
-            <div style={{ padding: '16px' }}>
-              <h3>Short Content</h3>
-              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon
-                  position='top'
-                  size='M'
-                  variant='primary'
-                  content='Position: top'
-                />
-                <TooltipIcon
-                  position='right'
-                  size='M'
-                  variant='primary'
-                  content='Position: right'
-                />
-                <TooltipIcon
-                  position='bottom'
-                  size='M'
-                  variant='primary'
-                  content='Position: bottom'
-                />
-                <TooltipIcon
-                  position='left'
-                  size='M'
-                  variant='primary'
-                  content='Position: left'
-                />
-                <TooltipIcon
-                  position='top-left'
-                  size='M'
-                  variant='primary'
-                  content='Position: top-left'
-                />
-                <TooltipIcon
-                  position='top-right'
-                  size='M'
-                  variant='primary'
-                  content='Position: top-right'
-                />
-                <TooltipIcon
-                  position='bottom-left'
-                  size='M'
-                  variant='primary'
-                  content='Position: bottom-left'
-                />
-                <TooltipIcon
-                  position='bottom-right'
-                  size='M'
-                  variant='primary'
-                  content='Position: bottom-right'
-                />
-              </div>
-            </div>
-            <div style={{ padding: '16px' }}>
-              <h3>Long Content</h3>
-              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon
-                  position='top'
-                  size='M'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='right'
-                  size='M'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom'
-                  size='M'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='left'
-                  size='M'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='top-left'
-                  size='M'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='top-right'
-                  size='M'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom-left'
-                  size='M'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom-right'
-                  size='M'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Size S */}
-        <div style={{ marginBottom: '32px' }}>
-          <h3>Size: S</h3>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
-          >
-            <div style={{ padding: '16px' }}>
-              <h3>Short Content</h3>
-              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon
-                  position='top'
-                  size='S'
-                  variant='primary'
-                  content='Position: top'
-                />
-                <TooltipIcon
-                  position='right'
-                  size='S'
-                  variant='primary'
-                  content='Position: right'
-                />
-                <TooltipIcon
-                  position='bottom'
-                  size='S'
-                  variant='primary'
-                  content='Position: bottom'
-                />
-                <TooltipIcon
-                  position='left'
-                  size='S'
-                  variant='primary'
-                  content='Position: left'
-                />
-                <TooltipIcon
-                  position='top-left'
-                  size='S'
-                  variant='primary'
-                  content='Position: top-left'
-                />
-                <TooltipIcon
-                  position='top-right'
-                  size='S'
-                  variant='primary'
-                  content='Position: top-right'
-                />
-                <TooltipIcon
-                  position='bottom-left'
-                  size='S'
-                  variant='primary'
-                  content='Position: bottom-left'
-                />
-                <TooltipIcon
-                  position='bottom-right'
-                  size='S'
-                  variant='primary'
-                  content='Position: bottom-right'
-                />
-              </div>
-            </div>
-            <div style={{ padding: '16px' }}>
-              <h3>Long Content</h3>
-              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon
-                  position='top'
-                  size='S'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='right'
-                  size='S'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom'
-                  size='S'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='left'
-                  size='S'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='top-left'
-                  size='S'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='top-right'
-                  size='S'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom-left'
-                  size='S'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
-                />
-                <TooltipIcon
-                  position='bottom-right'
-                  size='S'
-                  variant='primary'
-                  content='This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+                  width={352}
+                  content={content}
                 />
               </div>
             </div>
