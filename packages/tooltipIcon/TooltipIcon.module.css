@@ -2,6 +2,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  &:hover .icon {
+    color: var(--lido-ui-color-icons-active);
+  }
 }
 
 .icon {
@@ -9,30 +13,7 @@
   align-items: center;
   justify-content: center;
   transition: color 0.2s var(--ease-out-quad);
-}
-
-.default {
-  color: var(--deprecated-lido-ui-color-primary-72);
-}
-
-.primary {
-  color: var(--deprecated-lido-ui-color-accent-ocean-static);
-}
-
-.tooltipIcon:hover .default {
-  color: var(--deprecated-lido-ui-color-primary-50);
-}
-
-.tooltipIcon:hover .primary {
-  color: var(--deprecated-lido-ui-color-accent-sky-static);
-}
-
-.sizeM {
   width: 24px;
   height: 24px;
-}
-
-.sizeS {
-  width: 16px;
-  height: 16px;
+  color: var(--lido-ui-color-text-tertiary);
 }

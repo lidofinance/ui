@@ -8,6 +8,7 @@ const meta: Meta<typeof Tooltip> = {
     content: 'This is a tooltip content',
     position: 'right',
     children: <>Hover me</>,
+    width: 352,
   },
   argTypes: {
     position: {
@@ -26,6 +27,7 @@ const meta: Meta<typeof Tooltip> = {
     content: {
       control: { type: 'text' },
     },
+    width: { control: { type: 'text' } },
   },
   parameters: {
     layout: 'centered',
@@ -63,66 +65,36 @@ export const AllStates = () => {
     padding: '16px 0',
   }
 
-  const longContent =
-    'This is a tooltip with very long content that will be wrapped to multiple lines to demonstrate how the tooltip handles long text content.'
+  const content =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 
   return (
     <div style={gridContainerStyle}>
       <div style={sectionStyle}>
-        <h3>Default</h3>
+        <h3>Tooltip</h3>
         <div style={tooltipGroupStyle}>
-          <Tooltip position='top' content='Position: top'>
+          <Tooltip position='top' content={content}>
             top
           </Tooltip>
-          <Tooltip position='right' content='Position: right'>
+          <Tooltip position='right' content={content}>
             right
           </Tooltip>
-          <Tooltip position='bottom' content='Position: bottom'>
+          <Tooltip position='bottom' content={content}>
             bottom
           </Tooltip>
-          <Tooltip position='left' content='Position: left'>
+          <Tooltip position='left' content={content}>
             left
           </Tooltip>
-          <Tooltip position='top-left' content='Position: top-left'>
+          <Tooltip position='top-left' content={content}>
             top-left
           </Tooltip>
-          <Tooltip position='top-right' content='Position: top-right'>
+          <Tooltip position='top-right' content={content}>
             top-right
           </Tooltip>
-          <Tooltip position='bottom-left' content='Position: bottom-left'>
+          <Tooltip position='bottom-left' content={content}>
             bottom-left
           </Tooltip>
-          <Tooltip position='bottom-right' content='Position: bottom-right'>
-            bottom-right
-          </Tooltip>
-        </div>
-      </div>
-
-      <div style={sectionStyle}>
-        <h3>Long Content</h3>
-        <div style={tooltipGroupStyle}>
-          <Tooltip position='top' content={longContent}>
-            top
-          </Tooltip>
-          <Tooltip position='right' content={longContent}>
-            right
-          </Tooltip>
-          <Tooltip position='bottom' content={longContent}>
-            bottom
-          </Tooltip>
-          <Tooltip position='left' content={longContent}>
-            left
-          </Tooltip>
-          <Tooltip position='top-left' content={longContent}>
-            top-left
-          </Tooltip>
-          <Tooltip position='top-right' content={longContent}>
-            top-right
-          </Tooltip>
-          <Tooltip position='bottom-left' content={longContent}>
-            bottom-left
-          </Tooltip>
-          <Tooltip position='bottom-right' content={longContent}>
+          <Tooltip position='bottom-right' content={content}>
             bottom-right
           </Tooltip>
         </div>
