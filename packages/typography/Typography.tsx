@@ -1,5 +1,4 @@
 import { FC, PropsWithChildren } from 'react'
-import styles from './Typography.module.css'
 import cn from 'classnames'
 
 export type TypographyVariant =
@@ -7,12 +6,12 @@ export type TypographyVariant =
   | 'h2'
   | 'h3'
   | 'h4'
-  | 'subheader'
-  | 'control'
+  | 'h5'
   | 'body'
+  | 'bodyLarge'
   | 'description'
 
-export type TypographyWeight = 'regular' | 'bold' | 'medium' | 'light'
+export type TypographyWeight = 'regular' | 'bold' | 'medium'
 
 export type TypographyDataTestId = {
   root?: string
@@ -27,40 +26,42 @@ export interface TypographyProps extends PropsWithChildren {
 
 export const Typography: FC<TypographyProps> = ({
   variant,
-  weight,
   className,
+  weight,
   children,
   dataTestId,
 }) => {
   const baseClass = `ui-typography-${variant}`
 
   // Handle weight classes based on variant and weight
-  const getWeightClass = () => {
-    if (!weight || weight === 'regular') return ''
-
+  const getWeightClass = (): Omit<TypographyWeight, 'regular'> => {
     // Special handling for h3 and h4 which use 'medium' instead of 'bold'
-    if ((variant === 'h3' || variant === 'h4') && weight === 'medium') {
-      return 'medium'
+    if (variant === 'h1' || variant === 'h2') {
+      return ''
     }
 
     // All other variants use 'bold' class for bold weight
     if (weight === 'bold') {
       return 'bold'
     }
-
+    if (weight === 'medium') {
+      if (variant === 'bodyLarge') {
+        return 'medium'
+      }
+    }
     return ''
   }
 
-  const classes = cn(baseClass, getWeightClass(), styles.typography, className)
+  const classes = cn(baseClass, `${baseClass}-${getWeightClass()}`, className)
 
   const componentMap: Record<TypographyVariant, keyof JSX.IntrinsicElements> = {
     h1: 'h1',
     h2: 'h2',
     h3: 'h3',
     h4: 'h4',
-    subheader: 'h5',
-    control: 'label',
+    h5: 'h5',
     body: 'p',
+    bodyLarge: 'p',
     description: 'p',
   }
 
@@ -89,12 +90,12 @@ export const H4: FC<Omit<TypographyProps, 'variant'>> = (props) => (
   <Typography {...props} variant='h4' />
 )
 
-export const Subheader: FC<Omit<TypographyProps, 'variant'>> = (props) => (
-  <Typography {...props} variant='subheader' />
+export const H5: FC<Omit<TypographyProps, 'variant'>> = (props) => (
+  <Typography {...props} variant='h5' />
 )
 
-export const Control: FC<Omit<TypographyProps, 'variant'>> = (props) => (
-  <Typography {...props} variant='control' />
+export const BodyLarge: FC<Omit<TypographyProps, 'variant'>> = (props) => (
+  <Typography {...props} variant={'bodyLarge'} />
 )
 
 export const Body: FC<Omit<TypographyProps, 'variant'>> = (props) => (

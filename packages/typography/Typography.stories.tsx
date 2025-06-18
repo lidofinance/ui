@@ -5,10 +5,10 @@ import {
   H2,
   H3,
   H4,
-  Subheader,
-  Control,
   Body,
   Description,
+  H5,
+  BodyLarge,
 } from './Typography'
 
 const meta: Meta<typeof Typography> = {
@@ -26,17 +26,18 @@ export const AllStates: Story = {
       <H1>Heading 1</H1>
       <H2>Heading 2</H2>
       <H3>Heading 3</H3>
-      <H3 weight='medium'>Heading 3 Medium</H3>
+      <H3 weight='bold'>Heading 3 Bold</H3>
       <H4>Heading 4</H4>
-      <H4 weight='medium'>Heading 4 Medium</H4>
-      <Subheader>Subheader</Subheader>
-      <Subheader weight='bold'>Subheader Bold</Subheader>
-      <Control>Control Text</Control>
-      <Control weight='bold'>Control Text Bold</Control>
-      <Body>Body Text</Body>
-      <Body weight='bold'>Body Text Bold</Body>
-      <Description>Description Text</Description>
-      <Description weight='bold'>Description Text Bold</Description>
+      <H4 weight='bold'>Heading 4 Bold</H4>
+      <H5>H5</H5>
+      <H5 weight='bold'>H5</H5>
+      <BodyLarge>BodyLarge</BodyLarge>
+      <BodyLarge weight='medium'>BodyLarge Medium</BodyLarge>
+      <BodyLarge weight='bold'>BodyLarge Bold</BodyLarge>
+      <Body>Body</Body>
+      <Body weight='bold'>Body Bold</Body>
+      <Description>Description</Description>
+      <Description weight='bold'>Description Bold</Description>
     </div>
   ),
 }
@@ -49,62 +50,40 @@ const storyDescription = `
 In typography, styles are applied to classes .ui-typography-h1, .ui-typography-h2, .ui-typography-control, etc. It contains in the TypographyByClasses story
 `
 
-export const TypographyByClasses = () => (
-  <div style={{ padding: 20 }}>
-    <p style={{ marginBottom: 50 }}>{storyDescription}</p>
-    <div className='ui-typography-h1' style={{ marginBottom: 20 }}>
-      .ui-typography-h1
+export const TypographyByClasses = () => {
+  const classes = [
+    'ui-typography-h1',
+    'ui-typography-h2',
+    'ui-typography-h3',
+    'ui-typography-h3-bold',
+    'ui-typography-h4',
+    'ui-typography-h4-bold',
+    'ui-typography-h5',
+    'ui-typography-h5-bold',
+    'ui-typography-body-large',
+    'ui-typography-body-large-medium',
+    'ui-typography-body-large-bold',
+    'ui-typography-body',
+    'ui-typography-body-bold',
+    'ui-typography-description',
+    'ui-typography-description-bold',
+  ]
+  const sampleText = 'The quick brown fox jumps over the lazy dog.'
+
+  return (
+    <div style={{ padding: 20 }}>
+      <p style={{ marginBottom: 50 }}>{storyDescription}</p>
+      {classes.map((cls) => (
+        <div key={cls} className={cls} style={{ marginBottom: 20 }}>
+          <span style={{ color: '#888', fontSize: 12, marginRight: 8 }}>
+            .{cls}
+          </span>
+          {sampleText}
+        </div>
+      ))}
     </div>
-    <div className='ui-typography-h2' style={{ marginBottom: 20 }}>
-      .ui-typography-h2
-    </div>
-    <div className='ui-typography-h3' style={{ marginBottom: 20 }}>
-      .ui-typography-h3
-    </div>
-    <div className='ui-typography-h3-bold' style={{ marginBottom: 20 }}>
-      .ui-typography-h3-bold
-    </div>
-    <div className='ui-typography-h4' style={{ marginBottom: 20 }}>
-      .ui-typography-h4
-    </div>
-    <div className='ui-typography-h4-bold' style={{ marginBottom: 20 }}>
-      .ui-typography-h4-bold
-    </div>
-    <div className='ui-typography-h5' style={{ marginBottom: 20 }}>
-      .ui-typography-h5
-    </div>
-    <div className='ui-typography-h5-bold' style={{ marginBottom: 20 }}>
-      .ui-typography-h5-bold
-    </div>
-    <div className='ui-typography-body-large' style={{ marginBottom: 20 }}>
-      .ui-typography-body-large
-    </div>
-    <div
-      className='ui-typography-body-large-medium'
-      style={{ marginBottom: 20 }}
-    >
-      .ui-typography-body-large-medium
-    </div>
-    <div className='ui-typography-body-large-bold' style={{ marginBottom: 20 }}>
-      .ui-typography-body-large-bold
-    </div>
-    <div className='ui-typography-body' style={{ marginBottom: 20 }}>
-      .ui-typography-body
-    </div>
-    <div className='ui-typography-body-bold' style={{ marginBottom: 20 }}>
-      .ui-typography-body-bold
-    </div>
-    <div className='ui-typography-description' style={{ marginBottom: 20 }}>
-      .ui-typography-description
-    </div>
-    <div
-      className='ui-typography-description-bold'
-      style={{ marginBottom: 20 }}
-    >
-      .ui-typography-description-bold
-    </div>
-  </div>
-)
+  )
+}
 
 TypographyByClasses.parameters = {
   controls: { disable: true },

@@ -55,12 +55,22 @@ export default {
       }
     }
 
-    cssRule.use.push({
-      loader: 'postcss-loader',
-      options: {
-        postcssOptions: require('../postcss.config.js'),
-      },
+    // Exclude styles/global.css from CSS Modules
+    cssRule.exclude = [...(cssRule.exclude || []), /styles\/global\.css$/]
+
+    // Add a rule for global.css to be treated as global CSS
+    customConfig.module.rules.push({
+      test: /styles\/global\.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: { modules: false },
+        },
+        'postcss-loader',
+      ],
     })
+
     return customConfig
   },
 
