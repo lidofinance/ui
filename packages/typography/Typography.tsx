@@ -31,7 +31,7 @@ export const Typography: FC<TypographyProps> = ({
   children,
   dataTestId,
 }) => {
-  const baseClass = `ui-typography-${variant}`
+  const baseClass = `ui-typography-${variant.replace(/([A-Z])/g, '-$1').toLowerCase()}`
 
   // Handle weight classes based on variant and weight
   const getWeightClass = (): Omit<TypographyWeight, 'regular'> => {
@@ -52,7 +52,14 @@ export const Typography: FC<TypographyProps> = ({
     return ''
   }
 
-  const classes = cn(baseClass, `${baseClass}-${getWeightClass()}`, className)
+  const getBaseClass = (): string => {
+    const weightClass = getWeightClass()
+    if (weightClass) {
+      return `${baseClass}-${weightClass}`
+    }
+    return baseClass
+  }
+  const classes = cn(getBaseClass(), className)
 
   const componentMap: Record<TypographyVariant, keyof JSX.IntrinsicElements> = {
     h1: 'h1',
