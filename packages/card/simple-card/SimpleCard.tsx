@@ -6,7 +6,7 @@ import React, {
   MouseEventHandler,
   useState,
 } from 'react'
-import { Button } from '../../button'
+import { CircleButton } from '../../button'
 import { Link } from '../../links'
 import styles from './SimpleCard.module.css'
 
@@ -93,16 +93,17 @@ export const SimpleCard = forwardRef(
               {text}
             </div>
           </div>
-          <Button
+          <CircleButton
+            noBorder={true}
             data-testid={dataTestId?.button}
             imitateHover={hasHover}
-            size={'m'}
+            size={'l'}
             color={'tertiary'}
             className={cn(styles.button, !buttonText && styles.empty)}
             withArrow={true}
           >
             {buttonText}
-          </Button>
+          </CircleButton>
         </div>
       </Link>
     )
