@@ -1,25 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Checkbox, CheckboxSize, CheckboxVariant } from '.'
+import {
+  StorybookContainer,
+  StorybookGroup,
+  StorybookSection,
+} from '../../.storybook/components'
+import { Checkbox } from '.'
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Controls/Checkbox',
   component: Checkbox,
-  parameters: {
-    layout: 'centered',
-  },
   args: {
     children: 'Checkbox text',
     disabled: false,
-    variant: 'accent',
-    size: 's',
+    variant: 'primary',
   },
   argTypes: {
     variant: {
-      options: ['accent', 'primary'],
-      control: { type: 'radio' },
-    },
-    size: {
-      options: ['xs', 's', 'm', 'l'],
+      options: ['primary', 'secondary'],
       control: { type: 'radio' },
     },
     disabled: {
@@ -33,98 +30,113 @@ const meta: Meta<typeof Checkbox> = {
 } satisfies Meta<typeof Checkbox>
 
 export default meta
+
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
 
 export const AllStates: Story = () => {
-  const variants: CheckboxVariant[] = ['accent', 'primary']
-  const sizes: CheckboxSize[] = ['xs', 's', 'm', 'l']
-  const disabledStates: boolean[] = [false, true]
-  const labelStates: boolean[] = [true, false]
+  const subGroupStyle: React.CSSProperties = {
+    marginBottom: '16px',
+  }
 
-  const gridContainerStyle: React.CSSProperties = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: '32px',
+  const subGroupTitleStyle: React.CSSProperties = {
+    margin: '0 0 8px 0',
+    fontSize: '14px',
+    color: 'var(--lido-ui-color-text-secondary)',
+  }
+
+  const checkboxGroupStyle: React.CSSProperties = {
+    display: 'flex',
+    gap: '16px',
+    flexWrap: 'wrap',
+    alignItems: 'center',
   }
 
   return (
-    <div style={gridContainerStyle}>
-      {sizes.map((size) => (
-        <div
-          key={size}
-          style={{
-            padding: '16px',
-            border: '1px solid #eaeaea',
-            borderRadius: '4px',
-          }}
-        >
-          <h3>Size: {size.toUpperCase()}</h3>
-          {variants.map((variant) => (
-            <div key={variant} style={{ marginBottom: '16px' }}>
-              <h4>
-                Variant: {variant.charAt(0).toUpperCase() + variant.slice(1)}
-              </h4>
-              {disabledStates.map((disabled) => (
-                <div key={disabled.toString()} style={{ marginBottom: '16px' }}>
-                  <h5
-                    style={{ opacity: 0.7, fontSize: '20px', margin: '5px 0' }}
-                  >
-                    Disabled: {disabled.toString()}
-                  </h5>
-                  {labelStates.map((hasLabel) => (
-                    <div
-                      key={hasLabel.toString()}
-                      style={{ marginBottom: '16px' }}
-                    >
-                      <h5
-                        style={{
-                          opacity: 0.7,
-                          fontSize: '14px',
-                          margin: '5px 0',
-                        }}
-                      >
-                        Label: {hasLabel ? 'Yes' : 'No'}
-                      </h5>
-                      <div
-                        style={{
-                          display: 'flex',
-                          gap: '16px',
-                          flexWrap: 'wrap',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Checkbox
-                          key={`${size}-${variant}-${disabled}-${hasLabel}-checked`}
-                          variant={variant}
-                          size={size}
-                          disabled={disabled}
-                          checked={true}
-                          style={{ display: 'flex', alignItems: 'center' }}
-                        >
-                          {hasLabel ? 'Checkbox Label' : ''}
-                        </Checkbox>
-                        <Checkbox
-                          key={`${size}-${variant}-${disabled}-${hasLabel}-unchecked`}
-                          variant={variant}
-                          size={size}
-                          disabled={disabled}
-                          checked={false}
-                          style={{ display: 'flex', alignItems: 'center' }}
-                        >
-                          {hasLabel ? 'Checkbox Label' : ''}
-                        </Checkbox>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ))}
+    <StorybookContainer>
+      <StorybookSection title='Variant: Primary'>
+        <StorybookGroup title='State: Enabled'>
+          <div style={subGroupStyle}>
+            <h5 style={subGroupTitleStyle}>With Label</h5>
+            <div style={checkboxGroupStyle}>
+              <Checkbox variant='primary' checked>
+                Checkbox Label
+              </Checkbox>
+              <Checkbox variant='primary'>Checkbox Label</Checkbox>
             </div>
-          ))}
-        </div>
-      ))}
-    </div>
+          </div>
+          <div style={{ ...subGroupStyle, marginBottom: 0 }}>
+            <h5 style={subGroupTitleStyle}>Without Label</h5>
+            <div style={checkboxGroupStyle}>
+              <Checkbox variant='primary' checked />
+              <Checkbox variant='primary' />
+            </div>
+          </div>
+        </StorybookGroup>
+        <StorybookGroup title='State: Disabled' last>
+          <div style={subGroupStyle}>
+            <h5 style={subGroupTitleStyle}>With Label</h5>
+            <div style={checkboxGroupStyle}>
+              <Checkbox variant='primary' disabled checked>
+                Checkbox Label
+              </Checkbox>
+              <Checkbox variant='primary' disabled>
+                Checkbox Label
+              </Checkbox>
+            </div>
+          </div>
+          <div style={{ ...subGroupStyle, marginBottom: 0 }}>
+            <h5 style={subGroupTitleStyle}>Without Label</h5>
+            <div style={checkboxGroupStyle}>
+              <Checkbox variant='primary' disabled checked />
+              <Checkbox variant='primary' disabled />
+            </div>
+          </div>
+        </StorybookGroup>
+      </StorybookSection>
+
+      <StorybookSection title='Variant: Secondary'>
+        <StorybookGroup title='State: Enabled'>
+          <div style={subGroupStyle}>
+            <h5 style={subGroupTitleStyle}>With Label</h5>
+            <div style={checkboxGroupStyle}>
+              <Checkbox variant='secondary' checked>
+                Checkbox Label
+              </Checkbox>
+              <Checkbox variant='secondary'>Checkbox Label</Checkbox>
+            </div>
+          </div>
+          <div style={{ ...subGroupStyle, marginBottom: 0 }}>
+            <h5 style={subGroupTitleStyle}>Without Label</h5>
+            <div style={checkboxGroupStyle}>
+              <Checkbox variant='secondary' checked />
+              <Checkbox variant='secondary' />
+            </div>
+          </div>
+        </StorybookGroup>
+        <StorybookGroup title='State: Disabled' last>
+          <div style={subGroupStyle}>
+            <h5 style={subGroupTitleStyle}>With Label</h5>
+            <div style={checkboxGroupStyle}>
+              <Checkbox variant='secondary' disabled checked>
+                Checkbox Label
+              </Checkbox>
+              <Checkbox variant='secondary' disabled>
+                Checkbox Label
+              </Checkbox>
+            </div>
+          </div>
+          <div style={{ ...subGroupStyle, marginBottom: 0 }}>
+            <h5 style={subGroupTitleStyle}>Without Label</h5>
+            <div style={checkboxGroupStyle}>
+              <Checkbox variant='secondary' disabled checked />
+              <Checkbox variant='secondary' disabled />
+            </div>
+          </div>
+        </StorybookGroup>
+      </StorybookSection>
+    </StorybookContainer>
   )
 }
 
