@@ -72,12 +72,12 @@ export const AllStates: StoryFn<TextTabsProps> = () => {
               border: '1px solid var(--deprecated-lido-ui-color-borders-fog)',
             }}
           >
-            <div style={{ marginBottom: '16px' }}>
+            <div style={{ marginBottom: '16px', width: '300px' }}>
               <h6 style={{ marginBottom: '8px' }}>Regular:</h6>
               <TextTabs items={textItems} />
             </div>
 
-            <div style={{ marginBottom: '16px' }}>
+            <div style={{ marginBottom: '16px', width: '300px' }}>
               <h6 style={{ marginBottom: '8px' }}>
                 With individual disabled items:
               </h6>
