@@ -71,6 +71,13 @@ export default {
       ],
     })
 
+    cssRule.use.push({
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: require('../postcss.config.js'),
+      },
+    })
+
     return customConfig
   },
 
