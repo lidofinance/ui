@@ -9,18 +9,25 @@ export default {
   parameters: {
     controls: { hideNoControlsWarning: true },
     viewport: {
-      options: {
-        px1500: {
-          name: '1500px',
+      viewports: {
+        px1800: {
+          name: '1800px',
           styles: {
-            width: '1500px',
+            width: '1800px',
             height: '500px',
           },
         },
-        px900: {
-          name: '900px',
+        px1500: {
+          name: '1200px',
           styles: {
-            width: '900px',
+            width: '1200px',
+            height: '500px',
+          },
+        },
+        px800: {
+          name: '800px',
+          styles: {
+            width: '800px',
             height: '800px',
           },
         },
@@ -31,10 +38,10 @@ export default {
             height: '800px',
           },
         },
-        px500: {
-          name: '500px',
+        px300: {
+          name: '300px',
           styles: {
-            width: '500px',
+            width: '300px',
             height: '800px',
           },
         },

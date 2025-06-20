@@ -50,7 +50,7 @@
   --deprecated-lido-ui-line-height-description: 24px;
 }
 
-@media (width <= 1440px) {
+@media (width <= 1500px) {
   :root {
     /* Mid */
     --lido-ui-font-size-h1: 76px;
