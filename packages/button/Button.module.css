@@ -11,6 +11,7 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  gap: var(--local-button-gap);
   padding: calc(
       var(--local-button-vertical-padding) - var(--local-button-border-width)
     )
@@ -56,13 +57,16 @@
       }
     }
 
-    .iconWrapper::before {
+    .iconContainer::before {
+      border-color: var(--lido-ui-color-borders-default);
+    }
+
+    .iconContainer.colored::before {
       border-color: var(--lido-ui-color-borders-active);
     }
   }
 
   &:not(:disabled):focus-visible {
-    /* TODO: change to focus-visible */
     outline: 2px solid var(--lido-ui-color-text-primary-hover);
     outline-offset: 1px;
   }
@@ -99,62 +103,45 @@
   transform: translateX(0);
 }
 
-.withIcon {
-  --local-icon-offset-left: 8px;
+.iconContainer {
+  position: relative;
+  width: var(--local-icon-wrapper-size);
+  height: var(--local-icon-wrapper-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--lido-ui-color-borders-inverted);
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+}
+
+.withIcon {
   /* CSS variable for icon wrapper size based on button size */
   --local-icon-wrapper-size: 52px;
 
-  position: relative;
-
-  .iconWrapper {
-    position: absolute;
-    top: 50%;
-    left: var(--local-icon-offset-left);
-    transform: translateY(-50%);
-    width: var(--local-icon-wrapper-size);
-    height: var(--local-icon-wrapper-size);
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: var(--local-icon-wrapper-size);
-      height: var(--local-icon-wrapper-size);
-      border: 1px solid var(--lido-ui-color-borders-inverted);
-      border-radius: 50%;
-      box-sizing: border-box;
-    }
-  }
-
-  .content {
-    flex: 1;
-    text-align: center;
-
-    /* Add padding to prevent text overlap with icon and border */
-    padding-left: calc(
-      var(--local-icon-wrapper-size) + var(--local-icon-offset-left) +
-        var(--local-button-gap) - var(--local-button-horizontal-padding)
-    );
-  }
-
   .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: var(--local-icon-size);
     height: var(--local-icon-size);
     pointer-events: none;
   }
 
   &.size--s:not(.circle) {
-    --local-icon-offset-left: 4px;
+    padding: 4px 18px 4px 4px;
+
     --local-icon-wrapper-size: 40px;
     --local-icon-size: 32px;
 
-    .iconWrapper::before {
+    .iconContainer::before {
       display: none;
     }
 
@@ -164,7 +151,8 @@
   }
 
   &.size--m:not(.circle) {
-    --local-icon-offset-left: 6px;
+    padding: 6px 24px 6px 6px;
+
     --local-icon-wrapper-size: 48px;
     --local-icon-size: 32px;
 
@@ -174,7 +162,8 @@
   }
 
   &.size--l:not(.circle) {
-    --local-icon-offset-left: 8px;
+    padding: 8px 28px 8px 8px;
+
     --local-icon-wrapper-size: 52px;
     --local-icon-size: 32px;
 
@@ -225,7 +214,9 @@
 .primary {
   color: var(--lido-ui-color-text-inverted);
   background-color: var(--lido-ui-color-buttons-primary);
-  transition: background-color 0.5s;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
 
   &.imitateHover,
   &:hover {
@@ -233,7 +224,13 @@
     background-color: var(--lido-ui-color-buttons-primary-hover);
     transition:
       color 0.3s,
-      background-color 0.3s;
+      background-color 0.3s,
+      border-color 0.3s;
+
+    .iconContainer::before {
+      border-color: var(--lido-ui-color-borders-buttons-icon-primary-hover);
+      transition: border-color 0.3s;
+    }
   }
 }
 
@@ -246,6 +243,10 @@
   &:hover {
     background-color: var(--lido-ui-color-buttons-secondary-hover);
     transition: background-color 0.3s;
+  }
+
+  .iconContainer::before {
+    border-color: var(--lido-ui-color-borders-buttons-icon-secondary);
   }
 }
 
@@ -280,7 +281,7 @@
       background-color: transparent;
     }
 
-    .iconWrapper::before {
+    .iconContainer::before {
       display: none;
     }
   }
