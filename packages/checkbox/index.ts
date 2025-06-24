@@ -3,5 +3,4 @@ export type {
   CheckboxDataTestId,
   CheckboxProps,
   CheckboxVariant,
-  CheckboxSize,
 } from './Checkbox'
