@@ -3,8 +3,26 @@
   position: relative;
 }
 
+.inputContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &.disabled {
+    .icon:not(.isColored) {
+      color: var(--lido-ui-color-text-quaternary);
+    }
+
+    .isColored {
+      opacity: 0.3;
+    }
+  }
+}
+
 .select {
-  font-family: inherit;
+  @mixin font-body-large-medium-static;
+
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -15,74 +33,150 @@
   box-sizing: border-box;
   background-color: transparent;
   outline: none;
-  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
-  border-radius: var(--lido-ui-border-radius-50);
-  font-size: var(--deprecated-lido-ui-font-size-control-not-adaptive);
-  line-height: var(--deprecated-lido-ui-line-height-control-not-adaptive);
-  color: var(--deprecated-lido-ui-color-primary);
+  border: 1px solid var(--lido-ui-color-borders-default);
+  color: var(--lido-ui-color-text-primary);
   transition:
     color 0.3s ease-in-out,
-    border-color 0.3s ease-in-out;
+    border-color 0.3s ease-in-out 0s,
+    border-bottom-color 0.3s ease-in-out 0s,
+    border-radius 0.1s ease-in-out 0.2s;
 
   &::placeholder {
-    color: var(--deprecated-lido-ui-color-primary-50);
+    color: var(--lido-ui-color-text-primary);
     transition: color 0.3s ease-in-out;
   }
 
-  &.sizeL {
-    padding: 17px 58px 17px 26px;
-  }
-
-  &.sizeXL {
-    padding: 22px 58px 22px 32px;
-  }
-
   &:hover {
-    border-color: var(--deprecated-lido-ui-color-borders-water-static);
-    color: var(--deprecated-lido-ui-color-primary);
-  }
-
-  &:hover::placeholder {
-    color: var(--deprecated-lido-ui-color-primary);
-  }
-
-  &.open {
-    color: var(--deprecated-lido-ui-color-primary-50);
-    border-color: var(--deprecated-lido-ui-color-borders-water-static);
+    border-color: var(--lido-ui-color-borders-hover);
   }
 
   &:disabled {
-    color: var(--deprecated-lido-ui-color-primary-20);
-    border-color: var(--deprecated-lido-ui-color-borders-fog);
+    color: var(--lido-ui-color-text-quaternary);
     cursor: not-allowed;
+    border-color: var(--lido-ui-color-borders-default);
+
+    &::placeholder {
+      color: var(--lido-ui-color-text-quaternary);
+    }
+  }
+
+  &.open {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-color: var(--lido-ui-color-borders-hover);
+    border-bottom-color: transparent;
+    transition:
+      color 0.3s ease-in-out,
+      border-color 0s ease-in-out,
+      border-bottom-color 0s ease-in-out,
+      border-radius 0s ease-in-out;
   }
 }
 
-.icon {
+/* Input size styles */
+.input--size-L {
+  padding: 18px 42px 18px 28px;
+  height: 68px;
+  border-radius: var(--lido-ui-border-radius-34);
+
+  &.withIcon {
+    padding-left: 68px;
+  }
+}
+
+.input--size-M {
+  padding: 14px 38px 14px 24px;
+  height: 60px;
+  border-radius: var(--lido-ui-border-radius-30);
+
+  &.withIcon {
+    padding-left: 62px;
+  }
+}
+
+.input--size-S {
+  padding: 8px 38px 8px 24px;
+  height: 48px;
+  border-radius: var(--lido-ui-border-radius-24);
+
+  &.withIcon {
+    padding-left: 52px;
+  }
+}
+
+/* Icon */
+.arrow {
   pointer-events: none;
   position: absolute;
   top: calc(50% - 24px / 2);
   width: 24px;
   height: 24px;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out 0.2s;
 
   &.open {
     transform: rotate(180deg);
+    transition: transform 0.2s ease-in-out;
   }
 
   &.disabled {
     cursor: initial;
 
     path {
-      fill: var(--deprecated-lido-ui-color-primary-20) !important;
+      fill: var(--lido-ui-color-text-quaternary) !important;
     }
   }
+}
 
-  &.sizeL {
-    right: 18px;
-  }
+/* Icon size styles */
+.arrow--size-L {
+  right: 18px;
+}
 
-  &.sizeXL {
-    right: 24px;
+.arrow--size-M {
+  right: 14px;
+}
+
+.arrow--size-S {
+  right: 14px;
+}
+
+.icon--size-L {
+  left: 8px;
+  padding: 10px;
+
+  &.isColored {
+    width: 52px;
+    height: 52px;
+    padding: 0;
   }
+}
+
+.icon--size-M {
+  left: 6px;
+  padding: 8px;
+
+  &.isColored {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+  }
+}
+
+.icon--size-S {
+  left: 4px;
+  padding: 4px;
+
+  &.isColored {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+}
+
+.selectIcon {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
 }

@@ -1,5 +1,14 @@
 import { StoryFn, Meta } from '@storybook/react'
-import { Select, SelectProps } from '.'
+import { Select, SelectProps, SelectWithColoredIcon } from '.'
+import {
+  Icon,
+  Image,
+  Farcaster,
+  GoogleCal,
+  Analytics,
+  Academy,
+  Discord,
+} from '../icons'
 
 export default {
   component: Select,
@@ -37,7 +46,7 @@ export default {
       control: 'boolean',
     },
     size: {
-      options: ['l', 'xl'],
+      options: ['l', 'm', 's'],
       control: { type: 'radio' },
     },
   },
@@ -74,13 +83,47 @@ export const AllStates: StoryFn<SelectProps> = () => {
     { value: 3, label: 'Option 3' },
   ]
 
+  const iconOptions = [
+    {
+      value: 1,
+      label: 'Option 1',
+      icon: { icon: Icon },
+    },
+    {
+      value: 2,
+      label: 'Option 2',
+      icon: { icon: Icon },
+    },
+    {
+      value: 3,
+      label: 'Option 3',
+      icon: { icon: Icon },
+    },
+  ]
+
+  const coloredIconOptions = [
+    {
+      value: 1,
+      label: 'Option 1',
+      icon: Discord,
+    },
+    {
+      value: 2,
+      label: 'Option 2',
+      icon: Farcaster,
+    },
+    {
+      value: 3,
+      label: 'Option 3',
+      icon: GoogleCal,
+    },
+  ]
+
   return (
     <div style={gridContainerStyle}>
-      {/* Size: L */}
       <div style={sectionStyle}>
         <h3>Size: l</h3>
 
-        {/* Default state */}
         <div style={stateContainerStyle}>
           <h5>State: Default</h5>
           <div style={selectContainerStyle}>
@@ -92,7 +135,6 @@ export const AllStates: StoryFn<SelectProps> = () => {
           </div>
         </div>
 
-        {/* Disabled state */}
         <div style={stateContainerStyle}>
           <h5>State: Disabled</h5>
           <div style={selectContainerStyle}>
@@ -104,31 +146,155 @@ export const AllStates: StoryFn<SelectProps> = () => {
             />
           </div>
         </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: With Placeholder Icon</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='l'
+              options={iconOptions}
+              placeholder='Select option'
+              placeholderIcon={{ icon: Icon }}
+            />
+            <SelectWithColoredIcon
+              size='l'
+              options={coloredIconOptions}
+              placeholder='Select option'
+              placeholderIcon={Analytics}
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled With Placeholder Icon</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='l'
+              options={iconOptions}
+              placeholder='Select option'
+              placeholderIcon={{ icon: Icon }}
+              disabled
+            />
+            <SelectWithColoredIcon
+              size='l'
+              options={coloredIconOptions}
+              placeholder='Select option'
+              placeholderIcon={Analytics}
+              disabled
+            />
+          </div>
+        </div>
       </div>
 
-      {/* Size: XL */}
       <div style={sectionStyle}>
-        <h3>Size: xl</h3>
+        <h3>Size: m</h3>
 
-        {/* Default state */}
         <div style={stateContainerStyle}>
           <h5>State: Default</h5>
           <div style={selectContainerStyle}>
             <Select
-              size='xl'
+              size='m'
               options={commonOptions}
               placeholder='Select option'
             />
           </div>
         </div>
 
-        {/* Disabled state */}
         <div style={stateContainerStyle}>
           <h5>State: Disabled</h5>
           <div style={selectContainerStyle}>
             <Select
-              size='xl'
+              size='m'
               options={commonOptions}
+              defaultValue={1}
+              disabled
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: With Placeholder Icon</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='m'
+              options={iconOptions}
+              placeholder='Select option'
+              placeholderIcon={{ icon: Icon }}
+            />
+            <SelectWithColoredIcon
+              size='m'
+              options={coloredIconOptions}
+              placeholder='Select option'
+              placeholderIcon={Academy}
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled with Icons</h5>
+          <div style={selectContainerStyle}>
+            <Select size='m' options={iconOptions} defaultValue={1} disabled />
+            <SelectWithColoredIcon
+              size='m'
+              options={coloredIconOptions}
+              defaultValue={1}
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+
+      <div style={sectionStyle}>
+        <h3>Size: s</h3>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Default</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='s'
+              options={commonOptions}
+              placeholder='Select option'
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='s'
+              options={commonOptions}
+              defaultValue={1}
+              disabled
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: With Placeholder Icon</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='s'
+              options={iconOptions}
+              placeholder='Select option'
+              placeholderIcon={{ icon: Icon }}
+            />
+            <SelectWithColoredIcon
+              size='s'
+              options={coloredIconOptions}
+              placeholder='Select option'
+              placeholderIcon={Image}
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled with Icons</h5>
+          <div style={selectContainerStyle}>
+            <Select size='s' options={iconOptions} defaultValue={1} disabled />
+            <SelectWithColoredIcon
+              size='s'
+              options={coloredIconOptions}
               defaultValue={1}
               disabled
             />

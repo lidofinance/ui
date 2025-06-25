@@ -51,14 +51,14 @@
 
     .icon {
       color: var(--lido-ui-color-icons-quaternary);
-
-      &.colored {
-        opacity: 0.3;
-      }
     }
 
-    .iconContainer::before {
-      border-color: var(--lido-ui-color-borders-default);
+    .iconContainer {
+      opacity: 0.3;
+
+      &::before {
+        border-color: var(--lido-ui-color-borders-default);
+      }
     }
 
     .iconContainer.colored::before {

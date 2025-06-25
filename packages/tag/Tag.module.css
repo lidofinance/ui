@@ -10,6 +10,7 @@
   line-height: var(--lido-ui-line-height-body-static);
   text-align: center;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .shape--rounded {
@@ -18,6 +19,10 @@
 
 .shape--squared {
   border-radius: 8px;
+
+  &.withOnClose {
+    padding-right: 12px;
+  }
 }
 
 .variant--secondary {
@@ -64,6 +69,11 @@
 .variant--primary {
   background-color: var(--lido-ui-color-backgrounds-grey);
   border: none;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: var(--lido-ui-color-backgrounds-grey-tags-hover);
+  }
 
   svg {
     color: var(--lido-ui-color-icons-secondary);
@@ -72,6 +82,10 @@
   &.color--highlighted {
     background-color: var(--lido-ui-color-backgrounds-highlighted);
     color: var(--lido-ui-color-text-link);
+
+    &:hover {
+      background-color: var(--lido-ui-color-backgrounds-highlighted-tags-hover);
+    }
 
     svg {
       color: var(--lido-ui-color-icons-active);
@@ -82,6 +96,10 @@
     background-color: var(--lido-ui-color-backgrounds-error);
     color: var(--lido-ui-color-text-error);
 
+    &:hover {
+      background-color: var(--lido-ui-color-backgrounds-error-tags-hover);
+    }
+
     svg {
       color: var(--lido-ui-color-icons-error);
     }
@@ -91,6 +109,10 @@
     background-color: var(--lido-ui-color-backgrounds-warning);
     color: var(--lido-ui-color-text-warning);
 
+    &:hover {
+      background-color: var(--lido-ui-color-backgrounds-warning-tags-hover);
+    }
+
     svg {
       color: var(--lido-ui-color-icons-warning);
     }
@@ -99,6 +121,10 @@
   &.color--success {
     background-color: var(--lido-ui-color-backgrounds-success);
     color: var(--lido-ui-color-text-success);
+
+    &:hover {
+      background-color: var(--lido-ui-color-backgrounds-success-tags-hover);
+    }
 
     svg {
       color: var(--lido-ui-color-icons-success);

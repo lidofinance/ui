@@ -45,9 +45,11 @@
   position: absolute;
   width: 16px;
   height: 8px;
-  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="10" viewBox="0 0 20 10" xmlns="http://www.w3.org/2000/svg"><path d="M11.4142 8.58578C10.6332 9.36683 9.36683 9.36683 8.58579 8.58579L8.74228e-07 -1.74846e-06L20 9.53674e-07L11.4142 8.58578Z" fill="%23020307" fill-opacity="0.9"/></svg>');
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-color: var(--lido-ui-color-backgrounds-tooltip);
+  mask-image: url('data:image/svg+xml;utf8,<svg width="20" height="10" viewBox="0 0 20 10" xmlns="http://www.w3.org/2000/svg"><path d="M11.4142 8.58578C10.6332 9.36683 9.36683 9.36683 8.58579 8.58579L8.74228e-07 -1.74846e-06L20 9.53674e-07L11.4142 8.58578Z" fill="black"/></svg>');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 /* Position styles */
