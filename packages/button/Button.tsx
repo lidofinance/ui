@@ -73,15 +73,25 @@ export const Button = forwardRef(
     const isCircle = shape === 'circle'
 
     // Helper to determine if icon is an object or ReactElement
-    const isIconObject = (iconProp: ButtonIconProp): iconProp is ButtonIcon => {
-      return iconProp && typeof iconProp === 'object' && 'icon' in iconProp
+    const isIconObject = (
+      iconProp: ButtonIconProp | undefined,
+    ): iconProp is ButtonIcon => {
+      return !!(iconProp && typeof iconProp === 'object' && 'icon' in iconProp)
     }
+
+    const getIsColored = () => {
+      if (isIconObject(icon)) {
+        return !!icon.isColored
+      }
+      return false
+    }
+
+    const isColored = getIsColored()
 
     const getIconElement = () => {
       if (!icon) return null
 
       const iconElement = isIconObject(icon) ? icon.icon : icon
-      const isColored = isIconObject(icon) ? icon.isColored : false
 
       return cloneElement(iconElement, {
         ...iconElement.props,
@@ -101,7 +111,13 @@ export const Button = forwardRef(
             {isCircle ? (
               getIconElement()
             ) : (
-              <span className={styles.iconWrapper}>{getIconElement()}</span>
+              <span
+                className={cn(styles.iconContainer, {
+                  [styles.colored]: isColored,
+                })}
+              >
+                {getIconElement()}
+              </span>
             )}
           </>
         )}

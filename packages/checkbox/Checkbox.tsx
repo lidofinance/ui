@@ -10,18 +10,15 @@ export type CheckboxDataTestId = {
 
 export type CheckboxProps = Omit<ComponentProps<'input'>, 'type' | 'size'> & {
   variant?: CheckboxVariant
-  size?: CheckboxSize
   dataTestId?: CheckboxDataTestId
 }
 
-export type CheckboxVariant = 'accent' | 'primary'
-export type CheckboxSize = 'xs' | 's' | 'm' | 'l'
+export type CheckboxVariant = 'primary' | 'secondary'
 
 export const Checkbox = forwardRef(
   (
     {
-      variant = 'accent',
-      size = 's',
+      variant = 'primary',
       disabled = false,
       className,
       style,
@@ -41,24 +38,16 @@ export const Checkbox = forwardRef(
       >
         <input
           ref={ref}
-          className={cn(
-            styles.input,
-            styles[variant],
-            styles[`inputSize--${size.toUpperCase()}`],
-          )}
+          className={cn(styles.input, styles[variant])}
           type='checkbox'
           disabled={disabled}
           data-testid={dataTestId?.input}
           {...rest}
         />
         <span
-          className={cn(
-            styles.text,
-            styles[`textSize--${size.toUpperCase()}`],
-            {
-              [styles.textDisabled]: disabled,
-            },
-          )}
+          className={cn(styles.text, {
+            [styles.textDisabled]: disabled,
+          })}
           data-testid={dataTestId?.text}
         >
           {children}
