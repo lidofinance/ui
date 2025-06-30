@@ -54,15 +54,17 @@
     }
 
     .iconContainer {
-      opacity: 0.3;
-
       &::before {
         border-color: var(--lido-ui-color-borders-default);
       }
     }
 
-    .iconContainer.colored::before {
-      border-color: var(--lido-ui-color-borders-active);
+    .iconContainer.colored {
+      opacity: 0.3;
+
+      &::before {
+        border-color: var(--lido-ui-color-borders-active);
+      }
     }
   }
 
