@@ -4,13 +4,15 @@ import type { FC, PropsWithChildren } from 'react'
 
 export type StorybookSectionProps = PropsWithChildren<{
   title: string
+  style?: React.CSSProperties
 }>
 
 export const StorybookSection: FC<StorybookSectionProps> = ({
   title,
   children,
+  style,
 }) => {
-  const sectionStyle: React.CSSProperties = {
+  const defaultSectionStyle: React.CSSProperties = {
     padding: '32px',
     border: '1px solid var(--lido-ui-color-borders-default)',
     borderRadius: '12px',
@@ -18,7 +20,7 @@ export const StorybookSection: FC<StorybookSectionProps> = ({
     boxShadow: '0 2px 8px var(--lido-ui-color-borders-default)',
   }
 
-  const titleStyle: React.CSSProperties = {
+  const defaultTitleStyle: React.CSSProperties = {
     margin: '0 0 24px 0',
     fontSize: '20px',
     fontWeight: '600',
@@ -26,8 +28,8 @@ export const StorybookSection: FC<StorybookSectionProps> = ({
   }
 
   return (
-    <section style={sectionStyle}>
-      <h3 style={titleStyle}>{title}</h3>
+    <section style={{ ...defaultSectionStyle, ...style }}>
+      <h3 style={defaultTitleStyle}>{title}</h3>
       {children}
     </section>
   )

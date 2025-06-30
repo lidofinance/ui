@@ -1,2 +1,4 @@
 /* todo: add other breakpoints */
 @custom-media --lido-ui-breakpoint-sm-down (max-width: 599px);
+@custom-media --lido-ui-breakpoint-md-down (max-width: 899px);
+@custom-media --lido-ui-breakpoint-lg-down (max-width: 1499px);
