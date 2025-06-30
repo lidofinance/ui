@@ -23,7 +23,7 @@
   width: 358px;
   height: 430px;
 
-  &.size--last-child {
+  &.variant--last-child {
     width: 194px;
   }
 
@@ -72,7 +72,8 @@
   height: 100px;
   transition: border-color 0.3s;
 
-  svg {
+  svg,
+  img {
     width: 68px;
     height: 68px;
   }
@@ -143,7 +144,7 @@
     width: 334px;
     height: 402px;
 
-    &.size--last-child {
+    &.variant--last-child {
       width: 180px;
     }
   }
@@ -168,7 +169,7 @@
     width: 280px;
     height: 338px;
 
-    &.size--last-child {
+    &.variant--last-child {
       width: 150px;
     }
   }

@@ -30,12 +30,12 @@ export type SliderCardProps = ComponentPropsWithoutRef<'div'> & {
   buttonText?: string
   href: string
   largeTitle?: boolean
-  size?: SliderCardSize
+  variant?: SliderCardVariant
   onClick?: MouseEventHandler<HTMLAnchorElement>
   dataTestId?: SliderCardDataTestId
 }
 
-export type SliderCardSize = 'default' | 'last-child'
+export type SliderCardVariant = 'default' | 'last-child'
 
 export const SliderCard = forwardRef(
   (
@@ -48,7 +48,7 @@ export const SliderCard = forwardRef(
       image,
       href,
       subtitle,
-      size = 'default',
+      variant = 'default',
       className,
       onClick,
       dataTestId,
@@ -67,7 +67,7 @@ export const SliderCard = forwardRef(
           className,
           styles.card,
           largeTitle && styles.largeTitle,
-          styles[`size--${size}`],
+          styles[`variant--${variant}`],
           styles[`type--${type}`],
         )}
         onClick={onClick}

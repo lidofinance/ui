@@ -23,11 +23,11 @@ export default {
     text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
     icon: <MetamaskIcon />,
     buttonText: '',
-    size: 'default',
+    variant: 'default',
   },
   argTypes: {
     onClick: { action: 'clicked' },
-    size: {
+    variant: {
       control: { type: 'select' },
       options: ['default', 'last-child'],
     },
@@ -51,10 +51,7 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
   return (
     <StorybookContainer>
       <div style={flexStyle}>
-        <StorybookSection
-          title='Icons'
-          style={{ border: 'none', boxShadow: 'none', width: '100%' }}
-        >
+        <StorybookSection title='Icons' style={{ width: '100%' }}>
           <div style={flexStyle}>
             <StorybookGroup title='Icon Default'>
               <SliderCardIcon
@@ -74,17 +71,14 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
                 subtitle='Subtitle'
                 text='Explore more apps on Lido Ecosystem page'
                 buttonText='Explore'
-                size='last-child'
+                variant='last-child'
               />
             </StorybookGroup>
           </div>
         </StorybookSection>
       </div>
       <div style={flexStyle}>
-        <StorybookSection
-          title='Images'
-          style={{ border: 'none', boxShadow: 'none', width: '100%' }}
-        >
+        <StorybookSection title='Images' style={{ width: '100%' }}>
           <div style={flexStyle}>
             <StorybookGroup title='Image Default'>
               <SliderCardImage
@@ -113,7 +107,7 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
                   />
                 }
                 text='Explore more videos on Lido Youtube channel'
-                size='last-child'
+                variant='last-child'
               />
             </StorybookGroup>
           </div>
