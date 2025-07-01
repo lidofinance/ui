@@ -18,7 +18,6 @@ export default {
   args: {
     title: 'Name',
     subtitle: '',
-    largeTitle: false,
     href: 'https://example.com',
     text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
     icon: <MetamaskIcon />,
@@ -55,7 +54,6 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
           <div style={flexStyle}>
             <StorybookGroup title='Icon Default'>
               <SliderCardIcon
-                largeTitle={false}
                 title='Application'
                 href='https://example.com'
                 icon={<MetamaskIcon />}
@@ -65,7 +63,6 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
 
             <StorybookGroup title='Icon Last Child'>
               <SliderCardIcon
-                largeTitle
                 title='Title'
                 href='https://example.com'
                 subtitle='Subtitle'
@@ -82,7 +79,6 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
           <div style={flexStyle}>
             <StorybookGroup title='Image Default'>
               <SliderCardImage
-                largeTitle={false}
                 title='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut l'
                 href='https://example.com'
                 image={
@@ -97,7 +93,6 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
 
             <StorybookGroup title='Image Last Child'>
               <SliderCardImage
-                largeTitle={false}
                 title='Explore'
                 href='https://example.com'
                 image={

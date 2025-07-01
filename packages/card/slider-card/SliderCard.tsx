@@ -29,7 +29,6 @@ export type SliderCardProps = ComponentPropsWithoutRef<'div'> & {
   image?: ReactNode
   buttonText?: string
   href: string
-  largeTitle?: boolean
   variant?: SliderCardVariant
   onClick?: MouseEventHandler<HTMLAnchorElement>
   dataTestId?: SliderCardDataTestId
@@ -41,7 +40,6 @@ export const SliderCard = forwardRef(
   (
     {
       title,
-      largeTitle,
       text,
       buttonText,
       icon,
@@ -58,6 +56,8 @@ export const SliderCard = forwardRef(
     const [hasHover, setHasHover] = useState(false)
 
     const type = image ? 'image' : 'icon'
+
+    const largeTitle = variant === 'last-child'
 
     return (
       <Link
