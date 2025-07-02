@@ -24,7 +24,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Node
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        uses: actions/setup-node@40337cb8f758cccdfe3475af609daa63f81c7e23
         with:
           node-version: '20'
           cache: 'yarn'
