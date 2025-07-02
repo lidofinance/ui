@@ -4,8 +4,6 @@ import {
   ChartLine,
   ChartLineProps,
   BorderType,
-  LegendDirection,
-  LegendPosition,
   ThresholdType,
   LineData,
 } from './index.js'
@@ -17,31 +15,24 @@ export default {
   component: ChartLine,
   title: 'Charts/ChartLine',
   args: {
+    demoMaxValue: 1000,
+    useMaxValue: true,
+    demoCount: 3,
     loading: false,
     height: 20,
     border: 'rounded',
-    direction: 'horizontal',
-    position: 'bottom',
     thresholdType: 'flag',
-    demoCount: 3,
     showLabels: true,
-    demoMaxValue: 1000,
-    useMaxValue: true,
   },
   argTypes: {
+    demoMaxValue: {
+      control: { type: 'range', min: 100, max: 1000, step: 100 },
+    },
     height: {
       control: { type: 'range', min: 3, max: 24, step: 1 },
     },
     border: {
       options: getOptions(BorderType),
-      control: 'inline-radio',
-    },
-    direction: {
-      options: getOptions(LegendDirection),
-      control: 'inline-radio',
-    },
-    position: {
-      options: getOptions(LegendPosition),
       control: 'inline-radio',
     },
     thresholdType: {
@@ -51,12 +42,8 @@ export default {
     demoCount: {
       control: { type: 'range', min: 2, max: 5, step: 1 },
     },
-
     showLabels: {
       control: 'boolean',
-    },
-    demoMaxValue: {
-      control: { type: 'range', min: 100, max: 1000, step: 100 },
     },
   },
 } as Meta

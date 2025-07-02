@@ -11,18 +11,6 @@ export enum BorderType {
   square = 'square',
 }
 export type BorderTypes = keyof typeof BorderType
-export enum LegendDirection {
-  horizontal,
-  vertical,
-}
-export type LegendDirections = keyof typeof LegendDirection
-export enum LegendPosition {
-  top,
-  bottom,
-  left,
-  right,
-}
-export type LegendPositions = keyof typeof LegendPosition
 
 export type ChartLineConfig = {
   thresholdType: ThresholdType
@@ -30,11 +18,6 @@ export type ChartLineConfig = {
   border: BorderType
   maxValue?: number
   showLabels?: boolean
-  legend: {
-    show: boolean
-    direction: LegendDirection
-    position: LegendPosition
-  }
 }
 
 export type LineData = {

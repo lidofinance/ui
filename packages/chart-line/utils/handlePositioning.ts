@@ -4,6 +4,7 @@ import { CHART_LINE_CONTAINER_ID, LABEL_HEIGHT_INCREASE } from './constants.js'
 type HandlePositioningProps = {
   previousIds?: string[]
   id: string
+  reset?: boolean
 }
 
 type PositioningData = {
@@ -57,6 +58,12 @@ const shouldInvertLabel = (
   return isInverted
 }
 
+export const resetThresholdHeight = (threshold: HTMLElement | null): void => {
+  if (!threshold) return
+
+  threshold.style.removeProperty('height')
+}
+
 // Apply label positioning based on inversion
 const applyLabelPosition = (label: HTMLElement, isInverted: boolean): void => {
   if (isInverted) {
@@ -104,10 +111,15 @@ const getPreviousThreshold = (
 }
 
 export const handlePositioning = (props: HandlePositioningProps): void => {
-  const { previousIds = [], id } = props
+  const { previousIds = [], id, reset } = props
 
   // Check if we are in browser (not SSR)
   if (typeof window === 'undefined') return
+
+  if (reset) {
+    resetThresholdHeight(document.getElementById(id))
+    return
+  }
 
   const currentData = getElementData(id)
   if (!currentData) return

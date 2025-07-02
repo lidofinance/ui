@@ -21,9 +21,12 @@ export const ChartLineLabel = forwardRef(
 
     useLayoutEffect(() => {
       if (!show) return
-
-      handlePositioning({ previousIds, id })
-    }, [previousIds, id, show])
+      if (thresholdType !== ThresholdType.flag) {
+        handlePositioning({ previousIds, id, reset: true })
+      } else {
+        handlePositioning({ previousIds, id })
+      }
+    }, [previousIds, id, show, thresholdType])
 
     if (!show) return null
 
