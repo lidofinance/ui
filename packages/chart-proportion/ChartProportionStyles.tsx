@@ -29,7 +29,7 @@ export const ProportionStyle = styled.div<{
   $flexGrow: number
   $backgroundColor?: string
 }>`
-  background: rgba(19, 18, 23, 0.04);
+  background: rgb(19 18 23 / 4%);
   flex-grow: ${({ $flexGrow }) => $flexGrow};
   height: 100%;
   position: relative;

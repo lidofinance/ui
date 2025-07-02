@@ -18,7 +18,7 @@ export const WrapperStyle = styled.div<{
   display: flex;
   width: 100%;
   height: ${({ $height }) => $height}px;
-  background: rgba(19, 18, 23, 0.08);
+  background: rgb(19 18 23 / 8%);
   position: relative;
 
   ${({ $border }) => {
