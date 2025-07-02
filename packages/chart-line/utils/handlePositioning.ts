@@ -1,5 +1,9 @@
 import { checkViewportOverflow } from './checkViewport.js'
-import { CHART_LINE_CONTAINER_ID, LABEL_HEIGHT_INCREASE } from './constants.js'
+import {
+  CHART_LINE_CONTAINER_ID,
+  LABEL_HEIGHT_INCREASE,
+  VIEWPORT_MARGIN,
+} from './constants.js'
 
 type HandlePositioningProps = {
   previousIds?: string[]
@@ -29,15 +33,53 @@ const getElementData = (id: string): PositioningData | null => {
   const container = document.getElementById(CHART_LINE_CONTAINER_ID)
   if (!container) return null
 
+  // Temporarily reset transform to get original positions
+  const originalTransform = label.style.transform
+  label.style.removeProperty('transform')
+
   const thresholdRect = threshold.getBoundingClientRect()
   const labelRect = label.getBoundingClientRect()
   const containerRect = container.getBoundingClientRect()
+
+  // Restore transform if it existed
+  if (originalTransform) {
+    label.style.setProperty('transform', originalTransform)
+  }
 
   return {
     elements: { threshold, label },
     rects: { threshold: thresholdRect, label: labelRect },
     containerRect,
   }
+}
+
+// Calculate offset needed to keep label within viewport bounds
+const calculateLabelOffset = (
+  thresholdRect: DOMRect,
+  labelRect: DOMRect,
+  containerRect: DOMRect,
+  isInverted: boolean,
+): number => {
+  if (isInverted) {
+    // Label positioned with left: 0 (extends right from threshold)
+    // Check if label extends beyond container right boundary
+    const labelRightEdge = thresholdRect.left + labelRect.width
+    const containerRightEdge = containerRect.right - VIEWPORT_MARGIN
+
+    if (labelRightEdge > containerRightEdge) {
+      return labelRightEdge - containerRightEdge
+    }
+  } else {
+    // Label positioned with right: 0 (extends left from threshold - default behavior)
+    // Check if label left edge goes beyond container left boundary
+    const labelLeftEdge = thresholdRect.right - labelRect.width
+    const containerLeftEdge = containerRect.left + VIEWPORT_MARGIN
+
+    if (labelLeftEdge < containerLeftEdge) {
+      return containerLeftEdge - labelLeftEdge
+    }
+  }
+  return 0
 }
 
 // Calculate if flag should be inverted based on viewport overflow
@@ -140,6 +182,25 @@ export const handlePositioning = (props: HandlePositioningProps): void => {
 
   // Apply positioning for current label
   applyLabelPosition(currentElements.label, currentIsInverted)
+
+  // Calculate offset needed to keep label within bounds
+  const currentOffset = calculateLabelOffset(
+    currentRects.threshold,
+    currentRects.label,
+    containerRect,
+    currentIsInverted,
+  )
+
+  // Apply offset if needed
+  if (currentOffset > 0) {
+    const direction = currentIsInverted ? -currentOffset : currentOffset
+    currentElements.label.style.setProperty(
+      'transform',
+      `translateX(${direction}px)`,
+    )
+  } else {
+    currentElements.label.style.removeProperty('transform')
+  }
 
   // Handle previous threshold positioning if exists
   const previousId = getPreviousThreshold(previousIds, id)

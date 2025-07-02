@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, useLayoutEffect } from 'react'
+import { ForwardedRef, forwardRef, useLayoutEffect } from 'react'
 
 import { ChartLineLabelProps, ThresholdType } from './types.js'
 import { ThresholdLabelStyle, ThresholdStyle } from './ChartLineStyles.js'

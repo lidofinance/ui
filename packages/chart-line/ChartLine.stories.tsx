@@ -18,6 +18,7 @@ export default {
     demoMaxValue: 1000,
     useMaxValue: true,
     demoCount: 3,
+    demoViewportWidth: 600,
     loading: false,
     height: 20,
     border: 'rounded',
@@ -27,6 +28,9 @@ export default {
   argTypes: {
     demoMaxValue: {
       control: { type: 'range', min: 100, max: 1000, step: 100 },
+    },
+    demoViewportWidth: {
+      control: { type: 'range', min: 200, max: 1000, step: 100 },
     },
     height: {
       control: { type: 'range', min: 3, max: 24, step: 1 },
@@ -40,7 +44,7 @@ export default {
       control: 'inline-radio',
     },
     demoCount: {
-      control: { type: 'range', min: 2, max: 5, step: 1 },
+      control: { type: 'range', min: 0, max: 5, step: 1 },
     },
     showLabels: {
       control: 'boolean',
@@ -76,9 +80,11 @@ export const Basic: StoryFn<
     demoCount: number
     demoMaxValue: number
     useMaxValue: boolean
+    demoViewportWidth: number
   }
 > = (props) => {
-  const { demoCount, demoMaxValue, useMaxValue, ...rest } = props
+  const { demoCount, demoMaxValue, useMaxValue, demoViewportWidth, ...rest } =
+    props
   const values = Array.from(
     { length: demoCount },
     (_, index) => demoCount + index,
@@ -107,7 +113,7 @@ export const Basic: StoryFn<
   })
 
   return (
-    <div style={{ width: '600px' }}>
+    <div style={{ width: `${demoViewportWidth}px` }}>
       <ChartLine
         {...rest}
         data={data}
