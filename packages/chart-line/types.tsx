@@ -13,6 +13,8 @@ export enum BorderType {
 export type BorderTypes = keyof typeof BorderType
 
 export type ChartLineConfig = {
+  loading?: boolean
+  data: LineData[]
   thresholdType: ThresholdType
   height: number
   border: BorderType
@@ -32,15 +34,7 @@ export type LineData = {
   }
 }
 
-export type ChartLineProps = LidoComponentProps<
-  'div',
-  {
-    loading?: boolean
-    data: LineData[]
-    // data: LineData[]
-    // config: LineConfig
-  } & ChartLineConfig
->
+export type ChartLineProps = LidoComponentProps<'div', ChartLineConfig>
 
 export type ChartLineLabelProps = LidoComponentProps<
   'div',

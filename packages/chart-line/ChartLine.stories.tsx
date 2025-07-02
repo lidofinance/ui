@@ -1,5 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 
+import { Question } from '../icons'
 import {
   ChartLine,
   ChartLineProps,
@@ -75,6 +76,16 @@ const hslToHex = (h: number, s: number, l: number) => {
   return `#${f(0)}${f(8)}${f(4)}`
 }
 
+const DescriptionComponent = () => {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      Description Component <Question style={{ width: 16, height: 16 }} />
+    </div>
+  )
+}
+
+const descriptionElement = <DescriptionComponent />
+
 export const Basic: StoryFn<
   ChartLineProps & {
     demoCount: number
@@ -108,6 +119,7 @@ export const Basic: StoryFn<
       color: '#FF0000',
       label: '90%',
       description: 'Forced Rebalance Threshold',
+      descriptionElement,
     },
     labelPosition: 'top',
   })

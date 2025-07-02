@@ -42,6 +42,11 @@ export const ChartLine = forwardRef(
       [data, maxValue],
     )
 
+    const allPreviousIds = useMemo(
+      () => ids.map((_, index) => ids.slice(0, index)),
+      [ids],
+    )
+
     useLayoutEffect(() => {
       if (!showLabels) {
         setContainerSize(null)
@@ -68,7 +73,7 @@ export const ChartLine = forwardRef(
         <WrapperStyle $border={border} $height={height} ref={ref} {...rest}>
           {processedData.map((item, index) => {
             const { color, id, width } = item
-            const previousIds = ids.slice(0, index)
+            const previousIds = allPreviousIds[index]
 
             return (
               <LineStyle

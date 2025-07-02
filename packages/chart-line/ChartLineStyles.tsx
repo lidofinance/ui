@@ -81,6 +81,8 @@ export const ThresholdLabelStyle = styled.div<{
   right: 0;
   border-radius: 4px;
   white-space: nowrap;
+  box-sizing: border-box;
+  max-height: 28px;
 
   ${({ $labelPosition }) => {
     if ($labelPosition === 'top') {
@@ -90,7 +92,7 @@ export const ThresholdLabelStyle = styled.div<{
       `
     }
     return css``
-  }}
+  }};
 `
 
 export const LineStyle = styled.div<{
