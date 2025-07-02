@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef, ForwardedRef } from 'react'
+import { forwardRef, ForwardedRef, ComponentPropsWithoutRef } from 'react'
 import styles from './Checkbox.module.css'
 import cn from 'classnames'
 
@@ -8,7 +8,10 @@ export type CheckboxDataTestId = {
   text?: string
 }
 
-export type CheckboxProps = Omit<ComponentProps<'input'>, 'type' | 'size'> & {
+export type CheckboxProps = Omit<
+  ComponentPropsWithoutRef<'input'>,
+  'type' | 'size'
+> & {
   variant?: CheckboxVariant
   dataTestId?: CheckboxDataTestId
 }
