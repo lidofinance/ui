@@ -1,23 +1,23 @@
 import { LidoComponentProps } from '../utils/index.js'
 export type { Theme } from '../theme/index.js'
 
-export enum ThresholdType {
+export enum ChartLineThresholdType {
   dash = 'dash',
   flag = 'flag',
 }
-export type ThresholdTypes = keyof typeof ThresholdType
-export enum BorderType {
+export type ChartLineThresholdTypes = keyof typeof ChartLineThresholdType
+export enum ChartLineBorderType {
   rounded = 'rounded',
   square = 'square',
 }
-export type BorderTypes = keyof typeof BorderType
+export type ChartLineBorderTypes = keyof typeof ChartLineBorderType
 
 export type ChartLineConfig = {
   loading?: boolean
   data: LineData[]
-  thresholdType: ThresholdType
+  thresholdType: ChartLineThresholdType
   height: number
-  border: BorderType
+  border: ChartLineBorderType
   maxValue?: number
   showLabels?: boolean
 }
@@ -44,6 +44,6 @@ export type ChartLineLabelProps = LidoComponentProps<
     zIndex: number
     show?: boolean
     height: number
-    thresholdType: ThresholdType
+    thresholdType: ChartLineThresholdType
   } & LineData
 >
