@@ -57,4 +57,4 @@ export const Button = forwardRef(
     )
   },
 )
-Button.displayName = 'Butotn'
+Button.displayName = 'Button'
