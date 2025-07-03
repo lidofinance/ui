@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef, useLayoutEffect } from 'react'
 
-import { ChartLineLabelProps, ThresholdType } from './types.js'
+import { ChartLineLabelProps, ChartLineThresholdType } from './types.js'
 import { ThresholdLabelStyle, ThresholdStyle } from './ChartLineStyles.js'
 import { handlePositioning } from './utils/index.js'
 
@@ -21,7 +21,7 @@ export const ChartLineLabel = forwardRef(
 
     useLayoutEffect(() => {
       if (!show) return
-      if (thresholdType !== ThresholdType.flag) {
+      if (thresholdType !== ChartLineThresholdType.flag) {
         handlePositioning({ previousIds, id, reset: true })
       } else {
         handlePositioning({ previousIds, id })
@@ -45,7 +45,7 @@ export const ChartLineLabel = forwardRef(
         $zIndex={zIndex}
         {...rest}
       >
-        {thresholdType === ThresholdType.flag && (
+        {thresholdType === ChartLineThresholdType.flag && (
           <ThresholdLabelStyle
             style={{ backgroundColor }}
             id={`${id}-description`}
