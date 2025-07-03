@@ -66,7 +66,6 @@ export const ProportionProgressStyle = styled.div<{
 
   ${({ $border, $borderSize, $progress }) => {
     if ($border === BorderType.rounded) {
-      console.log('progress', $progress)
       if ($progress !== 100) {
         return css`
           border-radius: ${borderSizes[$borderSize]} 0 0
