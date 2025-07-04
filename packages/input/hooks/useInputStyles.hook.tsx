@@ -1,21 +1,34 @@
+import { ButtonSize } from '../../button'
 import { useMemo } from 'react'
 
-export type InputSize = 'm' | 'l' | 'xl'
+export type InputSize = 's' | 'm' | 'l'
 
 export type UseInputStylesProps = {
   size: InputSize
 }
 
 const BUTTON_SIZE_MAP: Record<InputSize, number> = {
-  m: 38,
-  l: 48,
-  xl: 56,
+  s: 40,
+  m: 48,
+  l: 52,
 }
 
-const BUTTON_MARGIN_MAP: Record<InputSize, number> = {
-  m: 4,
-  l: 6,
-  xl: 7,
+const BUTTON_BORDER_RADIUS_MAP: Record<InputSize, string> = {
+  s: '24px',
+  m: '30px',
+  l: '34px',
+}
+
+const BUTTON_SIZE_PROPS_MAP: Record<InputSize, ButtonSize> = {
+  s: 's',
+  m: 'm',
+  l: 'l',
+}
+
+const BUTTON_PADDING_MAP: Record<InputSize, string> = {
+  s: '4px 16px',
+  m: '8px 20px',
+  l: '10px 20px',
 }
 
 /**
@@ -25,14 +38,18 @@ const BUTTON_MARGIN_MAP: Record<InputSize, number> = {
 export const useInputStyles = ({ size }: UseInputStylesProps) => {
   const buttonStyle = useMemo(
     () => ({
-      height: BUTTON_SIZE_MAP[size],
       minWidth: BUTTON_SIZE_MAP[size],
-      marginRight: BUTTON_MARGIN_MAP[size],
+      height: BUTTON_SIZE_MAP[size],
+      borderRadius: BUTTON_BORDER_RADIUS_MAP[size],
+      padding: BUTTON_PADDING_MAP[size],
     }),
     [size],
   )
 
+  const buttonSize = useMemo(() => BUTTON_SIZE_PROPS_MAP[size], [size])
+
   return {
     buttonStyle,
+    buttonSize,
   }
 }

@@ -24,7 +24,6 @@ export type ValidationOptions = {
 export type ValidationState = {
   isValid: boolean
   errors: string[]
-  isValidating: boolean
 }
 
 export type UseInputValidationProps = {
@@ -129,7 +128,6 @@ export const useInputValidation = ({
   const [validationState, setValidationState] = useState<ValidationState>({
     isValid: true,
     errors: [],
-    isValidating: false,
   })
   const [isDirty, setIsDirty] = useState(false)
 
@@ -219,7 +217,6 @@ export const useInputValidation = ({
       const newState = {
         isValid: errors.length === 0,
         errors,
-        isValidating: false,
       }
 
       setValidationState(newState)
@@ -245,7 +242,7 @@ export const useInputValidation = ({
   const handleInputBlur = useCallback(
     async (value: string) => {
       if (validation && isDirty) {
-        setValidationState((prev) => ({ ...prev, isValidating: true }))
+        setValidationState((prev) => ({ ...prev }))
         await validateInput(value)
       }
     },

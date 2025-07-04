@@ -4,9 +4,10 @@ import {
   RefObject,
   ForwardedRef,
   ComponentPropsWithoutRef,
-  ReactElement,
   useState,
   useCallback,
+  HTMLInputTypeAttribute,
+  useMemo,
 } from 'react'
 import styles from './Input.module.css'
 import cn from 'classnames'
@@ -22,34 +23,28 @@ import {
   RightDecoratorButton,
   RightDecoratorType,
 } from './utils/rightDecoratorUtils'
-import { getLeftDecorator } from './utils/leftDecoratorUtils'
-
-type InputType =
-  | 'email'
-  | 'text'
-  | 'number'
-  | 'password'
-  | 'url'
-  | 'tel'
-  | 'search'
+import { getIconElement, getIsColored } from './utils/leftDecoratorUtils'
+import { IconConfigProp } from 'packages/utils'
 
 export type InputDataTestId = {
   root?: string
   error?: string
 }
 
+export type InputVariant = 'label' | 'placeholder'
+
 export type InputProps = Omit<
   ComponentPropsWithoutRef<'input'>,
   'size' | 'type'
 > & {
+  variant?: InputVariant
   size?: InputSize
   wrapperRef?: RefObject<HTMLLabelElement>
   error?: ReactNode
-  type?: InputType
-  fullwidth?: boolean
+  type?: HTMLInputTypeAttribute
   rightDecorator?: ReactNode | RightDecoratorButton
   rightDecoratorType?: RightDecoratorType
-  leftDecorator?: ReactElement
+  icon?: IconConfigProp
   validation?: ValidationOptions
   onValidationChange?: (state: ValidationState) => void
   dataTestId?: InputDataTestId
@@ -58,19 +53,17 @@ export type InputProps = Omit<
 export const Input = forwardRef(
   (
     {
+      variant = 'label',
       id,
       wrapperRef,
       disabled = false,
       size = 'l',
-      style,
       className,
-      children,
       type = 'text',
       error,
-      fullwidth = false,
       rightDecorator,
       rightDecoratorType = 'element',
-      leftDecorator: propsLeftDecorator,
+      icon,
       'aria-label': ariaLabel,
       placeholder,
       validation,
@@ -98,13 +91,11 @@ export const Input = forwardRef(
     })
 
     // Extract input style calculations
-    const { buttonStyle } = useInputStyles({ size })
+    const { buttonStyle, buttonSize } = useInputStyles({ size })
 
-    // Get left decorator based on props and input type
-    const leftDecorator = getLeftDecorator({
-      leftDecorator: propsLeftDecorator,
-      type,
-    })
+    // Get icon element if provided
+    const iconElement = useMemo(() => getIconElement(icon), [icon])
+    const isColoredIcon = useMemo(() => getIsColored(icon), [icon])
 
     // Handle input state changes
     const handleChange = useCallback(
@@ -137,100 +128,78 @@ export const Input = forwardRef(
     const showErrorMessage = hasErrorMessage || hasValidationErrors
     const errorMessage =
       error || (hasValidationErrors ? validationState.errors[0] : null)
-    const isValidating = validationState.isValidating
-    const isSearchType = type === 'search'
-    const showPlainPlaceholder = isSearchType || size === 'm'
+    const showPlainPlaceholder = size === 's' || variant === 'placeholder'
+    const hasButton = !!rightDecorator && rightDecoratorType === 'button'
 
     return (
       <label
-        className={cn(styles.container, className, {
-          [styles.fullwidth]: fullwidth,
-          [styles.disabled]: disabled,
-        })}
-        style={style}
+        className={cn(styles.container, className)}
         htmlFor={id}
         ref={wrapperRef}
         data-testid={dataTestId?.root}
       >
         <span
-          className={cn(styles.inputContent, styles[`size--${size}`], {
-            [styles.isError]: hasError || shouldShowValidationError,
-            [styles.isDisabled]: disabled,
-            [styles.isLoading]: isValidating,
-            [styles.search]: isSearchType,
-            [styles.noLeftDecorator]: !isSearchType && !leftDecorator,
-          })}
+          className={cn(
+            styles.inputContent,
+            styles[`inputContent--size-${size}`],
+            {
+              [styles.isError]: hasError || shouldShowValidationError,
+              [styles.isDisabled]: disabled,
+              [styles.withIcon]: iconElement,
+              [styles.withButton]: hasButton,
+              [styles.withColoredIcon]: isColoredIcon,
+              [styles.withFloatingLabel]: !showPlainPlaceholder,
+            },
+          )}
         >
-          {leftDecorator && (
-            <span
-              className={cn(
-                styles.leftDecorator,
-                styles[`leftDecoratorSize${size.toUpperCase()}`],
-                {
-                  [styles.searchLeftDecorator]: isSearchType,
-                },
-              )}
-              aria-hidden='true'
-            >
-              {leftDecorator}
+          {iconElement && (
+            <span className={styles.leftDecorator} aria-hidden='true'>
+              {iconElement}
             </span>
           )}
-          <div className={styles.inputControlWrapper}>
-            <div
-              className={cn(styles.inputWrapper, {
-                [styles.hasRightDecorator]: !!rightDecorator,
-                [styles.hasRightDecoratorButton]:
-                  !!rightDecorator && rightDecoratorType === 'button',
-              })}
-            >
-              <div
-                className={cn(styles.inputInnerWrapper, {
-                  [styles.inputInnerWrapperWithLeftDecorator]: !!leftDecorator,
-                })}
-              >
-                <input
-                  className={cn(styles.input, styles[`size--${size}`])}
-                  disabled={disabled}
-                  type={type}
-                  aria-invalid={hasError || shouldShowValidationError}
-                  aria-label={ariaLabel || placeholder}
-                  aria-describedby={
-                    showErrorMessage ? `${id}-error` : undefined
-                  }
-                  ref={ref}
-                  placeholder={showPlainPlaceholder ? placeholder : ' '}
-                  onFocus={handleInputFocus}
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={value}
-                  {...rest}
-                />
-                {placeholder && !showPlainPlaceholder && (
-                  <span className={styles.floatingLabel} aria-hidden='true'>
-                    {placeholder}
-                  </span>
-                )}
-              </div>
-              {rightDecorator && (
-                <span
-                  className={cn(styles.rightDecorator, {
-                    [styles.rightDecoratorElement]:
-                      rightDecoratorType === 'element',
-                    [styles.rightDecoratorText]: rightDecoratorType === 'text',
-                    [styles.rightDecoratorButton]:
-                      rightDecoratorType === 'button',
-                  })}
-                  aria-hidden='true'
-                >
-                  {renderRightDecorator({
-                    rightDecorator,
-                    rightDecoratorType,
-                    buttonStyle,
-                    disabled,
-                  })}
+          <div className={styles.inputWrapper}>
+            <div className={styles.inputInnerWrapper}>
+              <input
+                className={cn(styles.input, styles[`size--${size}`])}
+                disabled={disabled}
+                type={type}
+                aria-invalid={hasError || shouldShowValidationError}
+                aria-label={ariaLabel || placeholder}
+                aria-describedby={showErrorMessage ? `${id}-error` : undefined}
+                aria-required={validation?.required}
+                ref={ref}
+                placeholder={placeholder}
+                onFocus={handleInputFocus}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={value}
+                {...rest}
+              />
+              {placeholder && !showPlainPlaceholder && (
+                <span className={styles.floatingLabel} aria-hidden='true'>
+                  {placeholder}
                 </span>
               )}
             </div>
+            {rightDecorator && (
+              <span
+                className={cn(styles.rightDecorator, {
+                  [styles.rightDecoratorElement]:
+                    rightDecoratorType === 'element',
+                })}
+                aria-hidden={
+                  rightDecoratorType === 'element' ? 'true' : 'false'
+                }
+              >
+                {renderRightDecorator({
+                  rightDecorator,
+                  rightDecoratorType,
+                  buttonStyle,
+                  disabled,
+                  buttonSize,
+                })}
+              </span>
+            )}
           </div>
           {showErrorMessage && (
             <span
