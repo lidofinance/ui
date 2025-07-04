@@ -3,9 +3,9 @@ import { StoryFn, Meta } from '@storybook/react'
 import {
   ChartProportion,
   ChartProportionProps,
-  BorderType,
+  ChartProportionBorderType,
   ChartProportionData,
-  BorderSize,
+  ChartProportionBorderSize,
   MarginSize,
 } from './index.js'
 
@@ -32,11 +32,11 @@ export default {
       control: { type: 'range', min: 3, max: 24, step: 1 },
     },
     border: {
-      options: getOptions(BorderType),
+      options: getOptions(ChartProportionBorderType),
       control: 'inline-radio',
     },
     borderSize: {
-      options: getOptions(BorderSize),
+      options: getOptions(ChartProportionBorderSize),
       control: 'inline-radio',
     },
     margin: {

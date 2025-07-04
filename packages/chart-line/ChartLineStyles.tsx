@@ -1,5 +1,5 @@
 import styled, { css } from '../utils/styled-components-wrapper.js'
-import { BorderType, ThresholdType } from './types.js'
+import { ChartLineBorderType, ChartLineThresholdType } from './types.js'
 
 export const ContainerStyle = styled.div<{
   $alignItems: 'center' | 'flex-start'
@@ -12,7 +12,7 @@ export const ContainerStyle = styled.div<{
 `
 
 export const WrapperStyle = styled.div<{
-  $border: BorderType
+  $border: ChartLineBorderType
   $height: number
 }>`
   display: flex;
@@ -22,7 +22,7 @@ export const WrapperStyle = styled.div<{
   position: relative;
 
   ${({ $border }) => {
-    if ($border === BorderType.rounded) {
+    if ($border === ChartLineBorderType.rounded) {
       return css`
         border-radius: 4px;
       `
@@ -33,7 +33,7 @@ export const WrapperStyle = styled.div<{
 
 export const ThresholdStyle = styled.div<{
   $labelPosition?: 'top' | 'bottom'
-  $thresholdType: ThresholdType
+  $thresholdType: ChartLineThresholdType
   $height: number
   $backgroundColor?: string
   $zIndex: number
@@ -58,7 +58,7 @@ export const ThresholdStyle = styled.div<{
   }}
 
   ${({ $thresholdType, $height }) => {
-    if ($thresholdType === ThresholdType.dash) {
+    if ($thresholdType === ChartLineThresholdType.dash) {
       return css`
         height: ${$height + 4}px;
         top: -2px;
@@ -96,7 +96,7 @@ export const ThresholdLabelStyle = styled.div<{
 `
 
 export const LineStyle = styled.div<{
-  $border: BorderType
+  $border: ChartLineBorderType
   $isFullWidth: boolean
   $width: string
   $backgroundColor?: string
@@ -114,7 +114,7 @@ export const LineStyle = styled.div<{
   border-right: 1px solid ${({ theme }) => theme.colors.background};
 
   ${({ $border }) => {
-    if ($border === BorderType.rounded) {
+    if ($border === ChartLineBorderType.rounded) {
       return css`
         border-radius: 4px 0 0 4px;
       `
@@ -124,7 +124,7 @@ export const LineStyle = styled.div<{
 
   &:last-child {
     ${({ $border, $isFullWidth }) => {
-      if ($border === BorderType.rounded && $isFullWidth) {
+      if ($border === ChartLineBorderType.rounded && $isFullWidth) {
         return css`
           border-radius: 4px;
         `

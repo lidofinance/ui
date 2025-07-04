@@ -1,5 +1,9 @@
 import styled, { css } from '../utils/styled-components-wrapper.js'
-import { BorderSize, BorderType, MarginSize } from './types.js'
+import {
+  ChartProportionBorderSize,
+  ChartProportionBorderType,
+  MarginSize,
+} from './types.js'
 
 export const WrapperStyle = styled.div<{
   $height: number
@@ -23,8 +27,8 @@ const marginSizes = {
 }
 
 export const ProportionStyle = styled.div<{
-  $border: BorderType
-  $borderSize: BorderSize
+  $border: ChartProportionBorderType
+  $borderSize: ChartProportionBorderSize
   $margin: MarginSize
   $flexGrow: number
   $backgroundColor?: string
@@ -35,7 +39,7 @@ export const ProportionStyle = styled.div<{
   position: relative;
 
   ${({ $border, $borderSize }) => {
-    if ($border === BorderType.rounded) {
+    if ($border === ChartProportionBorderType.rounded) {
       return css`
         border-radius: ${borderSizes[$borderSize]};
       `
@@ -55,8 +59,8 @@ export const ProportionStyle = styled.div<{
 export const ProportionProgressStyle = styled.div<{
   $progress: number
   $backgroundColor?: string
-  $border: BorderType
-  $borderSize: BorderSize
+  $border: ChartProportionBorderType
+  $borderSize: ChartProportionBorderSize
 }>`
   background-color: ${({ $backgroundColor }) =>
     $backgroundColor ? $backgroundColor : 'transparent'};
@@ -65,7 +69,7 @@ export const ProportionProgressStyle = styled.div<{
   position: relative;
 
   ${({ $border, $borderSize, $progress }) => {
-    if ($border === BorderType.rounded) {
+    if ($border === ChartProportionBorderType.rounded) {
       if ($progress !== 100) {
         return css`
           border-radius: ${borderSizes[$borderSize]} 0 0

@@ -1,18 +1,18 @@
 import { LidoComponentProps } from '../utils/index.js'
 export type { Theme } from '../theme/index.js'
 
-export enum BorderType {
+export enum ChartProportionBorderType {
   rounded = 'rounded',
   square = 'square',
 }
-export type BorderTypes = keyof typeof BorderType
+export type ChartProportionBorderTypes = keyof typeof ChartProportionBorderType
 
-export enum BorderSize {
+export enum ChartProportionBorderSize {
   sm = 'sm',
   md = 'md',
   lg = 'lg',
 }
-export type BorderSizes = keyof typeof BorderSize
+export type ChartProportionBorderSizes = keyof typeof ChartProportionBorderSize
 
 export enum MarginSize {
   sm = 'sm',
@@ -23,8 +23,8 @@ export type MarginSizes = keyof typeof MarginSize
 
 export type ChartProportionConfig = {
   height: number
-  border: BorderType
-  borderSize: BorderSize
+  border: ChartProportionBorderType
+  borderSize: ChartProportionBorderSize
   margin: MarginSize
   showLabels?: boolean
   loading?: boolean

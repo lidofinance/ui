@@ -4,8 +4,8 @@ import { Question } from '../icons'
 import {
   ChartLine,
   ChartLineProps,
-  BorderType,
-  ThresholdType,
+  ChartLineBorderType,
+  ChartLineThresholdType,
   LineData,
 } from './index.js'
 
@@ -37,11 +37,11 @@ export default {
       control: { type: 'range', min: 3, max: 24, step: 1 },
     },
     border: {
-      options: getOptions(BorderType),
+      options: getOptions(ChartLineBorderType),
       control: 'inline-radio',
     },
     thresholdType: {
-      options: getOptions(ThresholdType),
+      options: getOptions(ChartLineThresholdType),
       control: 'inline-radio',
     },
     demoCount: {
