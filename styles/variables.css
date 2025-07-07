@@ -11,6 +11,9 @@
   --lido-ui-border-radius-50: 50px;
   --lido-ui-border-radius-60: 60px;
   --lido-ui-border-radius-70: 70px;
+  --lido-ui-select-size-l: 68px;
+  --lido-ui-select-size-m: 60px;
+  --lido-ui-select-size-s: 48px;
 
   /* easings */
   --ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);

@@ -92,6 +92,7 @@ export const Select = forwardRef(
         className={cn(className, styles.dropdown)}
         open={_open}
         items={items}
+        disabled={disabled}
         onOpenChange={setOpen}
       >
         <div

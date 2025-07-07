@@ -1,8 +1,3 @@
-.dropdown {
-  font-family: var(--lido-ui-font-family);
-  position: relative;
-}
-
 .inputContainer {
   position: relative;
   width: 100%;
@@ -33,27 +28,19 @@
   box-sizing: border-box;
   background-color: transparent;
   outline: none;
-  border: 1px solid var(--lido-ui-color-borders-default);
+  border: none;
+  user-select: none;
   color: var(--lido-ui-color-text-primary);
-  transition:
-    color 0.3s ease-in-out,
-    border-color 0.3s ease-in-out 0s,
-    border-bottom-color 0.3s ease-in-out 0s,
-    border-radius 0.1s ease-in-out 0.2s;
+  transition: color 0.3s ease-in-out;
 
   &::placeholder {
     color: var(--lido-ui-color-text-primary);
     transition: color 0.3s ease-in-out;
   }
 
-  &:hover {
-    border-color: var(--lido-ui-color-borders-hover);
-  }
-
   &:disabled {
     color: var(--lido-ui-color-text-quaternary);
     cursor: not-allowed;
-    border-color: var(--lido-ui-color-borders-default);
 
     &::placeholder {
       color: var(--lido-ui-color-text-quaternary);
@@ -61,22 +48,14 @@
   }
 
   &.open {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-color: var(--lido-ui-color-borders-hover);
-    border-bottom-color: transparent;
-    transition:
-      color 0.3s ease-in-out,
-      border-color 0s ease-in-out,
-      border-bottom-color 0s ease-in-out,
-      border-radius 0s ease-in-out;
+    transition: color 0.3s ease-in-out;
   }
 }
 
 /* Input size styles */
 .input--size-L {
   padding: 18px 42px 18px 28px;
-  height: 68px;
+  height: var(--lido-ui-select-size-l);
   border-radius: var(--lido-ui-border-radius-34);
 
   &.withIcon {
@@ -86,7 +65,7 @@
 
 .input--size-M {
   padding: 14px 38px 14px 24px;
-  height: 60px;
+  height: var(--lido-ui-select-size-m);
   border-radius: var(--lido-ui-border-radius-30);
 
   &.withIcon {
@@ -96,7 +75,7 @@
 
 .input--size-S {
   padding: 8px 38px 8px 24px;
-  height: 48px;
+  height: var(--lido-ui-select-size-s);
   border-radius: var(--lido-ui-border-radius-24);
 
   &.withIcon {
@@ -111,11 +90,11 @@
   top: calc(50% - 24px / 2);
   width: 24px;
   height: 24px;
-  transition: transform 0.2s ease-in-out 0.2s;
+  transition: transform 0.15s ease-in-out 0.15s;
 
   &.open {
     transform: rotate(180deg);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.15s ease-in-out;
   }
 
   &.disabled {

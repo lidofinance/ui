@@ -24,6 +24,7 @@ export type DropdownProps = Omit<ComponentPropsWithoutRef<'div'>, 'size'> & {
   open?: boolean
   items?: DropdownItem[]
   onOpenChange?: (open: boolean) => unknown
+  disabled?: boolean
 }
 
 export const Dropdown = ({
@@ -33,11 +34,12 @@ export const Dropdown = ({
   className,
   children,
   onOpenChange,
+  disabled,
 }: DropdownProps) => {
   const { getCollapseProps, isExpanded, setExpanded } = useCollapse({
     isExpanded: _open,
     // Different animation duration for opening and closing
-    duration: 200,
+    duration: 150,
   })
 
   const { ref: outsideClickRef } = useOutsideClick(() => {
@@ -78,36 +80,40 @@ export const Dropdown = ({
     >
       {children}
       <div
-        {...getCollapseProps()}
-        className={cn(styles.overlay, {
+        className={cn(styles.overlay, styles[`overlay--size-${size}`], {
           [styles.isOpen]: isExpanded,
           [styles.isWithScroll]: items.length > 5,
+          [styles.isDisabled]: disabled,
         })}
         role='menu'
       >
-        {items.map((item) => (
-          <div
-            key={item.value ?? item.label}
-            className={cn(
-              styles.item,
-              styles[`item--size-${size.toUpperCase()}`],
-              { [styles.withIcon]: !!item.icon },
-            )}
-            onClick={item.onClick as MouseEventHandler<HTMLDivElement>}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                // Cast keyboard event to mouse event for onClick handler
-                item.onClick?.(e as unknown as React.MouseEvent<HTMLDivElement>)
-              }
-            }}
-            role='menuitem'
-            tabIndex={0}
-          >
-            {item.icon && renderIcon(item.icon, size, styles)}
-            {item.label}
-          </div>
-        ))}
+        <div {...getCollapseProps()} className={styles.overlayInner}>
+          {items.map((item) => (
+            <div
+              key={item.value ?? item.label}
+              className={cn(
+                styles.item,
+                styles[`item--size-${size.toUpperCase()}`],
+                { [styles.withIcon]: !!item.icon },
+              )}
+              onClick={item.onClick as MouseEventHandler<HTMLDivElement>}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  // Cast keyboard event to mouse event for onClick handler
+                  item.onClick?.(
+                    e as unknown as React.MouseEvent<HTMLDivElement>,
+                  )
+                }
+              }}
+              role='menuitem'
+              tabIndex={0}
+            >
+              {item.icon && renderIcon(item.icon, size, styles)}
+              {item.label}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

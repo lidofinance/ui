@@ -4,16 +4,69 @@
 }
 
 .overlay {
+  --local-ui-dropdown-border-radius-l: var(--lido-ui-border-radius-34);
+  --local-ui-dropdown-border-radius-m: var(--lido-ui-border-radius-30);
+  --local-ui-dropdown-border-radius-s: var(--lido-ui-border-radius-24);
+
   position: absolute;
   width: 100%;
-  top: 100%;
-  border-radius: var(--lido-ui-border-radius-34);
-  border: 1px solid var(--lido-ui-color-borders-hover);
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-top: none;
+  top: 0;
+  border: 1px solid var(--lido-ui-color-borders-default);
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+
+  &:hover {
+    border-color: var(--lido-ui-color-borders-hover);
+  }
+
+  &.isOpen {
+    border-color: var(--lido-ui-color-borders-hover);
+  }
+
+  &.isDisabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.overlay--size-l {
+  /* 1.5px is a hack to make the dropdown border match the input size */
+  padding-top: calc(var(--lido-ui-select-size-l) - 1.5px);
+  border-radius: var(--local-ui-dropdown-border-radius-l);
+
+  .overlayInner {
+    border-bottom-left-radius: var(--local-ui-dropdown-border-radius-l);
+    border-bottom-right-radius: var(--local-ui-dropdown-border-radius-l);
+  }
+}
+
+.overlay--size-m {
+  /* 1.5px is a hack to make the dropdown border match the input size */
+  padding-top: calc(var(--lido-ui-select-size-m) - 1.5px);
+  border-radius: var(--local-ui-dropdown-border-radius-m);
+
+  .overlayInner {
+    border-bottom-left-radius: var(--local-ui-dropdown-border-radius-m);
+    border-bottom-right-radius: var(--local-ui-dropdown-border-radius-m);
+  }
+}
+
+.overlay--size-s {
+  /* 1.5px is a hack to make the dropdown border match the input size */
+  padding-top: calc(var(--lido-ui-select-size-s) - 1.5px);
+  border-radius: var(--local-ui-dropdown-border-radius-s);
+
+  .overlayInner {
+    border-bottom-left-radius: var(--local-ui-dropdown-border-radius-s);
+    border-bottom-right-radius: var(--local-ui-dropdown-border-radius-s);
+  }
+}
+
+.overlayInner {
+  position: relative;
   background-color: rgb(255 255 255 / 1%);
   backdrop-filter: blur(30px);
+  user-select: none;
   z-index: 2;
 }
 
