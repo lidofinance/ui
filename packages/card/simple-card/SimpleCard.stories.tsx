@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { RichCard, RichCardProps } from './RichCard'
+import { SimpleCard, SimpleCardProps } from './SimpleCard'
 
 export default {
-  component: RichCard,
-  title: 'Cards/RichCard',
+  component: SimpleCard,
+  title: 'Cards/SimpleCard',
   args: {
     title: 'Name',
     href: 'https://lido.fi',
@@ -20,24 +20,24 @@ export default {
   },
 } satisfies Meta
 
-export const Basic: StoryFn<RichCardProps> = (props) => {
+export const Basic: StoryFn<SimpleCardProps> = (props) => {
   return (
     <div style={{ width: '500px' }}>
-      <RichCard {...props} />
+      <SimpleCard {...props} />
     </div>
   )
 }
 
-export const AllStates: StoryFn<RichCardProps> = (props) => {
+export const AllStates: StoryFn<SimpleCardProps> = (props) => {
   return (
     <>
       <div style={{ width: '500px' }}>
-        <RichCard {...props} />
+        <SimpleCard {...props} />
       </div>
 
       <br />
       <div style={{ width: '600px' }}>
-        <RichCard
+        <SimpleCard
           titleImgSrc={props.titleImgSrc}
           title={props.title}
           text={props.text}
@@ -46,7 +46,7 @@ export const AllStates: StoryFn<RichCardProps> = (props) => {
       </div>
       <br />
       <div style={{ width: '400px' }}>
-        <RichCard
+        <SimpleCard
           titleImgSrc={props.titleImgSrc}
           title={props.title}
           href='https://lido.fi'

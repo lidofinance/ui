@@ -2,9 +2,9 @@ import cn from 'classnames'
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { Link } from '../../links'
 import { Tag } from '../../tag'
-import styles from './RichCard.module.css'
+import styles from './SimpleCard.module.css'
 
-export type RichCardDataTestId = {
+export type SimpleCardDataTestId = {
   root?: string
   button?: string
   title?: string
@@ -13,7 +13,7 @@ export type RichCardDataTestId = {
   description?: string
 }
 
-export type RichCardProps = ComponentPropsWithoutRef<'div'> & {
+export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
   title: string
   text: string
   href?: string
@@ -22,10 +22,10 @@ export type RichCardProps = ComponentPropsWithoutRef<'div'> & {
   logosArray?: string[]
   extraLogosAmount?: number
   learnMoreLink?: string
-  dataTestId?: RichCardDataTestId
+  dataTestId?: SimpleCardDataTestId
 }
 
-export const RichCard = forwardRef(
+export const SimpleCard = forwardRef(
   (
     {
       title,
@@ -39,7 +39,7 @@ export const RichCard = forwardRef(
       extraLogosAmount,
       className,
       ...rest
-    }: RichCardProps,
+    }: SimpleCardProps,
     ref?: ForwardedRef<HTMLDivElement> | ForwardedRef<HTMLAnchorElement>,
   ) => {
     const logosToShow = logosArray?.slice(0, 2)
@@ -114,4 +114,4 @@ export const RichCard = forwardRef(
   },
 )
 
-RichCard.displayName = 'RichCard'
+SimpleCard.displayName = 'SimpleCard'
