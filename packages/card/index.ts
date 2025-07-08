@@ -1,2 +1,2 @@
 export * from './slider-card/SliderCard'
-export * from './rich-card/RichCard'
+export * from './simple-card/SimpleCard'

@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { RichCard, RichCardProps } from './RichCard'
+import { SimpleCard, SimpleCardProps } from './SimpleCard'
 
 export default {
-  component: RichCard,
-  title: 'Cards/RichCard',
+  component: SimpleCard,
+  title: 'Cards/SimpleCard',
   args: {
     title: 'Name',
     href: 'https://lido.fi',
@@ -20,33 +20,49 @@ export default {
   },
 } satisfies Meta
 
-export const Basic: StoryFn<RichCardProps> = (props) => {
+export const Basic: StoryFn<SimpleCardProps> = (props) => {
   return (
     <div style={{ width: '500px' }}>
-      <RichCard {...props} />
+      <SimpleCard {...props} />
     </div>
   )
 }
 
-export const AllStates: StoryFn<RichCardProps> = (props) => {
+export const AllStates: StoryFn<SimpleCardProps> = (props) => {
   return (
     <>
       <div style={{ width: '500px' }}>
-        <RichCard {...props} />
+        <SimpleCard {...props} />
       </div>
 
       <br />
-      <div style={{ width: '600px' }}>
-        <RichCard
+      <div
+        style={{
+          width: '600px',
+
+          display: 'flex',
+          flexDirection: 'row',
+          gap: '10px',
+        }}
+      >
+        <SimpleCard
+          style={{ width: '300px' }}
           titleImgSrc={props.titleImgSrc}
           title={props.title}
           text={props.text}
           logosArray={['https://lido.fi/static/index/defi/mellow.svg']}
         />
+        <SimpleCard
+          style={{ width: '300px' }}
+          titleImgSrc={props.titleImgSrc}
+          title={'veery veery long title, so long so long title ' + props.title}
+          text={'veery veery long text very veery long text ' + props.text}
+          logosArray={['https://lido.fi/static/index/defi/mellow.svg']}
+        />
       </div>
       <br />
       <div style={{ width: '400px' }}>
-        <RichCard
+        <SimpleCard
           titleImgSrc={props.titleImgSrc}
           title={props.title}
           href='https://lido.fi'
@@ -56,4 +72,8 @@ export const AllStates: StoryFn<RichCardProps> = (props) => {
       </div>
     </>
   )
+}
+
+AllStates.parameters = {
+  controls: { disable: true },
 }

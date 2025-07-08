@@ -1,22 +1,26 @@
 .card {
   font-family: var(--lido-ui-font-family);
   position: relative;
-  padding: 30px;
-  color: var(--deprecated-lido-ui-color-primary);
+  padding: 32px;
+  color: var(--lido-ui-color-text-tertiary);
   width: 100%;
   border-radius: var(--lido-ui-border-radius-40);
-  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
+  border: 1px solid var(--lido-ui-color-borders-default);
   justify-content: space-between;
   display: block;
   transition: none;
+  background: var(--lido-ui-color-backgrounds-cards);
 
   &:hover {
+    border: 1px solid var(--lido-ui-color-borders-hover);
+    background: var(--lido-ui-color-backgrounds-cards-hover);
+
     .headerLogos {
       display: flex;
     }
 
     .titleItem {
-      color: var(--deprecated-lido-ui-color-primary);
+      color: var(--lido-ui-color-text-primary);
     }
   }
 }
@@ -26,10 +30,18 @@
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
+  border: 1px solid var(--lido-ui-color-borders-default);
   box-sizing: border-box;
-  width: 86px;
-  height: 86px;
+  width: 100px;
+  height: 100px;
+  padding: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 100%;
+  }
 }
 
 .header {
@@ -52,20 +64,20 @@
 .headerLogo {
   width: 38px;
   height: 38px;
-  background: #f0f0f0;
-  border-radius: 40px;
+  background: var(--lido-ui-color-backgrounds-grey);
+  border-radius: 30px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
   &.empty {
+    @mixin font-body-large;
+
     border-radius: 40px;
     background: rgb(0 0 0 / 6%);
     backdrop-filter: blur(12px);
-    font-size: var(--deprecated-lido-ui-font-size-body);
-    line-height: var(--deprecated-lido-ui-line-height-body);
-    color: var(--deprecated-lido-ui-color-primary-50);
+    color: var(--lido-ui-color-text-tertiary);
   }
 }
 
@@ -82,7 +94,7 @@
   width: 86px;
   height: 86px;
   border-radius: 100%;
-  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
+  border: 1px solid var(--lido-ui-color-borders-default);
   box-sizing: border-box;
 }
 
@@ -95,34 +107,38 @@
 }
 
 .titleItem {
-  font-size: var(--deprecated-lido-ui-font-size-subheader);
-  line-height: var(--deprecated-lido-ui-line-height-subheader);
-  font-weight: var(--lido-ui-font-weight-regular);
+  @mixin font-h5;
+
+  color: var(--lido-ui-color-text-primary);
   margin-bottom: 4px;
 }
 
 .descriptionItem {
-  font-size: var(--deprecated-lido-ui-font-size-body);
-  line-height: var(--deprecated-lido-ui-line-height-body);
-  color: var(--deprecated-lido-ui-color-primary-7-static);
-  font-weight: var(--lido-ui-font-weight-regular);
+  @mixin font-body;
+
+  color: var(--lido-ui-color-text-tertiary);
   margin-bottom: 16px;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  height: 100%;
 }
 
 @media (width <= 899px) {
   .card {
-    padding: 20px;
+    padding: 24px;
 
     &:hover {
       .headerLogos {
         display: none;
       }
     }
+  }
+
+  .titleImage {
+    width: 68px;
+    height: 68px;
+    padding: 0;
   }
 }
