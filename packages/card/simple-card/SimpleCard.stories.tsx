@@ -36,11 +36,27 @@ export const AllStates: StoryFn<SimpleCardProps> = (props) => {
       </div>
 
       <br />
-      <div style={{ width: '600px' }}>
+      <div
+        style={{
+          width: '600px',
+
+          display: 'flex',
+          flexDirection: 'row',
+          gap: '10px',
+        }}
+      >
         <SimpleCard
+          style={{ width: '300px' }}
           titleImgSrc={props.titleImgSrc}
           title={props.title}
           text={props.text}
+          logosArray={['https://lido.fi/static/index/defi/mellow.svg']}
+        />
+        <SimpleCard
+          style={{ width: '300px' }}
+          titleImgSrc={props.titleImgSrc}
+          title={'veery veery long title, so long so long title ' + props.title}
+          text={'veery veery long text very veery long text ' + props.text}
           logosArray={['https://lido.fi/static/index/defi/mellow.svg']}
         />
       </div>
@@ -56,4 +72,8 @@ export const AllStates: StoryFn<SimpleCardProps> = (props) => {
       </div>
     </>
   )
+}
+
+AllStates.parameters = {
+  controls: { disable: true },
 }

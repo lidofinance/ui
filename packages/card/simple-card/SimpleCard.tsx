@@ -23,6 +23,7 @@ export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
   extraLogosAmount?: number
   learnMoreLink?: string
   dataTestId?: SimpleCardDataTestId
+  onLearnMoreClick?: () => void
 }
 
 export const SimpleCard = forwardRef(
@@ -38,6 +39,7 @@ export const SimpleCard = forwardRef(
       learnMoreLink,
       extraLogosAmount,
       className,
+      onLearnMoreClick,
       ...rest
     }: SimpleCardProps,
     ref?: ForwardedRef<HTMLDivElement> | ForwardedRef<HTMLAnchorElement>,
@@ -75,7 +77,11 @@ export const SimpleCard = forwardRef(
         >
           {text}
           {learnMoreLink && (
-            <Link target='_blank' href={learnMoreLink}>
+            <Link
+              target='_blank'
+              href={learnMoreLink}
+              onClick={() => onLearnMoreClick?.()}
+            >
               &nbsp;Learn more
             </Link>
           )}
