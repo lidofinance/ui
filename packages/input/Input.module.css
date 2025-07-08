@@ -321,3 +321,40 @@
 .input[type='search']::-webkit-search-results-decoration {
   display: none;
 }
+
+/* Input button styles - override Button component styles for use inside Input */
+.inputButton--size-l {
+  --local-button-vertical-padding: 10px;
+  --local-button-horizontal-padding: 20px;
+  --local-button-border-radius: var(--lido-ui-border-radius-34);
+
+  min-width: 52px;
+  height: 52px;
+  padding: var(--local-button-vertical-padding)
+    var(--local-button-horizontal-padding);
+  border-radius: var(--local-button-border-radius);
+}
+
+.inputButton--size-m {
+  --local-button-vertical-padding: 8px;
+  --local-button-horizontal-padding: 20px;
+  --local-button-border-radius: var(--lido-ui-border-radius-30);
+
+  min-width: 48px;
+  height: 48px;
+  padding: var(--local-button-vertical-padding)
+    var(--local-button-horizontal-padding);
+  border-radius: var(--local-button-border-radius);
+}
+
+.inputButton--size-s {
+  --local-button-vertical-padding: 4px;
+  --local-button-horizontal-padding: 16px;
+  --local-button-border-radius: var(--lido-ui-border-radius-24);
+
+  min-width: 40px;
+  height: 40px;
+  padding: var(--local-button-vertical-padding)
+    var(--local-button-horizontal-padding);
+  border-radius: var(--local-button-border-radius);
+}

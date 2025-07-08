@@ -17,7 +17,7 @@ import {
   ValidationState,
 } from './hooks/useInputValidation.hook'
 import { useInputState } from './hooks/useInputState.hook'
-import { useInputStyles, InputSize } from './hooks/useInputStyles.hook'
+import { useButtonSize } from './hooks/useButtonSize.hook'
 import {
   renderRightDecorator,
   RightDecoratorButton,
@@ -32,6 +32,8 @@ export type InputDataTestId = {
 }
 
 export type InputVariant = 'label' | 'placeholder'
+
+export type InputSize = 's' | 'm' | 'l'
 
 export type InputProps = Omit<
   ComponentPropsWithoutRef<'input'>,
@@ -90,8 +92,7 @@ export const Input = forwardRef(
       initialValue: value !== undefined ? String(value) : undefined,
     })
 
-    // Extract input style calculations
-    const { buttonStyle, buttonSize } = useInputStyles({ size })
+    const { buttonSize } = useButtonSize({ size })
 
     // Get icon element if provided
     const iconElement = useMemo(() => getIconElement(icon), [icon])
@@ -194,7 +195,7 @@ export const Input = forwardRef(
                 {renderRightDecorator({
                   rightDecorator,
                   rightDecoratorType,
-                  buttonStyle,
+                  buttonClassName: styles[`inputButton--size-${size}`],
                   disabled,
                   buttonSize,
                 })}

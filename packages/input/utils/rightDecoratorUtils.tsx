@@ -26,7 +26,7 @@ export type RightDecoratorButton = Omit<RightDecoratorButtonProps, 'type'> & {
 type RenderRightDecoratorParams = {
   rightDecorator?: ReactNode | RightDecoratorButton
   rightDecoratorType?: RightDecoratorType
-  buttonStyle: React.CSSProperties
+  buttonClassName: string
   disabled?: boolean
   buttonSize: ButtonSize
 }
@@ -34,7 +34,7 @@ type RenderRightDecoratorParams = {
 export const renderRightDecorator = ({
   rightDecorator,
   rightDecoratorType = 'element',
-  buttonStyle,
+  buttonClassName,
   disabled = false,
   buttonSize,
 }: RenderRightDecoratorParams): ReactNode => {
@@ -53,7 +53,7 @@ export const renderRightDecorator = ({
         size={buttonSize}
         color='primary'
         type={buttonType}
-        style={buttonStyle}
+        className={buttonClassName}
         disabled={disabled || buttonDisabled}
         {...buttonProps}
       >
