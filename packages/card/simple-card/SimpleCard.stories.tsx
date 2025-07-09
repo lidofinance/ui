@@ -10,6 +10,7 @@ export default {
     href: 'https://lido.fi',
     text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
     titleImg: <MetamaskIcon />,
+    featuredText: 'Featured',
     tags: ['one', 'two', 'three'],
     extraLogosAmount: 2,
     learnMoreLink: 'https://example.com',

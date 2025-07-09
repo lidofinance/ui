@@ -19,6 +19,7 @@ export type SimpleCardDataTestId = {
 }
 
 export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
+  featuredText?: string
   title: string
   text: string
   href?: string
@@ -37,6 +38,7 @@ export const SimpleCard = forwardRef(
       title,
       text,
       titleImg,
+      featuredText,
       tags,
       logosArray,
       href,
@@ -54,6 +56,15 @@ export const SimpleCard = forwardRef(
       <>
         <div className={styles.header}>
           {titleImg && <div className={styles.titleImage}>{titleImg}</div>}
+          {featuredText && (
+            <Tag
+              className={styles.featuredTag}
+              variant='primary'
+              color='highlighted'
+            >
+              {featuredText}
+            </Tag>
+          )}
           <div className={styles.headerLogos} data-testid={dataTestId?.logos}>
             {logosToShow?.map((logo, index) => (
               <div key={index} className={styles.headerLogo}>
