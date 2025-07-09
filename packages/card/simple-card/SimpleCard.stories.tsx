@@ -41,7 +41,8 @@ export const AllStates: StoryFn<SimpleCardProps> = (props) => {
       <div
         style={{
           width: '600px',
-
+          backgroundColor: 'pink',
+          padding: '20px',
           display: 'flex',
           flexDirection: 'row',
           gap: '10px',
