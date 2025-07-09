@@ -1,0 +1,65 @@
+.accordion {
+  --local-ui-accordion-content-offset: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  margin-bottom: var(--local-ui-accordion-content-offset);
+
+  &:hover {
+    color: var(--lido-ui-color-text-primary-hover);
+
+    .chevronIcon {
+      color: var(--lido-ui-color-icons-active);
+    }
+  }
+}
+
+.title {
+  @mixin font-h5-bold;
+
+  transition: color 0.2s ease;
+}
+
+.chevronIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+  flex-shrink: 0;
+  color: var(--lido-ui-color-icons-primary);
+  margin-left: 32px;
+
+  &.opened {
+    transform: rotate(180deg);
+  }
+}
+
+.content {
+  @mixin font-body-large;
+
+  color: var(--lido-ui-color-text-secondary);
+
+  a {
+    @mixin font-body-large;
+
+    color: var(--lido-ui-color-text-primary);
+    text-decoration: none;
+  }
+
+  p + p {
+    margin-top: 16px;
+  }
+}
+
+@media (--lido-ui-breakpoint-md-down) {
+  .accordion {
+    --local-ui-accordion-content-offset: 16px;
+  }
+}
