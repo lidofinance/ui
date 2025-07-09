@@ -1,5 +1,10 @@
 import cn from 'classnames'
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  ReactNode,
+} from 'react'
 import { Link } from '../../links'
 import { Tag } from '../../tag'
 import styles from './SimpleCard.module.css'
@@ -17,7 +22,7 @@ export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
   title: string
   text: string
   href?: string
-  titleImgSrc: string
+  titleImg: ReactNode
   tags?: string[]
   logosArray?: string[]
   extraLogosAmount?: number
@@ -31,7 +36,7 @@ export const SimpleCard = forwardRef(
     {
       title,
       text,
-      titleImgSrc,
+      titleImg,
       tags,
       logosArray,
       href,
@@ -48,11 +53,7 @@ export const SimpleCard = forwardRef(
     const cardContents = (
       <>
         <div className={styles.header}>
-          {titleImgSrc && (
-            <div className={styles.titleImage}>
-              <img src={titleImgSrc} width={56} height={56} alt={''} />
-            </div>
-          )}
+          {titleImg && <div className={styles.titleImage}>{titleImg}</div>}
           <div className={styles.headerLogos} data-testid={dataTestId?.logos}>
             {logosToShow?.map((logo, index) => (
               <div key={index} className={styles.headerLogo}>

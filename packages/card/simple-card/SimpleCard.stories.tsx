@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import { MetamaskIcon } from '../../icons'
 import { SimpleCard, SimpleCardProps } from './SimpleCard'
 
 export default {
@@ -8,7 +9,7 @@ export default {
     title: 'Name',
     href: 'https://lido.fi',
     text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
-    titleImgSrc: 'https://lido.fi/static/index/defi/metamask.svg',
+    titleImg: <MetamaskIcon />,
     tags: ['one', 'two', 'three'],
     extraLogosAmount: 2,
     learnMoreLink: 'https://example.com',
@@ -47,14 +48,14 @@ export const AllStates: StoryFn<SimpleCardProps> = (props) => {
       >
         <SimpleCard
           style={{ width: '300px' }}
-          titleImgSrc={props.titleImgSrc}
+          titleImg={props.titleImg}
           title={props.title}
           text={props.text}
           logosArray={['https://lido.fi/static/index/defi/mellow.svg']}
         />
         <SimpleCard
           style={{ width: '300px' }}
-          titleImgSrc={props.titleImgSrc}
+          titleImg={props.titleImg}
           title={'veery veery long title, so long so long title ' + props.title}
           text={'veery veery long text very veery long text ' + props.text}
           logosArray={['https://lido.fi/static/index/defi/mellow.svg']}
@@ -63,7 +64,7 @@ export const AllStates: StoryFn<SimpleCardProps> = (props) => {
       <br />
       <div style={{ width: '400px' }}>
         <SimpleCard
-          titleImgSrc={props.titleImgSrc}
+          titleImg={props.titleImg}
           title={props.title}
           href='https://lido.fi'
           text={props.text}
