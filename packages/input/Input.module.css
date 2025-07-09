@@ -1,118 +1,227 @@
 .container {
+  --local-ui-input-height: 68px;
+
   font-family: var(--lido-ui-font-family);
   position: relative;
   display: flex;
   align-items: stretch;
   box-sizing: border-box;
-}
-
-.fullwidth {
   width: 100%;
 }
 
-/* Base input styles */
 .input {
+  @mixin font-body-large-medium;
+
   width: 100%;
-  font-family: inherit;
-  font-weight: var(--lido-ui-font-weight-regular);
-  font-size: var(--deprecated-lido-ui-font-size-control);
-  line-height: var(--deprecated-lido-ui-line-height-control);
-  color: var(--deprecated-lido-ui-color-primary);
+  color: var(--lido-ui-color-text-primary);
   padding: 0;
   background: transparent;
   box-shadow: none;
   border: none;
   outline: none;
   position: relative;
-  transition: border-color 0.1s ease;
   box-sizing: border-box;
-  min-width: 0; /* Позволяет input сжиматься меньше min-content */
+  min-width: 0;
+  transition: all 0.2s ease-in-out;
+  height: var(--local-ui-input-height);
+
+  &:focus {
+    caret-color: var(--lido-ui-color-borders-hover);
+  }
+
+  &::placeholder {
+    color: var(--lido-ui-color-text-tertiary);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:disabled {
+    color: var(--lido-ui-color-text-quaternary);
+  }
+
+  &:disabled::placeholder {
+    color: var(--lido-ui-color-text-quaternary);
+    position: relative;
+  }
 }
 
-/* Remove search input browser-specific decorations */
-.input[type='search']::-webkit-search-decoration,
-.input[type='search']::-webkit-search-cancel-button,
-.input[type='search']::-webkit-search-results-button,
-.input[type='search']::-webkit-search-results-decoration {
-  display: none;
+.size--l {
+  --local-ui-input-height: 68px;
 }
 
-/* Input content container */
+.size--m {
+  --local-ui-input-height: 60px;
+}
+
+.size--s {
+  --local-ui-input-height: 48px;
+}
+
 .inputContent {
   position: relative;
   display: flex;
   align-items: center;
   flex-grow: 1;
-  gap: 10px;
+  gap: 8px;
   box-sizing: border-box;
   cursor: text;
-  font-weight: var(--lido-ui-font-weight-regular);
-  font-size: var(--deprecated-lido-ui-font-size-control);
-  border: 1px solid var(--deprecated-lido-ui-color-borders-fog);
-  border-radius: var(--lido-ui-border-radius-50);
-  transition: border-color 0.1s ease;
+  border: 1px solid var(--lido-ui-color-borders-default);
+  transition: all 0.3s ease;
+  height: var(--local-ui-input-height);
+  background-color: var(--lido-ui-color-backgrounds-cards);
+
+  &:not(.isDisabled):hover,
+  &:not(.isDisabled):focus-within {
+    background-color: var(--lido-ui-color-backgrounds-cards-hover);
+  }
+
+  &:not(.isDisabled, .isError):hover,
+  &:not(.isDisabled, .isError):focus-within {
+    border-color: var(--lido-ui-color-borders-hover);
+  }
 }
 
-/* Disabled and loading states */
-.inputContent.isDisabled {
+.isDisabled {
+  border-color: var(--lido-ui-color-borders-default);
+  background-color: var(--lido-ui-color-backgrounds-cards);
+  color: var(--lido-ui-color-text-quaternary);
   cursor: default;
+
+  &.withColoredIcon {
+    .leftDecorator {
+      opacity: 0.3;
+    }
+  }
 }
 
-/* Inherit font styles */
-.inputContent input {
-  font-size: inherit;
-  line-height: inherit;
+.isError {
+  border-color: var(--lido-ui-color-borders-error);
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--lido-ui-color-borders-error);
+  }
+
+  .rightDecoratorElement,
+  .floatingLabel {
+    color: var(--lido-ui-color-text-error);
+  }
 }
 
-/* Focus states */
-.inputContent:focus-within {
-  border-color: var(--deprecated-lido-ui-color-borders-water-static);
+.inputContent--size-l {
+  --local-ui-input-height: 68px;
+
+  border-radius: var(--lido-ui-border-radius-34);
+  padding: 18px 28px;
+
+  &.withIcon {
+    padding: 8px 28px 8px 8px;
+  }
+
+  &.withButton {
+    padding: 8px 8px 8px 28px;
+  }
+
+  &.withIcon.withButton {
+    padding: 8px;
+  }
+
+  .leftDecorator {
+    --local-icon-size: 32px;
+    --local-colored-icon-size: 52px;
+
+    padding: 10px;
+  }
 }
 
-.inputContent:focus-within .searchLeftDecorator svg {
-  color: var(--deprecated-lido-ui-color-accent-ocean-static);
+.inputContent--size-m {
+  --local-ui-input-height: 60px;
+
+  border-radius: var(--lido-ui-border-radius-30);
+  padding: 14px 24px;
+
+  &.withIcon {
+    padding: 6px 24px 6px 6px;
+  }
+
+  &.withButton {
+    padding: 6px 6px 6px 24px;
+  }
+
+  &.withIcon.withButton {
+    padding: 6px;
+  }
+
+  .leftDecorator {
+    --local-icon-size: 32px;
+    --local-colored-icon-size: 48px;
+
+    padding: 8px;
+  }
 }
 
-.inputContent.search:focus-within input::placeholder {
-  color: var(--deprecated-lido-ui-color-borders-water-static);
+.inputContent--size-s {
+  --local-ui-input-height: 48px;
+
+  border-radius: var(--lido-ui-border-radius-24);
+  padding: 8px 18px;
+
+  &.withIcon {
+    padding: 4px 18px 4px 4px;
+  }
+
+  &.withButton {
+    padding: 4px 4px 4px 18px;
+  }
+
+  &.withIcon.withButton {
+    padding: 4px;
+  }
+
+  .leftDecorator {
+    --local-icon-size: 32px;
+    --local-colored-icon-size: 40px;
+
+    padding: 4px;
+  }
 }
 
-/* Hover states (not for disabled or error) */
-.inputContent:not(.isDisabled, .isError):hover {
-  border-color: var(--deprecated-lido-ui-color-borders-water-static);
+.withColoredIcon {
+  .leftDecorator {
+    padding: 0;
+  }
 }
 
-.inputContent:not(.isDisabled, .isError):hover .searchLeftDecorator svg {
-  color: var(--deprecated-lido-ui-color-accent-ocean-static);
-}
+/* Floating label animation - only for inputs with withFloatingLabel */
+.withFloatingLabel {
+  .input {
+    &:focus:not(:disabled),
+    &:active:not(:disabled),
+    &:not(:placeholder-shown) {
+      padding-top: 15px;
 
-.inputContent.search:not(.isDisabled, .isError):hover input::placeholder {
-  color: var(--deprecated-lido-ui-color-borders-water-static);
-}
+      &::placeholder {
+        color: transparent;
+      }
 
-/* Focus and input styles */
-.input:focus {
-  caret-color: var(--deprecated-lido-ui-color-borders-water-static);
-}
+      & ~ .floatingLabel {
+        opacity: 1;
+        top: 8px;
+      }
+    }
+  }
 
-.inputContent:not(.isDisabled, .isError) .input[type='search']:hover {
-  caret-color: var(--deprecated-lido-ui-color-borders-water-static);
-}
+  .inputWrapper:focus-within .rightDecoratorElement {
+    margin-top: 15px;
+    transition: margin-top 0.2s ease-in-out;
+  }
 
-.input::placeholder {
-  color: var(--deprecated-lido-ui-color-primary-50);
-  transition: color 0.1s ease;
+  .inputWrapper:has(.input:not(:placeholder-shown)) .rightDecoratorElement {
+    margin-top: 15px;
+    transition: margin-top 0.2s ease-in-out;
+  }
 }
 
 /* Structure components */
-.inputControlWrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: auto;
-}
-
 .inputWrapper {
   position: relative;
   display: flex;
@@ -129,208 +238,55 @@
   min-width: 0;
 }
 
-.inputInnerWrapperWithLeftDecorator {
-  transform: translateX(-4px);
-}
-
-/* Size variants - consolidated padding rules */
-.size--m {
-  height: 46px;
-}
-
-.size--l {
-  height: 60px;
-}
-
-.size--xl {
-  height: 70px;
-}
-
-.padding--m {
-  padding: 7px 4px 7px 7px;
-}
-
-.padding--l {
-  padding: 7px 6px 7px 7px;
-}
-
-.padding--xl {
-  padding: 7px;
-}
-
-/* Padding adjustments for different states */
-.size--m.noLeftDecorator:not(.search),
-.size--l.noLeftDecorator:not(.search) {
-  padding-left: 16px;
-}
-
-.size--xl.noLeftDecorator:not(.search) {
-  padding-left: 18px;
-}
-
-.size--m.search,
-.size--l.search,
-.size--xl.search {
-  padding-left: 25px;
-}
-
-/* Additional right padding adjustments per size */
-.size--m:not(:has(.rightDecorator)),
-.size--l:not(:has(.rightDecorator)),
-.size--xl:not(:has(.rightDecorator)) {
-  padding-right: 16px;
-}
-
-/* Accent color */
-.accentColor {
-  color: var(--deprecated-lido-ui-color-borders-water);
-}
-
-/* State styles */
-.isDisabled {
-  border-color: var(--deprecated-lido-ui-color-borders-fog);
-  background-color: var(--deprecated-lido-ui-color-primary-8);
-}
-
-.input:disabled {
-  color: var(--deprecated-lido-ui-color-primary-20);
-}
-
-.input:disabled::placeholder {
-  color: var(--deprecated-lido-ui-color-primary-20);
-  position: relative;
-}
-
-.isError {
-  border-color: var(--deprecated-lido-ui-color-accent-berry-static);
-}
-
-.isError:hover,
-.isError:focus-within {
-  border-color: var(--deprecated-lido-ui-color-accent-berry-static);
-  color: var(--deprecated-lido-ui-color-accent-berry-static);
-}
-
 /* Decorators */
 .rightDecorator {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: var(--lido-ui-spacing-8);
   white-space: nowrap;
 }
 
 .rightDecoratorElement {
+  @mixin font-description;
+
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.rightDecoratorText {
-  color: var(--deprecated-lido-ui-color-primary-50);
+  color: var(--lido-ui-color-text-tertiary);
   white-space: nowrap;
-  letter-spacing: 0;
   text-align: right;
-  vertical-align: bottom;
-  margin-top: auto;
-  margin-bottom: 12px;
-  font-size: var(--deprecated-lido-ui-font-size-description);
-  line-height: var(--deprecated-lido-ui-line-height-description);
 }
 
-/* Right decorator margins by size */
-.size--m .rightDecoratorText {
-  margin-right: 10px;
-}
-
-.size--l .rightDecoratorText {
-  margin-right: 16px;
-}
-
-.size--xl .rightDecoratorText {
-  margin-right: 19px;
-}
-
-.size--m .rightDecoratorElement {
-  margin-right: 6px;
-}
-
-.size--l .rightDecoratorElement {
-  margin-right: 10px;
-}
-
-.size--xl .rightDecoratorElement {
-  margin-right: 16px;
-}
-
-.rightDecoratorButton {
-  display: flex;
-  white-space: nowrap;
-  justify-content: center;
-}
-
-/* Left decorator */
+/* Icon decorator */
 .leftDecorator {
   position: relative;
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  cursor: inherit;
-}
-
-.leftDecorator > * {
-  width: 40px;
-  height: 40px;
-}
-
-.leftDecoratorSizeM {
-  padding: 5px;
-}
-
-.leftDecoratorSizeL,
-.leftDecoratorSizeXL {
-  padding: 5px 5px 5px 10px;
-}
-
-.leftDecoratorSizeXL > * {
-  width: 46px;
-  height: 46px;
-}
-
-/* Search left decorator */
-.searchLeftDecorator {
-  flex-grow: 0;
-  flex-shrink: 0;
-  cursor: inherit;
-  display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  width: auto;
-  height: auto;
-  padding: 0;
-  right: unset;
+  cursor: inherit;
+
+  .icon {
+    width: var(--local-icon-size);
+    height: var(--local-icon-size);
+    pointer-events: none;
+  }
+
+  .colored {
+    width: var(--local-colored-icon-size);
+    height: var(--local-colored-icon-size);
+  }
 }
 
-.searchLeftDecorator > * {
-  --local-icon-size: 24px;
-
-  width: var(--local-icon-size);
-  height: var(--local-icon-size);
-  align-self: center;
-  color: var(--deprecated-lido-ui-color-primary);
-  transition: color 0.1s ease;
-}
-
-/* Error display */
 .error {
+  @mixin font-description-bold;
+
   margin-top: 4px;
   left: 0;
   position: absolute;
   top: 100%;
-  font-weight: var(--lido-ui-font-weight-bold);
-  font-size: var(--deprecated-lido-ui-font-size-description);
-  border-radius: var(--lido-ui-border-radius-40);
+  border-radius: var(--lido-ui-border-radius-34);
   padding: 6px 16px;
   white-space: nowrap;
   overflow: hidden;
@@ -338,119 +294,67 @@
   text-overflow: ellipsis;
   max-width: calc(100% + 2px);
   z-index: 3;
-  background: var(--deprecated-lido-ui-color-accent-berry-static);
-  color: var(--deprecated-lido-ui-color-background);
+  background: var(--lido-ui-color-backgrounds-error);
+  color: var(--lido-ui-color-text-error);
 }
 
-/* Dark theme overrides */
-.dark .input {
-  color: var(--deprecated-lido-ui-color-secondary);
-}
-
-.dark .input::placeholder {
-  color: var(--deprecated-lido-ui-color-secondary-72);
-}
-
-.dark .inputContent {
-  border-color: var(--deprecated-lido-ui-color-borders-light);
-}
-
-.dark .inputContent:focus-within {
-  border-color: var(--deprecated-lido-ui-color-accent-ocean-60);
-}
-
-.dark .inputContent:focus-within .searchLeftDecorator svg {
-  color: var(--deprecated-lido-ui-color-accent-ocean-60);
-}
-
-.dark .inputContent.search:focus-within input::placeholder {
-  color: var(--deprecated-lido-ui-color-accent-ocean-60);
-}
-
-.dark .inputContent:not(.isDisabled, .isError):hover {
-  border-color: rgb(128 192 251 / 60%);
-}
-
-.dark .inputContent:not(.isDisabled, .isError):hover .searchLeftDecorator svg {
-  color: rgb(128 192 251 / 60%);
-}
-
-.dark .inputContent.search:not(.isDisabled, .isError):hover input::placeholder {
-  color: rgb(128 192 251 / 60%);
-}
-
-.dark .searchLeftDecorator > * {
-  color: var(--deprecated-lido-ui-color-borders-light);
-}
-
-.dark .input:focus {
-  caret-color: var(--deprecated-lido-ui-color-accent-ocean-60);
-}
-
-/* Floating label */
 .floatingLabel {
+  @mixin font-description;
+
   position: absolute;
-  left: 2px;
-  color: var(--deprecated-lido-ui-color-primary-50);
-  transition: all 0.2s ease;
+  left: 0;
+  top: 0;
+  color: var(--lido-ui-color-text-tertiary);
+  transition: all 0.2s ease-in-out;
   pointer-events: none;
-  transform-origin: left top;
-  font-size: var(--deprecated-lido-ui-font-size-control);
-  line-height: var(--deprecated-lido-ui-line-height-control);
-  background: transparent;
-  padding: 0 4px;
   width: calc(100% - 24px);
   white-space: nowrap;
   overflow: hidden;
   z-index: 1;
+  opacity: 0;
 }
 
-/* Floating label positioning by size */
-.size--l .floatingLabel {
-  top: 18px;
-}
-
-.size--xl .floatingLabel {
-  top: 22px;
-}
-
-/* Focused and filled input label transformation */
-.size--l:not(.search) .inputInnerWrapper .input:focus,
-.size--l:not(.search) .inputInnerWrapper .input:not(:placeholder-shown) {
-  transform: translateY(9px) translateX(9px);
-}
-
-.size--xl:not(.search) .inputInnerWrapper .input:focus,
-.size--xl:not(.search) .inputInnerWrapper .input:not(:placeholder-shown) {
-  transform: translateY(11px) translateX(9px);
-}
-
-.size--l .inputInnerWrapper .input:focus ~ .floatingLabel,
-.size--l .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
-  transform: translateY(-12px) translateX(4px) scale(0.75);
-}
-
-.size--xl .inputInnerWrapper .input:focus ~ .floatingLabel,
-.size--xl .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
-  transform: translateY(-11px) translateX(4px) scale(0.75);
-}
-
-.inputContent.search .input {
-  transform: translateX(5px);
-}
-
-/* Label states */
-.isError .inputInnerWrapper .input:focus ~ .floatingLabel,
-.isError .inputInnerWrapper .input:not(:placeholder-shown) ~ .floatingLabel {
-  color: var(--deprecated-lido-ui-color-primary-50);
-}
-
-/* Fixing disabled and loading state label colors */
-.isDisabled .inputInnerWrapper .floatingLabel {
-  color: var(--deprecated-lido-ui-color-primary-20);
-}
-
-/* Hide label for search */
-.search .inputInnerWrapper .floatingLabel {
+/* Remove search input browser-specific decorations */
+.input[type='search']::-webkit-search-decoration,
+.input[type='search']::-webkit-search-cancel-button,
+.input[type='search']::-webkit-search-results-button,
+.input[type='search']::-webkit-search-results-decoration {
   display: none;
+}
+
+/* Input button styles - override Button component styles for use inside Input */
+.inputButton--size-l {
+  --local-button-vertical-padding: 10px;
+  --local-button-horizontal-padding: 20px;
+  --local-button-border-radius: var(--lido-ui-border-radius-34);
+
+  min-width: 52px;
+  height: 52px;
+  padding: var(--local-button-vertical-padding)
+    var(--local-button-horizontal-padding);
+  border-radius: var(--local-button-border-radius);
+}
+
+.inputButton--size-m {
+  --local-button-vertical-padding: 8px;
+  --local-button-horizontal-padding: 20px;
+  --local-button-border-radius: var(--lido-ui-border-radius-30);
+
+  min-width: 48px;
+  height: 48px;
+  padding: var(--local-button-vertical-padding)
+    var(--local-button-horizontal-padding);
+  border-radius: var(--local-button-border-radius);
+}
+
+.inputButton--size-s {
+  --local-button-vertical-padding: 4px;
+  --local-button-horizontal-padding: 16px;
+  --local-button-border-radius: var(--lido-ui-border-radius-24);
+
+  min-width: 40px;
+  height: 40px;
+  padding: var(--local-button-vertical-padding)
+    var(--local-button-horizontal-padding);
+  border-radius: var(--local-button-border-radius);
 }

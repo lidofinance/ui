@@ -1,27 +1,44 @@
-import { ReactElement } from 'react'
-import { Search } from '../../icons'
+import { cloneElement, ReactElement } from 'react'
+import { IconConfig, IconConfigProp } from '../../utils'
+import styles from '../Input.module.css'
+import cn from 'classnames'
 
-export type GetLeftDecoratorParams = {
-  leftDecorator?: ReactElement
-  type?: string
+/**
+ * Helper to determine if icon is an object or ReactElement
+ */
+export const isIconObject = (
+  iconProp: IconConfigProp | undefined,
+): iconProp is IconConfig => {
+  return !!(iconProp && typeof iconProp === 'object' && 'icon' in iconProp)
 }
 
 /**
- * Returns the appropriate left decorator based on props and input type
- * If a custom leftDecorator is provided, it will be used
- * Otherwise, if type is 'search', a search icon will be used
+ * Get colored flag from icon configuration
  */
-export const getLeftDecorator = ({
-  leftDecorator,
-  type,
-}: GetLeftDecoratorParams): ReactElement | null => {
-  if (leftDecorator) {
-    return leftDecorator
+export const getIsColored = (icon: IconConfigProp | undefined): boolean => {
+  if (isIconObject(icon)) {
+    return !!icon.isColored
   }
+  return false
+}
 
-  if (type === 'search') {
-    return <Search width={24} height={24} />
-  }
+/**
+ * Creates icon element with proper styling
+ */
+export const getIconElement = (
+  icon: IconConfigProp | undefined,
+): ReactElement | null => {
+  if (!icon) return null
 
-  return null
+  const iconElement = isIconObject(icon) ? icon.icon : icon
+  const isColored = getIsColored(icon)
+
+  return cloneElement(iconElement, {
+    ...iconElement.props,
+    className: cn(
+      styles.icon,
+      isColored && styles.colored,
+      iconElement.props.className,
+    ),
+  })
 }

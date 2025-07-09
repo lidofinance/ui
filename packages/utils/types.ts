@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 export type LidoComponentProps<
   T extends keyof JSX.IntrinsicElements,
   Props extends object = object,
@@ -9,3 +11,10 @@ export type LidoComponentProps<
     },
     'ref' | keyof Props
   >
+
+export type IconConfig = {
+  icon: ReactElement
+  isColored?: boolean
+}
+
+export type IconConfigProp = IconConfig | ReactElement

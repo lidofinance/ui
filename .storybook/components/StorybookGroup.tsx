@@ -5,14 +5,16 @@ import type { FC, PropsWithChildren } from 'react'
 export type StorybookGroupProps = PropsWithChildren<{
   title: string
   last?: boolean
+  style?: React.CSSProperties
 }>
 
 export const StorybookGroup: FC<StorybookGroupProps> = ({
   title,
+  style,
   last = false,
   children,
 }) => {
-  const groupStyle: React.CSSProperties = {
+  const defaultGroupStyle: React.CSSProperties = {
     marginBottom: last ? '0' : '32px',
   }
 
@@ -24,7 +26,7 @@ export const StorybookGroup: FC<StorybookGroupProps> = ({
   }
 
   return (
-    <div style={groupStyle}>
+    <div style={{ ...defaultGroupStyle, ...style }}>
       <h5 style={titleStyle}>{title}</h5>
       {children}
     </div>

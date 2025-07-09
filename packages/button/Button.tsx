@@ -10,6 +10,7 @@ import cn from 'classnames'
 import styles from './Button.module.css'
 import { DynamicLink } from '../links'
 import { RightArrow } from '../icons'
+import { IconConfig, IconConfigProp } from 'packages/utils'
 
 export type ButtonDataTestId = {
   root?: string
@@ -28,7 +29,7 @@ export type ButtonProps = (
 ) & {
   color?: ButtonColor
   shape?: ButtonShape
-  icon?: ButtonIconProp
+  icon?: IconConfigProp
   withArrow?: boolean
   size?: ButtonSize
   loading?: boolean
@@ -42,12 +43,6 @@ export type ButtonProps = (
 export type ButtonSize = 's' | 'm' | 'l'
 export type ButtonColor = 'primary' | 'secondary' | 'tertiary'
 export type ButtonShape = 'oval' | 'circle'
-export type ButtonIcon = {
-  icon: ReactElement
-  isColored?: boolean
-}
-
-export type ButtonIconProp = ButtonIcon | ReactElement
 
 export const Button = forwardRef(
   (
@@ -74,8 +69,8 @@ export const Button = forwardRef(
 
     // Helper to determine if icon is an object or ReactElement
     const isIconObject = (
-      iconProp: ButtonIconProp | undefined,
-    ): iconProp is ButtonIcon => {
+      iconProp: IconConfigProp | undefined,
+    ): iconProp is IconConfig => {
       return !!(iconProp && typeof iconProp === 'object' && 'icon' in iconProp)
     }
 

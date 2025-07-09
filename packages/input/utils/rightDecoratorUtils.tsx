@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
-import { Button } from '../../button'
+import { Button, ButtonSize } from '../../button'
 
 export type ButtonType = 'button' | 'submit' | 'reset'
-export type RightDecoratorType = 'element' | 'text' | 'button'
+export type RightDecoratorType = 'element' | 'button'
 
 // Group related button props together
 export type RightDecoratorButtonProps = Pick<
@@ -26,15 +26,17 @@ export type RightDecoratorButton = Omit<RightDecoratorButtonProps, 'type'> & {
 type RenderRightDecoratorParams = {
   rightDecorator?: ReactNode | RightDecoratorButton
   rightDecoratorType?: RightDecoratorType
-  buttonStyle: React.CSSProperties
+  buttonClassName: string
   disabled?: boolean
+  buttonSize: ButtonSize
 }
 
 export const renderRightDecorator = ({
   rightDecorator,
   rightDecoratorType = 'element',
-  buttonStyle,
+  buttonClassName,
   disabled = false,
+  buttonSize,
 }: RenderRightDecoratorParams): ReactNode => {
   if (!rightDecorator) return null
 
@@ -48,10 +50,10 @@ export const renderRightDecorator = ({
 
     return (
       <Button
-        size='s'
+        size={buttonSize}
         color='primary'
         type={buttonType}
-        style={buttonStyle}
+        className={buttonClassName}
         disabled={disabled || buttonDisabled}
         {...buttonProps}
       >
