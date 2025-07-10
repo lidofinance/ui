@@ -3,7 +3,7 @@ import { TextTabs, TextTabsProps } from './TextTabs'
 
 export default {
   component: TextTabs,
-  title: 'Navigation/TextTabs',
+  title: 'Content Organization/TextTabs',
   args: {
     items: [
       { key: '1', text: 'Tab text 1' },
