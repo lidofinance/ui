@@ -71,8 +71,10 @@
   border: none;
   transition: background-color 0.3s ease-in-out;
 
-  &:hover {
-    background-color: var(--lido-ui-color-backgrounds-grey-tags-hover);
+  &.hoverable {
+    &:hover {
+      background-color: var(--lido-ui-color-backgrounds-grey-tags-hover);
+    }
   }
 
   svg {
@@ -83,8 +85,12 @@
     background-color: var(--lido-ui-color-backgrounds-highlighted);
     color: var(--lido-ui-color-text-link);
 
-    &:hover {
-      background-color: var(--lido-ui-color-backgrounds-highlighted-tags-hover);
+    &.hoverable {
+      &:hover {
+        background-color: var(
+          --lido-ui-color-backgrounds-highlighted-tags-hover
+        );
+      }
     }
 
     svg {
@@ -96,8 +102,10 @@
     background-color: var(--lido-ui-color-backgrounds-error);
     color: var(--lido-ui-color-text-error);
 
-    &:hover {
-      background-color: var(--lido-ui-color-backgrounds-error-tags-hover);
+    &.hoverable {
+      &:hover {
+        background-color: var(--lido-ui-color-backgrounds-error-tags-hover);
+      }
     }
 
     svg {
@@ -109,8 +117,10 @@
     background-color: var(--lido-ui-color-backgrounds-warning);
     color: var(--lido-ui-color-text-warning);
 
-    &:hover {
-      background-color: var(--lido-ui-color-backgrounds-warning-tags-hover);
+    &.hoverable {
+      &:hover {
+        background-color: var(--lido-ui-color-backgrounds-warning-tags-hover);
+      }
     }
 
     svg {
@@ -122,8 +132,10 @@
     background-color: var(--lido-ui-color-backgrounds-success);
     color: var(--lido-ui-color-text-success);
 
-    &:hover {
-      background-color: var(--lido-ui-color-backgrounds-success-tags-hover);
+    &.hoverable {
+      &:hover {
+        background-color: var(--lido-ui-color-backgrounds-success-tags-hover);
+      }
     }
 
     svg {

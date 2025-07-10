@@ -3,6 +3,7 @@ import {
   ComponentPropsWithoutRef,
   ForwardedRef,
   forwardRef,
+  MouseEvent,
   ReactNode,
 } from 'react'
 import { Link } from '../../links'
@@ -47,6 +48,7 @@ export const SimpleCard = forwardRef(
       extraLogosAmount,
       className,
       onLearnMoreClick,
+      onClick,
       ...rest
     }: SimpleCardProps,
     ref?: ForwardedRef<HTMLDivElement> | ForwardedRef<HTMLAnchorElement>,
@@ -116,6 +118,7 @@ export const SimpleCard = forwardRef(
         className={cn(className, styles.card)}
         data-testid={dataTestId?.root}
         ref={ref as ForwardedRef<HTMLAnchorElement>}
+        onClick={(e) => onClick?.(e as unknown as MouseEvent<HTMLDivElement>)}
       >
         {cardContents}
       </Link>
