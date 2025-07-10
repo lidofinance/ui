@@ -19,6 +19,10 @@
       display: flex;
     }
 
+    .featuredTag {
+      display: none;
+    }
+
     .titleItem {
       color: var(--lido-ui-color-text-primary);
     }
@@ -36,7 +40,7 @@
   height: 100px;
   padding: 15px;
 
-  img {
+  & > * {
     width: 100%;
     height: 100%;
     object-fit: contain;
