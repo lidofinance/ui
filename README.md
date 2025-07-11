@@ -112,6 +112,27 @@ Packages are automatically published to npm when you push to master. The publica
 
 For correct version detection, please follow the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/).
 
+### Beta Releases
+
+You can manually trigger a beta release from any branch using the GitHub Actions workflow:
+
+1. Go to the "Actions" tab in the GitHub repository
+2. Select the "Publish beta lido-ui-v4" workflow
+3. Click "Run workflow"
+4. Enter the following information:
+   - **Branch**: The branch to release from (e.g., `feature/new-component`)
+   - **Target Repository**: The repository where you want to trigger a workflow after the release (format: `owner/repo`)
+   - **Target Workflow**: The name of the workflow file to trigger in the target repository
+
+This will:
+1. Create and publish a beta version to npm with a version like `4.0.0-beta.1`
+2. Deploy a Storybook instance for this beta version
+3. Trigger a workflow in the specified target repository, providing the released version name
+
+**Prerequisites**:
+- You need to create a GitHub Personal Access Token with `repo` scope
+- Add this token as a repository secret named `REPO_ACCESS_TOKEN`
+
 ## Customizing CSS Variables
 
 Lido UI provides a comprehensive set of CSS variables that can be overridden to match your application's design system. This allows you to maintain the functionality of Lido UI components while adapting their appearance to your brand.
