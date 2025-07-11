@@ -6,9 +6,11 @@
   width: 100%;
   border-radius: var(--lido-ui-border-radius-40);
   border: 1px solid var(--lido-ui-color-borders-default);
-  display: block;
+  display: flex;
+  flex-direction: column;
   transition: none;
   background: var(--lido-ui-color-backgrounds-cards);
+  box-sizing: border-box;
 
   &:hover {
     border: 1px solid var(--lido-ui-color-borders-hover);
