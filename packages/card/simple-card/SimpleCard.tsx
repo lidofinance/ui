@@ -27,7 +27,7 @@ export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
   titleImg: ReactNode
   tags?: string[]
   logosArray?: string[]
-  extraLogosAmount?: number
+  maxLogosAmount?: number
   learnMoreLink?: string
   dataTestId?: SimpleCardDataTestId
   onLearnMoreClick?: () => void
@@ -45,7 +45,7 @@ export const SimpleCard = forwardRef(
       href,
       dataTestId,
       learnMoreLink,
-      extraLogosAmount,
+      maxLogosAmount = 2,
       className,
       onLearnMoreClick,
       onClick,
@@ -53,7 +53,11 @@ export const SimpleCard = forwardRef(
     }: SimpleCardProps,
     ref?: ForwardedRef<HTMLDivElement> | ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const logosToShow = logosArray?.slice(0, 2)
+    const logosToShow = logosArray?.slice(0, maxLogosAmount)
+    const logosHidden = logosArray
+      ? Math.max(logosArray?.length - maxLogosAmount, 0)
+      : 0
+
     const cardContents = (
       <>
         <div className={styles.header}>
@@ -73,9 +77,9 @@ export const SimpleCard = forwardRef(
                 <img src={logo} width={38} height={38} alt={''} />
               </div>
             ))}
-            {extraLogosAmount ? (
+            {logosHidden ? (
               <div className={cn(styles.headerLogo, styles.empty)}>
-                <span>+{extraLogosAmount}</span>
+                <span>+{logosHidden}</span>
               </div>
             ) : (
               <></>
