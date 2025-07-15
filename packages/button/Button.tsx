@@ -1,16 +1,16 @@
+import cn from 'classnames'
+import { IconConfig, IconConfigProp } from 'packages/utils'
 import {
   cloneElement,
+  ComponentPropsWithoutRef,
   ForwardedRef,
   forwardRef,
-  ComponentPropsWithoutRef,
   ReactElement,
   RefObject,
 } from 'react'
-import cn from 'classnames'
-import styles from './Button.module.css'
-import { DynamicLink } from '../links'
 import { RightArrow } from '../icons'
-import { IconConfig, IconConfigProp } from 'packages/utils'
+import { DynamicLink } from '../links'
+import styles from './Button.module.css'
 
 export type ButtonDataTestId = {
   root?: string
@@ -148,11 +148,11 @@ export const Button = forwardRef(
         className,
         styles[`size--${size}`],
         styles[color],
-        styles[shape],
+
         {
           [styles.withIcon]: Boolean(icon),
-          [styles[`${shape}-${size}`]]: shape === 'circle',
-          [styles[shape]]: shape === 'circle',
+          [styles[`circle-${size}`]]: shape === 'circle',
+          [styles.circle]: shape === 'circle',
           [styles.imitateHover]: imitateHover,
           [styles.imitateActive]: imitateActive,
           [styles.noBorder]: shape === 'circle' && noBorder,
