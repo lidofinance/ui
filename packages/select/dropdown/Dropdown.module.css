@@ -21,6 +21,7 @@
 
   &.isOpen {
     border-color: var(--lido-ui-color-borders-hover);
+    z-index: 2;
   }
 
   &.isDisabled {
