@@ -71,6 +71,7 @@
   width: 100px;
   height: 100px;
   transition: border-color 0.3s;
+  position: relative;
 
   svg,
   img {
