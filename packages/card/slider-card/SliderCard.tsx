@@ -30,7 +30,7 @@ export type SliderCardProps = ComponentPropsWithoutRef<'div'> & {
   buttonText?: string
   href: string
   variant?: SliderCardVariant
-  onClick?: MouseEventHandler<HTMLAnchorElement>
+  onClick?: MouseEventHandler<HTMLAnchorElement | HTMLDivElement>
   dataTestId?: SliderCardDataTestId
 }
 
