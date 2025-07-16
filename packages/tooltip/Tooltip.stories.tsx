@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Tooltip } from './Tooltip'
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Feedback/Tooltip',
+  title: 'Content helpers/Tooltip',
   component: Tooltip,
   args: {
     content: 'This is a tooltip content',

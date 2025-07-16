@@ -4,7 +4,7 @@ import { Checkmark, MetamaskIcon } from '../../icons'
 
 export default {
   component: Tabs,
-  title: 'Content Organization/Tabs',
+  title: 'Navigation/Tabs',
   args: {
     type: 'text',
     size: 'l',
