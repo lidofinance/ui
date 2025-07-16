@@ -91,11 +91,9 @@ export const Dropdown = ({
           {items.map((item) => (
             <div
               key={item.value ?? item.label}
-              className={cn(
-                styles.item,
-                styles[`item--size-${size.toUpperCase()}`],
-                { [styles.withIcon]: !!item.icon },
-              )}
+              className={cn(styles.item, styles[`item--size-${size}`], {
+                [styles.withIcon]: !!item.icon,
+              })}
               onClick={item.onClick as MouseEventHandler<HTMLDivElement>}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {

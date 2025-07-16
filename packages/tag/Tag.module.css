@@ -67,9 +67,12 @@
 }
 
 .variant--primary {
-  background-color: var(--lido-ui-color-backgrounds-grey);
-  border: none;
   transition: background-color 0.3s ease-in-out;
+
+  &.color--default {
+    background-color: var(--lido-ui-color-backgrounds-grey);
+    border: none;
+  }
 
   &.hoverable {
     &:hover {

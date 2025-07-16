@@ -6,8 +6,6 @@
   font-family: var(--lido-ui-font-family);
   display: flex;
   position: relative;
-  width: 220px;
-  height: 346px;
   cursor: pointer;
   box-sizing: border-box;
   overflow: hidden;
@@ -19,9 +17,17 @@
   }
 }
 
+.type--icon {
+  width: 220px;
+  height: 346px;
+}
+
 .type--image {
-  width: 358px;
   height: 430px;
+
+  &.variant--default {
+    width: 358px;
+  }
 
   &.variant--last-child {
     width: 194px;
@@ -142,8 +148,11 @@
   }
 
   .type--image {
-    width: 334px;
     height: 402px;
+
+    &.variant--default {
+      width: 334px;
+    }
 
     &.variant--last-child {
       width: 180px;
@@ -167,8 +176,11 @@
   }
 
   .type--image {
-    width: 280px;
     height: 338px;
+
+    &.variant--default {
+      width: 280px;
+    }
 
     &.variant--last-child {
       width: 150px;

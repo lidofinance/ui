@@ -89,7 +89,7 @@ export const Select = forwardRef(
     return (
       <Dropdown
         size={size}
-        className={cn(className, styles.dropdown)}
+        className={cn(className)}
         open={_open}
         items={items}
         disabled={disabled}
@@ -103,14 +103,10 @@ export const Select = forwardRef(
           <input
             ref={ref}
             value={selectedOption?.label}
-            className={cn(
-              styles.select,
-              styles[`input--size-${size.toUpperCase()}`],
-              {
-                [styles.open]: open,
-                [styles.withIcon]: !!iconToRender,
-              },
-            )}
+            className={cn(styles.select, styles[`input--size-${size}`], {
+              [styles.open]: open,
+              [styles.withIcon]: !!iconToRender,
+            })}
             disabled={disabled}
             onClick={handleClick}
             {...rest}
@@ -118,14 +114,10 @@ export const Select = forwardRef(
           />
         </div>
         <DownChevron
-          className={cn(
-            styles.arrow,
-            styles[`arrow--size-${size.toUpperCase()}`],
-            {
-              [styles.open]: open,
-              [styles.disabled]: disabled,
-            },
-          )}
+          className={cn(styles.arrow, styles[`arrow--size-${size}`], {
+            [styles.open]: open,
+            [styles.disabled]: disabled,
+          })}
         />
       </Dropdown>
     )
