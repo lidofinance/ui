@@ -229,8 +229,7 @@ const convertFiles = async () => {
     ...new Set(
       componentExports.map(({ importPath }) => {
         const pathParts = importPath.split('/')
-        // Get the directory part (e.g., './components/base')
-        return pathParts.slice(0, 3).join('/')
+        return pathParts.slice(0, pathParts.length - 1).join('/')
       }),
     ),
   ]
