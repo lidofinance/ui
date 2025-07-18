@@ -97,7 +97,7 @@
   --lido-ui-color-icons-active: rgb(0 133 255 / 100%);
   --lido-ui-color-icons-success: rgb(17 182 144 / 100%);
   --lido-ui-color-icons-warning: rgb(255 213 114 / 100%);
-  --lido-ui-color-icons-errror: rgb(255 89 109 / 100%);
+  --lido-ui-color-icons-error: rgb(255 89 109 / 100%);
 
   /* Default backgrounds */
   --lido-ui-color-backgrounds-surface: rgb(2 3 7 / 100%);

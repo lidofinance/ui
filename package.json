@@ -45,7 +45,8 @@
     "prepare": "husky",
     "release": "semantic-release",
     "release:dry": "yarn release --dry-run",
-    "icons:convert": "node ./packages/icons/converter/index.cjs"
+    "icons:convert": "node ./packages/icons/converter/index.cjs",
+    "css-variables:generate": "node ./scripts/generate-css-variables.mjs"
   },
   "lint-staged": {
     "*.{ts,tsx,js,cjs,mjs}": "eslint --fix",
@@ -84,13 +85,13 @@
     "@storybook/addon-actions": "^8.6.0",
     "@storybook/addon-docs": "^8.6.0",
     "@storybook/addon-essentials": "^8.6.0",
+    "@storybook/addon-webpack5-compiler-swc": "3.0.0",
     "@storybook/cli": "^8.6.0",
     "@storybook/react": "^8.6.0",
     "@storybook/react-webpack5": "^8.6.0",
     "@storybook/storybook-deployer": "^2.8.16",
-    "@storybook/theming": "^8.6.0",
-    "@storybook/addon-webpack5-compiler-swc": "3.0.0",
     "@storybook/test": "^8.6.0",
+    "@storybook/theming": "^8.6.0",
     "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "8.1.0",
     "@svgr/plugin-prettier": "8.1.0",
