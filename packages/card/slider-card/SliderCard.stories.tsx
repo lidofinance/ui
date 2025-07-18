@@ -19,7 +19,7 @@ export default {
     title: 'Name',
     subtitle: '',
     href: 'https://example.com',
-    text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
+    text: 'Provide Lasdsadiquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
     icon: <MetamaskIcon />,
     buttonText: '',
     variant: 'default',
