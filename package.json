@@ -31,7 +31,8 @@
   ],
   "scripts": {
     "dev": "storybook dev -p 5555",
-    "build-storybook": "storybook build",
+    "build-storybook": "yarn build-storybook:prebuild && storybook build",
+    "build-storybook:prebuild": "yarn css-variables:generate",
     "build": "zx ./scripts/build.cjs",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
     "test:coverage": "node --experimental-vm-modules ./node_modules/.bin/jest coverage",
