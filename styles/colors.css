@@ -73,6 +73,7 @@
   --lido-ui-color-buttons-secondary-hover: rgb(0 163 255 / 100%);
   --lido-ui-color-buttons-disabled: rgb(19 18 23 / 10%);
   --lido-ui-color-buttons-text-static: rgb(255 255 255 / 100%);
+  --lido-ui-color-buttons-border-static: rgb(255 255 255 / 32%);
 }
 
 [data-lido-theme='dark'] {

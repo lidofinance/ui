@@ -5,8 +5,7 @@ export default {
   component: Banner,
   title: 'Banners/Banner',
   args: {
-    title: 'Lido V2 is here!',
-    text: 'Learn more about the new era for Lido 🎉',
+    title: 'Learn more about the new era for Lido 🎉',
     variant: 'primary',
     href: 'https://example.com',
   },
@@ -25,21 +24,22 @@ export const Basic: StoryFn<BannerProps> = (props) => <Banner {...props} />
 export const AllStates: StoryFn<BannerProps> = () => {
   return (
     <>
-      <Banner
-        text='Regular banner with text'
-        title='Banner title'
-        href='https://example.com'
-      ></Banner>
+      <Banner title='Banner title' href='https://example.com'></Banner>
       <br />
       <Banner
-        text='Regular banner without title '
+        title='Regular banner without title '
         href='https://example.com'
       ></Banner>
       <br />
       <Banner
         variant='secondary'
-        title='Banner title'
-        text='Secondary banner  '
+        title='Secondary banner '
+        href='https://example.com'
+      ></Banner>
+      <br />
+      <Banner
+        variant='secondary'
+        title='A lot of text in the banner to test how it looks when it is very-very-very long'
         href='https://example.com'
       ></Banner>
     </>
