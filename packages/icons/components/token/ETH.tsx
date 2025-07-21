@@ -5,7 +5,7 @@ import React, { SVGProps } from 'react'
 export const ETH = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#ETH__ETH__a)' fill='#000'>
+      <g clipPath='url(#ETH__ETH__a)' fill='currentColor'>
         <g filter='url(#ETH__ETH__b)' opacity={0.3}>
           <path
             d='M48.659 32.72l-16.373 7.445 16.373 9.673 16.366-9.673-16.366-7.446z'

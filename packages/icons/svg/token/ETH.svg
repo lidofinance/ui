@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="81" height="80" fill="none" viewBox="0 0 81 80">
   <g clip-path="url(#a)">
     <g filter="url(#b)" opacity=".3">
-      <path fill="#000" d="m48.659 32.72-16.373 7.445 16.373 9.673 16.366-9.673-16.366-7.446Z" opacity=".6"/>
-      <path fill="#000" d="m32.286 40.166 16.373 9.673V13L32.286 40.166Z" opacity=".45"/>
-      <path fill="#000" d="M48.653 13v36.839l16.366-9.673L48.653 13Z" opacity=".8"/>
-      <path fill="#000" d="M32.286 43.268 48.66 66.334V52.94l-16.373-9.673Z" opacity=".45"/>
-      <path fill="#000" d="M48.653 52.94v13.393l16.38-23.066-16.38 9.673Z" opacity=".8"/>
+      <path fill="currentColor" d="m48.659 32.72-16.373 7.445 16.373 9.673 16.366-9.673-16.366-7.446Z" opacity=".6"/>
+      <path fill="currentColor" d="m32.286 40.166 16.373 9.673V13L32.286 40.166Z" opacity=".45"/>
+      <path fill="currentColor" d="M48.653 13v36.839l16.366-9.673L48.653 13Z" opacity=".8"/>
+      <path fill="currentColor" d="M32.286 43.268 48.66 66.334V52.94l-16.373-9.673Z" opacity=".45"/>
+      <path fill="currentColor" d="M48.653 52.94v13.393l16.38-23.066-16.38 9.673Z" opacity=".8"/>
     </g>
-    <path fill="#000" d="m39.992 33.053-16.373 7.446 16.373 9.673 16.366-9.673-16.366-7.447Z" opacity=".6"/>
-    <path fill="#000" d="m23.62 40.499 16.372 9.673V13.333L23.619 40.5Z" opacity=".45"/>
-    <path fill="#000" d="M39.986 13.333v36.839l16.367-9.673-16.367-27.166Z" opacity=".8"/>
-    <path fill="#000" d="m23.62 43.601 16.372 23.066V53.274L23.619 43.6Z" opacity=".45"/>
-    <path fill="#000" d="M39.986 53.273v13.393L56.366 43.6l-16.38 9.673Z" opacity=".8"/>
+    <path fill="currentColor" d="m39.992 33.053-16.373 7.446 16.373 9.673 16.366-9.673-16.366-7.447Z" opacity=".6"/>
+    <path fill="currentColor" d="m23.62 40.499 16.372 9.673V13.333L23.619 40.5Z" opacity=".45"/>
+    <path fill="currentColor" d="M39.986 13.333v36.839l16.367-9.673-16.367-27.166Z" opacity=".8"/>
+    <path fill="currentColor" d="m23.62 43.601 16.372 23.066V53.274L23.619 43.6Z" opacity=".45"/>
+    <path fill="currentColor" d="M39.986 53.273v13.393L56.366 43.6l-16.38 9.673Z" opacity=".8"/>
   </g>
   <defs>
     <clipPath id="a">
