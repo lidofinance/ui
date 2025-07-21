@@ -1,6 +1,5 @@
 // THIS FILE IS AUTO GENERATED
 
-export { AlchemyPay } from './AlchemyPay'
 export { BitGet } from './BitGet'
 export { Exodus } from './Exodus'
 export { Metamask } from './Metamask'

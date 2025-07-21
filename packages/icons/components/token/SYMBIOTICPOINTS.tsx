@@ -1,0 +1,15 @@
+// THIS FILE IS AUTO GENERATED
+
+import React, { SVGProps } from 'react'
+
+export const SYMBIOTICPOINTS = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
+      <circle cx={40} cy={40} r={40} fill='#C6FE64' />
+      <path
+        fill='#000'
+        d='M60.584 25.468H24.579v6.174h36.005V59.5H19.416v-5.14h36.022v-6.93H19.416V20.5h41.168v4.969zM24.579 42.46h30.858v-5.68H24.58v5.68z'
+      />
+    </svg>
+  )
+}
