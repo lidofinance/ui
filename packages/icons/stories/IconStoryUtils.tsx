@@ -117,6 +117,8 @@ export const renderIconGrid = (
             width: cellWidth + 'px',
             cursor: 'pointer',
             position: 'relative',
+            background: 'rgba(0, 0, 0, 0.05)',
+            padding: '1% 0',
           }}
           onClick={() => copyToClipboard(name)}
         >

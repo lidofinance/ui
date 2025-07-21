@@ -1,6 +1,7 @@
 // THIS FILE IS AUTO GENERATED
 
 export { BNB } from './BNB'
+export { EthereumLight } from './EthereumLight'
 export { Linea } from './Linea'
 export { Lisk } from './Lisk'
 export { METIS } from './METIS'
