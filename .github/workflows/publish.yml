@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pages: write
+  id-token: write # to enable use of OIDC for npm provenance
 
 jobs:
   deploy:
