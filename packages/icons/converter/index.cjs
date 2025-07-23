@@ -13,6 +13,26 @@ const DEST_FILE = resolve(__dirname, '../index.tsx')
 const svgoConfig = (convertAllToCurrentColor, prefix) => {
   return {
     plugins: [
+      {
+        convertStopColorToCurrentColor: {
+          type: 'perItem',
+          fn: (item) => {
+            if (!convertAllToCurrentColor) {
+              return
+            }
+            if (item.isElem('stop')) {
+              item.removeAttr('stop-color')
+              item.removeAttr('stopColor')
+              item.addAttr({
+                name: 'stop-color',
+                value: 'currentColor',
+                prefix: '',
+                local: 'stop-color',
+              })
+            }
+          },
+        },
+      },
       { removeStyleElement: true },
       { removeScriptElement: true },
       { removeViewBox: false },
@@ -23,7 +43,16 @@ const svgoConfig = (convertAllToCurrentColor, prefix) => {
         },
       },
       {
-        convertColors: { currentColor: convertAllToCurrentColor },
+        convertColors: {
+          currentColor: {
+            exec: (a) => {
+              if (a.indexOf('url(#') === 0) {
+                return false
+              }
+              return convertAllToCurrentColor
+            },
+          },
+        },
       },
 
       { removeUnknownsAndDefaults: false },
