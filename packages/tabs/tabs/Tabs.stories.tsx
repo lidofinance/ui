@@ -1,10 +1,10 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Tabs, TabsProps } from './Tabs'
-import { Checkmark, MetamaskIcon } from '../../icons'
+import { Checkmark, Metamask } from '../../icons'
 
 export default {
   component: Tabs,
-  title: 'Content Organization/Tabs',
+  title: 'Navigation/Tabs',
   args: {
     type: 'text',
     size: 'l',
@@ -61,7 +61,7 @@ export const AllStates: StoryFn<TabsProps> = () => {
     { key: '1', children: <Checkmark /> },
     {
       key: '2',
-      children: <MetamaskIcon />,
+      children: <Metamask />,
     },
     { key: '3', children: <Checkmark /> },
   ]

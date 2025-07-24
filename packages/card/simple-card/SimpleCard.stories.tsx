@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { MetamaskIcon } from '../../icons'
+import { Metamask } from '../../icons'
 import { SimpleCard, SimpleCardProps } from './SimpleCard'
 
 export default {
@@ -9,7 +9,7 @@ export default {
     title: 'Name',
     href: 'https://lido.fi',
     text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
-    titleImg: <MetamaskIcon />,
+    titleImg: <Metamask />,
     featuredText: 'Featured',
     tags: ['one', 'two', 'three'],
     maxLogosAmount: 2,
