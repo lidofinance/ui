@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Link from 'next/link'
 
 import {
   ForwardedRef,
@@ -21,8 +22,7 @@ export type BannerProps = {
   variant?: 'primary' | 'secondary'
   className?: string
   href: string
-  text: string
-  title?: string
+  title: string
   dataTestId?: BannerDataTestId
   onClose?: MouseEventHandler
   onLinkClick?: MouseEventHandler
@@ -35,7 +35,6 @@ export const Banner = forwardRef(
       className,
       href,
       title,
-      text,
       onClose,
       dataTestId,
       onLinkClick,
@@ -58,22 +57,15 @@ export const Banner = forwardRef(
         data-testid={dataTestId?.root}
         {...rest}
       >
-        <Button
+        <Link
           ref={ref as RefObject<HTMLAnchorElement>}
           onClick={handleAnchorClick}
           data-testid={dataTestId?.mainButton}
           href={href}
           className={styles.mainButton}
-          withArrow={true}
-          hideArrowOnMobile={true}
-          color={'tertiary'}
-          size={'s'}
         >
-          <div className={styles.buttonContent}>
-            {title && <div className={styles.title}>{title}</div>}
-            {text && <div>{text}</div>}
-          </div>
-        </Button>
+          <div className={styles.buttonContent}>{title}</div>
+        </Link>
         <Button
           size={'s'}
           shape={'circle'}

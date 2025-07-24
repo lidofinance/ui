@@ -38,6 +38,13 @@ export default {
             height: '800px',
           },
         },
+        px550: {
+          name: '550px',
+          styles: {
+            width: '550px',
+            height: '800px',
+          },
+        },
         px300: {
           name: '300px',
           styles: {
