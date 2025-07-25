@@ -1,23 +1,12 @@
-.foreground {
-  background: var(--deprecated-lido-ui-color-foreground);
-  color: var(--deprecated-lido-ui-color-text-secondary);
-}
-
-.background {
-  background: var(--deprecated-lido-ui-color-background);
-  color: var(--deprecated-lido-ui-color-text-secondary);
-}
-
-.flat {
-  box-shadow: none;
-}
-
 .block {
-  font-family: var(--lido-ui-font-family);
+  @mixin font-description;
+
+  background: var(--lido-ui-color-text-inverted);
+  color: var(--lido-ui-color-text-primary);
   font-weight: var(--lido-ui-font-weight-regular);
-  font-size: var(--deprecated-lido-ui-font-size-description);
   line-height: 1.6em;
   border-radius: var(--lido-ui-border-radius-4);
   margin: 0;
   padding: 10px 4px;
+  box-shadow: none;
 }

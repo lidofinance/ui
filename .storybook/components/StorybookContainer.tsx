@@ -8,17 +8,14 @@ export type StorybookContainerProps = PropsWithChildren<{
 
 export const StorybookContainer: FC<StorybookContainerProps> = ({
   children,
-  surface = false,
 }) => {
   const style: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
     gap: '48px',
     padding: '24px',
-    backgroundColor: surface
-      ? 'var(--lido-ui-color-backgrounds-surface)'
-      : 'transparent',
     borderRadius: '12px',
+    backgroundColor: 'var(--lido-ui-color-backgrounds-cards)',
   }
 
   return <div style={style}>{children}</div>

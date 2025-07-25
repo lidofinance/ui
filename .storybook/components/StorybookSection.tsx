@@ -25,6 +25,7 @@ export const StorybookSection: FC<StorybookSectionProps> = ({
     fontSize: '20px',
     fontWeight: '600',
     color: 'var(--lido-ui-color-text-primary)',
+    background: 'var(--lido-ui-color-text-inverted)',
   }
 
   return (

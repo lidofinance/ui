@@ -31,23 +31,11 @@
   --lido-ui-line-height-body-static: 28px;
   --lido-ui-font-size-description: 14px;
   --lido-ui-line-height-description: 20px;
-  --deprecated-lido-ui-font-size-subheader: 22px;
-  --deprecated-lido-ui-font-size-subheader-not-adaptive: 22px;
-  --deprecated-lido-ui-font-size-control: 17px;
-  --deprecated-lido-ui-font-size-control-not-adaptive: 17px;
-  --deprecated-lido-ui-font-size-body: 15px;
-  --deprecated-lido-ui-font-size-description: 14px;
   --lido-ui-font-weight-bold: 600;
   --lido-ui-font-weight-medium: 500;
   --lido-ui-font-weight-regular: 400;
   --lido-ui-font-weight-light: 300;
   --lido-ui-font-weight-extra-light: 200;
-  --deprecated-lido-ui-line-height-subheader: 40px;
-  --deprecated-lido-ui-line-height-subheader-not-adaptive: 40px;
-  --deprecated-lido-ui-line-height-control: 26px;
-  --deprecated-lido-ui-line-height-control-not-adaptive: 26px;
-  --deprecated-lido-ui-line-height-body: 27px;
-  --deprecated-lido-ui-line-height-description: 24px;
 }
 
 @media (width <= 1500px) {
@@ -69,14 +57,6 @@
     --lido-ui-line-height-body: 28px;
     --lido-ui-font-size-description: 14px;
     --lido-ui-line-height-description: 20px;
-    --deprecated-lido-ui-font-size-subheader: 19px;
-    --deprecated-lido-ui-font-size-control: 17px;
-    --deprecated-lido-ui-font-size-body: 15px;
-    --deprecated-lido-ui-font-size-description: 14px;
-    --deprecated-lido-ui-line-height-subheader: 32px;
-    --deprecated-lido-ui-line-height-control: 26px;
-    --deprecated-lido-ui-line-height-body: 27px;
-    --deprecated-lido-ui-line-height-description: 24px;
 
     /* Letter Spacing */
     --lido-ui-letter-spacing-h1: -2.28px;
@@ -106,14 +86,6 @@
     --lido-ui-line-height-body: 24px;
     --lido-ui-font-size-description: 12px;
     --lido-ui-line-height-description: 18px;
-    --deprecated-lido-ui-font-size-subheader: 17px;
-    --deprecated-lido-ui-font-size-control: 14px;
-    --deprecated-lido-ui-font-size-body: 15px;
-    --deprecated-lido-ui-font-size-description: 14px;
-    --deprecated-lido-ui-line-height-subheader: 32px;
-    --deprecated-lido-ui-line-height-control: 26px;
-    --deprecated-lido-ui-line-height-body: 27px;
-    --deprecated-lido-ui-line-height-description: 24px;
 
     /* Letter Spacing */
     --lido-ui-letter-spacing-h1: -1.5px;

@@ -69,7 +69,7 @@ export const AllStates: StoryFn<TextTabsProps> = () => {
           <div
             style={{
               padding: '16px',
-              border: '1px solid var(--deprecated-lido-ui-color-borders-fog)',
+              border: '1px solid var(--lido-ui-color-borders-inverted)',
             }}
           >
             <div style={{ marginBottom: '16px', width: '300px' }}>
