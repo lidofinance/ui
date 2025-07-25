@@ -1,5 +1,5 @@
 // Auto-generated file - do not edit manually
-// Generated on 2025-07-17T10:09:48.563Z
+// Generated on 2025-07-25T10:18:37.275Z
 
 export type CSSVariableInfo = {
   name: string
@@ -19,135 +19,6 @@ export type MixinInfo = {
 }
 
 export const cssVariablesList: CSSVariableInfo[] = [
-  {
-    name: '--deprecated-lido-ui-color-accent-berry-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-accent-coral-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-accent-leaf-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-accent-light-berry-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-accent-light-coral-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-accent-light-leaf-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-accent-light-ocean-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-accent-ocean-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-accent-sky-static',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-background', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-color-background-dropdown',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-background-dropdown-hover',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-borders-fog', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-color-borders-fog-reverse',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-borders-mist', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-color-borders-mist-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-borders-water-static',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-foreground', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-color-primary', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-color-primary-20', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-color-primary-32', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-color-primary-5', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-color-primary-5-static',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-primary-50', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-color-primary-50-reverse',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-primary-6', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-color-primary-6-static',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-color-primary-7-static',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-primary-72', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-color-primary-72-static',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-primary-8', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-color-primary-reverse',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-color-shadow-light', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-color-text', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-color-text-secondary', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-color-white-static', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-font-size-body', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-font-size-control', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-font-size-control-not-adaptive',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-font-size-description',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-font-size-subheader', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-font-size-subheader-not-adaptive',
-    category: 'Deprecated',
-  },
-  { name: '--deprecated-lido-ui-line-height-body', category: 'Deprecated' },
-  { name: '--deprecated-lido-ui-line-height-control', category: 'Deprecated' },
-  {
-    name: '--deprecated-lido-ui-line-height-control-not-adaptive',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-line-height-description',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-line-height-subheader',
-    category: 'Deprecated',
-  },
-  {
-    name: '--deprecated-lido-ui-line-height-subheader-not-adaptive',
-    category: 'Deprecated',
-  },
   { name: '--ease-in-sine', category: 'Animations' },
   { name: '--ease-out-quad', category: 'Animations' },
   { name: '--lido-ui-border-radius-24', category: 'Layout' },
@@ -225,6 +96,7 @@ export const cssVariablesList: CSSVariableInfo[] = [
   { name: '--lido-ui-color-borders-inverted', category: 'Border Colors' },
   { name: '--lido-ui-color-borders-success', category: 'Border Colors' },
   { name: '--lido-ui-color-borders-warning', category: 'Border Colors' },
+  { name: '--lido-ui-color-buttons-border-static', category: 'Button Colors' },
   { name: '--lido-ui-color-buttons-disabled', category: 'Button Colors' },
   { name: '--lido-ui-color-buttons-primary', category: 'Button Colors' },
   { name: '--lido-ui-color-buttons-primary-hover', category: 'Button Colors' },
@@ -515,6 +387,7 @@ export const cssVariablesByCategory = {
     '--lido-ui-color-borders-warning',
   ],
   'Button Colors': [
+    '--lido-ui-color-buttons-border-static',
     '--lido-ui-color-buttons-disabled',
     '--lido-ui-color-buttons-primary',
     '--lido-ui-color-buttons-primary-hover',
@@ -522,56 +395,6 @@ export const cssVariablesByCategory = {
     '--lido-ui-color-buttons-secondary-hover',
     '--lido-ui-color-buttons-text-primary-hover',
     '--lido-ui-color-buttons-text-static',
-  ],
-  Deprecated: [
-    '--deprecated-lido-ui-color-accent-berry-static',
-    '--deprecated-lido-ui-color-accent-coral-static',
-    '--deprecated-lido-ui-color-accent-leaf-static',
-    '--deprecated-lido-ui-color-accent-light-berry-static',
-    '--deprecated-lido-ui-color-accent-light-coral-static',
-    '--deprecated-lido-ui-color-accent-light-leaf-static',
-    '--deprecated-lido-ui-color-accent-light-ocean-static',
-    '--deprecated-lido-ui-color-accent-ocean-static',
-    '--deprecated-lido-ui-color-accent-sky-static',
-    '--deprecated-lido-ui-color-background',
-    '--deprecated-lido-ui-color-background-dropdown',
-    '--deprecated-lido-ui-color-background-dropdown-hover',
-    '--deprecated-lido-ui-color-borders-fog',
-    '--deprecated-lido-ui-color-borders-fog-reverse',
-    '--deprecated-lido-ui-color-borders-mist',
-    '--deprecated-lido-ui-color-borders-mist-static',
-    '--deprecated-lido-ui-color-borders-water-static',
-    '--deprecated-lido-ui-color-foreground',
-    '--deprecated-lido-ui-color-primary',
-    '--deprecated-lido-ui-color-primary-20',
-    '--deprecated-lido-ui-color-primary-32',
-    '--deprecated-lido-ui-color-primary-5',
-    '--deprecated-lido-ui-color-primary-5-static',
-    '--deprecated-lido-ui-color-primary-50',
-    '--deprecated-lido-ui-color-primary-50-reverse',
-    '--deprecated-lido-ui-color-primary-6',
-    '--deprecated-lido-ui-color-primary-6-static',
-    '--deprecated-lido-ui-color-primary-7-static',
-    '--deprecated-lido-ui-color-primary-72',
-    '--deprecated-lido-ui-color-primary-72-static',
-    '--deprecated-lido-ui-color-primary-8',
-    '--deprecated-lido-ui-color-primary-reverse',
-    '--deprecated-lido-ui-color-shadow-light',
-    '--deprecated-lido-ui-color-text',
-    '--deprecated-lido-ui-color-text-secondary',
-    '--deprecated-lido-ui-color-white-static',
-    '--deprecated-lido-ui-font-size-body',
-    '--deprecated-lido-ui-font-size-control',
-    '--deprecated-lido-ui-font-size-control-not-adaptive',
-    '--deprecated-lido-ui-font-size-description',
-    '--deprecated-lido-ui-font-size-subheader',
-    '--deprecated-lido-ui-font-size-subheader-not-adaptive',
-    '--deprecated-lido-ui-line-height-body',
-    '--deprecated-lido-ui-line-height-control',
-    '--deprecated-lido-ui-line-height-control-not-adaptive',
-    '--deprecated-lido-ui-line-height-description',
-    '--deprecated-lido-ui-line-height-subheader',
-    '--deprecated-lido-ui-line-height-subheader-not-adaptive',
   ],
   'Icon Colors': [
     '--lido-ui-color-icons-active',

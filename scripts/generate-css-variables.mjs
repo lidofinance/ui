@@ -9,7 +9,6 @@ const projectRoot = path.join(__dirname, '..')
 // CSS files to scan
 const cssFiles = [
   'styles/colors.css',
-  'styles/colors-deprecated.css',
   'styles/typography-variables.css',
   'styles/variables.css',
 ]
@@ -74,10 +73,6 @@ function extractDefineMixins(cssText) {
 
 function categorizeVariable(variableName) {
   const name = variableName.toLowerCase()
-
-  if (name.includes('deprecated')) {
-    return 'Deprecated'
-  }
 
   if (name.includes('color-text')) {
     return 'Text Colors'

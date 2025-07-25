@@ -1,6 +1,6 @@
 .banner {
   font-family: var(--lido-ui-font-family);
-  color: var(--deprecated-lido-ui-color-white-static);
+  color: #fff;
   display: flex;
   box-sizing: border-box;
   justify-content: center;
