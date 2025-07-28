@@ -150,5 +150,8 @@
     "typescript-plugin-css-modules": "5.1.0",
     "zx": "8.5.3"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "packageManager": "yarn@4.9.0"
 }
