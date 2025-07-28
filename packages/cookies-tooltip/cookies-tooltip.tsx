@@ -25,11 +25,13 @@ export type CookiesTooltipProps = Omit<
 > & {
   privacyText?: ReactNode
   privacyLink?: string
+  privacyLinkEnabled?: boolean
 }
 
 export const CookiesTooltip: FC<CookiesTooltipProps> = ({
   privacyText,
   privacyLink,
+  privacyLinkEnabled = true,
   ...rest
 }) => {
   const [isVisible, setVisibility] = useState(false)
@@ -64,13 +66,17 @@ export const CookiesTooltip: FC<CookiesTooltipProps> = ({
           {privacyText ?? (
             <>
               Cookies are used to collect anonymous site visitation data
-              to&nbsp;improve website performance. For&nbsp;more info,
-              read&nbsp;
+              to&nbsp;improve website performance.
+              {privacyLinkEnabled && <>&nbsp;For&nbsp;more info, read&nbsp;</>}
             </>
           )}
-          <ExternalLink href={privacyLink ?? 'https://lido.fi/privacy-notice'}>
-            Privacy Notice
-          </ExternalLink>
+          {privacyLinkEnabled && (
+            <ExternalLink
+              href={privacyLink ?? 'https://lido.fi/privacy-notice'}
+            >
+              Privacy Notice
+            </ExternalLink>
+          )}
         </Text>
         <ButtonsWrap>
           <AllowButton
