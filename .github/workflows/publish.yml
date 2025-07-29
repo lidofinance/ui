@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pages: write
+  id-token: write # to enable use of OIDC for npm provenance
 
 jobs:
   deploy:
@@ -28,6 +29,9 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: 'yarn'
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install Dependencies
         run: yarn install --immutable

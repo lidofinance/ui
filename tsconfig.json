@@ -23,7 +23,6 @@
     "noUnusedParameters": false,
     "strictFunctionTypes": false,
     "baseUrl": ".",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "paths": {
       "react": [ "./node_modules/@types/react" ]
     }
