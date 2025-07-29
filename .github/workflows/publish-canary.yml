@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pages: write
+  id-token: write # to enable use of OIDC for npm provenance
 
 jobs:
   deploy:
@@ -45,6 +46,7 @@ jobs:
           NPM_CONFIG_PROVENANCE: true
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          echo "provenance=true" >> ~/.npmrc
           yarn release
 
       - name: Build Storybook
