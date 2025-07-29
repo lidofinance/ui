@@ -24,14 +24,14 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .nvmrc
           cache: 'yarn'
-
-      - name: Enable Corepack
-        run: corepack enable
 
       - name: Install Dependencies
         run: yarn install --immutable
