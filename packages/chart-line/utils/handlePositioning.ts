@@ -1,14 +1,11 @@
 import { checkViewportOverflow } from './checkViewport.js'
-import {
-  CHART_LINE_CONTAINER_ID,
-  LABEL_HEIGHT_INCREASE,
-  VIEWPORT_MARGIN,
-} from './constants.js'
+import { LABEL_HEIGHT_INCREASE, VIEWPORT_MARGIN } from './constants.js'
 
 type HandlePositioningProps = {
   previousIds?: string[]
   id: string
   reset?: boolean
+  containerId: string
 }
 
 type PositioningData = {
@@ -24,13 +21,16 @@ type PositioningData = {
 }
 
 // Get elements and their rects in one go
-const getElementData = (id: string): PositioningData | null => {
+const getElementData = (
+  id: string,
+  containerId: string,
+): PositioningData | null => {
   const threshold = document.getElementById(id)
   const label = document.getElementById(`${id}-description`)
 
   if (!threshold || !label) return null
 
-  const container = document.getElementById(CHART_LINE_CONTAINER_ID)
+  const container = document.getElementById(containerId)
   if (!container) return null
 
   // Temporarily reset transform to get original positions
@@ -153,7 +153,7 @@ const getPreviousThreshold = (
 }
 
 export const handlePositioning = (props: HandlePositioningProps): void => {
-  const { previousIds = [], id, reset } = props
+  const { previousIds = [], id, reset, containerId } = props
 
   // Check if we are in browser (not SSR)
   if (typeof window === 'undefined') return
@@ -163,7 +163,7 @@ export const handlePositioning = (props: HandlePositioningProps): void => {
     return
   }
 
-  const currentData = getElementData(id)
+  const currentData = getElementData(id, containerId)
   if (!currentData) return
 
   const {
@@ -206,7 +206,7 @@ export const handlePositioning = (props: HandlePositioningProps): void => {
   const previousId = getPreviousThreshold(previousIds, id)
   if (!previousId) return
 
-  const previousData = getElementData(previousId)
+  const previousData = getElementData(previousId, containerId)
   if (!previousData) return
 
   const { rects: previousRects, elements: previousElements } = previousData

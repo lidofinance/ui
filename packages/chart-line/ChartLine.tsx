@@ -5,6 +5,7 @@ import {
   useLayoutEffect,
   useState,
 } from 'react'
+import uniqueId from 'lodash/uniqueId.js'
 
 import { InlineLoader } from '../loaders/index.js'
 
@@ -47,6 +48,8 @@ export const ChartLine = forwardRef(
       [ids],
     )
 
+    const containerId = useMemo(() => uniqueId(CHART_LINE_CONTAINER_ID), [])
+
     useLayoutEffect(() => {
       if (!showLabels) {
         setContainerSize(null)
@@ -66,7 +69,7 @@ export const ChartLine = forwardRef(
 
     return (
       <ContainerStyle
-        id={CHART_LINE_CONTAINER_ID}
+        id={containerId}
         $alignItems={containerSize?.isCenterAlign ? 'center' : 'flex-start'}
         $height={containerSize?.size ?? 0}
       >
@@ -90,6 +93,7 @@ export const ChartLine = forwardRef(
                   previousIds={previousIds}
                   height={height}
                   thresholdType={thresholdType}
+                  containerId={containerId}
                   {...item}
                 />
               </LineStyle>

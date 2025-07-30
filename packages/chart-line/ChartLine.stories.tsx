@@ -8,6 +8,8 @@ import {
   ChartLineThresholdType,
   LineData,
 } from './index.js'
+import { Modal } from '../modal'
+import { useState } from 'react'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -86,16 +88,9 @@ const DescriptionComponent = () => {
 
 const descriptionElement = <DescriptionComponent />
 
-export const Basic: StoryFn<
-  ChartLineProps & {
-    demoCount: number
-    demoMaxValue: number
-    useMaxValue: boolean
-    demoViewportWidth: number
-  }
-> = (props) => {
-  const { demoCount, demoMaxValue, useMaxValue, demoViewportWidth, ...rest } =
-    props
+const useChartData = (props: { demoCount: number }) => {
+  const { demoCount } = props
+
   const values = Array.from(
     { length: demoCount },
     (_, index) => demoCount + index,
@@ -124,6 +119,22 @@ export const Basic: StoryFn<
     labelPosition: 'top',
   })
 
+  return data
+}
+
+export const Basic: StoryFn<
+  ChartLineProps & {
+    demoCount: number
+    demoMaxValue: number
+    useMaxValue: boolean
+    demoViewportWidth: number
+  }
+> = (props) => {
+  const { demoCount, demoMaxValue, useMaxValue, demoViewportWidth, ...rest } =
+    props
+
+  const data = useChartData({ demoCount })
+
   return (
     <div style={{ width: `${demoViewportWidth}px` }}>
       <ChartLine
@@ -131,6 +142,69 @@ export const Basic: StoryFn<
         data={data}
         maxValue={useMaxValue ? demoMaxValue : undefined}
       />
+    </div>
+  )
+}
+
+// add a story with chart in modal
+
+export const ChartInModal: StoryFn<
+  ChartLineProps & {
+    demoCount: number
+    demoMaxValue: number
+    useMaxValue: boolean
+    demoViewportWidth: number
+  }
+> = (props) => {
+  const { demoCount, demoMaxValue, useMaxValue, demoViewportWidth, ...rest } =
+    props
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const data = useChartData({ demoCount })
+
+  const staticData: LineData[] = [
+    {
+      color: randomColor(0),
+      threshold: {
+        value: 90,
+        color: randomColor(0),
+        label: '90%',
+        description: 'Forced Rebalance Threshold',
+        descriptionElement,
+      },
+      labelPosition: 'top',
+    },
+    {
+      color: randomColor(1),
+      threshold: {
+        value: 50,
+        color: randomColor(1),
+        label: '50%',
+        description: 'Forced Rebalance Threshold',
+        descriptionElement,
+      },
+      labelPosition: 'top',
+    },
+  ]
+
+  return (
+    <div style={{ width: `${demoViewportWidth}px` }}>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      <ChartLine
+        data={staticData}
+        height={20}
+        showLabels={true}
+        border={ChartLineBorderType.rounded}
+        thresholdType={ChartLineThresholdType.flag}
+      />
+      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+        <ChartLine
+          {...rest}
+          data={data}
+          maxValue={useMaxValue ? demoMaxValue : undefined}
+        />
+      </Modal>
     </div>
   )
 }

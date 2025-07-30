@@ -1,3 +1,6 @@
+import uniqueId from 'lodash/uniqueId.js'
+
+import { CHART_LINE_LABEL_ID } from './constants.js'
 import { LineData } from '../types.js'
 
 type ProcessedLineData = LineData & {
@@ -24,7 +27,9 @@ export const processData = (
     .reduce<ProcessedData>(
       (acc, item, index) => {
         const { threshold } = item
-        const id = `chart-percent-line-group-${index}-${threshold.label}`
+        const id = uniqueId(
+          `${CHART_LINE_LABEL_ID}-${index}-${threshold.label}`,
+        )
         const width = threshold.value / (calculatedMaxValue / 100)
 
         const processedItem: ProcessedLineData = {
