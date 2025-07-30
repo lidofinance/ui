@@ -45,5 +45,6 @@ export type ChartLineLabelProps = LidoComponentProps<
     show?: boolean
     height: number
     thresholdType: ChartLineThresholdType
+    containerId: string
   } & LineData
 >
