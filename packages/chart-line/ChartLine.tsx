@@ -4,17 +4,13 @@ import {
   useMemo,
   useLayoutEffect,
   useState,
+  useId,
 } from 'react'
-import uniqueId from 'lodash/uniqueId.js'
 
 import { InlineLoader } from '../loaders/index.js'
 
 import { ChartLineLabel } from './ChartLineLabel.js'
-import {
-  CHART_LINE_CONTAINER_ID,
-  getContainerSize,
-  processData,
-} from './utils/index.js'
+import { getContainerSize, processData } from './utils/index.js'
 import { ContainerStyle, LineStyle, WrapperStyle } from './ChartLineStyles.js'
 import { ChartLineProps } from './types.js'
 
@@ -37,18 +33,17 @@ export const ChartLine = forwardRef(
       size: number
       isCenterAlign: boolean
     } | null>(null)
+    const containerId = useId()
 
     const { data: processedData, ids } = useMemo(
-      () => processData(data, maxValue),
-      [data, maxValue],
+      () => processData(data, containerId, maxValue),
+      [data, maxValue, containerId],
     )
 
     const allPreviousIds = useMemo(
       () => ids.map((_, index) => ids.slice(0, index)),
       [ids],
     )
-
-    const containerId = useMemo(() => uniqueId(CHART_LINE_CONTAINER_ID), [])
 
     useLayoutEffect(() => {
       if (!showLabels) {
