@@ -1,13 +1,29 @@
 import styled, { css } from '../utils/styled-components-wrapper.js'
 import { Close, ArrowBack } from '../icons/index.js'
 import { ButtonIcon } from '../button/index.js'
+import { ModalWindowSizes } from './types.js'
 
-export const ModalStyle = styled.div<{ $center: boolean }>`
+export const ModalWindowSizesMap = {
+  sm: css`
+    width: 432px;
+  `,
+  md: css`
+    width: 520px;
+  `,
+  lg: css`
+    width: 960px;
+  `,
+}
+
+export const ModalStyle = styled.div<{
+  $center: boolean
+  $size: ModalWindowSizes
+}>`
   ${({
     theme: { fontSizesMap, borderRadiusesMap, colors, boxShadows },
     $center,
+    $size,
   }) => css`
-    width: 432px;
     max-width: 100%;
     font-weight: 400;
     font-size: ${fontSizesMap.xs}px;
@@ -15,6 +31,8 @@ export const ModalStyle = styled.div<{ $center: boolean }>`
     text-align: ${$center ? 'center' : 'left'};
     border-radius: ${borderRadiusesMap.xl}px;
     box-shadow: ${boxShadows.xxl} ${colors.shadowDark};
+
+    ${ModalWindowSizesMap[$size]}
   `}
 `
 
