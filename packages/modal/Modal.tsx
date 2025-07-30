@@ -26,6 +26,8 @@ export const Modal = forwardRef(
       open,
       onClose,
       onBack,
+      windowSize = 'sm',
+      windowProps,
       ...rest
     }: ModalProps,
     ref?: ForwardedRef<HTMLDivElement>,
@@ -63,7 +65,7 @@ export const Modal = forwardRef(
         onBack={onBack}
         {...rest}
       >
-        <ModalStyle $center={center}>
+        <ModalStyle $center={center} $size={windowSize} {...windowProps}>
           <ModalBaseStyle>
             {modalHeader}
             {withSubtitle && (

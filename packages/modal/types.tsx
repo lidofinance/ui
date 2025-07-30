@@ -24,7 +24,17 @@ export type ModalProps = {
   extra?: ReactNode
   center?: boolean
   open?: boolean
+  windowSize?: ModalWindowSizes
+  windowProps?: ModalWindowProps
 } & Omit<ModalOverlayProps, 'title' | 'in'>
+
+export enum ModalWindowSize {
+  sm,
+  md,
+  lg,
+}
+export type ModalWindowSizes = keyof typeof ModalWindowSize
+export type ModalWindowProps = LidoComponentProps<'div'>
 
 export type ModalExtraProps = LidoComponentProps<'div'>
 

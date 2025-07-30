@@ -6,7 +6,13 @@ import { Loader } from '../loaders/index.js'
 import { Text } from '../text/index.js'
 import { Link } from '../link/index.js'
 import { Error, Success, Eth, Terra } from '../icons/index.js'
-import { ModalProps, Modal, ModalExtra, ModalButton } from './index.js'
+import {
+  ModalProps,
+  Modal,
+  ModalExtra,
+  ModalButton,
+  ModalWindowSize,
+} from './index.js'
 
 const getOptions = (enumObject: Record<string, string | number>) =>
   Object.values(enumObject).filter((value) => typeof value === 'string')
@@ -19,11 +25,16 @@ export default {
     subtitle: '',
     children: 'Modal content',
     center: false,
+    windowSize: 'sm',
   },
   argTypes: {
     onClose: {
       action: 'close',
       table: { disable: true },
+    },
+    windowSize: {
+      options: getOptions(ModalWindowSize),
+      control: 'inline-radio',
     },
   },
 } as Meta
