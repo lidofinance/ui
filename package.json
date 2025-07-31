@@ -4,7 +4,7 @@
   "homepage": "https://github.com/lidofinance/ui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lidofinance/ui.git"
+    "url": "git+https://github.com/lidofinance/ui.git"
   },
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
@@ -81,8 +81,8 @@
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-node-resolve": "16.0.1",
     "@semantic-release/commit-analyzer": "9.0.2",
+    "@semantic-release/npm": "^11.0.2",
     "@semantic-release/release-notes-generator": "10.0.3",
-    "@semrel-extra/npm": "1.2.2",
     "@storybook/addon-actions": "8.6.12",
     "@storybook/addon-docs": "8.6.12",
     "@storybook/addon-essentials": "8.6.12",
