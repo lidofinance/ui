@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pages: write
+  id-token: write # to enable use of OIDC for npm provenance
 
 jobs:
   deploy:
@@ -22,6 +23,9 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Enable corepack
+        run: corepack enable
 
       - name: Setup Node
         uses: actions/setup-node@40337cb8f758cccdfe3475af609daa63f81c7e23
