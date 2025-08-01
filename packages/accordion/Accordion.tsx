@@ -63,7 +63,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         {...rest}
       >
         <div
-          className={styles.header}
+          className={cn(styles.header, { [styles.opened]: isExpanded })}
           data-testid={dataTestId?.header}
           role='button'
           tabIndex={0}
