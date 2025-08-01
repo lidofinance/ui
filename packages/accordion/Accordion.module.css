@@ -8,7 +8,11 @@
   align-items: center;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  margin-bottom: var(--local-ui-accordion-content-offset);
+  transition: all 0.2s ease;
+
+  &.opened {
+    margin-bottom: var(--local-ui-accordion-content-offset);
+  }
 
   &:hover {
     color: var(--lido-ui-color-text-primary-hover);
