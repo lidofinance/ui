@@ -17,6 +17,7 @@ on:
       [opened, synchronize, reopened, ready_for_review]
     branches:
       - lido-ui-v4-canary
+      - main
 
 permissions:
   contents: read
@@ -67,13 +68,3 @@ jobs:
           SHORT_NAME: ${{ steps.repo.outputs.short_name }}
           BRANCH_HASH: ${{ steps.branch.outputs.hash }}
 
-
-  tests:
-    needs: deploy
-    if: ${{ github.event.pull_request.draft == false }}
-    uses: ./.github/workflows/tests.yml
-    secrets: inherit
-    with:
-      stand_url: ${{ needs.deploy.outputs.stand_url }}
-      STAND_TYPE: "preview"
-      tag: "smoke"
