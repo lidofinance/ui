@@ -11,7 +11,9 @@
   }
 
   &:hover {
-    color: var(--lido-ui-color-text-primary-hover);
+    .title {
+      color: var(--lido-ui-color-text-primary-hover);
+    }
 
     .chevronIcon {
       color: var(--lido-ui-color-icons-active);
@@ -22,6 +24,7 @@
 .title {
   @mixin font-h5-bold;
 
+  color: var(--lido-ui-color-text-primary);
   transition: color 0.2s ease;
 }
 
