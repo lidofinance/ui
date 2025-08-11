@@ -56,7 +56,7 @@
     "react-transition-group": "4",
     "styled-system": "5.1.5",
     "ua-parser-js": "^1.0.35",
-    "use-callback-ref": "1.2.5"
+    "use-callback-ref": "1.3.3"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.10",
