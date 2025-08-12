@@ -138,7 +138,10 @@
   }
 
   &.size--s:not(.circle) {
-    padding: 4px 18px 4px 4px;
+    padding: calc(4px - var(--local-button-border-width))
+      calc(18px - var(--local-button-border-width))
+      calc(4px - var(--local-button-border-width))
+      calc(4px - var(--local-button-border-width));
 
     --local-icon-wrapper-size: 40px;
     --local-icon-size: 32px;
@@ -153,7 +156,10 @@
   }
 
   &.size--m:not(.circle) {
-    padding: 6px 24px 6px 6px;
+    padding: calc(6px - var(--local-button-border-width))
+      calc(24px - var(--local-button-border-width))
+      calc(6px - var(--local-button-border-width))
+      calc(6px - var(--local-button-border-width));
 
     --local-icon-wrapper-size: 48px;
     --local-icon-size: 32px;
@@ -164,7 +170,10 @@
   }
 
   &.size--l:not(.circle) {
-    padding: 8px 28px 8px 8px;
+    padding: calc(8px - var(--local-button-border-width))
+      calc(28px - var(--local-button-border-width))
+      calc(8px - var(--local-button-border-width))
+      calc(8px - var(--local-button-border-width));
 
     --local-icon-wrapper-size: 52px;
     --local-icon-size: 32px;
@@ -290,6 +299,10 @@
 
   & > * {
     font-weight: var(--lido-ui-font-weight-regular);
+  }
+
+  .iconContainer::before {
+    display: none;
   }
 }
 
