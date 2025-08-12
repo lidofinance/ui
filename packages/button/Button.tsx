@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { IconConfig, IconConfigProp } from 'packages/utils'
+import { IconConfig, IconConfigProp, resolveIconSizeStyle } from '../utils'
 import {
   cloneElement,
   ComponentPropsWithoutRef,
@@ -88,6 +88,9 @@ export const Button = forwardRef(
 
       const iconElement = isIconObject(icon) ? icon.icon : icon
 
+      const mergedStyle =
+        resolveIconSizeStyle(icon, iconElement) ?? iconElement.props?.style
+
       return cloneElement(iconElement, {
         ...iconElement.props,
         className: cn(
@@ -95,6 +98,7 @@ export const Button = forwardRef(
           isColored && styles.colored,
           iconElement.props.className,
         ),
+        style: mergedStyle,
         'data-testid': dataTestId?.icon,
       })
     }

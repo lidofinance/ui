@@ -15,6 +15,8 @@ export type LidoComponentProps<
 export type IconConfig = {
   icon: ReactElement
   isColored?: boolean
+  width?: number | string
+  height?: number | string
 }
 
 export type IconConfigProp = IconConfig | ReactElement
