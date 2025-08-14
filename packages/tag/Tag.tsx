@@ -1,12 +1,12 @@
+import cn from 'classnames'
 import {
   ComponentPropsWithoutRef,
   ForwardedRef,
-  ReactNode,
   forwardRef,
+  ReactNode,
 } from 'react'
-import styles from './Tag.module.css'
-import cn from 'classnames'
 import { Cross } from '../icons'
+import styles from './Tag.module.css'
 
 export type TagDataTestId = {
   root?: string
@@ -48,6 +48,8 @@ export const Tag = forwardRef(
     }: TagProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
+    const hoverable = Boolean(onClose)
+
     const handleKeyDown = (e: React.KeyboardEvent) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault()
@@ -65,6 +67,7 @@ export const Tag = forwardRef(
           styles[`shape--${shape}`],
           {
             [styles.withIcon]: Boolean(icon),
+            [styles.hoverable]: Boolean(hoverable),
             [styles.withOnClose]: Boolean(onClose),
           },
         )}

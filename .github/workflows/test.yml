@@ -18,6 +18,44 @@ jobs:
   actions:
     uses: lidofinance/linters/.github/workflows/actions.yml@master
 
+  check-icons-generation:
+    runs-on: ubuntu-latest
+    needs: cache-deps
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+
+      - name: Restore cache
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run icons generation script
+        run: yarn icons:convert
+
+      - name: Check for git differences
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "::error::Icons generation script produced changes that are not committed. Please run 'yarn icons:convert' and commit the changes."
+            git status
+            git diff
+            exit 1
+          fi
+
   cache-deps:
     runs-on: ubuntu-latest
     steps:
@@ -26,11 +64,14 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .nvmrc
-      
+
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
@@ -48,6 +89,9 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
@@ -75,6 +119,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
@@ -85,6 +132,7 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -100,6 +148,9 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
@@ -127,6 +178,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
@@ -152,6 +206,9 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020

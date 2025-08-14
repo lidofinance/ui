@@ -10,7 +10,7 @@ import {
   StorybookGroup,
   StorybookSection,
 } from '../../../.storybook/components'
-import { MetamaskIcon } from '../../icons'
+import { Metamask } from '../../icons'
 
 export default {
   component: SliderCard,
@@ -19,8 +19,8 @@ export default {
     title: 'Name',
     subtitle: '',
     href: 'https://example.com',
-    text: 'Provide Lasdsadiquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
-    icon: <MetamaskIcon />,
+    text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
+    icon: <Metamask />,
     buttonText: '',
     variant: 'default',
   },
@@ -56,7 +56,7 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
               <SliderCardIcon
                 title='Application'
                 href='https://example.com'
-                icon={<MetamaskIcon />}
+                icon={<Metamask />}
                 text='Lorem ipsum dolor sit amet consectetur. Amet aliquet venenatis mi senectussenectus'
               />
             </StorybookGroup>

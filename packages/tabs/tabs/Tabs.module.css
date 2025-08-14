@@ -21,7 +21,6 @@
   @mixin font-body-large-medium-static;
 
   position: relative;
-  min-height: 68px;
   color: var(--lido-ui-color-buttons-primary);
   border: none;
   background-color: transparent;
@@ -30,12 +29,8 @@
     color 0.3s ease,
     background-color 0.3s ease,
     border-color 0.3s ease;
-  padding: 12px 26px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
-  border-radius: 34px;
   white-space: nowrap;
 
   &.active {
@@ -56,6 +51,14 @@
     cursor: not-allowed;
     color: var(--lido-ui-color-text-quaternary);
   }
+}
+
+.shape--text {
+  min-height: 68px;
+  padding: 12px 26px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 34px;
 }
 
 .shape--icon {

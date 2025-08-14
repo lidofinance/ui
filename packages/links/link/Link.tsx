@@ -1,7 +1,7 @@
-import React, { ReactNode, forwardRef } from 'react'
-import NextLink, { LinkProps as NextLinkProps } from 'next/link'
-import styles from './Link.module.css'
 import cn from 'classnames'
+import NextLink, { LinkProps as NextLinkProps } from 'next/link'
+import React, { forwardRef, ReactNode } from 'react'
+import styles from './Link.module.css'
 
 export type LinkDataTestId = {
   root?: string
@@ -33,7 +33,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       return (
         <NextLink
           target={target}
-          className={cn(styles.link, className, styles[color])}
+          className={cn(styles.link, className, {
+            [styles.inherit]: color == 'inherit',
+          })}
           href={href}
           data-testid={dataTestId?.root}
           {...props}
@@ -46,7 +48,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         <NextLink href={href} target={target} legacyBehavior {...props}>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
-            className={cn(styles.link, className, styles[color])}
+            className={cn(styles.link, className, {
+              [styles.inherit]: color == 'inherit',
+            })}
             ref={ref}
             data-testid={dataTestId?.root}
           >

@@ -1,11 +1,11 @@
 .banner {
   font-family: var(--lido-ui-font-family);
-  color: var(--deprecated-lido-ui-color-white-static);
+  color: var(--lido-ui-color-buttons-text-static);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  height: 60px;
+  min-height: 60px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -13,30 +13,52 @@
 
 .variantPrimary {
   background: linear-gradient(91deg, #000 49.11%, #000 65.68%);
+
+  .mainButton,
+  .closeButton {
+    &:hover {
+      color: var(--lido-ui-color-buttons-primary-hover);
+    }
+  }
+
+  .closeButton {
+    &:hover {
+      color: var(--lido-ui-color-buttons-primary-hover);
+    }
+  }
 }
 
 .variantSecondary {
   background: linear-gradient(90deg, #4584ff 23.14%, #2770ff 64.16%);
 
   &:hover {
-    color: var(--deprecated-lido-ui-color-primary-72);
+    background: var(--lido-ui-color-buttons-primary-hover);
+    color: var(--lido-ui-color-buttons-text-static);
   }
 
-  .mainButton,
-  .closeButton {
+  .mainButton {
     &:hover {
-      color: rgba(255 255 255 / 50%);
+      color: var(--lido-ui-color-buttons-text-static);
     }
-  }
-
-  .closeButton {
-    border-color: rgba(255 255 255 / 50%);
   }
 }
 
-.title {
-  font-weight: var(--lido-ui-font-weight-bold);
-  margin-bottom: -4px;
+.mainButton {
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  border: none;
+  transition: all 0.3s;
+}
+
+.closeButton {
+  flex-shrink: 0;
+
+  &,
+  &:hover {
+    border-color: var(--lido-ui-color-buttons-border-static);
+    color: var(--lido-ui-color-buttons-text-static);
+  }
 }
 
 .content {
@@ -45,50 +67,41 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
-  font-size: var(--deprecated-lido-ui-font-size-control);
-  line-height: var(--deprecated-lido-ui-line-height-control);
   flex-direction: row;
+  font-weight: var(--lido-ui-font-weight-bold);
+  margin-bottom: -4px;
 }
 
 .buttonContent {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  font-size: var(--deprecated-lido-ui-font-size-control);
+  @mixin font-body-large-bold;
+
+  text-align: center;
+  padding-right: 16px;
 }
 
-.mainButton {
-  width: 100%;
-  color: white;
-  flex-shrink: 0;
-  border: none;
-}
-
-.closeButton {
-  border-color: rgba(255 255 255 / 32%);
-  color: white;
-}
-
-@media (width <= 899px) {
+@media (--lido-ui-breakpoint-sm-down) {
   .content {
     justify-content: space-around;
   }
 
   .banner {
-    height: 80px;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    height: auto;
+    padding: 10px;
+    min-height: unset;
     align-items: start;
+
+    .closeButton {
+      position: relative;
+      height: 32px;
+      width: 32px;
+    }
   }
 
   .mainButton {
-    width: auto;
-    padding: 10px;
+    padding: 0;
   }
 
   .buttonContent {
-    display: flex;
-    flex-direction: column;
     text-align: left;
   }
 }

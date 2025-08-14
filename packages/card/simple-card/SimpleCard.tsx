@@ -1,5 +1,11 @@
 import cn from 'classnames'
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  MouseEvent,
+  ReactNode,
+} from 'react'
 import { Link } from '../../links'
 import { Tag } from '../../tag'
 import styles from './SimpleCard.module.css'
@@ -14,13 +20,14 @@ export type SimpleCardDataTestId = {
 }
 
 export type SimpleCardProps = ComponentPropsWithoutRef<'div'> & {
+  featuredText?: string
   title: string
   text: string
   href?: string
-  titleImgSrc: string
+  titleImg: ReactNode
   tags?: string[]
   logosArray?: string[]
-  extraLogosAmount?: number
+  maxLogosAmount?: number
   learnMoreLink?: string
   dataTestId?: SimpleCardDataTestId
   onLearnMoreClick?: () => void
@@ -31,27 +38,38 @@ export const SimpleCard = forwardRef(
     {
       title,
       text,
-      titleImgSrc,
+      titleImg,
+      featuredText,
       tags,
       logosArray,
       href,
       dataTestId,
       learnMoreLink,
-      extraLogosAmount,
+      maxLogosAmount = 2,
       className,
       onLearnMoreClick,
+      onClick,
       ...rest
     }: SimpleCardProps,
     ref?: ForwardedRef<HTMLDivElement> | ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const logosToShow = logosArray?.slice(0, 2)
+    const logosToShow = logosArray?.slice(0, maxLogosAmount)
+    const logosHidden = logosArray
+      ? Math.max(logosArray?.length - maxLogosAmount, 0)
+      : 0
+
     const cardContents = (
       <>
         <div className={styles.header}>
-          {titleImgSrc && (
-            <div className={styles.titleImage}>
-              <img src={titleImgSrc} width={56} height={56} alt={''} />
-            </div>
+          {titleImg && <div className={styles.titleImage}>{titleImg}</div>}
+          {featuredText && (
+            <Tag
+              className={styles.featuredTag}
+              variant='primary'
+              color='highlighted'
+            >
+              {featuredText}
+            </Tag>
           )}
           <div className={styles.headerLogos} data-testid={dataTestId?.logos}>
             {logosToShow?.map((logo, index) => (
@@ -59,9 +77,9 @@ export const SimpleCard = forwardRef(
                 <img src={logo} width={38} height={38} alt={''} />
               </div>
             ))}
-            {extraLogosAmount ? (
+            {logosHidden ? (
               <div className={cn(styles.headerLogo, styles.empty)}>
-                <span>+{extraLogosAmount}</span>
+                <span>+{logosHidden}</span>
               </div>
             ) : (
               <></>
@@ -104,6 +122,7 @@ export const SimpleCard = forwardRef(
         className={cn(className, styles.card)}
         data-testid={dataTestId?.root}
         ref={ref as ForwardedRef<HTMLAnchorElement>}
+        onClick={(e) => onClick?.(e as unknown as MouseEvent<HTMLDivElement>)}
       >
         {cardContents}
       </Link>

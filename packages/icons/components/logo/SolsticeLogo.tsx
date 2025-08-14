@@ -6,8 +6,12 @@ export const SolsticeLogo = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
+        fill='url(#SolsticeLogo__SolsticeLogo__a)'
+        d='M29.694 38.426a5.383 5.383 0 110 10.767V38.426z'
+      />
+      <path
         fill='currentColor'
-        d='M29.694 38.426a5.383 5.383 0 110 10.767V38.426zm-2.061.41a5.383 5.383 0 012.06-.41v10.767a5.385 5.385 0 01-3.806-9.19c.5-.5 1.093-.897 1.746-1.167z'
+        d='M27.633 38.836a5.383 5.383 0 012.06-.41v10.767a5.385 5.385 0 01-3.806-9.19c.5-.5 1.093-.897 1.746-1.167z'
       />
       <path
         fill='currentColor'
@@ -28,7 +32,7 @@ export const SolsticeLogo = (props: SVGProps<SVGSVGElement>) => {
           y2={43.81}
           gradientUnits='userSpaceOnUse'
         >
-          <stop />
+          <stop stopColor='currentColor' />
         </linearGradient>
       </defs>
     </svg>

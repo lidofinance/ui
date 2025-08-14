@@ -1,5 +1,3 @@
-/* OLD COLORS SHOULD BE SLOWLY DEPRECATED AND REMOVED */
-@import url('colors-deprecated.css');
 @import url('colors.css');
 
 :root {

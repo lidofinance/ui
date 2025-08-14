@@ -1,12 +1,12 @@
 .link {
   font-family: var(--lido-ui-font-family);
   text-decoration: none;
-  color: var(--deprecated-lido-ui-color-accent-ocean-static);
+  color: var(--lido-ui-color-text-link);
   transition: color 0.5s;
 }
 
 .link:hover {
-  color: var(--deprecated-lido-ui-color-accent-sky-static);
+  color: var(--lido-ui-color-buttons-secondary-hover);
   transition: color 0.3s;
 }
 
@@ -25,6 +25,6 @@
 
 .inherit:hover,
 .inherit:focus {
-  color: var(--deprecated-lido-ui-color-accent-ocean-static);
+  color: var(--lido-ui-color-text-link);
   transition: color 0.3s;
 }

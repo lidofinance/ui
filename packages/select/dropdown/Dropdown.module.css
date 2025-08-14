@@ -21,6 +21,7 @@
 
   &.isOpen {
     border-color: var(--lido-ui-color-borders-hover);
+    z-index: 2;
   }
 
   &.isDisabled {
@@ -91,7 +92,7 @@
   }
 }
 
-.item--size-L {
+.item--size-l {
   padding: 18px 42px 18px 28px;
   height: 68px;
 
@@ -100,7 +101,7 @@
   }
 }
 
-.item--size-M {
+.item--size-m {
   padding: 14px 46px 14px 24px;
   height: 60px;
 
@@ -109,7 +110,7 @@
   }
 }
 
-.item--size-S {
+.item--size-s {
   padding: 8px 38px 8px 24px;
   height: 48px;
 
@@ -123,7 +124,7 @@
   height: 32px;
 }
 
-.icon--size-L {
+.icon--size-l {
   padding: 10px;
 
   &.isColored {
@@ -133,7 +134,7 @@
   }
 }
 
-.icon--size-M {
+.icon--size-m {
   padding: 8px;
 
   &.isColored {
@@ -143,7 +144,7 @@
   }
 }
 
-.icon--size-S {
+.icon--size-s {
   padding: 4px;
 
   &.isColored {

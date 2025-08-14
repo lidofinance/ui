@@ -3,7 +3,7 @@ import { Tag } from '.'
 import { Image } from '../icons'
 
 const meta: Meta<typeof Tag> = {
-  title: 'Feedback/Tag',
+  title: 'Content helpers/Tag',
   component: Tag,
   parameters: {
     layout: 'centered',

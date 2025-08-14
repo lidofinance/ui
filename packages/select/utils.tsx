@@ -22,7 +22,7 @@ export const renderIcon = (
       className={cn(
         styles.icon,
         isColored && styles.isColored,
-        styles[`icon--size-${size.toUpperCase()}`],
+        styles[`icon--size-${size}`],
         className,
       )}
     />

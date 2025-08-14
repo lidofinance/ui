@@ -1,6 +1,6 @@
 .banner {
   font-family: var(--lido-ui-font-family);
-  color: var(--deprecated-lido-ui-color-white-static);
+  color: #fff;
   display: flex;
   box-sizing: border-box;
   justify-content: center;
@@ -20,23 +20,20 @@
   align-items: center;
   padding: 0 40px;
   gap: 10px;
-  font-size: var(--deprecated-lido-ui-font-size-subheader);
-  line-height: var(--deprecated-lido-ui-line-height-subheader);
 }
 
 .title {
-  @mixin font-body;
+  @mixin font-h5-bold;
 
-  color: var(--deprecated-lido-ui-color-white-static);
-  font-weight: var(--lido-ui-font-weight-medium);
+  color: var(--lido-ui-color-buttons-text-static);
   text-align: center;
 }
 
 .description {
-  color: var(--deprecated-lido-ui-color-white-static);
+  @mixin font-body-large-medium;
+
+  color: var(--lido-ui-color-buttons-text-static);
   text-align: center;
-  font-weight: var(--lido-ui-font-weight-light);
-  font-size: var(--deprecated-lido-ui-font-size-subheader);
 }
 
 .button {
@@ -45,15 +42,4 @@
 
 .icon {
   margin-bottom: -5px;
-}
-
-@media (width <= 599px) {
-  .title {
-    font-size: 18px;
-    font-weight: var(--lido-ui-font-weight-bold);
-  }
-
-  .description {
-    font-weight: var(--lido-ui-font-weight-regular);
-  }
 }
