@@ -92,7 +92,7 @@
   }
 }
 
-@media (width <= 900px) {
+@media (--lido-ui-breakpoint-md-down) {
   .tab {
     padding: 12px 16px;
   }

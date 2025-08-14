@@ -47,7 +47,7 @@
   color: var(--lido-ui-color-text-primary);
 }
 
-@media (width <= 899px) {
+@media (--lido-ui-breakpoint-md-down) {
   .banner {
     border-radius: unset;
     width: unset;
@@ -61,7 +61,7 @@
   }
 }
 
-@media (width <= 599px) {
+@media (--lido-ui-breakpoint-sm-down) {
   .banner {
     padding: 24px 20px;
   }

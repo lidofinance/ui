@@ -38,7 +38,7 @@
   --lido-ui-font-weight-extra-light: 200;
 }
 
-@media (width <= 1500px) {
+@media (--lido-ui-breakpoint-lg-down) {
   :root {
     /* Mid */
     --lido-ui-font-size-h1: 76px;
@@ -67,9 +67,9 @@
   }
 }
 
-@media (width <= 900px) {
+@media (--lido-ui-breakpoint-md-down) {
   :root {
-    /* Mobile (до 900px) */
+    /* Mobile */
     --lido-ui-font-size-h1: 50px;
     --lido-ui-line-height-h1: 56px;
     --lido-ui-font-size-h2: 38px;

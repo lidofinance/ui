@@ -164,7 +164,7 @@ Lido UI provides several categories of CSS variables that can be customized:
 Some variables like font sizes and line heights have responsive variants defined in media queries. You can also override these for specific breakpoints:
 
 ```css
-@media (width <= 899px) {
+@media (--lido-ui-breakpoint-md-down) {
   :root {
     --lido-ui-font-size-h1: 48px;
     --lido-ui-line-height-h1: 52px;
