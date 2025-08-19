@@ -133,7 +133,7 @@
   -webkit-box-orient: vertical;
 }
 
-@media (width <= 899px) {
+@media (--lido-ui-breakpoint-md-down) {
   .card {
     padding: 24px;
 

@@ -382,7 +382,7 @@
   }
 }
 
-@media (width <=899px) {
+@media (--lido-ui-breakpoint-md-down) {
   .hideArrowOnMobile {
     display: none;
   }
