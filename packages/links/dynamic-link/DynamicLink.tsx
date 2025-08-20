@@ -20,6 +20,7 @@ export const DynamicLink = forwardRef(
       children,
       prefetch = false,
       dataTestId,
+      onClick,
       ...rest
     }: DynamicLinkProps,
     ref?: ForwardedRef<HTMLAnchorElement>,
@@ -27,6 +28,11 @@ export const DynamicLink = forwardRef(
     const external = isExternal ?? href?.startsWith('https://')
 
     if (external) {
+      const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        ;(e.target as HTMLAnchorElement).blur()
+        onClick?.(e)
+      }
+
       return (
         <a
           target='_blank'
@@ -34,6 +40,7 @@ export const DynamicLink = forwardRef(
           href={href}
           ref={ref}
           data-testid={dataTestId?.root}
+          onClick={handleClick}
           {...rest}
         >
           {children}
@@ -47,6 +54,7 @@ export const DynamicLink = forwardRef(
         prefetch={prefetch}
         ref={ref}
         data-testid={dataTestId?.root}
+        onClick={onClick}
         {...rest}
       >
         {children}

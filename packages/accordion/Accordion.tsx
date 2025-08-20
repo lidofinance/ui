@@ -83,7 +83,9 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         </div>
 
         <div
-          className={styles.content}
+          className={cn(styles.content, {
+            [styles.opened]: isExpanded,
+          })}
           data-testid={dataTestId?.content}
           {...getCollapseProps()}
         >
