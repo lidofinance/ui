@@ -38,4 +38,4 @@ jobs:
         run: yarn install --immutable
 
       - name: Run Chromatic Visual Tests
-        run: npx chromatic --project-token=$CHROMATIC_TOKEN --exit-zero-on-changes
+        run: npx chromatic --project-token=$CHROMATIC_TOKEN --exit-zero-on-changes --patch-build="${GITHUB_HEAD_REF}...${GITHUB_BASE_REF}"
