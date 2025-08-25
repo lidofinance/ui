@@ -19,6 +19,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
       - name: Enable Corepack
         run: corepack enable
@@ -38,4 +39,8 @@ jobs:
         run: yarn install --immutable
 
       - name: Run Chromatic Visual Tests
-        run: npx chromatic --project-token=$CHROMATIC_TOKEN --exit-zero-on-changes --patch-build="${GITHUB_HEAD_REF}...${GITHUB_BASE_REF}"
+        run: |
+          npx chromatic --project-token=$CHROMATIC_TOKEN \
+            --exit-zero-on-changes  \
+            --branch-name="${GITHUB_HEAD_REF}" \
+            --patch-build="${GITHUB_HEAD_REF}...${GITHUB_BASE_REF}"
