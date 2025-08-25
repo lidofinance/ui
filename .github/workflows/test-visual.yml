@@ -19,7 +19,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-          ref: ${{ github.head_ref || github.ref }} 
+          ref: ${{ github.head_ref || github.ref }}
 
       - name: Enable Corepack
         run: corepack enable
