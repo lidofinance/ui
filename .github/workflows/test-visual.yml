@@ -1,4 +1,4 @@
-name: "Visual Tests - Stroybook"
+name: 'Visual Tests - Stroybook'
 
 on:
   push:
@@ -16,17 +16,30 @@ jobs:
   chromatic:
     name: Run Chromatic visual tests
     runs-on: ubuntu-latest
+    env:
+      CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_TOKEN }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
+          persist-credentials: false
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: 22.17.0
+          node-version-file: .nvmrc
+
+      - name: Restore cache
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install dependencies
-        run: yarn
-      - name: Run Chromatic
-        uses: chromaui/action@latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+        run: yarn install --immutable
+
+      - name: Run Chromatic Visual Tests
+        run: npx chromatic --project-token=$CHROMATIC_TOKEN
