@@ -1,0 +1,4 @@
+{
+  "storybookBuildDir": "storybook-static",
+  "onlyChanged": true
+}
