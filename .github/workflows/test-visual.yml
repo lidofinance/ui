@@ -1,7 +1,6 @@
 name: 'Visual Tests - Stroybook'
 
 on:
-  push:
   workflow_dispatch:
   pull_request:
 
