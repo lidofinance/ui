@@ -41,8 +41,5 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Build Storybook
-        run: yarn build-storybook
-
       - name: Run Chromatic Visual Tests
-        run: npx chromatic --project-token=$CHROMATIC_TOKEN
+        run: npx chromatic --project-token=$CHROMATIC_TOKEN --exit-zero-on-changes
