@@ -44,4 +44,3 @@ jobs:
             --exit-zero-on-changes  \
             --patch-build="${GITHUB_HEAD_REF}...${GITHUB_BASE_REF}" \
             --branch-name="${GITHUB_HEAD_REF}"
-            
