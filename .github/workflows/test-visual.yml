@@ -41,6 +41,5 @@ jobs:
       - name: Run Chromatic Visual Tests
         run: |
           npx chromatic --project-token=$CHROMATIC_TOKEN \
-            --exit-zero-on-changes  \
             --patch-build="${GITHUB_HEAD_REF}...${GITHUB_BASE_REF}" \
             --branch-name="${GITHUB_HEAD_REF}"

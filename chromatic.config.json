@@ -1,3 +1,4 @@
 {
-  "onlyChanged": true
+  "onlyChanged": true,
+  "exitZeroOnChanges": true
 }
