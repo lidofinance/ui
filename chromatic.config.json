@@ -1,4 +1,5 @@
 {
   "onlyChanged": true,
-  "exitZeroOnChanges": true
+  "exitZeroOnChanges": true,
+  "skip": "dependabot/**"
 }
