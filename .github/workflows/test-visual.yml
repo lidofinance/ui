@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - lido-ui-v4-canary
+      - fix/visual-tests-wf-on-branch
   pull_request:
 
 env:
@@ -41,12 +42,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run Chromatic Visual Tests
-        run: |
-          npx chromatic --project-token=$CHROMATIC_TOKEN \
-            --patch-build="${GITHUB_HEAD_REF}...${GITHUB_BASE_REF}" \
-            --branch-name="${GITHUB_HEAD_REF}"
-
       - name: Chromatic (PR)
         if: github.event_name == 'pull_request'
         run: |
@@ -58,4 +53,4 @@ jobs:
         if: github.event_name == 'push'
         run: |
           npx chromatic --project-token=$CHROMATIC_TOKEN \
-            --branch-name="${GITHUB_HEAD_REF}"
+            --branch-name="${{ github.ref_name }}"
