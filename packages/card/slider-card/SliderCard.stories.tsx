@@ -19,7 +19,7 @@ export default {
     title: 'Name',
     subtitle: '',
     href: 'https://example.com',
-    text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
+    text: 'Provide Liquidity to Balancer MetaStable Pools to liquidityasdas mine LDO and BAL.',
     icon: <Metamask />,
     buttonText: '',
     variant: 'default',
@@ -31,7 +31,7 @@ export default {
       options: ['default', 'last-child'],
     },
     buttonText: {
-      control: { type: 'text' },
+      control: { type: 'check' },
     },
   },
 } satisfies Meta
