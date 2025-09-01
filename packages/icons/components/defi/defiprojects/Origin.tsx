@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Origin = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Origin = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Origin__Origin__a)' opacity={0.4}>
+      <g filter={`url(#${_id})`} opacity={0.4}>
         <path
           fill='#3172E8'
           d='M54.29 32.8l6.41-6.483c1.49 3.128 2.303 6.803 2.303 10.683 0 5.775-1.76 11.025-4.944 14.837C54.673 55.877 49.978 58 44.47 58c-4.808 0-8.984-1.643-12.212-4.748-.068-.045-.113-.114-.181-.183l-.068-.068c-.203-.205-.406-.41-.587-.616a11.035 11.035 0 01-.493-.545l-.003-.003a18.633 18.633 0 01-2.1-3.105l22.169-22.415c-1.67-1.575-3.883-2.42-6.524-2.42-3.387 0-6.118 1.393-7.879 4.018-1.49 2.26-2.257 5.319-2.257 9.085 0 1.46.112 2.807.338 4.04l-6.456 6.528c-1.445-3.104-2.213-6.71-2.213-10.545 0-5.775 1.739-11.048 4.922-14.86C34.288 18.123 38.984 16 44.47 16c4.763 0 8.894 1.598 12.145 4.657.113.09.203.205.316.296l.135.137c.339.366.677.708.993 1.096a18.057 18.057 0 012.032 2.967L37.878 47.614c1.693 1.644 3.928 2.511 6.592 2.511 6.388 0 10.203-4.907 10.203-13.102 0-1.53-.135-2.945-.383-4.223z'
@@ -17,7 +19,7 @@ export const Origin = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Origin__Origin__a'
+          id={_id}
           width={61}
           height={66}
           x={14.003}

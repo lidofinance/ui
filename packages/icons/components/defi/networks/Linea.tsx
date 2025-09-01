@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Linea = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Linea = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Linea__Linea__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#84DCFB'
           d='M57.285 54.87H25.004V22.307h7.387v26.256h24.894v6.307zm0-26.257c3.64 0 6.588-2.822 6.588-6.306S60.924 16 57.285 16c-3.64 0-6.589 2.823-6.589 6.307 0 3.484 2.949 6.306 6.589 6.306z'
@@ -17,7 +19,7 @@ export const Linea = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Linea__Linea__a'
+          id={_id}
           width={58.869}
           height={58.87}
           x={15.004}

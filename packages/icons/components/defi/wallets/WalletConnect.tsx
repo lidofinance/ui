@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const WalletConnect = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const WalletConnect = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#WalletConnect__WalletConnect__a)' opacity={0.35}>
+      <g filter={`url(#${_id})`} opacity={0.35}>
         <path
           fill='#5194F7'
           d='M29.622 25.666c7.665-7.555 20.092-7.555 27.757 0l.921.91a.954.954 0 010 1.368l-3.155 3.11a.497.497 0 01-.694 0l-1.27-1.252c-5.347-5.27-14.016-5.27-19.362 0l-1.36 1.34a.496.496 0 01-.694 0l-3.156-3.11a.951.951 0 01-.213-1.055.95.95 0 01.213-.313l1.013-.998zm34.283 6.433l2.808 2.769a.951.951 0 01.212 1.054.95.95 0 01-.212.312L54.049 48.717a.993.993 0 01-1.387 0l-8.988-8.859a.248.248 0 00-.347 0l-8.987 8.859a.993.993 0 01-1.389 0L20.288 36.234a.954.954 0 010-1.367l2.809-2.77a.993.993 0 011.386 0l8.989 8.86c.095.095.25.095.347 0l8.987-8.858a.994.994 0 011.387 0l8.989 8.859a.247.247 0 00.346 0l8.988-8.86a.994.994 0 011.39 0z'
@@ -17,7 +19,7 @@ export const WalletConnect = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='WalletConnect__WalletConnect__a'
+          id={_id}
           width={73}
           height={55}
           x={7}

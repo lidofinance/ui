@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Gauntlet = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Gauntlet = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Gauntlet__Gauntlet__a)'>
-        <g filter='url(#Gauntlet__Gauntlet__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#7180F5'
             fillRule='evenodd'
@@ -26,11 +29,11 @@ export const Gauntlet = (props: SVGProps<SVGSVGElement>) => {
         <path fill='#1E1C2D' d='M29.971 58H22v8h7.971v-8z' />
       </g>
       <defs>
-        <clipPath id='Gauntlet__Gauntlet__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Gauntlet__Gauntlet__b'
+          id={_id2}
           width={67.856}
           height={76}
           x={6.527}

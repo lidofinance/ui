@@ -2,14 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const MenuStaking = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuStaking = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g
-        filter='url(#MenuStaking__MenuStaking__a)'
-        opacity={0.5}
-        fill='#00A3FF'
-      >
+      <g filter={`url(#${_id})`} opacity={0.5} fill='#00A3FF'>
         <path
           d='M53.767 39.471l.403.614c4.546 6.92 3.53 15.984-2.44 21.79C48.215 65.291 43.611 67 39.007 67l14.76-27.529z'
           opacity={0.6}
@@ -65,7 +63,7 @@ export const MenuStaking = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='MenuStaking__MenuStaking__a'
+          id={_id}
           width={52}
           height={66}
           x={13}

@@ -2,82 +2,118 @@
 
 import React, { SVGProps } from 'react'
 
-export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const TREASURY = function (props: SVGProps<SVGSVGElement>) {
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
-      <g filter='url(#TREASURY__TREASURY__a)' opacity={0.5}>
+      <g filter={`url(#${_id33})`} opacity={0.5}>
         <circle
           cx={215.143}
           cy={292}
           r={133}
-          fill='url(#TREASURY__TREASURY__b)'
+          fill={`url(#${_id})`}
           fillOpacity={0.8}
         />
         <path
-          fill='url(#TREASURY__TREASURY__c)'
+          fill={`url(#${_id2})`}
           d='M215.245 425.323c73.397 0 132.897-59.151 132.897-132.118 0-28.001-8.762-53.967-23.709-75.337l-110.078 65.878-110.079-63.268c-13.86 20.859-21.93 45.856-21.93 72.727 0 72.967 59.501 132.118 132.899 132.118z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__d)'
+          fill={`url(#${_id3})`}
           d='M121.143 197.128l93.59 53.499V54l-93.59 143.128z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__e)'
+          fill={`url(#${_id4})`}
           d='M308.166 197.128l-93.434 53.499V54l93.434 143.128z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__f)'
+          fill={`url(#${_id31})`}
           fillOpacity={0.6}
           d='M308.166 197.128l-93.434 53.499V54l93.434 143.128z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__g)'
+          fill={`url(#${_id5})`}
           d='M211.155 281.701L119.644 229.5l76.602 76.834 14.909-24.633z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__h)'
+          fill={`url(#${_id6})`}
           d='M211.155 281.701l-3.511 39.799-11.397-15.166 14.908-24.633z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__i)'
+          fill={`url(#${_id7})`}
           d='M152.273 319.465L120.144 230l76.102 76.333-43.973 13.132z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__j)'
+          fill={`url(#${_id8})`}
           d='M152.273 319.466L207.144 321l-10.898-14.667-43.973 13.133z'
         />
         <g opacity={0.5}>
           <path
-            fill='url(#TREASURY__TREASURY__k)'
+            fill={`url(#${_id9})`}
             d='M171.129 352.6l30.267 61.165 14.204-61.253-44.471.088z'
           />
           <path
-            fill='url(#TREASURY__TREASURY__l)'
+            fill={`url(#${_id0})`}
             d='M171.129 352.6l53.75-39.311-9.279 39.224-44.471.087z'
           />
           <path
-            fill='url(#TREASURY__TREASURY__m)'
+            fill={`url(#${_id1})`}
             d='M232.021 363.237l-30.696 50.831 14.275-61.556 16.421 10.725z'
           />
           <path
-            fill='url(#TREASURY__TREASURY__n)'
+            fill={`url(#${_id10})`}
             d='M231.229 364.985l-5.936-53.145-9.693 40.673 15.629 12.472z'
           />
         </g>
         <path
-          fill='url(#TREASURY__TREASURY__o)'
+          fill={`url(#${_id11})`}
           d='M301.789 319.798l1.015-87.556-36.918 86.369 35.903 1.187z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__p)'
+          fill={`url(#${_id12})`}
           d='M301.788 319.797l-58.93 52.688 23.028-53.874 35.902 1.186z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__q)'
+          fill={`url(#${_id13})`}
           d='M224.757 278.781l78.229-46.967-37.1 86.797-41.129-39.83z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__r)'
+          fill={`url(#${_id14})`}
           d='M224.757 278.78l17.736 94.56 23.393-54.729-41.129-39.831z'
         />
       </g>
@@ -85,79 +121,79 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
         cx={250.143}
         cy={302}
         r={133}
-        fill='url(#TREASURY__TREASURY__s)'
+        fill={`url(#${_id15})`}
         fillOpacity={0.8}
       />
       <path
-        fill='url(#TREASURY__TREASURY__t)'
+        fill={`url(#${_id16})`}
         d='M250.245 435.323c73.397 0 132.897-59.151 132.897-132.118 0-28.001-8.762-53.967-23.709-75.337l-110.078 65.878-110.079-63.268c-13.86 20.859-21.929 45.856-21.929 72.727 0 72.967 59.5 132.118 132.898 132.118z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__u)'
+        fill={`url(#${_id17})`}
         d='M156.143 207.128l93.59 53.499V64l-93.59 143.128z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__v)'
+        fill={`url(#${_id18})`}
         d='M343.166 207.128l-93.434 53.499V64l93.434 143.128z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__w)'
+        fill={`url(#${_id32})`}
         fillOpacity={0.6}
         d='M343.166 207.128l-93.434 53.499V64l93.434 143.128z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__x)'
+        fill={`url(#${_id19})`}
         d='M246.155 291.701L154.644 239.5l76.602 76.834 14.909-24.633z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__y)'
+        fill={`url(#${_id20})`}
         d='M246.155 291.701l-3.511 39.799-11.397-15.166 14.908-24.633z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__z)'
+        fill={`url(#${_id21})`}
         d='M187.273 329.465L155.144 240l76.102 76.333-43.973 13.132z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__A)'
+        fill={`url(#${_id22})`}
         d='M187.273 329.466L242.144 331l-10.898-14.667-43.973 13.133z'
       />
       <g opacity={0.5}>
         <path
-          fill='url(#TREASURY__TREASURY__B)'
+          fill={`url(#${_id23})`}
           d='M206.129 362.6l30.267 61.165 14.204-61.253-44.471.088z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__C)'
+          fill={`url(#${_id24})`}
           d='M206.129 362.6l53.75-39.311-9.279 39.224-44.471.087z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__D)'
+          fill={`url(#${_id25})`}
           d='M267.021 373.237l-30.696 50.831 14.275-61.556 16.421 10.725z'
         />
         <path
-          fill='url(#TREASURY__TREASURY__E)'
+          fill={`url(#${_id26})`}
           d='M266.229 374.985l-5.936-53.145-9.693 40.673 15.629 12.472z'
         />
       </g>
       <path
-        fill='url(#TREASURY__TREASURY__F)'
+        fill={`url(#${_id27})`}
         d='M336.789 329.798l1.015-87.556-36.918 86.369 35.903 1.187z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__G)'
+        fill={`url(#${_id28})`}
         d='M336.788 329.797l-58.93 52.688 23.028-53.874 35.902 1.186z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__H)'
+        fill={`url(#${_id29})`}
         d='M259.757 288.781l78.229-46.967-37.1 86.797-41.129-39.83z'
       />
       <path
-        fill='url(#TREASURY__TREASURY__I)'
+        fill={`url(#${_id30})`}
         d='M259.757 288.78l17.736 94.56 23.393-54.729-41.129-39.831z'
       />
       <defs>
         <radialGradient
-          id='TREASURY__TREASURY__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -168,7 +204,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#35C2FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -180,7 +216,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -191,7 +227,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__e'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -202,7 +238,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__g'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -213,7 +249,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -224,7 +260,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__i'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -235,7 +271,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__j'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -246,7 +282,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__k'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -257,7 +293,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__l'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -268,7 +304,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__m'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -279,7 +315,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__n'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -290,7 +326,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__o'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -301,7 +337,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__p'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -312,7 +348,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__q'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -323,7 +359,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__r'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -334,7 +370,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__s'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -345,7 +381,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#35C2FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__t'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -357,7 +393,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__u'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -368,7 +404,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__v'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -379,7 +415,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__x'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -390,7 +426,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__y'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -401,7 +437,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__z'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -412,7 +448,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__A'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -423,7 +459,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__B'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -434,7 +470,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__C'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -445,7 +481,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__D'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -456,7 +492,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__E'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -467,7 +503,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__F'
+          id={_id27}
           cx={0}
           cy={0}
           r={1}
@@ -478,7 +514,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__G'
+          id={_id28}
           cx={0}
           cy={0}
           r={1}
@@ -489,7 +525,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__H'
+          id={_id29}
           cx={0}
           cy={0}
           r={1}
@@ -500,7 +536,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='TREASURY__TREASURY__I'
+          id={_id30}
           cx={0}
           cy={0}
           r={1}
@@ -511,7 +547,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='TREASURY__TREASURY__f'
+          id={_id31}
           x1={289.642}
           x2={139.142}
           y1={40}
@@ -522,7 +558,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='TREASURY__TREASURY__w'
+          id={_id32}
           x1={324.642}
           x2={174.142}
           y1={50}
@@ -533,7 +569,7 @@ export const TREASURY = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <filter
-          id='TREASURY__TREASURY__a'
+          id={_id33}
           width={374}
           height={479.323}
           x={28.143}

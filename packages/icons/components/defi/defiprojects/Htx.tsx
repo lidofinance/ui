@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Htx = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Htx = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Htx__Htx__a)'>
-        <g filter='url(#Htx__Htx__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#3D8AD1'
             d='M42 50c-5.2 7.6-.166 14.833 3 17.5C47 63 54 64 57.5 53c2.8-8.8-3.5-16.333-7-19 0 5-2 6.5-8.5 16z'
@@ -26,11 +29,11 @@ export const Htx = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Htx__Htx__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Htx__Htx__b'
+          id={_id2}
           width={65.198}
           height={84.5}
           x={7}

@@ -2,13 +2,17 @@
 
 import React, { SVGProps } from 'react'
 
-export const LYBRA = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const LYBRA = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#LYBRA__LYBRA__a)' opacity={0.3}>
-        <circle cx={40.511} cy={38.5} r={21.5} fill='url(#LYBRA__LYBRA__b)' />
+      <g filter={`url(#${_id3})`} opacity={0.3}>
+        <circle cx={40.511} cy={38.5} r={21.5} fill={`url(#${_id})`} />
       </g>
-      <circle cx={40.511} cy={40.5} r={21.5} fill='url(#LYBRA__LYBRA__c)' />
+      <circle cx={40.511} cy={40.5} r={21.5} fill={`url(#${_id2})`} />
       <path
         fill='#fff'
         fillRule='evenodd'
@@ -17,7 +21,7 @@ export const LYBRA = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <linearGradient
-          id='LYBRA__LYBRA__b'
+          id={_id}
           x1={40.511}
           x2={40.511}
           y1={17}
@@ -28,7 +32,7 @@ export const LYBRA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#729CE2' />
         </linearGradient>
         <linearGradient
-          id='LYBRA__LYBRA__c'
+          id={_id2}
           x1={40.511}
           x2={40.511}
           y1={19}
@@ -39,7 +43,7 @@ export const LYBRA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#729CE2' />
         </linearGradient>
         <filter
-          id='LYBRA__LYBRA__a'
+          id={_id3}
           width={71}
           height={71}
           x={5.011}

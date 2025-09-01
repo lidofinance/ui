@@ -2,38 +2,46 @@
 
 import React, { SVGProps } from 'react'
 
-export const Mellow = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Mellow = function (props: SVGProps<SVGSVGElement>) {
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Mellow__Mellow__a)' opacity={0.5}>
+      <g filter={`url(#${_id7})`} opacity={0.5}>
         <path
-          fill='url(#Mellow__Mellow__b)'
+          fill={`url(#${_id})`}
           d='M46.311 53.52c9.916 0 17.955-8.053 17.955-17.988 0-9.935-8.039-17.988-17.955-17.988-9.916 0-17.955 8.053-17.955 17.988 0 9.935 8.039 17.988 17.955 17.988z'
         />
         <path
-          fill='url(#Mellow__Mellow__c)'
+          fill={`url(#${_id2})`}
           d='M38.268 42.574a7.042 7.042 0 100-14.084 7.042 7.042 0 000 14.084z'
         />
       </g>
       <path
-        fill='url(#Mellow__Mellow__d)'
+        fill={`url(#${_id3})`}
         d='M40.007 60.991C51.601 60.991 61 51.592 61 39.998s-9.399-20.992-20.993-20.992-20.992 9.398-20.992 20.992c0 11.594 9.398 20.993 20.992 20.993z'
       />
       <path
-        fill='url(#Mellow__Mellow__e)'
+        fill={`url(#${_id4})`}
         d='M42.745 57.601c9.686 0 17.538-7.866 17.538-17.57 0-9.703-7.852-17.57-17.538-17.57-9.685 0-17.537 7.867-17.537 17.57 0 9.704 7.852 17.57 17.537 17.57z'
       />
       <path
-        fill='url(#Mellow__Mellow__f)'
+        fill={`url(#${_id5})`}
         d='M39.649 53.102c7.255 0 13.137-5.866 13.137-13.104 0-7.237-5.882-13.104-13.137-13.104-7.255 0-13.137 5.867-13.137 13.104 0 7.238 5.882 13.105 13.137 13.105z'
       />
       <path
-        fill='url(#Mellow__Mellow__g)'
+        fill={`url(#${_id6})`}
         d='M34.89 46.909a6.878 6.878 0 100-13.756 6.878 6.878 0 000 13.756z'
       />
       <defs>
         <radialGradient
-          id='Mellow__Mellow__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -45,7 +53,7 @@ export const Mellow = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F00A38' />
         </radialGradient>
         <radialGradient
-          id='Mellow__Mellow__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -57,7 +65,7 @@ export const Mellow = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF94CE' />
         </radialGradient>
         <radialGradient
-          id='Mellow__Mellow__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -71,7 +79,7 @@ export const Mellow = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#fff' />
         </radialGradient>
         <radialGradient
-          id='Mellow__Mellow__e'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -83,7 +91,7 @@ export const Mellow = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F00A38' />
         </radialGradient>
         <radialGradient
-          id='Mellow__Mellow__f'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -96,7 +104,7 @@ export const Mellow = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#fff' />
         </radialGradient>
         <radialGradient
-          id='Mellow__Mellow__g'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -108,7 +116,7 @@ export const Mellow = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF94CE' />
         </radialGradient>
         <filter
-          id='Mellow__Mellow__a'
+          id={_id7}
           width={63.91}
           height={63.977}
           x={14.356}

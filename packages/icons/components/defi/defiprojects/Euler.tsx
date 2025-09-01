@@ -2,10 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const Euler = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Euler = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Euler__Euler__a)' opacity={0.4}>
+      <g filter={`url(#${_id2})`} opacity={0.4}>
         <path
           fill='#37BEC1'
           d='M25.452 27.443l22.65-10.085a4.133 4.133 0 013.361 7.55l-22.65 10.084a4.133 4.133 0 01-3.361-7.55z'
@@ -19,7 +22,7 @@ export const Euler = (props: SVGProps<SVGSVGElement>) => {
           d='M35.537 50.091l22.649-10.084a4.133 4.133 0 013.362 7.55l-22.65 10.085a4.133 4.133 0 01-3.361-7.55z'
         />
       </g>
-      <g clipPath='url(#Euler__Euler__b)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#37BEC1'
           d='M21.452 30.443l22.65-10.085a4.133 4.133 0 013.361 7.55l-22.65 10.084a4.133 4.133 0 01-3.361-7.55z'
@@ -34,11 +37,11 @@ export const Euler = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Euler__Euler__b'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M19 20h41v41H19z' />
         </clipPath>
         <filter
-          id='Euler__Euler__a'
+          id={_id2}
           width={61.002}
           height={61}
           x={12.999}

@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const BNB = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const BNB = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const BNB = (props: SVGProps<SVGSVGElement>) => {
         d='M40.515 17c12.427 0 22.5 10.073 22.5 22.5S52.942 62 40.515 62c-12.428 0-22.5-10.073-22.5-22.5S28.087 17 40.515 17z'
         clipRule='evenodd'
       />
-      <g filter='url(#BNB__BNB__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#F0B90B'
           fillRule='evenodd'
@@ -27,7 +29,7 @@ export const BNB = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='BNB__BNB__a'
+          id={_id}
           width={65}
           height={65}
           x={11.015}

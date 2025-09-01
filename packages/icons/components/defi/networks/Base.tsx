@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Base = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Base = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Base__Base__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#1A3FF5'
           fillOpacity={0.4}
@@ -18,7 +20,7 @@ export const Base = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Base__Base__a'
+          id={_id}
           width={62}
           height={62}
           x={13.015}

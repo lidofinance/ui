@@ -2,160 +2,198 @@
 
 import React, { SVGProps } from 'react'
 
-export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const PeopleCulture = function (props: SVGProps<SVGSVGElement>) {
+  const _id35 = useUniqueInlineId()
+  const _id34 = useUniqueInlineId()
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
-      <g filter='url(#PeopleCulture__PeopleCulture__a)' opacity={0.6}>
+      <g filter={`url(#${_id35})`} opacity={0.6}>
         <path
-          fill='url(#PeopleCulture__PeopleCulture__b)'
+          fill={`url(#${_id})`}
           d='M140.714 197.128l93.59 53.499V54l-93.59 143.128z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__c)'
+          fill={`url(#${_id2})`}
           d='M140.714 197.128l93.59 53.499V54l-93.59 143.128z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__d)'
+          fill={`url(#${_id3})`}
           d='M327.738 197.128l-93.434 53.499V54l93.434 143.128z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__e)'
+          fill={`url(#${_id4})`}
           d='M233.614 162.92c10.295 0 18.64 8.345 18.64 18.64 0 2.635-.549 5.141-1.535 7.414 31.433 1.868 58.566 8.819 76.675 18.756-.62-.06-1.23-.089-1.86-.089-11.37 0-20.591 9.219-20.591 20.589 0 .41.01.811.04 1.21-24.739 9.231-44.37 28.921-53.5 53.701l-.179.479c-5.77.35-11.68.54-17.69.54h-.551c-5.879-.01-11.669-.2-17.309-.55l-.18-.48c-9.12-24.74-28.7-44.41-53.39-53.65.02-.359.03-.72.03-1.08 0-11.37-9.21-20.589-20.59-20.589-.74 0-1.48.04-2.2.12 18.096-10.026 45.548-17.063 77.086-18.952a18.573 18.573 0 01-1.536-7.419c0-10.295 8.346-18.64 18.64-18.64z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__f)'
+          fill={`url(#${_id5})`}
           d='M343.023 217.41c-3.63-5.86-10.1-9.78-17.5-9.78-11.37 0-20.59 9.22-20.59 20.59s9.22 20.59 20.59 20.59c1.8 0 3.54-.25 5.2-.69-10.68 12.56-27.8 22.79-48.72 29.06l-29.43 13.4-1.32.6-13.92 6.34c31.28 1.92 56.05 27.89 56.05 59.65 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 20.48-10.3 38.55-26 49.31-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-1.94.19-3.9.29-5.89.29.75 0 1.5 0 2.25-.02 3.79-.06 7.53-.28 11.23-.66h.05c40.86-4.11 76.26-26.63 97.68-59.09.8-1.21 1.58-2.44 2.34-3.68 12.28-20.03 19.35-43.52 19.35-68.67 0-27.86-8.69-53.7-23.49-75.01v.01z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__g)'
+          fill={`url(#${_id6})`}
           d='M343.023 217.41c-3.63-5.86-10.1-9.78-17.5-9.78-11.37 0-20.59 9.22-20.59 20.59s9.22 20.59 20.59 20.59c1.8 0 3.54-.25 5.2-.69-10.68 12.56-27.8 22.79-48.72 29.06l-29.43 13.4-1.32.6-13.92 6.34c31.28 1.92 56.05 27.89 56.05 59.65 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 20.48-10.3 38.55-26 49.31-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-1.94.19-3.9.29-5.89.29.75 0 1.5 0 2.25-.02 3.79-.06 7.53-.28 11.23-.66h.05c40.86-4.11 76.26-26.63 97.68-59.09.8-1.21 1.58-2.44 2.34-3.68 12.28-20.03 19.35-43.52 19.35-68.67 0-27.86-8.69-53.7-23.49-75.01v.01z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__h)'
+          fill={`url(#${_id7})`}
           d='M233.614 284.03c-17.38 0-33.81-2.46-48.39-6.84-20.79-6.23-37.82-16.36-48.52-28.81 1.58.39 3.22.62 4.92.62 11.37 0 20.59-9.22 20.59-20.59s-9.22-20.59-20.59-20.59c-7.19 0-13.51 3.69-17.19 9.28-14.95 21.35-23.72 47.32-23.72 75.32 0 24.71 6.83 47.83 18.71 67.61.96 1.6 1.95 3.18 2.98 4.74 21.63 32.77 57.51 55.42 98.88 59.2 2.57.24 5.15.41 7.76.48.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02a58.65 58.65 0 01-4.22-.25 59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21-15.7-10.76-26-28.83-26-49.31 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-33.01 26.76-59.77 59.77-59.77 1.25 0 2.49.04 3.72.12l13.92-6.34 1.32-.6 29.43-13.4c-14.58 4.38-31.01 6.84-48.39 6.84z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__i)'
+          fill={`url(#${_id33})`}
           fillOpacity={0.6}
           d='M233.614 284.03c-17.38 0-33.81-2.46-48.39-6.84-20.79-6.23-37.82-16.36-48.52-28.81 1.58.39 3.22.62 4.92.62 11.37 0 20.59-9.22 20.59-20.59s-9.22-20.59-20.59-20.59c-7.19 0-13.51 3.69-17.19 9.28-14.95 21.35-23.72 47.32-23.72 75.32 0 24.71 6.83 47.83 18.71 67.61.96 1.6 1.95 3.18 2.98 4.74 21.63 32.77 57.51 55.42 98.88 59.2 2.57.24 5.15.41 7.76.48.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02a58.65 58.65 0 01-4.22-.25 59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21-15.7-10.76-26-28.83-26-49.31 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-33.01 26.76-59.77 59.77-59.77 1.25 0 2.49.04 3.72.12l13.92-6.34 1.32-.6 29.43-13.4c-14.58 4.38-31.01 6.84-48.39 6.84z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__j)'
+          fill={`url(#${_id8})`}
           d='M347.384 356.99c0 1.37-.07 2.74-.22 4.09-.76 1.25-1.54 2.48-2.34 3.69-21.42 32.46-56.82 54.98-97.68 59.09h-.05c-.86.06-1.72.12-2.58.16-1.64.1-3.29.18-4.95.23 8.83-.88 17.09-3.67 24.36-7.96 1.18-.69 2.33-1.43 3.46-2.21 15.7-10.76 26-28.83 26-49.31 0-.66 0-1.33-.04-1.98.03-.6.04-1.21.04-1.82 0-.61-.03-1.22-.05-1.83.02-.65.05-1.31.05-1.96 0-31.76-24.77-57.73-56.05-59.65-1.23-.08-2.47-.12-3.72-.12-33.01 0-59.77 26.76-59.77 59.77 0 .65.03 1.31.05 1.96-.02.61-.05 1.22-.05 1.83 0 .61.01 1.22.04 1.82a43.3 43.3 0 00-.04 1.98c0 20.48 10.3 38.55 26 49.31 1.13.78 2.28 1.52 3.46 2.21a59.192 59.192 0 0024.66 7.98 206.34 206.34 0 01-6.68-.3c-41.37-3.78-77.25-26.43-98.88-59.2-1.03-1.56-2.02-3.14-2.98-4.74-.08-1.01-.12-2.02-.12-3.04 0-37.2 51.05-67.36 114.04-67.36 6.55 0 12.98.33 19.23.96 53.82 5.39 94.81 33.07 94.81 66.4z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__k)'
+          fill={`url(#${_id9})`}
           d='M251.254 291.19a112.747 112.747 0 00-17.64-1.38c-5.26 0-10.52.37-15.57 1.07-40.75 5.67-71.66 33.2-71.66 66.3 0 15.65 6.9 30.04 18.48 41.48 14.03 13.84 34.93 23.34 58.74 25.44 1.79.16 3.61.28 5.44.35.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02.47.02.95.02 1.43.02.75 0 1.5 0 2.25-.02 2.92-.06 5.81-.23 8.65-.5 23.41-2.25 43.94-11.67 57.79-25.32 11.62-11.44 18.54-25.85 18.54-41.52 0-32.54-29.87-59.69-69.59-65.99zm16.13 122.89c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c-3.82-7.87-5.96-16.71-5.96-26.05 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-28.27 19.62-51.95 45.99-58.17a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44 26.45 6.16 46.16 29.88 46.16 58.21 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 9.37-2.15 18.24-6 26.13a59.969 59.969 0 01-20 23.18z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__l)'
+          fill={`url(#${_id0})`}
           d='M287.384 390.9a59.969 59.969 0 01-20 23.18c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c24.91-16.21 41.37-44.29 41.37-76.22 0-5.32-.46-10.53-1.34-15.59a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44-.88 5.08-1.34 10.3-1.34 15.63 0 31.98 16.52 60.1 41.5 76.3z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__m)'
+          fill={`url(#${_id1})`}
           d='M287.384 390.9a59.969 59.969 0 01-20 23.18c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c24.91-16.21 41.37-44.29 41.37-76.22 0-5.32-.46-10.53-1.34-15.59a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44-.88 5.08-1.34 10.3-1.34 15.63 0 31.98 16.52 60.1 41.5 76.3z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__n)'
+          fill={`url(#${_id10})`}
           d='M233.613 284.03c-26.52 0-50.68 1.85-70.31 4.34-2.37.3-4.67.61-6.89.94-2.88.29-5.84.45-8.82.48-.85.02-1.7.02-2.55 0-2.71-.12-5.42-.64-8.07-1.58-1.71-.6-3.32-1.36-4.84-2.26-13.46-7.92-19.25-26.6-12.94-44.4.81-2.3 1.79-4.49 2.92-6.55 2.25 6.65 7.8 11.77 14.7 13.42 8.77 10.32 21.9 19.06 37.91 25.33 2.11.82 4.28 1.61 6.5 2.35 1.42.48 2.86.93 4.32 1.37 14.58 4.38 30.69 6.56 48.07 6.56z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__o)'
+          fill={`url(#${_id11})`}
           d='M335.103 285.95c-1.52.9-3.13 1.66-4.84 2.26-2.65.94-5.36 1.46-8.07 1.58-.85.02-1.7.02-2.55 0-2.98-.03-5.94-.19-8.82-.48-2.22-.33-4.52-.64-6.89-.94-19.63-2.49-43.8-4.34-70.32-4.34 17.38 0 33.5-2.18 48.08-6.56 1.46-.44 2.9-.89 4.32-1.37 2.22-.74 4.39-1.53 6.5-2.35 16.13-6.32 29.34-15.15 38.11-25.57a20.59 20.59 0 0014.41-13.35c1.16 2.11 2.17 4.35 3.01 6.72 6.31 17.8.52 36.48-12.94 44.4z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__p)'
+          fill={`url(#${_id12})`}
           d='M136.814 248.42c-6.9-1.65-12.45-6.77-14.7-13.42a.185.185 0 01-.02-.07c0 .04.01.07.01.1 1.35 12.73 9.77 22.54 19.96 22.54 1.24 0 2.46-.15 3.64-.43-3.32-2.76-6.3-5.67-8.89-8.72z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__q)'
+          fill={`url(#${_id13})`}
           d='M321.424 257.06c1.18.28 2.4.43 3.64.43 10.19 0 18.61-9.81 19.96-22.54 0-.03.01-.06.01-.1 0 .02-.01.05-.02.07-2.25 6.65-7.8 11.77-14.7 13.42-2.59 3.05-5.57 5.96-8.89 8.72z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__r)'
+          fill={`url(#${_id14})`}
           d='M215.754 283.61l-.18-.48c-9.12-24.74-28.7-44.41-53.39-53.65.02-.36.03-.72.03-1.08v-.07c31.9 1.67 56.42 23.23 56.68 55.1.01.17.01.35.01.52-5.88-.01 2.49 0-3.15-.34z'
         />
         <path
-          fill='url(#PeopleCulture__PeopleCulture__s)'
+          fill={`url(#${_id15})`}
           d='M304.994 229.49c-24.73 9.22-44.35 28.89-53.49 53.65-.07.17-.14.35-.2.52-5.64.35 2.73.33-3.15.34 0-.19 0-.38.01-.56.28-31.88 24.85-53.44 56.78-55.06 0 .37.02.74.05 1.11z'
         />
       </g>
       <path
-        fill='url(#PeopleCulture__PeopleCulture__t)'
+        fill={`url(#${_id16})`}
         d='M159.714 197.128l93.59 53.499V54l-93.59 143.128z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__u)'
+        fill={`url(#${_id17})`}
         d='M159.714 197.128l93.59 53.499V54l-93.59 143.128z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__v)'
+        fill={`url(#${_id18})`}
         d='M346.738 197.128l-93.434 53.499V54l93.434 143.128z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__w)'
+        fill={`url(#${_id19})`}
         d='M252.614 162.92c10.295 0 18.64 8.345 18.64 18.64 0 2.635-.549 5.141-1.535 7.414 31.433 1.868 58.566 8.819 76.675 18.756-.62-.06-1.23-.089-1.86-.089-11.37 0-20.591 9.219-20.591 20.589 0 .41.01.811.04 1.21-24.739 9.231-44.37 28.921-53.5 53.701l-.179.479c-5.77.35-11.68.54-17.69.54h-.551c-5.879-.01-11.669-.2-17.309-.55l-.18-.48c-9.12-24.74-28.7-44.41-53.39-53.65.02-.359.03-.72.03-1.08 0-11.37-9.21-20.589-20.59-20.589-.74 0-1.48.04-2.2.12 18.096-10.026 45.548-17.063 77.086-18.952a18.573 18.573 0 01-1.536-7.419c0-10.295 8.346-18.64 18.64-18.64z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__x)'
+        fill={`url(#${_id20})`}
         d='M362.023 217.41c-3.63-5.86-10.1-9.78-17.5-9.78-11.37 0-20.59 9.22-20.59 20.59s9.22 20.59 20.59 20.59c1.8 0 3.54-.25 5.2-.69-10.68 12.56-27.8 22.79-48.72 29.06l-29.43 13.4-1.32.6-13.92 6.34c31.28 1.92 56.05 27.89 56.05 59.65 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 20.48-10.3 38.55-26 49.31-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-1.94.19-3.9.29-5.89.29.75 0 1.5 0 2.25-.02 3.79-.06 7.53-.28 11.23-.66h.05c40.86-4.11 76.26-26.63 97.68-59.09.8-1.21 1.58-2.44 2.34-3.68 12.28-20.03 19.35-43.52 19.35-68.67 0-27.86-8.69-53.7-23.49-75.01v.01z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__y)'
+        fill={`url(#${_id21})`}
         d='M362.023 217.41c-3.63-5.86-10.1-9.78-17.5-9.78-11.37 0-20.59 9.22-20.59 20.59s9.22 20.59 20.59 20.59c1.8 0 3.54-.25 5.2-.69-10.68 12.56-27.8 22.79-48.72 29.06l-29.43 13.4-1.32.6-13.92 6.34c31.28 1.92 56.05 27.89 56.05 59.65 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 20.48-10.3 38.55-26 49.31-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-1.94.19-3.9.29-5.89.29.75 0 1.5 0 2.25-.02 3.79-.06 7.53-.28 11.23-.66h.05c40.86-4.11 76.26-26.63 97.68-59.09.8-1.21 1.58-2.44 2.34-3.68 12.28-20.03 19.35-43.52 19.35-68.67 0-27.86-8.69-53.7-23.49-75.01v.01z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__z)'
+        fill={`url(#${_id22})`}
         d='M252.614 284.03c-17.38 0-33.81-2.46-48.39-6.84-20.79-6.23-37.82-16.36-48.52-28.81 1.58.39 3.22.62 4.92.62 11.37 0 20.59-9.22 20.59-20.59s-9.22-20.59-20.59-20.59c-7.19 0-13.51 3.69-17.19 9.28-14.95 21.35-23.72 47.32-23.72 75.32 0 24.71 6.83 47.83 18.71 67.61.96 1.6 1.95 3.18 2.98 4.74 21.63 32.77 57.51 55.42 98.88 59.2 2.57.24 5.15.41 7.76.48.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02a58.65 58.65 0 01-4.22-.25 59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21-15.7-10.76-26-28.83-26-49.31 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-33.01 26.76-59.77 59.77-59.77 1.25 0 2.49.04 3.72.12l13.92-6.34 1.32-.6 29.43-13.4c-14.58 4.38-31.01 6.84-48.39 6.84z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__A)'
+        fill={`url(#${_id34})`}
         fillOpacity={0.6}
         d='M252.614 284.03c-17.38 0-33.81-2.46-48.39-6.84-20.79-6.23-37.82-16.36-48.52-28.81 1.58.39 3.22.62 4.92.62 11.37 0 20.59-9.22 20.59-20.59s-9.22-20.59-20.59-20.59c-7.19 0-13.51 3.69-17.19 9.28-14.95 21.35-23.72 47.32-23.72 75.32 0 24.71 6.83 47.83 18.71 67.61.96 1.6 1.95 3.18 2.98 4.74 21.63 32.77 57.51 55.42 98.88 59.2 2.57.24 5.15.41 7.76.48.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02a58.65 58.65 0 01-4.22-.25 59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21-15.7-10.76-26-28.83-26-49.31 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-33.01 26.76-59.77 59.77-59.77 1.25 0 2.49.04 3.72.12l13.92-6.34 1.32-.6 29.43-13.4c-14.58 4.38-31.01 6.84-48.39 6.84z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__B)'
+        fill={`url(#${_id23})`}
         d='M366.384 356.99c0 1.37-.07 2.74-.22 4.09-.76 1.25-1.54 2.48-2.34 3.69-21.42 32.46-56.82 54.98-97.68 59.09h-.05c-.86.06-1.72.12-2.58.16-1.64.1-3.29.18-4.95.23 8.83-.88 17.09-3.67 24.36-7.96 1.18-.69 2.33-1.43 3.46-2.21 15.7-10.76 26-28.83 26-49.31 0-.66 0-1.33-.04-1.98.03-.6.04-1.21.04-1.82 0-.61-.03-1.22-.05-1.83.02-.65.05-1.31.05-1.96 0-31.76-24.77-57.73-56.05-59.65-1.23-.08-2.47-.12-3.72-.12-33.01 0-59.77 26.76-59.77 59.77 0 .65.03 1.31.05 1.96-.02.61-.05 1.22-.05 1.83 0 .61.01 1.22.04 1.82a43.3 43.3 0 00-.04 1.98c0 20.48 10.3 38.55 26 49.31 1.13.78 2.28 1.52 3.46 2.21a59.192 59.192 0 0024.66 7.98 206.34 206.34 0 01-6.68-.3c-41.37-3.78-77.25-26.43-98.88-59.2-1.03-1.56-2.02-3.14-2.98-4.74-.08-1.01-.12-2.02-.12-3.04 0-37.2 51.05-67.36 114.04-67.36 6.55 0 12.98.33 19.23.96 53.82 5.39 94.81 33.07 94.81 66.4z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__C)'
+        fill={`url(#${_id24})`}
         d='M270.254 291.19a112.747 112.747 0 00-17.64-1.38c-5.26 0-10.52.37-15.57 1.07-40.75 5.67-71.66 33.2-71.66 66.3 0 15.65 6.9 30.04 18.48 41.48 14.03 13.84 34.93 23.34 58.74 25.44 1.79.16 3.61.28 5.44.35.61.02 1.22.04 1.83.05.43.02.87.03 1.31.02.47.02.95.02 1.43.02.75 0 1.5 0 2.25-.02 2.92-.06 5.81-.23 8.65-.5 23.41-2.25 43.94-11.67 57.79-25.32 11.62-11.44 18.54-25.85 18.54-41.52 0-32.54-29.87-59.69-69.59-65.99zm16.13 122.89c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c-3.82-7.87-5.96-16.71-5.96-26.05 0-.66.01-1.33.04-1.98-.03-.6-.04-1.21-.04-1.82 0-.61.03-1.22.05-1.83-.02-.65-.05-1.31-.05-1.96 0-28.27 19.62-51.95 45.99-58.17a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44 26.45 6.16 46.16 29.88 46.16 58.21 0 .65-.03 1.31-.05 1.96.02.61.05 1.22.05 1.83 0 .61 0 1.22-.04 1.82.03.65.04 1.32.04 1.98 0 9.37-2.15 18.24-6 26.13a59.969 59.969 0 01-20 23.18z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__D)'
+        fill={`url(#${_id25})`}
         d='M306.384 390.9a59.969 59.969 0 01-20 23.18c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c24.91-16.21 41.37-44.29 41.37-76.22 0-5.32-.46-10.53-1.34-15.59a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44-.88 5.08-1.34 10.3-1.34 15.63 0 31.98 16.52 60.1 41.5 76.3z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__E)'
+        fill={`url(#${_id26})`}
         d='M306.384 390.9a59.969 59.969 0 01-20 23.18c-1.13.78-2.28 1.52-3.46 2.21a59.447 59.447 0 01-24.36 7.96h-.06c-2.04.07-4.09.1-6.16.1-1.8 0-3.6-.02-5.38-.08a59.192 59.192 0 01-24.66-7.98c-1.18-.69-2.33-1.43-3.46-2.21a59.995 59.995 0 01-20.04-23.26c24.91-16.21 41.37-44.29 41.37-76.22 0-5.32-.46-10.53-1.34-15.59a59.663 59.663 0 0117.5-1.48c3.38.21 6.68.7 9.89 1.44-.88 5.08-1.34 10.3-1.34 15.63 0 31.98 16.52 60.1 41.5 76.3z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__F)'
+        fill={`url(#${_id27})`}
         d='M252.613 284.03c-26.52 0-50.68 1.85-70.31 4.34-2.37.3-4.67.61-6.89.94-2.88.29-5.84.45-8.82.48-.85.02-1.7.02-2.55 0-2.71-.12-5.42-.64-8.07-1.58-1.71-.6-3.32-1.36-4.84-2.26-13.46-7.92-19.25-26.6-12.94-44.4.81-2.3 1.79-4.49 2.92-6.55 2.25 6.65 7.8 11.77 14.7 13.42 8.77 10.32 21.9 19.06 37.91 25.33 2.11.82 4.28 1.61 6.5 2.35 1.42.48 2.86.93 4.32 1.37 14.58 4.38 30.69 6.56 48.07 6.56z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__G)'
+        fill={`url(#${_id28})`}
         d='M354.103 285.95c-1.52.9-3.13 1.66-4.84 2.26-2.65.94-5.36 1.46-8.07 1.58-.85.02-1.7.02-2.55 0-2.98-.03-5.94-.19-8.82-.48-2.22-.33-4.52-.64-6.89-.94-19.63-2.49-43.8-4.34-70.32-4.34 17.38 0 33.5-2.18 48.08-6.56 1.46-.44 2.9-.89 4.32-1.37 2.22-.74 4.39-1.53 6.5-2.35 16.13-6.32 29.34-15.15 38.11-25.57a20.59 20.59 0 0014.41-13.35c1.16 2.11 2.17 4.35 3.01 6.72 6.31 17.8.52 36.48-12.94 44.4z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__H)'
+        fill={`url(#${_id29})`}
         d='M155.814 248.42c-6.9-1.65-12.45-6.77-14.7-13.42a.185.185 0 01-.02-.07c0 .04.01.07.01.1 1.35 12.73 9.77 22.54 19.96 22.54 1.24 0 2.46-.15 3.64-.43-3.32-2.76-6.3-5.67-8.89-8.72z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__I)'
+        fill={`url(#${_id30})`}
         d='M340.424 257.06c1.18.28 2.4.43 3.64.43 10.19 0 18.61-9.81 19.96-22.54 0-.03.01-.06.01-.1 0 .02-.01.05-.02.07-2.25 6.65-7.8 11.77-14.7 13.42-2.59 3.05-5.57 5.96-8.89 8.72z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__J)'
+        fill={`url(#${_id31})`}
         d='M234.754 283.61l-.18-.48c-9.12-24.74-28.7-44.41-53.39-53.65.02-.36.03-.72.03-1.08v-.07c31.9 1.67 56.42 23.23 56.68 55.1.01.17.01.35.01.52-5.88-.01 2.49 0-3.15-.34z'
       />
       <path
-        fill='url(#PeopleCulture__PeopleCulture__K)'
+        fill={`url(#${_id32})`}
         d='M323.994 229.49c-24.73 9.22-44.35 28.89-53.49 53.65-.07.17-.14.35-.2.52-5.64.35 2.73.33-3.15.34 0-.19 0-.38.01-.56.28-31.88 24.85-53.44 56.78-55.06 0 .37.02.74.05 1.11z'
       />
       <defs>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -166,7 +204,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -178,7 +216,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.817} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -190,7 +228,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__e'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -201,7 +239,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__f'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -212,7 +250,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__g'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -223,7 +261,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__h'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -235,7 +273,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.833} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__j'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -246,7 +284,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__k'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -257,7 +295,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__l'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -268,7 +306,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__m'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -279,7 +317,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__n'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -290,7 +328,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__o'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -301,7 +339,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__p'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -312,7 +350,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__q'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -323,7 +361,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__r'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -334,7 +372,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__s'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -345,7 +383,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__t'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -356,7 +394,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__u'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -368,7 +406,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.817} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__v'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -380,7 +418,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__w'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -391,7 +429,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__x'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -402,7 +440,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__y'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -413,7 +451,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__z'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -425,7 +463,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.833} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__B'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -436,7 +474,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__C'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -447,7 +485,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__D'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -458,7 +496,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__E'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -469,7 +507,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__F'
+          id={_id27}
           cx={0}
           cy={0}
           r={1}
@@ -480,7 +518,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__G'
+          id={_id28}
           cx={0}
           cy={0}
           r={1}
@@ -491,7 +529,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__H'
+          id={_id29}
           cx={0}
           cy={0}
           r={1}
@@ -502,7 +540,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__I'
+          id={_id30}
           cx={0}
           cy={0}
           r={1}
@@ -513,7 +551,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__J'
+          id={_id31}
           cx={0}
           cy={0}
           r={1}
@@ -524,7 +562,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='PeopleCulture__PeopleCulture__K'
+          id={_id32}
           cx={0}
           cy={0}
           r={1}
@@ -535,7 +573,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='PeopleCulture__PeopleCulture__i'
+          id={_id33}
           x1={99.756}
           x2={187.4}
           y1={398.338}
@@ -546,7 +584,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='PeopleCulture__PeopleCulture__A'
+          id={_id34}
           x1={118.756}
           x2={206.4}
           y1={398.338}
@@ -557,7 +595,7 @@ export const PeopleCulture = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <filter
-          id='PeopleCulture__PeopleCulture__a'
+          id={_id35}
           width={373.8}
           height={478.54}
           x={46.714}

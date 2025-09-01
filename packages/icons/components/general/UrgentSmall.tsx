@@ -2,26 +2,30 @@
 
 import React, { SVGProps } from 'react'
 
-export const UrgentSmall = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const UrgentSmall = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#UrgentSmall__UrgentSmall__a)' opacity={0.6}>
+      <g filter={`url(#${_id3})`} opacity={0.6}>
         <path
-          fill='url(#UrgentSmall__UrgentSmall__b)'
+          fill={`url(#${_id})`}
           fillRule='evenodd'
           d='M43.395 21.662c-1.565-2.513-5.224-2.513-6.79 0L22.827 43.78c-1.66 2.664.256 6.115 3.395 6.115h27.556c3.14 0 5.055-3.45 3.395-6.115L43.395 21.662zm-5.163 5.53a1 1 0 01.999-1.04h1.538a1 1 0 011 1.04l-.52 12.495a1 1 0 01-1 .959h-.497a1 1 0 01-1-.959l-.52-12.494zm-.043 16.473a1.812 1.812 0 113.623 0 1.812 1.812 0 01-3.623 0z'
           clipRule='evenodd'
         />
       </g>
       <path
-        fill='url(#UrgentSmall__UrgentSmall__c)'
+        fill={`url(#${_id2})`}
         fillRule='evenodd'
         d='M43.395 24.735c-1.565-2.513-5.224-2.513-6.79 0L22.827 46.852c-1.66 2.665.256 6.116 3.395 6.116h27.556c3.14 0 5.055-3.451 3.395-6.116L43.395 24.735zm-5.163 5.53a1 1 0 01.999-1.04h1.538a1 1 0 011 1.04l-.52 12.495a1 1 0 01-1 .959h-.497a1 1 0 01-1-.959l-.52-12.494zm-.043 16.473a1.812 1.812 0 113.623 0 1.812 1.812 0 01-3.623 0z'
         clipRule='evenodd'
       />
       <defs>
         <radialGradient
-          id='UrgentSmall__UrgentSmall__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -32,7 +36,7 @@ export const UrgentSmall = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#E7456C' stopOpacity={0.5} />
         </radialGradient>
         <radialGradient
-          id='UrgentSmall__UrgentSmall__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -43,7 +47,7 @@ export const UrgentSmall = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#E7456C' stopOpacity={0.5} />
         </radialGradient>
         <filter
-          id='UrgentSmall__UrgentSmall__a'
+          id={_id3}
           width={67.569}
           height={62.117}
           x={6.216}

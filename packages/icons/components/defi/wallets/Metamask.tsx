@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Metamask = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Metamask = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Metamask__Metamask__a)'>
-        <g filter='url(#Metamask__Metamask__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#F6851B'
             d='M18.334 30.773l1.445 6.934-.918.68 1.36 1.037-1.037.815 1.36 1.241-.85.612 1.954 2.294-2.956 9.211 2.754 9.398 9.635-2.651 1.87 1.53 3.79 2.634h6.508l3.807-2.634 1.87-1.53 9.635 2.65 2.77-9.397-2.991-9.211 1.97-2.294-.85-.612 1.36-1.24-1.054-.816 1.36-1.037-.901-.68 1.444-6.934-2.157-6.439-13.782 5.149-11.452.001-13.8-5.152-2.144 6.441z'
@@ -62,11 +65,11 @@ export const Metamask = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Metamask__Metamask__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0-.002h80.004v80.004H0z' />
         </clipPath>
         <filter
-          id='Metamask__Metamask__b'
+          id={_id2}
           width={73.335}
           height={70.176}
           x={3.334}

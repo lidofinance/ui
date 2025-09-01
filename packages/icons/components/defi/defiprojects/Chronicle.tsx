@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Chronicle = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Chronicle = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Chronicle__Chronicle__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#2FD05B'
           fillOpacity={0.5}
@@ -18,7 +20,7 @@ export const Chronicle = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Chronicle__Chronicle__a'
+          id={_id}
           width={76}
           height={76}
           x={2.022}

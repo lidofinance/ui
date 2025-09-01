@@ -2,10 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const Coingecko = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Coingecko = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Coingecko__Coingecko__a)' opacity={0.6}>
+      <g filter={`url(#${_id2})`} opacity={0.6}>
         <path
           fill='#8DC63F'
           d='M64.004 32.916a19 19 0 11-37.998.168 19 19 0 0137.998-.168z'
@@ -43,7 +46,7 @@ export const Coingecko = (props: SVGProps<SVGSVGElement>) => {
           d='M58.062 33.689c-.855.779-1.872 1.356-2.907 1.865a18.573 18.573 0 01-3.264 1.188c-1.123.29-2.295.51-3.481.402-1.187-.107-2.4-.51-3.186-1.4l.037-.042c.963.625 2.076.845 3.183.877a14.915 14.915 0 003.346-.276c1.112-.233 2.2-.57 3.25-1.005 1.05-.434 2.09-.936 2.985-1.652l.037.043zm-13.157-4.985a2.39 2.39 0 11-4.78 0 2.39 2.39 0 014.78 0z'
         />
       </g>
-      <g clipPath='url(#Coingecko__Coingecko__b)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#8DC63F'
           d='M61.004 39.907a21 21 0 11-42.001.185 21 21 0 0142-.185z'
@@ -82,11 +85,11 @@ export const Coingecko = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Coingecko__Coingecko__b'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M19.004 19h42v42h-42z' />
         </clipPath>
         <filter
-          id='Coingecko__Coingecko__a'
+          id={_id2}
           width={62}
           height={62}
           x={14.004}

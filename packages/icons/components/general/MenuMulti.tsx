@@ -2,47 +2,77 @@
 
 import React, { SVGProps } from 'react'
 
-export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuMulti = function (props: SVGProps<SVGSVGElement>) {
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#MenuMulti__MenuMulti__a)' opacity={0.5}>
+      <g filter={`url(#${_id27})`} opacity={0.5}>
         <path
-          fill='url(#MenuMulti__MenuMulti__b)'
+          fill={`url(#${_id})`}
           d='M29.577 37.276l12.539 7.167V18.1L29.577 37.276z'
         />
         <path
-          fill='url(#MenuMulti__MenuMulti__c)'
+          fill={`url(#${_id2})`}
           d='M54.634 37.276l-12.518 7.167V18.1l12.518 19.176z'
         />
         <path
-          fill='url(#MenuMulti__MenuMulti__d)'
+          fill={`url(#${_id25})`}
           fillOpacity={0.6}
           d='M54.634 37.276l-12.518 7.167V18.1l12.518 19.176z'
         />
         <path
-          fill='url(#MenuMulti__MenuMulti__e)'
+          fill={`url(#${_id3})`}
           d='M42.116 67.9c9.834 0 17.805-7.925 17.805-17.7 0-3.752-1.174-7.23-3.176-10.094l-14.748 8.826-14.747-8.476a17.544 17.544 0 00-2.94 9.744c0 9.775 7.972 17.7 17.805 17.7z'
         />
         <path
-          fill='url(#MenuMulti__MenuMulti__f)'
+          fill={`url(#${_id4})`}
           d='M42.116 67.9c9.834 0 17.805-7.925 17.805-17.7 0-3.752-1.174-7.23-3.176-10.094l-14.748 8.826-14.747-8.476a17.544 17.544 0 00-2.94 9.744c0 9.775 7.972 17.7 17.805 17.7z'
         />
         <path
-          fill='url(#MenuMulti__MenuMulti__g)'
+          fill={`url(#${_id5})`}
           d='M42.116 67.9c9.834 0 17.805-7.925 17.805-17.7 0-3.752-1.174-7.23-3.176-10.094l-14.748 8.826-14.747-8.476a17.544 17.544 0 00-2.94 9.744c0 9.775 7.972 17.7 17.805 17.7z'
         />
         <g opacity={0.9} transform='rotate(1.977 41.507 57.114)'>
           <ellipse
             cx={41.507}
             cy={57.114}
-            fill='url(#MenuMulti__MenuMulti__h)'
+            fill={`url(#${_id6})`}
             rx={22.99}
             ry={6.73}
           />
           <ellipse
             cx={41.507}
             cy={57.114}
-            fill='url(#MenuMulti__MenuMulti__i)'
+            fill={`url(#${_id7})`}
             fillOpacity={0.6}
             rx={22.99}
             ry={6.73}
@@ -52,14 +82,14 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <ellipse
             cx={42.673}
             cy={52.622}
-            fill='url(#MenuMulti__MenuMulti__j)'
+            fill={`url(#${_id8})`}
             rx={24.648}
             ry={8.345}
           />
           <ellipse
             cx={42.673}
             cy={52.622}
-            fill='url(#MenuMulti__MenuMulti__k)'
+            fill={`url(#${_id9})`}
             fillOpacity={0.6}
             rx={24.648}
             ry={8.345}
@@ -69,14 +99,14 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <ellipse
             cx={41.583}
             cy={49.999}
-            fill='url(#MenuMulti__MenuMulti__l)'
+            fill={`url(#${_id0})`}
             rx={23.958}
             ry={7.672}
           />
           <ellipse
             cx={41.583}
             cy={49.999}
-            fill='url(#MenuMulti__MenuMulti__m)'
+            fill={`url(#${_id1})`}
             fillOpacity={0.6}
             rx={23.958}
             ry={7.672}
@@ -86,14 +116,14 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <ellipse
             cx={40.441}
             cy={47.74}
-            fill='url(#MenuMulti__MenuMulti__n)'
+            fill={`url(#${_id10})`}
             rx={23.748}
             ry={7.15}
           />
           <ellipse
             cx={40.441}
             cy={47.74}
-            fill='url(#MenuMulti__MenuMulti__o)'
+            fill={`url(#${_id11})`}
             fillOpacity={0.6}
             rx={23.748}
             ry={7.15}
@@ -101,42 +131,42 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <path
-        fill='url(#MenuMulti__MenuMulti__p)'
+        fill={`url(#${_id12})`}
         d='M27.577 34.276l12.539 7.167V15.1L27.577 34.276z'
       />
       <path
-        fill='url(#MenuMulti__MenuMulti__q)'
+        fill={`url(#${_id13})`}
         d='M52.634 34.276l-12.518 7.167V15.1l12.518 19.176z'
       />
       <path
-        fill='url(#MenuMulti__MenuMulti__r)'
+        fill={`url(#${_id26})`}
         fillOpacity={0.6}
         d='M52.634 34.276l-12.518 7.167V15.1l12.518 19.176z'
       />
       <path
-        fill='url(#MenuMulti__MenuMulti__s)'
+        fill={`url(#${_id14})`}
         d='M40.116 64.9c9.834 0 17.805-7.925 17.805-17.7 0-3.752-1.174-7.23-3.176-10.094l-14.748 8.826-14.747-8.476a17.544 17.544 0 00-2.94 9.744c0 9.775 7.972 17.7 17.805 17.7z'
       />
       <path
-        fill='url(#MenuMulti__MenuMulti__t)'
+        fill={`url(#${_id15})`}
         d='M40.116 64.9c9.834 0 17.805-7.925 17.805-17.7 0-3.752-1.174-7.23-3.176-10.094l-14.748 8.826-14.747-8.476a17.544 17.544 0 00-2.94 9.744c0 9.775 7.972 17.7 17.805 17.7z'
       />
       <path
-        fill='url(#MenuMulti__MenuMulti__u)'
+        fill={`url(#${_id16})`}
         d='M40.116 64.9c9.834 0 17.805-7.925 17.805-17.7 0-3.752-1.174-7.23-3.176-10.094l-14.748 8.826-14.747-8.476a17.544 17.544 0 00-2.94 9.744c0 9.775 7.972 17.7 17.805 17.7z'
       />
       <g opacity={0.9} transform='rotate(1.977 39.507 54.114)'>
         <ellipse
           cx={39.507}
           cy={54.114}
-          fill='url(#MenuMulti__MenuMulti__v)'
+          fill={`url(#${_id17})`}
           rx={22.99}
           ry={6.73}
         />
         <ellipse
           cx={39.507}
           cy={54.114}
-          fill='url(#MenuMulti__MenuMulti__w)'
+          fill={`url(#${_id18})`}
           fillOpacity={0.6}
           rx={22.99}
           ry={6.73}
@@ -146,14 +176,14 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
         <ellipse
           cx={40.673}
           cy={49.622}
-          fill='url(#MenuMulti__MenuMulti__x)'
+          fill={`url(#${_id19})`}
           rx={24.648}
           ry={8.345}
         />
         <ellipse
           cx={40.673}
           cy={49.622}
-          fill='url(#MenuMulti__MenuMulti__y)'
+          fill={`url(#${_id20})`}
           fillOpacity={0.6}
           rx={24.648}
           ry={8.345}
@@ -163,14 +193,14 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
         <ellipse
           cx={39.583}
           cy={46.999}
-          fill='url(#MenuMulti__MenuMulti__z)'
+          fill={`url(#${_id21})`}
           rx={23.958}
           ry={7.672}
         />
         <ellipse
           cx={39.583}
           cy={46.999}
-          fill='url(#MenuMulti__MenuMulti__A)'
+          fill={`url(#${_id22})`}
           fillOpacity={0.6}
           rx={23.958}
           ry={7.672}
@@ -180,14 +210,14 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
         <ellipse
           cx={38.441}
           cy={44.74}
-          fill='url(#MenuMulti__MenuMulti__B)'
+          fill={`url(#${_id23})`}
           rx={23.748}
           ry={7.15}
         />
         <ellipse
           cx={38.441}
           cy={44.74}
-          fill='url(#MenuMulti__MenuMulti__C)'
+          fill={`url(#${_id24})`}
           fillOpacity={0.6}
           rx={23.748}
           ry={7.15}
@@ -195,7 +225,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <radialGradient
-          id='MenuMulti__MenuMulti__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -206,7 +236,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#0047FF' stopOpacity={0.11} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -217,7 +247,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__e'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -228,7 +258,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__f'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -239,7 +269,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__g'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -250,7 +280,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -261,7 +291,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__i'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -272,7 +302,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#06F' />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__j'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -283,7 +313,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__k'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -294,7 +324,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#06F' />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__l'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -305,7 +335,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__m'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -316,7 +346,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#06F' />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__n'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -327,7 +357,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__o'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -338,7 +368,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#06F' />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__p'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -349,7 +379,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#0047FF' stopOpacity={0.11} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__q'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -360,7 +390,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__s'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -371,7 +401,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__t'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -382,7 +412,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__u'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -393,7 +423,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__v'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -404,7 +434,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__w'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -415,7 +445,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#06F' />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__x'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -426,7 +456,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__y'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -437,7 +467,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#06F' />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__z'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -448,7 +478,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__A'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -459,7 +489,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#06F' />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__B'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -470,7 +500,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuMulti__MenuMulti__C'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -481,7 +511,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#06F' />
         </radialGradient>
         <linearGradient
-          id='MenuMulti__MenuMulti__d'
+          id={_id25}
           x1={54.7}
           x2={46.467}
           y1={41.26}
@@ -492,7 +522,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuMulti__MenuMulti__r'
+          id={_id26}
           x1={52.7}
           x2={44.467}
           y1={38.26}
@@ -503,7 +533,7 @@ export const MenuMulti = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <filter
-          id='MenuMulti__MenuMulti__a'
+          id={_id27}
           width={64.852}
           height={65.8}
           x={10.247}

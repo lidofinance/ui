@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Tranchess = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Tranchess = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Tranchess__Tranchess__a)'>
-        <g filter='url(#Tranchess__Tranchess__b)' opacity={0.9} fill='#9EDC39'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.9} fill='#9EDC39'>
           <path
             fillRule='evenodd'
             d='M46.28 16.273a3.228 3.228 0 00-4.565 0l-16.838 16.84a3.229 3.229 0 000 4.565l16.838 16.84a3.228 3.228 0 004.566 0l1.038 1.037-1.038-1.038L63.12 37.678a3.229 3.229 0 000-4.566l-16.84-16.84zm2.076-2.076a6.163 6.163 0 00-8.716 0L22.8 31.037a6.164 6.164 0 000 8.717l16.84 16.839a6.163 6.163 0 008.716 0l16.839-16.84a6.164 6.164 0 000-8.716l-16.839-16.84z'
@@ -26,11 +29,11 @@ export const Tranchess = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Tranchess__Tranchess__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80.004v80H0z' />
         </clipPath>
         <filter
-          id='Tranchess__Tranchess__b'
+          id={_id2}
           width={74.004}
           height={74.006}
           x={6.996}

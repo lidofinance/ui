@@ -2,20 +2,24 @@
 
 import React, { SVGProps } from 'react'
 
-export const Bingx = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Bingx = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
-        fill='url(#Bingx__Bingx__a)'
+        fill={`url(#${_id})`}
         d='M60.008 23.734c-7.716-.027-15.258 3.32-20.418 9.031-1.857 1.922-3.095 4.275-4.585 6.454-3.567 4.882-9.135 7.704-15.17 7.701v8.78c7.714.03 15.256-3.328 20.42-9.04 1.848-1.922 3.104-4.272 4.584-6.454 3.567-4.876 9.136-7.698 15.17-7.695v-8.777z'
       />
       <path
         fill='#2A54FF'
         d='M60.009 46.92c-6.031 0-11.602-2.819-15.17-7.695-1.474-2.181-2.733-4.529-4.578-6.453-5.151-5.713-12.705-9.065-20.419-9.031v8.78c6.68-.034 12.886 3.56 16.245 9.334a27.629 27.629 0 003.51 4.823c5.157 5.71 12.704 9.068 20.418 9.04l-.006-8.795v-.003z'
       />
-      <g filter='url(#Bingx__Bingx__b)' opacity={0.4}>
+      <g filter={`url(#${_id3})`} opacity={0.4}>
         <path
-          fill='url(#Bingx__Bingx__c)'
+          fill={`url(#${_id2})`}
           d='M60.008 17.94c-7.716-.027-15.258 3.32-20.418 9.031-1.857 1.922-3.095 4.275-4.585 6.454-3.567 4.882-9.135 7.705-15.17 7.701v8.78c7.714.03 15.256-3.328 20.42-9.04 1.848-1.922 3.104-4.272 4.584-6.454 3.567-4.876 9.136-7.698 15.17-7.695V17.94z'
         />
         <path
@@ -25,7 +29,7 @@ export const Bingx = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='Bingx__Bingx__a'
+          id={_id}
           x1={22.462}
           x2={57.538}
           y1={52.577}
@@ -37,7 +41,7 @@ export const Bingx = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A54FF' />
         </linearGradient>
         <linearGradient
-          id='Bingx__Bingx__c'
+          id={_id2}
           x1={22.462}
           x2={57.538}
           y1={46.783}
@@ -49,7 +53,7 @@ export const Bingx = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A54FF' />
         </linearGradient>
         <filter
-          id='Bingx__Bingx__b'
+          id={_id3}
           width={68.179}
           height={59.985}
           x={5.836}

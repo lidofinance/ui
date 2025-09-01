@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Zerolend = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Zerolend = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Zerolend__Zerolend__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#7A55FF'
           fillOpacity={0.7}
@@ -22,7 +24,7 @@ export const Zerolend = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Zerolend__Zerolend__a'
+          id={_id}
           width={68}
           height={68}
           x={6}

@@ -2,17 +2,20 @@
 
 import React, { SVGProps } from 'react'
 
-export const Makerdao = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Makerdao = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Makerdao__Makerdao__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#1AAB9B'
           fillRule='evenodd'
           d='M21.69 33.09V50.4h-3.352V30.294c0-1.614 1.842-2.533 3.13-1.564L37.39 40.71c.492.371.78.95.78 1.564v8.128h-3.351V42.97L21.69 33.09zm36.631 0V50.4h3.352V30.294c0-1.613-1.842-2.532-3.13-1.563L42.621 40.71c-.492.371-.78.95-.78 1.564v8.128h3.351V42.97l13.128-9.88z'
           clipRule='evenodd'
         />
-        <g filter='url(#Makerdao__Makerdao__b)'>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#1AAB9B'
             fillOpacity={0.7}
@@ -23,7 +26,7 @@ export const Makerdao = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='Makerdao__Makerdao__a'>
+        <clipPath id={_id}>
           <rect
             width={80.004}
             height={80}
@@ -34,7 +37,7 @@ export const Makerdao = (props: SVGProps<SVGSVGElement>) => {
           />
         </clipPath>
         <filter
-          id='Makerdao__Makerdao__b'
+          id={_id2}
           width={71.335}
           height={50.069}
           x={7.597}

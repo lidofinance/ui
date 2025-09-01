@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Optimism = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Optimism = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Optimism__Optimism__a)'>
-        <g filter='url(#Optimism__Optimism__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#FF0420'
             fillOpacity={0.4}
@@ -27,11 +30,11 @@ export const Optimism = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Optimism__Optimism__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.004 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Optimism__Optimism__b'
+          id={_id2}
           width={70}
           height={70}
           x={10.004}

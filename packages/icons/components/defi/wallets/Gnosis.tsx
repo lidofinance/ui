@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Gnosis = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Gnosis = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Gnosis = (props: SVGProps<SVGSVGElement>) => {
         d='M27.364 31.51c0-1.356 1.141-2.454 2.55-2.454h18.75c1.409 0 2.55-1.098 2.55-2.453v-4.537c0-1.355-1.141-2.454-2.55-2.454H28.827c-1.409 0-2.55 1.099-2.55 2.454v3.496c0 1.355-1.141 2.453-2.55 2.453h-3.629c-1.408 0-2.55 1.098-2.55 2.453v7.656c0 1.355 1.146 2.398 2.555 2.398h4.716c1.409 0 2.55-1.098 2.55-2.453l-.005-6.56zm31.128 9.013h-4.716c-1.408 0-2.55 1.098-2.55 2.453v6.585c0 1.355-1.14 2.453-2.55 2.453h-18.76c-1.409 0-2.55 1.099-2.55 2.454v4.537c0 1.355 1.141 2.453 2.55 2.453h19.848c1.408 0 2.533-1.098 2.533-2.453v-3.64c0-1.355 1.142-2.317 2.55-2.317h3.645c1.409 0 2.55-1.098 2.55-2.453v-7.647c0-1.356-1.14-2.425-2.549-2.425zm-16.886-4.77h-4.53c-1.475 0-2.674 1.153-2.674 2.573v4.358c0 1.42 1.198 2.572 2.674 2.572h4.53c1.475 0 2.674-1.152 2.674-2.572v-4.358c0-1.42-1.198-2.573-2.674-2.573z'
         clipRule='evenodd'
       />
-      <g filter='url(#Gnosis__Gnosis__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#6AF583'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Gnosis = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Gnosis__Gnosis__a'
+          id={_id}
           width={62.459}
           height={60.699}
           x={11.041}

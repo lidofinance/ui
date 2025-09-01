@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Toros = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Toros = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Toros__Toros__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#8BD198'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Toros = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Toros__Toros__a'
+          id={_id}
           width={61.923}
           height={73.91}
           x={9.015}

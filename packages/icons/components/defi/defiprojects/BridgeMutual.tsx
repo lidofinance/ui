@@ -2,10 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const BridgeMutual = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const BridgeMutual = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#BridgeMutual__BridgeMutual__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#2683BB'
           d='M23.956 34.21c-6.047.025-10.94 4.899-10.94 10.906l-.001 1.403 5.875-.004v-1.43c0-2.838 2.23-5.11 5.084-5.126 2.854.017 5.084 2.288 5.084 5.126v1.43l5.875.004-.002-1.403c0-6.007-4.892-10.88-10.94-10.906h-.035z'
@@ -26,7 +29,7 @@ export const BridgeMutual = (props: SVGProps<SVGSVGElement>) => {
           fill='#2AAAFA'
           d='M48.05 37.74a10.824 10.824 0 00-2.952 7.436v1.369l5.874.003v-1.403c0-2.859-1.11-5.46-2.923-7.405z'
         />
-        <g filter='url(#BridgeMutual__BridgeMutual__b)' opacity={0.6}>
+        <g filter={`url(#${_id2})`} opacity={0.6}>
           <path
             fill='#2683BB'
             d='M27.36 28c-6.27.027-11.343 5.081-11.343 11.31l-.002 1.455 6.093-.003V39.28c0-2.943 2.311-5.299 5.271-5.316 2.96.017 5.273 2.373 5.273 5.316v1.483l6.093.003-.002-1.455c0-6.229-5.074-11.282-11.345-11.31h-.038z'
@@ -50,11 +53,11 @@ export const BridgeMutual = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='BridgeMutual__BridgeMutual__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.015 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='BridgeMutual__BridgeMutual__b'
+          id={_id2}
           width={80}
           height={36.829}
           x={4.015}

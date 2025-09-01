@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const STETH = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const STETH = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#STETH__STETH__a)' fill='#00A3FF'>
-        <g filter='url(#STETH__STETH__b)' opacity={0.7}>
+      <g clipPath={`url(#${_id})`} fill='#00A3FF'>
+        <g filter={`url(#${_id2})`} opacity={0.7}>
           <path
             d='M53.932 35.868l.389.597c4.39 6.735 3.41 15.555-2.357 21.206-3.393 3.324-7.84 4.987-12.287 4.987l14.255-26.79z'
             opacity={0.6}
@@ -50,11 +53,11 @@ export const STETH = (props: SVGProps<SVGSVGElement>) => {
         <path d='M40.298 25.13l12.723 7.24L40.298 13v12.13z' opacity={0.6} />
       </g>
       <defs>
-        <clipPath id='STETH__STETH__a'>
+        <clipPath id={_id}>
           <rect width={80} height={80} x={0.286} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='STETH__STETH__b'
+          id={_id2}
           width={70.768}
           height={84.658}
           x={4.286}

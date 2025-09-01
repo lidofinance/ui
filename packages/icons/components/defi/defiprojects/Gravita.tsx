@@ -2,15 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Gravita = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Gravita = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g
-        clipPath='url(#Gravita__Gravita__a)'
-        fillRule='evenodd'
-        clipRule='evenodd'
-      >
-        <g filter='url(#Gravita__Gravita__b)' opacity={0.9} fill='#B569FF'>
+      <g clipPath={`url(#${_id})`} fillRule='evenodd' clipRule='evenodd'>
+        <g filter={`url(#${_id2})`} opacity={0.9} fill='#B569FF'>
           <path d='M61.173 35.023H40.012a2.071 2.071 0 100 4.143h12.007c-.987 5.664-5.927 9.988-11.868 9.988-6.65 0-12.06-5.41-12.06-12.06 0-6.649 5.41-12.059 12.06-12.059 1.585 0 3.126.303 4.579.9a1.327 1.327 0 001.008-2.455 14.63 14.63 0 00-5.587-1.098c-8.114 0-14.714 6.6-14.714 14.713 0 8.112 6.6 14.712 14.713 14.712 7.41 0 13.555-5.506 14.565-12.64h4.274c-1.034 9.479-9.088 16.88-18.838 16.88-2.778 0-5.453-.587-7.95-1.743a2.072 2.072 0 00-1.74 3.76 22.9 22.9 0 009.69 2.126c12.734 0 23.094-10.361 23.094-23.095a2.072 2.072 0 00-2.072-2.072z' />
           <path d='M21.199 37.095c0-10.45 8.502-18.952 18.952-18.952 5.062 0 9.82 1.971 13.4 5.55a2.07 2.07 0 102.93-2.929A22.942 22.942 0 0040.15 14c-12.735 0-23.095 10.36-23.095 23.095 0 3.58.797 7.013 2.37 10.202a2.072 2.072 0 103.716-1.832 18.766 18.766 0 01-1.943-8.37z' />
           <path d='M52.159 27.818a2.33 2.33 0 11-4.66 0 2.33 2.33 0 014.66 0zM28.608 52.143a3.103 3.103 0 11-6.206 0 3.103 3.103 0 016.206 0z' />
@@ -29,11 +28,11 @@ export const Gravita = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Gravita__Gravita__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Gravita__Gravita__b'
+          id={_id2}
           width={76.189}
           height={76.19}
           x={2.056}

@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Stargate = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Stargate = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
@@ -13,7 +15,7 @@ export const Stargate = (props: SVGProps<SVGSVGElement>) => {
         fill='#000'
         d='M30.063 37.847l1.352-.577a11.19 11.19 0 005.9-5.9l.575-1.353c.808-1.892 3.493-1.892 4.3 0l.575 1.353a11.199 11.199 0 005.9 5.9l1.353.577c1.892.808 1.892 3.49 0 4.3l-1.353.578a11.19 11.19 0 00-5.9 5.9l-.575 1.35c-.807 1.892-3.492 1.892-4.3 0l-.575-1.35a11.19 11.19 0 00-5.9-5.9l-1.352-.578c-1.893-.807-1.893-3.49 0-4.3z'
       />
-      <g filter='url(#Stargate__Stargate__a)' opacity={0.5}>
+      <g filter={`url(#${_id})`} opacity={0.5}>
         <path
           fill='#999'
           d='M44.402 19.75l1.17 2.742a22.704 22.704 0 0011.973 11.973l2.742 1.17c.718.305 1.3.745 1.75 1.268C60.675 27.113 52.93 19.365 43.135 18a4.71 4.71 0 011.267 1.75zM19.79 35.637l2.742-1.17a22.717 22.717 0 0011.976-11.972l1.17-2.743a4.738 4.738 0 011.267-1.75c-9.793 1.363-17.54 9.11-18.905 18.903a4.731 4.731 0 011.75-1.268zm40.5 8.726l-2.742 1.17a22.7 22.7 0 00-11.973 11.975l-1.17 2.742a4.74 4.74 0 01-1.267 1.753c9.792-1.365 17.537-9.113 18.905-18.905a4.731 4.731 0 01-1.75 1.267l-.003-.002zM35.678 60.25l-1.17-2.742a22.722 22.722 0 00-11.976-11.975l-2.742-1.17a4.731 4.731 0 01-1.75-1.268c1.365 9.793 9.113 17.54 18.905 18.905a4.748 4.748 0 01-1.267-1.752v.002z'
@@ -25,7 +27,7 @@ export const Stargate = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Stargate__Stargate__a'
+          id={_id}
           width={72.003}
           height={72.002}
           x={4.04}

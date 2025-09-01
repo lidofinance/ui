@@ -2,10 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Pendle = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Pendle = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Pendle__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#DEDEDE'
           d='M36.4 50.801c10.163 0 18.401-8.238 18.401-18.4 0-10.163-8.238-18.401-18.4-18.401C26.238 14 18 22.238 18 32.4c0 10.163 8.238 18.401 18.4 18.401z'
@@ -21,7 +25,7 @@ export const Pendle = (props: SVGProps<SVGSVGElement>) => {
           clipRule='evenodd'
         />
         <mask
-          id='Pendle__a'
+          id={_id}
           width={3}
           height={28}
           x={27}
@@ -35,7 +39,7 @@ export const Pendle = (props: SVGProps<SVGSVGElement>) => {
             clipRule='evenodd'
           />
         </mask>
-        <g mask='url(#Pendle__a)'>
+        <g mask={`url(#${_id})`}>
           <path
             fill='#1B2D4E'
             d='M54.801 32.4c0 10.163-8.238 18.401-18.4 18.401-10.163 0-18.401-8.238-18.401-18.4C18 22.237 26.238 14 36.4 14c10.163 0 18.401 8.238 18.401 18.4z'
@@ -57,7 +61,7 @@ export const Pendle = (props: SVGProps<SVGSVGElement>) => {
         clipRule='evenodd'
       />
       <mask
-        id='Pendle__b'
+        id={_id2}
         width={3}
         height={30}
         x={29}
@@ -71,7 +75,7 @@ export const Pendle = (props: SVGProps<SVGSVGElement>) => {
           clipRule='evenodd'
         />
       </mask>
-      <g mask='url(#Pendle__b)'>
+      <g mask={`url(#${_id2})`}>
         <path
           fill='#1B2D4E'
           d='M59.602 37c0 11.047-8.955 20.001-20 20.001-11.047 0-20.001-8.954-20.001-20C19.6 25.953 28.555 17 39.6 17s20 8.954 20 20z'
@@ -79,7 +83,7 @@ export const Pendle = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Pendle__Pendle__a'
+          id={_id3}
           width={64.801}
           height={74}
           x={4}

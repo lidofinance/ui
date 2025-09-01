@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const WETH = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const WETH = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#WETH__WETH__a)'>
-        <g filter='url(#WETH__WETH__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <circle cx={38.786} cy={36.5} r={23.5} fill='#D23774' />
         </g>
         <path
@@ -27,11 +30,11 @@ export const WETH = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='WETH__WETH__a'>
+        <clipPath id={_id}>
           <rect width={80} height={80} x={0.286} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='WETH__WETH__b'
+          id={_id2}
           width={75}
           height={75}
           x={1.286}

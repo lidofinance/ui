@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Arbitrum = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Arbitrum = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Arbitrum__Arbitrum__a)' opacity={0.4}>
+      <g filter={`url(#${_id})`} opacity={0.4}>
         <path
           fill='#213147'
           d='M16.559 32.68v17.64c0 1.127.603 2.169 1.581 2.73l15.322 8.823a3.174 3.174 0 003.16 0l15.322-8.823a3.148 3.148 0 001.581-2.73V32.68a3.149 3.149 0 00-1.581-2.73l-15.322-8.823a3.174 3.174 0 00-3.16 0L18.136 29.95a3.145 3.145 0 00-1.577 2.73z'
@@ -49,7 +51,7 @@ export const Arbitrum = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Arbitrum__Arbitrum__a'
+          id={_id}
           width={56.007}
           height={61.004}
           x={7.04}

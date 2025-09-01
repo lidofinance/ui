@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Izumi = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Izumi = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Izumi__Izumi__a)' opacity={0.7}>
+      <g filter={`url(#${_id})`} opacity={0.7}>
         <path
           fill='#7F48FD'
           d='M23.555 34.007l12.931-18.632 6.536 9.455-6.628 9.409h-12.7c-.046 0-.046 0-.092-.047-.047 0-.047-.046-.047-.046v-.093c-.046 0 0 0 0-.046z'
@@ -33,7 +35,7 @@ export const Izumi = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Izumi__Izumi__a'
+          id={_id}
           width={65.353}
           height={67.251}
           x={10.321}

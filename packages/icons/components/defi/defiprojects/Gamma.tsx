@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Gamma = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Gamma = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Gamma__Gamma__a)' opacity={0.5}>
+      <g filter={`url(#${_id})`} opacity={0.5}>
         <path
           fill='red'
           d='M40.5 66C52.374 66 62 56.374 62 44.5S52.374 23 40.5 23 19 32.626 19 44.5 28.626 66 40.5 66z'
@@ -29,7 +31,7 @@ export const Gamma = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Gamma__Gamma__a'
+          id={_id}
           width={59}
           height={59}
           x={11}

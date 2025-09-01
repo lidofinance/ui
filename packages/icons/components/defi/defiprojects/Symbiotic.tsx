@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Symbiotic = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Symbiotic = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g
-        clipPath='url(#Symbiotic__Symbiotic__a)'
+        clipPath={`url(#${_id})`}
         fill='#C6FD63'
         fillRule='evenodd'
         clipRule='evenodd'
@@ -14,7 +17,7 @@ export const Symbiotic = (props: SVGProps<SVGSVGElement>) => {
         <path d='M21.01 22h38v4.586H25.777V42.27h30.852v4.586H21.011V22z' />
         <path d='M59.01 58h-38v-4.743h33.25V37.029H25.387v-4.743H59.01V58z' />
       </g>
-      <g filter='url(#Symbiotic__Symbiotic__b)' opacity={0.6}>
+      <g filter={`url(#${_id2})`} opacity={0.6}>
         <path
           fill='#C6FD63'
           fillRule='evenodd'
@@ -23,11 +26,11 @@ export const Symbiotic = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Symbiotic__Symbiotic__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M21.01 22h38v36h-38z' />
         </clipPath>
         <filter
-          id='Symbiotic__Symbiotic__b'
+          id={_id2}
           width={56}
           height={54}
           x={12.011}

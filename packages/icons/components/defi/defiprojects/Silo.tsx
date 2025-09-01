@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Silo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Silo = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Silo = (props: SVGProps<SVGSVGElement>) => {
         d='M43.944 17v19.01h-8.146v8.145h-2.716a13.578 13.578 0 010-27.155h10.862zm0 19.01h2.716a13.578 13.578 0 010 27.155H35.798v-19.01h8.146V36.01z'
         clipRule='evenodd'
       />
-      <g filter='url(#Silo__Silo__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#000'
           fillOpacity={0.2}
@@ -22,7 +24,7 @@ export const Silo = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Silo__Silo__a'
+          id={_id}
           width={62.734}
           height={68.165}
           x={9.033}

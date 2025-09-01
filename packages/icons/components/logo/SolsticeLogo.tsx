@@ -2,11 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const SolsticeLogo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const SolsticeLogo = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
-        fill='url(#SolsticeLogo__SolsticeLogo__a)'
+        fill={`url(#${_id})`}
         d='M29.694 38.426a5.383 5.383 0 110 10.767V38.426z'
       />
       <path
@@ -25,7 +27,7 @@ export const SolsticeLogo = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <linearGradient
-          id='SolsticeLogo__SolsticeLogo__a'
+          id={_id}
           x1={29.694}
           x2={33.766}
           y1={43.81}

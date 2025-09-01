@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Ctrl = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Ctrl = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Ctrl__Ctrl__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#001405'
           d='M35.688 50.676v7.972a2.348 2.348 0 002.349 2.348h7.97a2.348 2.348 0 002.348-2.348v-3.986c0-1.75.708-3.334 1.855-4.479a6.313 6.313 0 014.478-1.855h3.986a2.348 2.348 0 002.348-2.348v-7.97a2.347 2.347 0 00-2.348-2.348h-7.968a2.348 2.348 0 00-2.348 2.348v4.179a6.138 6.138 0 01-6.137 6.138h-4.178a2.348 2.348 0 00-2.348 2.348h-.007zM23.021 38.01v7.971a2.347 2.347 0 002.349 2.348h7.97a2.347 2.347 0 002.348-2.348v-3.985c0-1.75.708-3.334 1.855-4.478a6.313 6.313 0 014.479-1.855h3.985a2.348 2.348 0 002.348-2.348v-7.97a2.347 2.347 0 00-2.348-2.349h-7.968a2.348 2.348 0 00-2.348 2.348v4.178a6.138 6.138 0 01-6.137 6.138H25.37a2.347 2.347 0 00-2.349 2.348v.003z'
@@ -17,7 +19,7 @@ export const Ctrl = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Ctrl__Ctrl__a'
+          id={_id}
           width={68}
           height={68}
           x={8.021}

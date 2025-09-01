@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const OttrFinance = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const OttrFinance = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#OttrFinance__OttrFinance__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#D431D8'
           fillRule='evenodd'
@@ -45,7 +47,7 @@ export const OttrFinance = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='OttrFinance__OttrFinance__a'
+          id={_id}
           width={49.527}
           height={48.021}
           x={17.004}

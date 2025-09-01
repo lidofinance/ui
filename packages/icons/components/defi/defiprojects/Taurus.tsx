@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Taurus = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Taurus = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Taurus__Taurus__a)'>
-        <g filter='url(#Taurus__Taurus__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#FA64FF'
             fillOpacity={0.6}
@@ -20,11 +23,11 @@ export const Taurus = (props: SVGProps<SVGSVGElement>) => {
         <path fill='#FA64FF' d='M58.532 18H43.547v7.383h14.985V18z' />
       </g>
       <defs>
-        <clipPath id='Taurus__Taurus__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.019 0h80.004v80H.019z' />
         </clipPath>
         <filter
-          id='Taurus__Taurus__b'
+          id={_id2}
           width={65.513}
           height={72.348}
           x={7.019}

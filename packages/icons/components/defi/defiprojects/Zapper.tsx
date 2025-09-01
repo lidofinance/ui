@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Zapper = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Zapper = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Zapper__Zapper__a)'>
-        <g filter='url(#Zapper__Zapper__b)' opacity={0.3}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.3}>
           <path
             fill='#784FFE'
             fillRule='evenodd'
@@ -22,11 +25,11 @@ export const Zapper = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Zapper__Zapper__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Zapper__Zapper__b'
+          id={_id2}
           width={77}
           height={49}
           x={11}

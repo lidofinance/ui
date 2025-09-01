@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Concentrator = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Concentrator = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Concentrator__Concentrator__a)'>
-        <g filter='url(#Concentrator__Concentrator__b)' opacity={0.8}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.8}>
           <path
             fill='#0021DB'
             d='M8.651 24.949l-.05.121 21.059 8.766.05-.12-21.059-8.767z'
@@ -1170,11 +1173,11 @@ export const Concentrator = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Concentrator__Concentrator__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.022 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Concentrator__Concentrator__b'
+          id={_id2}
           width={75.409}
           height={91.764}
           x={-3.399}

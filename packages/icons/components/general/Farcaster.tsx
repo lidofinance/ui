@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Farcaster = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Farcaster = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g opacity={0.5} filter='url(#Farcaster__Farcaster__filter0_f_561_20406)'>
+      <g opacity={0.5} filter={`url(#${_id})`}>
         <path
           d='M53.567 57.987H32.37c-5.732 0-10.395-4.663-10.395-10.395V26.396C21.975 20.664 26.638 16 32.37 16h21.197c5.732 0 10.395 4.664 10.395 10.396v21.196c0 5.732-4.663 10.395-10.395 10.395z'
           fill='#7C65C1'
@@ -21,7 +23,7 @@ export const Farcaster = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Farcaster__Farcaster__filter0_f_561_20406'
+          id={_id}
           x={9.975}
           y={4}
           width={65.987}

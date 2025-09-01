@@ -2,45 +2,55 @@
 
 import React, { SVGProps } from 'react'
 
-export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuCurated = function (props: SVGProps<SVGSVGElement>) {
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#MenuCurated__MenuCurated__a)'>
+      <g clipPath={`url(#${_id8})`}>
         <path
-          fill='url(#MenuCurated__MenuCurated__b)'
+          fill={`url(#${_id})`}
           d='M36.206 45.867l-17.42-9.938c-1.01-.612-1.039-2.703-.029-3.314L36.206 22.06a7.323 7.323 0 017.588 0l17.448 10.556c1.01.611 1.01 2.42 0 3.031L43.794 45.87a7.323 7.323 0 01-7.588 0v-.002z'
         />
         <path
-          fill='url(#MenuCurated__MenuCurated__c)'
+          fill={`url(#${_id2})`}
           d='M36.206 38.867l-17.42-9.938c-1.01-.612-1.039-2.703-.029-3.314L36.206 15.06a7.323 7.323 0 017.588 0l17.448 10.556c1.01.611 1.01 2.42 0 3.031L43.794 38.87a7.323 7.323 0 01-7.588 0v-.002z'
         />
-        <g filter='url(#MenuCurated__MenuCurated__d)' opacity={0.3}>
+        <g filter={`url(#${_id9})`} opacity={0.3}>
           <path
-            fill='url(#MenuCurated__MenuCurated__e)'
+            fill={`url(#${_id3})`}
             d='M66.007 30.351l-.017 15.994a1.51 1.51 0 01-.76 1.462l-17.523 10.16a7.492 7.492 0 01-7.588-.054L22.747 47.502a1.514 1.514 0 01-.738-1.157L22 46.34 22.007 27c.006.502.258 1 .756 1.296l17.45 10.284a7.482 7.482 0 007.587 0l17.45-10.284A1.52 1.52 0 0066.006 27v3.351z'
           />
           <path
-            fill='url(#MenuCurated__MenuCurated__f)'
+            fill={`url(#${_id4})`}
             d='M66.007 30.351l-.017 15.994a1.51 1.51 0 01-.76 1.462l-17.523 10.16a7.492 7.492 0 01-7.588-.054L22.747 47.502a1.514 1.514 0 01-.738-1.157L22 46.34 22.007 27c.006.502.258 1 .756 1.296l17.45 10.284a7.482 7.482 0 007.587 0l17.45-10.284A1.52 1.52 0 0066.006 27v3.351z'
           />
         </g>
         <path
-          fill='url(#MenuCurated__MenuCurated__g)'
+          fill={`url(#${_id5})`}
           d='M35.506 70.772l-20.594-11.5c-1.194-.707-1.227-3.126-.033-3.834l20.627-12.212a8.818 8.818 0 018.971 0L65.105 55.44c1.194.707 1.194 2.8 0 3.507L44.477 70.774a8.818 8.818 0 01-8.97 0v-.002z'
           opacity={0.5}
         />
         <path
-          fill='url(#MenuCurated__MenuCurated__h)'
+          fill={`url(#${_id6})`}
           d='M62.007 37.385L61.99 53.38a1.51 1.51 0 01-.76 1.462l-17.521 10.16a7.491 7.491 0 01-7.589-.055L18.747 54.536a1.514 1.514 0 01-.738-1.157L18 53.375l.007-19.341c.006.502.258 1 .756 1.296l17.45 10.284a7.482 7.482 0 007.587 0L61.25 35.33a1.52 1.52 0 00.757-1.296v3.351z'
         />
         <path
-          fill='url(#MenuCurated__MenuCurated__i)'
+          fill={`url(#${_id7})`}
           d='M62.007 37.385L61.99 53.38a1.51 1.51 0 01-.76 1.462l-17.521 10.16a7.491 7.491 0 01-7.589-.055L18.747 54.536a1.514 1.514 0 01-.738-1.157L18 53.375l.007-19.341c.006.502.258 1 .756 1.296l17.45 10.284a7.482 7.482 0 007.587 0L61.25 35.33a1.52 1.52 0 00.757-1.296v3.351z'
         />
       </g>
       <defs>
         <radialGradient
-          id='MenuCurated__MenuCurated__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -51,7 +61,7 @@ export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3D73FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCurated__MenuCurated__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -62,7 +72,7 @@ export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#17D5FF' />
         </radialGradient>
         <radialGradient
-          id='MenuCurated__MenuCurated__e'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -73,7 +83,7 @@ export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCurated__MenuCurated__f'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -84,7 +94,7 @@ export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3D73FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCurated__MenuCurated__g'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -95,7 +105,7 @@ export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3D73FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCurated__MenuCurated__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -106,7 +116,7 @@ export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCurated__MenuCurated__i'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -116,11 +126,11 @@ export const MenuCurated = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#2238FF' />
           <stop offset={1} stopColor='#3D73FF' stopOpacity={0} />
         </radialGradient>
-        <clipPath id='MenuCurated__MenuCurated__a'>
+        <clipPath id={_id8}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='MenuCurated__MenuCurated__d'
+          id={_id9}
           width={72.007}
           height={59.972}
           x={8}

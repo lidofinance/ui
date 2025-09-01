@@ -2,12 +2,15 @@
 
 import React, { SVGProps } from 'react'
 
-export const OxorioLogo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const OxorioLogo = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
-      <g clipPath='url(#OxorioLogo__OxorioLogo__a)'>
+      <g clipPath={`url(#${_id2})`}>
         <path
-          fill='url(#OxorioLogo__OxorioLogo__b)'
+          fill={`url(#${_id})`}
           d='M102.972 35.742l-10.734 6.096v12.307l10.918-6.19-.184-12.213z'
         />
         <path
@@ -29,7 +32,7 @@ export const OxorioLogo = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='OxorioLogo__OxorioLogo__b'
+          id={_id}
           x1={97.697}
           x2={97.697}
           y1={52.167}
@@ -39,7 +42,7 @@ export const OxorioLogo = (props: SVGProps<SVGSVGElement>) => {
           <stop stopOpacity={0} stopColor='currentColor' />
           <stop offset={1} stopColor='currentColor' />
         </linearGradient>
-        <clipPath id='OxorioLogo__OxorioLogo__a'>
+        <clipPath id={_id2}>
           <path fill='currentColor' d='M17 28.765h167v26H17z' />
         </clipPath>
       </defs>

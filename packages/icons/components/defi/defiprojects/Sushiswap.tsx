@@ -2,11 +2,18 @@
 
 import React, { SVGProps } from 'react'
 
-export const Sushiswap = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Sushiswap = function (props: SVGProps<SVGSVGElement>) {
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Sushiswap__a)'>
-        <g filter='url(#Sushiswap__Sushiswap__b)' opacity={0.4}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id6})`} opacity={0.4}>
           <path
             fill='#fff'
             fillRule='evenodd'
@@ -26,7 +33,7 @@ export const Sushiswap = (props: SVGProps<SVGSVGElement>) => {
             clipRule='evenodd'
           />
           <mask
-            id='Sushiswap__a'
+            id={_id}
             width={45}
             height={42}
             x={24}
@@ -40,9 +47,9 @@ export const Sushiswap = (props: SVGProps<SVGSVGElement>) => {
               clipRule='evenodd'
             />
           </mask>
-          <g mask='url(#Sushiswap__a)'>
+          <g mask={`url(#${_id})`}>
             <path
-              fill='url(#Sushiswap__Sushiswap__d)'
+              fill={`url(#${_id2})`}
               fillRule='evenodd'
               d='M22.873 44.628c.23 0 .606.544.814.693.73.544 1.46 1.088 2.212 1.534 2.19 1.336 4.464 2.078 6.717 1.583 3.547-.792 6.76-6.977 10.327-6.136 2.003.446 3.422 3.266 5.174 5.196 1.67 1.93 3.505 2.771 5.362 2.375 5.528-1.088 7.615-11.975 13.227-11.381 4.652.495 2.837 6.086 7.301 8.066.042.05 10.786-9.402 10.87-11.035.313-6.285-5.654-80.312-5.382-80.312l-53.22 19.546-3.401 69.871z'
               clipRule='evenodd'
@@ -76,11 +83,11 @@ export const Sushiswap = (props: SVGProps<SVGSVGElement>) => {
           clipRule='evenodd'
         />
         <path
-          fill='url(#Sushiswap__Sushiswap__e)'
+          fill={`url(#${_id3})`}
           d='M58.86 41.904c-.1-.29-.215-.585-.345-.884-1.529-3.542-5.126-7.735-10.028-11.258-4.92-3.504-10.027-5.573-13.885-5.89-2.796-.223-4.958.466-6.076 2.032L20.829 36.64c-1.119 1.565-1.082 3.84.037 6.411 1.023 2.343 2.936 4.972 5.538 7.497.238-.022.477-.06.715-.111 1.383-.31 2.71-1.537 4.031-2.76 1.705-1.577 3.4-3.145 5.194-2.722 1.258.28 2.257 1.607 3.283 2.97.435.576.874 1.16 1.34 1.672 1.49 1.724 3.13 2.475 4.79 2.122 1.896-.374 3.34-2.038 4.682-3.916-3.315-.745-7.252-2.576-11.065-5.311-4.679-3.355-8.127-7.325-9.599-10.717-.876-2.013-1.063-3.783-.224-5.032l.038-.075c.894-1.248 2.665-1.659 4.901-1.472 3.672.298 8.536 2.292 13.215 5.647 4.692 3.352 8.138 7.318 9.613 10.69.084.003.17.009.255.018.509.054.931.176 1.288.353z'
         />
         <path
-          fill='url(#Sushiswap__Sushiswap__f)'
+          fill={`url(#${_id4})`}
           d='M50.333 39.25c-.727-1.697-2.46-3.691-4.809-5.369-2.33-1.677-4.771-2.665-6.598-2.833-1.044-.074-1.882.094-2.292.671-.41.578-.299 1.417.111 2.367.727 1.696 2.46 3.672 4.81 5.35 2.348 1.677 4.77 2.683 6.616 2.833 1.025.093 1.863-.075 2.273-.653.429-.578.317-1.416-.111-2.367z'
         />
         <path
@@ -94,7 +101,7 @@ export const Sushiswap = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='Sushiswap__Sushiswap__d'
+          id={_id2}
           x1={41.9}
           x2={47.722}
           y1={18.649}
@@ -106,7 +113,7 @@ export const Sushiswap = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FA52A0' />
         </linearGradient>
         <linearGradient
-          id='Sushiswap__Sushiswap__e'
+          id={_id3}
           x1={35.413}
           x2={40.614}
           y1={23.824}
@@ -118,7 +125,7 @@ export const Sushiswap = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FA52A0' />
         </linearGradient>
         <linearGradient
-          id='Sushiswap__Sushiswap__f'
+          id={_id4}
           x1={35.413}
           x2={40.614}
           y1={23.824}
@@ -129,11 +136,11 @@ export const Sushiswap = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.52} stopColor='#C26BB3' />
           <stop offset={1} stopColor='#FA52A0' />
         </linearGradient>
-        <clipPath id='Sushiswap__Sushiswap__a'>
+        <clipPath id={_id5}>
           <rect width={80.004} height={80} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='Sushiswap__Sushiswap__b'
+          id={_id6}
           width={73.421}
           height={70.097}
           x={10}

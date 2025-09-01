@@ -2,10 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const Drpc = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Drpc = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Drpc__Drpc__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#49FF87'
           d='M19.218 52.005l6.926-4.002 6.925 4.002-6.925 4.001-6.926-4.001z'
@@ -42,7 +45,7 @@ export const Drpc = (props: SVGProps<SVGSVGElement>) => {
           fill='#41E278'
           d='M33.101 59.984l-.03-7.98 20.79-12.003L53.86 48 33.1 59.984z'
         />
-        <g filter='url(#Drpc__Drpc__b)' opacity={0.7}>
+        <g filter={`url(#${_id2})`} opacity={0.7}>
           <path
             fill='#49FF87'
             d='M26.004 48.005l6.925-4.002 6.926 4.002-6.926 4.001-6.925-4.001z'
@@ -82,11 +85,11 @@ export const Drpc = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='Drpc__Drpc__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.004 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Drpc__Drpc__b'
+          id={_id2}
           width={69.571}
           height={76}
           x={12.004}

@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const SturdyFinance = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const SturdyFinance = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#SturdyFinance__SturdyFinance__a)'>
-        <g filter='url(#SturdyFinance__SturdyFinance__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#263058'
             fillRule='evenodd'
@@ -22,11 +25,11 @@ export const SturdyFinance = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='SturdyFinance__SturdyFinance__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.004 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='SturdyFinance__SturdyFinance__b'
+          id={_id2}
           width={62.331}
           height={78.015}
           x={16.673}

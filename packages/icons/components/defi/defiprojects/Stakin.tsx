@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Stakin = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Stakin = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Stakin__Stakin__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#124DFC'
           fillOpacity={0.32}
@@ -22,7 +24,7 @@ export const Stakin = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Stakin__Stakin__a'
+          id={_id}
           width={62}
           height={62}
           x={10}

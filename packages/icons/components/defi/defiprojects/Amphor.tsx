@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Amphor = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Amphor = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Amphor__Amphor__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#D37E00'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Amphor = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Amphor__Amphor__a'
+          id={_id}
           width={45.827}
           height={76}
           x={10.069}

@@ -2,16 +2,19 @@
 
 import React, { SVGProps } from 'react'
 
-export const Dune = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Dune = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Dune__a)' opacity={0.5}>
+      <g filter={`url(#${_id})`} opacity={0.5}>
         <path
           fill='#F1603F'
           d='M47 57c10.493 0 19-8.507 19-19s-8.507-19-19-19-19 8.507-19 19 8.507 19 19 19z'
         />
         <mask
-          id='Dune__a'
+          id={_id}
           width={38}
           height={38}
           x={28}
@@ -23,7 +26,7 @@ export const Dune = (props: SVGProps<SVGSVGElement>) => {
             d='M47 57c10.493 0 19-8.507 19-19s-8.507-19-19-19-19 8.507-19 19 8.507 19 19 19z'
           />
         </mask>
-        <g mask='url(#Dune__a)'>
+        <g mask={`url(#${_id})`}>
           <path
             fill='#2B286C'
             d='M78.271 33.25L29.583 49.083v11.084h48.688V33.25z'
@@ -40,7 +43,7 @@ export const Dune = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Dune__Dune__a'
+          id={_id2}
           width={60}
           height={60}
           x={17}

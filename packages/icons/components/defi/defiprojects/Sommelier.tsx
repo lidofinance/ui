@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Sommelier = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Sommelier = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Sommelier__Sommelier__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#674FD1'
           fillOpacity={0.7}
@@ -22,7 +24,7 @@ export const Sommelier = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Sommelier__Sommelier__a'
+          id={_id}
           width={49}
           height={49}
           x={18.004}

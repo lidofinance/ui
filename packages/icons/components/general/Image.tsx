@@ -2,36 +2,47 @@
 
 import React, { SVGProps } from 'react'
 
-export const Image = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Image = function (props: SVGProps<SVGSVGElement>) {
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Image__Image__a)'>
-        <g filter='url(#Image__Image__b)' opacity={0.7}>
-          <circle cx={40} cy={44} r={25} fill='url(#Image__Image__c)' />
-          <circle cx={40} cy={44} r={25} fill='url(#Image__Image__d)' />
-          <circle cx={40} cy={44} r={25} fill='url(#Image__Image__e)' />
+      <g clipPath={`url(#${_id9})`}>
+        <g filter={`url(#${_id0})`} opacity={0.7}>
+          <circle cx={40} cy={44} r={25} fill={`url(#${_id})`} />
+          <circle cx={40} cy={44} r={25} fill={`url(#${_id7})`} />
+          <circle cx={40} cy={44} r={25} fill={`url(#${_id2})`} />
           <circle
             cx={40}
             cy={44}
             r={25}
-            fill='url(#Image__Image__f)'
+            fill={`url(#${_id3})`}
             fillOpacity={0.4}
           />
         </g>
-        <circle cx={40} cy={40} r={25} fill='url(#Image__Image__g)' />
-        <circle cx={40} cy={40} r={25} fill='url(#Image__Image__h)' />
-        <circle cx={40} cy={40} r={25} fill='url(#Image__Image__i)' />
+        <circle cx={40} cy={40} r={25} fill={`url(#${_id4})`} />
+        <circle cx={40} cy={40} r={25} fill={`url(#${_id8})`} />
+        <circle cx={40} cy={40} r={25} fill={`url(#${_id5})`} />
         <circle
           cx={40}
           cy={40}
           r={25}
-          fill='url(#Image__Image__j)'
+          fill={`url(#${_id6})`}
           fillOpacity={0.4}
         />
       </g>
       <defs>
         <radialGradient
-          id='Image__Image__c'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -42,7 +53,7 @@ export const Image = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.7} stopColor='#8A36FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Image__Image__e'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -53,7 +64,7 @@ export const Image = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#8FA8FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Image__Image__f'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -64,7 +75,7 @@ export const Image = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#08FF5B' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Image__Image__g'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -75,7 +86,7 @@ export const Image = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.7} stopColor='#8A36FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Image__Image__i'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -86,7 +97,7 @@ export const Image = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#8FA8FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Image__Image__j'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -97,7 +108,7 @@ export const Image = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#08FF5B' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='Image__Image__d'
+          id={_id7}
           x1={40}
           x2={89}
           y1={19}
@@ -108,7 +119,7 @@ export const Image = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF00D9' />
         </linearGradient>
         <linearGradient
-          id='Image__Image__h'
+          id={_id8}
           x1={40}
           x2={89}
           y1={15}
@@ -118,11 +129,11 @@ export const Image = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#FF00D9' stopOpacity={0} />
           <stop offset={1} stopColor='#FF00D9' />
         </linearGradient>
-        <clipPath id='Image__Image__a'>
+        <clipPath id={_id9}>
           <rect width={80} height={80} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='Image__Image__b'
+          id={_id0}
           width={76}
           height={76}
           x={2}

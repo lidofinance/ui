@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Flipside = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Flipside = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Flipside = (props: SVGProps<SVGSVGElement>) => {
         d='M39.5 60.998a9.035 9.035 0 01-4.504-1.199l-10.492-6.023a8.872 8.872 0 01-3.287-3.26A9.011 9.011 0 0120 46.022V33.975a9.01 9.01 0 011.216-4.492 8.869 8.869 0 013.287-3.26l10.493-6.024A9.062 9.062 0 0139.5 19c1.578 0 3.13.413 4.503 1.2l10.493 6.02a8.977 8.977 0 013.226 3.158l-13.77 8.025c-2.711 1.596-4.438 4.613-4.452 7.725V61v-.002zM58.997 43.95v2.072a9.01 9.01 0 01-1.216 4.492 8.868 8.868 0 01-3.286 3.26L44.004 59.8a9.208 9.208 0 01-.9.452V56.51a5.525 5.525 0 01.721-2.657 5.442 5.442 0 011.909-1.963c3.932-2.312 7.892-4.578 11.823-6.892.515-.308.995-.66 1.441-1.048zm-.072-11.121c.05.378.074.761.074 1.148v2.184c-.009 2.345-1.298 4.57-3.29 5.764-3.93 2.314-7.892 4.58-11.822 6.893-.27.162-.532.339-.783.529v-4.21a5.52 5.52 0 01.735-2.679 5.436 5.436 0 011.94-1.966l13.146-7.663z'
         clipRule='evenodd'
       />
-      <g filter='url(#Flipside__Flipside__a)' opacity={0.2}>
+      <g filter={`url(#${_id})`} opacity={0.2}>
         <path
           fill='#000'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Flipside = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Flipside__Flipside__a'
+          id={_id}
           width={59}
           height={62}
           x={14}

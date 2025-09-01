@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Lido = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Lido = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Lido__Lido__a)' opacity={0.3} fill='#0085FF'>
+      <g filter={`url(#${_id})`} opacity={0.3} fill='#0085FF'>
         <path
           fillRule='evenodd'
           d='M35.504 15l11.5 17.492L35.504 39l-11.5-6.508L35.504 15zm-7.982 16.66l7.982-12.134 7.982 12.135-7.982 4.515-7.982-4.515z'
@@ -25,7 +27,7 @@ export const Lido = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Lido__Lido__a'
+          id={_id}
           width={61}
           height={74}
           x={5.004}

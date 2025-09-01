@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Alchemix = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Alchemix = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -30,7 +32,7 @@ export const Alchemix = (props: SVGProps<SVGSVGElement>) => {
         d='M29.33 46.614l-2.21 3.83h7.049m5.835.001h12.884l-12.884-22.32-6.73 11.67'
       />
       <g
-        filter='url(#Alchemix__Alchemix__a)'
+        filter={`url(#${_id})`}
         stroke='#F5C09A'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -43,7 +45,7 @@ export const Alchemix = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Alchemix__Alchemix__a'
+          id={_id}
           width={50.77}
           height={50.771}
           x={20.619}

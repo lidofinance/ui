@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Bebop = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Bebop = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Bebop__Bebop__a)'>
-        <g filter='url(#Bebop__Bebop__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#D4FF00'
             d='M22.015 37c0-10.235 0-15.353 2.705-18.878a13.09 13.09 0 012.416-2.417C30.662 13 35.78 13 46.015 13c10.235 0 15.352 0 18.878 2.705a13.09 13.09 0 012.416 2.417c2.706 3.525 2.706 8.643 2.706 18.878s0 15.353-2.706 18.878a13.093 13.093 0 01-2.416 2.417C61.367 61 56.25 61 46.015 61c-10.236 0-15.353 0-18.879-2.705a13.093 13.093 0 01-2.416-2.417c-2.705-3.525-2.705-8.643-2.705-18.878z'
@@ -24,11 +27,11 @@ export const Bebop = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Bebop__Bebop__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.015 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Bebop__Bebop__b'
+          id={_id2}
           width={72}
           height={72}
           x={10.015}

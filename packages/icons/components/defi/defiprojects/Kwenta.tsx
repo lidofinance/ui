@@ -2,12 +2,16 @@
 
 import React, { SVGProps } from 'react'
 
-export const Kwenta = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Kwenta = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Kwenta__Kwenta__a)' opacity={0.7}>
+      <g filter={`url(#${_id3})`} opacity={0.7}>
         <path
-          fill='url(#Kwenta__Kwenta__b)'
+          fill={`url(#${_id})`}
           d='M39.395 21L62 34.555v13.557L39.395 34.555V21z'
         />
         <path
@@ -24,7 +28,7 @@ export const Kwenta = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <path
-        fill='url(#Kwenta__Kwenta__c)'
+        fill={`url(#${_id2})`}
         d='M39.395 19.053L62 32.607v13.557L39.395 32.607V19.053z'
       />
       <path
@@ -41,7 +45,7 @@ export const Kwenta = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <linearGradient
-          id='Kwenta__Kwenta__b'
+          id={_id}
           x1={61.841}
           x2={39.395}
           y1={29.787}
@@ -52,7 +56,7 @@ export const Kwenta = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FFB800' />
         </linearGradient>
         <linearGradient
-          id='Kwenta__Kwenta__c'
+          id={_id2}
           x1={61.841}
           x2={39.395}
           y1={27.839}
@@ -63,7 +67,7 @@ export const Kwenta = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FFB800' />
         </linearGradient>
         <filter
-          id='Kwenta__Kwenta__a'
+          id={_id3}
           width={72.65}
           height={70.172}
           x={3.35}

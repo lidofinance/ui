@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Consensys = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Consensys = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Consensys__Consensys__a)'>
-        <g filter='url(#Consensys__Consensys__b)' opacity={0.6}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.6}>
           <path
             fill='#CEFD54'
             fillRule='evenodd'
@@ -22,11 +25,11 @@ export const Consensys = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Consensys__Consensys__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.022 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Consensys__Consensys__b'
+          id={_id2}
           width={81}
           height={80}
           x={5.022}

@@ -2,13 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const ImmunefiLight = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const ImmunefiLight = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g
-        opacity={0.4}
-        filter='url(#ImmunefiLight__ImmunefiLight__filter0_f_1533_25801)'
-      >
+      <g opacity={0.4} filter={`url(#${_id})`}>
         <path
           d='M33.08 23.4L22.9 33.595l4.8 4.798 12.102-12.117v-5.933h4.71v6.337l11.86 11.87 4.737-4.744-10.341-10.344 3.495-3.4L68 33.813l-8.288 8.292 8.297 8.308-13.585 13.595-3.495-3.402 10.18-10.193-4.8-4.798-11.797 11.81v6.24h-4.71v-6.034L27.637 45.449 22.9 50.194l10.341 10.344-3.495 3.4L16 50.194l8.295-8.3-8.295-8.3L29.585 20l3.495 3.4zm-2.04 18.556L42.053 52.98l10.919-10.924-11.018-11.028L31.04 41.956z'
           fill='#fff'
@@ -22,7 +21,7 @@ export const ImmunefiLight = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='ImmunefiLight__ImmunefiLight__filter0_f_1533_25801'
+          id={_id}
           x={8}
           y={12}
           width={68.009}

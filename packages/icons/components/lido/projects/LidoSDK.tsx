@@ -2,79 +2,114 @@
 
 import React, { SVGProps } from 'react'
 
-export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const LidoSDK = function (props: SVGProps<SVGSVGElement>) {
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
-      <g clipPath='url(#LidoSDK__LidoSDK__clip0_369_5578)'>
-        <g opacity={0.5} filter='url(#LidoSDK__LidoSDK__filter0_f_369_5578)'>
+      <g clipPath={`url(#${_id31})`}>
+        <g opacity={0.5} filter={`url(#${_id32})`}>
           <path
             d='M90 250.521h.604l-.293.183-.311-.183zm232.552 0l-.311.183-.293-.183h.604zm-232.241.184l.293.182H90l.311-.182zm232.241.182h-.604l.293-.182.311.182z'
             fill='#5555F9'
           />
           <path
             d='M206.276 181.075L90 250.54l116.276 69.96V181.075z'
-            fill='url(#LidoSDK__LidoSDK__paint0_linear_369_5578)'
+            fill={`url(#${_id19})`}
           />
           <path
             d='M206.276 181.075L90 250.54l116.276 69.96V181.075z'
-            fill='url(#LidoSDK__LidoSDK__paint1_radial_369_5578)'
+            fill={`url(#${_id})`}
           />
           <path
             d='M206.275 181.075l116.276 69.465-1.317 3.96L206.275 321V181.075z'
-            fill='url(#LidoSDK__LidoSDK__paint2_linear_369_5578)'
+            fill={`url(#${_id20})`}
           />
           <path
             d='M206.275 181.075l116.276 69.465-1.317 3.96L206.275 321V181.075z'
-            fill='url(#LidoSDK__LidoSDK__paint3_radial_369_5578)'
+            fill={`url(#${_id2})`}
           />
           <path
             d='M206.275 320.352l116.276-69.812V384l-116.276 74.165V320.352z'
-            fill='url(#LidoSDK__LidoSDK__paint4_radial_369_5578)'
+            fill={`url(#${_id3})`}
           />
           <path
             d='M206.275 320.352l116.276-69.812V384l-116.276 74.165V320.352z'
-            fill='url(#LidoSDK__LidoSDK__paint5_radial_369_5578)'
+            fill={`url(#${_id4})`}
           />
           <path
             d='M206.275 320.352l14.201 26.373 114.958-69.887-12.883-26.298-116.276 69.812z'
-            fill='url(#LidoSDK__LidoSDK__paint6_linear_369_5578)'
+            fill={`url(#${_id21})`}
           />
           <path
             d='M206.276 320.352L90 250.54V384l116.276 74.165V320.352z'
-            fill='url(#LidoSDK__LidoSDK__paint7_linear_369_5578)'
+            fill={`url(#${_id22})`}
           />
           <path
             d='M206.276 320.352L90 250.54V384l116.276 74.165V320.352z'
-            fill='url(#LidoSDK__LidoSDK__paint8_radial_369_5578)'
+            fill={`url(#${_id5})`}
           />
           <path
             d='M206.276 320.352l-14.201 26.373-114.958-69.887L90 250.54l116.276 69.812z'
-            fill='url(#LidoSDK__LidoSDK__paint9_linear_369_5578)'
+            fill={`url(#${_id23})`}
           />
           <path
             d='M112.285 223.128l93.59 53.499V80l-93.59 143.128z'
-            fill='url(#LidoSDK__LidoSDK__paint10_radial_369_5578)'
+            fill={`url(#${_id6})`}
           />
           <path
             d='M112.285 223.128l93.59 53.499V80l-93.59 143.128z'
-            fill='url(#LidoSDK__LidoSDK__paint11_radial_369_5578)'
+            fill={`url(#${_id7})`}
           />
           <path
             d='M299.309 223.128l-93.434 53.499V80l93.434 143.128z'
-            fill='url(#LidoSDK__LidoSDK__paint12_radial_369_5578)'
+            fill={`url(#${_id8})`}
           />
           <path
             d='M299.309 223.128l-93.434 53.499V80l93.434 143.128z'
-            fill='url(#LidoSDK__LidoSDK__paint13_radial_369_5578)'
+            fill={`url(#${_id9})`}
           />
           <path
             d='M299.309 223.128l-93.434 53.499V80l93.434 143.128z'
-            fill='url(#LidoSDK__LidoSDK__paint14_linear_369_5578)'
+            fill={`url(#${_id24})`}
             fillOpacity={0.6}
           />
           <path
             d='M343.285 325.902c0 75.709-61.34 137.098-136.991 137.098-75.65 0-137.009-61.389-137.009-137.098 0-26.006 8.447-54.671 21-75.402l5.5 3.5 110.491 65.931 114.427-69.391c14.256 21.628 22.564 47.524 22.564 75.38l.018-.018z'
-            fill='url(#LidoSDK__LidoSDK__paint15_radial_369_5578)'
+            fill={`url(#${_id0})`}
             fillOpacity={0.4}
           />
         </g>
@@ -84,74 +119,74 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
         />
         <path
           d='M250.276 154.075L134 223.54l116.276 69.96V154.075z'
-          fill='url(#LidoSDK__LidoSDK__paint16_linear_369_5578)'
+          fill={`url(#${_id25})`}
         />
         <path
           d='M250.276 154.075L134 223.54l116.276 69.96V154.075z'
-          fill='url(#LidoSDK__LidoSDK__paint17_radial_369_5578)'
+          fill={`url(#${_id1})`}
         />
         <path
           d='M250.275 154.075l116.276 69.465-1.317 3.96L250.275 294V154.075z'
-          fill='url(#LidoSDK__LidoSDK__paint18_linear_369_5578)'
+          fill={`url(#${_id26})`}
         />
         <path
           d='M250.275 154.075l116.276 69.465-1.317 3.96L250.275 294V154.075z'
-          fill='url(#LidoSDK__LidoSDK__paint19_radial_369_5578)'
+          fill={`url(#${_id10})`}
         />
         <path
           d='M250.275 293.352l116.276-69.812V357l-116.276 74.165V293.352z'
-          fill='url(#LidoSDK__LidoSDK__paint20_radial_369_5578)'
+          fill={`url(#${_id11})`}
         />
         <path
           d='M250.275 293.352l116.276-69.812V357l-116.276 74.165V293.352z'
-          fill='url(#LidoSDK__LidoSDK__paint21_radial_369_5578)'
+          fill={`url(#${_id12})`}
         />
         <path
           d='M250.275 293.352l14.201 26.373 114.958-69.887-12.883-26.298-116.276 69.812z'
-          fill='url(#LidoSDK__LidoSDK__paint22_linear_369_5578)'
+          fill={`url(#${_id27})`}
         />
         <path
           d='M250.276 293.352L134 223.54V357l116.276 74.165V293.352z'
-          fill='url(#LidoSDK__LidoSDK__paint23_linear_369_5578)'
+          fill={`url(#${_id28})`}
         />
         <path
           d='M250.276 293.352L134 223.54V357l116.276 74.165V293.352z'
-          fill='url(#LidoSDK__LidoSDK__paint24_radial_369_5578)'
+          fill={`url(#${_id13})`}
         />
         <path
           d='M250.276 293.352l-14.201 26.373-114.958-69.887L134 223.54l116.276 69.812z'
-          fill='url(#LidoSDK__LidoSDK__paint25_linear_369_5578)'
+          fill={`url(#${_id29})`}
         />
         <path
           d='M156.285 196.128l93.59 53.499V53l-93.59 143.128z'
-          fill='url(#LidoSDK__LidoSDK__paint26_radial_369_5578)'
+          fill={`url(#${_id14})`}
         />
         <path
           d='M156.285 196.128l93.59 53.499V53l-93.59 143.128z'
-          fill='url(#LidoSDK__LidoSDK__paint27_radial_369_5578)'
+          fill={`url(#${_id15})`}
         />
         <path
           d='M343.309 196.128l-93.434 53.499V53l93.434 143.128z'
-          fill='url(#LidoSDK__LidoSDK__paint28_radial_369_5578)'
+          fill={`url(#${_id16})`}
         />
         <path
           d='M343.309 196.128l-93.434 53.499V53l93.434 143.128z'
-          fill='url(#LidoSDK__LidoSDK__paint29_radial_369_5578)'
+          fill={`url(#${_id17})`}
         />
         <path
           d='M343.309 196.128l-93.434 53.499V53l93.434 143.128z'
-          fill='url(#LidoSDK__LidoSDK__paint30_linear_369_5578)'
+          fill={`url(#${_id30})`}
           fillOpacity={0.6}
         />
         <path
           d='M387.285 298.902c0 75.709-61.34 137.098-136.991 137.098-75.65 0-137.009-61.389-137.009-137.098 0-26.006 8.447-54.671 21-75.402l5.5 3.5 110.491 65.931 114.427-69.391c14.256 21.628 22.564 47.524 22.564 75.38l.018-.018z'
-          fill='url(#LidoSDK__LidoSDK__paint31_radial_369_5578)'
+          fill={`url(#${_id18})`}
           fillOpacity={0.3}
         />
       </g>
       <defs>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint1_radial_369_5578'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -162,7 +197,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#012AFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint3_radial_369_5578'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -173,7 +208,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#012AFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint4_radial_369_5578'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -185,7 +220,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.953} stopColor='#51DEFD' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint5_radial_369_5578'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -196,7 +231,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#012AFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint8_radial_369_5578'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -207,7 +242,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#012AFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint10_radial_369_5578'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -218,7 +253,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint11_radial_369_5578'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -230,7 +265,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint12_radial_369_5578'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -242,7 +277,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint13_radial_369_5578'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -253,7 +288,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint15_radial_369_5578'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -265,7 +300,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0085FF' />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint17_radial_369_5578'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -276,7 +311,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#012AFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint19_radial_369_5578'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -287,7 +322,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#012AFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint20_radial_369_5578'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -299,7 +334,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.953} stopColor='#51DEFD' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint21_radial_369_5578'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -310,7 +345,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#012AFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint24_radial_369_5578'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -321,7 +356,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#012AFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint26_radial_369_5578'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -332,7 +367,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint27_radial_369_5578'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -344,7 +379,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint28_radial_369_5578'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -356,7 +391,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint29_radial_369_5578'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -367,7 +402,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoSDK__LidoSDK__paint31_radial_369_5578'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -379,7 +414,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0085FF' />
         </radialGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint0_linear_369_5578'
+          id={_id19}
           x1={81.009}
           y1={270.853}
           x2={213.102}
@@ -390,7 +425,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#51DEFD' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint2_linear_369_5578'
+          id={_id20}
           x1={197.284}
           y1={270.853}
           x2={329.377}
@@ -401,7 +436,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#51DEFD' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint6_linear_369_5578'
+          id={_id21}
           x1={227.784}
           y1={370}
           x2={329.476}
@@ -412,7 +447,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#B7F2FF' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint7_linear_369_5578'
+          id={_id22}
           x1={81.009}
           y1={340.5}
           x2={213.156}
@@ -423,7 +458,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#51DEFD' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint9_linear_369_5578'
+          id={_id23}
           x1={98.626}
           y1={370}
           x2={200.318}
@@ -434,7 +469,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#B7F2FF' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint14_linear_369_5578'
+          id={_id24}
           x1={299.802}
           y1={252.867}
           x2={238.35}
@@ -445,7 +480,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint16_linear_369_5578'
+          id={_id25}
           x1={125.009}
           y1={243.853}
           x2={257.102}
@@ -456,7 +491,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#51DEFD' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint18_linear_369_5578'
+          id={_id26}
           x1={241.284}
           y1={243.853}
           x2={373.377}
@@ -467,7 +502,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#51DEFD' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint22_linear_369_5578'
+          id={_id27}
           x1={271.784}
           y1={343}
           x2={373.476}
@@ -478,7 +513,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#B7F2FF' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint23_linear_369_5578'
+          id={_id28}
           x1={125.009}
           y1={313.5}
           x2={257.156}
@@ -489,7 +524,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00D1FF' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint25_linear_369_5578'
+          id={_id29}
           x1={142.626}
           y1={343}
           x2={244.318}
@@ -500,7 +535,7 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#B7F2FF' />
         </linearGradient>
         <linearGradient
-          id='LidoSDK__LidoSDK__paint30_linear_369_5578'
+          id={_id30}
           x1={343.802}
           y1={225.867}
           x2={282.35}
@@ -510,11 +545,11 @@ export const LidoSDK = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#29EDFE' />
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
-        <clipPath id='LidoSDK__LidoSDK__clip0_369_5578'>
+        <clipPath id={_id31}>
           <rect x={0.285} width={500} height={500} rx={20} fill='#fff' />
         </clipPath>
         <filter
-          id='LidoSDK__LidoSDK__filter0_f_369_5578'
+          id={_id32}
           x={5.285}
           y={16}
           width={402}

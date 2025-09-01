@@ -2,11 +2,15 @@
 
 import React, { SVGProps } from 'react'
 
-export const Metastreet = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Metastreet = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Metastreet__Metastreet__a)'>
-        <g filter='url(#Metastreet__Metastreet__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id2})`}>
+        <g filter={`url(#${_id3})`} opacity={0.5}>
           <path
             fill='#731AE5'
             fillRule='evenodd'
@@ -15,7 +19,7 @@ export const Metastreet = (props: SVGProps<SVGSVGElement>) => {
           />
         </g>
         <path
-          fill='url(#Metastreet__Metastreet__c)'
+          fill={`url(#${_id})`}
           fillRule='evenodd'
           d='M41.385 20.074a2.081 2.081 0 00-2.053 0l-17.567 9.96c-.93.527-.556 1.945.513 1.945h36.16c1.07 0 1.444-1.418.514-1.945l-17.567-9.96zm-6.75 28.848a8.77 8.77 0 01-5.332 1.775c-4.67 0-8.457-3.553-8.457-7.935 0-4.383 3.787-7.935 8.457-7.935h22.552c4.67 0 8.457 3.552 8.457 7.935 0 4.382-3.787 7.935-8.457 7.935a8.771 8.771 0 01-5.332-1.775c-.663-.506-1.444-.87-2.278-.87h-7.333c-.834 0-1.614.364-2.277.87zm15.98-6.183c0 .818-.708 1.481-1.58 1.481-.871 0-1.578-.663-1.578-1.48 0-.819.707-1.482 1.579-1.482.871 0 1.578.663 1.578 1.481zm4.735 1.481c.872 0 1.579-.663 1.579-1.48 0-.819-.707-1.482-1.579-1.482s-1.578.663-1.578 1.481c0 .818.706 1.481 1.578 1.481zm-3.157-2.962c-.872 0-1.579-.663-1.579-1.481 0-.818.707-1.482 1.579-1.482s1.579.664 1.579 1.482-.707 1.48-1.58 1.48zm-1.579 4.444c0 .818.707 1.48 1.579 1.48s1.579-.663 1.579-1.48c0-.819-.707-1.482-1.58-1.482-.87 0-1.578.663-1.578 1.482zM22.58 53.506h35.896c.676 0 1.224.516 1.224 1.151 0 .637-.548 1.152-1.224 1.152H22.58c-.676 0-1.224-.515-1.224-1.152 0-.635.548-1.15 1.224-1.15zm38.241 3.838H20.234c-.675 0-1.223.515-1.223 1.151s.548 1.152 1.224 1.152H60.82c.676 0 1.224-.516 1.224-1.152 0-.636-.548-1.151-1.224-1.151zm-30.52-11.567a.485.485 0 01-.485.485h-1.617a.485.485 0 01-.486-.485v-1.779h-1.779a.485.485 0 01-.485-.485v-1.617c0-.268.217-.485.485-.485h1.78v-1.78c0-.268.217-.485.485-.485h1.617c.268 0 .485.217.485.485v1.78h1.779c.268 0 .485.217.485.485v1.617a.485.485 0 01-.485.485H30.3v1.779z'
           clipRule='evenodd'
@@ -23,7 +27,7 @@ export const Metastreet = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='Metastreet__Metastreet__c'
+          id={_id}
           x1={40.528}
           x2={40.528}
           y1={14.011}
@@ -33,11 +37,11 @@ export const Metastreet = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.455} stopColor='#171717' />
           <stop offset={1} stopColor='#731AE5' />
         </linearGradient>
-        <clipPath id='Metastreet__Metastreet__a'>
+        <clipPath id={_id2}>
           <path fill='#fff' d='M.01-.002h80v80h-80z' />
         </clipPath>
         <filter
-          id='Metastreet__Metastreet__b'
+          id={_id3}
           width={71.034}
           height={67.843}
           x={9.977}

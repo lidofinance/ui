@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Mev = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Mev = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Mev__Mev__a)'>
-        <g filter='url(#Mev__Mev__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#71D9FF'
             fillRule='evenodd'
@@ -22,11 +25,11 @@ export const Mev = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Mev__Mev__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.01-.002h80v80h-80z' />
         </clipPath>
         <filter
-          id='Mev__Mev__b'
+          id={_id2}
           width={83.001}
           height={60}
           x={-1.989}

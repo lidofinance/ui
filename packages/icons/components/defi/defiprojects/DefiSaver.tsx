@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const DefiSaver = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const DefiSaver = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const DefiSaver = (props: SVGProps<SVGSVGElement>) => {
         d='M27.258 25.003c-.58-.58-.55-1.533.107-2.026 7.264-5.454 17.29-5.454 24.555 0 .655.493.686 1.447.106 2.026l-6.433 6.433c-.49.49-1.257.541-1.87.218a8.764 8.764 0 00-8.162 0c-.613.323-1.38.272-1.87-.218l-6.433-6.433zm26.847 2.08c.58-.58 1.534-.55 2.026.106 5.454 7.264 5.454 17.29 0 24.555-.492.656-1.447.686-2.026.106l-6.433-6.432c-.49-.49-.541-1.258-.218-1.87a8.764 8.764 0 000-8.162c-.323-.614-.272-1.381.218-1.871l6.433-6.433zm-8.511 20.413c-.49-.49-1.258-.541-1.871-.218a8.764 8.764 0 01-8.162 0c-.613-.323-1.38-.272-1.87.218l-6.433 6.433c-.58.58-.55 1.534.107 2.026 7.264 5.454 17.29 5.454 24.555 0 .655-.492.686-1.446.106-2.026l-6.433-6.433zm-13.98-13.981c.489.49.54 1.258.217 1.87a8.763 8.763 0 000 8.162c.323.613.272 1.381-.218 1.87L25.18 51.85c-.58.58-1.533.55-2.026-.106-5.453-7.265-5.453-17.29 0-24.555.493-.656 1.447-.686 2.026-.107l6.433 6.433z'
         clipRule='evenodd'
       />
-      <g filter='url(#DefiSaver__DefiSaver__a)' opacity={0.4}>
+      <g filter={`url(#${_id})`} opacity={0.4}>
         <path
           fill='#37B06F'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const DefiSaver = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='DefiSaver__DefiSaver__a'
+          id={_id}
           width={65.157}
           height={65.158}
           x={11.843}

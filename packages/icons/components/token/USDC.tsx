@@ -2,16 +2,19 @@
 
 import React, { SVGProps } from 'react'
 
-export const USDC = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const USDC = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#USDC__USDC__a)'>
+      <g clipPath={`url(#${_id})`}>
         <rect width={80} height={80} x={0.857} fill='#2775CA' rx={40} />
         <path
           fill='#2775CA'
           d='M40.857 0c22.094 0 40 17.91 40 40 0 22.093-17.906 40-40 40-22.09 0-40-17.908-40-40 0-22.09 17.91-40 40-40z'
         />
-        <g filter='url(#USDC__USDC__b)'>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#fff'
             fillOpacity={0.7}
@@ -28,11 +31,11 @@ export const USDC = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='USDC__USDC__a'>
+        <clipPath id={_id}>
           <rect width={80} height={80} x={0.857} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='USDC__USDC__b'
+          id={_id2}
           width={78.378}
           height={76.288}
           x={1.857}

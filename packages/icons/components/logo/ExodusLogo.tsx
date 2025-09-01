@@ -2,16 +2,21 @@
 
 import React, { SVGProps } from 'react'
 
-export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const ExodusLogo = function (props: SVGProps<SVGSVGElement>) {
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
-      <g clipPath='url(#ExodusLogo__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='currentColor'
           d='M53.808 34.935L40.18 26v4.995l8.742 5.681-1.029 3.254H40.18v4.14h7.713l1.029 3.254-8.742 5.68V58l13.627-8.906-2.229-7.08 2.229-7.08zM28.325 44.07h7.685v-4.14h-7.713l-1-3.254 8.713-5.68V26l-13.627 8.935 2.228 7.08-2.228 7.079L36.038 58v-4.995l-8.741-5.681 1.028-3.254z'
         />
         <mask
-          id='ExodusLogo__a'
+          id={_id}
           width={32}
           height={32}
           x={22}
@@ -19,15 +24,15 @@ export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
           maskUnits='userSpaceOnUse'
         >
           <path
-            fill='url(#ExodusLogo__ExodusLogo__b)'
+            fill={`url(#${_id2})`}
             d='M53.808 34.935L40.18 26v4.995l8.742 5.681-1.029 3.254H40.18v4.14h7.713l1.029 3.254-8.742 5.68V58l13.627-8.906-2.229-7.08 2.229-7.08z'
           />
           <path
-            fill='url(#ExodusLogo__ExodusLogo__c)'
+            fill={`url(#${_id3})`}
             d='M28.325 44.07h7.685v-4.14h-7.713l-1-3.254 8.713-5.68V26l-13.627 8.935 2.228 7.08-2.228 7.079L36.038 58v-4.995l-8.741-5.681 1.028-3.254z'
           />
         </mask>
-        <g mask='url(#ExodusLogo__a)'>
+        <g mask={`url(#${_id})`}>
           <path fill='currentColor' d='M53.6 26H22.4v32h31.2V26z' />
         </g>
         <path
@@ -41,7 +46,7 @@ export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='ExodusLogo__ExodusLogo__b'
+          id={_id2}
           x1={49.399}
           x2={40.271}
           y1={60.2}
@@ -52,7 +57,7 @@ export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='currentColor' />
         </linearGradient>
         <linearGradient
-          id='ExodusLogo__ExodusLogo__c'
+          id={_id3}
           x1={49.4}
           x2={40.272}
           y1={60.2}
@@ -62,7 +67,7 @@ export const ExodusLogo = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='currentColor' />
           <stop offset={1} stopColor='currentColor' />
         </linearGradient>
-        <clipPath id='ExodusLogo__ExodusLogo__a'>
+        <clipPath id={_id4}>
           <path fill='currentColor' d='M22 26h156v32H22z' />
         </clipPath>
       </defs>

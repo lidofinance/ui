@@ -22,7 +22,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.7, @babel/code-frame@npm:^7.26.2, @babel/code-frame@npm:^7.27.1":
+"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.14.5, @babel/code-frame@npm:^7.16.7, @babel/code-frame@npm:^7.26.2, @babel/code-frame@npm:^7.27.1":
   version: 7.27.1
   resolution: "@babel/code-frame@npm:7.27.1"
   dependencies:
@@ -288,6 +288,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/parser@npm:^7.15.4":
+  version: 7.28.3
+  resolution: "@babel/parser@npm:7.28.3"
+  dependencies:
+    "@babel/types": "npm:^7.28.2"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: 10c0/1f41eb82623b0ca0f94521b57f4790c6c457cd922b8e2597985b36bdec24114a9ccf54640286a760ceb60f11fe9102d192bf60477aee77f5d45f1029b9b72729
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-bugfix-firefox-class-in-computed-class-key@npm:^7.25.9, @babel/plugin-bugfix-firefox-class-in-computed-class-key@npm:^7.27.1":
   version: 7.27.1
   resolution: "@babel/plugin-bugfix-firefox-class-in-computed-class-key@npm:7.27.1"
@@ -452,6 +463,17 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 10c0/e98f31b2ec406c57757d115aac81d0336e8434101c224edd9a5c93cefa53faf63eacc69f3138960c8b25401315af03df37f68d316c151c4b933136716ed6906e
+  languageName: node
+  linkType: hard
+
+"@babel/plugin-syntax-jsx@npm:7.14.5":
+  version: 7.14.5
+  resolution: "@babel/plugin-syntax-jsx@npm:7.14.5"
+  dependencies:
+    "@babel/helper-plugin-utils": "npm:^7.14.5"
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 10c0/b553ccd6cf1b560616c4cd347f851a9a1d853c084bac82d39fae9b5edcc283d03053a78d014fde79c07c5dc07cc15ec988065616e9efea3220b58913205fdf49
   languageName: node
   linkType: hard
 
@@ -1507,6 +1529,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/template@npm:7.15.4":
+  version: 7.15.4
+  resolution: "@babel/template@npm:7.15.4"
+  dependencies:
+    "@babel/code-frame": "npm:^7.14.5"
+    "@babel/parser": "npm:^7.15.4"
+    "@babel/types": "npm:^7.15.4"
+  checksum: 10c0/4ce66d750f3075350a89d998433f1815230469e169398652d0964774ab9b568655afd592f14f9da2e430d173c59fdf9c6a5d26e385fc1dae7e69a88faeae56fe
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.27.1, @babel/template@npm:^7.27.2, @babel/template@npm:^7.3.3":
   version: 7.27.2
   resolution: "@babel/template@npm:7.27.2"
@@ -1533,7 +1566,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.18.9, @babel/types@npm:^7.20.7, @babel/types@npm:^7.21.3, @babel/types@npm:^7.24.0, @babel/types@npm:^7.27.1, @babel/types@npm:^7.27.3, @babel/types@npm:^7.28.0, @babel/types@npm:^7.28.2, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.15.4, @babel/types@npm:^7.18.9, @babel/types@npm:^7.20.7, @babel/types@npm:^7.21.3, @babel/types@npm:^7.24.0, @babel/types@npm:^7.27.1, @babel/types@npm:^7.27.3, @babel/types@npm:^7.28.0, @babel/types@npm:^7.28.2, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
   version: 7.28.2
   resolution: "@babel/types@npm:7.28.2"
   dependencies:
@@ -2112,6 +2145,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@inline-svg-unique-id/react@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "@inline-svg-unique-id/react@npm:1.2.3"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+  checksum: 10c0/ab09a1a3f3728643f37ae54654c31a97d1dbc39970fc283898d9728c7ab57b372fed313037c2b27f26370ea7c053dea0e59d84dbff480811f5da70d5d853c4ca
+  languageName: node
+  linkType: hard
+
 "@isaacs/balanced-match@npm:^4.0.1":
   version: 4.0.1
   resolution: "@isaacs/balanced-match@npm:4.0.1"
@@ -2462,6 +2504,7 @@ __metadata:
     "@commitlint/cli": "npm:19.8.0"
     "@commitlint/config-conventional": "npm:19.8.0"
     "@csstools/postcss-global-data": "npm:3.0.0"
+    "@inline-svg-unique-id/react": "npm:^1.2.3"
     "@rollup/plugin-babel": "npm:6.0.4"
     "@rollup/plugin-commonjs": "npm:28.0.3"
     "@rollup/plugin-node-resolve": "npm:16.0.1"
@@ -2492,6 +2535,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
     "@typescript-eslint/parser": "npm:5.62.0"
     autoprefixer: "npm:10.4.21"
+    babel-plugin-react-inline-svg-unique-id: "npm:1.5.0"
     browserslist: "npm:4.24.5"
     classnames: "npm:2.5.1"
     conventional-changelog-conventionalcommits: "npm:4.6.3"
@@ -6078,6 +6122,16 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
   checksum: 10c0/63aa8ed716df6a9277c6ab42b887858fa9f57a70cc1d0ae2b91bdf081e45d4502848cba306fb60b02f59f99b32fd02ff4753b373cac48ccdac9b7d19dd56f06d
+  languageName: node
+  linkType: hard
+
+"babel-plugin-react-inline-svg-unique-id@npm:1.5.0":
+  version: 1.5.0
+  resolution: "babel-plugin-react-inline-svg-unique-id@npm:1.5.0"
+  dependencies:
+    "@babel/plugin-syntax-jsx": "npm:7.14.5"
+    "@babel/template": "npm:7.15.4"
+  checksum: 10c0/d07268f9e55a8030e7516f6a068819fd110da608447b80abd9b74e61fe05a29dd5c4c2cbf3189df04466e4a62a6a6d9195e1061623234fd3acb62ff054f3afca
   languageName: node
   linkType: hard
 

@@ -2,13 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const MellowLogo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MellowLogo = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
-      <g
-        clipPath='url(#MellowLogo__MellowLogo__clip0_2102_73152)'
-        fill='currentColor'
-      >
+      <g clipPath={`url(#${_id})`} fill='currentColor'>
         <path d='M147.798 50.372l-4.509-15.59h2.798l3.42 13.096 3.575-13.096h2.799l3.575 13.096 3.42-13.096h2.798l-4.507 15.59h-3.266l-3.419-12.378-3.42 12.378h-3.264zm-12.425.468c-5.13 0-7.618-3.742-7.618-8.263s2.488-8.263 7.618-8.263c5.13 0 7.617 3.742 7.617 8.263 0 4.52-2.487 8.262-7.617 8.262zm-4.82-8.263c0 4.52 2.177 6.392 4.82 6.392 2.642 0 4.819-1.871 4.819-6.392 0-4.521-2.177-6.392-4.819-6.392-2.643 0-4.82 1.87-4.82 6.392zm-4.672 7.794h-2.642V30.105h2.642V50.37zm-4.827 0h-2.642V30.105h2.642V50.37zm-11.489.469c-5.13 0-7.617-3.742-7.617-8.263s2.487-8.263 7.462-8.263c5.13 0 7.15 3.898 7.15 7.64V43.2h-11.814c.186 4.085 2.301 5.769 4.819 5.769 2.021 0 3.731-1.092 4.197-3.274h2.643c-.622 2.962-2.954 5.144-6.84 5.144zm-.155-14.655c-2.394 0-4.26 1.528-4.602 5.145h8.954c0-3.586-1.99-5.145-4.352-5.145zM78.94 50.371V30.105h4.042l6.529 17.149 6.529-17.15h4.042v20.267h-2.643v-17.46l-6.685 17.46h-2.487l-6.684-17.46v17.46H78.94z' />
         <path
           fillRule='evenodd'
@@ -27,7 +26,7 @@ export const MellowLogo = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='MellowLogo__MellowLogo__clip0_2102_73152'>
+        <clipPath id={_id}>
           <path
             fill='currentColor'
             transform='translate(34.325 23.35)'

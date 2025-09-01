@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Reserve = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Reserve = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Reserve__Reserve__a)'>
-        <g filter='url(#Reserve__Reserve__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#0252AF'
             fillOpacity={0.4}
@@ -19,11 +22,11 @@ export const Reserve = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Reserve__Reserve__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.019 0h80.004v80H.019z' />
         </clipPath>
         <filter
-          id='Reserve__Reserve__b'
+          id={_id2}
           width={65.004}
           height={66.996}
           x={7.018}

@@ -2,172 +2,192 @@
 
 import React, { SVGProps } from 'react'
 
-export const Rewards = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Rewards = function (props: SVGProps<SVGSVGElement>) {
+  const _id38 = useUniqueInlineId()
+  const _id37 = useUniqueInlineId()
+  const _id36 = useUniqueInlineId()
+  const _id35 = useUniqueInlineId()
+  const _id34 = useUniqueInlineId()
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Rewards__Rewards__a)'>
-        <g filter='url(#Rewards__Rewards__b)' opacity={0.5}>
-          <path fill='url(#Rewards__Rewards__c)' d='M39 9v33.5L49.5 28 39 9z' />
-          <path fill='url(#Rewards__Rewards__d)' d='M39 9v33.5L49.5 28 39 9z' />
+      <g clipPath={`url(#${_id37})`}>
+        <g filter={`url(#${_id38})`} opacity={0.5}>
+          <path fill={`url(#${_id})`} d='M39 9v33.5L49.5 28 39 9z' />
+          <path fill={`url(#${_id2})`} d='M39 9v33.5L49.5 28 39 9z' />
+          <path fill={`url(#${_id3})`} d='M39 42.5L22 49 6 32.5l33 10z' />
+          <path fill={`url(#${_id4})`} d='M39 42.5L22 49 6 32.5l33 10z' />
+          <path fill={`url(#${_id5})`} d='M39 9v33.5L28 28 39 9z' />
+          <path fill={`url(#${_id6})`} d='M39 9v33.5L28 28 39 9z' />
+          <path fill={`url(#${_id7})`} d='M71.5 32.5L39 42.5 49.5 28l22 4.5z' />
+          <path fill={`url(#${_id8})`} d='M71.5 32.5L39 42.5 49.5 28l22 4.5z' />
+          <path fill={`url(#${_id9})`} d='M6 32.5l33 10L28 28 6 32.5z' />
+          <path fill={`url(#${_id0})`} d='M39 42.5l-20 28L22 49l17-6.5z' />
           <path
-            fill='url(#Rewards__Rewards__e)'
-            d='M39 42.5L22 49 6 32.5l33 10z'
-          />
-          <path
-            fill='url(#Rewards__Rewards__f)'
-            d='M39 42.5L22 49 6 32.5l33 10z'
-          />
-          <path fill='url(#Rewards__Rewards__g)' d='M39 9v33.5L28 28 39 9z' />
-          <path fill='url(#Rewards__Rewards__h)' d='M39 9v33.5L28 28 39 9z' />
-          <path
-            fill='url(#Rewards__Rewards__i)'
-            d='M71.5 32.5L39 42.5 49.5 28l22 4.5z'
-          />
-          <path
-            fill='url(#Rewards__Rewards__j)'
-            d='M71.5 32.5L39 42.5 49.5 28l22 4.5z'
-          />
-          <path
-            fill='url(#Rewards__Rewards__k)'
-            d='M6 32.5l33 10L28 28 6 32.5z'
-          />
-          <path
-            fill='url(#Rewards__Rewards__l)'
-            d='M39 42.5l-20 28L22 49l17-6.5z'
-          />
-          <path
-            fill='url(#Rewards__Rewards__m)'
+            fill={`url(#${_id1})`}
             fillOpacity={0.4}
             d='M39 42.5l-20 28L22 49l17-6.5z'
           />
+          <path fill={`url(#${_id10})`} d='M71.5 32.5L56 48.5l-17-6 32.5-10z' />
           <path
-            fill='url(#Rewards__Rewards__n)'
-            d='M71.5 32.5L56 48.5l-17-6 32.5-10z'
-          />
-          <path
-            fill='url(#Rewards__Rewards__o)'
+            fill={`url(#${_id11})`}
             fillOpacity={0.1}
             d='M71.5 32.5L56 48.5l-17-6 32.5-10z'
           />
           <path
-            fill='url(#Rewards__Rewards__p)'
+            fill={`url(#${_id12})`}
             fillOpacity={0.4}
             d='M59 70.5l-3-22-17-6 20 28z'
           />
           <path
-            fill='url(#Rewards__Rewards__q)'
+            fill={`url(#${_id13})`}
             fillOpacity={0.1}
             d='M59 70.5l-3-22-17-6 20 28z'
           />
           <path
-            fill='url(#Rewards__Rewards__r)'
+            fill={`url(#${_id14})`}
             fillOpacity={0.8}
             d='M59 70.5L39 61V42.5l20 28z'
           />
           <path
-            fill='url(#Rewards__Rewards__s)'
+            fill={`url(#${_id15})`}
             fillOpacity={0.1}
             d='M59 70.5L39 61V42.5l20 28z'
           />
           <path
-            fill='url(#Rewards__Rewards__t)'
+            fill={`url(#${_id16})`}
             fillOpacity={0.8}
             d='M39 42.5l-20 28L39 61V42.5z'
           />
           <path
-            fill='url(#Rewards__Rewards__u)'
+            fill={`url(#${_id17})`}
             fillOpacity={0.5}
             d='M39 42.5l-20 28L39 61V42.5z'
           />
         </g>
         <path
-          fill='url(#Rewards__Rewards__v)'
+          fill={`url(#${_id18})`}
           d='M39.942 16.042V41.87l8.096-11.18-8.096-14.648z'
         />
         <path
-          fill='url(#Rewards__Rewards__w)'
+          fill={`url(#${_id19})`}
           d='M39.942 16.042V41.87l8.096-11.18-8.096-14.648z'
         />
         <path
-          fill='url(#Rewards__Rewards__x)'
+          fill={`url(#${_id20})`}
           d='M39.943 41.87l-13.107 5.012L14.5 34.16l25.443 7.71z'
         />
         <path
-          fill='url(#Rewards__Rewards__y)'
+          fill={`url(#${_id21})`}
           d='M39.943 41.87l-13.107 5.012L14.5 34.16l25.443 7.71z'
         />
         <path
-          fill='url(#Rewards__Rewards__z)'
+          fill={`url(#${_id22})`}
           d='M39.942 16.042V41.87l-8.48-11.18 8.48-14.648z'
         />
         <path
-          fill='url(#Rewards__Rewards__A)'
+          fill={`url(#${_id23})`}
           d='M39.942 16.042V41.87l-8.48-11.18 8.48-14.648z'
         />
         <path
-          fill='url(#Rewards__Rewards__B)'
+          fill={`url(#${_id24})`}
           d='M65 34.16l-25.057 7.71 8.095-11.18L65 34.16z'
         />
         <path
-          fill='url(#Rewards__Rewards__C)'
+          fill={`url(#${_id25})`}
           d='M65 34.16l-25.057 7.71 8.095-11.18L65 34.16z'
         />
         <path
-          fill='url(#Rewards__Rewards__D)'
+          fill={`url(#${_id26})`}
           d='M14.5 34.16l25.443 7.71-8.481-11.18L14.5 34.16z'
         />
         <path
-          fill='url(#Rewards__Rewards__E)'
+          fill={`url(#${_id27})`}
           d='M39.942 41.87l-15.42 21.588 2.314-16.576 13.106-5.012z'
         />
         <path
-          fill='url(#Rewards__Rewards__F)'
+          fill={`url(#${_id28})`}
           fillOpacity={0.4}
           d='M39.942 41.87l-15.42 21.588 2.314-16.576 13.106-5.012z'
         />
         <path
-          fill='url(#Rewards__Rewards__G)'
+          fill={`url(#${_id29})`}
           d='M65 34.16L53.05 46.496 39.943 41.87 65 34.16z'
         />
         <path
-          fill='url(#Rewards__Rewards__H)'
+          fill={`url(#${_id30})`}
           fillOpacity={0.1}
           d='M65 34.16L53.05 46.496 39.943 41.87 65 34.16z'
         />
         <path
-          fill='url(#Rewards__Rewards__I)'
+          fill={`url(#${_id31})`}
           fillOpacity={0.4}
           d='M55.362 63.458L53.05 46.496 39.943 41.87l15.42 21.588z'
         />
         <path
-          fill='url(#Rewards__Rewards__J)'
+          fill={`url(#${_id32})`}
           fillOpacity={0.1}
           d='M55.362 63.458L53.05 46.496 39.943 41.87l15.42 21.588z'
         />
         <path
-          fill='url(#Rewards__Rewards__K)'
+          fill={`url(#${_id33})`}
           fillOpacity={0.8}
           d='M55.362 63.458l-15.42-7.324V41.87l15.42 21.588z'
         />
         <path
-          fill='url(#Rewards__Rewards__L)'
+          fill={`url(#${_id34})`}
           fillOpacity={0.1}
           d='M55.362 63.458l-15.42-7.324V41.87l15.42 21.588z'
         />
         <path
-          fill='url(#Rewards__Rewards__M)'
+          fill={`url(#${_id35})`}
           fillOpacity={0.8}
           d='M39.942 41.87l-15.42 21.588 15.42-7.324V41.87z'
         />
         <path
-          fill='url(#Rewards__Rewards__N)'
+          fill={`url(#${_id36})`}
           fillOpacity={0.5}
           d='M39.942 41.87l-15.42 21.588 15.42-7.324V41.87z'
         />
       </g>
       <defs>
         <radialGradient
-          id='Rewards__Rewards__c'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -179,7 +199,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__d'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -190,7 +210,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__e'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -201,7 +221,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__f'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -213,7 +233,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__g'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -224,7 +244,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -236,7 +256,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__i'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -247,7 +267,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__j'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -258,7 +278,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6100FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__k'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -270,7 +290,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__l'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -281,7 +301,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__m'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -292,7 +312,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6100FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__n'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -303,7 +323,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__o'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -314,7 +334,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00FFF0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__p'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -325,7 +345,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__q'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -336,7 +356,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00FFF0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__r'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -347,7 +367,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__s'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -358,7 +378,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00FFF0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__t'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -369,7 +389,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__u'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -380,7 +400,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6100FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__v'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -392,7 +412,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__w'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -403,7 +423,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__x'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -414,7 +434,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__y'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -426,7 +446,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__z'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -438,7 +458,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__A'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -449,7 +469,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__B'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -460,7 +480,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__C'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -471,7 +491,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6100FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__D'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -483,7 +503,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__E'
+          id={_id27}
           cx={0}
           cy={0}
           r={1}
@@ -494,7 +514,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__F'
+          id={_id28}
           cx={0}
           cy={0}
           r={1}
@@ -505,7 +525,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#6100FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__G'
+          id={_id29}
           cx={0}
           cy={0}
           r={1}
@@ -516,7 +536,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__H'
+          id={_id30}
           cx={0}
           cy={0}
           r={1}
@@ -527,7 +547,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00FFF0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__I'
+          id={_id31}
           cx={0}
           cy={0}
           r={1}
@@ -538,7 +558,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__J'
+          id={_id32}
           cx={0}
           cy={0}
           r={1}
@@ -549,7 +569,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00FFF0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__K'
+          id={_id33}
           cx={0}
           cy={0}
           r={1}
@@ -560,7 +580,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__L'
+          id={_id34}
           cx={0}
           cy={0}
           r={1}
@@ -571,7 +591,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00FFF0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__M'
+          id={_id35}
           cx={0}
           cy={0}
           r={1}
@@ -582,7 +602,7 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Rewards__Rewards__N'
+          id={_id36}
           cx={0}
           cy={0}
           r={1}
@@ -592,11 +612,11 @@ export const Rewards = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#0038FF' />
           <stop offset={1} stopColor='#6100FF' stopOpacity={0} />
         </radialGradient>
-        <clipPath id='Rewards__Rewards__a'>
+        <clipPath id={_id37}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Rewards__Rewards__b'
+          id={_id38}
           width={91.5}
           height={87.5}
           x={-7}

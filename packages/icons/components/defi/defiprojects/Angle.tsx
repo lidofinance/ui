@@ -2,10 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Angle = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Angle = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Angle__Angle__a)' opacity={0.6}>
+      <g filter={`url(#${_id3})`} opacity={0.6}>
         <path
           fill='#fff'
           d='M51.654 44.837L35 28.142 18.346 44.837l8.327 8.347L35 44.837l8.327 8.347 8.327-8.347z'
@@ -32,7 +36,7 @@ export const Angle = (props: SVGProps<SVGSVGElement>) => {
           d='M18.345 44.835l8.328 8.347-1.666-4.131-9.992-10.017 3.33 5.8z'
         />
         <path
-          fill='url(#Angle__Angle__b)'
+          fill={`url(#${_id})`}
           stroke='#1F2333'
           strokeLinejoin='round'
           strokeWidth={0.534}
@@ -65,7 +69,7 @@ export const Angle = (props: SVGProps<SVGSVGElement>) => {
         d='M22.487 49.285l8.757 8.778-1.751-4.345-10.508-10.532 3.502 6.1z'
       />
       <path
-        fill='url(#Angle__Angle__c)'
+        fill={`url(#${_id2})`}
         stroke='#1F2333'
         strokeLinejoin='round'
         strokeWidth={0.534}
@@ -73,7 +77,7 @@ export const Angle = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <linearGradient
-          id='Angle__Angle__b'
+          id={_id}
           x1={54.984}
           x2={15.015}
           y1={34.025}
@@ -86,7 +90,7 @@ export const Angle = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#B9AAFD' />
         </linearGradient>
         <linearGradient
-          id='Angle__Angle__c'
+          id={_id2}
           x1={61.014}
           x2={18.985}
           y1={37.919}
@@ -99,7 +103,7 @@ export const Angle = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#B9AAFD' />
         </linearGradient>
         <filter
-          id='Angle__Angle__a'
+          id={_id3}
           width={56.505}
           height={50.719}
           x={6.748}

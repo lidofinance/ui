@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Cega = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Cega = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Cega__Cega__a)'>
-        <g filter='url(#Cega__Cega__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#030333'
             d='M58.359 48.151c8.076-11.883 7.425-26.71-1.453-33.116-8.879-6.406-22.623-1.965-30.699 9.919-8.076 11.883-7.425 26.71 1.453 33.116 8.879 6.406 22.623 1.965 30.699-9.919z'
@@ -22,11 +25,11 @@ export const Cega = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Cega__Cega__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.015 0h80.004v80H.015z' />
         </clipPath>
         <filter
-          id='Cega__Cega__b'
+          id={_id2}
           width={71.463}
           height={76.898}
           x={6.551}

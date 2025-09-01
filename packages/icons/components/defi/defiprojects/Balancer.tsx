@@ -2,15 +2,18 @@
 
 import React, { SVGProps } from 'react'
 
-export const Balancer = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Balancer = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Balancer__Balancer__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#000'
           d='M60.003 50.177c0-2.605-4.281-4.869-10.576-6.019v.002c-2.735.701-5.965 1.105-9.424 1.105-3.458 0-6.688-.404-9.423-1.107-6.293 1.15-10.577 3.414-10.577 6.02 0 3.768 8.955 6.822 20 6.822s20-3.053 20-6.823zm-3.956-12.188c0-2.147-3.684-4-9.03-4.881-2.055.515-4.452.812-7.014.812-2.561 0-4.958-.296-7.013-.812-5.347.881-9.03 2.736-9.03 4.88 0 2.995 7.183 5.424 16.043 5.424s16.044-2.429 16.044-5.423zm-3.955-9.882c0-2.269-5.38-4.107-12.015-4.107-6.635 0-12.015 1.838-12.015 4.107 0 2.267 5.38 4.105 12.015 4.105 6.635 0 12.015-1.838 12.015-4.105z'
         />
-        <g filter='url(#Balancer__Balancer__b)' opacity={0.7}>
+        <g filter={`url(#${_id2})`} opacity={0.7}>
           <path
             fill='#000'
             fillOpacity={0.22}
@@ -19,11 +22,11 @@ export const Balancer = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='Balancer__Balancer__a'>
+        <clipPath id={_id}>
           <rect width={80.004} height={80} x={0.003} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='Balancer__Balancer__b'
+          id={_id2}
           width={66}
           height={59}
           x={14.003}

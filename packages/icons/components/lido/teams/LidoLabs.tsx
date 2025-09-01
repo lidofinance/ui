@@ -2,233 +2,299 @@
 
 import React, { SVGProps } from 'react'
 
-export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const LidoLabs = function (props: SVGProps<SVGSVGElement>) {
+  const _id63 = useUniqueInlineId()
+  const _id62 = useUniqueInlineId()
+  const _id61 = useUniqueInlineId()
+  const _id60 = useUniqueInlineId()
+  const _id59 = useUniqueInlineId()
+  const _id58 = useUniqueInlineId()
+  const _id57 = useUniqueInlineId()
+  const _id56 = useUniqueInlineId()
+  const _id55 = useUniqueInlineId()
+  const _id54 = useUniqueInlineId()
+  const _id53 = useUniqueInlineId()
+  const _id52 = useUniqueInlineId()
+  const _id51 = useUniqueInlineId()
+  const _id50 = useUniqueInlineId()
+  const _id49 = useUniqueInlineId()
+  const _id48 = useUniqueInlineId()
+  const _id47 = useUniqueInlineId()
+  const _id46 = useUniqueInlineId()
+  const _id45 = useUniqueInlineId()
+  const _id44 = useUniqueInlineId()
+  const _id43 = useUniqueInlineId()
+  const _id42 = useUniqueInlineId()
+  const _id41 = useUniqueInlineId()
+  const _id40 = useUniqueInlineId()
+  const _id39 = useUniqueInlineId()
+  const _id38 = useUniqueInlineId()
+  const _id37 = useUniqueInlineId()
+  const _id36 = useUniqueInlineId()
+  const _id35 = useUniqueInlineId()
+  const _id34 = useUniqueInlineId()
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={500} height={500} viewBox='0 0 500 500' fill='none' {...props}>
-      <g clipPath='url(#LidoLabs__a)'>
-        <g filter='url(#LidoLabs__LidoLabs__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id63})`}>
           <path
-            fill='url(#LidoLabs__LidoLabs__c)'
+            fill={`url(#${_id2})`}
             d='M248.555 425c73.208 0 132.556-58.999 132.556-131.778 0-27.929-8.74-53.828-23.649-75.143l-109.794 65.708-109.795-63.104C124.048 241.488 116 266.421 116 293.222 116 366.001 175.347 425 248.555 425z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__d)'
+            fill={`url(#${_id41})`}
             d='M249.157 282.911l-110.216-62.339 111.213 203.973-.997-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__e)'
+            fill={`url(#${_id3})`}
             fillOpacity={0.7}
             d='M249.157 282.911l-110.216-62.339 111.213 203.973-.997-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__f)'
+            fill={`url(#${_id4})`}
             fillOpacity={0.8}
             d='M249.157 282.911l-110.216-62.339 111.213 203.973-.997-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__g)'
+            fill={`url(#${_id42})`}
             fillOpacity={0.8}
             d='M249.157 282.911l-110.216-62.339 111.213 203.973-.997-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__h)'
+            fill={`url(#${_id5})`}
             d='M249.155 282.912L357.4 217.986l-108.743 206.56.498-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__i)'
+            fill={`url(#${_id6})`}
             d='M249.155 282.912L357.4 217.986l-108.743 206.56.498-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__j)'
+            fill={`url(#${_id7})`}
             fillOpacity={0.7}
             d='M249.155 282.912L357.4 217.986l-108.743 206.56.498-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__k)'
+            fill={`url(#${_id43})`}
             d='M249.155 282.912L357.4 217.986l-108.743 206.56.498-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__l)'
+            fill={`url(#${_id8})`}
             d='M155.823 198.302l93.704 53.564V55l-93.704 143.302z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__m)'
+            fill={`url(#${_id9})`}
             d='M155.823 198.302l93.704 53.564V55l-93.704 143.302z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__n)'
+            fill={`url(#${_id0})`}
             fillOpacity={0.7}
             d='M155.823 198.302l93.704 53.564V55l-93.704 143.302z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__o)'
+            fill={`url(#${_id1})`}
             fillOpacity={0.7}
             d='M155.823 198.302l93.704 53.564V55l-93.704 143.302z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__p)'
+            fill={`url(#${_id10})`}
             d='M344.203 197.828l-94.677 54.038V55l94.677 142.828z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__q)'
+            fill={`url(#${_id44})`}
             fillOpacity={0.6}
             d='M344.203 197.828l-94.677 54.038V55l94.677 142.828z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__r)'
+            fill={`url(#${_id11})`}
             fillOpacity={0.7}
             d='M344.203 197.828l-94.677 54.038V55l94.677 142.828z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__s)'
+            fill={`url(#${_id12})`}
             d='M248.555 425c73.208 0 132.556-58.999 132.556-131.778 0-27.929-8.74-53.828-23.649-75.143l-109.794 65.708-109.795-63.104C124.048 241.488 116 266.421 116 293.222 116 366.001 175.347 425 248.555 425z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__t)'
+            fill={`url(#${_id45})`}
             d='M249.157 282.911l-110.216-62.339 111.213 203.973-.997-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__u)'
+            fill={`url(#${_id13})`}
             fillOpacity={0.7}
             d='M249.157 282.911l-110.216-62.339 111.213 203.973-.997-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__v)'
+            fill={`url(#${_id14})`}
             fillOpacity={0.8}
             d='M249.157 282.911l-110.216-62.339 111.213 203.973-.997-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__w)'
+            fill={`url(#${_id46})`}
             fillOpacity={0.8}
             d='M249.157 282.911l-110.216-62.339 111.213 203.973-.997-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__x)'
+            fill={`url(#${_id15})`}
             d='M249.155 282.912L357.4 217.986l-108.743 206.56.498-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__y)'
+            fill={`url(#${_id16})`}
             d='M249.155 282.912L357.4 217.986l-108.743 206.56.498-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__z)'
+            fill={`url(#${_id17})`}
             fillOpacity={0.7}
             d='M249.155 282.912L357.4 217.986l-108.743 206.56.498-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__A)'
+            fill={`url(#${_id47})`}
             d='M249.155 282.912L357.4 217.986l-108.743 206.56.498-141.634z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__B)'
+            fill={`url(#${_id18})`}
             d='M155.823 198.302l93.704 53.564V55l-93.704 143.302z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__C)'
+            fill={`url(#${_id19})`}
             d='M155.823 198.302l93.704 53.564V55l-93.704 143.302z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__D)'
+            fill={`url(#${_id20})`}
             fillOpacity={0.7}
             d='M155.823 198.302l93.704 53.564V55l-93.704 143.302z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__E)'
+            fill={`url(#${_id21})`}
             fillOpacity={0.7}
             d='M155.823 198.302l93.704 53.564V55l-93.704 143.302z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__F)'
+            fill={`url(#${_id22})`}
             d='M344.203 197.828l-94.677 54.038V55l94.677 142.828z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__G)'
+            fill={`url(#${_id48})`}
             fillOpacity={0.6}
             d='M344.203 197.828l-94.677 54.038V55l94.677 142.828z'
           />
           <path
-            fill='url(#LidoLabs__LidoLabs__H)'
+            fill={`url(#${_id23})`}
             fillOpacity={0.7}
             d='M344.203 197.828l-94.677 54.038V55l94.677 142.828z'
           />
         </g>
         <path
-          fill='url(#LidoLabs__LidoLabs__I)'
+          fill={`url(#${_id24})`}
           d='M252.351 425c73.208 0 132.555-58.999 132.555-131.778 0-27.929-8.739-53.828-23.648-75.143l-109.794 65.708-109.795-63.104c-13.825 20.805-21.873 45.738-21.873 72.539 0 72.779 59.347 131.778 132.555 131.778z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__J)'
+          fill={`url(#${_id25})`}
           d='M252.351 425c73.208 0 132.555-58.999 132.555-131.778 0-27.929-8.739-53.828-23.648-75.143l-109.794 65.708-109.795-63.104c-13.825 20.805-21.873 45.738-21.873 72.539 0 72.779 59.347 131.778 132.555 131.778z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__K)'
+          fill={`url(#${_id26})`}
           d='M252.351 425c73.208 0 132.555-58.999 132.555-131.778 0-27.929-8.739-53.828-23.648-75.143l-109.794 65.708-109.795-63.104c-13.825 20.805-21.873 45.738-21.873 72.539 0 72.779 59.347 131.778 132.555 131.778z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__L)'
+          fill={`url(#${_id27})`}
           d='M252.351 425c73.208 0 132.555-58.999 132.555-131.778 0-27.929-8.739-53.828-23.648-75.143l-109.794 65.708-109.795-63.104c-13.825 20.805-21.873 45.738-21.873 72.539 0 72.779 59.347 131.778 132.555 131.778z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__M)'
+          fill={`url(#${_id28})`}
           d='M158.706 198.302l93.953 53.62V55l-93.953 143.302z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__N)'
+          fill={`url(#${_id29})`}
           d='M158.706 198.302l93.953 53.62V55l-93.953 143.302z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__O)'
+          fill={`url(#${_id30})`}
           fillOpacity={0.7}
           d='M158.706 198.302l93.953 53.62V55l-93.953 143.302z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__P)'
+          fill={`url(#${_id31})`}
           fillOpacity={0.7}
           d='M158.706 198.302l93.953 53.62V55l-93.953 143.302z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__Q)'
+          fill={`url(#${_id32})`}
           d='M347.336 197.828l-94.677 54.094V55l94.677 142.828z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__R)'
+          fill={`url(#${_id49})`}
           fillOpacity={0.6}
           d='M347.336 197.828l-94.677 54.094V55l94.677 142.828z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__S)'
+          fill={`url(#${_id33})`}
           fillOpacity={0.7}
           d='M347.336 197.828l-94.677 54.094V55l94.677 142.828z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__T)'
+          fill={`url(#${_id34})`}
           d='M347.336 197.828l-94.677 54.094V55l94.677 142.828z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__U)'
+          fill={`url(#${_id50})`}
           fillOpacity={0.6}
           d='M347.336 197.828l-94.677 54.094V55l94.677 142.828z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__V)'
+          fill={`url(#${_id35})`}
           fillOpacity={0.7}
           d='M347.336 197.828l-94.677 54.094V55l94.677 142.828z'
         />
         <path
-          stroke='url(#LidoLabs__LidoLabs__W)'
+          stroke={`url(#${_id51})`}
           strokeWidth={2.847}
           d='M369.389 292.73c0 64.468-52.262 116.729-116.73 116.729-34.584 0-65.656-15.04-87.03-38.936M135.93 292.73c0-24.309 7.43-46.882 20.143-65.572m32.409 119.892c-12.36-14.555-19.811-33.372-19.811-53.919 0-3.68.239-7.304.702-10.858m0 0c1.857-14.243 7.316-27.36 15.439-38.418m-15.439 38.418l.247.017m-.247-.017l-16.169-1.155a99.548 99.548 0 0117.151-45.416m173.122 99.234l-14.421-6.977c-7.438 16.126-19.882 29.491-35.351 38.125-12.135 6.773-26.131 10.634-41.033 10.634-9.91 0-19.419-1.707-28.246-4.843m119.051-36.939l.051.025m-.051-.025c5.97-12.825 9.304-27.126 9.304-42.206 0-22.102-7.161-42.53-19.29-59.093m9.986 101.299a100.225 100.225 0 01-14.178 22.224m-176.761-64.43c0 55.296 44.826 100.122 100.121 100.122v-15.897m0-16.845c-37.213 0-67.38-30.056-67.38-67.133 0-15.463 5.247-29.705 14.064-41.055'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__X)'
+          fill={`url(#${_id36})`}
           d='M252.952 282.912l108.245-64.926-108.743 206.56.498-141.634z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__Y)'
+          fill={`url(#${_id37})`}
           d='M252.952 282.912l108.245-64.926-108.743 206.56.498-141.634z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__Z)'
+          fill={`url(#${_id38})`}
           fillOpacity={0.7}
           d='M252.952 282.912l108.245-64.926-108.743 206.56.498-141.634z'
         />
@@ -240,26 +306,26 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           strokeWidth={2.847}
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__aa)'
+          fill={`url(#${_id52})`}
           d='M252.952 282.911l-110.215-62.339L253.95 424.545l-.998-141.634z'
         />
         <path
-          fill='url(#LidoLabs__LidoLabs__ab)'
+          fill={`url(#${_id39})`}
           fillOpacity={0.7}
           d='M252.952 282.912l-110.215-62.339L253.95 424.546l-.998-141.634z'
         />
         <path
-          stroke='url(#LidoLabs__LidoLabs__ac)'
+          stroke={`url(#${_id53})`}
           strokeWidth={2.847}
           d='M176.217 204.51c20.479-17.761 47.206-28.51 76.442-28.51 29.237 0 55.963 10.749 76.443 28.51'
         />
         <path
-          stroke='url(#LidoLabs__LidoLabs__ad)'
+          stroke={`url(#${_id54})`}
           strokeWidth={2.847}
           d='M192.276 212.859c15.964-12.088 35.189-19.483 56.587-20.18v15.197c-17.234.663-32.676 6.44-45.79 15.886'
         />
         <path
-          stroke='url(#LidoLabs__LidoLabs__ae)'
+          stroke={`url(#${_id55})`}
           strokeWidth={2.847}
           d='M221.104 233.18c9.414-4.999 20.154-7.83 31.555-7.83a67.227 67.227 0 0123.659 4.27'
         />
@@ -300,30 +366,30 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
         />
         <g strokeWidth={2.847}>
           <path
-            stroke='url(#LidoLabs__LidoLabs__af)'
+            stroke={`url(#${_id56})`}
             d='M227.445 268.293c-6.128 6.321-9.899 14.939-9.899 24.437 0 19.393 15.721 35.114 35.114 35.114 19.393 0 35.114-15.721 35.114-35.114 0-9.498-3.772-18.116-9.899-24.437'
           />
           <path
-            stroke='url(#LidoLabs__LidoLabs__ag)'
+            stroke={`url(#${_id57})`}
             d='M272.588 292.729c0-6.712-3.481-12.63-8.778-16.127m-11.151 35.582c-11.007 0-19.93-8.71-19.93-19.455 0-6.811 3.587-12.805 9.016-16.281'
           />
           <path
-            stroke='url(#LidoLabs__LidoLabs__ah)'
+            stroke={`url(#${_id58})`}
             d='M202.361 292.927c0-12.385 4.511-23.72 11.986-32.464m76.625 0c7.474 8.744 11.986 20.079 11.986 32.464 0 20.709-12.614 38.483-30.606 46.116m.237 1.613a5.22 5.22 0 11-10.44-.001 5.22 5.22 0 0110.44.001zm-65.008-42.706a5.22 5.22 0 11-10.44-.001 5.22 5.22 0 0110.44.001z'
           />
         </g>
         <path
-          stroke='url(#LidoLabs__LidoLabs__ai)'
+          stroke={`url(#${_id59})`}
           strokeWidth={2.847}
           d='M305.976 251.922a66.954 66.954 0 0110.738 20.167m6.173 4.507a5.22 5.22 0 11-10.44 0 5.22 5.22 0 0110.44 0z'
         />
         <path
-          stroke='url(#LidoLabs__LidoLabs__aj)'
+          stroke={`url(#${_id60})`}
           strokeWidth={2.847}
           d='M162.977 195.553c23.483-21.57 54.808-34.737 89.208-34.737 35.099 0 66.996 13.708 90.63 36.063'
         />
         <mask
-          id='LidoLabs__a'
+          id={_id}
           width={248}
           height={185}
           x={129}
@@ -353,24 +419,24 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
             clipRule='evenodd'
           />
         </mask>
-        <g mask='url(#LidoLabs__a)'>
+        <g mask={`url(#${_id})`}>
           <ellipse
             cx={175.788}
             cy={343.74}
-            fill='url(#LidoLabs__LidoLabs__al)'
+            fill={`url(#${_id40})`}
             rx={31.318}
             ry={32.504}
           />
         </g>
         <path
-          stroke='url(#LidoLabs__LidoLabs__am)'
+          stroke={`url(#${_id61})`}
           strokeWidth={2.847}
           d='M279.706 191.185a5.22 5.22 0 110 10.44 5.22 5.22 0 010-10.44z'
         />
       </g>
       <defs>
         <radialGradient
-          id='LidoLabs__LidoLabs__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -382,7 +448,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#108DE8' stopOpacity={0.92} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__e'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -394,7 +460,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__f'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -405,7 +471,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.88} stopColor='#4737FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__h'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -416,7 +482,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#A5FFDF' stopOpacity={0.5} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__i'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -427,7 +493,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.592} stopColor='#00FFC2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__j'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -438,7 +504,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1CFFD6' stopOpacity={0.4} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__l'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -449,7 +515,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__m'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -460,7 +526,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__n'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -472,7 +538,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__o'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -483,7 +549,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1CFFD6' stopOpacity={0.4} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__p'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -494,7 +560,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__r'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -506,7 +572,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__s'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -518,7 +584,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#108DE8' stopOpacity={0.92} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__u'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -530,7 +596,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__v'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -541,7 +607,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.88} stopColor='#4737FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__x'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -552,7 +618,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#A5FFDF' stopOpacity={0.5} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__y'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -563,7 +629,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.592} stopColor='#00FFC2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__z'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -574,7 +640,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1CFFD6' stopOpacity={0.4} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__B'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -585,7 +651,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__C'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -596,7 +662,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__D'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -608,7 +674,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__E'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -619,7 +685,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1CFFD6' stopOpacity={0.4} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__F'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -630,7 +696,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__H'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -642,7 +708,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__I'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -654,7 +720,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#108DE8' stopOpacity={0.92} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__J'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -666,7 +732,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2419F6' />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__K'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -677,7 +743,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__L'
+          id={_id27}
           cx={0}
           cy={0}
           r={1}
@@ -688,7 +754,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__M'
+          id={_id28}
           cx={0}
           cy={0}
           r={1}
@@ -699,7 +765,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__N'
+          id={_id29}
           cx={0}
           cy={0}
           r={1}
@@ -710,7 +776,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__O'
+          id={_id30}
           cx={0}
           cy={0}
           r={1}
@@ -722,7 +788,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__P'
+          id={_id31}
           cx={0}
           cy={0}
           r={1}
@@ -733,7 +799,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1CFFD6' stopOpacity={0.4} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__Q'
+          id={_id32}
           cx={0}
           cy={0}
           r={1}
@@ -744,7 +810,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__S'
+          id={_id33}
           cx={0}
           cy={0}
           r={1}
@@ -756,7 +822,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__T'
+          id={_id34}
           cx={0}
           cy={0}
           r={1}
@@ -767,7 +833,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__V'
+          id={_id35}
           cx={0}
           cy={0}
           r={1}
@@ -779,7 +845,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.621} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__X'
+          id={_id36}
           cx={0}
           cy={0}
           r={1}
@@ -790,7 +856,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#A5FFDF' stopOpacity={0.5} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__Y'
+          id={_id37}
           cx={0}
           cy={0}
           r={1}
@@ -801,7 +867,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.592} stopColor='#00FFC2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__Z'
+          id={_id38}
           cx={0}
           cy={0}
           r={1}
@@ -812,7 +878,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1CFFD6' stopOpacity={0.4} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__ab'
+          id={_id39}
           cx={0}
           cy={0}
           r={1}
@@ -824,7 +890,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.515} stopColor='#2D4FFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoLabs__LidoLabs__al'
+          id={_id40}
           cx={0}
           cy={0}
           r={1}
@@ -835,7 +901,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1F6BB6' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__d'
+          id={_id41}
           x1={207.265}
           x2={175.846}
           y1={255.482}
@@ -846,7 +912,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#25FFFF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__g'
+          id={_id42}
           x1={186.604}
           x2={215.243}
           y1={414.897}
@@ -857,7 +923,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#27EEFF' stopOpacity={0.01} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__k'
+          id={_id43}
           x1={248.657}
           x2={322.965}
           y1={293.884}
@@ -868,7 +934,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7BE6BF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__q'
+          id={_id44}
           x1={343.568}
           x2={282.041}
           y1={228.078}
@@ -879,7 +945,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__t'
+          id={_id45}
           x1={207.265}
           x2={175.846}
           y1={255.482}
@@ -890,7 +956,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#25FFFF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__w'
+          id={_id46}
           x1={186.604}
           x2={215.243}
           y1={414.897}
@@ -901,7 +967,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#27EEFF' stopOpacity={0.01} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__A'
+          id={_id47}
           x1={248.657}
           x2={322.965}
           y1={293.884}
@@ -912,7 +978,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7BE6BF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__G'
+          id={_id48}
           x1={343.568}
           x2={282.041}
           y1={228.078}
@@ -923,7 +989,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__R'
+          id={_id49}
           x1={346.701}
           x2={285.173}
           y1={228.078}
@@ -934,7 +1000,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__U'
+          id={_id50}
           x1={346.701}
           x2={285.173}
           y1={228.078}
@@ -945,7 +1011,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__W'
+          id={_id51}
           x1={252.659}
           x2={252.659}
           y1={227.158}
@@ -956,7 +1022,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#459BBD' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__aa'
+          id={_id52}
           x1={211.061}
           x2={179.642}
           y1={255.482}
@@ -967,7 +1033,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#25FFFF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__ac'
+          id={_id53}
           x1={252.659}
           x2={252.132}
           y1={193.083}
@@ -978,7 +1044,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__ad'
+          id={_id54}
           x1={200.937}
           x2={259.336}
           y1={216.571}
@@ -989,7 +1055,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__ae'
+          id={_id55}
           x1={218.495}
           x2={246.551}
           y1={236.026}
@@ -1000,7 +1066,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__af'
+          id={_id56}
           x1={252.66}
           x2={252.66}
           y1={268.293}
@@ -1011,7 +1077,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__ag'
+          id={_id57}
           x1={242.931}
           x2={240.084}
           y1={274.461}
@@ -1022,7 +1088,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__ah'
+          id={_id58}
           x1={250.05}
           x2={250.05}
           y1={260.463}
@@ -1033,7 +1099,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__ai'
+          id={_id59}
           x1={314.431}
           x2={314.345}
           y1={251.922}
@@ -1044,7 +1110,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__aj'
+          id={_id60}
           x1={252.659}
           x2={252.057}
           y1={181.694}
@@ -1055,7 +1121,7 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
         <linearGradient
-          id='LidoLabs__LidoLabs__am'
+          id={_id61}
           x1={306.279}
           x2={276.992}
           y1={210.877}
@@ -1065,11 +1131,11 @@ export const LidoLabs = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#5AF327' stopOpacity={0} />
           <stop offset={1} stopColor='#5AF327' />
         </linearGradient>
-        <clipPath id='LidoLabs__LidoLabs__a'>
+        <clipPath id={_id62}>
           <rect width={500} height={500} fill='#fff' rx={20} />
         </clipPath>
         <filter
-          id='LidoLabs__LidoLabs__b'
+          id={_id63}
           width={378.993}
           height={483.883}
           x={59.059}

@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Aura = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Aura = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Aura__Aura__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#9662B6'
           fillOpacity={0.8}
@@ -22,7 +24,7 @@ export const Aura = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Aura__Aura__a'
+          id={_id}
           width={75.003}
           height={50.558}
           x={3.066}

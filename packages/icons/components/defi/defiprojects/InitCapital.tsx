@@ -2,10 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const InitCapital = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const InitCapital = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#InitCapital__InitCapital__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path fill='#BD8EFF' d='M30.695 20H19.999v10.696h10.696V20z' />
         <path
           fill='#000'
@@ -13,7 +16,7 @@ export const InitCapital = (props: SVGProps<SVGSVGElement>) => {
           d='M30.695 37.826H19.999V61h10.696V37.826zM36.042 20h24.955v41H48.52V31.736H36.042V20z'
           clipRule='evenodd'
         />
-        <g filter='url(#InitCapital__InitCapital__b)' opacity={0.4}>
+        <g filter={`url(#${_id2})`} opacity={0.4}>
           <path fill='#BD8EFF' d='M37.694 14H26.998v10.696h10.696V14z' />
           <path
             fill='#000'
@@ -24,11 +27,11 @@ export const InitCapital = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='InitCapital__InitCapital__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='InitCapital__InitCapital__b'
+          id={_id2}
           width={68.999}
           height={69}
           x={12.998}

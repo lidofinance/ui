@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Nansen = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Nansen = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -36,7 +38,7 @@ export const Nansen = (props: SVGProps<SVGSVGElement>) => {
         clipRule='evenodd'
       />
       <g
-        filter='url(#Nansen__Nansen__a)'
+        filter={`url(#${_id})`}
         opacity={0.4}
         fillRule='evenodd'
         clipRule='evenodd'
@@ -64,7 +66,7 @@ export const Nansen = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Nansen__Nansen__a'
+          id={_id}
           width={62}
           height={62}
           x={15}

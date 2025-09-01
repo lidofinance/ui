@@ -2,11 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const Hashnote = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Hashnote = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g
-        filter='url(#Hashnote__Hashnote__a)'
+        filter={`url(#${_id})`}
         fill='#002855'
         fillOpacity={0.6}
         fillRule='evenodd'
@@ -29,7 +31,7 @@ export const Hashnote = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Hashnote__Hashnote__a'
+          id={_id}
           width={72}
           height={72}
           x={4}

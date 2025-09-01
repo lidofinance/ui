@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "28.0.3",
+    "babel-plugin-react-inline-svg-unique-id": "1.5.0",
     "classnames": "2.5.1",
     "postcss-mixins": "11.0.3",
     "react-collapsed": "4.2.0",
@@ -78,6 +79,7 @@
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@csstools/postcss-global-data": "3.0.0",
+    "@inline-svg-unique-id/react": "^1.2.3",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-node-resolve": "16.0.1",
     "@semantic-release/commit-analyzer": "9.0.2",

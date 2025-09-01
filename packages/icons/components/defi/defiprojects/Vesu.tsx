@@ -2,64 +2,78 @@
 
 import React, { SVGProps } from 'react'
 
-export const Vesu = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Vesu = function (props: SVGProps<SVGSVGElement>) {
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Vesu__Vesu__a)' opacity={0.2}>
+      <g filter={`url(#${_id11})`} opacity={0.2}>
         <path
-          fill='url(#Vesu__Vesu__b)'
+          fill={`url(#${_id7})`}
           d='M47.056 56.003c-.72 1.967-3.498 1.967-4.217 0L32.234 27.005c-1.01-2.76.371-5.684 2.912-5.684h19.602c2.54 0 3.922 2.923 2.913 5.683l-10.605 29z'
         />
         <path
-          fill='url(#Vesu__Vesu__c)'
+          fill={`url(#${_id})`}
           d='M47.056 56.003c-.72 1.967-3.498 1.967-4.217 0L32.234 27.005c-1.01-2.76.371-5.684 2.912-5.684h19.602c2.54 0 3.922 2.923 2.913 5.683l-10.605 29z'
         />
         <path
-          fill='url(#Vesu__Vesu__d)'
+          fill={`url(#${_id2})`}
           d='M47.056 56.003c-.72 1.967-3.498 1.967-4.217 0L32.234 27.005c-1.01-2.76.371-5.684 2.912-5.684h19.602c2.54 0 3.922 2.923 2.913 5.683l-10.605 29z'
         />
         <path
-          fill='url(#Vesu__Vesu__e)'
+          fill={`url(#${_id3})`}
           d='M47.056 56.003c-.72 1.967-3.498 1.967-4.217 0L32.234 27.005c-1.01-2.76.371-5.684 2.912-5.684h19.602c2.54 0 3.922 2.923 2.913 5.683l-10.605 29z'
         />
         <path
-          fill='url(#Vesu__Vesu__f)'
+          fill={`url(#${_id8})`}
           d='M30.752 27.562l10.72 29.056a3.775 3.775 0 002.879 2.45h-8.107a3.204 3.204 0 01-3.01-2.088L22.23 27.113c-1.273-3.457.639-7.117 4.349-7.117h7.049c-1.206.427-2.128 1.332-2.678 2.425-.755 1.5-.847 3.38-.197 5.14z'
         />
         <path
-          fill='url(#Vesu__Vesu__g)'
+          fill={`url(#${_id9})`}
           fillOpacity={0.8}
           d='M47.056 56.003c-.72 1.967-3.498 1.967-4.217 0L32.234 27.005c-1.01-2.76.371-5.684 2.912-5.684h19.602c2.54 0 3.922 2.923 2.913 5.683l-10.605 29z'
         />
       </g>
       <path
-        fill='url(#Vesu__Vesu__h)'
+        fill={`url(#${_id0})`}
         d='M47.056 57.968c-.72 1.966-3.498 1.966-4.217 0l-10.605-29c-1.01-2.76.371-5.683 2.912-5.683h19.602c2.54 0 3.922 2.924 2.913 5.684L47.055 57.968z'
       />
       <path
-        fill='url(#Vesu__Vesu__i)'
+        fill={`url(#${_id4})`}
         d='M47.056 57.968c-.72 1.966-3.498 1.966-4.217 0l-10.605-29c-1.01-2.76.371-5.683 2.912-5.683h19.602c2.54 0 3.922 2.924 2.913 5.684L47.055 57.968z'
       />
       <path
-        fill='url(#Vesu__Vesu__j)'
+        fill={`url(#${_id5})`}
         d='M47.056 57.968c-.72 1.966-3.498 1.966-4.217 0l-10.605-29c-1.01-2.76.371-5.683 2.912-5.683h19.602c2.54 0 3.922 2.924 2.913 5.684L47.055 57.968z'
       />
       <path
-        fill='url(#Vesu__Vesu__k)'
+        fill={`url(#${_id6})`}
         d='M47.056 57.968c-.72 1.966-3.498 1.966-4.217 0l-10.605-29c-1.01-2.76.371-5.683 2.912-5.683h19.602c2.54 0 3.922 2.924 2.913 5.684L47.055 57.968z'
       />
       <path
-        fill='url(#Vesu__Vesu__l)'
+        fill={`url(#${_id1})`}
         d='M30.752 29.526l10.72 29.056a3.775 3.775 0 002.879 2.45h-8.107a3.203 3.203 0 01-3.01-2.088L22.23 29.077c-1.273-3.457.639-7.117 4.349-7.117h7.049c-1.206.428-2.128 1.333-2.678 2.425-.755 1.5-.847 3.38-.197 5.141z'
       />
       <path
-        fill='url(#Vesu__Vesu__m)'
+        fill={`url(#${_id10})`}
         fillOpacity={0.8}
         d='M47.056 57.968c-.72 1.966-3.498 1.966-4.217 0l-10.605-29c-1.01-2.76.371-5.683 2.912-5.683h19.602c2.54 0 3.922 2.924 2.913 5.684L47.055 57.968z'
       />
       <defs>
         <radialGradient
-          id='Vesu__Vesu__c'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -70,7 +84,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Vesu__Vesu__d'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -81,7 +95,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.652} stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Vesu__Vesu__e'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -92,7 +106,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Vesu__Vesu__i'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -103,7 +117,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Vesu__Vesu__j'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -114,7 +128,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.652} stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Vesu__Vesu__k'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -125,7 +139,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='Vesu__Vesu__b'
+          id={_id7}
           x1={47.39}
           x2={33.381}
           y1={34.407}
@@ -136,7 +150,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Vesu__Vesu__f'
+          id={_id8}
           x1={33.093}
           x2={33.093}
           y1={19.996}
@@ -155,7 +169,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.97} stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Vesu__Vesu__g'
+          id={_id9}
           x1={53.334}
           x2={39.397}
           y1={41.346}
@@ -167,7 +181,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Vesu__Vesu__h'
+          id={_id0}
           x1={47.39}
           x2={33.381}
           y1={36.371}
@@ -178,7 +192,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Vesu__Vesu__l'
+          id={_id1}
           x1={33.093}
           x2={33.093}
           y1={21.96}
@@ -197,7 +211,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.97} stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Vesu__Vesu__m'
+          id={_id10}
           x1={53.334}
           x2={39.397}
           y1={43.311}
@@ -209,7 +223,7 @@ export const Vesu = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopOpacity={0} />
         </linearGradient>
         <filter
-          id='Vesu__Vesu__a'
+          id={_id11}
           width={64.157}
           height={67.071}
           x={7.835}

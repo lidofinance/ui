@@ -2,126 +2,156 @@
 
 import React, { SVGProps } from 'react'
 
-export const Sky = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Sky = function (props: SVGProps<SVGSVGElement>) {
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Sky__Sky__a)' opacity={0.8}>
+      <g filter={`url(#${_id27})`} opacity={0.8}>
         <path
-          fill='url(#Sky__Sky__b)'
+          fill={`url(#${_id})`}
           d='M23.096 23.64a20.971 20.971 0 012.136-2.5l.26.143 14.425 14.502.137.176-16.958-12.32z'
         />
         <path
-          fill='url(#Sky__Sky__c)'
+          fill={`url(#${_id2})`}
           d='M25.232 21.14a20.961 20.961 0 0111.543-5.882l.145.399 3.134 20.026v.278L25.232 21.14z'
         />
         <path
-          fill='url(#Sky__Sky__d)'
+          fill={`url(#${_id3})`}
           d='M49.572 17.286a20.974 20.974 0 012.803 1.718l-.038.326L40.13 35.9l-.076.061 9.518-18.675z'
         />
         <path
-          fill='url(#Sky__Sky__e)'
+          fill={`url(#${_id4})`}
           d='M61.015 35.96c0 2.2-.346 4.386-1.026 6.478l-.496.08-19.285-6.479-.154-.078h20.96z'
         />
         <path
-          fill='url(#Sky__Sky__f)'
+          fill={`url(#${_id5})`}
           d='M59.99 42.438a20.958 20.958 0 01-2.978 5.843l-.478-.08-16.381-12.137-.1-.103 19.936 6.477z'
         />
         <path
-          fill='url(#Sky__Sky__g)'
+          fill={`url(#${_id6})`}
           d='M46.531 55.896a20.963 20.963 0 01-9.756.768l-.131-.402 3.315-19.944.095-.357 6.477 19.935z'
         />
         <path
-          fill='url(#Sky__Sky__h)'
+          fill={`url(#${_id7})`}
           d='M36.775 56.664a20.93 20.93 0 01-3.199-.768l-.057-.485 6.415-19.231.12-.22-3.28 20.704z'
         />
         <path
-          fill='url(#Sky__Sky__i)'
+          fill={`url(#${_id8})`}
           d='M33.577 55.896a20.96 20.96 0 01-5.844-2.977v-.38L39.84 36.175l.214-.214-6.477 19.935z'
         />
         <path
-          fill='url(#Sky__Sky__j)'
+          fill={`url(#${_id9})`}
           d='M21.377 45.477a20.96 20.96 0 01-2.284-9.516l.268-.1h20.015l.678.1-18.677 9.516z'
         />
         <path
-          fill='url(#Sky__Sky__k)'
+          fill={`url(#${_id0})`}
           d='M36.773 15.258a20.96 20.96 0 019.758.768l-6.477 19.935-3.28-20.703z'
         />
         <path
-          fill='url(#Sky__Sky__l)'
+          fill={`url(#${_id1})`}
           d='M52.374 19.003a20.96 20.96 0 017.614 10.48l-19.934 6.478 12.32-16.958z'
         />
         <path
-          fill='url(#Sky__Sky__m)'
+          fill={`url(#${_id10})`}
           d='M27.733 52.919a20.962 20.962 0 01-4.637-4.637L40.054 35.96l-12.32 16.958z'
         />
         <path
-          fill='url(#Sky__Sky__n)'
+          fill={`url(#${_id11})`}
           d='M19.093 35.961c0-2.2.346-4.385 1.026-6.477l19.935 6.477H19.093z'
         />
         <path
-          fill='url(#Sky__Sky__o)'
+          fill={`url(#${_id12})`}
           d='M57.012 48.28a20.964 20.964 0 01-4.637 4.638L40.054 35.961l16.958 12.32z'
         />
       </g>
       <path
-        fill='url(#Sky__Sky__p)'
+        fill={`url(#${_id13})`}
         d='M23.025 27.657a20.998 20.998 0 012.14-2.506l.262.144 14.45 14.529.138.176-16.99-12.343z'
       />
       <path
-        fill='url(#Sky__Sky__q)'
+        fill={`url(#${_id14})`}
         d='M25.166 25.151a21 21 0 0111.564-5.892l.145.4 3.14 20.063V40l-14.85-14.849z'
       />
       <path
-        fill='url(#Sky__Sky__r)'
+        fill={`url(#${_id15})`}
         d='M49.55 21.29c.98.5 1.92 1.075 2.809 1.722l-.038.326-12.23 16.602-.076.06 9.536-18.71z'
       />
       <path
-        fill='url(#Sky__Sky__s)'
+        fill={`url(#${_id16})`}
         d='M61.015 40c0 2.204-.347 4.394-1.028 6.49l-.497.08-19.32-6.491-.155-.079h21z'
       />
       <path
-        fill='url(#Sky__Sky__t)'
+        fill={`url(#${_id17})`}
         d='M59.987 46.489a20.996 20.996 0 01-2.983 5.854l-.478-.081-16.412-12.159-.1-.103 19.973 6.489z'
       />
       <path
-        fill='url(#Sky__Sky__u)'
+        fill={`url(#${_id18})`}
         d='M46.504 59.972a21 21 0 01-9.774.77l-.131-.403 3.321-19.982.095-.357 6.49 19.972z'
       />
       <path
-        fill='url(#Sky__Sky__v)'
+        fill={`url(#${_id19})`}
         d='M36.73 60.741a20.974 20.974 0 01-3.205-.769l-.058-.485 6.428-19.268.12-.219-3.286 20.741z'
       />
       <path
-        fill='url(#Sky__Sky__w)'
+        fill={`url(#${_id20})`}
         d='M33.525 59.972a20.997 20.997 0 01-5.854-2.983v-.38L39.8 40.214l.214-.214-6.489 19.972z'
       />
       <path
-        fill='url(#Sky__Sky__x)'
+        fill={`url(#${_id21})`}
         d='M21.303 49.533A20.999 20.999 0 0119.015 40l.268-.099h20.052l.68.1-18.712 9.533z'
       />
       <path
-        fill='url(#Sky__Sky__y)'
+        fill={`url(#${_id22})`}
         d='M36.728 19.259a21 21 0 019.777.769L40.015 40l-3.287-20.741z'
       />
       <path
-        fill='url(#Sky__Sky__z)'
+        fill={`url(#${_id23})`}
         d='M52.358 23.01a21 21 0 017.629 10.5L40.014 40l12.343-16.99z'
       />
       <path
-        fill='url(#Sky__Sky__A)'
+        fill={`url(#${_id24})`}
         d='M27.671 56.99a21.003 21.003 0 01-4.646-4.647L40.015 40 27.67 56.99z'
       />
       <path
-        fill='url(#Sky__Sky__B)'
+        fill={`url(#${_id25})`}
         d='M19.015 40a21 21 0 011.027-6.49L40.016 40h-21z'
       />
       <path
-        fill='url(#Sky__Sky__C)'
+        fill={`url(#${_id26})`}
         d='M57.005 52.343a21.004 21.004 0 01-4.646 4.646L40.015 40l16.99 12.343z'
       />
       <defs>
         <radialGradient
-          id='Sky__Sky__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -132,7 +162,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4331E9' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -143,7 +173,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00DDFB' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -154,7 +184,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FFC044' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__e'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -166,7 +196,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#AAF2E1' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__f'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -177,7 +207,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00DDFB' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__g'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -188,7 +218,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#EB5EDF' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__h'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -199,7 +229,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00DDFB' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__i'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -211,7 +241,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0075FF' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__j'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -222,7 +252,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F7A7F9' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__k'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -234,7 +264,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#AAF2E1' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__l'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -245,7 +275,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#EB5EDF' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__m'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -256,7 +286,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4331E9' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__n'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -267,7 +297,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FFC044' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__o'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -278,7 +308,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4331E9' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__p'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -289,7 +319,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4331E9' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__q'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -300,7 +330,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00DDFB' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__r'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -311,7 +341,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FFC044' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__s'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -323,7 +353,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#AAF2E1' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__t'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -334,7 +364,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00DDFB' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__u'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -345,7 +375,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#EB5EDF' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__v'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -356,7 +386,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00DDFB' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__w'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -368,7 +398,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0075FF' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__x'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -379,7 +409,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F7A7F9' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__y'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -391,7 +421,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#AAF2E1' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__z'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -402,7 +432,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#EB5EDF' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__A'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -413,7 +443,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4331E9' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__B'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -424,7 +454,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FFC044' />
         </radialGradient>
         <radialGradient
-          id='Sky__Sky__C'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -435,7 +465,7 @@ export const Sky = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4331E9' />
         </radialGradient>
         <filter
-          id='Sky__Sky__a'
+          id={_id27}
           width={69.922}
           height={69.922}
           x={5.093}

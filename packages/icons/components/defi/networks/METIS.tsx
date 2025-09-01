@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const METIS = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const METIS = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#METIS__METIS__a)'>
-        <g filter='url(#METIS__METIS__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#00CFFF'
             fillOpacity={0.5}
@@ -23,11 +26,11 @@ export const METIS = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='METIS__METIS__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.01-.002h80v80h-80z' />
         </clipPath>
         <filter
-          id='METIS__METIS__b'
+          id={_id2}
           width={75}
           height={75}
           x={2.011}

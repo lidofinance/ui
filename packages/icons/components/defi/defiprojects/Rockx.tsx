@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Rockx = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Rockx = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Rockx__Rockx__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#79DEB8'
           d='M35.41 39.178l4.018 4.018-6.956 6.95a5.329 5.329 0 01-3.784 1.568 5.313 5.313 0 01-3.78-1.568 5.347 5.347 0 010-7.567l7.412-7.41-11.73-11.724a5.328 5.328 0 01-1.565-3.783 5.35 5.35 0 019.132-3.783l11.466 11.463-4.244 4.243a5.35 5.35 0 000 7.562l.015.016c.008.004.012.012.016.015z'
@@ -29,7 +31,7 @@ export const Rockx = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Rockx__Rockx__a'
+          id={_id}
           width={59}
           height={59.912}
           x={10.025}

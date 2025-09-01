@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Deri = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Deri = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Deri__Deri__a)' opacity={0.9}>
+      <g filter={`url(#${_id})`} opacity={0.9}>
         <path
           fill='#3756CD'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Deri = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Deri__Deri__a'
+          id={_id}
           width={67}
           height={74}
           x={13}

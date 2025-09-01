@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Tcsync = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Tcsync = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Tcsync__Tcsync__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#4D5AD5'
           fillOpacity={0.6}
@@ -22,7 +24,7 @@ export const Tcsync = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Tcsync__Tcsync__a'
+          id={_id}
           width={70.196}
           height={68.961}
           x={5.022}

@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const INVERSE = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const INVERSE = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#INVERSE__INVERSE__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#2853BD'
           fillOpacity={0.6}
@@ -18,7 +20,7 @@ export const INVERSE = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='INVERSE__INVERSE__a'
+          id={_id}
           width={60.003}
           height={50.493}
           x={9.994}

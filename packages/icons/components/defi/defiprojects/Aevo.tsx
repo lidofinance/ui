@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Aevo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Aevo = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Aevo__Aevo__a)'>
-        <g filter='url(#Aevo__Aevo__b)' opacity={0.3}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.3}>
           <path
             fill='#4B00FF'
             d='M40.07 57c12.15 0 22-9.85 22-22s-9.85-22-22-22-22 9.85-22 22 9.85 22 22 22z'
@@ -22,11 +25,11 @@ export const Aevo = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Aevo__Aevo__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.07 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Aevo__Aevo__b'
+          id={_id2}
           width={72}
           height={72}
           x={4.069}
