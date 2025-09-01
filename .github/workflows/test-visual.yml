@@ -1,0 +1,55 @@
+name: 'Visual Tests - Stroybook'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - lido-ui-v4-canary
+  pull_request:
+
+env:
+  NODE_OPTIONS: --max_old_space_size=4096
+
+jobs:
+  chromatic:
+    name: Run Chromatic visual tests
+    runs-on: ubuntu-latest
+    env:
+      CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.head_ref || github.ref }}
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+
+      - name: Restore cache
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Chromatic (PR)
+        if: github.event_name == 'pull_request'
+        run: |
+          npx chromatic --project-token=$CHROMATIC_TOKEN \
+            --patch-build="${GITHUB_HEAD_REF}...${GITHUB_BASE_REF}" \
+            --branch-name="${GITHUB_HEAD_REF}"
+
+      - name: Chromatic (push to default branch)
+        if: github.event_name == 'push'
+        run: |
+          npx chromatic --project-token=$CHROMATIC_TOKEN \
+            --branch-name="${{ github.ref_name }}"
