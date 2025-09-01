@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Zebra = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Zebra = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Zebra__Zebra__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#000'
           fillOpacity={0.4}
@@ -18,7 +20,7 @@ export const Zebra = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Zebra__Zebra__a'
+          id={_id}
           width={62.001}
           height={68.004}
           x={8.998}

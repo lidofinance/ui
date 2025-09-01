@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Saber = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Saber = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Saber__Saber__a)' opacity={0.35}>
+      <g filter={`url(#${_id})`} opacity={0.35}>
         <path
           fill='#6866F2'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Saber = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Saber__Saber__a'
+          id={_id}
           width={61}
           height={61}
           x={17.004}

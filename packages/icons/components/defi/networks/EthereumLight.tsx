@@ -2,14 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const EthereumLight = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const EthereumLight = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g
-        opacity={0.5}
-        filter='url(#EthereumLight__EthereumLight__filter0_f_1107_25660)'
-        fill='#fff'
-      >
+      <g opacity={0.5} filter={`url(#${_id})`} fill='#fff'>
         <path
           opacity={0.6}
           d='M44.018 33.487l-15.35 6.98 15.35 9.069 15.343-9.068-15.343-6.981z'
@@ -46,7 +44,7 @@ export const EthereumLight = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='EthereumLight__EthereumLight__filter0_f_1107_25660'
+          id={_id}
           x={14.668}
           y={1}
           width={58.7}

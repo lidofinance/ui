@@ -2,14 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const MenuInstiLight = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuInstiLight = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g
-        opacity={0.5}
-        filter='url(#MenuInstiLight__MenuInstiLight__filter0_f_1690_18865)'
-        fill='#fff'
-      >
+      <g opacity={0.5} filter={`url(#${_id})`} fill='#fff'>
         <path
           opacity={0.6}
           d='M53.767 39.471l.403.614c4.546 6.92 3.53 15.984-2.44 21.79C48.215 65.291 43.611 67 39.007 67l14.76-27.529z'
@@ -62,7 +60,7 @@ export const MenuInstiLight = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='MenuInstiLight__MenuInstiLight__filter0_f_1690_18865'
+          id={_id}
           x={13}
           y={9}
           width={52}

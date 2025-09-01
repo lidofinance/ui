@@ -2,46 +2,56 @@
 
 import React, { SVGProps } from 'react'
 
-export const Raft = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Raft = function (props: SVGProps<SVGSVGElement>) {
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Raft__Raft__a)' opacity={0.3}>
+      <g filter={`url(#${_id9})`} opacity={0.3}>
         <path
-          fill='url(#Raft__Raft__b)'
+          fill={`url(#${_id})`}
           d='M45.92 53.99a20.455 20.455 0 0013.102-5.966 20.462 20.462 0 005.964-13.069H53.901a9.472 9.472 0 01-2.675 5.273 9.47 9.47 0 01-5.307 2.681V53.99z'
         />
         <path
-          fill='url(#Raft__Raft__c)'
+          fill={`url(#${_id2})`}
           d='M43.235 54V42.932a9.472 9.472 0 01-5.463-2.703 9.47 9.47 0 01-2.675-5.273H24.014a20.46 20.46 0 005.964 13.069A20.457 20.457 0 0043.235 54z'
         />
         <path
-          fill='url(#Raft__Raft__d)'
+          fill={`url(#${_id3})`}
           d='M24 32.27a20.463 20.463 0 015.978-13.293A20.457 20.457 0 0143.236 13v11.07a9.473 9.473 0 00-5.463 2.703 9.472 9.472 0 00-2.707 5.497H24z'
         />
         <path
-          fill='url(#Raft__Raft__e)'
+          fill={`url(#${_id4})`}
           d='M45.92 13.01v11.082a9.471 9.471 0 015.307 2.68 9.471 9.471 0 012.707 5.498H65a20.462 20.462 0 00-5.978-13.293A20.455 20.455 0 0045.92 13.01z'
         />
       </g>
       <path
-        fill='url(#Raft__Raft__f)'
+        fill={`url(#${_id5})`}
         d='M41.455 60.99a20.954 20.954 0 0013.421-6.112 20.962 20.962 0 006.11-13.388H49.631a9.702 9.702 0 01-2.74 5.402 9.702 9.702 0 01-5.437 2.746V60.99z'
       />
       <path
-        fill='url(#Raft__Raft__g)'
+        fill={`url(#${_id6})`}
         d='M38.704 61V49.66a9.702 9.702 0 01-5.596-2.768 9.702 9.702 0 01-2.74-5.402H19.014a20.958 20.958 0 006.11 13.388A20.956 20.956 0 0038.703 61z'
       />
       <path
-        fill='url(#Raft__Raft__h)'
+        fill={`url(#${_id7})`}
         d='M19 38.74a20.961 20.961 0 016.124-13.617A20.956 20.956 0 0138.704 19v11.34a9.704 9.704 0 00-5.595 2.769 9.704 9.704 0 00-2.773 5.63H19z'
       />
       <path
-        fill='url(#Raft__Raft__i)'
+        fill={`url(#${_id8})`}
         d='M41.455 19.01v11.352a9.702 9.702 0 015.436 2.747 9.703 9.703 0 012.773 5.63H61a20.961 20.961 0 00-6.124-13.616 20.954 20.954 0 00-13.42-6.113z'
       />
       <defs>
         <linearGradient
-          id='Raft__Raft__b'
+          id={_id}
           x1={29.329}
           x2={60.017}
           y1={19.913}
@@ -52,7 +62,7 @@ export const Raft = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF9308' />
         </linearGradient>
         <linearGradient
-          id='Raft__Raft__c'
+          id={_id2}
           x1={29.328}
           x2={60.016}
           y1={19.913}
@@ -63,7 +73,7 @@ export const Raft = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF9308' />
         </linearGradient>
         <linearGradient
-          id='Raft__Raft__d'
+          id={_id3}
           x1={29.328}
           x2={60.016}
           y1={19.913}
@@ -74,7 +84,7 @@ export const Raft = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF9308' />
         </linearGradient>
         <linearGradient
-          id='Raft__Raft__e'
+          id={_id4}
           x1={29.329}
           x2={60.017}
           y1={19.913}
@@ -85,7 +95,7 @@ export const Raft = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF9308' />
         </linearGradient>
         <linearGradient
-          id='Raft__Raft__f'
+          id={_id5}
           x1={24.459}
           x2={55.895}
           y1={26.082}
@@ -96,7 +106,7 @@ export const Raft = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF9308' />
         </linearGradient>
         <linearGradient
-          id='Raft__Raft__g'
+          id={_id6}
           x1={24.457}
           x2={55.894}
           y1={26.082}
@@ -107,7 +117,7 @@ export const Raft = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF9308' />
         </linearGradient>
         <linearGradient
-          id='Raft__Raft__h'
+          id={_id7}
           x1={24.458}
           x2={55.895}
           y1={26.082}
@@ -118,7 +128,7 @@ export const Raft = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF9308' />
         </linearGradient>
         <linearGradient
-          id='Raft__Raft__i'
+          id={_id8}
           x1={24.459}
           x2={55.895}
           y1={26.082}
@@ -129,7 +139,7 @@ export const Raft = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF9308' />
         </linearGradient>
         <filter
-          id='Raft__Raft__a'
+          id={_id9}
           width={65}
           height={65.001}
           x={12}

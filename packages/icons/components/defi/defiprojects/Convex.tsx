@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Convex = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Convex = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Convex__Convex__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#FE5958'
           d='M46.197 42.334h-2.863v11.452h2.863V42.334zm-15.745 4.295h4.294v11.45h-4.294V46.63zm8.588 0h2.863v11.45H39.04V46.63z'
@@ -49,7 +51,7 @@ export const Convex = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Convex__Convex__a'
+          id={_id}
           width={55.786}
           height={60.08}
           x={9}

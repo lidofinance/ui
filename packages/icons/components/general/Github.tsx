@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Github = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Github = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Github = (props: SVGProps<SVGSVGElement>) => {
         d='M40.518 19C28.619 19 19 28.625 19 40.532c0 9.519 6.163 17.576 14.713 20.427 1.07.214 1.46-.463 1.46-1.033 0-.5-.034-2.21-.034-3.993-5.986 1.283-7.233-2.567-7.233-2.567-.962-2.496-2.387-3.137-2.387-3.137-1.959-1.319.143-1.319.143-1.319 2.173.143 3.313 2.21 3.313 2.21 1.924 3.28 5.023 2.353 6.27 1.783.178-1.39.748-2.353 1.354-2.888-4.774-.5-9.797-2.353-9.797-10.624 0-2.352.855-4.277 2.209-5.775-.214-.534-.962-2.745.214-5.704 0 0 1.816-.57 5.913 2.21a20.82 20.82 0 015.38-.713c1.817 0 3.669.25 5.379.713 4.097-2.78 5.914-2.21 5.914-2.21 1.176 2.96.427 5.17.214 5.704 1.39 1.498 2.208 3.422 2.208 5.775 0 8.271-5.022 10.09-9.832 10.624.784.677 1.46 1.96 1.46 3.993 0 2.887-.035 5.205-.035 5.917 0 .57.392 1.248 1.46 1.035C55.837 58.107 62 50.05 62 40.532 62.035 28.625 52.38 19 40.518 19z'
         clipRule='evenodd'
       />
-      <g filter='url(#Github__Github__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#24292F'
           fillOpacity={0.4}
@@ -22,7 +24,7 @@ export const Github = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Github__Github__a'
+          id={_id}
           width={67}
           height={66}
           x={11}

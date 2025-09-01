@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Yearn = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Yearn = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Yearn__Yearn__a)' opacity={0.35}>
+      <g filter={`url(#${_id})`} opacity={0.35}>
         <path
           fill='#DC568A'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Yearn = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Yearn__Yearn__a'
+          id={_id}
           width={60}
           height={67}
           x={14}

@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Unichain = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Unichain = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Unichain__Unichain__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#FC0FA4'
           d='M65 39.521c-13.55 0-24.525-10.987-24.525-24.525h-.95v24.525H15v.95c13.55 0 24.525 10.988 24.525 24.525h.95V40.471H65v-.95z'
@@ -18,7 +20,7 @@ export const Unichain = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Unichain__Unichain__a'
+          id={_id}
           width={78}
           height={78}
           x={1}

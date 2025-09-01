@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Finoa = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Finoa = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Finoa__Finoa__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#33C6A1'
           fillOpacity={0.7}
@@ -22,7 +24,7 @@ export const Finoa = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Finoa__Finoa__a'
+          id={_id}
           width={45}
           height={65}
           x={18}

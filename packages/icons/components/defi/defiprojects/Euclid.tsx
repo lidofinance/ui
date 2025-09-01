@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Euclid = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Euclid = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Euclid__Euclid__a)' opacity={0.8}>
+      <g filter={`url(#${_id})`} opacity={0.8}>
         <path fill='#4477FA' d='M45.66 40.761H25.524V61H45.66V40.761z' />
         <path
           fill='#FD6534'
@@ -27,7 +29,7 @@ export const Euclid = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Euclid__Euclid__a'
+          id={_id}
           width={68.328}
           height={71}
           x={1}

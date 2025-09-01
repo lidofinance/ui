@@ -2,11 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const Gearbox = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Gearbox = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g
-        filter='url(#Gearbox__Gearbox__a)'
+        filter={`url(#${_id})`}
         opacity={0.6}
         fillRule='evenodd'
         clipRule='evenodd'
@@ -54,7 +56,7 @@ export const Gearbox = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Gearbox__Gearbox__a'
+          id={_id}
           width={58.291}
           height={67.11}
           x={18}

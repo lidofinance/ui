@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Infinex = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Infinex = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -13,13 +15,13 @@ export const Infinex = (props: SVGProps<SVGSVGElement>) => {
         fill='#FE6F39'
         d='M59 24.648v30.704h-7.368v-4.771h2.25V29.419H37.43v16.756h-5.118V24.648H59z'
       />
-      <g filter='url(#Infinex__Infinex__a)' opacity={0.7} fill='#FE6F39'>
+      <g filter={`url(#${_id})`} opacity={0.7} fill='#FE6F39'>
         <path d='M43.132 36.825v21.527H16.455V27.648h7.369v4.982h-2.25v20.95h16.439V36.826h5.119z' />
         <path d='M54 27.648v30.704h-7.368v-4.771h2.25V32.419H32.43v16.756h-5.119V27.648h26.69z' />
       </g>
       <defs>
         <filter
-          id='Infinex__Infinex__a'
+          id={_id}
           width={65.545}
           height={58.705}
           x={2.455}

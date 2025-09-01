@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Zerion = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Zerion = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Zerion__Zerion__a)' opacity={0.3}>
+      <g filter={`url(#${_id})`} opacity={0.3}>
         <path
           fill='#4452D3'
           d='M31.79 19c-1.028 0-1.423 1.265-.562 1.793l21.554 12.949c.538.33 1.254.2 1.624-.295l9.477-12.396c.644-.86-.007-2.051-1.122-2.051H31.789zm33.876 29.848c1.027 0 1.432-1.272.571-1.8L44.677 34.1a1.22 1.22 0 00-1.606.311l-9.496 12.393c-.644.861.028 2.043 1.143 2.043h30.948z'
@@ -17,7 +19,7 @@ export const Zerion = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Zerion__Zerion__a'
+          id={_id}
           width={59.949}
           height={53.848}
           x={18.756}

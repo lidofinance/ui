@@ -2,14 +2,16 @@
 
 import React, { SVGProps } from 'react'
 
-export const EQUILIBRIA = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const EQUILIBRIA = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
         fill='#85FC4D'
         d='M40.473 62c-11.855-.048-21.491-9.72-21.462-21.538.029-11.87 9.752-21.56 21.579-21.462 11.92.1 21.433 9.622 21.42 21.558-.01 11.885-9.712 21.488-21.537 21.44V62zM38.17 23.883c-7.453.823-14.974 7.75-14.48 17.538.465 9.25 8.504 16.699 18.327 15.84 8.985-.786 16.347-8.738 15.244-18.689-.971-8.769-8.3-14.152-14.383-14.658-.012.102-.033.204-.033.306 0 3.189.004 6.377-.01 9.566 0 .356.185.468.455.591 3.07 1.384 4.652 4.835 3.693 8.042-.972 3.25-4.132 5.252-7.467 4.733-3.135-.486-5.331-2.747-5.697-6.054-.298-2.68 1.11-5.416 3.93-6.714.361-.167.465-.371.463-.748-.012-3.068-.006-6.136-.008-9.203 0-.184-.021-.367-.034-.552v.002z'
       />
-      <g filter='url(#EQUILIBRIA__EQUILIBRIA__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#85FC4D'
           fillOpacity={0.6}
@@ -18,7 +20,7 @@ export const EQUILIBRIA = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='EQUILIBRIA__EQUILIBRIA__a'
+          id={_id}
           width={71}
           height={71.001}
           x={5.011}

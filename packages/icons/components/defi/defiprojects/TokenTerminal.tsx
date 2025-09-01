@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const TokenTerminal = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const TokenTerminal = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#TokenTerminal__TokenTerminal__a)'>
-        <g filter='url(#TokenTerminal__TokenTerminal__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#81CEBB'
             fillOpacity={0.976}
@@ -21,11 +24,11 @@ export const TokenTerminal = (props: SVGProps<SVGSVGElement>) => {
         <path fill='#00CF9D' d='M42.166 57.857v-5.87H65v5.87H42.166z' />
       </g>
       <defs>
-        <clipPath id='TokenTerminal__TokenTerminal__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='TokenTerminal__TokenTerminal__b'
+          id={_id2}
           width={92}
           height={76}
           x={-9}

@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Itoken = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Itoken = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Itoken = (props: SVGProps<SVGSVGElement>) => {
         d='M27.228 62.704c-3.888-1.35-11.575-6.557-11.216-16.592.36-10.034 6.697-16.427 9.82-18.369-.482 2.09-.398 6.222 3.789 6.024 5.234-.247 6.829-9.086 2.742-16.69 9.886-.953 13.972 7.16 16.756 12.689 2.41 4.785 3.844 7.633 7.22.99 5.883 8.147 13.51 20.047-5.084 31.948 7.627-10.073 8.524-15.258 2.642-21.48-2.368 3.345-3.164 1.616-4.518-1.323-1.723-3.743-4.351-9.45-12.28-9.146 4.785 6.765-2.144 16.987-9.87 7.654-6.431 5.284-12.014 12.69 0 24.295zm.183-14.047c0-1.76 1.44-3.187 3.217-3.187h17.743c1.777 0 3.217 1.427 3.217 3.187v11.156c0 1.76-1.44 3.187-3.217 3.187h-.363l-2.76-4.114a1.905 1.905 0 00-2.626-.525 1.865 1.865 0 00-.53 2.601L43.46 63H30.63c-1.777 0-3.218-1.427-3.218-3.187V48.657zm7.768 3.38a2.208 2.208 0 01-2.218 2.198 2.208 2.208 0 01-2.219-2.197c0-1.214.994-2.198 2.219-2.198 1.225 0 2.218.984 2.218 2.197zm10.742 2.198a2.208 2.208 0 002.219-2.197 2.208 2.208 0 00-2.219-2.198 2.208 2.208 0 00-2.218 2.197c0 1.214.993 2.198 2.218 2.198z'
         clipRule='evenodd'
       />
-      <g filter='url(#Itoken__Itoken__a)' opacity={0.4}>
+      <g filter={`url(#${_id})`} opacity={0.4}>
         <path
           fill='#2BAB84'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Itoken = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Itoken__Itoken__a'
+          id={_id}
           width={71}
           height={70}
           x={7}

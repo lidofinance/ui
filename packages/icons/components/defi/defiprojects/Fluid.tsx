@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Fluid = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Fluid = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Fluid__Fluid__a)'>
-        <g filter='url(#Fluid__Fluid__b)' opacity={0.7}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.7}>
           <path
             fill='#3F75FF'
             d='M63.006 36.918C62.478 24.413 52.848 14.275 40.6 13.013c-1.42-.148-2.582 1.03-2.582 2.466v6.93c0 1.434 1.17 2.571 2.57 2.854 4.81.975 8.653 4.627 9.92 9.342a5.466 5.466 0 011.771-.286c2.328.01 3.584 1.302 4.563 2.347.915.964 1.645 1.721 3.176 1.744 1.426.002 2.156-.645 2.988-1.492zM26.955 15.464c1.578-.782 3.3.463 3.3 2.23v16.693c-2.33.016-3.572 1.283-4.554 2.313l-.02.021c-.918.943-1.646 1.69-3.18 1.689-1.53-.023-2.261-.78-3.176-1.744-.979-1.045-2.235-2.336-4.563-2.347a5.573 5.573 0 00-1.519.206c1.155-8.386 6.433-15.45 13.712-19.061z'
@@ -26,11 +29,11 @@ export const Fluid = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Fluid__Fluid__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.004 0h80.004v80H.004z' />
         </clipPath>
         <filter
-          id='Fluid__Fluid__b'
+          id={_id2}
           width={78.002}
           height={78}
           x={-0.996}

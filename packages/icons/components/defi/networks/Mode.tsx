@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Mode = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Mode = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Mode__Mode__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#DFFE00'
           d='M58.2 52.197h-7.098V36.152L53.944 27l-2.016-.717-9.203 25.914h-5.402l-9.21-25.914-2.01.717 2.842 9.152v16.051h-7.097V19.998h10.566l6.554 18.432v5.415h2.144V38.43l6.553-18.432h10.567v32.199H58.2z'
@@ -17,7 +19,7 @@ export const Mode = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Mode__Mode__a'
+          id={_id}
           width={64.384}
           height={60.205}
           x={7.848}

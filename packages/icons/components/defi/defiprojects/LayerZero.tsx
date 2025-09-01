@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const LayerZero = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const LayerZero = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#LayerZero__LayerZero__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#0A0A0A'
           fillOpacity={0.2}
@@ -18,7 +20,7 @@ export const LayerZero = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='LayerZero__LayerZero__a'
+          id={_id}
           width={55}
           height={75}
           x={13.015}

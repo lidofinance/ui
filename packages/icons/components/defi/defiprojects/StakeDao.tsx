@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const StakeDao = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const StakeDao = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#StakeDao__StakeDao__a)' opacity={0.4}>
+      <g filter={`url(#${_id})`} opacity={0.4}>
         <path
           fill='#7E38D7'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const StakeDao = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='StakeDao__StakeDao__a'
+          id={_id}
           width={69}
           height={62}
           x={10.004}

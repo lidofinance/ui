@@ -2,17 +2,20 @@
 
 import React, { SVGProps } from 'react'
 
-export const Coinbase = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Coinbase = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Coinbase__Coinbase__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#254EE6'
           fillRule='evenodd'
           d='M61.004 40.001c0 11.599-9.402 21-21 21s-21-9.401-21-21S28.406 19 40.004 19s21 9.402 21 21.001zm-25.2-5.6h8.4a1.4 1.4 0 011.4 1.4v8.4a1.4 1.4 0 01-1.4 1.4h-8.4a1.4 1.4 0 01-1.4-1.4v-8.4a1.4 1.4 0 011.4-1.4z'
           clipRule='evenodd'
         />
-        <g filter='url(#Coinbase__Coinbase__b)'>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#254EE6'
             fillOpacity={0.4}
@@ -23,11 +26,11 @@ export const Coinbase = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='Coinbase__Coinbase__a'>
+        <clipPath id={_id}>
           <rect width={80.004} height={80} x={0.004} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='Coinbase__Coinbase__b'
+          id={_id2}
           width={66}
           height={66.002}
           x={14.004}

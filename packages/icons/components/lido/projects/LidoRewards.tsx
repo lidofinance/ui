@@ -2,122 +2,150 @@
 
 import React, { SVGProps } from 'react'
 
-export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const LidoRewards = function (props: SVGProps<SVGSVGElement>) {
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
-      <g filter='url(#LidoRewards__LidoRewards__a)' opacity={0.5}>
+      <g filter={`url(#${_id25})`} opacity={0.5}>
         <path
-          fill='url(#LidoRewards__LidoRewards__b)'
+          fill={`url(#${_id})`}
           d='M249.641 239.773a61.64 61.64 0 0061.306.055l63.318-36.218a13.21 13.21 0 0111.665-.715l6.449 2.703a15.848 15.848 0 019.596 16.621l-2.666 20.935a15.854 15.854 0 003.108 11.599l12.776 16.797a15.85 15.85 0 010 19.192l-12.776 16.797a15.853 15.853 0 00-3.108 11.599l2.666 20.935a15.848 15.848 0 01-9.596 16.621l-19.464 8.159a15.852 15.852 0 00-8.49 8.49l-8.158 19.464a15.854 15.854 0 01-16.621 9.596l-20.935-2.666a15.852 15.852 0 00-11.599 3.108l-16.797 12.776a15.852 15.852 0 01-19.193 0l-16.797-12.776a15.85 15.85 0 00-11.598-3.108l-20.936 2.666a15.854 15.854 0 01-16.621-9.596l-8.158-19.464a15.852 15.852 0 00-8.49-8.49l-19.465-8.159a15.851 15.851 0 01-9.595-16.621l2.666-20.935a15.853 15.853 0 00-3.108-11.599l-12.777-16.797a15.854 15.854 0 010-19.192l12.777-16.797a15.854 15.854 0 003.108-11.599l-2.666-20.935a15.851 15.851 0 019.595-16.621l6.168-2.585a13.206 13.206 0 0111.684.728l62.732 36.032z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__c)'
+          fill={`url(#${_id2})`}
           fillOpacity={0.5}
           d='M249.641 239.773a61.64 61.64 0 0061.306.055l63.318-36.218a13.21 13.21 0 0111.665-.715l6.449 2.703a15.848 15.848 0 019.596 16.621l-2.666 20.935a15.854 15.854 0 003.108 11.599l12.776 16.797a15.85 15.85 0 010 19.192l-12.776 16.797a15.853 15.853 0 00-3.108 11.599l2.666 20.935a15.848 15.848 0 01-9.596 16.621l-19.464 8.159a15.852 15.852 0 00-8.49 8.49l-8.158 19.464a15.854 15.854 0 01-16.621 9.596l-20.935-2.666a15.852 15.852 0 00-11.599 3.108l-16.797 12.776a15.852 15.852 0 01-19.193 0l-16.797-12.776a15.85 15.85 0 00-11.598-3.108l-20.936 2.666a15.854 15.854 0 01-16.621-9.596l-8.158-19.464a15.852 15.852 0 00-8.49-8.49l-19.465-8.159a15.851 15.851 0 01-9.595-16.621l2.666-20.935a15.853 15.853 0 00-3.108-11.599l-12.777-16.797a15.854 15.854 0 010-19.192l12.777-16.797a15.854 15.854 0 003.108-11.599l-2.666-20.935a15.851 15.851 0 019.595-16.621l6.168-2.585a13.206 13.206 0 0111.684.728l62.732 36.032z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__d)'
+          fill={`url(#${_id3})`}
           d='M249.641 239.773a61.64 61.64 0 0061.306.055l63.318-36.218a13.21 13.21 0 0111.665-.715l6.449 2.703a15.848 15.848 0 019.596 16.621l-2.666 20.935a15.854 15.854 0 003.108 11.599l12.776 16.797a15.85 15.85 0 010 19.192l-12.776 16.797a15.853 15.853 0 00-3.108 11.599l2.666 20.935a15.848 15.848 0 01-9.596 16.621l-19.464 8.159a15.852 15.852 0 00-8.49 8.49l-8.158 19.464a15.854 15.854 0 01-16.621 9.596l-20.935-2.666a15.852 15.852 0 00-11.599 3.108l-16.797 12.776a15.852 15.852 0 01-19.193 0l-16.797-12.776a15.85 15.85 0 00-11.598-3.108l-20.936 2.666a15.854 15.854 0 01-16.621-9.596l-8.158-19.464a15.852 15.852 0 00-8.49-8.49l-19.465-8.159a15.851 15.851 0 01-9.595-16.621l2.666-20.935a15.853 15.853 0 00-3.108-11.599l-12.777-16.797a15.854 15.854 0 010-19.192l12.777-16.797a15.854 15.854 0 003.108-11.599l-2.666-20.935a15.851 15.851 0 019.595-16.621l6.168-2.585a13.206 13.206 0 0111.684.728l62.732 36.032z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__e)'
+          fill={`url(#${_id4})`}
           d='M249.641 239.773a61.64 61.64 0 0061.306.055l63.318-36.218a13.21 13.21 0 0111.665-.715l6.449 2.703a15.848 15.848 0 019.596 16.621l-2.666 20.935a15.854 15.854 0 003.108 11.599l12.776 16.797a15.85 15.85 0 010 19.192l-12.776 16.797a15.853 15.853 0 00-3.108 11.599l2.666 20.935a15.848 15.848 0 01-9.596 16.621l-19.464 8.159a15.852 15.852 0 00-8.49 8.49l-8.158 19.464a15.854 15.854 0 01-16.621 9.596l-20.935-2.666a15.852 15.852 0 00-11.599 3.108l-16.797 12.776a15.852 15.852 0 01-19.193 0l-16.797-12.776a15.85 15.85 0 00-11.598-3.108l-20.936 2.666a15.854 15.854 0 01-16.621-9.596l-8.158-19.464a15.852 15.852 0 00-8.49-8.49l-19.465-8.159a15.851 15.851 0 01-9.595-16.621l2.666-20.935a15.853 15.853 0 00-3.108-11.599l-12.777-16.797a15.854 15.854 0 010-19.192l12.777-16.797a15.854 15.854 0 003.108-11.599l-2.666-20.935a15.851 15.851 0 019.595-16.621l6.168-2.585a13.206 13.206 0 0111.684.728l62.732 36.032z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__f)'
+          fill={`url(#${_id5})`}
           d='M310.947 239.827a61.637 61.637 0 01-61.306-.055l-65.095-37.145 73.562 27.684a61.643 61.643 0 0044.353.031l73.961-27.715-65.475 37.2z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__g)'
+          fill={`url(#${_id6})`}
           fillOpacity={0.5}
           d='M310.947 239.827a61.637 61.637 0 01-61.306-.055l-65.095-37.145 73.562 27.684a61.643 61.643 0 0044.353.031l73.961-27.715-65.475 37.2z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__h)'
+          fill={`url(#${_id7})`}
           d='M310.947 239.827a61.637 61.637 0 01-61.306-.055l-65.095-37.145 73.562 27.684a61.643 61.643 0 0044.353.031l73.961-27.715-65.475 37.2z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__i)'
+          fill={`url(#${_id8})`}
           d='M310.947 239.827a61.637 61.637 0 01-61.306-.055l-65.095-37.145 73.562 27.684a61.643 61.643 0 0044.353.031l73.961-27.715-65.475 37.2z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__j)'
+          fill={`url(#${_id9})`}
           d='M314.179 61h-66.041l66.044 144.416 61.2-23.776L314.179 61z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__k)'
+          fill={`url(#${_id0})`}
           d='M314.179 61h-66.041l66.044 144.416 61.2-23.776L314.179 61z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__l)'
+          fill={`url(#${_id23})`}
           d='M314.179 61h-66.041l66.044 144.416 61.2-23.776L314.179 61z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__m)'
+          fill={`url(#${_id1})`}
           d='M247.701 61h66.041l-66.485 144.416-60.76-23.776L247.701 61z'
         />
         <path
-          fill='url(#LidoRewards__LidoRewards__n)'
+          fill={`url(#${_id10})`}
           d='M247.701 61h66.041l-66.485 144.416-60.76-23.776L247.701 61z'
         />
       </g>
       <path
-        fill='url(#LidoRewards__LidoRewards__o)'
+        fill={`url(#${_id11})`}
         d='M221.018 260.499a61.64 61.64 0 0061.306.055l63.318-36.218a13.213 13.213 0 0111.665-.715l6.449 2.703a15.85 15.85 0 019.596 16.621l-2.666 20.935a15.853 15.853 0 003.108 11.599l12.776 16.797a15.85 15.85 0 010 19.192l-12.776 16.797a15.854 15.854 0 00-3.108 11.599l2.666 20.935a15.85 15.85 0 01-9.596 16.621l-19.464 8.159a15.852 15.852 0 00-8.49 8.49l-8.158 19.464a15.852 15.852 0 01-16.621 9.596l-20.935-2.666a15.852 15.852 0 00-11.599 3.108l-16.797 12.776a15.852 15.852 0 01-19.193 0l-16.797-12.776a15.852 15.852 0 00-11.599-3.108l-20.935 2.666a15.852 15.852 0 01-16.621-9.596l-8.158-19.464a15.852 15.852 0 00-8.49-8.49l-19.465-8.159a15.851 15.851 0 01-9.595-16.621l2.666-20.935a15.859 15.859 0 00-3.108-11.599l-12.777-16.797a15.854 15.854 0 010-19.192l12.777-16.797a15.857 15.857 0 003.108-11.599l-2.666-20.935a15.851 15.851 0 019.595-16.621l6.167-2.585a13.208 13.208 0 0111.685.728l62.732 36.032z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__p)'
+        fill={`url(#${_id12})`}
         fillOpacity={0.5}
         d='M221.018 260.499a61.64 61.64 0 0061.306.055l63.318-36.218a13.213 13.213 0 0111.665-.715l6.449 2.703a15.85 15.85 0 019.596 16.621l-2.666 20.935a15.853 15.853 0 003.108 11.599l12.776 16.797a15.85 15.85 0 010 19.192l-12.776 16.797a15.854 15.854 0 00-3.108 11.599l2.666 20.935a15.85 15.85 0 01-9.596 16.621l-19.464 8.159a15.852 15.852 0 00-8.49 8.49l-8.158 19.464a15.852 15.852 0 01-16.621 9.596l-20.935-2.666a15.852 15.852 0 00-11.599 3.108l-16.797 12.776a15.852 15.852 0 01-19.193 0l-16.797-12.776a15.852 15.852 0 00-11.599-3.108l-20.935 2.666a15.852 15.852 0 01-16.621-9.596l-8.158-19.464a15.852 15.852 0 00-8.49-8.49l-19.465-8.159a15.851 15.851 0 01-9.595-16.621l2.666-20.935a15.859 15.859 0 00-3.108-11.599l-12.777-16.797a15.854 15.854 0 010-19.192l12.777-16.797a15.857 15.857 0 003.108-11.599l-2.666-20.935a15.851 15.851 0 019.595-16.621l6.167-2.585a13.208 13.208 0 0111.685.728l62.732 36.032z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__q)'
+        fill={`url(#${_id13})`}
         d='M221.018 260.499a61.64 61.64 0 0061.306.055l63.318-36.218a13.213 13.213 0 0111.665-.715l6.449 2.703a15.85 15.85 0 019.596 16.621l-2.666 20.935a15.853 15.853 0 003.108 11.599l12.776 16.797a15.85 15.85 0 010 19.192l-12.776 16.797a15.854 15.854 0 00-3.108 11.599l2.666 20.935a15.85 15.85 0 01-9.596 16.621l-19.464 8.159a15.852 15.852 0 00-8.49 8.49l-8.158 19.464a15.852 15.852 0 01-16.621 9.596l-20.935-2.666a15.852 15.852 0 00-11.599 3.108l-16.797 12.776a15.852 15.852 0 01-19.193 0l-16.797-12.776a15.852 15.852 0 00-11.599-3.108l-20.935 2.666a15.852 15.852 0 01-16.621-9.596l-8.158-19.464a15.852 15.852 0 00-8.49-8.49l-19.465-8.159a15.851 15.851 0 01-9.595-16.621l2.666-20.935a15.859 15.859 0 00-3.108-11.599l-12.777-16.797a15.854 15.854 0 010-19.192l12.777-16.797a15.857 15.857 0 003.108-11.599l-2.666-20.935a15.851 15.851 0 019.595-16.621l6.167-2.585a13.208 13.208 0 0111.685.728l62.732 36.032z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__r)'
+        fill={`url(#${_id14})`}
         d='M221.018 260.499a61.64 61.64 0 0061.306.055l63.318-36.218a13.213 13.213 0 0111.665-.715l6.449 2.703a15.85 15.85 0 019.596 16.621l-2.666 20.935a15.853 15.853 0 003.108 11.599l12.776 16.797a15.85 15.85 0 010 19.192l-12.776 16.797a15.854 15.854 0 00-3.108 11.599l2.666 20.935a15.85 15.85 0 01-9.596 16.621l-19.464 8.159a15.852 15.852 0 00-8.49 8.49l-8.158 19.464a15.852 15.852 0 01-16.621 9.596l-20.935-2.666a15.852 15.852 0 00-11.599 3.108l-16.797 12.776a15.852 15.852 0 01-19.193 0l-16.797-12.776a15.852 15.852 0 00-11.599-3.108l-20.935 2.666a15.852 15.852 0 01-16.621-9.596l-8.158-19.464a15.852 15.852 0 00-8.49-8.49l-19.465-8.159a15.851 15.851 0 01-9.595-16.621l2.666-20.935a15.859 15.859 0 00-3.108-11.599l-12.777-16.797a15.854 15.854 0 010-19.192l12.777-16.797a15.857 15.857 0 003.108-11.599l-2.666-20.935a15.851 15.851 0 019.595-16.621l6.167-2.585a13.208 13.208 0 0111.685.728l62.732 36.032z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__s)'
+        fill={`url(#${_id15})`}
         d='M282.323 260.553a61.637 61.637 0 01-61.306-.055l-65.095-37.145 73.562 27.684a61.643 61.643 0 0044.353.031l73.961-27.715-65.475 37.2z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__t)'
+        fill={`url(#${_id16})`}
         fillOpacity={0.5}
         d='M282.323 260.553a61.637 61.637 0 01-61.306-.055l-65.095-37.145 73.562 27.684a61.643 61.643 0 0044.353.031l73.961-27.715-65.475 37.2z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__u)'
+        fill={`url(#${_id17})`}
         d='M282.323 260.553a61.637 61.637 0 01-61.306-.055l-65.095-37.145 73.562 27.684a61.643 61.643 0 0044.353.031l73.961-27.715-65.475 37.2z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__v)'
+        fill={`url(#${_id18})`}
         d='M282.323 260.553a61.637 61.637 0 01-61.306-.055l-65.095-37.145 73.562 27.684a61.643 61.643 0 0044.353.031l73.961-27.715-65.475 37.2z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__w)'
+        fill={`url(#${_id19})`}
         d='M285.556 81.727h-66.041l66.044 144.415 61.2-23.776-61.203-120.64z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__x)'
+        fill={`url(#${_id20})`}
         d='M285.556 81.727h-66.041l66.044 144.415 61.2-23.776-61.203-120.64z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__y)'
+        fill={`url(#${_id24})`}
         d='M285.556 81.727h-66.041l66.044 144.415 61.2-23.776-61.203-120.64z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__z)'
+        fill={`url(#${_id21})`}
         d='M219.077 81.727h66.041l-66.485 144.415-60.76-23.776 61.204-120.64z'
       />
       <path
-        fill='url(#LidoRewards__LidoRewards__A)'
+        fill={`url(#${_id22})`}
         d='M219.077 81.727h66.041l-66.485 144.415-60.76-23.776 61.204-120.64z'
       />
       <defs>
         <radialGradient
-          id='LidoRewards__LidoRewards__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -129,7 +157,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -140,7 +168,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -151,7 +179,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0085FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__e'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -162,7 +190,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__f'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -174,7 +202,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__g'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -185,7 +213,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__h'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -196,7 +224,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0085FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__i'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -207,7 +235,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__j'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -219,7 +247,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__k'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -230,7 +258,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__m'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -241,7 +269,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__n'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -253,7 +281,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__o'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -265,7 +293,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__p'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -276,7 +304,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__q'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -287,7 +315,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0085FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__r'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -298,7 +326,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__s'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -310,7 +338,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__t'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -321,7 +349,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__u'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -332,7 +360,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0085FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__v'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -343,7 +371,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__w'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -355,7 +383,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__x'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -366,7 +394,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__z'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -377,7 +405,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LidoRewards__LidoRewards__A'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -389,7 +417,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='LidoRewards__LidoRewards__l'
+          id={_id23}
           x1={302.378}
           x2={266.646}
           y1={236.632}
@@ -400,7 +428,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LidoRewards__LidoRewards__y'
+          id={_id24}
           x1={273.755}
           x2={238.023}
           y1={257.359}
@@ -411,7 +439,7 @@ export const LidoRewards = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <filter
-          id='LidoRewards__LidoRewards__a'
+          id={_id25}
           width={363.419}
           height={445.856}
           x={99.009}

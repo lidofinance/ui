@@ -2,16 +2,19 @@
 
 import React, { SVGProps } from 'react'
 
-export const SSV = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const SSV = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#SSV__SSV__a)' fill='#2DB1FF'>
+      <g clipPath={`url(#${_id})`} fill='#2DB1FF'>
         <path
           d='M32.319 55.05l6.396-8.042a1.642 1.642 0 012.594 0l6.397 8.042a1.745 1.745 0 010 2.149l-6.397 8.042a1.642 1.642 0 01-2.593 0l-6.397-8.042a1.745 1.745 0 010-2.149z'
           opacity={0.62}
         />
         <path d='M51.236 27.326a1.642 1.642 0 00-2.593 0l-6.397 8.042a1.745 1.745 0 000 2.15l6.397 8.041a1.642 1.642 0 002.593 0l6.397-8.042a1.745 1.745 0 000-2.149l-6.397-8.042zm-19.874 0a1.642 1.642 0 00-2.594 0l-6.397 8.042a1.745 1.745 0 000 2.15l6.397 8.041a1.642 1.642 0 002.594 0l6.397-8.042a1.745 1.745 0 000-2.149l-6.397-8.042zM47.706 22.8l-6.397-8.042a1.642 1.642 0 00-2.594 0l-6.397 8.043a1.745 1.745 0 000 2.148l6.397 8.043a1.642 1.642 0 002.594 0l6.397-8.043a1.745 1.745 0 000-2.149z' />
-        <g filter='url(#SSV__SSV__b)' opacity={0.4}>
+        <g filter={`url(#${_id2})`} opacity={0.4}>
           <path
             d='M32.319 50.926l6.396-8.042a1.642 1.642 0 012.594 0l6.397 8.042a1.745 1.745 0 010 2.15l-6.397 8.041a1.642 1.642 0 01-2.593 0l-6.397-8.042a1.745 1.745 0 010-2.149z'
             opacity={0.62}
@@ -20,11 +23,11 @@ export const SSV = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='SSV__SSV__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.003 0h80.004v80H.003z' />
         </clipPath>
         <filter
-          id='SSV__SSV__b'
+          id={_id2}
           width={64.002}
           height={79.752}
           x={8.001}

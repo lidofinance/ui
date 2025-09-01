@@ -2,10 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const Stakestone = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Stakestone = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Stakestone__a)' opacity={0.8} fill='#E5AA0B'>
+      <g filter={`url(#${_id})`} opacity={0.8} fill='#E5AA0B'>
         <path
           fillRule='evenodd'
           d='M37.763 45.99l2.28-17.323 2.362.306-2.28 17.324-2.362-.307z'
@@ -40,7 +43,7 @@ export const Stakestone = (props: SVGProps<SVGSVGElement>) => {
         d='M18.636 46.432c2.808-1.958 5.254-3.197 7.34-3.718 3.127-.781 1.304 4.328 7.535 4.953 6.232.626 12.212-4.353 16.292-3.899 2.72.303 5.006 1.53 6.857 3.68L37.504 63.326 18.636 46.432z'
       />
       <mask
-        id='Stakestone__a'
+        id={_id}
         width={39}
         height={22}
         x={18}
@@ -52,7 +55,7 @@ export const Stakestone = (props: SVGProps<SVGSVGElement>) => {
           d='M18.636 46.432c2.808-1.958 5.254-3.197 7.34-3.718 3.127-.781 1.304 4.328 7.535 4.953 6.232.626 12.212-4.353 16.292-3.899 2.72.303 5.006 1.53 6.857 3.68L37.504 63.326 18.636 46.432z'
         />
       </mask>
-      <g mask='url(#Stakestone__a)'>
+      <g mask={`url(#${_id})`}>
         <path
           fill='#FFF3D1'
           fillRule='evenodd'
@@ -74,7 +77,7 @@ export const Stakestone = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Stakestone__Stakestone__a'
+          id={_id2}
           width={70}
           height={75}
           x={7.003}

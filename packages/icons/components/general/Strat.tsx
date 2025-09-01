@@ -2,38 +2,45 @@
 
 import React, { SVGProps } from 'react'
 
-export const Strat = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Strat = function (props: SVGProps<SVGSVGElement>) {
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Strat__Strat__a)'>
-        <g filter='url(#Strat__Strat__b)'>
+      <g clipPath={`url(#${_id5})`}>
+        <g filter={`url(#${_id6})`}>
           <circle
             cx={40}
             cy={35.25}
             r={26.25}
-            fill='url(#Strat__Strat__c)'
+            fill={`url(#${_id})`}
             fillOpacity={0.6}
           />
         </g>
-        <circle cx={40} cy={40.75} r={26.25} fill='url(#Strat__Strat__d)' />
+        <circle cx={40} cy={40.75} r={26.25} fill={`url(#${_id2})`} />
         <circle
           cx={40}
           cy={41}
           r={21}
-          fill='url(#Strat__Strat__e)'
+          fill={`url(#${_id3})`}
           fillOpacity={0.5}
         />
         <circle
           cx={40}
           cy={41}
           r={11}
-          fill='url(#Strat__Strat__f)'
+          fill={`url(#${_id4})`}
           fillOpacity={0.7}
         />
       </g>
       <defs>
         <radialGradient
-          id='Strat__Strat__c'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -44,7 +51,7 @@ export const Strat = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF7D94' stopOpacity={0.2} />
         </radialGradient>
         <radialGradient
-          id='Strat__Strat__d'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -55,7 +62,7 @@ export const Strat = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF7D94' stopOpacity={0.2} />
         </radialGradient>
         <radialGradient
-          id='Strat__Strat__e'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -66,7 +73,7 @@ export const Strat = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF7D94' />
         </radialGradient>
         <radialGradient
-          id='Strat__Strat__f'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -76,11 +83,11 @@ export const Strat = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#FF7D94' stopOpacity={0} />
           <stop offset={1} stopColor='#FF7D94' />
         </radialGradient>
-        <clipPath id='Strat__Strat__a'>
+        <clipPath id={_id5}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Strat__Strat__b'
+          id={_id6}
           width={80.5}
           height={80.5}
           x={-0.25}

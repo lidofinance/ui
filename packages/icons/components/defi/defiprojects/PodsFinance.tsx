@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const PodsFinance = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const PodsFinance = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#PodsFinance__PodsFinance__a)' fill='#C0C1F5'>
+      <g filter={`url(#${_id})`} fill='#C0C1F5'>
         <path d='M21.948 50.012V44.8c.532.722 1.64 1.313 3.147 1.313 3.08 0 5.142-2.408 5.142-5.67 0-3.197-1.84-5.605-5.031-5.605-1.64 0-2.86.722-3.347 1.554V35.08H19v14.933h2.948zm5.385-9.546c0 1.926-1.196 3.043-2.704 3.043-1.507 0-2.726-1.139-2.726-3.043 0-1.905 1.22-3.022 2.726-3.022 1.508 0 2.704 1.117 2.704 3.022z' />
         <path d='M35.152 43.531c-1.441 0-2.77-1.051-2.77-3.065 0-2.037 1.329-3.066 2.77-3.066 1.44 0 2.77 1.03 2.77 3.066 0 2.036-1.33 3.065-2.77 3.065zm0-8.78c-3.258 0-5.718 2.387-5.718 5.715 0 3.306 2.46 5.714 5.718 5.714s5.718-2.408 5.718-5.714c0-3.328-2.46-5.715-5.718-5.715z' />
         <path d='M51.273 30H48.37v6.153c-.31-.57-1.197-1.336-3.08-1.336-3.081 0-5.23 2.474-5.23 5.627 0 3.262 2.215 5.67 5.318 5.67 1.463 0 2.571-.656 3.059-1.51 0 .504.066 1.029.11 1.248h2.815a21.936 21.936 0 01-.089-1.949V30zM43.03 40.444c0-1.927 1.197-3.022 2.704-3.022 1.507 0 2.681 1.073 2.681 3 0 1.949-1.174 3.087-2.681 3.087-1.552 0-2.704-1.138-2.704-3.065z' />
@@ -29,7 +31,7 @@ export const PodsFinance = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='PodsFinance__PodsFinance__a'
+          id={_id}
           width={67}
           height={46.012}
           x={6}

@@ -2,22 +2,25 @@
 
 import React, { SVGProps } from 'react'
 
-export const Port = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Port = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Port__Port__a)' opacity={0.35}>
+      <g filter={`url(#${_id2})`} opacity={0.35}>
         <path
           fill='#746FFA'
           d='M48.095 20.669s-5.848.028-9.014.081l.87-2.75L28 26.283l8.03 8.411.739-2.319c.134-.538.57-.907 1.116-.907l8.15.022c.549 0 1.024-.375 1.142-.904l.574-2.561 8.032 8.399-11.958 8.245.007-.022 1.332-4.049h-7.901a4.35 4.35 0 00-4.142 2.974L28.048 59h11.061l1.993-6.061a1.233 1.233 0 011.17-.842h5.823C56.88 52.097 64 45.063 64 36.383s-7.12-15.715-15.905-15.715z'
         />
       </g>
       <path
-        fill='url(#Port__Port__b)'
+        fill={`url(#${_id})`}
         d='M42.095 22.669s-5.848.028-9.014.081l.87-2.75L22 28.283l8.03 8.411.739-2.319c.134-.538.57-.907 1.116-.907l8.15.022c.549 0 1.024-.375 1.142-.904l.574-2.561 8.032 8.399-11.958 8.245.007-.022 1.332-4.049h-7.901a4.35 4.35 0 00-4.142 2.974L22.048 61h11.061l1.993-6.061a1.233 1.233 0 011.17-.842h5.823C50.88 54.097 58 47.063 58 38.383s-7.12-15.715-15.905-15.715z'
       />
       <defs>
         <linearGradient
-          id='Port__Port__b'
+          id={_id}
           x1={40}
           x2={40}
           y1={20}
@@ -28,7 +31,7 @@ export const Port = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3A60F9' />
         </linearGradient>
         <filter
-          id='Port__Port__a'
+          id={_id2}
           width={62}
           height={67}
           x={15}

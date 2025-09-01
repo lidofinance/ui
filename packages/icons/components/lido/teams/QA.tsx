@@ -2,46 +2,85 @@
 
 import React, { SVGProps } from 'react'
 
-export const QA = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const QA = function (props: SVGProps<SVGSVGElement>) {
+  const _id36 = useUniqueInlineId()
+  const _id35 = useUniqueInlineId()
+  const _id34 = useUniqueInlineId()
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
-      <g clipPath='url(#QA__QA__a)'>
-        <g filter='url(#QA__QA__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id35})`}>
+        <g filter={`url(#${_id36})`} opacity={0.5}>
           <path
-            fill='url(#QA__QA__c)'
+            fill={`url(#${_id})`}
             d='M307.734 435c73.059 0 132.285-58.879 132.285-131.509 0-27.872-8.722-53.719-23.6-74.99l-109.571 65.574-109.57-62.976c-13.797 20.763-21.829 45.645-21.829 72.392 0 72.63 59.226 131.509 132.285 131.509z'
           />
           <path
-            fill='url(#QA__QA__d)'
+            fill={`url(#${_id2})`}
             fillOpacity={0.5}
             d='M307.734 435c73.059 0 132.285-58.879 132.285-131.509 0-27.872-8.722-53.719-23.6-74.99l-109.571 65.574-109.57-62.976c-13.797 20.763-21.829 45.645-21.829 72.392 0 72.63 59.226 131.509 132.285 131.509z'
           />
           <path
-            fill='url(#QA__QA__e)'
+            fill={`url(#${_id3})`}
             d='M307.734 435c73.059 0 132.285-58.879 132.285-131.509 0-27.872-8.722-53.719-23.6-74.99l-109.571 65.574-109.57-62.976c-13.797 20.763-21.829 45.645-21.829 72.392 0 72.63 59.226 131.509 132.285 131.509z'
           />
           <path
-            fill='url(#QA__QA__f)'
+            fill={`url(#${_id4})`}
             d='M307.734 435c73.059 0 132.285-58.879 132.285-131.509 0-27.872-8.722-53.719-23.6-74.99l-109.571 65.574-109.57-62.976c-13.797 20.763-21.829 45.645-21.829 72.392 0 72.63 59.226 131.509 132.285 131.509z'
           />
           <path
-            fill='url(#QA__QA__g)'
+            fill={`url(#${_id5})`}
             d='M214.575 207.468l93.159 53.252V65l-93.159 142.468z'
           />
           <path
-            fill='url(#QA__QA__h)'
+            fill={`url(#${_id6})`}
             d='M214.575 207.468l93.159 53.252V65l-93.159 142.468z'
           />
           <path
-            fill='url(#QA__QA__i)'
+            fill={`url(#${_id7})`}
             d='M400.738 207.468l-93.003 53.252V65l93.003 142.468z'
           />
           <path
-            fill='url(#QA__QA__j)'
+            fill={`url(#${_id8})`}
             d='M400.738 207.468l-93.003 53.252V65l93.003 142.468z'
           />
           <path
-            fill='url(#QA__QA__k)'
+            fill={`url(#${_id33})`}
             fillOpacity={0.6}
             d='M400.738 207.468l-93.003 53.252V65l93.003 142.468z'
           />
@@ -49,57 +88,57 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
             cx={306.447}
             cy={208.115}
             r={58.669}
-            fill='url(#QA__QA__l)'
+            fill={`url(#${_id9})`}
             opacity={0.3}
           />
           <path
-            fill='url(#QA__QA__m)'
+            fill={`url(#${_id0})`}
             d='M249.9 280.475c0-31.957 25.907-57.864 57.864-57.864 31.957 0 57.863 25.907 57.863 57.864v69.039c0 31.958-25.906 57.864-57.863 57.864S249.9 381.472 249.9 349.514v-69.039z'
           />
           <path
-            fill='url(#QA__QA__n)'
+            fill={`url(#${_id1})`}
             d='M414.762 320.985c0-54.33-44.044-98.374-98.374-98.374h-8.624v29.456c0 54.33 44.043 98.373 98.373 98.373h8.625v-29.455z'
           />
           <path
-            fill='url(#QA__QA__o)'
+            fill={`url(#${_id10})`}
             d='M200.766 320.985c0-54.33 44.043-98.374 98.373-98.374h8.625v29.456c0 54.33-44.044 98.373-98.374 98.373h-8.624v-29.455z'
           />
           <path
-            fill='url(#QA__QA__p)'
+            fill={`url(#${_id11})`}
             d='M259.098 182.279c8.552-.103 17.136 3.107 23.661 9.632a32.742 32.742 0 017.806 12.429c5.074-2.261 10.93-3.551 17.166-3.551 6.25 0 12.118 1.296 17.201 3.567a32.753 32.753 0 017.813-12.445c6.525-6.525 15.108-9.735 23.66-9.632.102 8.551-3.108 17.135-9.633 23.66a32.793 32.793 0 01-10.129 6.905c3.891 4.478 6.17 9.904 6.17 15.752 0 15.358-15.707 27.808-35.082 27.808s-35.082-12.45-35.082-27.808c0-5.854 2.283-11.284 6.181-15.765a32.799 32.799 0 01-10.099-6.892c-6.525-6.525-9.735-15.109-9.633-23.66z'
           />
         </g>
         <path
-          fill='url(#QA__QA__q)'
+          fill={`url(#${_id12})`}
           d='M249.856 435c73.059 0 132.285-58.879 132.285-131.509 0-27.872-8.722-53.719-23.6-74.99L248.97 294.075 139.4 231.099c-13.797 20.763-21.829 45.645-21.829 72.392 0 72.63 59.226 131.509 132.285 131.509z'
         />
         <path
-          fill='url(#QA__QA__r)'
+          fill={`url(#${_id13})`}
           fillOpacity={0.5}
           d='M249.856 435c73.059 0 132.285-58.879 132.285-131.509 0-27.872-8.722-53.719-23.6-74.99L248.97 294.075 139.4 231.099c-13.797 20.763-21.829 45.645-21.829 72.392 0 72.63 59.226 131.509 132.285 131.509z'
         />
         <path
-          fill='url(#QA__QA__s)'
+          fill={`url(#${_id14})`}
           d='M249.856 435c73.059 0 132.285-58.879 132.285-131.509 0-27.872-8.722-53.719-23.6-74.99L248.97 294.075 139.4 231.099c-13.797 20.763-21.829 45.645-21.829 72.392 0 72.63 59.226 131.509 132.285 131.509z'
         />
         <path
-          fill='url(#QA__QA__t)'
+          fill={`url(#${_id15})`}
           d='M156.697 207.468l93.159 53.252V65l-93.159 142.468z'
         />
         <path
-          fill='url(#QA__QA__u)'
+          fill={`url(#${_id16})`}
           d='M156.697 207.468l93.159 53.252V65l-93.159 142.468z'
         />
         <path
-          fill='url(#QA__QA__v)'
+          fill={`url(#${_id17})`}
           d='M342.86 207.468l-93.003 53.252V65l93.003 142.468z'
         />
         <path
-          fill='url(#QA__QA__w)'
+          fill={`url(#${_id18})`}
           d='M342.86 207.468l-93.003 53.252V65l93.003 142.468z'
         />
         <path
-          fill='url(#QA__QA__x)'
+          fill={`url(#${_id34})`}
           fillOpacity={0.6}
           d='M342.86 207.468l-93.003 53.252V65l93.003 142.468z'
         />
@@ -107,69 +146,69 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           cx={248.569}
           cy={235.888}
           r={58.669}
-          fill='url(#QA__QA__y)'
+          fill={`url(#${_id19})`}
           opacity={0.3}
         />
         <path
-          fill='url(#QA__QA__z)'
+          fill={`url(#${_id20})`}
           d='M249.812 228.83c29.516 10.082 50.869 39.399 50.869 73.995-.001 34.596-21.353 63.911-50.869 73.993-29.517-10.082-50.868-39.398-50.869-73.993 0-34.595 21.352-63.912 50.869-73.995z'
         />
         <path
-          fill='url(#QA__QA__A)'
+          fill={`url(#${_id21})`}
           d='M249.812 228.83c29.516 10.082 50.869 39.399 50.869 73.995-.001 34.596-21.353 63.911-50.869 73.993-29.517-10.082-50.868-39.398-50.869-73.993 0-34.595 21.352-63.912 50.869-73.995z'
         />
         <path
-          fill='url(#QA__QA__B)'
+          fill={`url(#${_id22})`}
           d='M249.812 228.83c29.516 10.082 50.869 39.399 50.869 73.995-.001 34.596-21.353 63.911-50.869 73.993-29.517-10.082-50.868-39.398-50.869-73.993 0-34.595 21.352-63.912 50.869-73.995z'
         />
         <path
-          fill='url(#QA__QA__C)'
+          fill={`url(#${_id23})`}
           d='M269.325 232.067c6.072 4.927 11.355 10.949 15.608 17.797-9.842 2.234-22.364 3.574-35.996 3.574-12.782-.001-24.587-1.178-34.123-3.166 4.217-6.89 9.473-12.957 15.523-17.931 5.705.83 11.993 1.291 18.6 1.291 7.304 0 14.22-.562 20.388-1.565z'
         />
         <path
-          fill='url(#QA__QA__D)'
+          fill={`url(#${_id24})`}
           stroke='#000'
           strokeWidth={0.082}
           d='M235.922 217.053c1.834 4.839 3.881 6.451 5.935 8.483.71.817 1.44 2.538-.838.548-5.097-4.451-7.802-9.68-8.452-12.257-.838-3.322.013-5.389 1.065-4.935 1.419.613.456 3.322 2.29 8.161z'
         />
         <path
-          fill='url(#QA__QA__E)'
+          fill={`url(#${_id25})`}
           stroke='#000'
           strokeWidth={0.082}
           d='M263.945 217.053c-1.834 4.839-3.881 6.451-5.935 8.483-.71.817-1.44 2.538.838.548 5.097-4.451 7.802-9.68 8.452-12.257.838-3.322-.013-5.389-1.064-4.935-1.42.613-.457 3.322-2.291 8.161z'
         />
         <path
-          fill='url(#QA__QA__F)'
+          fill={`url(#${_id26})`}
           d='M262.001 236.601h-24.225v-.001h24.225v.001zm-15.318-13.221a10.33 10.33 0 016.379-.002l7.155 2.321a2.581 2.581 0 011.784 2.455v4.858c-4.148.404-8.532.62-13.064.62-3.365 0-6.647-.12-9.812-.348l-1.349-.104v-5.027c0-1.118.72-2.109 1.783-2.455l7.124-2.318z'
         />
         <path
-          fill='url(#QA__QA__G)'
+          fill={`url(#${_id27})`}
           d='M268.003 268.673c-8.378-11.356-1.907-26.941 11.709-30.65a85.618 85.618 0 013.1-.782c39.541-9.182 78.185 11.659 86.475 46.574-7.345 4.555-15.658 8.046-24.705 10.147-30.628 7.112-60.717-3.788-76.579-25.289z'
         />
         <path
-          fill='url(#QA__QA__H)'
+          fill={`url(#${_id28})`}
           d='M268.003 268.673c-8.378-11.356-1.907-26.941 11.709-30.65a85.618 85.618 0 013.1-.782c39.541-9.182 78.185 11.659 86.475 46.574-7.345 4.555-15.658 8.046-24.705 10.147-30.628 7.112-60.717-3.788-76.579-25.289z'
         />
         <path
-          fill='url(#QA__QA__I)'
+          fill={`url(#${_id29})`}
           d='M327.208 334.562c7.988 4.496 16.789-2.076 14.746-11.012-3.749-16.399-11.565-33.476-23.363-49.274-7.645-10.236-16.279-19.022-25.399-26.184-14.183-11.137-31.144 1.53-24.492 18.291 4.278 10.778 10.251 21.552 17.895 31.788 11.798 15.798 25.953 28.141 40.613 36.391z'
         />
         <path
-          fill='url(#QA__QA__J)'
+          fill={`url(#${_id30})`}
           d='M231.718 268.673c8.378-11.356 1.908-26.941-11.708-30.65a85.671 85.671 0 00-3.101-.782c-39.541-9.182-78.185 11.659-86.475 46.574 7.346 4.555 15.658 8.046 24.706 10.147 30.627 7.112 60.716-3.788 76.578-25.289z'
         />
         <path
-          fill='url(#QA__QA__K)'
+          fill={`url(#${_id31})`}
           d='M231.718 268.673c8.378-11.356 1.908-26.941-11.708-30.65a85.671 85.671 0 00-3.101-.782c-39.541-9.182-78.185 11.659-86.475 46.574 7.346 4.555 15.658 8.046 24.706 10.147 30.627 7.112 60.716-3.788 76.578-25.289z'
         />
         <path
-          fill='url(#QA__QA__L)'
+          fill={`url(#${_id32})`}
           d='M172.513 334.562c-7.988 4.496-16.788-2.076-14.745-11.012 3.749-16.399 11.565-33.476 23.363-49.274 7.644-10.236 16.279-19.022 25.399-26.184 14.183-11.137 31.144 1.53 24.492 18.291-4.278 10.778-10.251 21.552-17.896 31.788-11.798 15.798-25.953 28.141-40.613 36.391z'
         />
       </g>
       <defs>
         <radialGradient
-          id='QA__QA__c'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -181,7 +220,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__d'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -192,7 +231,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__e'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -203,7 +242,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__f'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -214,7 +253,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__g'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -225,7 +264,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -237,7 +276,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__i'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -249,7 +288,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__j'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -260,7 +299,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__l'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -271,7 +310,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#fff' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__m'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -282,7 +321,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__n'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -293,7 +332,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__o'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -304,7 +343,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__p'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -315,7 +354,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__q'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -327,7 +366,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__r'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -338,7 +377,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__s'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -349,7 +388,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__t'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -360,7 +399,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__u'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -372,7 +411,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__v'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -384,7 +423,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__w'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -395,7 +434,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__y'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -406,7 +445,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#fff' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__z'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -417,7 +456,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__A'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -428,7 +467,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__B'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -440,7 +479,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#151537' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__C'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -451,7 +490,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#151537' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__D'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -462,7 +501,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#151537' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__E'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -473,7 +512,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#151537' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__F'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -484,7 +523,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#151537' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__G'
+          id={_id27}
           cx={0}
           cy={0}
           r={1}
@@ -495,7 +534,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__H'
+          id={_id28}
           cx={0}
           cy={0}
           r={1}
@@ -507,7 +546,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#151537' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__I'
+          id={_id29}
           cx={0}
           cy={0}
           r={1}
@@ -518,7 +557,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__J'
+          id={_id30}
           cx={0}
           cy={0}
           r={1}
@@ -529,7 +568,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='QA__QA__K'
+          id={_id31}
           cx={0}
           cy={0}
           r={1}
@@ -541,7 +580,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#151537' />
         </radialGradient>
         <radialGradient
-          id='QA__QA__L'
+          id={_id32}
           cx={0}
           cy={0}
           r={1}
@@ -552,7 +591,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='QA__QA__k'
+          id={_id33}
           x1={401.23}
           x2={340.06}
           y1={237.07}
@@ -563,7 +602,7 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='QA__QA__x'
+          id={_id34}
           x1={343.352}
           x2={282.183}
           y1={237.07}
@@ -573,11 +612,11 @@ export const QA = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#29EDFE' />
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
-        <clipPath id='QA__QA__a'>
+        <clipPath id={_id35}>
           <rect width={500} height={500} x={0.571} fill='#fff' rx={20} />
         </clipPath>
         <filter
-          id='QA__QA__b'
+          id={_id36}
           width={395.734}
           height={501.164}
           x={109.867}

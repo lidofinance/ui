@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Compound = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Compound = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Compound = (props: SVGProps<SVGSVGElement>) => {
         d='M23.75 52.292a3.699 3.699 0 01-1.743-3.143V41.99c0-.85.684-1.538 1.523-1.535.267 0 .531.074.763.21l15.944 9.418a3.08 3.08 0 011.508 2.656v7.415c.003 1.018-.81 1.846-1.816 1.846-.336 0-.669-.095-.954-.271L23.75 52.292zm23.766-13.588a3.092 3.092 0 011.508 2.656v15.05c0 .443-.235.853-.618 1.07l-3.49 1.989a.607.607 0 01-.14.058v-8.356c0-1.08-.561-2.085-1.48-2.641l-14.002-8.485v-9.433c0-.85.683-1.539 1.523-1.535.267 0 .531.073.762.209l15.937 9.418zm6.98-11.115a3.081 3.081 0 011.511 2.66v21.98c-.003.451-.25.865-.64 1.081l-3.309 1.81V39.818c0-1.08-.56-2.08-1.471-2.638l-14.314-8.697v-8.946a1.6 1.6 0 01.203-.773 1.512 1.512 0 012.076-.557l15.944 9.382z'
         clipRule='evenodd'
       />
-      <g filter='url(#Compound__Compound__a)' opacity={0.2}>
+      <g filter={`url(#${_id})`} opacity={0.2}>
         <path
           fill='#00D395'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Compound = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Compound__Compound__a'
+          id={_id}
           width={54}
           height={64}
           x={19.007}

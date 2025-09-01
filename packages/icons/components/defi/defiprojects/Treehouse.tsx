@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Treehouse = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Treehouse = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Treehouse__Treehouse__a)'>
-        <g filter='url(#Treehouse__Treehouse__b)' opacity={0.5}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#00DDC2'
             d='M45.494 48.856l-7.644 5.562 7.644 5.578 7.648-5.578-7.648-5.562zm-9.858-16.512l9.858-7.188 9.858 7.188L63 26.754 45.494 13.996 28 26.754l7.636 5.59zM63 43.48L45.494 30.722 28 43.48l7.644 5.578 9.858-7.184 9.858 7.184L63 43.48z'
@@ -18,11 +21,11 @@ export const Treehouse = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Treehouse__Treehouse__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.03 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Treehouse__Treehouse__b'
+          id={_id2}
           width={63}
           height={74}
           x={14}

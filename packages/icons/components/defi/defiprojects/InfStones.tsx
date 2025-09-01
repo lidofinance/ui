@@ -2,15 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const InfStones = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const InfStones = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#InfStones__InfStones__a)'>
-        <g
-          filter='url(#InfStones__InfStones__b)'
-          fill='#EDB500'
-          fillOpacity={0.6}
-        >
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} fill='#EDB500' fillOpacity={0.6}>
           <path d='M40.756 8c-6.5 0-11.7 5.281-11.7 11.7 0 2.681.975 5.363 2.681 7.475l1.057 1.219 11.862 14.625 1.056 1.218c.975 1.138 1.463 2.52 1.463 4.063a6.346 6.346 0 01-6.338 6.338A6.346 6.346 0 0134.5 48.3v-.894a15.497 15.497 0 01-5.363 1.463C29.462 55.044 34.581 60 40.837 60c6.257 0 11.7-5.281 11.7-11.7 0-2.681-.975-5.362-2.68-7.475l-.976-1.219L37.02 24.981l-1.057-1.219a6.03 6.03 0 01-1.462-3.98 6.346 6.346 0 016.337-6.338 6.346 6.346 0 016.338 6.337v.732a13.096 13.096 0 015.362-1.382C52.131 12.956 47.012 8 40.757 8z' />
           <path d='M28 46.756c3.25 0 6.581-1.381 8.694-3.575 1.056-1.056 2.112-2.194 3.006-3.412l-3.494-4.306a37.379 37.379 0 01-3.331 3.818c-.975.975-2.925 2.032-5.038 2.032-4.062 0-7.393-3.332-7.393-7.394 0-4.063 3.331-7.394 7.393-7.394.488 0 .894.081 1.3.081-.974-1.706-1.625-3.575-1.868-5.525C20.444 21.325 15 27.012 15 33.837s5.688 12.757 12.675 12.838H28v.081zm26.244-25.593h-1.625c-3.169.162-5.606 1.3-7.881 3.575-1.057 1.056-2.113 2.193-3.007 3.412l3.494 4.306a37.377 37.377 0 013.331-3.818c1.463-1.463 2.844-2.032 5.038-2.032 4.062 0 7.394 3.332 7.394 7.394 0 4.063-3.332 7.394-7.394 7.394-.406 0-.894-.081-1.381-.163 1.056 1.707 1.625 3.575 1.868 5.525 6.825-.243 12.27-5.93 12.27-12.756.162-6.906-5.282-12.512-12.107-12.837z' />
         </g>
@@ -24,11 +23,11 @@ export const InfStones = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='InfStones__InfStones__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='InfStones__InfStones__b'
+          id={_id2}
           width={71.353}
           height={72}
           x={5}

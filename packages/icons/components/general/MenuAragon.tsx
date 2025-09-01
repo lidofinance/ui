@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const MenuAragon = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuAragon = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#MenuAragon__MenuAragon__a)' opacity={0.4} fill='#3E63F1'>
+      <g filter={`url(#${_id})`} opacity={0.4} fill='#3E63F1'>
         <path
           fillRule='evenodd'
           d='M34.91 20.771l-2.057-2.184c3.558-.459 12.946.13 22.033 6.15.119.832.093 1.66.093 1.66l.67.363.004.006.001-.009.014.008c.375.646.755 1.608.998 2.74.293 1.37.377 2.946.035 4.454-.345 1.52-1 2.774-1.64 3.69-.474.678-.925 1.152-1.222 1.412-1.16.024-3.322.803-3.94 3.504-1.861 1.065-4.784 2.13-8.645 2.13-3.687 0-7.449-1.068-10.277-3.137-2.816-2.06-4.707-5.11-4.707-9.126 0-3.195 1.43-5.69 3.246-7.525 1.82-1.841 4.31-3.333 5.754-3.828l-.36-.308zm15.948 5.24c-.715.78-1.384 1.155-1.575 1.256-4.178-.93-5.684-3.193-5.684-3.193 3.941-.025 7.498.956 10.1 2.616 0 0-1.408-.478-2.841-.679z'
@@ -25,7 +27,7 @@ export const MenuAragon = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='MenuAragon__MenuAragon__a'
+          id={_id}
           width={73}
           height={73.07}
           x={3}

@@ -2,11 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const Lisk = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Lisk = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <g
-        filter='url(#Lisk__Lisk__a)'
+        filter={`url(#${_id})`}
         opacity={0.3}
         fill='#4B5DFF'
         fillRule='evenodd'
@@ -29,7 +31,7 @@ export const Lisk = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Lisk__Lisk__a'
+          id={_id}
           width={60.61}
           height={69}
           x={14.004}

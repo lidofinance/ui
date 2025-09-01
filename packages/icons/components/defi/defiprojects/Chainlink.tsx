@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Chainlink = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Chainlink = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Chainlink__Chainlink__a)'>
-        <g filter='url(#Chainlink__Chainlink__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#375BD2'
             fillOpacity={0.5}
@@ -19,11 +22,11 @@ export const Chainlink = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Chainlink__Chainlink__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.022 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Chainlink__Chainlink__b'
+          id={_id2}
           width={70.013}
           height={74.987}
           x={5.022}

@@ -2,140 +2,172 @@
 
 import React, { SVGProps } from 'react'
 
-export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuContribute = function (props: SVGProps<SVGSVGElement>) {
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#MenuContribute__MenuContribute__a)'>
+      <g filter={`url(#${_id29})`}>
         <path
-          fill='url(#MenuContribute__MenuContribute__b)'
+          fill={`url(#${_id})`}
           fillRule='evenodd'
           d='M41.26 23.035a3.552 3.552 0 10-6.52 0c-6.01.361-11.242 1.703-14.691 3.613a3.923 3.923 0 014.338 4.107A17.35 17.35 0 0134.562 40.98l.034.091c1.075.067 2.178.103 3.299.105H38c1.145 0 2.272-.036 3.371-.103l.034-.091a17.354 17.354 0 0110.197-10.234 3.925 3.925 0 014.271-4.137c-3.452-1.895-8.622-3.22-14.613-3.576z'
           clipRule='evenodd'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__c)'
+          fill={`url(#${_id2})`}
           d='M58.852 28.455a3.919 3.919 0 00-3.336-1.864 3.925 3.925 0 000 7.848c.343 0 .675-.048.991-.132-2.035 2.394-5.298 4.344-9.285 5.539L41.613 42.4l-.251.114-2.653 1.208c5.961.366 10.682 5.316 10.682 11.368 0 .124-.006.25-.01.374.004.116.01.233.01.349 0 .116 0 .232-.008.347a11.372 11.372 0 01-4.948 9.775 11.329 11.329 0 01-5.302 1.938h-.01a11.5 11.5 0 01-1.123.055c.143 0 .286 0 .429-.004a24.76 24.76 0 002.14-.126h.01A25.348 25.348 0 0059.64 55.836a24.947 24.947 0 003.687-13.088c0-5.31-1.656-10.234-4.477-14.295v.002z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__d)'
+          fill={`url(#${_id3})`}
           d='M58.852 28.455a3.919 3.919 0 00-3.336-1.864 3.925 3.925 0 000 7.848c.343 0 .675-.048.991-.132-2.035 2.394-5.298 4.344-9.285 5.539L41.613 42.4l-.251.114-2.653 1.208c5.961.366 10.682 5.316 10.682 11.368 0 .124-.006.25-.01.374.004.116.01.233.01.349 0 .116 0 .232-.008.347a11.372 11.372 0 01-4.948 9.775 11.329 11.329 0 01-5.302 1.938h-.01a11.5 11.5 0 01-1.123.055c.143 0 .286 0 .429-.004a24.76 24.76 0 002.14-.126h.01A25.348 25.348 0 0059.64 55.836a24.947 24.947 0 003.687-13.088c0-5.31-1.656-10.234-4.477-14.295v.002z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__e)'
+          fill={`url(#${_id4})`}
           d='M38 41.15c-3.312 0-6.443-.468-9.222-1.303-3.962-1.187-7.208-3.118-9.247-5.49.301.074.614.118.938.118a3.924 3.924 0 000-7.849c-1.37 0-2.575.704-3.277 1.77a24.94 24.94 0 00-4.52 14.354 24.94 24.94 0 004.134 13.788 25.346 25.346 0 0020.323 11.374c.117.004.233.008.349.01.082.004.166.005.25.004a11.28 11.28 0 01-6.163-1.99 11.372 11.372 0 01-4.948-9.775 6.988 6.988 0 01-.008-.347c0-.116.006-.232.01-.349-.004-.124-.01-.25-.01-.373C26.61 48.8 31.71 43.7 38 43.7c.238 0 .475.007.71.023l2.652-1.209.252-.114 5.608-2.554c-2.778.835-5.91 1.304-9.222 1.304z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__f)'
+          fill={`url(#${_id27})`}
           fillOpacity={0.6}
           d='M38 41.15c-3.312 0-6.443-.468-9.222-1.303-3.962-1.187-7.208-3.118-9.247-5.49.301.074.614.118.938.118a3.924 3.924 0 000-7.849c-1.37 0-2.575.704-3.277 1.77a24.94 24.94 0 00-4.52 14.354 24.94 24.94 0 004.134 13.788 25.346 25.346 0 0020.323 11.374c.117.004.233.008.349.01.082.004.166.005.25.004a11.28 11.28 0 01-6.163-1.99 11.372 11.372 0 01-4.948-9.775 6.988 6.988 0 01-.008-.347c0-.116.006-.232.01-.349-.004-.124-.01-.25-.01-.373C26.61 48.8 31.71 43.7 38 43.7c.238 0 .475.007.71.023l2.652-1.209.252-.114 5.608-2.554c-2.778.835-5.91 1.304-9.222 1.304z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__g)'
+          fill={`url(#${_id5})`}
           d='M59.683 55.055c0 .261-.014.523-.042.78A25.348 25.348 0 0140.579 67.8h-.01a21.33 21.33 0 01-.491.03c-.313.02-.627.034-.944.044a11.33 11.33 0 005.302-1.938 11.372 11.372 0 004.955-9.398c0-.126 0-.253-.007-.377a7.969 7.969 0 00-.003-.696c.005-.124.01-.25.01-.373 0-6.053-4.72-11.003-10.682-11.369-.234-.015-.47-.023-.709-.023-6.29 0-11.39 5.1-11.39 11.392 0 .123.005.25.009.373-.004.116-.01.233-.01.349 0 .116.002.232.008.347a11.372 11.372 0 004.947 9.775 11.282 11.282 0 005.36 1.942 39.451 39.451 0 01-1.274-.058 25.346 25.346 0 01-19.412-12.185 7.343 7.343 0 01-.023-.58c0-7.09 9.729-12.837 21.734-12.837a36.6 36.6 0 013.665.183c10.257 1.027 18.069 6.302 18.069 12.654z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__h)'
+          fill={`url(#${_id6})`}
           d='M41.361 42.516A21.488 21.488 0 0038 42.253c-1.002 0-2.005.07-2.967.204-7.766 1.08-13.657 6.328-13.657 12.636 0 2.982 1.315 5.725 3.522 7.905 2.674 2.638 6.657 4.448 11.195 4.849a20.385 20.385 0 001.907.084c.143 0 .286 0 .43-.004a22.278 22.278 0 001.648-.096c4.461-.428 8.374-2.224 11.014-4.825 2.214-2.18 3.533-4.927 3.533-7.913 0-6.202-5.693-11.376-13.263-12.577zm3.074 23.421a11.33 11.33 0 01-5.302 1.938h-.011a34.065 34.065 0 01-2.2.004 11.28 11.28 0 01-5.358-1.942 11.435 11.435 0 01-3.82-4.433 11.34 11.34 0 01-1.128-5.342 6.992 6.992 0 01-.008-.347c0-.116.006-.232.01-.348-.004-.124-.01-.25-.01-.374 0-5.388 3.74-9.9 8.765-11.086a11.372 11.372 0 013.335-.282c.645.04 1.273.133 1.885.274 5.041 1.174 8.797 5.695 8.797 11.094 0 .124-.005.25-.009.373.004.117.01.233.01.35 0 .115 0 .232-.008.346a11.324 11.324 0 01-1.136 5.357 11.429 11.429 0 01-3.812 4.418z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__i)'
+          fill={`url(#${_id7})`}
           d='M48.248 61.519a11.43 11.43 0 01-4.471 4.839 11.33 11.33 0 01-4.643 1.517h-.011a34.31 34.31 0 01-2.2.003 11.28 11.28 0 01-5.359-1.942 11.434 11.434 0 01-3.819-4.433c4.747-3.089 7.884-8.44 7.884-14.526 0-1.014-.087-2.007-.255-2.97a11.372 11.372 0 013.335-.283c.644.04 1.273.133 1.885.275a17.438 17.438 0 00-.255 2.978c0 6.095 3.148 11.454 7.909 14.542z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__j)'
+          fill={`url(#${_id8})`}
           d='M48.248 61.519a11.43 11.43 0 01-4.471 4.839 11.33 11.33 0 01-4.643 1.517h-.011a34.31 34.31 0 01-2.2.003 11.28 11.28 0 01-5.359-1.942 11.434 11.434 0 01-3.819-4.433c4.747-3.089 7.884-8.44 7.884-14.526 0-1.014-.087-2.007-.255-2.97a11.372 11.372 0 013.335-.283c.644.04 1.273.133 1.885.275a17.438 17.438 0 00-.255 2.978c0 6.095 3.148 11.454 7.909 14.542z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__k)'
+          fill={`url(#${_id9})`}
           d='M38 41.152c-5.054 0-9.659.352-13.4.827-.452.057-.89.116-1.313.18a18.691 18.691 0 01-2.167.09 5.294 5.294 0 01-2.46-.731c-2.566-1.51-3.669-5.07-2.466-8.462a8.27 8.27 0 01.556-1.248 3.93 3.93 0 002.802 2.557c1.671 1.967 4.173 3.633 7.224 4.828a27.03 27.03 0 002.063.709c2.778.834 5.849 1.25 9.16 1.25z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__l)'
+          fill={`url(#${_id0})`}
           d='M57.342 41.517a5.294 5.294 0 01-2.946.732 18.691 18.691 0 01-1.681-.092 60.894 60.894 0 00-1.313-.179A107.911 107.911 0 0038 41.151c3.312 0 6.385-.415 9.163-1.25a27.03 27.03 0 002.062-.709c3.074-1.205 5.592-2.888 7.263-4.873a3.924 3.924 0 002.747-2.545c.22.402.413.83.573 1.281 1.203 3.392.1 6.953-2.466 8.462z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__m)'
+          fill={`url(#${_id1})`}
           d='M19.552 34.364a3.93 3.93 0 01-2.806-2.57l.002.018c.257 2.427 1.862 4.296 3.804 4.296.236 0 .469-.028.694-.082-.633-.526-1.2-1.08-1.694-1.662z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__n)'
+          fill={`url(#${_id10})`}
           d='M54.735 36.011a3 3 0 00.694.082c1.942 0 3.547-1.87 3.804-4.296l.002-.019a3.93 3.93 0 01-2.805 2.571 13.742 13.742 0 01-1.695 1.662z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__o)'
+          fill={`url(#${_id11})`}
           d='M34.596 41.072l-.034-.092a17.35 17.35 0 00-10.175-10.225 3.72 3.72 0 00.005-.206v-.013c6.08.318 10.753 4.427 10.803 10.501.002.033.002.067.002.1-1.121-.003.474 0-.6-.066z'
         />
         <path
-          fill='url(#MenuContribute__MenuContribute__p)'
+          fill={`url(#${_id12})`}
           d='M51.604 30.757a17.35 17.35 0 00-10.232 10.324c-1.075.066.52.063-.6.065l.001-.107c.054-6.076 4.736-10.185 10.822-10.494 0 .07.003.141.01.212z'
         />
       </g>
       <path
-        fill='url(#MenuContribute__MenuContribute__q)'
+        fill={`url(#${_id13})`}
         fillRule='evenodd'
         d='M43.26 20.035a3.552 3.552 0 10-6.52 0c-6.01.361-11.242 1.703-14.691 3.613a3.923 3.923 0 014.338 4.107A17.35 17.35 0 0136.562 37.98l.034.091c1.075.067 2.178.103 3.299.105H40c1.145 0 2.272-.036 3.371-.103l.034-.091a17.354 17.354 0 0110.197-10.234 3.925 3.925 0 014.271-4.137c-3.452-1.895-8.622-3.22-14.613-3.576z'
         clipRule='evenodd'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__r)'
+        fill={`url(#${_id14})`}
         d='M60.852 25.455a3.919 3.919 0 00-3.336-1.864 3.925 3.925 0 000 7.848c.343 0 .675-.048.991-.131-2.035 2.393-5.298 4.343-9.285 5.538L43.613 39.4l-.251.114-2.653 1.208c5.961.366 10.682 5.316 10.682 11.368 0 .124-.006.25-.01.374.004.116.01.233.01.349 0 .116 0 .232-.008.347a11.372 11.372 0 01-4.948 9.775 11.329 11.329 0 01-5.302 1.938h-.01a11.5 11.5 0 01-1.123.055c.143 0 .286 0 .429-.004a24.76 24.76 0 002.14-.126h.01A25.348 25.348 0 0061.64 52.836a24.947 24.947 0 003.687-13.088c0-5.31-1.656-10.234-4.477-14.295v.002z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__s)'
+        fill={`url(#${_id15})`}
         d='M60.852 25.455a3.919 3.919 0 00-3.336-1.864 3.925 3.925 0 000 7.848c.343 0 .675-.048.991-.131-2.035 2.393-5.298 4.343-9.285 5.538L43.613 39.4l-.251.114-2.653 1.208c5.961.366 10.682 5.316 10.682 11.368 0 .124-.006.25-.01.374.004.116.01.233.01.349 0 .116 0 .232-.008.347a11.372 11.372 0 01-4.948 9.775 11.329 11.329 0 01-5.302 1.938h-.01a11.5 11.5 0 01-1.123.055c.143 0 .286 0 .429-.004a24.76 24.76 0 002.14-.126h.01A25.348 25.348 0 0061.64 52.836a24.947 24.947 0 003.687-13.088c0-5.31-1.656-10.234-4.477-14.295v.002z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__t)'
+        fill={`url(#${_id16})`}
         d='M40 38.15c-3.312 0-6.443-.468-9.222-1.303-3.962-1.187-7.208-3.118-9.247-5.49.301.074.614.118.938.118a3.924 3.924 0 000-7.849c-1.37 0-2.575.704-3.277 1.77a24.94 24.94 0 00-4.52 14.354 24.94 24.94 0 004.134 13.788 25.346 25.346 0 0020.323 11.374c.117.004.233.008.349.01.082.004.166.005.25.004a11.28 11.28 0 01-6.163-1.99 11.372 11.372 0 01-4.948-9.775 6.988 6.988 0 01-.008-.347c0-.116.006-.232.01-.349-.004-.124-.01-.25-.01-.373C28.61 45.8 33.71 40.7 40 40.7c.238 0 .475.007.71.023l2.652-1.209.252-.114 5.608-2.554c-2.778.835-5.91 1.304-9.222 1.304z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__u)'
+        fill={`url(#${_id28})`}
         fillOpacity={0.6}
         d='M40 38.15c-3.312 0-6.443-.468-9.222-1.303-3.962-1.187-7.208-3.118-9.247-5.49.301.074.614.118.938.118a3.924 3.924 0 000-7.849c-1.37 0-2.575.704-3.277 1.77a24.94 24.94 0 00-4.52 14.354 24.94 24.94 0 004.134 13.788 25.346 25.346 0 0020.323 11.374c.117.004.233.008.349.01.082.004.166.005.25.004a11.28 11.28 0 01-6.163-1.99 11.372 11.372 0 01-4.948-9.775 6.988 6.988 0 01-.008-.347c0-.116.006-.232.01-.349-.004-.124-.01-.25-.01-.373C28.61 45.8 33.71 40.7 40 40.7c.238 0 .475.007.71.023l2.652-1.209.252-.114 5.608-2.554c-2.778.835-5.91 1.304-9.222 1.304z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__v)'
+        fill={`url(#${_id17})`}
         d='M61.683 52.055c0 .261-.014.523-.042.78A25.348 25.348 0 0142.579 64.8h-.01a21.33 21.33 0 01-.491.03c-.313.02-.627.034-.944.044a11.33 11.33 0 005.302-1.938 11.372 11.372 0 004.955-9.398c0-.126 0-.253-.007-.377a7.969 7.969 0 00-.003-.696c.005-.124.01-.25.01-.373 0-6.053-4.72-11.003-10.682-11.369-.234-.015-.47-.023-.709-.023-6.29 0-11.39 5.1-11.39 11.392 0 .123.005.25.009.373-.004.116-.01.233-.01.349 0 .116.002.232.008.347a11.372 11.372 0 004.948 9.775 11.282 11.282 0 005.36 1.942 39.451 39.451 0 01-1.275-.058 25.346 25.346 0 01-19.412-12.185 7.343 7.343 0 01-.023-.58c0-7.09 9.729-12.837 21.734-12.837a36.6 36.6 0 013.665.183c10.257 1.027 18.069 6.302 18.069 12.654z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__w)'
+        fill={`url(#${_id18})`}
         d='M43.361 39.516A21.488 21.488 0 0040 39.253c-1.002 0-2.005.07-2.967.204-7.766 1.08-13.657 6.328-13.657 12.636 0 2.982 1.315 5.725 3.522 7.905 2.674 2.638 6.657 4.448 11.195 4.849a20.385 20.385 0 001.907.084c.143 0 .286 0 .43-.004a22.278 22.278 0 001.648-.096c4.461-.428 8.374-2.224 11.014-4.825 2.214-2.18 3.533-4.927 3.533-7.913 0-6.202-5.693-11.376-13.263-12.577zm3.074 23.421a11.33 11.33 0 01-5.302 1.938h-.011a34.065 34.065 0 01-2.2.004 11.28 11.28 0 01-5.358-1.942 11.435 11.435 0 01-3.82-4.433 11.34 11.34 0 01-1.128-5.342 6.992 6.992 0 01-.008-.347c0-.116.006-.232.01-.348-.004-.124-.01-.25-.01-.374 0-5.388 3.74-9.9 8.765-11.086a11.372 11.372 0 013.335-.282c.645.04 1.273.133 1.885.274 5.041 1.174 8.797 5.695 8.797 11.094 0 .124-.005.25-.009.373.004.117.01.233.01.35 0 .115 0 .232-.008.346a11.324 11.324 0 01-1.136 5.357 11.429 11.429 0 01-3.812 4.418z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__x)'
+        fill={`url(#${_id19})`}
         d='M50.248 58.519a11.43 11.43 0 01-4.471 4.839 11.33 11.33 0 01-4.643 1.517h-.011a34.31 34.31 0 01-2.2.003 11.28 11.28 0 01-5.359-1.942 11.434 11.434 0 01-3.819-4.433c4.747-3.089 7.884-8.44 7.884-14.526 0-1.014-.087-2.007-.255-2.97a11.372 11.372 0 013.335-.283c.644.04 1.273.133 1.885.275a17.438 17.438 0 00-.255 2.978c0 6.095 3.148 11.454 7.909 14.542z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__y)'
+        fill={`url(#${_id20})`}
         d='M50.248 58.519a11.43 11.43 0 01-4.471 4.839 11.33 11.33 0 01-4.643 1.517h-.011a34.31 34.31 0 01-2.2.003 11.28 11.28 0 01-5.359-1.942 11.434 11.434 0 01-3.819-4.433c4.747-3.089 7.884-8.44 7.884-14.526 0-1.014-.087-2.007-.255-2.97a11.372 11.372 0 013.335-.283c.644.04 1.273.133 1.885.275a17.438 17.438 0 00-.255 2.978c0 6.095 3.148 11.454 7.909 14.542z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__z)'
+        fill={`url(#${_id21})`}
         d='M40 38.152c-5.054 0-9.659.352-13.4.827-.452.057-.89.116-1.313.18a18.691 18.691 0 01-2.167.09 5.294 5.294 0 01-2.46-.731c-2.566-1.51-3.669-5.07-2.466-8.462a8.27 8.27 0 01.556-1.248 3.93 3.93 0 002.802 2.557c1.671 1.967 4.173 3.633 7.224 4.828a27.03 27.03 0 002.063.709c2.778.834 5.849 1.25 9.16 1.25z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__A)'
+        fill={`url(#${_id22})`}
         d='M59.342 38.517a5.294 5.294 0 01-2.946.732 18.691 18.691 0 01-1.681-.092 60.894 60.894 0 00-1.313-.179A107.911 107.911 0 0040 38.151c3.312 0 6.385-.415 9.163-1.25a27.03 27.03 0 002.062-.709c3.074-1.205 5.592-2.888 7.263-4.873a3.924 3.924 0 002.747-2.545c.22.402.413.83.573 1.281 1.203 3.392.1 6.953-2.466 8.462z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__B)'
+        fill={`url(#${_id23})`}
         d='M21.552 31.364a3.93 3.93 0 01-2.806-2.57l.002.018c.257 2.427 1.862 4.296 3.804 4.296.236 0 .469-.028.694-.082-.633-.526-1.2-1.08-1.694-1.662z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__C)'
+        fill={`url(#${_id24})`}
         d='M56.735 33.011a3 3 0 00.694.082c1.942 0 3.547-1.87 3.804-4.296l.002-.019a3.93 3.93 0 01-2.805 2.571 13.742 13.742 0 01-1.695 1.662z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__D)'
+        fill={`url(#${_id25})`}
         d='M36.596 38.072l-.034-.092a17.35 17.35 0 00-10.175-10.225 3.72 3.72 0 00.005-.206v-.013c6.08.318 10.753 4.427 10.803 10.501.002.033.002.067.002.1-1.121-.003.474 0-.6-.066z'
       />
       <path
-        fill='url(#MenuContribute__MenuContribute__E)'
+        fill={`url(#${_id26})`}
         d='M53.604 27.757a17.35 17.35 0 00-10.232 10.324c-1.075.066.52.063-.6.065l.001-.107c.054-6.076 4.736-10.185 10.822-10.494 0 .07.003.141.01.212z'
       />
       <defs>
         <radialGradient
-          id='MenuContribute__MenuContribute__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -146,7 +178,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -157,7 +189,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -168,7 +200,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__e'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -180,7 +212,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.833} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__g'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -191,7 +223,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -202,7 +234,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__i'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -213,7 +245,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__j'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -224,7 +256,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__k'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -235,7 +267,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__l'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -246,7 +278,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__m'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -257,7 +289,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__n'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -268,7 +300,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__o'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -279,7 +311,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__p'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -290,7 +322,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__q'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -301,7 +333,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__r'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -312,7 +344,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__s'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -323,7 +355,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__t'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -335,7 +367,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.833} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__v'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -346,7 +378,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__w'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -357,7 +389,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__x'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -368,7 +400,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__y'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -379,7 +411,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__z'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -390,7 +422,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__A'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -401,7 +433,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__B'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -412,7 +444,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__C'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -423,7 +455,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__D'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -434,7 +466,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuContribute__MenuContribute__E'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -445,7 +477,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4051F2' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='MenuContribute__MenuContribute__f'
+          id={_id27}
           x1={12.489}
           x2={29.193}
           y1={62.936}
@@ -456,7 +488,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuContribute__MenuContribute__u'
+          id={_id28}
           x1={14.489}
           x2={31.193}
           y1={59.936}
@@ -467,7 +499,7 @@ export const MenuContribute = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <filter
-          id='MenuContribute__MenuContribute__a'
+          id={_id29}
           width={66.656}
           height={65.86}
           x={4.672}

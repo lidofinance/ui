@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Nile = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Nile = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Nile = (props: SVGProps<SVGSVGElement>) => {
         d='M43.678 23.869l2.37 2.227-.795.73a6485.528 6485.528 0 01-4.924 4.517l-3.291-3.109-2.067-1.953c1.02-.954 2.024-1.89 3.009-2.81L40.626 21l3.052 2.869zm14.377 27.764V33.47h6.942v21.09h-3.154a2707.703 2707.703 0 01-.868 4.868c-14.1-2.4-26.655-8.061-38.027-16.928v12.044H16V26.816l.11-.132.11-.132c11.417 12.426 24.963 21.332 41.835 25.08z'
         clipRule='evenodd'
       />
-      <g filter='url(#Nile__Nile__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#9BD5E0'
           fillOpacity={0.7}
@@ -22,7 +24,7 @@ export const Nile = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Nile__Nile__a'
+          id={_id}
           width={76.998}
           height={66.427}
           x={2}

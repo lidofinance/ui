@@ -2,76 +2,94 @@
 
 import React, { SVGProps } from 'react'
 
-export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Synfutures = function (props: SVGProps<SVGSVGElement>) {
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Synfutures__Synfutures__a)'>
-        <g filter='url(#Synfutures__Synfutures__b)' opacity={0.8}>
+      <g clipPath={`url(#${_id13})`}>
+        <g filter={`url(#${_id15})`} opacity={0.8}>
           <path
-            fill='url(#Synfutures__Synfutures__c)'
+            fill={`url(#${_id})`}
             fillRule='evenodd'
             d='M44.13 12L23.017 24.189v7.062l4.109 2.372-3.938 2.274-.17-.1v12.004l21.095 12.18V60l21.11-12.188V24.2l-3.562 2.057v-4.134L44.13 12zm14.933 32.303v.003l-14.934 8.621v-.002l14.934-8.622zM44.071 52.89L29.18 44.274v.02l14.891 8.597z'
             clipRule='evenodd'
           />
         </g>
-        <g clipPath='url(#Synfutures__Synfutures__d)'>
+        <g clipPath={`url(#${_id14})`}>
           <path
-            fill='url(#Synfutures__Synfutures__e)'
+            fill={`url(#${_id2})`}
             d='M51.505 38.598c4.33-2.41 8.207-4.63 8.207-4.63L40.129 23.115V44.54c.675-.211 2.426-1.088 4.619-2.251l6.757 3.901v-7.592z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__f)'
+            fill={`url(#${_id3})`}
             d='M40.13 23.115L20.546 33.163s17.1 9.793 19.582 10.572v-20.62z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__g)'
+            fill={`url(#${_id4})`}
             d='M51.505 46.19l-11.41-6.587-14.937 8.658 14.971 8.664 14.984-8.651v-4.166l-3.608 2.083z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__h)'
+            fill={`url(#${_id5})`}
             d='M33.99 32.887v15.535l6.162 3.558V36.445l-6.162-3.558z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__i)'
+            fill={`url(#${_id6})`}
             d='M40.152 36.445v15.534l6.162-3.558V32.887l-6.162 3.558z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__j)'
+            fill={`url(#${_id7})`}
             d='M30.81 40.105l-5.63 3.25v4.919l9.235-5.332-3.605-2.837z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__k)'
+            fill={`url(#${_id8})`}
             d='M31.127 39.921l-5.947 3.434-5.991-3.458 5.947-3.434 5.991 3.458z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__l)'
+            fill={`url(#${_id9})`}
             d='M19.018 28.189v7.062L40.13 47.44v-7.063L19.02 28.189z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__m)'
+            fill={`url(#${_id0})`}
             d='M25.18 43.355l-6.162-3.557V51.8L40.13 63.99v-7.065l-14.949-8.63v-4.94z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__n)'
+            fill={`url(#${_id1})`}
             d='M40.13 16L19.017 28.189l6.162 3.558 14.95-8.631L51.5 29.68l6.162-3.558L40.13 16z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__o)'
+            fill={`url(#${_id10})`}
             d='M33.99 32.887l6.162 3.558 6.117-3.532-6.162-3.557-6.117 3.531z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__p)'
+            fill={`url(#${_id11})`}
             d='M51.5 29.68v16.514l6.162-3.558V26.123l-6.161 3.557z'
           />
           <path
-            fill='url(#Synfutures__Synfutures__q)'
+            fill={`url(#${_id12})`}
             d='M40.114 40.389v7.063l14.949-8.63v9.483l-14.95 8.631V64l21.112-12.188V28.2L40.114 40.39z'
           />
         </g>
       </g>
       <defs>
         <linearGradient
-          id='Synfutures__Synfutures__c'
+          id={_id}
           x1={3.116}
           x2={93.762}
           y1={68.234}
@@ -85,7 +103,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#006499' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__e'
+          id={_id2}
           x1={50.156}
           x2={49.503}
           y1={9.732}
@@ -96,7 +114,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#002D4D' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__f'
+          id={_id3}
           x1={30.338}
           x2={30.338}
           y1={57.365}
@@ -107,7 +125,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#002D4D' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__g'
+          id={_id4}
           x1={6.916}
           x2={29.66}
           y1={25.053}
@@ -118,7 +136,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#002D4D' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__h'
+          id={_id5}
           x1={37.373}
           x2={32.381}
           y1={26.835}
@@ -129,7 +147,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#002D4D' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__i'
+          id={_id6}
           x1={43.233}
           x2={43.233}
           y1={15.991}
@@ -140,7 +158,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#002D4D' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__j'
+          id={_id7}
           x1={46.484}
           x2={22.442}
           y1={33.888}
@@ -151,7 +169,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#002D4D' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__k'
+          id={_id8}
           x1={7.131}
           x2={33.211}
           y1={29.006}
@@ -162,7 +180,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#002D4D' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__l'
+          id={_id9}
           x1={5.634}
           x2={73.449}
           y1={21.855}
@@ -176,7 +194,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.994} stopColor='#006499' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__m'
+          id={_id0}
           x1={1.981}
           x2={83.69}
           y1={34.161}
@@ -190,7 +208,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.993} stopColor='#006499' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__n'
+          id={_id1}
           x1={67.014}
           x2={47.613}
           y1={8.379}
@@ -204,7 +222,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#006499' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__o'
+          id={_id10}
           x1={22.226}
           x2={67.008}
           y1={44.357}
@@ -218,7 +236,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#006499' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__p'
+          id={_id11}
           x1={54.662}
           x2={53.486}
           y1={14.02}
@@ -229,7 +247,7 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#002D4D' />
         </linearGradient>
         <linearGradient
-          id='Synfutures__Synfutures__q'
+          id={_id12}
           x1={-0.884}
           x2={89.762}
           y1={72.234}
@@ -242,14 +260,14 @@ export const Synfutures = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.869} stopColor='#0370A0' />
           <stop offset={1} stopColor='#006499' />
         </linearGradient>
-        <clipPath id='Synfutures__Synfutures__a'>
+        <clipPath id={_id13}>
           <path fill='#fff' d='M.018 0h80v80h-80z' />
         </clipPath>
-        <clipPath id='Synfutures__Synfutures__d'>
+        <clipPath id={_id14}>
           <path fill='#fff' d='M19.018 16h42.207v48H19.018z' />
         </clipPath>
         <filter
-          id='Synfutures__Synfutures__b'
+          id={_id15}
           width={78.207}
           height={84}
           x={5.018}

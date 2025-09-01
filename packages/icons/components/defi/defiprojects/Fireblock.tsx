@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Fireblock = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Fireblock = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Fireblock__Fireblock__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#141A2C'
           fillOpacity={0.4}
@@ -22,7 +24,7 @@ export const Fireblock = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Fireblock__Fireblock__a'
+          id={_id}
           width={64}
           height={63}
           x={8.011}

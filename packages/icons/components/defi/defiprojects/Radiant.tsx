@@ -2,22 +2,26 @@
 
 import React, { SVGProps } from 'react'
 
-export const Radiant = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Radiant = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
-        fill='url(#Radiant__Radiant__a)'
+        fill={`url(#${_id})`}
         d='M47.682 43.182L67 40l-19.318-3.182 11.41-15.91-15.91 11.41L40 13l-3.182 19.318-15.91-11.41 11.41 15.91L13 40l19.318 3.182-11.41 15.91 15.91-11.41L40 67l3.182-19.318 15.91 11.41-11.41-15.91z'
       />
-      <g filter='url(#Radiant__Radiant__b)' opacity={0.7}>
+      <g filter={`url(#${_id3})`} opacity={0.7}>
         <path
-          fill='url(#Radiant__Radiant__c)'
+          fill={`url(#${_id2})`}
           d='M52.682 41.182L72 38l-19.318-3.182 11.41-15.91-15.91 11.41L45 11l-3.182 19.318-15.91-11.41 11.41 15.91L18 38l19.318 3.182-11.41 15.91 15.91-11.41L45 65l3.182-19.318 15.91 11.41-11.41-15.91z'
         />
       </g>
       <defs>
         <linearGradient
-          id='Radiant__Radiant__a'
+          id={_id}
           x1={40}
           x2={40}
           y1={13.436}
@@ -28,7 +32,7 @@ export const Radiant = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.999} stopColor='#5F00FA' />
         </linearGradient>
         <linearGradient
-          id='Radiant__Radiant__c'
+          id={_id2}
           x1={45}
           x2={45}
           y1={11.436}
@@ -39,7 +43,7 @@ export const Radiant = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.999} stopColor='#5F00FA' />
         </linearGradient>
         <filter
-          id='Radiant__Radiant__b'
+          id={_id3}
           width={70}
           height={70}
           x={10}

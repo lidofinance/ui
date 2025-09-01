@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const KELP = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const KELP = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#KELP__KELP__a)'>
-        <g filter='url(#KELP__KELP__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#075A5A'
             fillOpacity={0.6}
@@ -23,11 +26,11 @@ export const KELP = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='KELP__KELP__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='KELP__KELP__b'
+          id={_id2}
           width={65}
           height={75.622}
           x={8}

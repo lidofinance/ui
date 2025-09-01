@@ -2,10 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const Cian = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Cian = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Cian__Cian__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#F5C938'
           fillRule='evenodd'
@@ -13,7 +16,7 @@ export const Cian = (props: SVGProps<SVGSVGElement>) => {
           clipRule='evenodd'
         />
       </g>
-      <g filter='url(#Cian__Cian__b)' opacity={0.5}>
+      <g filter={`url(#${_id2})`} opacity={0.5}>
         <path
           fill='#F5C938'
           d='M33 61c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16z'
@@ -27,7 +30,7 @@ export const Cian = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Cian__Cian__a'
+          id={_id}
           width={51}
           height={59}
           x={20}
@@ -43,7 +46,7 @@ export const Cian = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Cian__Cian__b'
+          id={_id2}
           width={60}
           height={60}
           x={3}

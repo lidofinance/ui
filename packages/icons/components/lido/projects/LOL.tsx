@@ -2,58 +2,80 @@
 
 import React, { SVGProps } from 'react'
 
-export const LOL = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const LOL = function (props: SVGProps<SVGSVGElement>) {
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={500} height={500} viewBox='0 0 500 500' fill='none' {...props}>
-      <g filter='url(#LOL__LOL__a)' opacity={0.5}>
+      <g filter={`url(#${_id19})`} opacity={0.5}>
         <circle
           cx={233}
           cy={302}
           r={133}
-          fill='url(#LOL__LOL__b)'
+          fill={`url(#${_id})`}
           fillOpacity={0.8}
         />
         <path
-          fill='url(#LOL__LOL__c)'
+          fill={`url(#${_id2})`}
           d='M139 207.128l93.59 53.499V64L139 207.128z'
         />
         <path
-          fill='url(#LOL__LOL__d)'
+          fill={`url(#${_id3})`}
           d='M139 207.128l93.59 53.499V64L139 207.128z'
         />
         <path
-          fill='url(#LOL__LOL__e)'
+          fill={`url(#${_id4})`}
           d='M326.023 207.128l-93.434 53.499V64l93.434 143.128z'
         />
         <path
-          fill='url(#LOL__LOL__f)'
+          fill={`url(#${_id5})`}
           d='M326.023 207.128l-93.434 53.499V64l93.434 143.128z'
         />
         <path
-          fill='url(#LOL__LOL__g)'
+          fill={`url(#${_id17})`}
           fillOpacity={0.6}
           d='M326.023 207.128l-93.434 53.499V64l93.434 143.128z'
         />
         <path
-          fill='url(#LOL__LOL__h)'
+          fill={`url(#${_id6})`}
           fillRule='evenodd'
           d='M366 303.78C366 376.803 306.454 436 233 436c-73.454 0-133-59.197-133-132.22 0-11.781 1.55-23.202 4.458-34.073 18.347-4.913 33.355 2.376 51.905 11.385 23.992 11.652 53.408 32.682 104.137 27.408 40.8-5.6 77.4-61.733 83.4-77.733-.3-.258.3.254 0 0 13.965 20.922 22.1 46.023 22.1 73.013z'
           clipRule='evenodd'
         />
         <path
-          fill='url(#LOL__LOL__i)'
+          fill={`url(#${_id7})`}
           fillRule='evenodd'
           d='M366 303.78C366 376.803 306.454 436 233 436c-73.454 0-133-59.197-133-132.22 0-11.781 1.55-23.202 4.458-34.073 18.347-4.913 33.355 2.376 51.905 11.385 23.992 11.652 53.408 32.682 104.137 27.408 40.8-5.6 77.4-61.733 83.4-77.733-.3-.258.3.254 0 0 13.965 20.922 22.1 46.023 22.1 73.013z'
           clipRule='evenodd'
         />
         <path
-          fill='url(#LOL__LOL__j)'
+          fill={`url(#${_id8})`}
           fillRule='evenodd'
           d='M366 303.395c0 73.023-59.546 132.22-133 132.22-73.454 0-133-59.197-133-132.22 0-25.878 7.478-50.02 20.404-70.406.973-1.535 2.521-2.613 4.316-2.9 19.965-3.203 56.056 2.817 103.28 50.411 51.893 43.428 112.879 19.69 137.683 13.692.21 3.041.317 6.109.317 9.203z'
           clipRule='evenodd'
         />
         <path
-          fill='url(#LOL__LOL__k)'
+          fill={`url(#${_id9})`}
           fillRule='evenodd'
           d='M366 303.395c0 73.023-59.546 132.22-133 132.22-73.454 0-133-59.197-133-132.22 0-25.878 7.478-50.02 20.404-70.406.973-1.535 2.521-2.613 4.316-2.9 19.965-3.203 56.056 2.817 103.28 50.411 51.893 43.428 112.879 19.69 137.683 13.692.21 3.041.317 6.109.317 9.203z'
           clipRule='evenodd'
@@ -63,57 +85,57 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
         cx={250}
         cy={302}
         r={133}
-        fill='url(#LOL__LOL__l)'
+        fill={`url(#${_id0})`}
         fillOpacity={0.8}
       />
       <path
-        fill='url(#LOL__LOL__m)'
+        fill={`url(#${_id1})`}
         d='M156 207.128l93.59 53.499V64L156 207.128z'
       />
       <path
-        fill='url(#LOL__LOL__n)'
+        fill={`url(#${_id10})`}
         d='M156 207.128l93.59 53.499V64L156 207.128z'
       />
       <path
-        fill='url(#LOL__LOL__o)'
+        fill={`url(#${_id11})`}
         d='M343.023 207.128l-93.434 53.499V64l93.434 143.128z'
       />
       <path
-        fill='url(#LOL__LOL__p)'
+        fill={`url(#${_id12})`}
         d='M343.023 207.128l-93.434 53.499V64l93.434 143.128z'
       />
       <path
-        fill='url(#LOL__LOL__q)'
+        fill={`url(#${_id18})`}
         fillOpacity={0.6}
         d='M343.023 207.128l-93.434 53.499V64l93.434 143.128z'
       />
       <path
-        fill='url(#LOL__LOL__r)'
+        fill={`url(#${_id13})`}
         fillRule='evenodd'
         d='M383 303.78C383 376.803 323.454 436 250 436c-73.454 0-133-59.197-133-132.22 0-11.781 1.55-23.202 4.458-34.073 18.347-4.913 48.493-2.716 67.042 6.293 27.5 13.356 52.5 37.51 89 32.5 40.8-5.6 77.4-61.733 83.4-77.733-.3-.258.3.254 0 0 13.965 20.922 22.1 46.023 22.1 73.013z'
         clipRule='evenodd'
       />
       <path
-        fill='url(#LOL__LOL__s)'
+        fill={`url(#${_id14})`}
         fillRule='evenodd'
         d='M383 303.78C383 376.803 323.454 436 250 436c-73.454 0-133-59.197-133-132.22 0-11.781 1.55-23.202 4.458-34.073 18.347-4.913 48.493-2.716 67.042 6.293 27.5 13.356 52.5 37.51 89 32.5 40.8-5.6 77.4-61.733 83.4-77.733-.3-.258.3.254 0 0 13.965 20.922 22.1 46.023 22.1 73.013z'
         clipRule='evenodd'
       />
       <path
-        fill='url(#LOL__LOL__t)'
+        fill={`url(#${_id15})`}
         fillRule='evenodd'
         d='M383 303.395c0 73.023-59.546 132.22-133 132.22-73.454 0-133-59.197-133-132.22 0-25.878 7.478-50.02 20.404-70.406.973-1.535 2.521-2.613 4.316-2.9 19.965-3.203 56.056 2.817 103.28 50.411 51.893 43.428 112.879 19.69 137.683 13.692.21 3.041.317 6.109.317 9.203z'
         clipRule='evenodd'
       />
       <path
-        fill='url(#LOL__LOL__u)'
+        fill={`url(#${_id16})`}
         fillRule='evenodd'
         d='M383 303.395c0 73.023-59.546 132.22-133 132.22-73.454 0-133-59.197-133-132.22 0-25.878 7.478-50.02 20.404-70.406.973-1.535 2.521-2.613 4.316-2.9 19.965-3.203 56.056 2.817 103.28 50.411 51.893 43.428 112.879 19.69 137.683 13.692.21 3.041.317 6.109.317 9.203z'
         clipRule='evenodd'
       />
       <defs>
         <radialGradient
-          id='LOL__LOL__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -124,7 +146,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#35C2FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -135,7 +157,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -147,7 +169,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__e'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -159,7 +181,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__f'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -170,7 +192,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -182,7 +204,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__i'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -193,7 +215,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__j'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -205,7 +227,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0083FB' />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__k'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -216,7 +238,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__l'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -227,7 +249,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#35C2FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__m'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -238,7 +260,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__n'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -250,7 +272,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__o'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -262,7 +284,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__p'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -273,7 +295,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__r'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -285,7 +307,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__s'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -296,7 +318,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__t'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -308,7 +330,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0083FB' />
         </radialGradient>
         <radialGradient
-          id='LOL__LOL__u'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -319,7 +341,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='LOL__LOL__g'
+          id={_id17}
           x1={326.517}
           x2={265.064}
           y1={236.867}
@@ -330,7 +352,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LOL__LOL__q'
+          id={_id18}
           x1={343.517}
           x2={282.064}
           y1={236.867}
@@ -341,7 +363,7 @@ export const LOL = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <filter
-          id='LOL__LOL__a'
+          id={_id19}
           width={374}
           height={480}
           x={46}

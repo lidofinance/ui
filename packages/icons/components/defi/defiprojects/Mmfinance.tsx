@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Mmfinance = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Mmfinance = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Mmfinance__Mmfinance__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#A8A8A8'
           d='M23.007 44.379l.061-.005c.004.025.011.049.011.073v1.17a.062.062 0 01-.028 0h-.044V44.38zm20.171-20.347a.043.043 0 000-.034h1.765a.036.036 0 00-.001.035c-.08.002-.16.006-.24.006h-1.283c-.08 0-.16-.004-.24-.006z'
@@ -3484,7 +3486,7 @@ export const Mmfinance = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Mmfinance__Mmfinance__a'
+          id={_id}
           width={64.04}
           height={64}
           x={12.007}

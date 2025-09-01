@@ -2,18 +2,24 @@
 
 import React, { SVGProps } from 'react'
 
-export const Slope = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Slope = function (props: SVGProps<SVGSVGElement>) {
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Slope__Slope__a)' opacity={0.4}>
+      <g filter={`url(#${_id5})`} opacity={0.4}>
         <path
-          fill='url(#Slope__Slope__b)'
+          fill={`url(#${_id})`}
           fillRule='evenodd'
           d='M54.59 20.352l-11.592 11.62L35 30.173l9.795-9.824 8.163-8.073a.959.959 0 011.633.682v7.393zm-9.795 19.59l9.796-9.769v-9.821l-11.363 11.39 1.567 8.2z'
           clipRule='evenodd'
         />
         <path
-          fill='url(#Slope__Slope__c)'
+          fill={`url(#${_id2})`}
           fillRule='evenodd'
           d='M44.795 49.681v-9.794l9.796-9.795 3.76 6.036.144-.145 5.891 3.904L46.43 57.718a.96.96 0 01-1.635-.68v-7.357z'
           clipRule='evenodd'
@@ -24,13 +30,13 @@ export const Slope = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <path
-        fill='url(#Slope__Slope__d)'
+        fill={`url(#${_id3})`}
         fillRule='evenodd'
         d='M45.814 23.273L32.576 36.542l-9.134-2.052 11.186-11.22 9.321-9.22a1.096 1.096 0 011.865.779v8.444zm-11.186 22.37l11.186-11.155V23.273L32.839 36.28l1.789 9.362z'
         clipRule='evenodd'
       />
       <path
-        fill='url(#Slope__Slope__e)'
+        fill={`url(#${_id4})`}
         fillRule='evenodd'
         d='M34.628 56.766V45.582l11.186-11.186 4.294 6.893.165-.166L57 45.582 36.495 65.945a1.096 1.096 0 01-1.867-.777v-8.402z'
         clipRule='evenodd'
@@ -41,7 +47,7 @@ export const Slope = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <linearGradient
-          id='Slope__Slope__b'
+          id={_id}
           x1={44.795}
           x2={44.795}
           y1={11.998}
@@ -52,7 +58,7 @@ export const Slope = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#C9CCFF' />
         </linearGradient>
         <linearGradient
-          id='Slope__Slope__c'
+          id={_id2}
           x1={54.591}
           x2={54.591}
           y1={30.09}
@@ -63,7 +69,7 @@ export const Slope = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3524DD' />
         </linearGradient>
         <linearGradient
-          id='Slope__Slope__d'
+          id={_id3}
           x1={34.628}
           x2={34.628}
           y1={13.733}
@@ -74,7 +80,7 @@ export const Slope = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#C9CCFF' />
         </linearGradient>
         <linearGradient
-          id='Slope__Slope__e'
+          id={_id4}
           x1={45.814}
           x2={45.814}
           y1={34.394}
@@ -85,7 +91,7 @@ export const Slope = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3524DD' />
         </linearGradient>
         <filter
-          id='Slope__Slope__a'
+          id={_id5}
           width={53.386}
           height={69.997}
           x={23}

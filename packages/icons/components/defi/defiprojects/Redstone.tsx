@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Redstone = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Redstone = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Redstone__Redstone__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#FD627A'
           fillOpacity={0.7}
@@ -22,7 +24,7 @@ export const Redstone = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Redstone__Redstone__a'
+          id={_id}
           width={70.655}
           height={63.845}
           x={5.015}

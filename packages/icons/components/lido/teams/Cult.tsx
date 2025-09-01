@@ -2,16 +2,55 @@
 
 import React, { SVGProps } from 'react'
 
-export const Cult = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Cult = function (props: SVGProps<SVGSVGElement>) {
+  const _id36 = useUniqueInlineId()
+  const _id35 = useUniqueInlineId()
+  const _id34 = useUniqueInlineId()
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
-      <g filter='url(#Cult__Cult__a)' opacity={0.4}>
+      <g filter={`url(#${_id36})`} opacity={0.4}>
         <path
-          fill='url(#Cult__Cult__b)'
+          fill={`url(#${_id})`}
           d='M269.845 452.424c63.27 0 114.561-50.99 114.561-113.888 0-24.138-7.554-46.521-20.438-64.942l-94.89 56.788-94.889-54.538c-11.948 17.981-18.904 39.529-18.904 62.692 0 62.898 51.29 113.888 114.56 113.888z'
         />
         <path
-          fill='url(#Cult__Cult__c)'
+          fill={`url(#${_id2})`}
           fillOpacity={0.2}
           d='M269.845 452.424c63.27 0 114.561-50.99 114.561-113.888 0-24.138-7.554-46.521-20.438-64.942l-94.89 56.788-94.889-54.538c-11.948 17.981-18.904 39.529-18.904 62.692 0 62.898 51.29 113.888 114.56 113.888z'
         />
@@ -21,69 +60,69 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           d='M270.732 294.366c.334.061.5-.112.801-.133.303-.02.48.129.751.142.601.027.998-.496.739-.964a.737.737 0 00-.335-.294c-.021-.009-.066-.033-.084-.017-.032.028-.004.218-.095.265-.083.042-.195.007-.212-.078-.011-.058.027-.172.035-.236a5.012 5.012 0 00-.015-1.4 4.024 4.024 0 00-.09-.42h-1.247c-.018.098-.048.195-.066.292a5.39 5.39 0 00-.076 1.113c-.001.2.06.407.074.602.013.171-.22.195-.271.048-.022-.062-.015-.135-.034-.198a.699.699 0 00-.482.464c-.103.376.175.735.607.814zm.214-3.372h1.316c.013 0 .018-.026.019-.035.03-.259-.247-.544-.543-.58v.112c0 .069-.099.12-.176.101-.045-.012-.099-.068-.099-.108v-.105c-.318.051-.572.324-.536.604a.052.052 0 00.019.011z'
         />
         <path
-          fill='url(#Cult__Cult__d)'
+          fill={`url(#${_id3})`}
           d='M189.169 255.379l80.676 46.116V132l-80.676 123.379z'
         />
         <path
-          fill='url(#Cult__Cult__e)'
+          fill={`url(#${_id32})`}
           fillOpacity={0.3}
           d='M189.169 255.379l80.676 46.116V132l-80.676 123.379z'
         />
         <path
-          fill='url(#Cult__Cult__f)'
+          fill={`url(#${_id4})`}
           d='M350.387 255.379l-80.542 46.116V132l80.542 123.379z'
         />
         <path
-          fill='url(#Cult__Cult__g)'
+          fill={`url(#${_id33})`}
           fillOpacity={0.6}
           d='M350.387 255.379l-80.542 46.116V132l80.542 123.379z'
         />
         <path
-          fill='url(#Cult__Cult__h)'
+          fill={`url(#${_id5})`}
           d='M363.968 273.572l-94.122 56.677V451.89l94.122-178.318z'
         />
         <path
-          fill='url(#Cult__Cult__i)'
+          fill={`url(#${_id6})`}
           d='M363.968 273.572l-94.122 56.677V451.89l94.122-178.318z'
         />
         <path
-          fill='url(#Cult__Cult__j)'
+          fill={`url(#${_id7})`}
           d='M363.968 273.572l-94.122 56.677V451.89l94.122-178.318z'
         />
         <path
-          fill='url(#Cult__Cult__k)'
+          fill={`url(#${_id8})`}
           d='M174.11 275.709l95.736 54.538v121.641L174.11 275.709z'
         />
         <path
-          fill='url(#Cult__Cult__l)'
+          fill={`url(#${_id9})`}
           d='M174.11 275.709l95.736 54.538v121.641L174.11 275.709z'
         />
         <path
-          fill='url(#Cult__Cult__m)'
+          fill={`url(#${_id0})`}
           d='M174.11 275.709l95.736 54.538v121.641L174.11 275.709z'
         />
         <path
-          fill='url(#Cult__Cult__n)'
+          fill={`url(#${_id1})`}
           d='M269.846 290.042a49.363 49.363 0 00-.088 2.964c0-24.05-17.323-44.059-40.19-48.239a49.475 49.475 0 00-8.882-.801 48.896 48.896 0 00-31.49 11.428l80.65 46.101v-11.453z'
         />
         <path
-          fill='url(#Cult__Cult__o)'
+          fill={`url(#${_id10})`}
           d='M269.846 290.042a49.363 49.363 0 00-.088 2.964c0-24.05-17.323-44.059-40.19-48.239a49.475 49.475 0 00-8.882-.801 48.896 48.896 0 00-31.49 11.428l80.65 46.101v-11.453z'
         />
         <path
-          fill='url(#Cult__Cult__p)'
+          fill={`url(#${_id11})`}
           d='M269.658 452.424c-3.327-3.17-89.076-85.434-97.37-151.292a.174.174 0 00-.005-.039c-.002-.013-.004-.026-.004-.039a94.607 94.607 0 01-.655-7.712c-.009-.112-.009-.224-.009-.336a48.913 48.913 0 013.026-16.993l94.926 54.076 88.456-52.938 5.888-3.545a48.854 48.854 0 013.989 19.4c0 .112 0 .224-.009.336a94.607 94.607 0 01-.655 7.712c0 .026-.009.052-.009.078-8.294 65.859-94.045 148.124-97.37 151.292h-.199z'
         />
         <path
-          fill='url(#Cult__Cult__q)'
+          fill={`url(#${_id12})`}
           d='M269.658 452.424c-3.327-3.17-89.076-85.434-97.37-151.292a.174.174 0 00-.005-.039c-.002-.013-.004-.026-.004-.039a94.607 94.607 0 01-.655-7.712c-.009-.112-.009-.224-.009-.336a48.913 48.913 0 013.026-16.993l94.926 54.076 88.456-52.938 5.888-3.545a48.854 48.854 0 013.989 19.4c0 .112 0 .224-.009.336a94.607 94.607 0 01-.655 7.712c0 .026-.009.052-.009.078-8.294 65.859-94.045 148.124-97.37 151.292h-.199z'
         />
         <path
-          fill='url(#Cult__Cult__r)'
+          fill={`url(#${_id13})`}
           d='M269.846 290.04c1.356-22.714 18.181-41.267 40.101-45.273a49.483 49.483 0 018.882-.801 48.89 48.89 0 0131.507 11.442l-80.49 46.087V290.04z'
         />
         <path
-          fill='url(#Cult__Cult__s)'
+          fill={`url(#${_id14})`}
           d='M269.846 290.04c1.356-22.714 18.181-41.267 40.101-45.273a49.483 49.483 0 018.882-.801 48.89 48.89 0 0131.507 11.442l-80.49 46.087V290.04z'
         />
       </g>
@@ -91,87 +130,87 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
         cx={252.512}
         cy={292.177}
         r={132.227}
-        fill='url(#Cult__Cult__t)'
+        fill={`url(#${_id15})`}
         fillOpacity={0.4}
       />
       <path
-        fill='url(#Cult__Cult__u)'
+        fill={`url(#${_id16})`}
         d='M252.605 424.475c72.956 0 132.098-58.795 132.098-131.322 0-27.832-8.71-53.642-23.567-74.883l-109.415 65.481-109.415-62.887c-13.778 20.734-21.798 45.58-21.798 72.289 0 72.527 59.142 131.322 132.097 131.322z'
       />
       <path
-        fill='url(#Cult__Cult__v)'
+        fill={`url(#${_id17})`}
         fillOpacity={0.2}
         d='M252.605 424.475c72.956 0 132.098-58.795 132.098-131.322 0-27.832-8.71-53.642-23.567-74.883l-109.415 65.481-109.415-62.887c-13.778 20.734-21.798 45.58-21.798 72.289 0 72.527 59.142 131.322 132.097 131.322z'
       />
       <path
-        fill='url(#Cult__Cult__w)'
+        fill={`url(#${_id18})`}
         d='M159.579 197.266l93.026 53.176V55l-93.026 142.266z'
       />
       <path
-        fill='url(#Cult__Cult__x)'
+        fill={`url(#${_id34})`}
         fillOpacity={0.3}
         d='M159.579 197.266l93.026 53.176V55l-93.026 142.266z'
       />
       <path
-        fill='url(#Cult__Cult__y)'
+        fill={`url(#${_id19})`}
         d='M345.477 197.266l-92.872 53.176V55l92.872 142.266z'
       />
       <path
-        fill='url(#Cult__Cult__z)'
+        fill={`url(#${_id35})`}
         fillOpacity={0.7}
         d='M345.477 197.266l-92.872 53.176V55l92.872 142.266z'
       />
       <path
-        fill='url(#Cult__Cult__A)'
+        fill={`url(#${_id20})`}
         d='M361.136 218.244l-108.531 65.353v140.262l108.531-205.615z'
       />
       <path
-        fill='url(#Cult__Cult__B)'
+        fill={`url(#${_id21})`}
         d='M361.136 218.244l-108.531 65.353v140.262l108.531-205.615z'
       />
       <path
-        fill='url(#Cult__Cult__C)'
+        fill={`url(#${_id22})`}
         d='M361.136 218.244l-108.531 65.353v140.262l108.531-205.615z'
       />
       <path
-        fill='url(#Cult__Cult__D)'
+        fill={`url(#${_id23})`}
         d='M142.214 220.709l110.391 62.887v140.263l-110.391-203.15z'
       />
       <path
-        fill='url(#Cult__Cult__E)'
+        fill={`url(#${_id24})`}
         d='M142.214 220.709l110.391 62.887v140.263l-110.391-203.15z'
       />
       <path
-        fill='url(#Cult__Cult__F)'
+        fill={`url(#${_id25})`}
         d='M142.214 220.709l110.391 62.887v140.263l-110.391-203.15z'
       />
       <path
-        fill='url(#Cult__Cult__G)'
+        fill={`url(#${_id26})`}
         d='M252.606 237.236a56.924 56.924 0 00-.102 3.417c0-27.732-19.974-50.804-46.342-55.623a56.99 56.99 0 00-10.241-.924 56.375 56.375 0 00-36.311 13.178l92.996 53.158v-13.206z'
       />
       <path
-        fill='url(#Cult__Cult__H)'
+        fill={`url(#${_id27})`}
         d='M252.606 237.236a56.924 56.924 0 00-.102 3.417c0-27.732-19.974-50.804-46.342-55.623a56.99 56.99 0 00-10.241-.924 56.375 56.375 0 00-36.311 13.178l92.996 53.158v-13.206z'
       />
       <path
-        fill='url(#Cult__Cult__I)'
+        fill={`url(#${_id28})`}
         d='M252.389 424.475c-3.836-3.655-102.711-98.512-112.276-174.452a.22.22 0 00-.005-.044c-.002-.015-.005-.03-.005-.045-.387-3.11-.636-6.071-.755-8.893-.01-.129-.01-.258-.01-.388a56.394 56.394 0 013.489-19.594l109.458 62.355 101.997-61.042 6.788-4.088a56.315 56.315 0 014.6 22.369c0 .13 0 .259-.009.388-.12 2.822-.368 5.783-.756 8.893 0 .03-.01.06-.01.089-9.564 75.941-108.443 170.8-112.276 174.452h-.23z'
       />
       <path
-        fill='url(#Cult__Cult__J)'
+        fill={`url(#${_id29})`}
         d='M252.389 424.475c-3.836-3.655-102.711-98.512-112.276-174.452a.22.22 0 00-.005-.044c-.002-.015-.005-.03-.005-.045-.387-3.11-.636-6.071-.755-8.893-.01-.129-.01-.258-.01-.388a56.394 56.394 0 013.489-19.594l109.458 62.355 101.997-61.042 6.788-4.088a56.315 56.315 0 014.6 22.369c0 .13 0 .259-.009.388-.12 2.822-.368 5.783-.756 8.893 0 .03-.01.06-.01.089-9.564 75.941-108.443 170.8-112.276 174.452h-.23z'
       />
       <path
-        fill='url(#Cult__Cult__K)'
+        fill={`url(#${_id30})`}
         d='M252.606 237.233c1.563-26.191 20.965-47.583 46.24-52.203a56.999 56.999 0 0110.241-.924 56.381 56.381 0 0136.331 13.194l-92.812 53.142v-13.209z'
       />
       <path
-        fill='url(#Cult__Cult__L)'
+        fill={`url(#${_id31})`}
         d='M252.606 237.233c1.563-26.191 20.965-47.583 46.24-52.203a56.999 56.999 0 0110.241-.924 56.381 56.381 0 0136.331 13.194l-92.812 53.142v-13.209z'
       />
       <defs>
         <radialGradient
-          id='Cult__Cult__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -183,7 +222,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A19F6' />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__c'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -194,7 +233,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#fff' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -205,7 +244,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.848} stopColor='#FF4874' stopOpacity={0.2} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__f'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -216,7 +255,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0500FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__h'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -227,7 +266,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#BD00FF' stopOpacity={0.1} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__i'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -238,7 +277,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FAC5FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__j'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -249,7 +288,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__k'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -261,7 +300,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#322EFF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__l'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -272,7 +311,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__m'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -283,7 +322,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3A70FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__n'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -294,7 +333,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__o'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -307,7 +346,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF2FA0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__p'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -318,7 +357,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__q'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -331,7 +370,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF2FA0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__r'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -342,7 +381,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__s'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -355,7 +394,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF2FA0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__t'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -366,7 +405,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#fff' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__u'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -378,7 +417,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A19F6' />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__v'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -389,7 +428,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#fff' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__w'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -400,7 +439,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.848} stopColor='#FF4874' stopOpacity={0.2} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__y'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -411,7 +450,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0500FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__A'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -422,7 +461,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#BD00FF' stopOpacity={0.1} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__B'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -433,7 +472,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FAC5FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__C'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -444,7 +483,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__D'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -456,7 +495,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#322EFF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__E'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -467,7 +506,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__F'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -478,7 +517,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3A70FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__G'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -489,7 +528,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__H'
+          id={_id27}
           cx={0}
           cy={0}
           r={1}
@@ -502,7 +541,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF2FA0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__I'
+          id={_id28}
           cx={0}
           cy={0}
           r={1}
@@ -513,7 +552,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__J'
+          id={_id29}
           cx={0}
           cy={0}
           r={1}
@@ -526,7 +565,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF2FA0' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__K'
+          id={_id30}
           cx={0}
           cy={0}
           r={1}
@@ -537,7 +576,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='Cult__Cult__L'
+          id={_id31}
           cx={0}
           cy={0}
           r={1}
@@ -550,7 +589,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF2FA0' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='Cult__Cult__e'
+          id={_id32}
           x1={229.507}
           x2={229.507}
           y1={132}
@@ -561,7 +600,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#652EFF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Cult__Cult__g'
+          id={_id33}
           x1={258.645}
           x2={326.713}
           y1={184.115}
@@ -572,7 +611,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.668} stopColor='#FF59A4' />
         </linearGradient>
         <linearGradient
-          id='Cult__Cult__x'
+          id={_id34}
           x1={206.092}
           x2={206.092}
           y1={55}
@@ -583,7 +622,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#652EFF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Cult__Cult__z'
+          id={_id35}
           x1={239.69}
           x2={318.179}
           y1={115.093}
@@ -594,7 +633,7 @@ export const Cult = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FF59BD' />
         </linearGradient>
         <filter
-          id='Cult__Cult__a'
+          id={_id36}
           width={307.12}
           height={398.424}
           x={116.285}

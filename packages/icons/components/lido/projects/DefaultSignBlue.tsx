@@ -2,140 +2,173 @@
 
 import React, { SVGProps } from 'react'
 
-export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const DefaultSignBlue = function (props: SVGProps<SVGSVGElement>) {
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={500} height={500} viewBox='0 0 500 500' fill='none' {...props}>
-      <g clipPath='url(#DefaultSignBlue__DefaultSignBlue__a)'>
-        <g filter='url(#DefaultSignBlue__DefaultSignBlue__b)' opacity={0.7}>
+      <g clipPath={`url(#${_id29})`}>
+        <g filter={`url(#${_id30})`} opacity={0.7}>
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__c)'
+            fill={`url(#${_id})`}
             d='M271.898 414.714c73.397 0 132.898-59.151 132.898-132.118 0-28.001-8.763-53.967-23.71-75.337l-110.078 65.878-110.078-63.268C147.069 230.728 139 255.725 139 282.596c0 72.967 59.5 132.118 132.898 132.118z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__d)'
+            fill={`url(#${_id2})`}
             fillOpacity={0.5}
             d='M271.898 414.714c73.397 0 132.898-59.151 132.898-132.118 0-28.001-8.763-53.967-23.71-75.337l-110.078 65.878-110.078-63.268C147.069 230.728 139 255.725 139 282.596c0 72.967 59.5 132.118 132.898 132.118z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__e)'
+            fill={`url(#${_id3})`}
             d='M271.898 414.714c73.397 0 132.898-59.151 132.898-132.118 0-28.001-8.763-53.967-23.71-75.337l-110.078 65.878-110.078-63.268C147.069 230.728 139 255.725 139 282.596c0 72.967 59.5 132.118 132.898 132.118z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__f)'
+            fill={`url(#${_id4})`}
             d='M271.898 414.714c73.397 0 132.898-59.151 132.898-132.118 0-28.001-8.763-53.967-23.71-75.337l-110.078 65.878-110.078-63.268C147.069 230.728 139 255.725 139 282.596c0 72.967 59.5 132.118 132.898 132.118z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__g)'
+            fill={`url(#${_id5})`}
             d='M178.308 186.128l93.59 53.499V43l-93.59 143.128z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__h)'
+            fill={`url(#${_id6})`}
             d='M178.308 186.128l93.59 53.499V43l-93.59 143.128z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__i)'
+            fill={`url(#${_id7})`}
             d='M365.332 186.128l-93.434 53.499V43l93.434 143.128z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__j)'
+            fill={`url(#${_id8})`}
             d='M365.332 186.128l-93.434 53.499V43l93.434 143.128z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__k)'
+            fill={`url(#${_id27})`}
             fillOpacity={0.6}
             d='M365.332 186.128l-93.434 53.499V43l93.434 143.128z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__l)'
+            fill={`url(#${_id9})`}
             d='M381.086 207.233l-109.189 65.749v141.112l109.189-206.861z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__m)'
+            fill={`url(#${_id0})`}
             d='M381.086 207.233l-109.189 65.749v141.112l109.189-206.861z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__n)'
+            fill={`url(#${_id1})`}
             d='M381.086 207.233l-109.189 65.749v141.112l109.189-206.861z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__o)'
+            fill={`url(#${_id10})`}
             d='M160.837 209.714l111.06 63.268v141.112l-111.06-204.38z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__p)'
+            fill={`url(#${_id11})`}
             d='M160.837 209.714l111.06 63.268v141.112l-111.06-204.38z'
           />
           <path
-            fill='url(#DefaultSignBlue__DefaultSignBlue__q)'
+            fill={`url(#${_id12})`}
             d='M160.837 209.714l111.06 63.268v141.112l-111.06-204.38z'
           />
         </g>
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__r)'
+          fill={`url(#${_id13})`}
           d='M250.102 436.323c73.397 0 132.898-59.151 132.898-132.118 0-28.001-8.762-53.967-23.71-75.337l-110.078 65.878-110.078-63.268c-13.861 20.859-21.93 45.856-21.93 72.727 0 72.967 59.5 132.118 132.898 132.118z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__s)'
+          fill={`url(#${_id14})`}
           fillOpacity={0.5}
           d='M250.102 436.323c73.397 0 132.898-59.151 132.898-132.118 0-28.001-8.762-53.967-23.71-75.337l-110.078 65.878-110.078-63.268c-13.861 20.859-21.93 45.856-21.93 72.727 0 72.967 59.5 132.118 132.898 132.118z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__t)'
+          fill={`url(#${_id15})`}
           d='M250.102 436.323c73.397 0 132.898-59.151 132.898-132.118 0-28.001-8.762-53.967-23.71-75.337l-110.078 65.878-110.078-63.268c-13.861 20.859-21.93 45.856-21.93 72.727 0 72.967 59.5 132.118 132.898 132.118z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__u)'
+          fill={`url(#${_id16})`}
           d='M250.102 436.323c73.397 0 132.898-59.151 132.898-132.118 0-28.001-8.762-53.967-23.71-75.337l-110.078 65.878-110.078-63.268c-13.861 20.859-21.93 45.856-21.93 72.727 0 72.967 59.5 132.118 132.898 132.118z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__v)'
+          fill={`url(#${_id17})`}
           d='M156.512 207.737l93.59 53.498V64.609l-93.59 143.128z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__w)'
+          fill={`url(#${_id18})`}
           d='M156.512 207.737l93.59 53.498V64.609l-93.59 143.128z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__x)'
+          fill={`url(#${_id19})`}
           d='M343.536 207.737l-93.434 53.498V64.609l93.434 143.128z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__y)'
+          fill={`url(#${_id20})`}
           d='M343.536 207.737l-93.434 53.498V64.609l93.434 143.128z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__z)'
+          fill={`url(#${_id28})`}
           fillOpacity={0.6}
           d='M343.536 207.737l-93.434 53.498V64.609l93.434 143.128z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__A)'
+          fill={`url(#${_id21})`}
           d='M359.29 228.842l-109.188 65.749v141.112L359.29 228.842z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__B)'
+          fill={`url(#${_id22})`}
           d='M359.29 228.842l-109.188 65.749v141.112L359.29 228.842z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__C)'
+          fill={`url(#${_id23})`}
           d='M359.29 228.842l-109.188 65.749v141.112L359.29 228.842z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__D)'
+          fill={`url(#${_id24})`}
           d='M139.041 231.323l111.061 63.268v141.112l-111.061-204.38z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__E)'
+          fill={`url(#${_id25})`}
           d='M139.041 231.323l111.061 63.268v141.112l-111.061-204.38z'
         />
         <path
-          fill='url(#DefaultSignBlue__DefaultSignBlue__F)'
+          fill={`url(#${_id26})`}
           d='M139.041 231.323l111.061 63.268v141.112l-111.061-204.38z'
         />
       </g>
       <defs>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__c'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -147,7 +180,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__d'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -158,7 +191,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__e'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -169,7 +202,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__f'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -180,7 +213,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__g'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -191,7 +224,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -203,7 +236,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__i'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -215,7 +248,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__j'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -226,7 +259,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__l'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -237,7 +270,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.1} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__m'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -249,7 +282,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__n'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -260,7 +293,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__o'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -271,7 +304,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__p'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -282,7 +315,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__q'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -293,7 +326,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3A70FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__r'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -305,7 +338,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#198CF6' />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__s'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -316,7 +349,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__t'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -327,7 +360,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3B52FC' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__u'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -338,7 +371,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2A6BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__v'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -349,7 +382,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__w'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -361,7 +394,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#7A51FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__x'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -373,7 +406,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#6BAFFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__y'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -384,7 +417,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__A'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -395,7 +428,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.944} stopColor='#00A3FF' stopOpacity={0.1} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__B'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -407,7 +440,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__C'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -418,7 +451,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#1EA0FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__D'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -429,7 +462,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00A3FF' stopOpacity={0.29} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__E'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -440,7 +473,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#354BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='DefaultSignBlue__DefaultSignBlue__F'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -451,7 +484,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3A70FF' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='DefaultSignBlue__DefaultSignBlue__k'
+          id={_id27}
           x1={365.826}
           x2={304.373}
           y1={215.867}
@@ -462,7 +495,7 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='DefaultSignBlue__DefaultSignBlue__z'
+          id={_id28}
           x1={344.03}
           x2={282.577}
           y1={237.476}
@@ -472,11 +505,11 @@ export const DefaultSignBlue = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#29EDFE' />
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
-        <clipPath id='DefaultSignBlue__DefaultSignBlue__a'>
+        <clipPath id={_id29}>
           <rect width={500} height={500} fill='#fff' rx={20} />
         </clipPath>
         <filter
-          id='DefaultSignBlue__DefaultSignBlue__b'
+          id={_id30}
           width={411.796}
           height={517.714}
           x={66}

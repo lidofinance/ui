@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const MenuDune = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuDune = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#MenuDune__MenuDune__a)' opacity={0.5}>
+      <g filter={`url(#${_id})`} opacity={0.5}>
         <path
           fill='#F1603F'
           d='M38 65.5c12.426 0 22.5-10.074 22.5-22.5S50.426 20.5 38 20.5 15.5 30.574 15.5 43 25.574 65.5 38 65.5z'
@@ -25,7 +27,7 @@ export const MenuDune = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='MenuDune__MenuDune__a'
+          id={_id}
           width={61}
           height={61}
           x={7.5}

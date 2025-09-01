@@ -2,17 +2,126 @@
 
 import React, { SVGProps } from 'react'
 
-export const LEGO = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const LEGO = function (props: SVGProps<SVGSVGElement>) {
+  const _id106 = useUniqueInlineId()
+  const _id105 = useUniqueInlineId()
+  const _id104 = useUniqueInlineId()
+  const _id103 = useUniqueInlineId()
+  const _id102 = useUniqueInlineId()
+  const _id101 = useUniqueInlineId()
+  const _id100 = useUniqueInlineId()
+  const _id99 = useUniqueInlineId()
+  const _id98 = useUniqueInlineId()
+  const _id97 = useUniqueInlineId()
+  const _id96 = useUniqueInlineId()
+  const _id95 = useUniqueInlineId()
+  const _id94 = useUniqueInlineId()
+  const _id93 = useUniqueInlineId()
+  const _id92 = useUniqueInlineId()
+  const _id91 = useUniqueInlineId()
+  const _id90 = useUniqueInlineId()
+  const _id89 = useUniqueInlineId()
+  const _id88 = useUniqueInlineId()
+  const _id87 = useUniqueInlineId()
+  const _id86 = useUniqueInlineId()
+  const _id85 = useUniqueInlineId()
+  const _id84 = useUniqueInlineId()
+  const _id83 = useUniqueInlineId()
+  const _id82 = useUniqueInlineId()
+  const _id81 = useUniqueInlineId()
+  const _id80 = useUniqueInlineId()
+  const _id79 = useUniqueInlineId()
+  const _id78 = useUniqueInlineId()
+  const _id77 = useUniqueInlineId()
+  const _id76 = useUniqueInlineId()
+  const _id75 = useUniqueInlineId()
+  const _id74 = useUniqueInlineId()
+  const _id73 = useUniqueInlineId()
+  const _id72 = useUniqueInlineId()
+  const _id71 = useUniqueInlineId()
+  const _id70 = useUniqueInlineId()
+  const _id69 = useUniqueInlineId()
+  const _id68 = useUniqueInlineId()
+  const _id67 = useUniqueInlineId()
+  const _id66 = useUniqueInlineId()
+  const _id65 = useUniqueInlineId()
+  const _id64 = useUniqueInlineId()
+  const _id63 = useUniqueInlineId()
+  const _id62 = useUniqueInlineId()
+  const _id61 = useUniqueInlineId()
+  const _id60 = useUniqueInlineId()
+  const _id59 = useUniqueInlineId()
+  const _id58 = useUniqueInlineId()
+  const _id57 = useUniqueInlineId()
+  const _id56 = useUniqueInlineId()
+  const _id55 = useUniqueInlineId()
+  const _id54 = useUniqueInlineId()
+  const _id53 = useUniqueInlineId()
+  const _id52 = useUniqueInlineId()
+  const _id51 = useUniqueInlineId()
+  const _id50 = useUniqueInlineId()
+  const _id49 = useUniqueInlineId()
+  const _id48 = useUniqueInlineId()
+  const _id47 = useUniqueInlineId()
+  const _id46 = useUniqueInlineId()
+  const _id45 = useUniqueInlineId()
+  const _id44 = useUniqueInlineId()
+  const _id43 = useUniqueInlineId()
+  const _id42 = useUniqueInlineId()
+  const _id41 = useUniqueInlineId()
+  const _id40 = useUniqueInlineId()
+  const _id39 = useUniqueInlineId()
+  const _id38 = useUniqueInlineId()
+  const _id37 = useUniqueInlineId()
+  const _id36 = useUniqueInlineId()
+  const _id35 = useUniqueInlineId()
+  const _id34 = useUniqueInlineId()
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={501} height={500} viewBox='0 0 501 500' fill='none' {...props}>
-      <g clipPath='url(#LEGO__LEGO__a)'>
-        <g filter='url(#LEGO__LEGO__b)' opacity={0.4}>
+      <g clipPath={`url(#${_id99})`}>
+        <g filter={`url(#${_id104})`} opacity={0.4}>
           <path
-            fill='url(#LEGO__LEGO__c)'
+            fill={`url(#${_id})`}
             d='M212.335 458l27.724-16.173v-26.569l-27.724 16.173V458z'
           />
           <path
-            fill='url(#LEGO__LEGO__d)'
+            fill={`url(#${_id2})`}
             d='M156.887 458l27.724-16.173v-26.569l-27.724 16.173V458z'
           />
           <path
@@ -24,7 +133,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
             d='M156.887 431.385l27.724-16.172v-26.569l-27.724 16.172v26.569z'
           />
           <path
-            fill='url(#LEGO__LEGO__e)'
+            fill={`url(#${_id3})`}
             d='M323.231 345.994l27.725-16.173v-26.569l-27.725 16.173v26.569z'
           />
           <path
@@ -32,15 +141,15 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
             d='M323.231 319.379l27.725-16.173v-26.569l-27.725 16.173v26.569z'
           />
           <path
-            fill='url(#LEGO__LEGO__f)'
+            fill={`url(#${_id4})`}
             d='M323.231 399.132l-27.724 16.173v-26.569l27.724-16.173v26.569zm0-26.615l-27.724 16.172v-26.568l27.724-16.173v26.569z'
           />
           <path
-            fill='url(#LEGO__LEGO__g)'
+            fill={`url(#${_id5})`}
             d='M295.508 441.827l-27.725 16.172v-26.568l27.725-16.173v26.569zm0-26.615l-27.725 16.172v-26.569l27.725-16.172v26.569z'
           />
           <path
-            fill='url(#LEGO__LEGO__h)'
+            fill={`url(#${_id6})`}
             d='M156.885 431.431V458l-27.724-16.173v-26.568l27.724 16.172zm55.448 0V458l-27.725-16.173v-26.568l27.725 16.172zm55.448.001V458l-27.724-16.172v-26.569l27.724 16.173zm-138.483-43.004v.295l27.587 16.092v26.57l-27.724-16.173v-.295l-27.587-16.093v-26.569l27.724 16.173zm138.483 16.388v26.569l-27.724-16.172v-26.569l27.724 16.172zm-138.483-43.004v26.569l-27.724-16.172V345.64l27.724 16.172zm-27.86-42.386v26.568l-27.725-16.172v-26.569l27.725 16.173z'
           />
           <path
@@ -48,128 +157,128 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
             d='M323.231 313.834l27.725-16.173v-26.569l-27.725 16.173v26.569zm0-26.615l27.725-16.172v-26.569l-27.725 16.172v26.569z'
           />
           <path
-            fill='url(#LEGO__LEGO__i)'
+            fill={`url(#${_id7})`}
             d='M184.611 388.598l-27.724 16.172v-26.569l27.724-16.173v26.57zm0-26.616l-27.724 16.172v-26.568l27.724-16.173v26.569zm0-26.615l-27.724 16.172v-26.568l27.724-16.173v26.569z'
           />
           <path
-            fill='url(#LEGO__LEGO__j)'
+            fill={`url(#${_id8})`}
             d='M101.437 292.81v-.092l27.724 16.172v-.092l27.724 16.172v26.569l-27.724-16.172v.046l27.724 16.172v26.569l-27.724-16.173v.047l27.724 16.172v26.57l-27.724-16.173v-26.523l-27.724-16.172v-26.524l-27.724-16.171v-26.569l27.724 16.172zm.001 26.523l27.723 16.172v-.046l-27.723-16.173v.047z'
           />
           <path
-            fill='url(#LEGO__LEGO__k)'
+            fill={`url(#${_id9})`}
             d='M240.061 415.211l-27.725 16.173v-26.569l27.725-16.172v26.568zm0-26.614l-27.725 16.172v-26.568l27.725-16.173v26.569zm0-26.615l-27.725 16.172v-26.569l27.725-16.172v26.569zm0-26.615l-27.725 16.172V324.97l27.725-16.173v26.57z'
           />
           <path
-            fill='url(#LEGO__LEGO__l)'
+            fill={`url(#${_id0})`}
             d='M212.333 404.815v26.57l-27.724-16.173v-26.568l27.724 16.171zm0-26.614v26.569l-27.724-16.172v-26.57l27.724 16.173zm0-26.615v26.568l-27.724-16.172v-26.569l27.724 16.173zm.001-26.615v26.568l-27.725-16.172v-26.569l27.725 16.173z'
           />
           <path
-            fill='url(#LEGO__LEGO__n)'
+            fill={`url(#${_id100})`}
             d='M350.955 244.478L323.23 260.65l-.079-.047-.227.132 27.219 15.877-27.049 15.777.542.317-27.724 16.171-27.724-16.171 27.047-15.779-.114-.066-27.183 15.856 27.568 16.08-27.725 16.173-27.644-16.127-.079.047-.08-.047-27.645 16.127-27.645-16.127-.079.047-.08-.047-27.644 16.127-27.645-16.127-.079.047-27.645-16.127-.079.047-27.724-16.173 27.565-16.08-27.565-16.079 27.725-16.173 27.643 16.126.08-.046 27.645 16.126.079-.046 27.645 16.125.079-.045.078.045 27.646-16.125 27.645 16.126.08-.046.078.045 27.645-16.125.079.046 27.647-16.126.079.046 27.644-16.126 27.725 16.173z'
             data-figma-bg-blur-radius={24}
           />
           <path
-            fill='url(#LEGO__LEGO__o)'
+            fill={`url(#${_id101})`}
             d='M323.229 228.398l-27.723 16.172-.08-.047-27.645 16.127-.08-.046-27.643 16.126-27.646-16.126-.079.046-.08-.046-27.644 16.126-27.645-16.126-.079.046-27.645-16.127-.078.047-27.724-16.172 27.724-16.172 27.644 16.126.079-.046 27.645 16.126.079-.046.079.046 27.645-16.126 27.646 16.126.079-.046.078.046 27.645-16.126.079.046 27.646-16.126 27.723 16.172z'
           />
           <path
-            fill='url(#LEGO__LEGO__p)'
+            fill={`url(#${_id1})`}
             d='M323.23 319.287l-27.723 16.171v.047l27.723-16.172v26.569l-27.723 16.172v26.523l-27.725 16.172v-26.568l27.725-16.173v-.046l-27.725 16.172v-26.569l27.725-16.172v-.046l-27.725 16.172V324.97l27.725-16.173v.093l27.723-16.173v26.57z'
           />
           <path
-            fill='url(#LEGO__LEGO__q)'
+            fill={`url(#${_id10})`}
             d='M267.783 378.201v26.568l-27.724-16.172v-26.569l27.724 16.173zm0-26.616v26.569l-27.724-16.172v-26.569l27.724 16.172zm0-26.615v26.569l-27.724-16.172v-26.57l27.724 16.173z'
           />
           <path
-            fill='url(#LEGO__LEGO__r)'
+            fill={`url(#${_id11})`}
             d='M137.247 222.044h-16.173v6.931c0 2.552 3.621 4.621 8.087 4.621 4.465 0 8.086-2.069 8.086-4.621v-6.931z'
           />
           <path
-            fill='url(#LEGO__LEGO__s)'
+            fill={`url(#${_id12})`}
             d='M164.971 238.124h-16.173v6.931c0 2.552 3.62 4.621 8.086 4.621s8.087-2.069 8.087-4.621v-6.931z'
           />
           <path
-            fill='url(#LEGO__LEGO__t)'
+            fill={`url(#${_id13})`}
             d='M220.42 238.124h-16.173v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621l.001-6.931z'
           />
           <path
-            fill='url(#LEGO__LEGO__u)'
+            fill={`url(#${_id14})`}
             d='M192.695 254.204h-16.172v6.932c0 2.551 3.62 4.62 8.086 4.62s8.086-2.069 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__v)'
+            fill={`url(#${_id15})`}
             d='M303.592 222.044h-16.173v6.931c0 2.552 3.621 4.621 8.086 4.621 4.466 0 8.087-2.069 8.087-4.621v-6.931z'
           />
           <path
-            fill='url(#LEGO__LEGO__w)'
+            fill={`url(#${_id16})`}
             d='M275.867 238.124h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.087-2.069 8.087-4.621l-.001-.023v-6.908z'
           />
           <path
-            fill='url(#LEGO__LEGO__x)'
+            fill={`url(#${_id17})`}
             d='M248.143 254.204h-16.172v6.932c0 2.551 3.62 4.62 8.086 4.62s8.086-2.069 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__y)'
+            fill={`url(#${_id18})`}
             d='M220.42 270.285h-16.173v6.931c0 2.552 3.62 4.62 8.086 4.62s8.086-2.068 8.086-4.62l.001-6.931z'
           />
           <path
-            fill='url(#LEGO__LEGO__z)'
+            fill={`url(#${_id19})`}
             d='M109.523 238.124H93.351v6.932c0 2.551 3.62 4.62 8.086 4.62s8.086-2.069 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__A)'
+            fill={`url(#${_id20})`}
             d='M331.316 238.124h-16.172v6.932c0 2.551 3.62 4.62 8.086 4.62s8.086-2.069 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__B)'
+            fill={`url(#${_id21})`}
             d='M137.247 254.204h-16.173v6.932c0 2.551 3.621 4.62 8.087 4.62 4.465 0 8.086-2.069 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__C)'
+            fill={`url(#${_id22})`}
             d='M109.523 270.285H93.351v6.931c0 2.551 3.62 4.62 8.086 4.62s8.086-2.069 8.086-4.621v-6.93z'
           />
           <path
-            fill='url(#LEGO__LEGO__D)'
+            fill={`url(#${_id23})`}
             d='M164.972 270.285h-16.173v6.93c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.62l.001-6.931z'
           />
           <path
-            fill='url(#LEGO__LEGO__E)'
+            fill={`url(#${_id24})`}
             d='M137.247 286.364h-16.173v6.932c0 2.552 3.621 4.62 8.087 4.62 4.465 0 8.086-2.068 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__F)'
+            fill={`url(#${_id25})`}
             d='M192.695 286.364h-16.172v6.932c0 2.552 3.62 4.62 8.086 4.62s8.086-2.068 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__G)'
+            fill={`url(#${_id26})`}
             d='M164.972 302.444h-16.173v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621l.001-6.931z'
           />
           <path
-            fill='url(#LEGO__LEGO__H)'
+            fill={`url(#${_id27})`}
             d='M303.592 254.204H287.42v6.932c0 2.551 3.62 4.62 8.086 4.62s8.086-2.069 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__I)'
+            fill={`url(#${_id28})`}
             d='M275.867 270.285h-16.172v6.931c0 2.551 3.62 4.62 8.086 4.62s8.087-2.069 8.087-4.621l-.001-.023v-6.907z'
           />
           <path
-            fill='url(#LEGO__LEGO__J)'
+            fill={`url(#${_id29})`}
             d='M248.144 286.364h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.068 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__K)'
+            fill={`url(#${_id30})`}
             d='M220.42 302.444h-16.173v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621l.001-6.931z'
           />
           <path
-            fill='url(#LEGO__LEGO__L)'
+            fill={`url(#${_id31})`}
             d='M331.316 270.285h-16.172v6.931c0 2.551 3.62 4.62 8.086 4.62s8.086-2.069 8.086-4.621v-6.93z'
           />
           <path
-            fill='url(#LEGO__LEGO__M)'
+            fill={`url(#${_id32})`}
             d='M303.592 286.364H287.42v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.068 8.086-4.62v-6.932z'
           />
           <path
-            fill='url(#LEGO__LEGO__N)'
+            fill={`url(#${_id33})`}
             d='M275.867 302.444h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.087-2.069 8.087-4.621l-.001-.023v-6.908z'
           />
           <path
@@ -187,10 +296,10 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
             d='M137.248 222.044c0 2.552-3.621 4.621-8.087 4.621-4.465 0-8.086-2.069-8.086-4.621 0-2.552 3.621-4.621 8.086-4.621 4.466 0 8.087 2.069 8.087 4.621zm27.723 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm55.449 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.62 8.086-4.62s8.086 2.068 8.086 4.62zm110.897-32.16c0 2.552-3.621 4.621-8.087 4.621-4.466 0-8.086-2.069-8.086-4.621 0-2.552 3.62-4.621 8.086-4.621s8.087 2.069 8.087 4.621zm-27.725 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.62 8.086-4.62s8.086 2.068 8.086 4.62z'
           />
           <path
-            fill='url(#LEGO__LEGO__P)'
+            fill={`url(#${_id34})`}
             d='M74.121 276.533v26.569l27.724 16.173v-26.569l-27.724-16.173z'
           />
-          <g filter='url(#LEGO__LEGO__Q)'>
+          <g filter={`url(#${_id105})`}>
             <ellipse
               cx={207.602}
               cy={231.093}
@@ -215,11 +324,11 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
             ry={4.621}
           />
           <path
-            fill='url(#LEGO__LEGO__R)'
+            fill={`url(#${_id35})`}
             d='M295.507 161.814l-27.724 16.172v.047l27.724-16.173v.093l27.724-16.173v26.569l-27.724 16.172v.047l27.724-16.173v26.569l-27.724 16.172v-.092l-27.724 16.172v-.091l-27.723 16.171v-26.568l27.723-16.173v-.046l-27.723 16.172v-26.568l27.723-16.173v-26.523l27.724-16.172v26.569zm-27.724 42.787v.047l27.724-16.173v-.046l-27.724 16.172z'
           />
           <path
-            fill='url(#LEGO__LEGO__S)'
+            fill={`url(#${_id36})`}
             d='M240.061 220.729v26.568l-27.725-16.172v-26.569l27.725 16.173zm0-26.616v26.569l-27.725-16.172v-26.57l27.725 16.173z'
           />
           <path
@@ -234,16 +343,16 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
             ry={4.621}
           />
           <path
-            fill='url(#LEGO__LEGO__T)'
+            fill={`url(#${_id37})`}
             d='M295.508 108.63l-27.725 16.172-27.723-16.172 27.723-16.173 27.725 16.173zm-27.724-37.15l-27.723 16.17-27.725-16.17 27.725-16.173 27.723 16.172z'
           />
           <path
-            fill='url(#LEGO__LEGO__V)'
+            fill={`url(#${_id38})`}
             d='M295.507 135.199l-27.724 16.172v26.523l-27.723 16.172v-26.568l27.723-16.173v-.046l-27.723 16.172v-26.569l27.723-16.173v.093l27.724-16.173v26.57zm-27.724-10.535l-27.723 16.171v-26.568l27.723-16.173v26.57zm.001-26.616L240.06 114.22V87.652l27.724-16.173v26.57z'
             data-figma-bg-blur-radius={54}
           />
           <path
-            fill='url(#LEGO__LEGO__W)'
+            fill={`url(#${_id39})`}
             d='M240.061 167.498v26.568l-27.725-16.172v-26.569l27.725 16.173zm0-26.616v26.569l-27.725-16.172v-26.57l27.725 16.173zm0-26.615v26.568l-27.725-16.171v-26.57l27.725 16.173zm0-26.615v26.568l-27.725-16.172V71.48l27.725 16.173z'
           />
           <path
@@ -273,11 +382,11 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
             ry={4.621}
           />
           <path
-            fill='url(#LEGO__LEGO__X)'
+            fill={`url(#${_id40})`}
             d='M212.335 231.125l-27.724 16.172v-26.568l27.724-16.173v26.569zm.001-26.615l-27.725 16.172v-26.569l27.725-16.173v26.57z'
           />
           <path
-            fill='url(#LEGO__LEGO__Z)'
+            fill={`url(#${_id41})`}
             d='M156.887 151.417v26.523l27.724 16.173v26.568l-27.724-16.172v.046l27.724 16.173v26.568l-27.724-16.171v.091l-27.724-16.172v.092l-27.725-16.172v-26.569l27.725 16.173v-.047l-27.725-16.172V145.78l27.725 16.173v-.093l27.724 16.173v-.047l-27.724-16.172v-26.569l27.724 16.172zm-27.724 37.058l27.724 16.173v-.047l-27.724-16.172v.046z'
             data-figma-bg-blur-radius={4}
           />
@@ -301,11 +410,11 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
             d='M156.887 71.48l27.724-16.173 27.724 16.172-27.724 16.172-27.724-16.172z'
           />
           <path
-            fill='url(#LEGO__LEGO__aa)'
+            fill={`url(#${_id42})`}
             d='M212.335 177.894l-27.724 16.172v-26.568l27.724-16.173v26.569zm0-26.615l-27.724 16.172v-26.569l27.724-16.173v26.57zm0-26.615l-27.724 16.171v-26.568l27.724-16.173v26.57zm.001-26.616l-27.725 16.172V87.652l27.725-16.173v26.57z'
           />
           <path
-            fill='url(#LEGO__LEGO__ac)'
+            fill={`url(#${_id43})`}
             d='M156.887 124.802v-.093l27.723 16.173v26.569l-27.723-16.172v.046l27.723 16.173v26.568l-27.723-16.172v-26.523l-27.725-16.172v-26.57l27.725 16.173zm27.723-10.535v26.568l-27.723-16.171v-26.57l27.723 16.173zm0-26.615v26.568l-27.723-16.172V71.48l27.723 16.173z'
             data-figma-bg-blur-radius={34}
           />
@@ -322,11 +431,11 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           />
         </g>
         <path
-          fill='url(#LEGO__LEGO__ad)'
+          fill={`url(#${_id44})`}
           d='M250.336 445.693l27.724-16.172v-26.569l-27.724 16.172v26.569z'
         />
         <path
-          fill='url(#LEGO__LEGO__ae)'
+          fill={`url(#${_id45})`}
           d='M194.888 445.693l27.724-16.172v-26.569l-27.724 16.172v26.569z'
         />
         <path
@@ -338,7 +447,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           d='M194.888 419.078l27.724-16.172v-26.569l-27.724 16.172v26.569z'
         />
         <path
-          fill='url(#LEGO__LEGO__af)'
+          fill={`url(#${_id46})`}
           d='M361.232 333.688l27.725-16.173v-26.569l-27.725 16.173v26.569z'
         />
         <path
@@ -346,15 +455,15 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           d='M361.232 307.072l27.725-16.172v-26.569l-27.725 16.172v26.569z'
         />
         <path
-          fill='url(#LEGO__LEGO__ag)'
+          fill={`url(#${_id47})`}
           d='M361.232 386.826l-27.724 16.172v-26.569l27.724-16.173v26.57zm0-26.616l-27.724 16.172v-26.568l27.724-16.173v26.569z'
         />
         <path
-          fill='url(#LEGO__LEGO__ah)'
+          fill={`url(#${_id48})`}
           d='M333.507 429.521l-27.724 16.172v-26.568l27.724-16.173v26.569zm.001-26.615l-27.725 16.172v-26.569l27.725-16.173v26.57z'
         />
         <path
-          fill='url(#LEGO__LEGO__ai)'
+          fill={`url(#${_id49})`}
           d='M194.887 419.125v26.569l-27.725-16.173v-26.568l27.725 16.172zm55.447 0v26.569l-27.725-16.173v-26.568l27.725 16.172zm55.449 0v26.569l-27.724-16.172v-26.569l27.724 16.172zM167.3 376.122v.295l27.587 16.092v26.57l-27.725-16.173v-.296l-27.587-16.092v-26.569l27.725 16.173zm138.483 16.388v26.569l-27.724-16.172v-26.57l27.724 16.173zM167.3 349.506v26.569l-27.725-16.172v-26.57l27.725 16.173zm-27.862-42.386v26.568l-27.724-16.172v-26.569l27.724 16.173z'
         />
         <path
@@ -362,128 +471,128 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           d='M361.232 301.528l27.725-16.173v-26.569l-27.725 16.173v26.569zm0-26.616l27.725-16.172v-26.569l-27.725 16.172v26.569z'
         />
         <path
-          fill='url(#LEGO__LEGO__aj)'
+          fill={`url(#${_id50})`}
           d='M222.611 376.29l-27.724 16.173v-26.569l27.724-16.172v26.568zm0-26.615l-27.724 16.173v-26.57l27.724-16.172v26.569zm0-26.614l-27.724 16.171v-26.568l27.724-16.173v26.57z'
         />
         <path
-          fill='url(#LEGO__LEGO__ak)'
+          fill={`url(#${_id51})`}
           d='M139.438 280.504v-.093l27.724 16.172v-.092l27.725 16.173v26.568l-27.725-16.171v.045l27.725 16.172v26.57l-27.725-16.173v.047l27.725 16.172v26.569l-27.725-16.172v-26.523l-27.724-16.172v-26.524L111.714 290.9v-26.569l27.724 16.173zm0 26.522l27.724 16.173v-.047l-27.724-16.173v.047z'
         />
         <path
-          fill='url(#LEGO__LEGO__al)'
+          fill={`url(#${_id52})`}
           d='M278.06 402.905l-27.725 16.173v-26.569l27.725-16.172v26.568zm0-26.615l-27.725 16.173v-26.569l27.725-16.172v26.568zm0-26.615l-27.725 16.173v-26.57l27.725-16.172v26.569zm0-26.614l-27.725 16.171v-26.568l27.725-16.173v26.57z'
         />
         <path
-          fill='url(#LEGO__LEGO__am)'
+          fill={`url(#${_id53})`}
           d='M250.335 392.509v26.569l-27.725-16.173v-26.568l27.725 16.172zm0-26.615v26.569l-27.725-16.172v-26.569l27.725 16.172zm0-26.616v26.57l-27.725-16.172v-26.57l27.725 16.172zm0-26.614v26.568l-27.725-16.171v-26.57l27.725 16.173z'
         />
         <path
-          fill='url(#LEGO__LEGO__ao)'
+          fill={`url(#${_id102})`}
           d='M388.955 232.172l-27.724 16.172-.079-.047-.227.132 27.219 15.877-27.049 15.777.542.316-27.725 16.172-27.724-16.172 27.047-15.779-.114-.066-27.182 15.857 27.567 16.08-27.724 16.173-27.645-16.127-.078.047-.08-.047-27.645 16.127-27.646-16.127-.078.047-.08-.047-27.643 16.127-27.646-16.127-.079.047-27.644-16.127-.08.047-27.724-16.173 27.565-16.08-27.565-16.079 27.724-16.173 27.644 16.126.08-.046 27.646 16.126.079-.046 27.644 16.125.079-.045.078.045 27.646-16.125 27.645 16.126.08-.046.078.045 27.645-16.125.079.046 27.647-16.126.078.046 27.645-16.126 27.724 16.173z'
           data-figma-bg-blur-radius={24}
         />
         <path
-          fill='url(#LEGO__LEGO__ap)'
+          fill={`url(#${_id103})`}
           d='M361.229 216.092l-27.723 16.172-.08-.047-27.645 16.127-.079-.047-27.644 16.127-27.647-16.127-.078.047-.079-.047-27.645 16.127-27.646-16.127-.078.047-27.645-16.127-.078.047-27.724-16.172 27.724-16.173 27.644 16.126.079-.046 27.645 16.126.079-.046.079.046 27.645-16.126 27.646 16.126.079-.046.078.046 27.645-16.126.079.046 27.646-16.126 27.723 16.173z'
         />
         <path
-          fill='url(#LEGO__LEGO__aq)'
+          fill={`url(#${_id54})`}
           d='M361.231 306.98l-27.724 16.172v.047l27.724-16.173v26.57l-27.724 16.173v26.522l-27.724 16.172v-26.568l27.724-16.173v-.046l-27.724 16.172v-26.569l27.724-16.173v-.045l-27.724 16.172v-26.569l27.724-16.173v.093l27.724-16.173v26.569z'
         />
         <path
-          fill='url(#LEGO__LEGO__ar)'
+          fill={`url(#${_id55})`}
           d='M305.784 365.894v26.569L278.06 376.29v-26.568l27.724 16.172zm0-26.616v26.57l-27.724-16.173v-26.569l27.724 16.172zm0-26.614v26.568l-27.724-16.171v-26.57l27.724 16.173z'
         />
         <path
-          fill='url(#LEGO__LEGO__as)'
+          fill={`url(#${_id56})`}
           d='M175.249 209.738h-16.173v6.931c0 2.552 3.621 4.62 8.087 4.62 4.465 0 8.086-2.068 8.086-4.62v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__at)'
+          fill={`url(#${_id57})`}
           d='M202.973 225.818H186.8v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621l.001-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__au)'
+          fill={`url(#${_id58})`}
           d='M258.422 225.818h-16.173v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621l.001-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__av)'
+          fill={`url(#${_id59})`}
           d='M230.697 241.898h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aw)'
+          fill={`url(#${_id60})`}
           d='M341.594 209.738h-16.173v6.931c0 2.552 3.621 4.62 8.086 4.62 4.466 0 8.087-2.068 8.087-4.62v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__ax)'
+          fill={`url(#${_id61})`}
           d='M313.869 225.818h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__ay)'
+          fill={`url(#${_id62})`}
           d='M286.145 241.898h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__az)'
+          fill={`url(#${_id63})`}
           d='M258.422 257.978h-16.173v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621l.001-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aA)'
+          fill={`url(#${_id64})`}
           d='M147.525 225.818h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aB)'
+          fill={`url(#${_id65})`}
           d='M369.318 225.818h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aC)'
+          fill={`url(#${_id66})`}
           d='M175.249 241.898h-16.173v6.931c0 2.552 3.621 4.621 8.087 4.621 4.465 0 8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aD)'
+          fill={`url(#${_id67})`}
           d='M147.525 257.978h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aE)'
+          fill={`url(#${_id68})`}
           d='M202.973 257.978h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aF)'
+          fill={`url(#${_id69})`}
           d='M175.249 274.058h-16.173v6.931c0 2.552 3.621 4.621 8.087 4.621 4.465 0 8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aG)'
+          fill={`url(#${_id70})`}
           d='M230.697 274.058h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aH)'
+          fill={`url(#${_id71})`}
           d='M202.973 290.138h-16.172v6.931c0 2.552 3.62 4.62 8.086 4.62s8.086-2.068 8.086-4.62v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aI)'
+          fill={`url(#${_id72})`}
           d='M341.594 241.898h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aJ)'
+          fill={`url(#${_id73})`}
           d='M313.869 257.978h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aK)'
+          fill={`url(#${_id74})`}
           d='M286.146 274.058h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aL)'
+          fill={`url(#${_id75})`}
           d='M258.422 290.138h-16.173v6.931c0 2.552 3.62 4.62 8.086 4.62s8.086-2.068 8.086-4.62l.001-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aM)'
+          fill={`url(#${_id76})`}
           d='M369.318 257.978h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aN)'
+          fill={`url(#${_id77})`}
           d='M341.594 274.058h-16.172v6.931c0 2.552 3.62 4.621 8.086 4.621s8.086-2.069 8.086-4.621v-6.931z'
         />
         <path
-          fill='url(#LEGO__LEGO__aO)'
+          fill={`url(#${_id78})`}
           d='M313.869 290.138h-16.172v6.931c0 2.552 3.62 4.62 8.086 4.62s8.086-2.068 8.086-4.62v-6.931z'
         />
         <path
@@ -501,10 +610,10 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           d='M175.249 209.737c0 2.552-3.621 4.621-8.087 4.621-4.466 0-8.086-2.069-8.086-4.621 0-2.552 3.62-4.62 8.086-4.62s8.087 2.068 8.087 4.62zm27.723 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm55.449 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.724 16.081c0 2.552-3.62 4.62-8.086 4.62s-8.086-2.068-8.086-4.62 3.62-4.621 8.086-4.621 8.086 2.069 8.086 4.621zm110.896-32.161c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.62 8.086-4.62s8.086 2.068 8.086 4.62zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.724 16.081c0 2.552-3.62 4.62-8.086 4.62s-8.086-2.068-8.086-4.62 3.62-4.621 8.086-4.621 8.086 2.069 8.086 4.621z'
         />
         <path
-          fill='url(#LEGO__LEGO__aQ)'
+          fill={`url(#${_id79})`}
           d='M112.122 264.227v26.569l27.724 16.172v-26.569l-27.724-16.172z'
         />
-        <g filter='url(#LEGO__LEGO__aR)'>
+        <g filter={`url(#${_id106})`}>
           <ellipse cx={245.562} cy={219} fill='#0029FF' rx={74.5} ry={34} />
         </g>
         <path
@@ -523,11 +632,11 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           ry={4.621}
         />
         <path
-          fill='url(#LEGO__LEGO__aS)'
+          fill={`url(#${_id80})`}
           d='M333.507 149.507l-27.723 16.171v.047l27.723-16.172v.093l27.724-16.173v26.569l-27.724 16.173v.046l27.724-16.172v26.569l-27.724 16.173v-.093l-27.724 16.173v-.093l-27.723 16.173v-26.57l27.723-16.172v-.046l-27.723 16.172v-26.569l27.723-16.173v-26.522l27.724-16.173v26.569zm-27.723 42.787v.046l27.723-16.172v-.045l-27.723 16.171z'
         />
         <path
-          fill='url(#LEGO__LEGO__aT)'
+          fill={`url(#${_id81})`}
           d='M278.06 208.422v26.568l-27.725-16.172v-26.569l27.725 16.173zm0-26.615v26.568l-27.725-16.172v-26.569l27.725 16.173z'
         />
         <path
@@ -542,16 +651,16 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           ry={4.621}
         />
         <path
-          fill='url(#LEGO__LEGO__aU)'
+          fill={`url(#${_id82})`}
           d='M333.507 96.323l-27.725 16.172-27.723-16.172 27.723-16.173 27.725 16.173zm-27.724-37.15L278.06 75.345l-27.725-16.172L278.06 43l27.723 16.173z'
         />
         <path
-          fill='url(#LEGO__LEGO__aW)'
+          fill={`url(#${_id83})`}
           d='M333.507 122.892l-27.723 16.171v26.524l-27.724 16.172v-26.568l27.723-16.173v-.046l-27.723 16.172v-26.568l27.724-16.173v.092l27.723-16.172v26.569zm-27.723-10.535l-27.724 16.172V101.96l27.724-16.172v26.569zm0-26.615l-27.724 16.172V75.345l27.724-16.173v26.57z'
           data-figma-bg-blur-radius={54}
         />
         <path
-          fill='url(#LEGO__LEGO__aX)'
+          fill={`url(#${_id84})`}
           d='M278.06 155.191v26.568l-27.725-16.172v-26.569l27.725 16.173zm0-26.615v26.568l-27.725-16.172v-26.569l27.725 16.173zm0-26.616v26.569l-27.725-16.172v-26.57l27.725 16.173zm0-26.615v26.569l-27.725-16.172v-26.57l27.725 16.173z'
         />
         <path
@@ -581,11 +690,11 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           ry={4.621}
         />
         <path
-          fill='url(#LEGO__LEGO__aY)'
+          fill={`url(#${_id85})`}
           d='M250.336 218.818l-27.725 16.172v-26.568l27.725-16.173v26.569zm0-26.615l-27.725 16.172v-26.568l27.725-16.173v26.569z'
         />
         <path
-          fill='url(#LEGO__LEGO__ba)'
+          fill={`url(#${_id86})`}
           d='M194.886 139.111v26.522l27.724 16.173v26.569l-27.724-16.172v.046l27.724 16.172v26.569l-27.724-16.172v.092l-27.724-16.172v.092l-27.724-16.172v-26.57l27.724 16.173v-.047l-27.724-16.172v-26.569l27.724 16.173v-.093l27.724 16.173v-.047l-27.724-16.172v-26.569l27.724 16.173zm-27.724 37.057l27.724 16.173v-.047l-27.724-16.171v.045z'
           data-figma-bg-blur-radius={4}
         />
@@ -609,11 +718,11 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           d='M194.887 59.172L222.611 43l27.724 16.172-27.724 16.173-27.724-16.173z'
         />
         <path
-          fill='url(#LEGO__LEGO__bb)'
+          fill={`url(#${_id87})`}
           d='M250.336 165.587l-27.725 16.172v-26.568l27.725-16.173v26.569zm0-26.615l-27.725 16.172v-26.568l27.725-16.173v26.569zm0-26.615l-27.725 16.172V101.96l27.725-16.172v26.569zm0-26.615l-27.725 16.172V75.345l27.725-16.173v26.57z'
         />
         <path
-          fill='url(#LEGO__LEGO__bd)'
+          fill={`url(#${_id88})`}
           d='M194.887 112.496v-.093l27.723 16.173v26.568l-27.723-16.172v.046l27.723 16.173v26.568l-27.723-16.172v-26.523l-27.725-16.172v-26.57l27.725 16.174zm27.723-10.536v26.569l-27.723-16.172v-26.57l27.723 16.173zm0-26.615v26.569l-27.723-16.172v-26.57l27.723 16.173z'
           data-figma-bg-blur-radius={34}
         />
@@ -631,7 +740,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='LEGO__LEGO__c'
+          id={_id}
           x1={222.252}
           x2={224.971}
           y1={428.927}
@@ -642,7 +751,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__d'
+          id={_id2}
           x1={166.804}
           x2={169.523}
           y1={428.927}
@@ -653,7 +762,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__e'
+          id={_id3}
           x1={333.149}
           x2={335.868}
           y1={316.921}
@@ -664,7 +773,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__f'
+          id={_id4}
           x1={307.949}
           x2={314.461}
           y1={338.54}
@@ -675,7 +784,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__g'
+          id={_id5}
           x1={277.701}
           x2={284.761}
           y1={410.822}
@@ -686,7 +795,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__h'
+          id={_id6}
           x1={143.134}
           x2={148.258}
           y1={352.74}
@@ -697,7 +806,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__i'
+          id={_id7}
           x1={167.21}
           x2={243.928}
           y1={332.918}
@@ -708,7 +817,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2F83FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__j'
+          id={_id8}
           x1={180.212}
           x2={152.856}
           y1={313.623}
@@ -719,7 +828,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#9BBDFF' stopOpacity={0.75} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__k'
+          id={_id9}
           x1={222.659}
           x2={283.336}
           y1={339.607}
@@ -730,7 +839,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2F83FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__l'
+          id={_id0}
           x1={220.11}
           x2={169.764}
           y1={344.183}
@@ -741,7 +850,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#9BBDFF' stopOpacity={0.75} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__p'
+          id={_id1}
           x1={288.429}
           x2={349.062}
           y1={320.879}
@@ -752,7 +861,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2F83FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__q'
+          id={_id10}
           x1={275.559}
           x2={239.456}
           y1={336.5}
@@ -763,7 +872,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#9BBDFF' stopOpacity={0.75} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__r'
+          id={_id11}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -774,7 +883,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__s'
+          id={_id12}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -785,7 +894,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__t'
+          id={_id13}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -796,7 +905,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__u'
+          id={_id14}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -807,7 +916,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__v'
+          id={_id15}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -818,7 +927,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__w'
+          id={_id16}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -829,7 +938,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__x'
+          id={_id17}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -840,7 +949,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__y'
+          id={_id18}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -851,7 +960,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__z'
+          id={_id19}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -862,7 +971,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__A'
+          id={_id20}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -873,7 +982,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__B'
+          id={_id21}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -884,7 +993,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__C'
+          id={_id22}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -895,7 +1004,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__D'
+          id={_id23}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -906,7 +1015,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__E'
+          id={_id24}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -917,7 +1026,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__F'
+          id={_id25}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -928,7 +1037,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__G'
+          id={_id26}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -939,7 +1048,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__H'
+          id={_id27}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -950,7 +1059,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__I'
+          id={_id28}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -961,7 +1070,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__J'
+          id={_id29}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -972,7 +1081,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__K'
+          id={_id30}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -983,7 +1092,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__L'
+          id={_id31}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -994,7 +1103,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__M'
+          id={_id32}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -1005,7 +1114,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__N'
+          id={_id33}
           x1={212.333}
           x2={214.701}
           y1={222.044}
@@ -1016,7 +1125,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__P'
+          id={_id34}
           x1={84.444}
           x2={111.306}
           y1={287.275}
@@ -1027,7 +1136,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2F83FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__R'
+          id={_id35}
           x1={271.029}
           x2={345.342}
           y1={163.406}
@@ -1038,7 +1147,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#C8DEFF' />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__S'
+          id={_id36}
           x1={247.837}
           x2={226.199}
           y1={197.96}
@@ -1049,7 +1158,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#A8C5FF' />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__T'
+          id={_id37}
           x1={244.996}
           x2={320.256}
           y1={88.146}
@@ -1060,7 +1169,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FFB8B4' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__V'
+          id={_id38}
           x1={244.049}
           x2={303.689}
           y1={109.92}
@@ -1071,7 +1180,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FB9190' stopOpacity={0.24} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__W'
+          id={_id39}
           x1={226.198}
           x2={209.496}
           y1={71.479}
@@ -1082,7 +1191,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F88887' />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__X'
+          id={_id40}
           x1={194.822}
           x2={170.21}
           y1={190.387}
@@ -1093,7 +1202,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0E9F48' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__Z'
+          id={_id41}
           x1={168.789}
           x2={52.349}
           y1={215.473}
@@ -1104,7 +1213,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#A4FFC8' stopOpacity={0.37} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aa'
+          id={_id42}
           x1={198.474}
           x2={198.474}
           y1={71.479}
@@ -1115,7 +1224,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F9C594' />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ac'
+          id={_id43}
           x1={179.201}
           x2={106.308}
           y1={119.86}
@@ -1126,7 +1235,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#fff' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ad'
+          id={_id44}
           x1={260.253}
           x2={262.972}
           y1={416.62}
@@ -1137,7 +1246,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ae'
+          id={_id45}
           x1={204.805}
           x2={207.524}
           y1={416.62}
@@ -1148,7 +1257,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__af'
+          id={_id46}
           x1={371.15}
           x2={373.869}
           y1={304.615}
@@ -1159,7 +1268,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ag'
+          id={_id47}
           x1={345.95}
           x2={352.462}
           y1={326.233}
@@ -1170,7 +1279,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ah'
+          id={_id48}
           x1={315.701}
           x2={322.761}
           y1={398.516}
@@ -1181,7 +1290,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ai'
+          id={_id49}
           x1={181.136}
           x2={186.26}
           y1={340.434}
@@ -1192,7 +1301,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29E9E9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aj'
+          id={_id50}
           x1={205.21}
           x2={281.928}
           y1={320.612}
@@ -1203,7 +1312,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2F83FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ak'
+          id={_id51}
           x1={218.214}
           x2={190.858}
           y1={301.316}
@@ -1214,7 +1323,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#9BBDFF' stopOpacity={0.75} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__al'
+          id={_id52}
           x1={260.658}
           x2={321.335}
           y1={327.301}
@@ -1225,7 +1334,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2F83FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__am'
+          id={_id53}
           x1={258.111}
           x2={207.765}
           y1={331.876}
@@ -1236,7 +1345,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#9BBDFF' stopOpacity={0.75} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aq'
+          id={_id54}
           x1={326.43}
           x2={387.063}
           y1={308.573}
@@ -1247,7 +1356,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2F83FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ar'
+          id={_id55}
           x1={313.56}
           x2={277.457}
           y1={324.193}
@@ -1258,7 +1367,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#9BBDFF' stopOpacity={0.75} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__as'
+          id={_id56}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1269,7 +1378,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__at'
+          id={_id57}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1280,7 +1389,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__au'
+          id={_id58}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1291,7 +1400,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__av'
+          id={_id59}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1302,7 +1411,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aw'
+          id={_id60}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1313,7 +1422,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ax'
+          id={_id61}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1324,7 +1433,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ay'
+          id={_id62}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1335,7 +1444,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__az'
+          id={_id63}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1346,7 +1455,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aA'
+          id={_id64}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1357,7 +1466,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aB'
+          id={_id65}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1368,7 +1477,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aC'
+          id={_id66}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1379,7 +1488,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aD'
+          id={_id67}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1390,7 +1499,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aE'
+          id={_id68}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1401,7 +1510,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aF'
+          id={_id69}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1412,7 +1521,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aG'
+          id={_id70}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1423,7 +1532,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aH'
+          id={_id71}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1434,7 +1543,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aI'
+          id={_id72}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1445,7 +1554,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aJ'
+          id={_id73}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1456,7 +1565,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aK'
+          id={_id74}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1467,7 +1576,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aL'
+          id={_id75}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1478,7 +1587,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aM'
+          id={_id76}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1489,7 +1598,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aN'
+          id={_id77}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1500,7 +1609,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aO'
+          id={_id78}
           x1={250.335}
           x2={252.703}
           y1={209.738}
@@ -1511,7 +1620,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2FA9FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aQ'
+          id={_id79}
           x1={122.445}
           x2={149.307}
           y1={274.969}
@@ -1522,7 +1631,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#2F83FF' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aS'
+          id={_id80}
           x1={309.029}
           x2={383.342}
           y1={151.1}
@@ -1533,7 +1642,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#C8DEFF' />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aT'
+          id={_id81}
           x1={285.836}
           x2={264.198}
           y1={185.654}
@@ -1544,7 +1653,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#A8C5FF' />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aU'
+          id={_id82}
           x1={282.995}
           x2={358.255}
           y1={75.84}
@@ -1555,7 +1664,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FFB8B4' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aW'
+          id={_id83}
           x1={282.049}
           x2={341.689}
           y1={97.613}
@@ -1566,7 +1675,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FB9190' stopOpacity={0.24} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aX'
+          id={_id84}
           x1={264.197}
           x2={247.495}
           y1={59.172}
@@ -1577,7 +1686,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F88887' />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__aY'
+          id={_id85}
           x1={232.822}
           x2={208.21}
           y1={178.08}
@@ -1588,7 +1697,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0E9F48' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__ba'
+          id={_id86}
           x1={206.788}
           x2={90.348}
           y1={203.166}
@@ -1599,7 +1708,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#A4FFC8' stopOpacity={0.37} />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__bb'
+          id={_id87}
           x1={236.474}
           x2={236.474}
           y1={59.172}
@@ -1610,7 +1719,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F9C594' />
         </linearGradient>
         <linearGradient
-          id='LEGO__LEGO__bd'
+          id={_id88}
           x1={217.201}
           x2={144.308}
           y1={107.553}
@@ -1620,41 +1729,41 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#FFDE2E' />
           <stop offset={1} stopColor='#fff' stopOpacity={0} />
         </linearGradient>
-        <clipPath id='LEGO__LEGO__m' transform='translate(-49.713 -204.305)'>
+        <clipPath id={_id89} transform='translate(-49.713 -204.305)'>
           <path d='M350.955 244.478L323.23 260.65l-.079-.047-.227.132 27.219 15.877-27.049 15.777.542.317-27.724 16.171-27.724-16.171 27.047-15.779-.114-.066-27.183 15.856 27.568 16.08-27.725 16.173-27.644-16.127-.079.047-.08-.047-27.645 16.127-27.645-16.127-.079.047-.08-.047-27.644 16.127-27.645-16.127-.079.047-27.645-16.127-.079.047-27.724-16.173 27.565-16.08-27.565-16.079 27.725-16.173 27.643 16.126.08-.046 27.645 16.126.079-.046 27.645 16.125.079-.045.078.045 27.646-16.125 27.645 16.126.08-.046.078.045 27.645-16.125.079.046 27.647-16.126.079.046 27.644-16.126 27.725 16.173z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__O' transform='translate(-89.35 -213.423)'>
+        <clipPath id={_id90} transform='translate(-89.35 -213.423)'>
           <path d='M137.247 222.044c0 2.552-3.621 4.621-8.086 4.621-4.466 0-8.087-2.069-8.087-4.621 0-2.552 3.621-4.621 8.087-4.621 4.465 0 8.086 2.069 8.086 4.621zm27.724 16.08c0 2.552-3.621 4.621-8.087 4.621-4.466 0-8.086-2.069-8.086-4.621 0-2.552 3.62-4.621 8.086-4.621s8.087 2.069 8.087 4.621zm55.448 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.62 8.086-4.62s8.086 2.068 8.086 4.62zm110.897-32.16c0 2.552-3.621 4.621-8.087 4.621-4.465 0-8.086-2.069-8.086-4.621 0-2.552 3.621-4.621 8.086-4.621 4.466 0 8.087 2.069 8.087 4.621zm-27.725 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.62 8.086-4.62s8.086 2.068 8.086 4.62zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.62 8.086-4.62s8.086 2.068 8.086 4.62zm-110.896-32.16c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm221.793 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-194.069 16.08c0 2.552-3.621 4.621-8.086 4.621-4.466 0-8.087-2.069-8.087-4.621 0-2.552 3.621-4.62 8.087-4.62 4.465 0 8.086 2.068 8.086 4.62zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm55.448 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.724 16.08c0 2.552-3.621 4.621-8.086 4.621-4.466 0-8.087-2.069-8.087-4.621 0-2.552 3.621-4.621 8.087-4.621 4.465 0 8.086 2.069 8.086 4.621zm55.448 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm138.621-48.24c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.62 8.086-4.62s8.086 2.068 8.086 4.62zm-27.725 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.723 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.725 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm110.897-32.16c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.725 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__U' transform='translate(-186.06 -17.479)'>
+        <clipPath id={_id91} transform='translate(-186.06 -17.479)'>
           <path d='M295.507 135.199l-27.724 16.172v26.523l-27.723 16.172v-26.568l27.723-16.173v-.046l-27.723 16.172v-26.569l27.723-16.173v.093l27.724-16.173v26.57zm-27.724-10.535l-27.723 16.171v-26.568l27.723-16.173v26.57zm.001-26.616L240.06 114.22V87.652l27.724-16.173v26.57z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__Y' transform='translate(-97.439 -131.245)'>
+        <clipPath id={_id92} transform='translate(-97.439 -131.245)'>
           <path d='M156.887 151.417v26.523l27.724 16.173v26.568l-27.724-16.172v.046l27.724 16.173v26.568l-27.724-16.171v.091l-27.724-16.172v.092l-27.725-16.172v-26.569l27.725 16.173v-.047l-27.725-16.172V145.78l27.725 16.173v-.093l27.724 16.173v-.047l-27.724-16.172v-26.569l27.724 16.172zm-27.724 37.058l27.724 16.173v-.047l-27.724-16.172v.046z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__ab' transform='translate(-95.162 -37.479)'>
+        <clipPath id={_id93} transform='translate(-95.162 -37.479)'>
           <path d='M156.887 124.802v-.093l27.723 16.173v26.569l-27.723-16.172v.046l27.723 16.173v26.568l-27.723-16.172v-26.523l-27.725-16.172v-26.57l27.725 16.173zm27.723-10.535v26.568l-27.723-16.171v-26.57l27.723 16.173zm0-26.615v26.568l-27.723-16.172V71.48l27.723 16.173z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__an' transform='translate(-87.714 -191.999)'>
+        <clipPath id={_id94} transform='translate(-87.714 -191.999)'>
           <path d='M388.955 232.172l-27.724 16.172-.079-.047-.227.132 27.219 15.877-27.049 15.777.542.316-27.725 16.172-27.724-16.172 27.047-15.779-.114-.066-27.182 15.857 27.567 16.08-27.724 16.173-27.645-16.127-.078.047-.08-.047-27.645 16.127-27.646-16.127-.078.047-.08-.047-27.643 16.127-27.646-16.127-.079.047-27.644-16.127-.08.047-27.724-16.173 27.565-16.08-27.565-16.079 27.724-16.173 27.644 16.126.08-.046 27.646 16.126.079-.046 27.644 16.125.079-.045.078.045 27.646-16.125 27.645 16.126.08-.046.078.045 27.645-16.125.079.046 27.647-16.126.078.046 27.645-16.126 27.724 16.173z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__aP' transform='translate(-127.353 -201.117)'>
+        <clipPath id={_id95} transform='translate(-127.353 -201.117)'>
           <path d='M175.249 209.737c0 2.552-3.621 4.621-8.086 4.621-4.466 0-8.087-2.069-8.087-4.621 0-2.552 3.621-4.62 8.087-4.62 4.465 0 8.086 2.068 8.086 4.62zm27.723 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm55.449 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.724 16.081c0 2.551-3.62 4.62-8.086 4.62s-8.086-2.069-8.086-4.62c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm110.897-32.161c0 2.552-3.621 4.621-8.087 4.621-4.465 0-8.086-2.069-8.086-4.621 0-2.552 3.621-4.62 8.086-4.62 4.466 0 8.087 2.068 8.087 4.62zm-27.725 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.724 16.081c0 2.551-3.62 4.62-8.086 4.62s-8.086-2.069-8.086-4.62c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.724 16.08c0 2.552-3.62 4.62-8.086 4.62s-8.086-2.068-8.086-4.62 3.62-4.621 8.086-4.621 8.086 2.069 8.086 4.621zm-110.896-32.16c0 2.551-3.62 4.62-8.086 4.62s-8.086-2.069-8.086-4.62c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm221.793 0c0 2.551-3.62 4.62-8.086 4.62s-8.086-2.069-8.086-4.62c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-194.069 16.08c0 2.551-3.621 4.62-8.086 4.62-4.466 0-8.087-2.069-8.087-4.62 0-2.552 3.621-4.621 8.087-4.621 4.465 0 8.086 2.069 8.086 4.621zm-27.724 16.079c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm55.448 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.724 16.08c0 2.552-3.621 4.621-8.086 4.621-4.466 0-8.087-2.069-8.087-4.621 0-2.551 3.621-4.62 8.087-4.62 4.465 0 8.086 2.069 8.086 4.62zm55.448 0c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm138.621-48.239c0 2.551-3.62 4.62-8.086 4.62s-8.086-2.069-8.086-4.62c0-2.552 3.62-4.621 8.086-4.621s8.086 2.069 8.086 4.621zm-27.725 16.079c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.723 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.725 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm110.897-32.16c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.724 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62zm-27.725 16.08c0 2.552-3.62 4.621-8.086 4.621s-8.086-2.069-8.086-4.621c0-2.551 3.62-4.62 8.086-4.62s8.086 2.069 8.086 4.62z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__aV' transform='translate(-224.06 -5.172)'>
+        <clipPath id={_id96} transform='translate(-224.06 -5.172)'>
           <path d='M333.507 122.892l-27.723 16.171v26.524l-27.724 16.172v-26.568l27.723-16.173v-.046l-27.723 16.172v-26.568l27.724-16.173v.092l27.723-16.172v26.569zm-27.723-10.535l-27.724 16.172V101.96l27.724-16.172v26.569zm0-26.615l-27.724 16.172V75.345l27.724-16.173v26.57z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__aZ' transform='translate(-135.438 -118.938)'>
+        <clipPath id={_id97} transform='translate(-135.438 -118.938)'>
           <path d='M194.886 139.111v26.522l27.724 16.173v26.569l-27.724-16.172v.046l27.724 16.172v26.569l-27.724-16.172v.092l-27.724-16.172v.092l-27.724-16.172v-26.57l27.724 16.173v-.047l-27.724-16.172v-26.569l27.724 16.173v-.093l27.724 16.173v-.047l-27.724-16.172v-26.569l27.724 16.173zm-27.724 37.057l27.724 16.173v-.047l-27.724-16.171v.045z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__bc' transform='translate(-133.162 -25.172)'>
+        <clipPath id={_id98} transform='translate(-133.162 -25.172)'>
           <path d='M194.887 112.496v-.093l27.723 16.173v26.568l-27.723-16.172v.046l27.723 16.173v26.568l-27.723-16.172v-26.523l-27.725-16.172v-26.57l27.725 16.174zm27.723-10.536v26.569l-27.723-16.172v-26.57l27.723 16.173zm0-26.615v26.569l-27.723-16.172v-26.57l27.723 16.173z' />
         </clipPath>
-        <clipPath id='LEGO__LEGO__a'>
+        <clipPath id={_id99}>
           <rect width={500} height={500} x={0.714} fill='#fff' rx={20} />
         </clipPath>
         <radialGradient
-          id='LEGO__LEGO__n'
+          id={_id100}
           cx={0}
           cy={0}
           r={1}
@@ -1665,7 +1774,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#71C3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LEGO__LEGO__o'
+          id={_id101}
           cx={0}
           cy={0}
           r={1}
@@ -1676,7 +1785,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#83CAFE' />
         </radialGradient>
         <radialGradient
-          id='LEGO__LEGO__ao'
+          id={_id102}
           cx={0}
           cy={0}
           r={1}
@@ -1687,7 +1796,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#71C3FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='LEGO__LEGO__ap'
+          id={_id103}
           cx={0}
           cy={0}
           r={1}
@@ -1698,7 +1807,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#83CAFE' />
         </radialGradient>
         <filter
-          id='LEGO__LEGO__b'
+          id={_id104}
           width={465.243}
           height={590.693}
           x={-20.287}
@@ -1714,7 +1823,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='LEGO__LEGO__Q'
+          id={_id105}
           width={319.227}
           height={215.093}
           x={47.988}
@@ -1730,7 +1839,7 @@ export const LEGO = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='LEGO__LEGO__aR'
+          id={_id106}
           width={277}
           height={196}
           x={107.062}

@@ -2,36 +2,41 @@
 
 import React, { SVGProps } from 'react'
 
-export const Alexar = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Alexar = function (props: SVGProps<SVGSVGElement>) {
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Alexar__Alexar__a)' opacity={0.2}>
+      <g filter={`url(#${_id})`} opacity={0.2}>
         <path
           fill='#000'
           d='M49.433 46.333h-1.965c-.246 0-.445.2-.445.445v1.355a.932.932 0 01-.273.658l-.125.125a.93.93 0 01-.658.273h-8.324a.93.93 0 01-.659-.273l-.125-.125a.932.932 0 01-.272-.658v-1.355c0-.246-.2-.445-.446-.445h-1.965c-.246 0-.446.2-.446.445v1.965c0 .246.2.446.446.446h1.48a.931.931 0 01.93.931v1.437c0 .269.22.488.488.488h9.461a.49.49 0 00.488-.488V50.12a.93.93 0 01.93-.931h1.48c.246 0 .446-.2.446-.446v-1.965c0-.246-.2-.445-.446-.445z'
         />
       </g>
-      <g clipPath='url(#Alexar__Alexar__b)' filter='url(#Alexar__Alexar__c)'>
+      <g clipPath={`url(#${_id7})`} filter={`url(#${_id2})`}>
         <path
-          fill='url(#Alexar__Alexar__d)'
+          fill={`url(#${_id5})`}
           d='M42.72 36.368l14.043-14.041L51.435 17 40.058 28.378 28.68 17l-5.327 5.327 14.041 14.041a3.755 3.755 0 002.664 1.103c.964 0 1.927-.367 2.663-1.103zm20.328 15L51.67 39.99l11.378-11.378-5.327-5.326L43.68 37.327a3.767 3.767 0 000 5.327l14.04 14.041 5.327-5.327zm-23.01.254L51.416 63l5.327-5.327L42.7 43.632a3.767 3.767 0 00-5.327 0l-14.04 14.041L28.66 63l11.378-11.378zm-3.622-8.949a3.766 3.766 0 000-5.327L22.375 23.305l-5.327 5.327L28.426 40.01 17.048 51.388l5.327 5.327 14.04-14.042z'
         />
       </g>
-      <g
-        clipPath='url(#Alexar__Alexar__e)'
-        filter='url(#Alexar__Alexar__f)'
-        opacity={0.5}
-      >
-        <g filter='url(#Alexar__Alexar__g)'>
+      <g clipPath={`url(#${_id8})`} filter={`url(#${_id3})`} opacity={0.5}>
+        <g filter={`url(#${_id4})`}>
           <path
-            fill='url(#Alexar__Alexar__h)'
+            fill={`url(#${_id6})`}
             d='M42.72 33.368l14.043-14.041L51.435 14 40.058 25.378 28.68 14l-5.327 5.327 14.041 14.041a3.755 3.755 0 002.664 1.103c.964 0 1.927-.367 2.663-1.103zm20.328 15L51.67 36.99l11.378-11.378-5.327-5.326L43.68 34.327a3.767 3.767 0 000 5.327l14.04 14.041 5.327-5.327zm-23.01.254L51.416 60l5.327-5.327L42.7 40.632a3.767 3.767 0 00-5.327 0l-14.04 14.041L28.66 60l11.378-11.378zm-3.622-8.949a3.766 3.766 0 000-5.327L22.375 20.305l-5.327 5.327L28.426 37.01 17.048 48.388l5.327 5.327 14.04-14.042z'
           />
         </g>
       </g>
       <defs>
         <filter
-          id='Alexar__Alexar__a'
+          id={_id}
           width={28.148}
           height={17.712}
           x={27.73}
@@ -47,7 +52,7 @@ export const Alexar = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Alexar__Alexar__c'
+          id={_id2}
           width={51.964}
           height={51.964}
           x={14.066}
@@ -75,7 +80,7 @@ export const Alexar = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Alexar__Alexar__f'
+          id={_id3}
           width={74}
           height={74}
           x={3.048}
@@ -91,7 +96,7 @@ export const Alexar = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Alexar__Alexar__g'
+          id={_id4}
           width={51.964}
           height={51.964}
           x={14.066}
@@ -119,7 +124,7 @@ export const Alexar = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <linearGradient
-          id='Alexar__Alexar__d'
+          id={_id5}
           x1={17.048}
           x2={63.048}
           y1={40}
@@ -130,7 +135,7 @@ export const Alexar = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#00B2FD' />
         </linearGradient>
         <linearGradient
-          id='Alexar__Alexar__h'
+          id={_id6}
           x1={17.048}
           x2={63.048}
           y1={37}
@@ -140,10 +145,10 @@ export const Alexar = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#009DFF' />
           <stop offset={1} stopColor='#00B2FD' />
         </linearGradient>
-        <clipPath id='Alexar__Alexar__b'>
+        <clipPath id={_id7}>
           <path fill='#fff' d='M17.048 17h46v46h-46z' />
         </clipPath>
-        <clipPath id='Alexar__Alexar__e'>
+        <clipPath id={_id8}>
           <path fill='#fff' d='M17.048 14h46v46h-46z' />
         </clipPath>
       </defs>

@@ -2,10 +2,13 @@
 
 import React, { SVGProps } from 'react'
 
-export const LDO = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const LDO = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#LDO__LDO__a)'>
+      <g clipPath={`url(#${_id})`}>
         <rect width={80} height={80} x={0.429} fill='#FFAA7D' rx={40} />
         <path
           fill='#fff'
@@ -17,7 +20,7 @@ export const LDO = (props: SVGProps<SVGSVGElement>) => {
           fill='#fff'
           d='M40.45 43.291l-13.222-7.426-.361.544c-4.072 6.143-3.163 14.188 2.187 19.342 6.295 6.065 16.5 6.065 22.796 0 5.35-5.154 6.259-13.199 2.186-19.342l-.36-.545-13.226 7.427z'
         />
-        <g filter='url(#LDO__LDO__b)' opacity={0.2} fill='#fff'>
+        <g filter={`url(#${_id2})`} opacity={0.2} fill='#fff'>
           <path
             fillRule='evenodd'
             d='M45.26 14l11.398 17.193-11.399 6.402-11.397-6.402L45.26 14zm-7.91 16.38l7.909-11.93 7.909 11.93-7.91 4.442-7.908-4.442z'
@@ -27,11 +30,11 @@ export const LDO = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='LDO__LDO__a'>
+        <clipPath id={_id}>
           <rect width={80} height={80} x={0.429} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='LDO__LDO__b'
+          id={_id2}
           width={60.239}
           height={72.383}
           x={15.125}

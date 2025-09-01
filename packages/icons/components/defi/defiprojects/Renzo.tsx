@@ -2,17 +2,20 @@
 
 import React, { SVGProps } from 'react'
 
-export const Renzo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Renzo = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Renzo__Renzo__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#ACE730'
           fillRule='evenodd'
           d='M50.806 19.456a30.275 30.275 0 00-1.793-.782 24.882 24.882 0 00-3.726-1.104 23.436 23.436 0 00-4.783-.506c-.782 0-1.564.046-2.346.092a23.469 23.469 0 00-13.983 6.486l-.736.736c-3.541 3.725-5.841 8.647-6.347 14.028-.046.69-.092 1.38-.092 2.116 0 1.748.184 3.45.552 5.106a25.43 25.43 0 001.104 3.633l.004.01c.274.64.55 1.281.824 1.876a25.396 25.396 0 001.84 3.036l3.863-3.91L50.024 25.16l3.864-3.91c-.92-.644-1.978-1.242-3.082-1.794zM22.933 44.984a1.634 1.634 0 01-.092-.46 18.931 18.931 0 01-.414-3.956 17.9 17.9 0 014.922-12.373l.644-.644c3.404-3.265 7.819-5.06 12.557-5.06 1.241 0 2.483.139 3.68.369l.551.138-21.848 21.986zm40.984-2.298v.138c-1.012 11.223-9.935 20.008-20.835 21.112h-.23l21.065-21.25zM30.71 61.961c.552.23 1.104.46 1.701.69l30.081-30.357c-.23-.598-.506-1.196-.782-1.794-.506-1.15-1.15-2.207-1.84-3.22L27.399 60.076c1.058.736 2.162 1.334 3.312 1.886z'
           clipRule='evenodd'
         />
-        <g filter='url(#Renzo__Renzo__b)'>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#ACE730'
             fillOpacity={0.8}
@@ -23,11 +26,11 @@ export const Renzo = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='Renzo__Renzo__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Renzo__Renzo__b'
+          id={_id2}
           width={74.917}
           height={74.872}
           x={3}

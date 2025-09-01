@@ -2,17 +2,79 @@
 
 import React, { SVGProps } from 'react'
 
-export const Avail = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Avail = function (props: SVGProps<SVGSVGElement>) {
+  const _id59 = useUniqueInlineId()
+  const _id58 = useUniqueInlineId()
+  const _id57 = useUniqueInlineId()
+  const _id56 = useUniqueInlineId()
+  const _id55 = useUniqueInlineId()
+  const _id54 = useUniqueInlineId()
+  const _id53 = useUniqueInlineId()
+  const _id52 = useUniqueInlineId()
+  const _id51 = useUniqueInlineId()
+  const _id50 = useUniqueInlineId()
+  const _id49 = useUniqueInlineId()
+  const _id48 = useUniqueInlineId()
+  const _id47 = useUniqueInlineId()
+  const _id46 = useUniqueInlineId()
+  const _id45 = useUniqueInlineId()
+  const _id44 = useUniqueInlineId()
+  const _id43 = useUniqueInlineId()
+  const _id42 = useUniqueInlineId()
+  const _id41 = useUniqueInlineId()
+  const _id40 = useUniqueInlineId()
+  const _id39 = useUniqueInlineId()
+  const _id38 = useUniqueInlineId()
+  const _id37 = useUniqueInlineId()
+  const _id36 = useUniqueInlineId()
+  const _id35 = useUniqueInlineId()
+  const _id34 = useUniqueInlineId()
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Avail__a)'>
-        <g filter='url(#Avail__b)' opacity={0.8}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.8}>
           <path
             fill='#65B1FF'
             d='M47.59 51.446l13.49 6.407c.693.33 1.522.036 1.825-.668 3.153-7.309 5.109-17.596 1.61-25.51-3.296-7.454-11.446-9.479-14.331-9.055l-5.294 2.873c2.003.369 6.043 2.873 6.175 9.945.11 5.855-2.241 11.002-4.045 13.813-.486.758-.242 1.81.57 2.195z'
           />
           <mask
-            id='Avail__a'
+            id={_id}
             width={23}
             height={36}
             x={44}
@@ -24,14 +86,14 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
               d='M47.59 51.447l13.49 6.407c.693.33 1.522.035 1.825-.668 3.153-7.31 5.109-17.596 1.61-25.51-3.296-7.454-11.446-9.479-14.331-9.055l-5.294 2.873c2.003.368 6.043 2.873 6.175 9.945.11 5.855-2.241 11.002-4.045 13.813-.486.757-.242 1.81.57 2.195z'
             />
           </mask>
-          <g mask='url(#Avail__a)'>
-            <g filter='url(#Avail__c)'>
+          <g mask={`url(#${_id})`}>
+            <g filter={`url(#${_id4})`}>
               <path
-                fill='url(#Avail__d)'
+                fill={`url(#${_id5})`}
                 d='M63.068 59.23c6.95-5.24 13.401-20.804 8.55-29.5-1.132-2.03-9.613-7.84-11.045-8.975l-.445 5.786s5.234 5.053 4.926 14.322c-.241 7.267-2.287 12.808-3.16 14.862a.974.974 0 01-1.274.51c-2.357-.954-8.602-3.536-8.384-3.982-.502 1.026 8.636 6.393 8.636 6.393l1.197.646a.925.925 0 001-.062z'
               />
             </g>
-            <g filter='url(#Avail__e)' opacity={0.7}>
+            <g filter={`url(#${_id6})`} opacity={0.7}>
               <path
                 fill='#65B1FF'
                 d='M47.123 48.01c5.636-3.944 6.497-16.517 1.618-21.369-1.257-1.25-3.134-2.593-4.345-3.43l.987 1.284s3.966 4.342 3.707 11.162c-.16 4.189-1.881 8.519-2.95 10.636-.176.346-8.123-3.082-8.273-2.816-.424.756 7.37 4.13 7.37 4.13l.984.464a.9.9 0 00.902-.06z'
@@ -39,11 +101,11 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
             </g>
           </g>
           <path
-            fill='url(#Avail__f)'
+            fill={`url(#${_id7})`}
             d='M57.53 45.913l-12.38-4.49a.716.716 0 00-.924.473c-.86 2.834-3.117 7.95-7.5 9.867-5.764 2.52-7.66-3.12-5.124 4.008 2.536 7.127 10.917 9.171 18.58 4.806 5.557-3.164 7.7-9.623 8.216-13.274.087-.61-.289-1.18-.869-1.39z'
           />
           <mask
-            id='Avail__b'
+            id={_id2}
             width={29}
             height={22}
             x={30}
@@ -51,26 +113,26 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
             maskUnits='userSpaceOnUse'
           >
             <path
-              fill='url(#Avail__g)'
+              fill={`url(#${_id8})`}
               d='M57.53 45.914l-12.38-4.49a.716.716 0 00-.924.473c-.86 2.834-3.117 7.95-7.5 9.867-5.764 2.52-7.66-3.12-5.124 4.008 2.536 7.127 10.917 9.171 18.58 4.807 5.557-3.165 7.7-9.624 8.216-13.275.087-.61-.289-1.18-.869-1.39z'
             />
           </mask>
-          <g mask='url(#Avail__b)'>
-            <g filter='url(#Avail__h)'>
+          <g mask={`url(#${_id2})`}>
+            <g filter={`url(#${_id0})`}>
               <path
-                fill='url(#Avail__i)'
+                fill={`url(#${_id1})`}
                 d='M38.212 64.777c12.017 0 17.043-21.73 15.644-25.419-.075-.198-.258-.324-.46-.388L31.07 31.953l13.586 5.614c.15.062.236.218.204.377-.261 1.28-1.543 6.813-4.79 10.325-3.691 3.99-11.315 4.887-14.46 4.142-1.674-.002-2.62-.577-2.62-.577 3.809 2.48 9.277 12.943 15.222 12.943z'
               />
             </g>
-            <g filter='url(#Avail__j)' opacity={0.4}>
+            <g filter={`url(#${_id10})`} opacity={0.4}>
               <path
                 fill='#3EBADD'
                 d='M39.596 51.061c4.883-3.315 8.525-15.872 7.551-19.37-.088-.315-.392-.488-.72-.502l-13.08-.586 11.386 5.609a.334.334 0 01.187.356c-.21 1.231-1.28 6.816-4.023 10.35-3.096 3.992-9.491 4.888-12.13 4.143-1.404-.002-2.13.568-2.13.568 3.195 2.479 8.623 2.376 12.96-.568z'
               />
             </g>
-            <g filter='url(#Avail__Avail__m)'>
+            <g filter={`url(#${_id39})`}>
               <path
-                fill='url(#Avail__Avail__n)'
+                fill={`url(#${_id14})`}
                 d='M50.566 61.649c5.88-3.35 11.047-16.792 9.826-20.191-.093-.258-.347-.398-.62-.43l-15.576-1.885-.354 2.29 12.302 4.814c.403.157.663.546.61.975-.195 1.578-1.028 5.55-4.587 9.609-4.59 5.233-11.224 4.985-14.369 4.24-1.674-.002-2.086 0-2.086 0 3.583 2.553 9.685 3.521 14.854.578z'
               />
             </g>
@@ -80,7 +142,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
             d='M38.826 39.69c-3.75 7.07-7.378 21.544 4.09 23.146-4.484.346-14.677-1.962-19.309-12.924-5.789-13.702 5.57-30.167 18.251-31.659 12.397-1.458 18.788 5.321 22.468 13.007.094.183.177.36.248.53a39.649 39.649 0 00-.248-.53c-1.416-2.74-5.445-6.736-12.268-4.167-4.935 1.859-10.348 7.16-13.232 12.598z'
           />
           <mask
-            id='Avail__k'
+            id={_id3}
             width={43}
             height={45}
             x={22}
@@ -92,31 +154,31 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
               d='M38.826 39.69c-3.75 7.069-7.378 21.543 4.09 23.145-4.484.346-14.677-1.962-19.309-12.924-5.789-13.702 5.57-30.167 18.251-31.658 12.397-1.459 18.788 5.32 22.468 13.007.094.183.177.36.248.53a37.901 37.901 0 00-.248-.53c-1.416-2.74-5.445-6.736-12.268-4.167-4.935 1.858-10.348 7.159-13.232 12.597z'
             />
           </mask>
-          <g mask='url(#Avail__k)'>
-            <g filter='url(#Avail__Avail__p)'>
+          <g mask={`url(#${_id3})`}>
+            <g filter={`url(#${_id40})`}>
               <path
-                fill='url(#Avail__Avail__q)'
+                fill={`url(#${_id15})`}
                 d='M12.405 49.607c4.632 10.962 25.697 14.244 30.182 13.899.225-2.127-6.21-6.744-5.985-11.881 0 0-8.206.263-9.459-11.936-1.253-12.199 5.73-18.338 5.73-18.338C24.548 25.463 9.9 43.677 12.406 49.607z'
               />
               <path
-                fill='url(#Avail__Avail__r)'
+                fill={`url(#${_id16})`}
                 d='M64.574 31.79C86.192 14.306 49.62 10.27 36.939 11.763c-5.28.62-19.166 14.607-13.7 20.625 0 0 5.67-6.292 13.7-7.442 8.03-1.15 11.75 4.651 11.75 4.651.978-.601 3.55-.767 4.515-1.13 7.278-2.74 11.014 2.573 11.37 3.325z'
               />
             </g>
-            <g filter='url(#Avail__Avail__s)'>
+            <g filter={`url(#${_id41})`}>
               <path
                 fill='#56E5FF'
                 d='M24.136 51.324C11.229 47.239 17.44 19.5 30.39 15.53c11.651-3.571 12.611 2.041 14.661 2.383.266-.008.41-.003.41-.003a1.201 1.201 0 01-.41.003c-1.54.048-7.159.548-12.518 5.144-8.06 6.913-11.305 17.963-8.397 28.267z'
               />
             </g>
-            <g filter='url(#Avail__Avail__t)'>
+            <g filter={`url(#${_id42})`}>
               <path
                 fill='#FDC7C7'
                 d='M45.006 62.813c-3.587 4.045-18.268-.874-22.899-11.836-.834-1.973.073-8.028.012-10.381a8.628 8.628 0 01-.012-.271c.006.084.01.174.012.27.078 1.311.623 7.142 4.263 12.41 4.13 5.98 12.615 8.321 12.615 8.321 1.107.79 4.235 1.239 6.01 1.487z'
               />
             </g>
             <mask
-              id='Avail__c'
+              id={_id4}
               width={29}
               height={30}
               x={15}
@@ -124,24 +186,24 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
               maskUnits='userSpaceOnUse'
             >
               <path
-                fill='url(#Avail__Avail__u)'
+                fill={`url(#${_id17})`}
                 d='M43.662 60L23.168 38.83l-7.418 7.21 20.494 21.17 7.418-7.212z'
               />
             </mask>
-            <g mask='url(#Avail__c)'>
+            <g mask={`url(#${_id4})`}>
               <path
                 fill='#FDC7C7'
                 d='M45.007 62.812c-3.587 4.046-18.268-.873-22.899-11.835-.834-1.974.073-8.028.012-10.381a8.628 8.628 0 01-.012-.271c.006.083.01.174.012.27.078 1.31.623 7.141 4.263 12.41 4.13 5.98 12.615 8.32 12.615 8.32 1.107.79 4.235 1.24 6.009 1.487z'
               />
             </g>
-            <g filter='url(#Avail__Avail__w)'>
+            <g filter={`url(#${_id43})`}>
               <path
                 fill='#EFC7FD'
                 d='M65.49 32.366c.945-6.878-11.3-17.535-23.982-16.043-4.588.54-8.653 4.969-12.146 8.589 0 0 7.926-7.058 17.575-5.7 9.648 1.358 13.96 8.516 13.96 8.516 2.014 1.181 2.934 4.81 4.593 4.638z'
               />
             </g>
             <mask
-              id='Avail__d'
+              id={_id5}
               width={38}
               height={17}
               x={27}
@@ -149,24 +211,24 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
               maskUnits='userSpaceOnUse'
             >
               <path
-                fill='url(#Avail__Avail__x)'
+                fill={`url(#${_id18})`}
                 d='M64.218 20.171l-34.616-5.157-1.728 11.648L62.49 31.82l1.729-11.648z'
               />
             </mask>
-            <g mask='url(#Avail__d)'>
+            <g mask={`url(#${_id5})`}>
               <path
                 fill='#EFC7FD'
                 d='M65.49 32.367c.945-6.877-11.3-17.535-23.982-16.043-4.588.54-8.653 4.97-12.145 8.59 0 0 7.925-7.059 17.574-5.7 9.649 1.357 13.96 8.516 13.96 8.516 2.015 1.18 2.934 4.809 4.594 4.637z'
               />
             </g>
-            <g filter='url(#Avail__Avail__z)'>
+            <g filter={`url(#${_id44})`}>
               <path
-                fill='url(#Avail__Avail__A)'
+                fill={`url(#${_id19})`}
                 d='M50.812 25.365C37.822 29.47 26.314 53.43 37.495 62.418c11.182 8.987 24.253-8.085 30.83-21.913-3.255-9.293-4.523-19.245-17.513-15.14z'
               />
             </g>
             <mask
-              id='Avail__e'
+              id={_id6}
               width={56}
               height={59}
               x={16}
@@ -174,13 +236,13 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
               maskUnits='userSpaceOnUse'
             >
               <path
-                fill='url(#Avail__Avail__B)'
+                fill={`url(#${_id20})`}
                 d='M71.849 31.134l-32.4-19.648-23.39 38.731 32.4 19.648 23.39-38.73z'
               />
             </mask>
-            <g mask='url(#Avail__e)'>
+            <g mask={`url(#${_id6})`}>
               <path
-                fill='url(#Avail__Avail__D)'
+                fill={`url(#${_id21})`}
                 d='M50.811 25.365C37.821 29.47 26.313 53.43 37.495 62.417c11.18 8.988 24.252-8.085 30.828-21.913-3.253-9.292-4.521-19.244-17.512-15.14z'
               />
             </g>
@@ -191,7 +253,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           d='M43.27 51.446l13.49 6.407c.692.33 1.522.036 1.825-.668 3.153-7.309 5.109-17.596 1.61-25.51-3.296-7.454-11.446-9.479-14.332-9.055l-5.293 2.873c2.003.369 6.043 2.873 6.175 9.945.11 5.855-2.242 11.002-4.045 13.813-.486.758-.242 1.81.57 2.195z'
         />
         <mask
-          id='Avail__f'
+          id={_id7}
           width={23}
           height={36}
           x={40}
@@ -203,26 +265,26 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
             d='M43.27 51.447l13.49 6.407c.692.33 1.522.035 1.825-.668 3.153-7.31 5.109-17.596 1.61-25.51-3.296-7.454-11.446-9.479-14.332-9.055l-5.293 2.873c2.003.368 6.043 2.873 6.175 9.945.11 5.855-2.242 11.002-4.045 13.813-.486.757-.242 1.81.57 2.195z'
           />
         </mask>
-        <g mask='url(#Avail__f)'>
-          <g filter='url(#Avail__Avail__F)'>
+        <g mask={`url(#${_id7})`}>
+          <g filter={`url(#${_id45})`}>
             <path
-              fill='url(#Avail__Avail__G)'
+              fill={`url(#${_id22})`}
               d='M47.4 53.644c7.108-5.132 16.631-26.043 11.854-30.178-1.757-1.52-17.79-1.16-19.222-2.296l1.168 1.741s4.694 5.891 4.386 15.142c-.188 5.681-2.225 11.555-3.491 14.426-.207.47-9.612-4.18-9.789-3.82-.502 1.026 8.72 5.603 8.72 5.603l5.908-.453a.9.9 0 00.467-.165z'
             />
           </g>
-          <g filter='url(#Avail__Avail__H)'>
+          <g filter={`url(#${_id46})`}>
             <path
-              fill='url(#Avail__Avail__I)'
+              fill={`url(#${_id23})`}
               d='M58.748 59.23c6.95-5.24 13.401-20.804 8.55-29.5-1.133-2.03-9.613-7.84-11.045-8.975l-.446 5.786s5.235 5.053 4.927 14.322c-.241 7.267-2.288 12.808-3.16 14.862a.974.974 0 01-1.275.51c-2.356-.954-8.602-3.536-8.383-3.982-.502 1.026 8.635 6.393 8.635 6.393l1.197.646c.32.173.71.157 1-.062z'
             />
           </g>
-          <g filter='url(#Avail__Avail__J)' opacity={0.8}>
+          <g filter={`url(#${_id47})`} opacity={0.8}>
             <path
               fill='#13497E'
               d='M55.459 43.989l-11.405-3.757a2.767 2.767 0 00-3.496 1.766L37.7 50.713a2.775 2.775 0 001.769 3.5l11.404 3.757a2.767 2.767 0 003.496-1.767l2.859-8.714a2.775 2.775 0 00-1.768-3.5z'
             />
           </g>
-          <g filter='url(#Avail__Avail__K)' opacity={0.7}>
+          <g filter={`url(#${_id48})`} opacity={0.7}>
             <path
               fill='#2B80D7'
               d='M42.802 48.01c5.636-3.944 6.498-16.517 1.619-21.369-1.258-1.25-3.135-2.593-4.345-3.43l.987 1.284s3.966 4.342 3.707 11.162c-.16 4.189-1.882 8.519-2.951 10.636-.175.346-8.123-3.082-8.272-2.816-.425.756 7.37 4.13 7.37 4.13l.983.464a.9.9 0 00.902-.06z'
@@ -230,11 +292,11 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           </g>
         </g>
         <path
-          fill='url(#Avail__Avail__L)'
+          fill={`url(#${_id24})`}
           d='M53.209 45.913l-12.38-4.49a.716.716 0 00-.923.473c-.86 2.834-3.117 7.95-7.5 9.867-5.764 2.52-7.66-3.12-5.124 4.008 2.536 7.127 10.917 9.171 18.58 4.806 5.557-3.164 7.7-9.623 8.216-13.274.087-.61-.289-1.18-.869-1.39z'
         />
         <mask
-          id='Avail__g'
+          id={_id8}
           width={29}
           height={22}
           x={26}
@@ -242,26 +304,26 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           maskUnits='userSpaceOnUse'
         >
           <path
-            fill='url(#Avail__Avail__M)'
+            fill={`url(#${_id58})`}
             d='M53.209 45.914l-12.38-4.49a.716.716 0 00-.923.473c-.86 2.834-3.117 7.95-7.5 9.867-5.764 2.52-7.66-3.12-5.124 4.008 2.536 7.127 10.917 9.171 18.58 4.807 5.557-3.165 7.7-9.624 8.216-13.275.087-.61-.289-1.18-.869-1.39z'
           />
         </mask>
-        <g mask='url(#Avail__g)'>
-          <g filter='url(#Avail__Avail__O)'>
+        <g mask={`url(#${_id8})`}>
+          <g filter={`url(#${_id49})`}>
             <path
-              fill='url(#Avail__Avail__P)'
+              fill={`url(#${_id25})`}
               d='M33.892 64.777c12.017 0 17.043-21.73 15.644-25.419-.075-.198-.258-.324-.46-.388L26.75 31.953l13.585 5.614c.15.062.237.218.205.377-.262 1.28-1.544 6.813-4.79 10.325-3.692 3.99-11.315 4.887-14.46 4.142-1.674-.002-2.62-.577-2.62-.577 3.808 2.48 9.277 12.943 15.222 12.943z'
             />
           </g>
-          <g filter='url(#Avail__Avail__Q)' opacity={0.4}>
+          <g filter={`url(#${_id50})`} opacity={0.4}>
             <path
               fill='#3EBADD'
               d='M35.276 51.061c4.883-3.315 8.524-15.872 7.55-19.37-.087-.315-.392-.488-.719-.502l-13.08-.586 11.386 5.609a.334.334 0 01.186.356c-.209 1.231-1.28 6.816-4.022 10.35-3.097 3.992-9.492 4.888-12.13 4.143-1.404-.002-2.13.568-2.13.568 3.195 2.479 8.623 2.376 12.959-.568z'
             />
           </g>
-          <g filter='url(#Avail__Avail__R)'>
+          <g filter={`url(#${_id51})`}>
             <path
-              fill='url(#Avail__Avail__S)'
+              fill={`url(#${_id26})`}
               d='M46.245 61.649c5.88-3.35 11.047-16.792 9.827-20.191-.093-.258-.347-.398-.62-.43l-15.577-1.885-.353 2.29 12.302 4.814c.402.157.662.546.61.975-.195 1.578-1.028 5.55-4.587 9.609-4.59 5.233-11.224 4.985-14.369 4.24-1.674-.002-2.086 0-2.086 0 3.583 2.553 9.685 3.521 14.854.578z'
             />
           </g>
@@ -271,7 +333,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           d='M34.505 39.69c-3.749 7.07-7.377 21.544 4.091 23.146-4.485.346-14.678-1.962-19.309-12.924-5.79-13.702 5.57-30.167 18.25-31.659 12.398-1.458 18.788 5.321 22.468 13.007.095.183.177.36.249.53a40.938 40.938 0 00-.249-.53c-1.416-2.74-5.444-6.736-12.267-4.167-4.935 1.859-10.348 7.16-13.233 12.598z'
         />
         <mask
-          id='Avail__l'
+          id={_id9}
           width={44}
           height={45}
           x={17}
@@ -283,31 +345,31 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
             d='M34.505 39.69c-3.75 7.069-7.377 21.543 4.091 23.145-4.485.346-14.678-1.962-19.309-12.924-5.79-13.702 5.57-30.167 18.25-31.658 12.398-1.459 18.788 5.32 22.468 13.007.095.183.177.36.249.53a40.329 40.329 0 00-.249-.53c-1.416-2.74-5.444-6.736-12.267-4.167-4.935 1.858-10.348 7.159-13.233 12.597z'
           />
         </mask>
-        <g mask='url(#Avail__l)'>
-          <g filter='url(#Avail__Avail__U)'>
+        <g mask={`url(#${_id9})`}>
+          <g filter={`url(#${_id52})`}>
             <path
-              fill='url(#Avail__Avail__V)'
+              fill={`url(#${_id27})`}
               d='M8.085 49.607c4.632 10.962 25.697 14.244 30.182 13.899.225-2.127-6.21-6.744-5.985-11.881 0 0-8.206.263-9.46-11.936-1.252-12.199 5.73-18.338 5.73-18.338C20.229 25.463 5.58 43.677 8.086 49.607z'
             />
             <path
-              fill='url(#Avail__Avail__W)'
+              fill={`url(#${_id28})`}
               d='M60.254 31.79C81.87 14.306 45.3 10.27 32.619 11.763c-5.28.62-19.166 14.607-13.7 20.625 0 0 5.669-6.292 13.7-7.442 8.03-1.15 11.75 4.651 11.75 4.651.978-.601 3.55-.767 4.515-1.13 7.278-2.74 11.014 2.573 11.37 3.325z'
             />
           </g>
-          <g filter='url(#Avail__Avail__X)'>
+          <g filter={`url(#${_id53})`}>
             <path
               fill='#56E5FF'
               d='M19.815 51.324C6.91 47.239 13.121 19.5 26.07 15.53c11.651-3.571 12.611 2.041 14.66 2.383.267-.008.41-.003.41-.003a1.202 1.202 0 01-.41.003c-1.539.048-7.158.548-12.517 5.144-8.06 6.913-11.305 17.963-8.398 28.267z'
             />
           </g>
-          <g filter='url(#Avail__Avail__Y)'>
+          <g filter={`url(#${_id54})`}>
             <path
               fill='#FDC7C7'
               d='M40.686 62.813c-3.587 4.045-18.268-.874-22.9-11.836-.833-1.973.073-8.028.013-10.381a8.628 8.628 0 01-.012-.271c.006.084.01.174.012.27.078 1.311.622 7.142 4.262 12.41 4.131 5.98 12.616 8.321 12.616 8.321 1.107.79 4.234 1.239 6.009 1.487z'
             />
           </g>
           <mask
-            id='Avail__h'
+            id={_id0}
             width={29}
             height={30}
             x={11}
@@ -315,24 +377,24 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
             maskUnits='userSpaceOnUse'
           >
             <path
-              fill='url(#Avail__Avail__Z)'
+              fill={`url(#${_id29})`}
               d='M39.342 60L18.847 38.83l-7.417 7.21 20.495 21.17 7.418-7.212z'
             />
           </mask>
-          <g mask='url(#Avail__h)'>
+          <g mask={`url(#${_id0})`}>
             <path
               fill='#FDC7C7'
               d='M40.687 62.812c-3.587 4.046-18.268-.873-22.9-11.835-.833-1.974.073-8.028.013-10.381a8.628 8.628 0 01-.012-.271c.006.083.01.174.012.27.078 1.31.622 7.141 4.262 12.41 4.131 5.98 12.616 8.32 12.616 8.32 1.107.79 4.234 1.24 6.009 1.487z'
             />
           </g>
-          <g filter='url(#Avail__Avail__ab)'>
+          <g filter={`url(#${_id55})`}>
             <path
               fill='#EFC7FD'
               d='M61.17 32.366c.944-6.878-11.301-17.535-23.982-16.043-4.588.54-8.654 4.969-12.146 8.589 0 0 7.926-7.058 17.574-5.7 9.65 1.358 13.96 8.516 13.96 8.516 2.015 1.181 2.934 4.81 4.594 4.638z'
             />
           </g>
           <mask
-            id='Avail__i'
+            id={_id1}
             width={37}
             height={17}
             x={23}
@@ -340,24 +402,24 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
             maskUnits='userSpaceOnUse'
           >
             <path
-              fill='url(#Avail__Avail__ac)'
+              fill={`url(#${_id30})`}
               d='M59.897 20.171l-34.615-5.157-1.728 11.648L58.17 31.82l1.728-11.648z'
             />
           </mask>
-          <g mask='url(#Avail__i)'>
+          <g mask={`url(#${_id1})`}>
             <path
               fill='#EFC7FD'
               d='M61.17 32.367c.945-6.877-11.3-17.535-23.982-16.043-4.588.54-8.653 4.97-12.146 8.59 0 0 7.926-7.059 17.575-5.7 9.649 1.357 13.96 8.516 13.96 8.516 2.015 1.18 2.934 4.809 4.593 4.637z'
             />
           </g>
-          <g filter='url(#Avail__Avail__ae)'>
+          <g filter={`url(#${_id56})`}>
             <path
-              fill='url(#Avail__Avail__af)'
+              fill={`url(#${_id31})`}
               d='M46.492 25.365C33.5 29.47 21.994 53.43 33.175 62.418c11.181 8.987 24.253-8.085 30.829-21.913-3.254-9.293-4.522-19.245-17.512-15.14z'
             />
           </g>
           <mask
-            id='Avail__j'
+            id={_id10}
             width={57}
             height={59}
             x={11}
@@ -365,13 +427,13 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
             maskUnits='userSpaceOnUse'
           >
             <path
-              fill='url(#Avail__Avail__ag)'
+              fill={`url(#${_id32})`}
               d='M67.529 31.134l-32.4-19.648-23.39 38.731 32.4 19.648 23.39-38.73z'
             />
           </mask>
-          <g mask='url(#Avail__j)'>
+          <g mask={`url(#${_id10})`}>
             <path
-              fill='url(#Avail__Avail__ai)'
+              fill={`url(#${_id33})`}
               d='M46.49 25.365C33.5 29.47 21.994 53.43 33.175 62.417c11.181 8.988 24.253-8.085 30.829-21.913-3.254-9.292-4.522-19.244-17.512-15.14z'
             />
           </g>
@@ -379,7 +441,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='Avail__Avail__e'
+          id={_id11}
           x1={62.762}
           x2={62.773}
           y1={28.798}
@@ -390,7 +452,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.451} stopColor='#77B8FD' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__g'
+          id={_id12}
           x1={51.282}
           x2={36.425}
           y1={36.188}
@@ -401,7 +463,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3EBADD' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__k'
+          id={_id13}
           x1={48.279}
           x2={36.063}
           y1={42.674}
@@ -413,7 +475,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#228AA7' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__n'
+          id={_id14}
           x1={52.263}
           x2={41.78}
           y1={44.59}
@@ -424,7 +486,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F3C8CB' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__q'
+          id={_id15}
           x1={23.708}
           x2={35.267}
           y1={32.82}
@@ -435,7 +497,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#176781' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__r'
+          id={_id16}
           x1={29.828}
           x2={61.85}
           y1={34.581}
@@ -446,7 +508,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#033883' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__u'
+          id={_id17}
           x1={39.129}
           x2={25.811}
           y1={62.555}
@@ -457,7 +519,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.659} stopColor='#D9D9D9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__x'
+          id={_id18}
           x1={62.893}
           x2={47.757}
           y1={28.936}
@@ -468,7 +530,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#D9D9D9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__A'
+          id={_id19}
           x1={59.071}
           x2={37.473}
           y1={25.269}
@@ -481,7 +543,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FDC8C8' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__B'
+          id={_id20}
           x1={60.192}
           x2={33.532}
           y1={48.847}
@@ -492,7 +554,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.659} stopColor='#D9D9D9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__D'
+          id={_id21}
           x1={59.07}
           x2={37.472}
           y1={25.268}
@@ -505,7 +567,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FDC8C8' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__G'
+          id={_id22}
           x1={49.971}
           x2={49.751}
           y1={26.762}
@@ -516,7 +578,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.64} stopColor='#2B80D7' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__I'
+          id={_id23}
           x1={58.442}
           x2={58.452}
           y1={28.798}
@@ -527,7 +589,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.451} stopColor='#77B8FD' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__L'
+          id={_id24}
           x1={46.962}
           x2={32.105}
           y1={36.188}
@@ -538,7 +600,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#3EBADD' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__P'
+          id={_id25}
           x1={43.958}
           x2={31.743}
           y1={42.674}
@@ -550,7 +612,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#228AA7' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__S'
+          id={_id26}
           x1={47.943}
           x2={37.46}
           y1={44.59}
@@ -561,7 +623,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#F3C8CB' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__V'
+          id={_id27}
           x1={19.388}
           x2={30.947}
           y1={32.82}
@@ -572,7 +634,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#176781' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__W'
+          id={_id28}
           x1={25.508}
           x2={57.53}
           y1={34.581}
@@ -583,7 +645,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#033883' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__Z'
+          id={_id29}
           x1={34.809}
           x2={21.491}
           y1={62.555}
@@ -594,7 +656,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.659} stopColor='#D9D9D9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__ac'
+          id={_id30}
           x1={58.573}
           x2={43.437}
           y1={28.936}
@@ -605,7 +667,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#D9D9D9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__af'
+          id={_id31}
           x1={54.751}
           x2={33.153}
           y1={25.269}
@@ -618,7 +680,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FDC8C8' />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__ag'
+          id={_id32}
           x1={55.872}
           x2={29.212}
           y1={48.847}
@@ -629,7 +691,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.659} stopColor='#D9D9D9' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='Avail__Avail__ai'
+          id={_id33}
           x1={54.75}
           x2={33.151}
           y1={25.268}
@@ -642,7 +704,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#FDC8C8' />
         </linearGradient>
         <filter
-          id='Avail__Avail__b'
+          id={_id34}
           width={72.32}
           height={72.815}
           x={8.055}
@@ -658,7 +720,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__d'
+          id={_id35}
           width={21.5}
           height={39.064}
           x={52.012}
@@ -674,7 +736,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__f'
+          id={_id36}
           width={15.715}
           height={26.589}
           x={37.032}
@@ -690,7 +752,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__j'
+          id={_id37}
           width={39.275}
           height={41.005}
           x={18.9}
@@ -706,7 +768,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__l'
+          id={_id38}
           width={22.304}
           height={24.419}
           x={25.82}
@@ -722,7 +784,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__m'
+          id={_id39}
           width={25.269}
           height={24.727}
           x={35.507}
@@ -738,7 +800,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__p'
+          id={_id40}
           width={72.236}
           height={65.143}
           x={5.576}
@@ -754,7 +816,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__s'
+          id={_id41}
           width={30.074}
           height={38.614}
           x={16.205}
@@ -770,7 +832,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__t'
+          id={_id42}
           width={24.89}
           height={25.529}
           x={20.934}
@@ -786,7 +848,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__w'
+          id={_id43}
           width={37.816}
           height={17.827}
           x={28.544}
@@ -802,7 +864,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__z'
+          id={_id44}
           width={35.76}
           height={40.915}
           x={32.769}
@@ -818,7 +880,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__F'
+          id={_id45}
           width={40.528}
           height={45.364}
           x={26.151}
@@ -834,7 +896,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__H'
+          id={_id46}
           width={21.5}
           height={39.064}
           x={47.691}
@@ -850,7 +912,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__J'
+          id={_id47}
           width={31.259}
           height={29.471}
           x={31.834}
@@ -866,7 +928,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__K'
+          id={_id48}
           width={15.715}
           height={26.589}
           x={32.712}
@@ -882,7 +944,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__O'
+          id={_id49}
           width={39.275}
           height={41.005}
           x={14.58}
@@ -898,7 +960,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__Q'
+          id={_id50}
           width={22.304}
           height={24.419}
           x={21.499}
@@ -914,7 +976,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__R'
+          id={_id51}
           width={25.269}
           height={24.727}
           x={31.187}
@@ -930,7 +992,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__U'
+          id={_id52}
           width={72.236}
           height={65.143}
           x={1.256}
@@ -946,7 +1008,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__X'
+          id={_id53}
           width={30.074}
           height={38.614}
           x={11.885}
@@ -962,7 +1024,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__Y'
+          id={_id54}
           width={24.89}
           height={25.529}
           x={16.614}
@@ -978,7 +1040,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__ab'
+          id={_id55}
           width={37.816}
           height={17.827}
           x={24.224}
@@ -994,7 +1056,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <filter
-          id='Avail__Avail__ae'
+          id={_id56}
           width={35.76}
           height={40.915}
           x={28.448}
@@ -1010,7 +1072,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           />
         </filter>
         <radialGradient
-          id='Avail__Avail__h'
+          id={_id57}
           cx={0}
           cy={0}
           r={1}
@@ -1021,7 +1083,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#630513' />
         </radialGradient>
         <radialGradient
-          id='Avail__Avail__M'
+          id={_id58}
           cx={0}
           cy={0}
           r={1}
@@ -1031,7 +1093,7 @@ export const Avail = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.411} stopColor='#FF7360' />
           <stop offset={1} stopColor='#630513' />
         </radialGradient>
-        <clipPath id='Avail__Avail__a'>
+        <clipPath id={_id59}>
           <rect width={80.004} height={80} x={0.055} fill='#fff' rx={40} />
         </clipPath>
       </defs>

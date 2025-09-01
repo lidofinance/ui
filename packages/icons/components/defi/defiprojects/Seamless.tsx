@@ -2,19 +2,24 @@
 
 import React, { SVGProps } from 'react'
 
-export const Seamless = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Seamless = function (props: SVGProps<SVGSVGElement>) {
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#Seamless__Seamless__a)'>
+      <g clipPath={`url(#${_id3})`}>
         <path
-          fill='url(#Seamless__Seamless__b)'
+          fill={`url(#${_id})`}
           fillRule='evenodd'
           d='M64.022 40c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24 24 10.745 24 24zm-25.364-8.727a2.455 2.455 0 000 4.909v8.182c-5.874 0-10.636-4.762-10.636-10.637 0-5.874 4.762-10.636 10.636-10.636 5.875 0 10.637 4.762 10.637 10.636h-8.182a2.455 2.455 0 00-2.455-2.454zm5.182 15.545a2.455 2.455 0 11-4.909 0H30.75c0 5.874 4.762 10.636 10.637 10.636 5.874 0 10.636-4.762 10.636-10.636S47.26 36.182 41.386 36.182v8.181a2.455 2.455 0 012.454 2.455z'
           clipRule='evenodd'
         />
-        <g filter='url(#Seamless__Seamless__c)'>
+        <g filter={`url(#${_id4})`}>
           <path
-            fill='url(#Seamless__Seamless__d)'
+            fill={`url(#${_id2})`}
             fillRule='evenodd'
             d='M68.022 35c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24 24 10.745 24 24zm-25.364-8.727a2.455 2.455 0 000 4.909v8.182c-5.874 0-10.636-4.762-10.636-10.637 0-5.874 4.762-10.636 10.636-10.636 5.875 0 10.637 4.762 10.637 10.636h-8.182a2.455 2.455 0 00-2.455-2.454zm5.182 15.545a2.455 2.455 0 11-4.909 0H34.75c0 5.874 4.762 10.636 10.637 10.636 5.874 0 10.636-4.762 10.636-10.636S51.26 31.182 45.386 31.182v8.181a2.455 2.455 0 012.454 2.455z'
             clipRule='evenodd'
@@ -23,7 +28,7 @@ export const Seamless = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <radialGradient
-          id='Seamless__Seamless__b'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -34,7 +39,7 @@ export const Seamless = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#4F68F7' />
         </radialGradient>
         <radialGradient
-          id='Seamless__Seamless__d'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -44,11 +49,11 @@ export const Seamless = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#FFBFFF' />
           <stop offset={1} stopColor='#4F68F7' />
         </radialGradient>
-        <clipPath id='Seamless__Seamless__a'>
+        <clipPath id={_id3}>
           <path fill='#fff' d='M.022 0h80.004v80H.022z' />
         </clipPath>
         <filter
-          id='Seamless__Seamless__c'
+          id={_id4}
           width={76}
           height={76}
           x={6.022}

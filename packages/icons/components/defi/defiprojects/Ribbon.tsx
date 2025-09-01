@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Ribbon = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Ribbon = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Ribbon__Ribbon__a)' opacity={0.3}>
+      <g filter={`url(#${_id})`} opacity={0.3}>
         <path
           fill='#FC0A54'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Ribbon = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Ribbon__Ribbon__a'
+          id={_id}
           width={67}
           height={67}
           x={12}

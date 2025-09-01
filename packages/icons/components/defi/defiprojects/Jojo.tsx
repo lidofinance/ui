@@ -2,17 +2,20 @@
 
 import React, { SVGProps } from 'react'
 
-export const Jojo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Jojo = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Jojo__Jojo__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#6EDBAF'
           fillRule='evenodd'
           d='M45.053 29.934L48.025 21h-19.41l-2.974 8.934h19.412zm10.253 14.69L63 21.003H52.245l-7.358 22.554a10.591 10.591 0 01-2.24 3.888c-1.026 1.12-2.465 2.182-4.318 2.349l-.17.013H18.935L16 59h21.802s8.179-.304 14.083-7.856a21.179 21.179 0 003.42-6.52z'
           clipRule='evenodd'
         />
-        <g filter='url(#Jojo__Jojo__b)' opacity={0.7}>
+        <g filter={`url(#${_id2})`} opacity={0.7}>
           <path
             fill='#6EDBAF'
             fillRule='evenodd'
@@ -22,11 +25,11 @@ export const Jojo = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='Jojo__Jojo__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Jojo__Jojo__b'
+          id={_id2}
           width={75}
           height={66}
           x={-1}

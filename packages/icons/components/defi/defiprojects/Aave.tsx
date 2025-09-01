@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Aave = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Aave = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Aave__Aave__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#9391F7'
           d='M40.002 59C51.599 59 61 49.598 61 38s-9.4-21-20.998-21-21 9.402-21 21 9.402 21 21 21z'
@@ -25,7 +27,7 @@ export const Aave = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Aave__Aave__a'
+          id={_id}
           width={69.998}
           height={70}
           x={5.002}

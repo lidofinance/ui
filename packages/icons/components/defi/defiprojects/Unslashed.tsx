@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Unslashed = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Unslashed = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Unslashed__Unslashed__a)' opacity={0.25}>
+      <g filter={`url(#${_id})`} opacity={0.25}>
         <path
           fill='#01F496'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Unslashed = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Unslashed__Unslashed__a'
+          id={_id}
           width={61}
           height={65}
           x={17}

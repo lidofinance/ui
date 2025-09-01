@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Drop = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Drop = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Drop__Drop__a)'>
-        <g filter='url(#Drop__Drop__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#5A3981'
             d='M32.965 12.978a9.8 9.8 0 0114.071 0l9.935 10.153c9.372 9.578 9.372 25.107 0 34.684a23.638 23.638 0 01-33.942 0c-9.373-9.578-9.373-25.106 0-34.684l9.936-10.153z'
@@ -28,11 +31,11 @@ export const Drop = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Drop__Drop__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='Drop__Drop__b'
+          id={_id2}
           width={76.001}
           height={82.999}
           x={2}

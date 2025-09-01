@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Orca = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Orca = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Orca__Orca__a)'>
-        <g filter='url(#Orca__Orca__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#fff'
             stroke='#FFD15C'
@@ -72,11 +75,11 @@ export const Orca = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Orca__Orca__a'>
+        <clipPath id={_id}>
           <rect width={80.004} height={80} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='Orca__Orca__b'
+          id={_id2}
           width={73.387}
           height={65.593}
           x={10}

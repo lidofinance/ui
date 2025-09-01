@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Wintermute = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Wintermute = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Wintermute__Wintermute__a)' opacity={0.5}>
+      <g filter={`url(#${_id})`} opacity={0.5}>
         <path
           fill='#00F554'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Wintermute = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Wintermute__Wintermute__a'
+          id={_id}
           width={70.729}
           height={56.842}
           x={6.635}

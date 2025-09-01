@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Jumper = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Jumper = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Jumper__Jumper__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#2C0375'
           d='M45.89 40.203L29 57.092l4.221 4.221c2.111 2.11 6.334 2.11 8.445 0l16.89-16.889c2.111-2.11 2.111-6.332 0-8.443l-8.444-8.444-8.445 8.444 4.224 4.222z'
@@ -25,7 +27,7 @@ export const Jumper = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Jumper__Jumper__a'
+          id={_id}
           width={59.14}
           height={73.388}
           x={15}

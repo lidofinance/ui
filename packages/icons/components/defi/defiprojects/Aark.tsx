@@ -2,11 +2,15 @@
 
 import React, { SVGProps } from 'react'
 
-export const Aark = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Aark = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <path
-        fill='url(#Aark__Aark__a)'
+        fill={`url(#${_id})`}
         fillRule='evenodd'
         d='M40.126 61.656c12.091 0 21.912-9.623 22.06-21.554v-.274a21.66 21.66 0 00-6.84-15.802 21.658 21.658 0 00-4.622 25.359 14.371 14.371 0 01-10.598 4.632c-7.918 0-14.337-6.352-14.337-14.189S32.208 25.64 40.126 25.64c2.606 0 5.046.686 7.15 1.887a25.949 25.949 0 014.734-6.095A22.128 22.128 0 0040.126 18c-12.182 0-22.06 9.772-22.06 21.828 0 12.057 9.878 21.828 22.06 21.828z'
         clipRule='evenodd'
@@ -18,13 +22,13 @@ export const Aark = (props: SVGProps<SVGSVGElement>) => {
         clipRule='evenodd'
       />
       <g
-        filter='url(#Aark__Aark__b)'
+        filter={`url(#${_id3})`}
         opacity={0.6}
         fillRule='evenodd'
         clipRule='evenodd'
       >
         <path
-          fill='url(#Aark__Aark__c)'
+          fill={`url(#${_id2})`}
           d='M48.006 53.72c9.35 0 16.945-7.442 17.06-16.669v-.212a16.752 16.752 0 00-5.29-12.22 16.748 16.748 0 00-3.574 19.611 11.115 11.115 0 01-8.196 3.582c-6.124 0-11.087-4.912-11.087-10.972 0-6.061 4.963-10.973 11.087-10.973 2.015 0 3.902.53 5.53 1.46a20.064 20.064 0 013.66-4.714 17.112 17.112 0 00-9.19-2.654c-9.421 0-17.06 7.557-17.06 16.88 0 9.324 7.639 16.881 17.06 16.881z'
         />
         <path
@@ -34,7 +38,7 @@ export const Aark = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='Aark__Aark__a'
+          id={_id}
           x1={55.074}
           x2={22.747}
           y1={22.571}
@@ -45,7 +49,7 @@ export const Aark = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#E92F8E' />
         </linearGradient>
         <linearGradient
-          id='Aark__Aark__c'
+          id={_id2}
           x1={59.566}
           x2={34.566}
           y1={23.494}
@@ -56,7 +60,7 @@ export const Aark = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#E92F8E' />
         </linearGradient>
         <filter
-          id='Aark__Aark__b'
+          id={_id3}
           width={62.12}
           height={61.761}
           x={16.946}

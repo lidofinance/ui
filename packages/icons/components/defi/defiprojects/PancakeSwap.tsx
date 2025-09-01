@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const PancakeSwap = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const PancakeSwap = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#PancakeSwap__PancakeSwap__a)'>
-        <g filter='url(#PancakeSwap__PancakeSwap__b)' opacity={0.6}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.6}>
           <path
             fill='#633001'
             fillRule='evenodd'
@@ -46,11 +49,11 @@ export const PancakeSwap = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='PancakeSwap__PancakeSwap__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
         <filter
-          id='PancakeSwap__PancakeSwap__b'
+          id={_id2}
           width={74.06}
           height={76.32}
           x={8.94}

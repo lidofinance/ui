@@ -191,6 +191,11 @@ const convertFiles = async () => {
           fill: 'none',
         },
         svgoConfig: svgoConfig(replaceCurrentColor, componentName),
+        jsx: {
+          babelConfig: {
+            plugins: ['react-inline-svg-unique-id'],
+          },
+        },
         plugins: [svgrSvgo, svgrJsx, svgrPrettier],
         template: require('./template.component.cjs'),
       },

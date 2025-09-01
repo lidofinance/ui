@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Maverick = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Maverick = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Maverick__Maverick__a)'>
-        <g filter='url(#Maverick__Maverick__b)'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#6400FF'
             fillOpacity={0.4}
@@ -23,11 +26,11 @@ export const Maverick = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Maverick__Maverick__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.007-.002h80v80h-80z' />
         </clipPath>
         <filter
-          id='Maverick__Maverick__b'
+          id={_id2}
           width={76}
           height={76}
           x={-2.155}

@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Airswap = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Airswap = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Airswap__Airswap__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#3F6FF6'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Airswap = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Airswap__Airswap__a'
+          id={_id}
           width={73.638}
           height={73.708}
           x={3.069}

@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Tokemak = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Tokemak = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Tokemak__Tokemak__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#C5FD50'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Tokemak = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Tokemak__Tokemak__a'
+          id={_id}
           width={66}
           height={46}
           x={6.011}

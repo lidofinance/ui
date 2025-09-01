@@ -2,216 +2,263 @@
 
 import React, { SVGProps } from 'react'
 
-export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuCSM = function (props: SVGProps<SVGSVGElement>) {
+  const _id44 = useUniqueInlineId()
+  const _id43 = useUniqueInlineId()
+  const _id42 = useUniqueInlineId()
+  const _id41 = useUniqueInlineId()
+  const _id40 = useUniqueInlineId()
+  const _id39 = useUniqueInlineId()
+  const _id38 = useUniqueInlineId()
+  const _id37 = useUniqueInlineId()
+  const _id36 = useUniqueInlineId()
+  const _id35 = useUniqueInlineId()
+  const _id34 = useUniqueInlineId()
+  const _id33 = useUniqueInlineId()
+  const _id32 = useUniqueInlineId()
+  const _id31 = useUniqueInlineId()
+  const _id30 = useUniqueInlineId()
+  const _id29 = useUniqueInlineId()
+  const _id28 = useUniqueInlineId()
+  const _id27 = useUniqueInlineId()
+  const _id26 = useUniqueInlineId()
+  const _id25 = useUniqueInlineId()
+  const _id24 = useUniqueInlineId()
+  const _id23 = useUniqueInlineId()
+  const _id22 = useUniqueInlineId()
+  const _id21 = useUniqueInlineId()
+  const _id20 = useUniqueInlineId()
+  const _id19 = useUniqueInlineId()
+  const _id18 = useUniqueInlineId()
+  const _id17 = useUniqueInlineId()
+  const _id16 = useUniqueInlineId()
+  const _id15 = useUniqueInlineId()
+  const _id14 = useUniqueInlineId()
+  const _id13 = useUniqueInlineId()
+  const _id12 = useUniqueInlineId()
+  const _id11 = useUniqueInlineId()
+  const _id10 = useUniqueInlineId()
+  const _id1 = useUniqueInlineId()
+  const _id0 = useUniqueInlineId()
+  const _id9 = useUniqueInlineId()
+  const _id8 = useUniqueInlineId()
+  const _id7 = useUniqueInlineId()
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
-        fill='url(#MenuCSM__MenuCSM__a)'
+        fill={`url(#${_id})`}
         d='M38.223 67.863h-.001l-.348.19-.006.003c-1.238.553-3.207.318-6.146-1.323-2.566-1.434-4.395-3.133-5.696-4.798a16.347 16.347 0 01-2.525-4.558c-.59-1.648-.672-2.772-.672-2.772l5.154 2.007s.276 4.332 3.463 6.223c3.187 1.89 3.935-1.733 1.18-4.175a78.798 78.798 0 01-3.072-2.868 48.429 48.429 0 01-2.874-3.072c-1.267-1.492-2.317-2.987-2.789-4.263-.593-1.605-.684-3.557.29-4.679.232-.266.523-.485.881-.641 1.138-.498 2.953-.368 5.688.89 7.234 3.329 8.445 10.523 8.445 10.523l-5.113-1.678c-.983-5.828-5.862-6.497-5.361-3.602.5 2.896 8.195 7.736 10.033 11.59 1.125 2.358 1.364 5.774-.531 7.003z'
       />
       <path
-        fill='url(#MenuCSM__MenuCSM__b)'
+        fill={`url(#${_id2})`}
         d='M38.223 67.863h-.001l-.348.19-.006.003c-1.238.553-3.207.318-6.146-1.323-2.566-1.434-4.395-3.133-5.696-4.798a16.347 16.347 0 01-2.525-4.558c-.59-1.648-.672-2.772-.672-2.772l5.154 2.007s.276 4.332 3.463 6.223c3.187 1.89 3.935-1.733 1.18-4.175a78.798 78.798 0 01-3.072-2.868 48.429 48.429 0 01-2.874-3.072c-1.267-1.492-2.317-2.987-2.789-4.263-.593-1.605-.684-3.557.29-4.679.232-.266.523-.485.881-.641 1.138-.498 2.953-.368 5.688.89 7.234 3.329 8.445 10.523 8.445 10.523l-5.113-1.678c-.983-5.828-5.862-6.497-5.361-3.602.5 2.896 8.195 7.736 10.033 11.59 1.125 2.358 1.364 5.774-.531 7.003z'
       />
       <path
-        fill='url(#MenuCSM__MenuCSM__c)'
+        fill={`url(#${_id31})`}
         d='M38.223 67.863h-.001l-.348.19-.006.003c-1.238.553-3.207.318-6.146-1.323-2.566-1.434-4.395-3.133-5.696-4.798a16.347 16.347 0 01-2.525-4.558c-.59-1.648-.672-2.772-.672-2.772l5.154 2.007s.276 4.332 3.463 6.223c3.187 1.89 3.935-1.733 1.18-4.175a78.798 78.798 0 01-3.072-2.868 48.429 48.429 0 01-2.874-3.072c-1.267-1.492-2.317-2.987-2.789-4.263-.593-1.605-.684-3.557.29-4.679.232-.266.523-.485.881-.641 1.138-.498 2.953-.368 5.688.89 7.234 3.329 8.445 10.523 8.445 10.523l-5.113-1.678c-.983-5.828-5.862-6.497-5.361-3.602.5 2.896 8.195 7.736 10.033 11.59 1.125 2.358 1.364 5.774-.531 7.003z'
       />
       <path
-        fill='url(#MenuCSM__MenuCSM__d)'
+        fill={`url(#${_id3})`}
         d='M23.502 57.377a16.345 16.345 0 002.524 4.558c-2.235-.175-10.466-3.086-13.541-11.62-2.267-6.293-1.847-11.212.637-13.246l.958-.596h.002c.708-.32 1.529-.465 2.455-.415 4.808.261 9.302 5.362 10.038 6.237l-1.512.842c-.359.156-.65.376-.882.642-.018-.02-.648-.704-1.586-1.356-1.25-.87-3.043-1.685-4.66-.804-2.85 1.552-2.412 7.45.26 11.443 2.672 3.992 5.307 4.315 5.307 4.315z'
       />
       <path
-        fill='url(#MenuCSM__MenuCSM__e)'
+        fill={`url(#${_id4})`}
         d='M23.502 57.377a16.345 16.345 0 002.524 4.558c-2.235-.175-10.466-3.086-13.541-11.62-2.267-6.293-1.847-11.212.637-13.246l.958-.596h.002c.708-.32 1.529-.465 2.455-.415 4.808.261 9.302 5.362 10.038 6.237l-1.512.842c-.359.156-.65.376-.882.642-.018-.02-.648-.704-1.586-1.356-1.25-.87-3.043-1.685-4.66-.804-2.85 1.552-2.412 7.45.26 11.443 2.672 3.992 5.307 4.315 5.307 4.315z'
       />
       <path
-        fill='url(#MenuCSM__MenuCSM__f)'
+        fill={`url(#${_id32})`}
         d='M23.502 57.377a16.345 16.345 0 002.524 4.558c-2.235-.175-10.466-3.086-13.541-11.62-2.267-6.293-1.847-11.212.637-13.246l.958-.596h.002c.708-.32 1.529-.465 2.455-.415 4.808.261 9.302 5.362 10.038 6.237l-1.512.842c-.359.156-.65.376-.882.642-.018-.02-.648-.704-1.586-1.356-1.25-.87-3.043-1.685-4.66-.804-2.85 1.552-2.412 7.45.26 11.443 2.672 3.992 5.307 4.315 5.307 4.315z'
       />
       <g opacity={0.3}>
         <path
-          fill='url(#MenuCSM__MenuCSM__g)'
+          fill={`url(#${_id5})`}
           d='M32.896 38.78l-6.321 3.515c-.737-.875-5.23-5.976-10.038-6.237-.926-.05-1.747.094-2.455.414l6.65-4.133s1.942-.793 5.472.972c3.53 1.766 6.692 5.469 6.692 5.469z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__h)'
+          fill={`url(#${_id6})`}
           d='M32.896 38.78l-6.321 3.515c-.737-.875-5.23-5.976-10.038-6.237-.926-.05-1.747.094-2.455.414l6.65-4.133s1.942-.793 5.472.972c3.53 1.766 6.692 5.469 6.692 5.469z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__i)'
+          fill={`url(#${_id33})`}
           d='M32.896 38.78l-6.321 3.515c-.737-.875-5.23-5.976-10.038-6.237-.926-.05-1.747.094-2.455.414l6.65-4.133s1.942-.793 5.472.972c3.53 1.766 6.692 5.469 6.692 5.469z'
         />
       </g>
       <g opacity={0.6}>
         <path
-          fill='url(#MenuCSM__MenuCSM__j)'
+          fill={`url(#${_id7})`}
           d='M45.642 62.161c-.222 1.315-.721 2.065-.721 2.065l-6.698 3.637c1.895-1.23 1.656-4.645.531-7.003-1.838-3.853-9.533-8.694-10.033-11.59-.501-2.895 4.377-2.226 5.361 3.602l5.113 1.678 2.597-1.384s1.719 1.616 2.884 3.774c.482.892.87 1.877 1 2.879a7.858 7.858 0 01-.034 2.342z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__k)'
+          fill={`url(#${_id8})`}
           d='M45.642 62.161c-.222 1.315-.721 2.065-.721 2.065l-6.698 3.637c1.895-1.23 1.656-4.645.531-7.003-1.838-3.853-9.533-8.694-10.033-11.59-.501-2.895 4.377-2.226 5.361 3.602l5.113 1.678 2.597-1.384s1.719 1.616 2.884 3.774c.482.892.87 1.877 1 2.879a7.858 7.858 0 01-.034 2.342z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__l)'
+          fill={`url(#${_id34})`}
           d='M45.642 62.161c-.222 1.315-.721 2.065-.721 2.065l-6.698 3.637c1.895-1.23 1.656-4.645.531-7.003-1.838-3.853-9.533-8.694-10.033-11.59-.501-2.895 4.377-2.226 5.361 3.602l5.113 1.678 2.597-1.384s1.719 1.616 2.884 3.774c.482.892.87 1.877 1 2.879a7.858 7.858 0 01-.034 2.342z'
         />
       </g>
       <g opacity={0.6}>
         <path
-          fill='url(#MenuCSM__MenuCSM__m)'
+          fill={`url(#${_id9})`}
           d='M45.303 51.296l-.626.334-2.883 1.535-2.598 1.385s-1.211-7.194-8.445-10.523c-2.735-1.258-4.55-1.388-5.688-.89l1.512-.842 6.322-3.516.107-.059s4.38.594 7.89 4.146c1.979 2.002 3.128 4.424 3.753 6.158.485 1.343.656 2.272.656 2.272z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__n)'
+          fill={`url(#${_id0})`}
           d='M45.303 51.296l-.626.334-2.883 1.535-2.598 1.385s-1.211-7.194-8.445-10.523c-2.735-1.258-4.55-1.388-5.688-.89l1.512-.842 6.322-3.516.107-.059s4.38.594 7.89 4.146c1.979 2.002 3.128 4.424 3.753 6.158.485 1.343.656 2.272.656 2.272z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__o)'
+          fill={`url(#${_id35})`}
           d='M45.303 51.296l-.626.334-2.883 1.535-2.598 1.385s-1.211-7.194-8.445-10.523c-2.735-1.258-4.55-1.388-5.688-.89l1.512-.842 6.322-3.516.107-.059s4.38.594 7.89 4.146c1.979 2.002 3.128 4.424 3.753 6.158.485 1.343.656 2.272.656 2.272z'
         />
       </g>
       <g opacity={0.6}>
         <path
-          fill='url(#MenuCSM__MenuCSM__p)'
+          fill={`url(#${_id1})`}
           d='M31.447 62.835c-3.187-1.89-3.463-6.223-3.463-6.223l1.57-.82a78.953 78.953 0 003.073 2.868c2.755 2.442 2.007 6.064-1.18 4.175z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__q)'
+          fill={`url(#${_id10})`}
           d='M31.447 62.835c-3.187-1.89-3.463-6.223-3.463-6.223l1.57-.82a78.953 78.953 0 003.073 2.868c2.755 2.442 2.007 6.064-1.18 4.175z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__r)'
+          fill={`url(#${_id36})`}
           d='M31.447 62.835c-3.187-1.89-3.463-6.223-3.463-6.223l1.57-.82a78.953 78.953 0 003.073 2.868c2.755 2.442 2.007 6.064-1.18 4.175z'
         />
       </g>
       <g opacity={0.5}>
         <path
-          fill='url(#MenuCSM__MenuCSM__s)'
+          fill={`url(#${_id11})`}
           d='M29.554 55.792l-1.57.82-5.155-2.007 3.85-1.884a48.429 48.429 0 002.875 3.071z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__t)'
+          fill={`url(#${_id12})`}
           d='M29.554 55.792l-1.57.82-5.155-2.007 3.85-1.884a48.429 48.429 0 002.875 3.071z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__u)'
+          fill={`url(#${_id37})`}
           d='M29.554 55.792l-1.57.82-5.155-2.007 3.85-1.884a48.429 48.429 0 002.875 3.071z'
         />
       </g>
       <path
-        fill='url(#MenuCSM__MenuCSM__v)'
+        fill={`url(#${_id13})`}
         d='M69 34.416V54.29l-4.362 2.51v-8.655l-3.653 10.77-2.487 1.366-3.676-6.476v8.634l-4.464 2.45V45.12l4.305-2.443.67 1.15 4.346 7.468 5.016-14.437L69 34.416z'
       />
       <path
-        fill='url(#MenuCSM__MenuCSM__w)'
+        fill={`url(#${_id14})`}
         d='M69 34.416V54.29l-4.362 2.51v-8.655l-3.653 10.77-2.487 1.366-3.676-6.476v8.634l-4.464 2.45V45.12l4.305-2.443.67 1.15 4.346 7.468 5.016-14.437L69 34.416z'
       />
       <path
-        fill='url(#MenuCSM__MenuCSM__x)'
+        fill={`url(#${_id38})`}
         d='M69 34.416V54.29l-4.362 2.51v-8.655l-3.653 10.77-2.487 1.366-3.676-6.476v8.634l-4.464 2.45V45.12l4.305-2.443.67 1.15 4.346 7.468 5.016-14.437L69 34.416z'
       />
       <g opacity={0.3}>
         <path
-          fill='url(#MenuCSM__MenuCSM__y)'
+          fill={`url(#${_id15})`}
           d='M69 34.416l-4.306 2.443-5.815-3.332 4.35-2.488L69 34.416z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__z)'
+          fill={`url(#${_id16})`}
           d='M69 34.416l-4.306 2.443-5.815-3.332 4.35-2.488L69 34.416z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__A)'
+          fill={`url(#${_id39})`}
           d='M69 34.416l-4.306 2.443-5.815-3.332 4.35-2.488L69 34.416z'
         />
       </g>
       <g opacity={0.7}>
         <path
-          fill='url(#MenuCSM__MenuCSM__B)'
+          fill={`url(#${_id17})`}
           d='M64.695 36.86l-5.016 14.436-4.347-7.467 3.547-10.302 5.816 3.332z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__C)'
+          fill={`url(#${_id18})`}
           d='M64.695 36.86l-5.016 14.436-4.347-7.467 3.547-10.302 5.816 3.332z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__D)'
+          fill={`url(#${_id40})`}
           d='M64.695 36.86l-5.016 14.436-4.347-7.467 3.547-10.302 5.816 3.332z'
         />
       </g>
       <g opacity={0.3}>
         <path
-          fill='url(#MenuCSM__MenuCSM__E)'
+          fill={`url(#${_id19})`}
           d='M54.663 42.678l-4.305 2.444-5.711-3.273-.104-.059 4.35-2.487 5.77 3.375z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__F)'
+          fill={`url(#${_id20})`}
           d='M54.663 42.678l-4.305 2.444-5.711-3.273-.104-.059 4.35-2.487 5.77 3.375z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__G)'
+          fill={`url(#${_id41})`}
           d='M54.663 42.678l-4.305 2.444-5.711-3.273-.104-.059 4.35-2.487 5.77 3.375z'
         />
       </g>
       <g opacity={0.7}>
         <path
-          fill='url(#MenuCSM__MenuCSM__H)'
+          fill={`url(#${_id21})`}
           d='M45.643 62.161a7.86 7.86 0 00.034-2.343c-.131-1.002-.518-1.986-1-2.878v-5.31l.626-.334s-.172-.93-.656-2.272V41.85l5.71 3.273V64.89l-4.714-2.728z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__I)'
+          fill={`url(#${_id22})`}
           d='M45.643 62.161a7.86 7.86 0 00.034-2.343c-.131-1.002-.518-1.986-1-2.878v-5.31l.626-.334s-.172-.93-.656-2.272V41.85l5.71 3.273V64.89l-4.714-2.728z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__J)'
+          fill={`url(#${_id42})`}
           d='M45.643 62.161a7.86 7.86 0 00.034-2.343c-.131-1.002-.518-1.986-1-2.878v-5.31l.626-.334s-.172-.93-.656-2.272V41.85l5.71 3.273V64.89l-4.714-2.728z'
         />
       </g>
       <g opacity={0.3}>
         <path
-          fill='url(#MenuCSM__MenuCSM__K)'
+          fill={`url(#${_id23})`}
           d='M22.83 54.605s.082 1.124.671 2.772c0 0-2.634-.323-5.306-4.315-2.672-3.993-3.111-9.89-.261-11.443 1.617-.881 3.41-.066 4.66.803 0 0-.832 3.079 1.298 6.035.471 1.276 1.522 2.772 2.788 4.264l-3.85 1.884z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__L)'
+          fill={`url(#${_id24})`}
           d='M22.83 54.605s.082 1.124.671 2.772c0 0-2.634-.323-5.306-4.315-2.672-3.993-3.111-9.89-.261-11.443 1.617-.881 3.41-.066 4.66.803 0 0-.832 3.079 1.298 6.035.471 1.276 1.522 2.772 2.788 4.264l-3.85 1.884z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__M)'
+          fill={`url(#${_id43})`}
           d='M22.83 54.605s.082 1.124.671 2.772c0 0-2.634-.323-5.306-4.315-2.672-3.993-3.111-9.89-.261-11.443 1.617-.881 3.41-.066 4.66.803 0 0-.832 3.079 1.298 6.035.471 1.276 1.522 2.772 2.788 4.264l-3.85 1.884z'
         />
       </g>
       <g opacity={0.3}>
         <path
-          fill='url(#MenuCSM__MenuCSM__N)'
+          fill={`url(#${_id25})`}
           d='M37.466 30.843l-12.902-7.758c-.803-.49-.826-2.166-.022-2.655l13.884-8.46a5.79 5.79 0 016.038 0l13.883 8.46c.804.49.804 1.822 0 2.312l-12.924 8.101c-2.387 1.603-5.139 1.62-6.997.487l-.96-.487z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__O)'
+          fill={`url(#${_id26})`}
           d='M37.466 30.843l-12.902-7.758c-.803-.49-.826-2.166-.022-2.655l13.884-8.46a5.79 5.79 0 016.038 0l13.883 8.46c.804.49.804 1.822 0 2.312l-12.924 8.101c-2.387 1.603-5.139 1.62-6.997.487l-.96-.487z'
         />
       </g>
       <path
-        fill='url(#MenuCSM__MenuCSM__P)'
+        fill={`url(#${_id27})`}
         d='M58.95 23.993l-.013 5.306c.041.479-.16.976-.604 1.253L44.396 39.26a5.59 5.59 0 01-6.035-.047L24.544 30.29a1.312 1.312 0 01-.587-.992l-.007-.003.006-8.175c.004.43.393 1.432.79 1.685l13.689 8.24c1.856 1.18 4.337 1.18 6.194 0l13.718-8.814c.397-.253.598-.681.603-1.11v2.871z'
       />
       <path
-        fill='url(#MenuCSM__MenuCSM__Q)'
+        fill={`url(#${_id28})`}
         d='M58.95 23.993l-.013 5.306c.041.479-.16.976-.604 1.253L44.396 39.26a5.59 5.59 0 01-6.035-.047L24.544 30.29a1.312 1.312 0 01-.587-.992l-.007-.003.006-8.175c.004.43.393 1.432.79 1.685l13.689 8.24c1.856 1.18 4.337 1.18 6.194 0l13.718-8.814c.397-.253.598-.681.603-1.11v2.871z'
       />
-      <g filter='url(#MenuCSM__MenuCSM__R)'>
+      <g filter={`url(#${_id44})`}>
         <path
-          fill='url(#MenuCSM__MenuCSM__S)'
+          fill={`url(#${_id29})`}
           d='M58.95 32.842l-.013 5.027c.041.453-.16.924-.604 1.187l-13.937 8.25a5.854 5.854 0 01-6.035-.045l-13.817-8.453a1.233 1.233 0 01-.587-.94l-.007-.003.006-7.744c.004.407.393 1.356.79 1.596l13.689 7.806c1.856 1.119 4.337 1.119 6.194 0l13.718-8.35a1.24 1.24 0 00.603-1.052v2.721z'
         />
         <path
-          fill='url(#MenuCSM__MenuCSM__T)'
+          fill={`url(#${_id30})`}
           d='M58.95 32.842l-.013 5.027c.041.453-.16.924-.604 1.187l-13.937 8.25a5.854 5.854 0 01-6.035-.045l-13.817-8.453a1.233 1.233 0 01-.587-.94l-.007-.003.006-7.744c.004.407.393 1.356.79 1.596l13.689 7.806c1.856 1.119 4.337 1.119 6.194 0l13.718-8.35a1.24 1.24 0 00.603-1.052v2.721z'
         />
       </g>
       <defs>
         <radialGradient
-          id='MenuCSM__MenuCSM__a'
+          id={_id}
           cx={0}
           cy={0}
           r={1}
@@ -223,7 +270,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__b'
+          id={_id2}
           cx={0}
           cy={0}
           r={1}
@@ -234,7 +281,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__d'
+          id={_id3}
           cx={0}
           cy={0}
           r={1}
@@ -246,7 +293,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__e'
+          id={_id4}
           cx={0}
           cy={0}
           r={1}
@@ -257,7 +304,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__g'
+          id={_id5}
           cx={0}
           cy={0}
           r={1}
@@ -269,7 +316,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__h'
+          id={_id6}
           cx={0}
           cy={0}
           r={1}
@@ -280,7 +327,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__j'
+          id={_id7}
           cx={0}
           cy={0}
           r={1}
@@ -292,7 +339,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__k'
+          id={_id8}
           cx={0}
           cy={0}
           r={1}
@@ -303,7 +350,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__m'
+          id={_id9}
           cx={0}
           cy={0}
           r={1}
@@ -315,7 +362,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__n'
+          id={_id0}
           cx={0}
           cy={0}
           r={1}
@@ -326,7 +373,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__p'
+          id={_id1}
           cx={0}
           cy={0}
           r={1}
@@ -338,7 +385,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__q'
+          id={_id10}
           cx={0}
           cy={0}
           r={1}
@@ -349,7 +396,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__s'
+          id={_id11}
           cx={0}
           cy={0}
           r={1}
@@ -361,7 +408,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__t'
+          id={_id12}
           cx={0}
           cy={0}
           r={1}
@@ -372,7 +419,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__v'
+          id={_id13}
           cx={0}
           cy={0}
           r={1}
@@ -384,7 +431,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__w'
+          id={_id14}
           cx={0}
           cy={0}
           r={1}
@@ -395,7 +442,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__y'
+          id={_id15}
           cx={0}
           cy={0}
           r={1}
@@ -407,7 +454,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__z'
+          id={_id16}
           cx={0}
           cy={0}
           r={1}
@@ -418,7 +465,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__B'
+          id={_id17}
           cx={0}
           cy={0}
           r={1}
@@ -430,7 +477,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__C'
+          id={_id18}
           cx={0}
           cy={0}
           r={1}
@@ -441,7 +488,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__E'
+          id={_id19}
           cx={0}
           cy={0}
           r={1}
@@ -453,7 +500,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__F'
+          id={_id20}
           cx={0}
           cy={0}
           r={1}
@@ -464,7 +511,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__H'
+          id={_id21}
           cx={0}
           cy={0}
           r={1}
@@ -476,7 +523,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__I'
+          id={_id22}
           cx={0}
           cy={0}
           r={1}
@@ -487,7 +534,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__K'
+          id={_id23}
           cx={0}
           cy={0}
           r={1}
@@ -499,7 +546,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.724} stopColor='#F36BFF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__L'
+          id={_id24}
           cx={0}
           cy={0}
           r={1}
@@ -510,7 +557,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__N'
+          id={_id25}
           cx={0}
           cy={0}
           r={1}
@@ -521,7 +568,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.763} stopColor='#FF33D2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__O'
+          id={_id26}
           cx={0}
           cy={0}
           r={1}
@@ -532,7 +579,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__P'
+          id={_id27}
           cx={0}
           cy={0}
           r={1}
@@ -543,7 +590,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.763} stopColor='#FF33D2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__Q'
+          id={_id28}
           cx={0}
           cy={0}
           r={1}
@@ -554,7 +601,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__S'
+          id={_id29}
           cx={0}
           cy={0}
           r={1}
@@ -565,7 +612,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={0.763} stopColor='#FF33D2' stopOpacity={0} />
         </radialGradient>
         <radialGradient
-          id='MenuCSM__MenuCSM__T'
+          id={_id30}
           cx={0}
           cy={0}
           r={1}
@@ -576,7 +623,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#0047FF' stopOpacity={0} />
         </radialGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__c'
+          id={_id31}
           x1={20.876}
           x2={28.697}
           y1={41.488}
@@ -587,7 +634,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__f'
+          id={_id32}
           x1={9.189}
           x2={18.501}
           y1={34.647}
@@ -598,7 +645,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__i'
+          id={_id33}
           x1={11.894}
           x2={14.766}
           y1={31.613}
@@ -609,7 +656,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__l'
+          id={_id34}
           x1={26.7}
           x2={34.618}
           y1={46.504}
@@ -620,7 +667,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__o'
+          id={_id35}
           x1={22.71}
           x2={31.989}
           y1={37.863}
@@ -631,7 +678,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__r'
+          id={_id36}
           x1={27.247}
           x2={30.189}
           y1={55.382}
@@ -642,7 +689,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__u'
+          id={_id37}
           x1={22.047}
           x2={25.077}
           y1={52.51}
@@ -653,7 +700,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__x'
+          id={_id38}
           x1={27.648}
           x2={37.968}
           y1={33.801}
@@ -664,7 +711,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__A'
+          id={_id39}
           x1={46.55}
           x2={48.613}
           y1={30.922}
@@ -675,7 +722,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__D'
+          id={_id40}
           x1={43.927}
           x2={49.456}
           y1={33.169}
@@ -686,7 +733,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__G'
+          id={_id41}
           x1={32.215}
           x2={34.278}
           y1={39.185}
@@ -697,7 +744,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__J'
+          id={_id42}
           x1={37.69}
           x2={41.654}
           y1={41.385}
@@ -708,7 +755,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <linearGradient
-          id='MenuCSM__MenuCSM__M'
+          id={_id43}
           x1={14.742}
           x2={20.701}
           y1={40.366}
@@ -719,7 +766,7 @@ export const MenuCSM = (props: SVGProps<SVGSVGElement>) => {
           <stop offset={1} stopColor='#29EDFE' stopOpacity={0} />
         </linearGradient>
         <filter
-          id='MenuCSM__MenuCSM__R'
+          id={_id44}
           width={55}
           height={38}
           x={13.95}

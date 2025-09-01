@@ -2,15 +2,18 @@
 
 import React, { SVGProps } from 'react'
 
-export const Loopring = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Loopring = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Loopring__Loopring__a)'>
+      <g clipPath={`url(#${_id})`}>
         <path
           fill='#3B5AF4'
           d='M66.004 39.43H44.51l4.569 7.163-16.635 13.122 33.56-20.159v-.127zM31.994 60V20l-16.99 26.624L31.994 60z'
         />
-        <g filter='url(#Loopring__Loopring__b)' opacity={0.5}>
+        <g filter={`url(#${_id2})`} opacity={0.5}>
           <path
             fill='#3B5AF4'
             d='M68.004 45.43H46.51l4.569 7.163-16.635 13.122 33.56-20.159v-.127zM33.994 66V26l-16.99 26.624L33.994 66z'
@@ -18,11 +21,11 @@ export const Loopring = (props: SVGProps<SVGSVGElement>) => {
         </g>
       </g>
       <defs>
-        <clipPath id='Loopring__Loopring__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.004 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Loopring__Loopring__b'
+          id={_id2}
           width={75}
           height={64}
           x={5.004}

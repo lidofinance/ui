@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Eigen = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Eigen = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Eigen = (props: SVGProps<SVGSVGElement>) => {
         d='M37.574 40.529h4.944v9.708h9.597v9.724H42.43V60h-4.857v-.04h-4.882v.012H23V21h9.692v29.237h4.882V40.53zm9.803-14.656V21h-9.628v4.873h4.77v14.656h9.596V30.76h-4.738v-4.888zM57 21.01h-4.857v9.724H57V21.01z'
         clipRule='evenodd'
       />
-      <g filter='url(#Eigen__Eigen__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#1A0C6D'
           fillOpacity={0.6}
@@ -22,7 +24,7 @@ export const Eigen = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Eigen__Eigen__a'
+          id={_id}
           width={62}
           height={67}
           x={11}

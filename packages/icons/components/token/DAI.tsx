@@ -2,16 +2,19 @@
 
 import React, { SVGProps } from 'react'
 
-export const DAI = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const DAI = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#DAI__DAI__a)'>
+      <g clipPath={`url(#${_id})`}>
         <rect width={80} height={80} fill='#F5AC37' rx={40} />
         <path
           fill='#F5AC37'
           d='M40 0c22.093 0 40 17.91 40 40 0 22.093-17.907 40-40 40C17.91 80 0 62.092 0 40 0 17.91 17.91 0 40 0z'
         />
-        <g filter='url(#DAI__DAI__b)'>
+        <g filter={`url(#${_id2})`}>
           <path
             fill='#FEFEFD'
             fillOpacity={0.1}
@@ -24,11 +27,11 @@ export const DAI = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='DAI__DAI__a'>
+        <clipPath id={_id}>
           <rect width={80} height={80} fill='#fff' rx={40} />
         </clipPath>
         <filter
-          id='DAI__DAI__b'
+          id={_id2}
           width={72}
           height={65}
           x={6}

@@ -2,12 +2,16 @@
 
 import React, { SVGProps } from 'react'
 
-export const MELLOWPOINTS = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MELLOWPOINTS = function (props: SVGProps<SVGSVGElement>) {
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#MELLOWPOINTS__a)'>
+      <g clipPath={`url(#${_id})`}>
         <mask
-          id='MELLOWPOINTS__a'
+          id={_id}
           width={80}
           height={80}
           x={0}
@@ -16,9 +20,9 @@ export const MELLOWPOINTS = (props: SVGProps<SVGSVGElement>) => {
         >
           <path fill='#fff' d='M80 0H0v80h80V0z' />
         </mask>
-        <g mask='url(#MELLOWPOINTS__a)'>
+        <g mask={`url(#${_id})`}>
           <path
-            fill='url(#MELLOWPOINTS__MELLOWPOINTS__c)'
+            fill={`url(#${_id2})`}
             d='M40 80c22.091 0 40-17.909 40-40S62.091 0 40 0 0 17.909 0 40s17.909 40 40 40z'
           />
           <path
@@ -37,7 +41,7 @@ export const MELLOWPOINTS = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient
-          id='MELLOWPOINTS__MELLOWPOINTS__c'
+          id={_id2}
           x1={40}
           x2={40}
           y1={0}
@@ -47,7 +51,7 @@ export const MELLOWPOINTS = (props: SVGProps<SVGSVGElement>) => {
           <stop stopColor='#F50D3C' />
           <stop offset={1} stopColor='#D7002B' />
         </linearGradient>
-        <clipPath id='MELLOWPOINTS__MELLOWPOINTS__a'>
+        <clipPath id={_id3}>
           <path fill='#fff' d='M0 0h80v80H0z' />
         </clipPath>
       </defs>

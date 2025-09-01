@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const ION = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const ION = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#ION__ION__a)' opacity={0.4}>
+      <g filter={`url(#${_id})`} opacity={0.4}>
         <path
           fill='#003C4A'
           d='M43.124 47.544c.734-.941 2.032-3.044 1.885-6.955a4.932 4.932 0 01-1.549 3.265 4.903 4.903 0 01-3.354 1.325c-4.12.237-6.314-1.113-7.277-1.874-5.8-4.541-4.813-16.905 1.265-23.328-2.513 2.21-5.156 4.91-6.844 6.873l-.106.123-2.717 3.224c-2.83 3.346-5.376 7.495-5.204 11.586.073 1.809.669 3.617 1.582 5.327 6.608 5.343 17.996 5.981 22.32.434z'
@@ -41,7 +43,7 @@ export const ION = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='ION__ION__a'
+          id={_id}
           width={69.783}
           height={71.891}
           x={5.214}

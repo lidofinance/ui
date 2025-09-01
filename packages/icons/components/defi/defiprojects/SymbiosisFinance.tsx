@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const SymbiosisFinance = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const SymbiosisFinance = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#SymbiosisFinance__SymbiosisFinance__a)'>
-        <g filter='url(#SymbiosisFinance__SymbiosisFinance__b)' fill='#75FB6E'>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} fill='#75FB6E'>
           <path d='M40.017 16.12v-.08l.37-.319h5.715V13h-5.714l-.854.81v1.129l-.401.32h-.062c.334.272.626.578.946.86z' />
           <path d='M39.226 15.221h-1.13l-.768.813v1.085l.769.81h1.13l.809-.81v-1.085l-.81-.813zM42.97 31.25h-1.13l-.769.813v2.831l.769.81h1.13l.809-.81v-2.83l-.81-.814zm-3.77 4.512h-1.13l-.768.81v1.084l.768.813h1.13l.81-.813v-1.085l-.81-.81zm14.738 0h-1.13l-.765.81v1.084l.765.813h1.13l.812-.813v-1.085l-.813-.81z' />
           <path d='M38.206 16.962l-.81.096-.238.302-1.122.13-2.721 3.445.132 1.123-.316.384.078.7.878-.101.245-.286 1.122-.13 2.69-3.441-.132-1.11.286-.33-.092-.782zm-5.028 13.522l.813.095.238.303 1.119.13 2.721 3.445-.133 1.122.32.385-.082.7-.877-.102-.245-.285-1.122-.13-2.688-3.442.13-1.109-.286-.33.092-.782z' />
@@ -75,11 +78,11 @@ export const SymbiosisFinance = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='SymbiosisFinance__SymbiosisFinance__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.025 0h80.004v80H.025z' />
         </clipPath>
         <filter
-          id='SymbiosisFinance__SymbiosisFinance__b'
+          id={_id2}
           width={74}
           height={72.481}
           x={9.025}

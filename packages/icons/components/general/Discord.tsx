@@ -2,14 +2,16 @@
 
 import React, { SVGProps } from 'react'
 
-export const Discord = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Discord = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
         fill='#5865F2'
         d='M54.578 26.399a34.204 34.204 0 00-8.665-2.723c-.373.675-.81 1.582-1.11 2.304a31.813 31.813 0 00-9.603 0 24.62 24.62 0 00-1.123-2.304 34.093 34.093 0 00-8.672 2.73c-5.483 8.286-6.97 16.367-6.227 24.333 3.637 2.716 7.162 4.366 10.627 5.446a26.43 26.43 0 002.277-3.749 22.372 22.372 0 01-3.585-1.744c.301-.223.595-.456.88-.696 6.91 3.233 14.419 3.233 21.247 0 .287.24.581.473.878.696a22.325 22.325 0 01-3.59 1.747 26.307 26.307 0 002.276 3.749c3.468-1.08 6.996-2.73 10.633-5.45.873-9.234-1.49-17.24-6.243-24.34zm-21.555 19.44c-2.075 0-3.776-1.936-3.776-4.294 0-2.359 1.665-4.299 3.776-4.299 2.111 0 3.812 1.937 3.776 4.299.003 2.358-1.665 4.295-3.776 4.295zm13.954 0c-2.075 0-3.776-1.936-3.776-4.294 0-2.359 1.665-4.299 3.776-4.299 2.11 0 3.812 1.937 3.776 4.299 0 2.358-1.665 4.295-3.776 4.295z'
       />
-      <g filter='url(#Discord__Discord__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path
           fill='#5865F2'
           fillOpacity={0.7}
@@ -18,7 +20,7 @@ export const Discord = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Discord__Discord__a'
+          id={_id}
           width={68.25}
           height={59.157}
           x={5.875}

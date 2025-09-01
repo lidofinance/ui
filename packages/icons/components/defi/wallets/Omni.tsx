@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const Omni = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Omni = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
@@ -11,7 +13,7 @@ export const Omni = (props: SVGProps<SVGSVGElement>) => {
         d='M17.004 40.825a7.345 7.345 0 00.459 2.57c1.896 5.137 9.298 8.38 21.012 8.38s21.349-2.325 24.04-9.635c.336-.918.489-1.896.489-2.967 0-.887-.153-1.743-.458-2.57-1.897-5.138-9.299-8.38-21.013-8.38-11.714 0-21.349 2.326-24.04 9.635-.336.918-.49 1.896-.49 2.967zm22.388 4.22c-3.64 0-6.24-1.376-6.851-3.027-.306-.734-.306-1.132-.306-1.59 0-.52.03-.978.336-1.744.949-2.539 4.038-3.732 8.044-3.732 3.64 0 6.24 1.377 6.852 3.028.305.734.305 1.132.305 1.59 0 .52-.03.98-.336 1.744-.948 2.539-4.037 3.732-8.044 3.732zm.277-2.884c-1.55 0-2.657-.587-2.917-1.29-.13-.312-.13-.48-.13-.676 0-.223.013-.417.143-.743.404-1.081 1.718-1.589 3.424-1.589 1.55 0 2.657.586 2.917 1.289.13.313.13.482.13.677.007.255-.042.508-.143.743-.403 1.08-1.719 1.589-3.424 1.589z'
         clipRule='evenodd'
       />
-      <g filter='url(#Omni__Omni__a)' opacity={0.5}>
+      <g filter={`url(#${_id})`} opacity={0.5}>
         <path
           fill='#E87AF3'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Omni = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <filter
-          id='Omni__Omni__a'
+          id={_id}
           width={68}
           height={45.551}
           x={8.004}

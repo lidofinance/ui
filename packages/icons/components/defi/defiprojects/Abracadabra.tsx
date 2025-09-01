@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Abracadabra = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Abracadabra = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Abracadabra__Abracadabra__a)' opacity={0.6}>
+      <g filter={`url(#${_id})`} opacity={0.6}>
         <path fill='#4229EF' d='M50.052 55l9.99-10.003h-9.99V55z' />
         <path fill='#5552FD' d='M60.042 35.004l-9.99 10.003h9.99V35.004z' />
         <path fill='#9695F8' d='M50.052 44.998l9.99-10.003h-9.99v10.003z' />
@@ -53,7 +55,7 @@ export const Abracadabra = (props: SVGProps<SVGSVGElement>) => {
       <path fill='#625FFF' d='M30.06 29.987l-9.99 10.004h9.99V29.987z' />
       <defs>
         <filter
-          id='Abracadabra__Abracadabra__a'
+          id={_id}
           width={59.973}
           height={60}
           x={10.069}

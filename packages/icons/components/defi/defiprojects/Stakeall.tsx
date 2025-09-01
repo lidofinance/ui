@@ -2,11 +2,14 @@
 
 import React, { SVGProps } from 'react'
 
-export const Stakeall = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Stakeall = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g clipPath='url(#Stakeall__Stakeall__a)'>
-        <g filter='url(#Stakeall__Stakeall__b)' opacity={0.6}>
+      <g clipPath={`url(#${_id})`}>
+        <g filter={`url(#${_id2})`} opacity={0.6}>
           <path
             fill='#8117F5'
             fillRule='evenodd'
@@ -22,11 +25,11 @@ export const Stakeall = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='Stakeall__Stakeall__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.004 0h80v80h-80z' />
         </clipPath>
         <filter
-          id='Stakeall__Stakeall__b'
+          id={_id2}
           width={90.31}
           height={82.251}
           x={-1.996}

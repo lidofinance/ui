@@ -2,12 +2,15 @@
 
 import React, { SVGProps } from 'react'
 
-export const SymbioticPOINTS = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const SymbioticPOINTS = function (props: SVGProps<SVGSVGElement>) {
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g clipPath='url(#SymbioticPOINTS__SymbioticPOINTS__a)'>
+      <g clipPath={`url(#${_id})`}>
         <circle cx={40.007} cy={40} r={40} fill='#C6FE64' />
-        <g filter='url(#SymbioticPOINTS__SymbioticPOINTS__b)' opacity={0.6}>
+        <g filter={`url(#${_id2})`} opacity={0.6}>
           <path
             fill='#000'
             fillRule='evenodd'
@@ -24,11 +27,11 @@ export const SymbioticPOINTS = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
       <defs>
-        <clipPath id='SymbioticPOINTS__SymbioticPOINTS__a'>
+        <clipPath id={_id}>
           <path fill='#fff' d='M.007 0h80.004v80H.007z' />
         </clipPath>
         <filter
-          id='SymbioticPOINTS__SymbioticPOINTS__b'
+          id={_id2}
           width={50}
           height={48.316}
           x={15.007}

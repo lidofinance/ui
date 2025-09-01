@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const BADGER = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const BADGER = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#BADGER__BADGER__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#F2A52B'
           d='M60.64 54.409A3.602 3.602 0 0157.048 58H22.606a3.602 3.602 0 01-3.591-3.591V19.59A3.602 3.602 0 0122.606 16h34.442a3.602 3.602 0 013.592 3.591V54.41z'
@@ -195,7 +197,7 @@ export const BADGER = (props: SVGProps<SVGSVGElement>) => {
       <path fill='#fff' d='M45.088 41.673h-.605v1.013h1.007v-1.013h-.402z' />
       <defs>
         <filter
-          id='BADGER__BADGER__a'
+          id={_id}
           width={69.625}
           height={70}
           x={5.015}

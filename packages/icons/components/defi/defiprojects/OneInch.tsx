@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const OneInch = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const OneInch = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#OneInch__OneInch__a)' opacity={0.3}>
+      <g filter={`url(#${_id})`} opacity={0.3}>
         <path
           fill='#fff'
           d='M34.311 44.074l1.145-8.62-9.943-6.903 9.084 3.076 2.146-3.29 7.833-4.864 17.275 9.514.895 14.52-7.69 10.695-6.08.93 3.147-5.759V47.83l-2.29-4.328-2.324-1.538-3.577 3.684v3.898l-2.79 2.611-3.54.43-1.574.894-2.575-.823-1.073-3.863 1.931-2.718v-2.003z'
@@ -89,7 +91,7 @@ export const OneInch = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='OneInch__OneInch__a'
+          id={_id}
           width={59.335}
           height={56.786}
           x={16}

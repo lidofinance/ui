@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Exactly = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Exactly = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Exactly__Exactly__a)' opacity={0.3}>
+      <g filter={`url(#${_id})`} opacity={0.3}>
         <path
           fill='#000'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Exactly = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Exactly__Exactly__a'
+          id={_id}
           width={56}
           height={52}
           x={15}

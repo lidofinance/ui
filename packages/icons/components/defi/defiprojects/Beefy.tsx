@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Beefy = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Beefy = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Beefy__Beefy__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#F6EEE4'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Beefy = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Beefy__Beefy__a'
+          id={_id}
           width={68.326}
           height={69.639}
           x={10.015}

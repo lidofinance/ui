@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Premia = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Premia = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Premia__Premia__a)' opacity={0.45}>
+      <g filter={`url(#${_id})`} opacity={0.45}>
         <path
           fill='#5294FF'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Premia = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Premia__Premia__a'
+          id={_id}
           width={60}
           height={59}
           x={16}

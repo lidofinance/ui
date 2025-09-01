@@ -2,7 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const TrustLogo = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const TrustLogo = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={200} height={84} viewBox='0 0 200 84' fill='none' {...props}>
       <path
@@ -10,7 +12,7 @@ export const TrustLogo = (props: SVGProps<SVGSVGElement>) => {
         d='M28 28.002l17.306-5.625v38.94C32.945 56.126 28 46.175 28 40.55V28.002z'
       />
       <path
-        fill='url(#TrustLogo__TrustLogo__a)'
+        fill={`url(#${_id})`}
         d='M62.614 28.002l-17.306-5.625v38.94c12.361-5.192 17.306-15.143 17.306-20.767V28.002z'
       />
       <path
@@ -19,7 +21,7 @@ export const TrustLogo = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <linearGradient
-          id='TrustLogo__TrustLogo__a'
+          id={_id}
           x1={58.017}
           x2={44.943}
           y1={19.651}

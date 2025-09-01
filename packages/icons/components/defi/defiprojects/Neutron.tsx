@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Neutron = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Neutron = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Neutron__Neutron__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#1FCE6F'
           d='M59 14H23.687l10.376 12.236a9 9 0 0112.772 12.62L59 49.374V14zm-4.563 38l-9.649-11.378a9 9 0 01-12.425-12.387L21 18.438V52h33.437z'
@@ -17,7 +19,7 @@ export const Neutron = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Neutron__Neutron__a'
+          id={_id}
           width={66}
           height={66}
           x={7}

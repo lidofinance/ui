@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Aztec = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Aztec = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <g filter='url(#Aztec__Aztec__a)'>
+      <g filter={`url(#${_id})`}>
         <path
           fill='#F6E2E6'
           fillRule='evenodd'
@@ -21,7 +23,7 @@ export const Aztec = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Aztec__Aztec__a'
+          id={_id}
           width={60}
           height={60}
           x={14.037}

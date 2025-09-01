@@ -2,10 +2,12 @@
 
 import React, { SVGProps } from 'react'
 
-export const Solong = (props: SVGProps<SVGSVGElement>) => {
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const Solong = function (props: SVGProps<SVGSVGElement>) {
+  const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter='url(#Solong__Solong__a)' opacity={0.5} fill='#26F8C2'>
+      <g filter={`url(#${_id})`} opacity={0.5} fill='#26F8C2'>
         <path d='M40.118 18h4.343a5.938 5.938 0 00-.488 7.452l.488.69.488.692a5.938 5.938 0 01-.488 7.452h-4.343a5.938 5.938 0 00.488-7.452l-.488-.691-.488-.691A5.937 5.937 0 0140.118 18zm-8.685 0h4.342a5.938 5.938 0 00-.487 7.452l.975 1.382a5.937 5.937 0 01-.488 7.452h-4.342a5.937 5.937 0 00.488-7.452l-.976-1.382A5.938 5.938 0 0131.433 18z' />
         <path
           fillRule='evenodd'
@@ -34,7 +36,7 @@ export const Solong = (props: SVGProps<SVGSVGElement>) => {
       />
       <defs>
         <filter
-          id='Solong__Solong__a'
+          id={_id}
           width={64}
           height={66.171}
           x={13.004}
