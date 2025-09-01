@@ -5,6 +5,7 @@ import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
 import postcssNested from 'postcss-nested'
 import copy from 'rollup-plugin-copy'
+import commonjs from '@rollup/plugin-commonjs'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -30,6 +31,7 @@ const external = [
   'next/link',
   'next/image',
   'next/font/google',
+  '@inline-svg-unique-id/react',
   ...Object.keys({ ...dependencies, ...peerDependencies }),
 ]
 
@@ -57,6 +59,7 @@ export default [
     ],
     plugins: [
       resolve({ extensions, preferBuiltins: true }),
+      commonjs({ include: /node_modules/ }),
       babel({
         exclude: 'node_modules/**',
         babelHelpers: 'bundled',
