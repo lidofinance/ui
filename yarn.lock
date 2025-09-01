@@ -2145,7 +2145,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@inline-svg-unique-id/react@npm:^1.2.3":
+"@inline-svg-unique-id/react@npm:1.2.3":
   version: 1.2.3
   resolution: "@inline-svg-unique-id/react@npm:1.2.3"
   peerDependencies:
@@ -2504,7 +2504,7 @@ __metadata:
     "@commitlint/cli": "npm:19.8.0"
     "@commitlint/config-conventional": "npm:19.8.0"
     "@csstools/postcss-global-data": "npm:3.0.0"
-    "@inline-svg-unique-id/react": "npm:^1.2.3"
+    "@inline-svg-unique-id/react": "npm:1.2.3"
     "@rollup/plugin-babel": "npm:6.0.4"
     "@rollup/plugin-commonjs": "npm:28.0.3"
     "@rollup/plugin-node-resolve": "npm:16.0.1"

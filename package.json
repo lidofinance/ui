@@ -79,7 +79,7 @@
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@csstools/postcss-global-data": "3.0.0",
-    "@inline-svg-unique-id/react": "^1.2.3",
+    "@inline-svg-unique-id/react": "1.2.3",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-node-resolve": "16.0.1",
     "@semantic-release/commit-analyzer": "9.0.2",
