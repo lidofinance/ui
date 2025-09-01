@@ -54,11 +54,11 @@
     "*.css": "stylelint --fix"
   },
   "peerDependencies": {
+    "@inline-svg-unique-id/react": "1.2.3",
     "next": ">=12.0.0 <15.0.0",
     "react": "16 || 17 || 18",
     "react-dom": "16 || 17 || 18",
-    "react-is": "16 || 17 || 18",
-    "@inline-svg-unique-id/react": "1.2.3"
+    "react-is": "16 || 17 || 18"
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "28.0.3",
