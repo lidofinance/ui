@@ -108,7 +108,7 @@
     "@types/react-transition-group": "4.4.12",
     "@types/ua-parser-js": "0.7.39",
     "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.62.0",
+    "@typescript-eslint/parser": "8.43.0",
     "autoprefixer": "10.4.21",
     "browserslist": "4.24.5",
     "chromatic": "13.1.3",
