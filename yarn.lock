@@ -2586,7 +2586,7 @@ __metadata:
     typescript: "npm:5.8.3"
     ua-parser-js: "npm:2.0.3"
     use-callback-ref: "npm:1.2.5"
-    zx: "npm:8.5.3"
+    zx: "npm:8.8.1"
   peerDependencies:
     "@inline-svg-unique-id/react": 1.2.3
     next: ">=12.0.0 <15.0.0"
@@ -19074,11 +19074,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zx@npm:8.5.3":
-  version: 8.5.3
-  resolution: "zx@npm:8.5.3"
+"zx@npm:8.8.1":
+  version: 8.8.1
+  resolution: "zx@npm:8.8.1"
   bin:
     zx: build/cli.js
-  checksum: 10c0/7c267ef220ca045c9cde16b5dde0bf32e46005ec608458ecfc684a3249c3d60dd3aa3a48fc1d9d844d2c5e42716acd896050dc7acfa1d670a79ec3a7f08a54ab
+  checksum: 10c0/41a861b4d151c70a9c3fd358b96e8c6ec954ccb22122b4cdea42d0f77cc66fd0a398ebac26b0f24a22d38ab0a1b8e5e0b3efa5232a26a9d37e5fbbf4d530c9ea
   languageName: node
   linkType: hard
