@@ -2517,7 +2517,7 @@ __metadata:
     "@types/jest": "npm:^29.5.3"
     "@types/react": "npm:18.2.24"
     "@types/react-dom": "npm:18.2.9"
-    "@types/react-is": "npm:17.0.2"
+    "@types/react-is": "npm:19.0.0"
     "@types/react-transition-group": "npm:^4.4.6"
     "@types/styled-components": "npm:^5.1.26"
     "@types/styled-system": "npm:^5.1.16"
@@ -2552,7 +2552,7 @@ __metadata:
     react: "npm:18.2.0"
     react-collapsed: "npm:3.0.2"
     react-dom: "npm:18.2.0"
-    react-is: "npm:18.2.0"
+    react-is: "npm:19.1.1"
     react-jazzicon: "npm:^1.0.4"
     react-toastify: "npm:7.0.4"
     react-transition-group: "npm:4"
@@ -6297,12 +6297,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-is@npm:17.0.2":
-  version: 17.0.2
-  resolution: "@types/react-is@npm:17.0.2"
+"@types/react-is@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@types/react-is@npm:19.0.0"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 10c0/2421605efab4608effdb99298aa12a47842b47701965f8495893d61da6cbbf5dac3ddfc91c20114e33779c1fb82a01f378f23a45e0cbe60bfb657af6d28544db
+  checksum: 10c0/d5fa0294f95cf301540f3e28fb44c00524c74a7de3ef9757703d76067206f3ecc002da6486e1581f23b54173b6449db8631acc3088009116e4569ff216df3ecc
   languageName: node
   linkType: hard
 
@@ -17206,10 +17206,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react-is@npm:18.2.0"
-  checksum: 10c0/6eb5e4b28028c23e2bfcf73371e72cd4162e4ac7ab445ddae2afe24e347a37d6dc22fae6e1748632cd43c6d4f9b8f86dcf26bf9275e1874f436d129952528ae0
+"react-is@npm:19.1.1":
+  version: 19.1.1
+  resolution: "react-is@npm:19.1.1"
+  checksum: 10c0/3dba763fcd69835ae263dcd6727d7ffcc44c1d616f04b7329e67aefdc66a567af4f8dcecdd29454c7a707c968aa1eb85083a83fb616f01675ef25e71cf082f97
   languageName: node
   linkType: hard
 
