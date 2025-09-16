@@ -1,1 +1,11 @@
+# Check if icon generation is needed for staged SVG files
+STAGED_FILES=$(git diff --cached --name-only | grep '^packages/icons/svg/.*\.svg$' | tr '\n' ' ')
+if [ -n "$STAGED_FILES" ]; then
+  if node scripts/check-icons-need-generation.js $STAGED_FILES; then
+    echo "Icons changed, running yarn icons:convert..."
+    yarn icons:convert
+    git add packages/icons/components/ packages/icons/index.tsx
+  fi
+fi
+
 npx lint-staged
