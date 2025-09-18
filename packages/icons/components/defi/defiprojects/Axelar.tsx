@@ -3,7 +3,7 @@
 import React, { SVGProps } from 'react'
 
 import { useUniqueInlineId } from '@inline-svg-unique-id/react'
-export const Alexar = function (props: SVGProps<SVGSVGElement>) {
+export const Axelar = function (props: SVGProps<SVGSVGElement>) {
   const _id8 = useUniqueInlineId()
   const _id7 = useUniqueInlineId()
   const _id6 = useUniqueInlineId()
