@@ -189,3 +189,22 @@ The `CookieThemeProvider` determines the theme based on the following priority:
 4. Initial theme (if provided)
 5. System preference (light/dark mode)
 6. Default theme
+
+## Adding Icons
+
+1. Add the SVG file to one of the category folders in `packages/icons/svg/`:
+   - `base/` - Basic UI icons (arrows, close, info, etc.)
+   - `defi/` - DeFi-related icons (protocols, networks, wallets)
+   - `general/` - General purpose icons (social media, docs, etc.)
+   - `lido/` - Lido-specific icons (projects, teams)
+   - `logo/` - Brand logos
+   - `strategies/` - Strategy-related icons
+   - `token/` - Token/cryptocurrency icons
+
+2. Commit changes. The conversion will run automatically and the result will be added to the current commit
+
+Or - run the conversion script manually - `yarn icons:convert`
+
+**Note**: Icon names are automatically converted to PascalCase. Icons in different categories get specific suffixes:
+- `logo/` → `IconNameLogo`
+- `defi/networks/arbitrum` → `Arbitrum.tsx`
