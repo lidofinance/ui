@@ -86,7 +86,7 @@
     "@semantic-release/npm": "^11.0.2",
     "@semantic-release/release-notes-generator": "10.0.3",
     "@storybook/addon-actions": "8.6.12",
-    "@storybook/addon-docs": "8.6.12",
+    "@storybook/addon-docs": "9.1.7",
     "@storybook/addon-essentials": "8.6.12",
     "@storybook/addon-webpack5-compiler-swc": "3.0.0",
     "@storybook/cli": "8.6.12",
