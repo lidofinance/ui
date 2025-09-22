@@ -2507,7 +2507,7 @@ __metadata:
     "@storybook/react": "npm:^7.2.3"
     "@storybook/react-webpack5": "npm:^7.2.3"
     "@storybook/storybook-deployer": "npm:^2.8.16"
-    "@storybook/theming": "npm:^7.2.3"
+    "@storybook/theming": "npm:^8.6.14"
     "@styled-system/should-forward-prop": "npm:5.1.5"
     "@svgr/core": "npm:5.5.0"
     "@svgr/plugin-jsx": "npm:5.5.0"
@@ -5345,7 +5345,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:7.6.20, @storybook/theming@npm:^7.0.0, @storybook/theming@npm:^7.2.3":
+"@storybook/theming@npm:7.6.20, @storybook/theming@npm:^7.0.0":
   version: 7.6.20
   resolution: "@storybook/theming@npm:7.6.20"
   dependencies:
@@ -5357,6 +5357,15 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 10c0/7ab97d6a93837900391212ac1638a247d2ccac55bd1261bb34739a11f226040c47da5fc5fde120d4829a3f068b55ce34a2d42c0b14bcfa71e97b18a4288161f3
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:^8.6.14":
+  version: 8.6.14
+  resolution: "@storybook/theming@npm:8.6.14"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/765bfbfedcbdcdb719b164a14bb61b8ad60819c6124d0e1f243b6b45e62de877ec8dff6259092207a58d6c2771f4883650e9784a2be1aaf7e0ef0fe75465db0d
   languageName: node
   linkType: hard
 
