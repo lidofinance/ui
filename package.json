@@ -46,7 +46,7 @@
     "react": "16 || 17 || 18",
     "react-dom": "16 || 17 || 18",
     "react-is": "16 || 17 || 18",
-    "styled-components": "^5.3.5"
+    "styled-components": "^6.1.19"
   },
   "dependencies": {
     "@styled-system/should-forward-prop": "5.1.5",
@@ -126,7 +126,7 @@
     "storybook": "7.2.3",
     "storybook-addon-swc": "^1.2.0",
     "storybook-dark-mode": "^3.0.1",
-    "styled-components": "^5.3.5",
+    "styled-components": "^6.1.19",
     "stylelint": "^15.10.2",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.0.2",
