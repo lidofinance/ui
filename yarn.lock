@@ -1590,20 +1590,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:19.8.0":
-  version: 19.8.0
-  resolution: "@commitlint/cli@npm:19.8.0"
+"@commitlint/cli@npm:19.8.1":
+  version: 19.8.1
+  resolution: "@commitlint/cli@npm:19.8.1"
   dependencies:
-    "@commitlint/format": "npm:^19.8.0"
-    "@commitlint/lint": "npm:^19.8.0"
-    "@commitlint/load": "npm:^19.8.0"
-    "@commitlint/read": "npm:^19.8.0"
-    "@commitlint/types": "npm:^19.8.0"
-    tinyexec: "npm:^0.3.0"
+    "@commitlint/format": "npm:^19.8.1"
+    "@commitlint/lint": "npm:^19.8.1"
+    "@commitlint/load": "npm:^19.8.1"
+    "@commitlint/read": "npm:^19.8.1"
+    "@commitlint/types": "npm:^19.8.1"
+    tinyexec: "npm:^1.0.0"
     yargs: "npm:^17.0.0"
   bin:
     commitlint: ./cli.js
-  checksum: 10c0/6931c62c18b848b2c7266ec0b2d3a690a9ec9f83151a67a89ef20a49c84d5e6ee8dbaee4aaec14b2bd1229fdd91c7a0b41b7fd68c52fff8632a0037d52bd6eb2
+  checksum: 10c0/41a5b6aa27aaead8ed400eb212c87d06fdb8fae219ebccd37369a4aab2e3cff25afc4b3c3fa18df9dc19a0ae4ab6599f9adb5c836cad31c2589cb988aefe5515
   languageName: node
   linkType: hard
 
@@ -1648,7 +1648,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/format@npm:^19.8.0":
+"@commitlint/format@npm:^19.8.1":
   version: 19.8.1
   resolution: "@commitlint/format@npm:19.8.1"
   dependencies:
@@ -1668,7 +1668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/lint@npm:^19.8.0":
+"@commitlint/lint@npm:^19.8.1":
   version: 19.8.1
   resolution: "@commitlint/lint@npm:19.8.1"
   dependencies:
@@ -1680,7 +1680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^19.8.0":
+"@commitlint/load@npm:^19.8.1":
   version: 19.8.1
   resolution: "@commitlint/load@npm:19.8.1"
   dependencies:
@@ -1716,7 +1716,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/read@npm:^19.8.0":
+"@commitlint/read@npm:^19.8.1":
   version: 19.8.1
   resolution: "@commitlint/read@npm:19.8.1"
   dependencies:
@@ -2501,7 +2501,7 @@ __metadata:
     "@babel/preset-env": "npm:7.26.9"
     "@babel/preset-react": "npm:7.26.3"
     "@babel/preset-typescript": "npm:7.27.0"
-    "@commitlint/cli": "npm:19.8.0"
+    "@commitlint/cli": "npm:19.8.1"
     "@commitlint/config-conventional": "npm:19.8.0"
     "@csstools/postcss-global-data": "npm:3.0.0"
     "@inline-svg-unique-id/react": "npm:1.2.3"
@@ -17551,7 +17551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyexec@npm:^0.3.0, tinyexec@npm:^0.3.2":
+"tinyexec@npm:^0.3.2":
   version: 0.3.2
   resolution: "tinyexec@npm:0.3.2"
   checksum: 10c0/3efbf791a911be0bf0821eab37a3445c2ba07acc1522b1fa84ae1e55f10425076f1290f680286345ed919549ad67527d07281f1c19d584df3b74326909eb1f90
