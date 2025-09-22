@@ -123,7 +123,7 @@
     "rimraf": "3.0.2",
     "rollup": "3.29.5",
     "semantic-release": "^19.0.5",
-    "storybook": "7.2.3",
+    "storybook": "9.1.7",
     "storybook-addon-swc": "^1.2.0",
     "storybook-dark-mode": "^3.0.1",
     "styled-components": "^5.3.5",
