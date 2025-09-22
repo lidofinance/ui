@@ -77,7 +77,7 @@
     "@storybook/react-webpack5": "^7.2.3",
     "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/theming": "^7.2.3",
-    "@svgr/core": "5.5.0",
+    "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "5.5.0",
     "@svgr/plugin-prettier": "5.5.0",
     "@svgr/plugin-svgo": "5.5.0",
