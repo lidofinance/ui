@@ -7,33 +7,40 @@ export const BitGet = function (props: SVGProps<SVGSVGElement>) {
   const _id = useUniqueInlineId()
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
-      <path
-        fill='#00E0FF'
-        d='M37.151 34.375h10.523L58.44 45.071c.7.695.704 1.828.007 2.527L44.64 61.474H33.802l3.278-3.187 12.032-11.956-11.88-11.957'
-      />
-      <path
-        fill='#00E0FF'
-        d='M41.474 46.303h-10.52L20.188 35.608a1.786 1.786 0 01-.007-2.528l13.806-13.875h10.84l-3.277 3.187-12.033 11.955 11.88 11.956'
-      />
-      <g filter={`url(#${_id})`} fill='#00E0FF' fillOpacity={0.4}>
-        <path d='M42.2 28.065h10.522l10.765 10.696c.701.695.704 1.828.007 2.527L49.688 55.164H38.85l3.278-3.187L54.16 40.021 42.28 28.064' />
-        <path d='M46.522 39.993h-10.52L25.237 29.298a1.786 1.786 0 01-.007-2.528l13.806-13.875h10.84L46.6 16.081 34.566 28.037l11.881 11.956' />
+      <g opacity={0.4} filter={`url(#${_id})`}>
+        <path
+          d='M53.112 24.002H32.925a8.906 8.906 0 00-8.906 8.906v20.188a8.906 8.906 0 008.906 8.906h20.187a8.906 8.906 0 008.907-8.906V32.908a8.906 8.906 0 00-8.907-8.906z'
+          fill='#00F0FF'
+        />
       </g>
+      <path
+        d='M50.112 21.002H29.925a8.906 8.906 0 00-8.906 8.906v20.188a8.906 8.906 0 008.906 8.906h20.187a8.906 8.906 0 008.907-8.906V29.908a8.906 8.906 0 00-8.907-8.906z'
+        fill='#001F29'
+      />
+      <path
+        d='M36.81 26.585c-1.535 0-3.066-.001-4.606.001-.93 0-1.28 1.169-.587 1.86l10.48 10.48c.326.3.53.624.538 1.053-.008.429-.212.754-.539 1.053l-10.48 10.48c-.692.691-.343 1.86.588 1.86 1.54.002 3.071.002 4.605 0h2.308c1.008 0 1.608-.538 2.147-1.077l9.45-9.451c.755-.755 1.43-1.756 1.42-2.865.01-1.109-.665-2.11-1.42-2.865l-9.45-9.45c-.54-.54-1.139-1.078-2.147-1.078h-2.308z'
+        fill='#00F0FF'
+      />
       <defs>
         <filter
           id={_id}
-          width={63.307}
-          height={66.269}
-          x={12.709}
-          y={0.895}
-          colorInterpolationFilters='sRGB'
+          x={16.019}
+          y={16.002}
+          width={54}
+          height={54}
           filterUnits='userSpaceOnUse'
+          colorInterpolationFilters='sRGB'
         >
           <feFlood floodOpacity={0} result='BackgroundImageFix' />
-          <feBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
+          <feBlend
+            mode='normal'
+            in='SourceGraphic'
+            in2='BackgroundImageFix'
+            result='shape'
+          />
           <feGaussianBlur
-            result='effect1_foregroundBlur_52_17424'
-            stdDeviation={6}
+            stdDeviation={4}
+            result='effect1_foregroundBlur_1055_26786'
           />
         </filter>
       </defs>
