@@ -8,12 +8,20 @@ type ThemeProviderProps = PropsWithChildren & {
 export const ThemeProvider: FC<ThemeProviderProps> = ({
   themeName,
   children,
-}) => <div data-lido-theme={themeName}>{children}</div>
+}) => (
+  <div data-lido-theme={themeName} style={{ display: 'contents' }}>
+    {children}
+  </div>
+)
 
 export const LightThemeProvider: FC<PropsWithChildren> = ({ children }) => (
-  <div data-lido-theme='light'>{children}</div>
+  <div data-lido-theme='light' style={{ display: 'contents' }}>
+    {children}
+  </div>
 )
 
 export const DarkThemeProvider: FC<PropsWithChildren> = ({ children }) => (
-  <div data-lido-theme='dark'>{children}</div>
+  <div data-lido-theme='dark' style={{ display: 'contents' }}>
+    {children}
+  </div>
 )
