@@ -54,7 +54,7 @@
 }
 
 .shape--text {
-  min-height: 68px;
+  min-height: 56px;
   padding: 12px 26px;
   justify-content: center;
   align-items: center;
@@ -88,7 +88,7 @@
 /* Size variants */
 .size--s {
   .tab {
-    min-height: 48px;
+    min-height: 36px;
     padding: 2px 14px;
   }
 
@@ -102,7 +102,7 @@
 
 .size--m {
   .tab {
-    min-height: 60px;
+    min-height: 48px;
     padding: 8px 22px;
   }
 
@@ -116,7 +116,7 @@
 
 .size--l {
   .tab {
-    min-height: 68px;
+    min-height: 56px;
     padding: 12px 26px;
   }
 
