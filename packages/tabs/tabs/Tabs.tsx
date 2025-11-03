@@ -89,6 +89,20 @@ export const Tabs = ({
     }
   }, [activeKey, type, items])
 
+  // Scroll active tab into view on small screens
+  useEffect(() => {
+    if (
+      activeButtonRef.current &&
+      window.matchMedia('(max-width: 599px)').matches
+    ) {
+      activeButtonRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+  }, [activeKey])
+
   const handleClick =
     (key: string, itemDisabled?: boolean) => (event: MouseEvent) => {
       event.preventDefault()

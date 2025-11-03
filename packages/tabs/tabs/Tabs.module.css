@@ -11,7 +11,11 @@
 .selection {
   position: absolute;
   top: 0;
-  transition: left 0.3s ease;
+  transition:
+    left 0.3s ease,
+    width 0.3s ease,
+    height 0.3s ease,
+    top 0.3s ease;
   background-color: var(--lido-ui-color-buttons-primary);
   pointer-events: none;
   border-radius: 34px;
@@ -125,5 +129,76 @@
     width: 56px;
     height: 56px;
     padding: 12px;
+  }
+}
+
+/* Responsive styles */
+@media (--lido-ui-breakpoint-sm-down) {
+  .tabs {
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    white-space: nowrap;
+    width: 100%;
+    padding: 8px;
+    gap: 8px;
+    border: none;
+    border-radius: 0;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .selection {
+    display: none;
+  }
+
+  .tab {
+    flex-shrink: 0;
+    border-radius: 34px;
+
+    &.active {
+      background-color: var(--lido-ui-color-buttons-primary);
+      color: var(--lido-ui-color-text-inverted);
+    }
+
+    &:not(.active) {
+      background-color: rgba(0, 0, 0, 0.04);
+      border: 1px solid transparent;
+
+      &:hover {
+        border-color: var(--lido-ui-color-borders-hover);
+      }
+    }
+  }
+
+  /* Size variants */
+  .size--m {
+    .tab {
+      min-height: 36px;
+      padding: 2px 14px;
+    }
+
+    .shape--icon {
+      min-height: initial;
+      width: 36px;
+      height: 36px;
+      padding: 4px;
+    }
+  }
+
+  .size--l {
+    .tab {
+      min-height: 48px;
+      padding: 8px 22px;
+    }
+
+    .shape--icon {
+      min-height: initial;
+      width: 48px;
+      height: 48px;
+      padding: 8px;
+    }
   }
 }
