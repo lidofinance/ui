@@ -164,7 +164,7 @@
     }
 
     &:not(.active) {
-      background-color: rgba(0, 0, 0, 0.04);
+      background-color: rgb(0 0 0 / 4%);
       border: 1px solid transparent;
 
       &:hover {
