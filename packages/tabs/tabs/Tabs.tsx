@@ -87,7 +87,7 @@ export const Tabs = ({
     return () => {
       window.removeEventListener('resize', updateSelectionPosition)
     }
-  }, [activeKey, type, items])
+  }, [activeKey, type, items, size])
 
   // Scroll active tab into view on small screens
   useEffect(() => {
