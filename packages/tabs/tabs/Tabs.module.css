@@ -7,10 +7,10 @@
   padding: 6px;
   max-width: 100%;
   width: fit-content;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
+
   /* hide native scrollbars across browsers */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -220,6 +220,7 @@
   .selection {
     transition: none !important;
   }
+
   .tab {
     transition: none !important;
   }
