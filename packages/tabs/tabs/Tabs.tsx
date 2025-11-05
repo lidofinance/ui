@@ -73,10 +73,11 @@ export const Tabs = ({
           activeButtonRef.current.parentElement?.getBoundingClientRect()
 
         if (tabsRect) {
+          const x = Math.round(buttonRect.left - tabsRect.left)
+          const y = Math.round(buttonRect.top - tabsRect.top)
           selectionRef.current.style.width = `${buttonRect.width}px`
           selectionRef.current.style.height = `${buttonRect.height}px`
-          selectionRef.current.style.left = `${buttonRect.left - tabsRect.left}px`
-          selectionRef.current.style.top = `${buttonRect.top - tabsRect.top}px`
+          selectionRef.current.style.transform = `translate(${x}px, ${y}px)`
         }
       }
     }
@@ -89,12 +90,9 @@ export const Tabs = ({
     }
   }, [activeKey, type, items, size])
 
-  // Scroll active tab into view on small screens
+  // Scroll active tab into view on any screen size
   useEffect(() => {
-    if (
-      activeButtonRef.current &&
-      window.matchMedia('(max-width: 599px)').matches
-    ) {
+    if (activeButtonRef.current) {
       activeButtonRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',

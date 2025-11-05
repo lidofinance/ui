@@ -5,20 +5,33 @@
   display: inline-flex;
   gap: 6px;
   padding: 6px;
+  max-width: 100%;
   width: fit-content;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  /* hide native scrollbars across browsers */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-color: transparent transparent; /* Firefox extra */
+}
+
+.tabs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .selection {
   position: absolute;
   top: 0;
   transition:
-    left 0.3s ease,
-    width 0.3s ease,
-    height 0.3s ease,
-    top 0.3s ease;
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
   background-color: var(--lido-ui-color-buttons-primary);
   pointer-events: none;
   border-radius: 34px;
+  will-change: transform, width, height;
 }
 
 .tab {
@@ -200,5 +213,14 @@
       height: 48px;
       padding: 8px;
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selection {
+    transition: none !important;
+  }
+  .tab {
+    transition: none !important;
   }
 }
