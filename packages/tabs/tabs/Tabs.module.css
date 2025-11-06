@@ -24,6 +24,7 @@
 .selection {
   position: absolute;
   top: 0;
+  left: 0;
   transition:
     transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
     width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),

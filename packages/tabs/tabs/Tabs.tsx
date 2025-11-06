@@ -73,8 +73,10 @@ export const Tabs = ({
           activeButtonRef.current.parentElement?.getBoundingClientRect()
 
         if (tabsRect) {
-          const x = Math.round(buttonRect.left - tabsRect.left)
-          const y = Math.round(buttonRect.top - tabsRect.top)
+          const x = buttonRect.left - tabsRect.left
+          const y = buttonRect.top - tabsRect.top
+
+          // Use transform for movement to leverage GPU acceleration and CSS transitions
           selectionRef.current.style.width = `${buttonRect.width}px`
           selectionRef.current.style.height = `${buttonRect.height}px`
           selectionRef.current.style.transform = `translate(${x}px, ${y}px)`
@@ -82,8 +84,10 @@ export const Tabs = ({
       }
     }
 
+    // Initial position update
     updateSelectionPosition()
 
+    // Recalculate on resize
     window.addEventListener('resize', updateSelectionPosition)
     return () => {
       window.removeEventListener('resize', updateSelectionPosition)
