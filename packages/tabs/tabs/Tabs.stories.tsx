@@ -49,7 +49,15 @@ export default {
   tags: ['autodocs'],
 } satisfies Meta<TabsProps>
 
-export const Basic: StoryFn<TabsProps> = (props) => <Tabs {...props} />
+export const Basic: StoryFn<TabsProps> = (props) => {
+  return (
+    <div style={{ maxWidth: '100%', overflow: 'auto' }}>
+      <div style={{ minWidth: 'min-content', width: '100%' }}>
+        <Tabs {...props} />
+      </div>
+    </div>
+  )
+}
 
 export const AllStates: StoryFn<TabsProps> = () => {
   const textItems = [
@@ -68,8 +76,11 @@ export const AllStates: StoryFn<TabsProps> = () => {
 
   const gridContainerStyle: React.CSSProperties = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
     gap: '32px',
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
   }
 
   const headingStyle: React.CSSProperties = {
@@ -99,56 +110,74 @@ export const AllStates: StoryFn<TabsProps> = () => {
                 style={{
                   padding: '16px',
                   border: '1px solid var(--lido-ui-color-borders-inverted)',
+                  maxWidth: '100%',
+                  overflow: 'hidden',
                 }}
               >
-                <div style={{ marginBottom: '16px' }}>
+                <div
+                  style={{
+                    marginBottom: '16px',
+                    maxWidth: '100%',
+                    overflow: 'auto',
+                  }}
+                >
                   <h6 style={{ marginBottom: '8px' }}>Regular:</h6>
-                  <Tabs
-                    type={type}
-                    size={size}
-                    items={type === 'text' ? textItems : circleItems}
-                  />
+                  <div style={{ minWidth: 'min-content', width: '100%' }}>
+                    <Tabs
+                      type={type}
+                      size={size}
+                      items={type === 'text' ? textItems : circleItems}
+                    />
+                  </div>
                 </div>
 
-                <div style={{ marginBottom: '16px' }}>
+                <div
+                  style={{
+                    marginBottom: '16px',
+                    maxWidth: '100%',
+                    overflow: 'auto',
+                  }}
+                >
                   <h6 style={{ marginBottom: '8px' }}>
                     With individual disabled items:
                   </h6>
-                  <Tabs
-                    type={type}
-                    size={size}
-                    items={
-                      type === 'text'
-                        ? [
-                            { key: '1', children: 'Tab text 1' },
-                            {
-                              key: '2',
-                              children: 'Tab text 2222',
-                              disabled: true,
-                            },
-                            { key: '3', children: 'Tab text 3' },
-                          ]
-                        : [
-                            { key: '1', children: <Checkmark /> },
-                            { key: '4', children: <Checkmark /> },
-                            {
-                              key: '2',
-                              children: (
-                                <img
-                                  src='https://lido.fi/static/index/defi/metamask.svg'
-                                  alt={'img'}
-                                />
-                              ),
-                              disabled: true,
-                            },
-                            {
-                              key: '3',
-                              children: <Checkmark />,
-                              disabled: true,
-                            },
-                          ]
-                    }
-                  />
+                  <div style={{ minWidth: 'min-content', width: '100%' }}>
+                    <Tabs
+                      type={type}
+                      size={size}
+                      items={
+                        type === 'text'
+                          ? [
+                              { key: '1', children: 'Tab text 1' },
+                              {
+                                key: '2',
+                                children: 'Tab text 2222',
+                                disabled: true,
+                              },
+                              { key: '3', children: 'Tab text 3' },
+                            ]
+                          : [
+                              { key: '1', children: <Checkmark /> },
+                              { key: '4', children: <Checkmark /> },
+                              {
+                                key: '2',
+                                children: (
+                                  <img
+                                    src='https://lido.fi/static/index/defi/metamask.svg'
+                                    alt={'img'}
+                                  />
+                                ),
+                                disabled: true,
+                              },
+                              {
+                                key: '3',
+                                children: <Checkmark />,
+                                disabled: true,
+                              },
+                            ]
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </div>

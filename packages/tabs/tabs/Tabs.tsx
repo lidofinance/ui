@@ -73,21 +73,37 @@ export const Tabs = ({
           activeButtonRef.current.parentElement?.getBoundingClientRect()
 
         if (tabsRect) {
+          const x = buttonRect.left - tabsRect.left
+          const y = buttonRect.top - tabsRect.top
+
+          // Use transform for movement to leverage GPU acceleration and CSS transitions
           selectionRef.current.style.width = `${buttonRect.width}px`
           selectionRef.current.style.height = `${buttonRect.height}px`
-          selectionRef.current.style.left = `${buttonRect.left - tabsRect.left}px`
-          selectionRef.current.style.top = `${buttonRect.top - tabsRect.top}px`
+          selectionRef.current.style.transform = `translate(${x}px, ${y}px)`
         }
       }
     }
 
+    // Initial position update
     updateSelectionPosition()
 
+    // Recalculate on resize
     window.addEventListener('resize', updateSelectionPosition)
     return () => {
       window.removeEventListener('resize', updateSelectionPosition)
     }
-  }, [activeKey, type, items])
+  }, [activeKey, type, items, size])
+
+  // Scroll active tab into view on any screen size
+  useEffect(() => {
+    if (activeButtonRef.current) {
+      activeButtonRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+  }, [activeKey])
 
   const handleClick =
     (key: string, itemDisabled?: boolean) => (event: MouseEvent) => {
