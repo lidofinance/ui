@@ -1,6 +1,7 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Tabs, TabsProps } from './Tabs'
 import { Checkmark, Metamask } from '../../icons'
+import { useState } from 'react'
 
 export default {
   component: Tabs,
@@ -194,6 +195,95 @@ AllStates.parameters = {
     description: {
       story:
         'Displays all possible Tabs states and sizes for easy review. This story shows all three sizes ("s", "m", "l") for each tab type and state, providing a comprehensive view of all possible combinations. You can control the size of the tabs using the "size" property, which accepts values "s" (small), "m" (medium), or "l" (large).',
+    },
+  },
+}
+
+export const ScrollWithinContainer: StoryFn<TabsProps> = () => {
+  const [active, setActive] = useState<string>('1')
+
+  // Create many tabs to force horizontal overflow
+  const items = Array.from({ length: 28 }, (_, i) => {
+    const n = i + 1
+    // Make some labels longer to vary widths
+    const label = n % 5 === 0 ? `Very long tab label ${n}` : `Tab ${n}`
+    return { key: String(n), children: label }
+  })
+
+  const jumpTo = (k: string) => () => setActive(k)
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 12,
+        maxWidth: '100%',
+      }}
+    >
+      <p style={{ margin: 0 }}>
+        This story demonstrates the container-only scrolling behavior. Use the
+        buttons to jump between distant tabs — notice only the tabs row scrolls,
+        not the page.
+      </p>
+
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        <button onClick={jumpTo('1')}>First</button>
+        <button onClick={jumpTo('8')}>#8</button>
+        <button onClick={jumpTo('14')}>#14</button>
+        <button onClick={jumpTo('20')}>#20</button>
+        <button onClick={jumpTo('28')}>Last</button>
+        <button
+          onClick={() => setActive(String(Math.min(28, Number(active) + 1)))}
+        >
+          Next
+        </button>
+        <button
+          onClick={() => setActive(String(Math.max(1, Number(active) - 1)))}
+        >
+          Prev
+        </button>
+      </div>
+
+      {/* Constrained container to ensure overflow is within the tabs container only */}
+      <div
+        style={{
+          width: 360,
+          maxWidth: '100%',
+          border: '1px solid var(--lido-ui-color-borders-inverted)',
+          padding: 12,
+          borderRadius: 8,
+          overflow: 'hidden',
+        }}
+      >
+        <Tabs
+          type='text'
+          size='l'
+          items={items}
+          activeKey={active}
+          onKeyChange={(k) => setActive(k)}
+        />
+      </div>
+
+      {/* Extra content to show that page doesn't jump when tabs scroll */}
+      <div
+        style={{
+          height: 200,
+          background:
+            'repeating-linear-gradient(45deg, rgba(125,125,125,0.1), rgba(125,125,125,0.1) 10px, rgba(125,125,125,0.2) 10px, rgba(125,125,125,0.2) 20px)',
+          borderRadius: 8,
+        }}
+      />
+    </div>
+  )
+}
+
+ScrollWithinContainer.parameters = {
+  controls: { disable: true },
+  docs: {
+    description: {
+      story:
+        'A focused demo of the new scrolling behavior. When a far tab becomes active, the component scrolls only the tabs container into view using element-level scrolling, without moving the page itself (works across browsers).',
     },
   },
 }
