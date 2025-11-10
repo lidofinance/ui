@@ -48,6 +48,7 @@ export const Tabs = ({
   )
   const activeButtonRef = useRef<HTMLButtonElement | null>(null)
   const selectionRef = useRef<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     setActiveKey(defaultKey)
@@ -94,14 +95,80 @@ export const Tabs = ({
     }
   }, [activeKey, type, items, size])
 
-  // Scroll active tab into view on any screen size
+  // Scroll active tab into view only within the nearest scrollable container (cross-browser)
   useEffect(() => {
-    if (activeButtonRef.current) {
-      activeButtonRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      })
+    const button = activeButtonRef.current
+    if (!button) return
+
+    // Find the element that actually scrolls (nearest ancestor with overflow and scrollable content)
+    const isScrollable = (el: HTMLElement | null) => {
+      if (!el) return false
+      const style = window.getComputedStyle(el)
+      const ox = style.overflowX
+      const oy = style.overflowY
+      const canX =
+        (ox === 'auto' || ox === 'scroll' || ox === 'overlay') &&
+        el.scrollWidth > el.clientWidth
+      const canY =
+        (oy === 'auto' || oy === 'scroll' || oy === 'overlay') &&
+        el.scrollHeight > el.clientHeight
+      return canX || canY
+    }
+
+    const getScrollableAncestor = (
+      start: HTMLElement | null,
+    ): HTMLElement | null => {
+      let el = start?.parentElement ?? null
+      while (el) {
+        if (isScrollable(el)) return el
+        el = el.parentElement
+      }
+      return null
+    }
+
+    // Prefer internal containerRef if it is scrollable; otherwise use nearest scrollable ancestor
+    let container: HTMLElement | null = containerRef.current
+    if (!isScrollable(container)) {
+      container = getScrollableAncestor(button) || container
+    }
+
+    if (!container) return
+
+    const buttonRect = button.getBoundingClientRect()
+    const containerRect = container.getBoundingClientRect()
+
+    let deltaX = 0
+    let deltaY = 0
+
+    // Horizontal adjustment (keep within container without scrolling the page)
+    if (buttonRect.left < containerRect.left) {
+      deltaX = buttonRect.left - containerRect.left
+    } else if (buttonRect.right > containerRect.right) {
+      deltaX = buttonRect.right - containerRect.right
+    }
+
+    // Vertical adjustment (in case the container is vertical/has vertical overflow)
+    if (buttonRect.top < containerRect.top) {
+      deltaY = buttonRect.top - containerRect.top
+    } else if (buttonRect.bottom > containerRect.bottom) {
+      deltaY = buttonRect.bottom - containerRect.bottom
+    }
+
+    if (deltaX !== 0 || deltaY !== 0) {
+      const targetLeft = container.scrollLeft + deltaX
+      const targetTop = container.scrollTop + deltaY
+      try {
+        // Prefer smooth scroll when supported on elements
+        container.scrollTo({
+          left: targetLeft,
+          top: targetTop,
+          behavior: 'smooth',
+        } as ScrollToOptions)
+      } catch {
+        // Fallback for older browsers
+        container.scrollLeft = targetLeft
+        container.scrollTop = targetTop
+      }
     }
   }, [activeKey])
 
@@ -120,28 +187,32 @@ export const Tabs = ({
 
   return (
     <div
+      ref={containerRef}
       className={cn(styles.tabs, styles[`size--${size}`], className)}
       data-testid={dataTestId?.root}
       {...rest}
     >
       <div ref={selectionRef} className={styles.selection}></div>
-      {items?.map((item) => (
-        <button
-          ref={item.key === activeKey ? activeButtonRef : undefined}
-          data-id={item.key === activeKey ? 'active' : undefined}
-          className={cn(styles.tab, {
-            [styles.active]: item.key === activeKey,
-            [styles.disabled]: item.disabled,
-            [styles[`shape--${type}`]]: type,
-          })}
-          key={item.key}
-          onClick={handleClick(item.key, item.disabled)}
-          disabled={item.disabled}
-          data-testid={item.dataTestId?.tab}
-        >
-          <span data-testid={item.dataTestId?.tabTitle}>{item.children}</span>
-        </button>
-      ))}
+      {items?.map((item) => {
+        const isActive = String(item.key) === String(activeKey)
+        return (
+          <button
+            ref={isActive ? activeButtonRef : undefined}
+            data-id={isActive ? 'active' : undefined}
+            className={cn(styles.tab, {
+              [styles.active]: isActive,
+              [styles.disabled]: item.disabled,
+              [styles[`shape--${type}`]]: type,
+            })}
+            key={item.key}
+            onClick={handleClick(item.key, item.disabled)}
+            disabled={item.disabled}
+            data-testid={item.dataTestId?.tab}
+          >
+            <span data-testid={item.dataTestId?.tabTitle}>{item.children}</span>
+          </button>
+        )
+      })}
     </div>
   )
 }
