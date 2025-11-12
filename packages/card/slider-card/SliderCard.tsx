@@ -101,7 +101,7 @@ export const SliderCard = forwardRef(
               </div>
             )}
             <div className={styles.titleItem} data-testid={dataTestId?.title}>
-              {title}
+              11{title}11
             </div>
             {subtitle && (
               <div
