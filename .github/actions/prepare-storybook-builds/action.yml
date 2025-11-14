@@ -1,0 +1,69 @@
+name: 'Prepare Storybook builds'
+
+inputs:
+  release_type:
+    description: 'Which release type to place'
+    required: true
+    type: string
+    options:
+      - v4
+      - main
+  target_folder:
+    description: 'Target folder which will be uploaded to GitHub Pages'
+    required: true
+    type: string
+    default: release-target
+  source_folder:
+    description: 'Source folder of the build'
+    type: string
+    default: storybook-static
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Ensure target folder exists
+      shell: bash
+      run: |
+        set -euo pipefail
+        mkdir -p "$TARGET_FOLDER"
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+
+    - name: Layout for v4
+      if: inputs.release_type == 'v4'
+      shell: bash
+      run: |
+        set -euo pipefail
+        TARGET="$TARGET_FOLDER"
+        SRC="$SOURCE_FOLDER"
+
+        rm -rf "$TARGET/v4"
+        mkdir -p "$TARGET/v4"
+        cp -r "$SRC"/* "$TARGET/v4/"
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+        SOURCE_FOLDER: ${{ inputs.source_folder }}
+
+    - name: Layout for main
+      if: inputs.release_type == 'main'
+      shell: bash
+      run: |
+        set -euo pipefail
+        TARGET="$TARGET_FOLDER"
+        SRC="$SOURCE_FOLDER"
+
+        if [ -z "${TARGET}" ] || [ -z "${SRC}" ]; then
+          echo "::error::TARGET or SRC is empty"
+          exit 1
+        fi
+
+        mkdir -p "$TARGET"
+
+        # Preserve v4 subdirectory if exists
+        find "$TARGET" -maxdepth 1 -type f -delete
+        find "$TARGET" -maxdepth 1 -type d ! -name '.' ! -name "$(basename "$TARGET")" ! -name 'v4' -exec rm -rf {} +
+
+        cp -r "$SRC"/* "$TARGET/"
+      env:
+        TARGET_FOLDER: ${{ inputs.target_folder }}
+        SOURCE_FOLDER: ${{ inputs.source_folder }}

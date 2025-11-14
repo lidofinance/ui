@@ -7,9 +7,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write # to enable use of OIDC for npm provenance
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -21,17 +25,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          fetch-depth: 0
+          ref: main
           persist-credentials: false
 
       - name: Enable corepack
         run: corepack enable
 
       - name: Setup Node
-        uses: actions/setup-node@40337cb8f758cccdfe3475af609daa63f81c7e23
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
           cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
 
       - name: Install Dependencies
         run: yarn install --immutable
@@ -50,15 +55,51 @@ jobs:
 
       - name: Build Storybook
         run: yarn build-storybook
+        # output: storybook-static
 
-      - name: Merge Storybook builds
-        uses: ./.github/actions/merge-storybook-builds
+      # V4 branch copy (lido-ui-v4-canary)
+      - name: Checkout lido-ui-v4-canary
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: lido-ui-v4-canary
+          path: other
+          persist-credentials: false
+
+      - name: Setup Node (v4)
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: other/.nvmrc
+          cache: 'yarn'
+          cache-dependency-path: 'other/yarn.lock'
+
+      - name: Install (v4)
+        working-directory: other
+        run: |
+          corepack enable
+          yarn install --immutable
+
+      - name: Build Storybook (v4)
+        working-directory: other
+        run: yarn build-storybook
+
+      # main -> / , v4 -> /v4
+      - name: Place MAIN (to root)
+        uses: ./.github/actions/prepare-storybook-builds
         with:
           release_type: main
           target_folder: release-target
+          source_folder: storybook-static
+
+      - name: Place V4 (to /v4)
+        uses: ./.github/actions/prepare-storybook-builds
+        with:
+          release_type: v4
+          target_folder: release-target
+          source_folder: other/storybook-static
 
       - name: Deploy to GitHub Pages
         uses: lidofinance/github-pages-action@v1
         with:
-          branch: gh-pages
-          folder:  release-target
+          folder: release-target
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
