@@ -32,9 +32,9 @@ jobs:
         run: corepack enable
 
       - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        uses: actions/setup-node@40337cb8f758cccdfe3475af609daa63f81c7e23
         with:
-          node-version-file: .nvmrc
+          node-version: '20'
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
 
