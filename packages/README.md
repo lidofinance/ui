@@ -89,6 +89,7 @@ await expect(page.locator('[data-testid="submit-button-icon"]')).toBeVisible();
 - Follow the format `[component]-[purpose]-[element]`
 - Use kebab-case for word separation
 
+
 ## Font Family Implementation
 
 ### General Principles
