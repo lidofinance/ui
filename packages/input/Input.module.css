@@ -209,16 +209,6 @@
       }
     }
   }
-
-  .inputWrapper:focus-within .rightDecoratorElement {
-    margin-top: 15px;
-    transition: margin-top 0.2s ease-in-out;
-  }
-
-  .inputWrapper:has(.input:not(:placeholder-shown)) .rightDecoratorElement {
-    margin-top: 15px;
-    transition: margin-top 0.2s ease-in-out;
-  }
 }
 
 /* Structure components */

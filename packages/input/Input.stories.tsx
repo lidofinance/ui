@@ -27,7 +27,7 @@ const meta: Meta<typeof Input> = {
       control: { type: 'radio' },
     },
     rightDecoratorType: {
-      options: ['element', 'text', 'button'] as const,
+      options: ['element', 'button'] as const,
       control: { type: 'radio' },
     },
     disabled: {
