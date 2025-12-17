@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import Link from 'next/link'
 
 import {
   ForwardedRef,
@@ -11,6 +10,7 @@ import {
 import { Button } from '../../button'
 import { Close } from '../../icons'
 import styles from './Banner.module.css'
+import { DynamicLink } from '../../links'
 
 export type BannerDataTestId = {
   root?: string
@@ -57,7 +57,7 @@ export const Banner = forwardRef(
         data-testid={dataTestId?.root}
         {...rest}
       >
-        <Link
+        <DynamicLink
           ref={ref as RefObject<HTMLAnchorElement>}
           onClick={handleAnchorClick}
           data-testid={dataTestId?.mainButton}
@@ -65,7 +65,7 @@ export const Banner = forwardRef(
           className={styles.mainButton}
         >
           <div className={styles.buttonContent}>{title}</div>
-        </Link>
+        </DynamicLink>
         <Button
           size={'s'}
           shape={'circle'}
