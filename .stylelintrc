@@ -14,6 +14,7 @@
     "no-empty-source": null,
     "selector-class-pattern": null,
     "no-descending-specificity": null,
+    "selector-max-type": [0, { "ignoreTypes": ["svg", "path", "img"] }],
     "property-no-unknown": [
       true,
       {

@@ -25,7 +25,9 @@
       by aiming explicit "span:first-child" we're verifying that this is what we are aiming for
       witout breaking our SVGs 
     */
+  /* stylelint-disable selector-max-type */
   & > span:first-child {
     display: contents;
   }
+  /* stylelint-enable selector-max-type */
 }
