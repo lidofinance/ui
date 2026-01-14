@@ -14,14 +14,33 @@
     "no-empty-source": null,
     "selector-class-pattern": null,
     "no-descending-specificity": null,
+    "selector-max-type": [
+      0,
+      {
+        "ignoreTypes": [
+          "svg",
+          "path",
+          "img"
+        ],
+        "severity": "warning"
+      }
+    ],
     "property-no-unknown": [
       true,
       {
-        "ignoreProperties": ["composes"]
+        "ignoreProperties": [
+          "composes"
+        ]
       }
     ],
-    "at-rule-no-unknown": [true, {
-      "ignoreAtRules": ["mixin", "define-mixin"]
-    }]
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "mixin",
+          "define-mixin"
+        ]
+      }
+    ]
   }
 }

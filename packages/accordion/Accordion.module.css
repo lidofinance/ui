@@ -60,15 +60,4 @@
       transition: opacity 0.3s ease;
     }
   }
-
-  a {
-    @mixin font-body-large;
-
-    color: var(--lido-ui-color-text-link);
-    text-decoration: none;
-  }
-
-  p + p {
-    margin-top: 16px;
-  }
 }

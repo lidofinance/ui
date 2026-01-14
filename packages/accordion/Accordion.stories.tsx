@@ -4,7 +4,7 @@ import {
   StorybookSection,
 } from '../../.storybook/components'
 import { Accordion } from '.'
-import { DynamicLink } from '../links/dynamic-link'
+import { Link } from '../links'
 import { Checkbox } from '../checkbox'
 import { Discord, Image } from '../icons/'
 import { useState } from 'react'
@@ -80,13 +80,9 @@ export const AllStates: Story = {
                 repellendus dignissimos quasi, vel, quas laboriosam harum
                 pariatur eum necessitatibus. Voluptatum, eos voluptatem!
               </p>
-              <p>
-                Visit our{' '}
-                <DynamicLink href='https://lido.fi'>
-                  external website{' '}
-                </DynamicLink>
-                or check the{' '}
-                <DynamicLink href='/docs'>internal documentation</DynamicLink>
+              <p style={{ marginTop: '16px' }}>
+                Visit our <Link href='https://lido.fi'>external website </Link>
+                or check the <Link href='/docs'>internal documentation</Link>
                 .{' '}
               </p>
               <div
@@ -135,13 +131,9 @@ export const AllStates: Story = {
                 repellendus dignissimos quasi, vel, quas laboriosam harum
                 pariatur eum necessitatibus. Voluptatum, eos voluptatem!
               </p>
-              <p>
-                Visit our{' '}
-                <DynamicLink href='https://lido.fi'>
-                  external website{' '}
-                </DynamicLink>
-                or check the{' '}
-                <DynamicLink href='/docs'>internal documentation</DynamicLink>
+              <p style={{ marginTop: '16px' }}>
+                Visit our <Link href='https://lido.fi'>external website </Link>
+                or check the <Link href='/docs'>internal documentation</Link>
                 .{' '}
               </p>
               <div
