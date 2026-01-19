@@ -257,7 +257,7 @@ import { Zerolend } from './Zerolend'
 import { ZkSwap } from './ZkSwap'
 
 // Export a constant with all icons in this directory
-export const DEFIPROJECTS_ICONS = {
+export const DEFIPROJECTS_ICONS_MAP = {
   ASTROPORT,
   Aark,
   AgniFinance,

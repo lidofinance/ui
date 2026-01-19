@@ -26,7 +26,7 @@ import { Wirex } from './Wirex'
 import { Zerion } from './Zerion'
 
 // Export a constant with all icons in this directory
-export const WALLETS_ICONS = {
+export const WALLETS_ICONS_MAP = {
   BitGet,
   Exodus,
   Metamask,

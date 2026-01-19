@@ -6,7 +6,7 @@ import { FluidVault } from './FluidVault'
 import { SSVR } from './SSVR'
 
 // Export a constant with all icons in this directory
-export const STRATEGIES_ICONS = {
+export const STRATEGIES_ICONS_MAP = {
   AaveVault,
   DVV,
   FluidVault,

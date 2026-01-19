@@ -161,7 +161,7 @@ import { YearnLogo } from './YearnLogo'
 import { ZeroonenodeLogo } from './ZeroonenodeLogo'
 
 // Export a constant with all icons in this directory
-export const LOGO_ICONS = {
+export const LOGO_ICONS_MAP = {
   AttestantLogo,
   BitGoLogo,
   BlockLogicLogo,

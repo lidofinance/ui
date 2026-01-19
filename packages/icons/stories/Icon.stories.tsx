@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import * as components from '../index'
+import * as components from '../allIcons'
 
 import { GenericIcon, GenericIconProps } from './IconStoryUtils'
 

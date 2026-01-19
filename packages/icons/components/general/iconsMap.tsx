@@ -49,7 +49,7 @@ import { UrgentSmall } from './UrgentSmall'
 import { Youtube } from './Youtube'
 
 // Export a constant with all icons in this directory
-export const GENERAL_ICONS = {
+export const GENERAL_ICONS_MAP = {
   Academy,
   Analytics,
   Contribute,

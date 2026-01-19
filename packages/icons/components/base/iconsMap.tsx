@@ -23,7 +23,7 @@ import { UpChevron } from './UpChevron'
 import { Warning } from './Warning'
 
 // Export a constant with all icons in this directory
-export const BASE_ICONS = {
+export const BASE_ICONS_MAP = {
   Burger,
   CopyLink,
   Cross,

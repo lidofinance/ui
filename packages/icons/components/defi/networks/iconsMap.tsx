@@ -22,7 +22,7 @@ import { Zircuit } from './Zircuit'
 import { ZkSync } from './ZkSync'
 
 // Export a constant with all icons in this directory
-export const NETWORKS_ICONS = {
+export const NETWORKS_ICONS_MAP = {
   BNB,
   EthereumLight,
   Linea,

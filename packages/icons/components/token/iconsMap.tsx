@@ -12,7 +12,7 @@ import { WETH } from './WETH'
 import { WSTETH } from './WSTETH'
 
 // Export a constant with all icons in this directory
-export const TOKEN_ICONS = {
+export const TOKEN_ICONS_MAP = {
   DAI,
   ETH,
   LDO,

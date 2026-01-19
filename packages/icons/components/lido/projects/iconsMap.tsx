@@ -13,7 +13,7 @@ import { Multichain } from './Multichain'
 import { TREASURY } from './TREASURY'
 
 // Export a constant with all icons in this directory
-export const PROJECTS_ICONS = {
+export const PROJECTS_ICONS_MAP = {
   CSM,
   Curated,
   DVT,

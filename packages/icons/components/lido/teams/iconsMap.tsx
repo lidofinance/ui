@@ -10,7 +10,7 @@ import { PeopleCulture } from './PeopleCulture'
 import { QA } from './QA'
 
 // Export a constant with all icons in this directory
-export const TEAMS_ICONS = {
+export const TEAMS_ICONS_MAP = {
   Alliance,
   Cult,
   DAOInfraTeam,
