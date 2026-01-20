@@ -8,7 +8,8 @@ const { extname, resolve } = require('path')
 
 const SRC_DIR = resolve(__dirname, '../svg')
 const DEST_DIR = resolve(__dirname, '../components')
-const DEST_FILE = resolve(__dirname, '../index.tsx')
+const MAPS_FILE = resolve(__dirname, '../iconMaps.tsx')
+const ICONS_FILE = resolve(__dirname, '../allIcons.tsx')
 
 const svgoConfig = (convertAllToCurrentColor, prefix) => {
   return {
@@ -243,19 +244,45 @@ const convertFiles = async () => {
     await fs.writeFile(componentFilePath, fullComponentCode)
   }
 
+  const iconMapsNames = []
   // Create directory-specific index files
   for (const [directory, components] of Object.entries(componentsByDirectory)) {
     if (directory === 'root') continue // Skip root directory
 
-    const dirIndexContent = `// THIS FILE IS AUTO GENERATED\n\n${components
+    // Create a constant name for the directory (e.g., BASE_ICONS, LOGO_ICONS)
+    const constName = directory.split('/').pop().toUpperCase() + '_ICONS_MAP'
+    iconMapsNames.push(constName)
+    // Create the index content with individual exports
+    let dirIndexContent = `// THIS FILE IS AUTO GENERATED\n\n${components
       .map(
         ({ componentName }) =>
           `export { ${componentName} } from './${componentName}'`,
       )
       .join('\n')}\n`
 
-    const dirIndexPath = resolve(DEST_DIR, directory, 'index.tsx')
+    // Create the index content with individual exports
+    let objectExportFileContent = `// THIS FILE IS AUTO GENERATED\n\n${components
+      .map(
+        ({ componentName }) =>
+          `import { ${componentName} } from './${componentName}'`,
+      )
+      .join('\n')}\n\n`
+
+    // Add the constant object with all icons
+    objectExportFileContent += `// Export a constant with all icons in this directory\n`
+    objectExportFileContent += `export const ${constName} = {\n`
+    objectExportFileContent += components
+      .map(({ componentName }) => `  ${componentName},`)
+      .join('\n')
+    objectExportFileContent += `\n}\n`
+
+    const dirIndexDir = resolve(DEST_DIR, directory)
+    await fs.mkdir(dirIndexDir, { recursive: true })
+    const dirIndexPath = resolve(dirIndexDir, 'index.tsx')
+    const objectExportFilePath = resolve(dirIndexDir, 'iconsMap.tsx')
+
     await fs.writeFile(dirIndexPath, dirIndexContent)
+    await fs.writeFile(objectExportFilePath, objectExportFileContent)
   }
 
   // Create the main index file that exports from sub-folder index files
@@ -268,9 +295,18 @@ const convertFiles = async () => {
     ),
   ]
 
-  const indexContent = `// THIS FILE IS AUTO GENERATED\n\n${uniqueDirectories.map((directory) => `export * from '${directory}'`).join('\n')}\n`
+  const indexContent = `// THIS FILE IS AUTO GENERATED\n\n${uniqueDirectories
+    .map((directory) => `export * from '${directory}'`)
+    .join('\n')}
+`
 
-  await fs.writeFile(DEST_FILE, indexContent)
+  await fs.writeFile(ICONS_FILE, indexContent)
+
+  const mapsContent = `// THIS FILE IS AUTO GENERATED\n\n${uniqueDirectories
+    .map((directory) => `export * from '${directory}/iconsMap'`)
+    .join('\n')}\n`
+
+  await fs.writeFile(MAPS_FILE, mapsContent)
 }
 
 convertFiles()

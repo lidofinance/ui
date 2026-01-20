@@ -1,5 +1,5 @@
 import React from 'react'
-import * as components from '../index'
+import * as components from '../allIcons'
 import { IconVariants } from './Icon.stories'
 
 /* eslint-disable react-hooks/rules-of-hooks,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions*/
