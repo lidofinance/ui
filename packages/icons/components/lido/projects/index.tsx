@@ -11,4 +11,3 @@ export { LidoSDK } from './LidoSDK'
 export { LidoRewards } from './LidoRewards'
 export { Multichain } from './Multichain'
 export { TREASURY } from './TREASURY'
-

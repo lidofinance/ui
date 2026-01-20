@@ -258,7 +258,7 @@ const convertFiles = async () => {
         ({ componentName }) =>
           `export { ${componentName} } from './${componentName}'`,
       )
-      .join('\n')}\n\n`
+      .join('\n')}\n`
 
     // Create the index content with individual exports
     let objectExportFileContent = `// THIS FILE IS AUTO GENERATED\n\n${components
@@ -295,15 +295,14 @@ const convertFiles = async () => {
     ),
   ]
 
-  const indexContent = `// THIS FILE IS AUTO GENERATED\n\n
-  ${uniqueDirectories
-    .map((directory) => `export * from '${directory}';`)
-    .join('\n')}\n`
+  const indexContent = `// THIS FILE IS AUTO GENERATED\n\n${uniqueDirectories
+    .map((directory) => `export * from '${directory}'`)
+    .join('\n')}
+`
 
   await fs.writeFile(ICONS_FILE, indexContent)
 
-  const mapsContent = `// THIS FILE IS AUTO GENERATED\n\n
-  ${uniqueDirectories
+  const mapsContent = `// THIS FILE IS AUTO GENERATED\n\n${uniqueDirectories
     .map((directory) => `export * from '${directory}/iconsMap'`)
     .join('\n')}\n`
 

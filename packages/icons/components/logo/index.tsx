@@ -159,4 +159,3 @@ export { WintermuteLogo } from './WintermuteLogo'
 export { XrockLogo } from './XrockLogo'
 export { YearnLogo } from './YearnLogo'
 export { ZeroonenodeLogo } from './ZeroonenodeLogo'
-

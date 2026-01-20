@@ -24,4 +24,3 @@ export { Phantom } from './Phantom'
 export { Trust } from './Trust'
 export { Wirex } from './Wirex'
 export { Zerion } from './Zerion'
-

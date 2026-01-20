@@ -10,4 +10,3 @@ export { USDC } from './USDC'
 export { USDT } from './USDT'
 export { WETH } from './WETH'
 export { WSTETH } from './WSTETH'
-

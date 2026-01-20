@@ -947,7 +947,7 @@ export const LidoEcosystem = function (props: SVGProps<SVGSVGElement>) {
           cx={0}
           cy={0}
           r={1}
-          gradientTransform='rotate(43.885 -32.953 262.507) scale(181.53 635.171)'
+          gradientTransform='matrix(130.8346 125.83899 -440.3089 457.78846 172.77 96.153)'
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#2238FF' />

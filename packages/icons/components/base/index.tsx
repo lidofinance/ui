@@ -25,4 +25,3 @@ export { RightArrow } from './RightArrow'
 export { RightChevron } from './RightChevron'
 export { UpChevron } from './UpChevron'
 export { Warning } from './Warning'
-
