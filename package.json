@@ -10,7 +10,7 @@
     "url": "https://github.com/lidofinance/ui/issues"
   },
   "engines": {
-    "node": ">=20.0.0 <23.0.0"
+    "node": ">=20.0.0 <25.0.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

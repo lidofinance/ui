@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@40337cb8f758cccdfe3475af609daa63f81c7e23
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
 
