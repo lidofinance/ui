@@ -19,7 +19,6 @@ const svgoConfig = {
     { removeUnknownsAndDefaults: false },
     {
       removeAttrs: {
-        // Remove only unsafe or unnecessary attributes; preserve fill/stroke as-is
         attrs: [
           '(class|style)',
           'aria-labelledby',
