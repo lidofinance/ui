@@ -40,7 +40,7 @@
     "prepare": "husky install",
     "release": "semantic-release",
     "release:dry": "yarn release --dry-run",
-    "icons:convert": "node ./packages/icons/converter/index.js"
+    "icons:convert": "node ./packages/icons/converter/index.cjs"
   },
   "peerDependencies": {
     "react": "16 || 17 || 18",
