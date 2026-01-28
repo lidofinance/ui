@@ -4,7 +4,7 @@ import React from 'react'
 
 export const Ambire = React.forwardRef(function Ambire(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -257,7 +257,7 @@ export const Ambire = React.forwardRef(function Ambire(
 
 export const ArrowBack = React.forwardRef(function ArrowBack(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -282,7 +282,7 @@ export const ArrowBack = React.forwardRef(function ArrowBack(
 
 export const ArrowBottom = React.forwardRef(function ArrowBottom(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -304,7 +304,7 @@ export const ArrowBottom = React.forwardRef(function ArrowBottom(
 
 export const ArrowLeft = React.forwardRef(function ArrowLeft(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -326,7 +326,7 @@ export const ArrowLeft = React.forwardRef(function ArrowLeft(
 
 export const ArrowRight = React.forwardRef(function ArrowRight(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -348,7 +348,7 @@ export const ArrowRight = React.forwardRef(function ArrowRight(
 
 export const ArrowTop = React.forwardRef(function ArrowTop(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -370,7 +370,7 @@ export const ArrowTop = React.forwardRef(function ArrowTop(
 
 export const Balancer = React.forwardRef(function Balancer(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -392,7 +392,7 @@ export const Balancer = React.forwardRef(function Balancer(
 
 export const Beth = React.forwardRef(function Beth(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -439,7 +439,7 @@ export const Beth = React.forwardRef(function Beth(
 export const BlochainwalletInversion = React.forwardRef(
   function BlochainwalletInversion(
     props: React.SVGProps<SVGSVGElement>,
-    svgRef?: React.Ref<SVGSVGElement>,
+    svgRef?: React.Ref<SVGSVGElement>
   ) {
     return (
       <svg
@@ -468,12 +468,12 @@ export const BlochainwalletInversion = React.forwardRef(
         />
       </svg>
     )
-  },
+  }
 )
 
 export const Blochainwallet = React.forwardRef(function Blochainwallet(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -506,7 +506,7 @@ export const Blochainwallet = React.forwardRef(function Blochainwallet(
 
 export const Brave = React.forwardRef(function Brave(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -579,9 +579,54 @@ export const Brave = React.forwardRef(function Brave(
   )
 })
 
+export const ChartColumnIncreasing = React.forwardRef(
+  function ChartColumnIncreasing(
+    props: React.SVGProps<SVGSVGElement>,
+    svgRef?: React.Ref<SVGSVGElement>
+  ) {
+    return (
+      <svg
+        width={20}
+        height={20}
+        viewBox='0 0 20 20'
+        fill='currentColor'
+        ref={svgRef}
+        {...props}
+      >
+        <path d='M1.5 15.833V2.5a1 1 0 012 0v13.333a.667.667 0 00.667.667H17.5a1 1 0 110 2H4.167A2.668 2.668 0 011.5 15.833zm4.167-1.666v-2.5a1 1 0 112 0v2.5a1 1 0 01-2 0zm4.166 0V7.5a1 1 0 012 0v6.667a1 1 0 01-2 0zm4.167 0v-10a1 1 0 112 0v10a1 1 0 01-2 0z' />
+      </svg>
+    )
+  }
+)
+
+export const ChartPie = React.forwardRef(function ChartPie(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={20}
+      height={20}
+      viewBox='0 0 20 20'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <g clipPath='url(#prefix__prefix__clip0_930_6963)'>
+        <path d='M6.268 1.442a1 1 0 01.8 1.833 7.335 7.335 0 00.82 13.744 7.333 7.333 0 008.867-4.167 1 1 0 011.842.78 9.334 9.334 0 11-12.33-12.19zM10.93.715a9.333 9.333 0 018.356 8.354c.112 1.113-.804 1.932-1.786 1.932h-6.668A1.834 1.834 0 019 9.169V2.502C9 1.52 9.816.604 10.93.715zM11 9h6.263A7.333 7.333 0 0011 2.737v6.264z' />
+      </g>
+      <defs>
+        <clipPath id='prefix__prefix__clip0_930_6963'>
+          <path fill='#fff' d='M0 0h20v20H0z' />
+        </clipPath>
+      </defs>
+    </svg>
+  )
+})
+
 export const CheckLarge = React.forwardRef(function CheckLarge(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -603,7 +648,7 @@ export const CheckLarge = React.forwardRef(function CheckLarge(
 
 export const Check = React.forwardRef(function Check(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -625,7 +670,7 @@ export const Check = React.forwardRef(function Check(
 
 export const Close = React.forwardRef(function Close(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -643,7 +688,7 @@ export const Close = React.forwardRef(function Close(
 
 export const Coin98Circle = React.forwardRef(function Coin98Circle(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -683,7 +728,7 @@ export const Coin98Circle = React.forwardRef(function Coin98Circle(
 
 export const Coinbase = React.forwardRef(function Coinbase(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -721,7 +766,7 @@ export const Coinbase = React.forwardRef(function Coinbase(
 
 export const CookieInverse = React.forwardRef(function CookieInverse(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -743,7 +788,7 @@ export const CookieInverse = React.forwardRef(function CookieInverse(
 
 export const Cookie = React.forwardRef(function Cookie(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -765,7 +810,7 @@ export const Cookie = React.forwardRef(function Cookie(
 
 export const Copy = React.forwardRef(function Copy(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -787,7 +832,7 @@ export const Copy = React.forwardRef(function Copy(
 
 export const Curve = React.forwardRef(function Curve(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -6766,7 +6811,7 @@ export const Curve = React.forwardRef(function Curve(
 
 export const Dark = React.forwardRef(function Dark(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -6788,7 +6833,7 @@ export const Dark = React.forwardRef(function Dark(
 
 export const Deposit = React.forwardRef(function Deposit(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -6810,7 +6855,7 @@ export const Deposit = React.forwardRef(function Deposit(
 
 export const Edit = React.forwardRef(function Edit(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -6828,7 +6873,7 @@ export const Edit = React.forwardRef(function Edit(
 
 export const Email = React.forwardRef(function Email(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -6855,7 +6900,7 @@ export const Email = React.forwardRef(function Email(
 
 export const Error = React.forwardRef(function Error(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -6882,7 +6927,7 @@ export const Error = React.forwardRef(function Error(
 
 export const Eth = React.forwardRef(function Eth(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -6905,7 +6950,7 @@ export const Eth = React.forwardRef(function Eth(
 
 export const Exodus = React.forwardRef(function Exodus(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7023,7 +7068,7 @@ export const Exodus = React.forwardRef(function Exodus(
 
 export const External = React.forwardRef(function External(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7045,7 +7090,7 @@ export const External = React.forwardRef(function External(
 
 export const Facebook = React.forwardRef(function Facebook(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7067,7 +7112,7 @@ export const Facebook = React.forwardRef(function Facebook(
 
 export const Gamestop = React.forwardRef(function Gamestop(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7092,7 +7137,7 @@ export const Gamestop = React.forwardRef(function Gamestop(
 
 export const History = React.forwardRef(function History(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7114,7 +7159,7 @@ export const History = React.forwardRef(function History(
 
 export const ImtokenCircle = React.forwardRef(function ImtokenCircle(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7155,7 +7200,7 @@ export const ImtokenCircle = React.forwardRef(function ImtokenCircle(
 
 export const Imtoken = React.forwardRef(function Imtoken(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7193,7 +7238,7 @@ export const Imtoken = React.forwardRef(function Imtoken(
 
 export const Ldo = React.forwardRef(function Ldo(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7224,7 +7269,7 @@ export const Ldo = React.forwardRef(function Ldo(
 
 export const Ldopl = React.forwardRef(function Ldopl(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7267,7 +7312,7 @@ export const Ldopl = React.forwardRef(function Ldopl(
 export const LedgerCircleInversion = React.forwardRef(
   function LedgerCircleInversion(
     props: React.SVGProps<SVGSVGElement>,
-    svgRef?: React.Ref<SVGSVGElement>,
+    svgRef?: React.Ref<SVGSVGElement>
   ) {
     return (
       <svg
@@ -7285,12 +7330,12 @@ export const LedgerCircleInversion = React.forwardRef(
         />
       </svg>
     )
-  },
+  }
 )
 
 export const LedgerCircle = React.forwardRef(function LedgerCircle(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7312,7 +7357,7 @@ export const LedgerCircle = React.forwardRef(function LedgerCircle(
 
 export const LedgerConfirm = React.forwardRef(function LedgerConfirm(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7461,7 +7506,7 @@ export const LedgerConfirm = React.forwardRef(function LedgerConfirm(
 
 export const LedgerFail = React.forwardRef(function LedgerFail(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7558,7 +7603,7 @@ export const LedgerFail = React.forwardRef(function LedgerFail(
 
 export const LedgerLoading = React.forwardRef(function LedgerLoading(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7675,7 +7720,7 @@ export const LedgerLoading = React.forwardRef(function LedgerLoading(
 
 export const LedgerSuccess = React.forwardRef(function LedgerSuccess(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7775,7 +7820,7 @@ export const LedgerSuccess = React.forwardRef(function LedgerSuccess(
 
 export const Ledger = React.forwardRef(function Ledger(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7797,7 +7842,7 @@ export const Ledger = React.forwardRef(function Ledger(
 
 export const Light = React.forwardRef(function Light(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7815,7 +7860,7 @@ export const Light = React.forwardRef(function Light(
 
 export const Linkedin = React.forwardRef(function Linkedin(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7833,7 +7878,7 @@ export const Linkedin = React.forwardRef(function Linkedin(
 
 export const LockSmall = React.forwardRef(function LockSmall(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7851,7 +7896,7 @@ export const LockSmall = React.forwardRef(function LockSmall(
 
 export const Lock = React.forwardRef(function Lock(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7874,7 +7919,7 @@ export const Lock = React.forwardRef(function Lock(
 export const MathWalletCircleInversion = React.forwardRef(
   function MathWalletCircleInversion(
     props: React.SVGProps<SVGSVGElement>,
-    svgRef?: React.Ref<SVGSVGElement>,
+    svgRef?: React.Ref<SVGSVGElement>
   ) {
     return (
       <svg
@@ -7892,12 +7937,12 @@ export const MathWalletCircleInversion = React.forwardRef(
         />
       </svg>
     )
-  },
+  }
 )
 
 export const MathWalletCircle = React.forwardRef(function MathWalletCircle(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -7938,7 +7983,7 @@ export const MathWalletCircle = React.forwardRef(function MathWalletCircle(
 export const MetaMaskCircleInversion = React.forwardRef(
   function MetaMaskCircleInversion(
     props: React.SVGProps<SVGSVGElement>,
-    svgRef?: React.Ref<SVGSVGElement>,
+    svgRef?: React.Ref<SVGSVGElement>
   ) {
     return (
       <svg
@@ -8000,12 +8045,12 @@ export const MetaMaskCircleInversion = React.forwardRef(
         />
       </svg>
     )
-  },
+  }
 )
 
 export const MetaMaskCircle = React.forwardRef(function MetaMaskCircle(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8071,7 +8116,7 @@ export const MetaMaskCircle = React.forwardRef(function MetaMaskCircle(
 
 export const MetaMask = React.forwardRef(function MetaMask(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8172,7 +8217,7 @@ export const MetaMask = React.forwardRef(function MetaMask(
 
 export const OneInch = React.forwardRef(function OneInch(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8221,7 +8266,7 @@ export const OneInch = React.forwardRef(function OneInch(
 
 export const OperaWallet = React.forwardRef(function OperaWallet(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8278,7 +8323,7 @@ export const OperaWallet = React.forwardRef(function OperaWallet(
 
 export const Plus = React.forwardRef(function Plus(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8300,7 +8345,7 @@ export const Plus = React.forwardRef(function Plus(
 
 export const Question = React.forwardRef(function Question(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8323,7 +8368,7 @@ export const Question = React.forwardRef(function Question(
 
 export const Referral = React.forwardRef(function Referral(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8343,9 +8388,27 @@ export const Referral = React.forwardRef(function Referral(
   )
 })
 
+export const RotateCw = React.forwardRef(function RotateCw(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
+) {
+  return (
+    <svg
+      width={20}
+      height={20}
+      viewBox='0 0 20 20'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path d='M10 1.5c2.218 0 4.338.825 5.986 2.266l.324.296.014.014.176.176V2.5a1 1 0 112 0v4.167a1 1 0 01-1 1h-4.167a1 1 0 010-2h1.753l-.177-.177A7.117 7.117 0 0010 3.5a6.5 6.5 0 106.5 6.5 1 1 0 112 0 8.502 8.502 0 01-14.51 6.01A8.5 8.5 0 0110 1.5z' />
+    </svg>
+  )
+})
+
 export const Solana = React.forwardRef(function Solana(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8379,7 +8442,7 @@ export const Solana = React.forwardRef(function Solana(
 
 export const Stake = React.forwardRef(function Stake(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8401,7 +8464,7 @@ export const Stake = React.forwardRef(function Stake(
 
 export const Steth = React.forwardRef(function Steth(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8443,7 +8506,7 @@ export const Steth = React.forwardRef(function Steth(
 
 export const Stsol = React.forwardRef(function Stsol(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8478,7 +8541,7 @@ export const Stsol = React.forwardRef(function Stsol(
 
 export const Success = React.forwardRef(function Success(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8505,7 +8568,7 @@ export const Success = React.forwardRef(function Success(
 
 export const TallyCircle = React.forwardRef(function TallyCircle(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8529,7 +8592,7 @@ export const TallyCircle = React.forwardRef(function TallyCircle(
 
 export const Telegram = React.forwardRef(function Telegram(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8577,7 +8640,7 @@ export const Telegram = React.forwardRef(function Telegram(
 
 export const Terra = React.forwardRef(function Terra(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8613,7 +8676,7 @@ export const Terra = React.forwardRef(function Terra(
 
 export const TickSquare = React.forwardRef(function TickSquare(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8636,7 +8699,7 @@ export const TickSquare = React.forwardRef(function TickSquare(
 
 export const TimeSquare = React.forwardRef(function TimeSquare(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8659,7 +8722,7 @@ export const TimeSquare = React.forwardRef(function TimeSquare(
 
 export const TrustCircle = React.forwardRef(function TrustCircle(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8686,7 +8749,7 @@ export const TrustCircle = React.forwardRef(function TrustCircle(
 
 export const Trust = React.forwardRef(function Trust(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8709,7 +8772,7 @@ export const Trust = React.forwardRef(function Trust(
 
 export const Twitter = React.forwardRef(function Twitter(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8731,7 +8794,7 @@ export const Twitter = React.forwardRef(function Twitter(
 
 export const Uniswap = React.forwardRef(function Uniswap(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8758,7 +8821,7 @@ export const Uniswap = React.forwardRef(function Uniswap(
 
 export const Unstoppabledomains = React.forwardRef(function Unstoppabledomains(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8791,7 +8854,7 @@ export const Unstoppabledomains = React.forwardRef(function Unstoppabledomains(
 
 export const Validators = React.forwardRef(function Validators(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8814,7 +8877,7 @@ export const Validators = React.forwardRef(function Validators(
 export const WalletConnectCircle = React.forwardRef(
   function WalletConnectCircle(
     props: React.SVGProps<SVGSVGElement>,
-    svgRef?: React.Ref<SVGSVGElement>,
+    svgRef?: React.Ref<SVGSVGElement>
   ) {
     return (
       <svg
@@ -8832,12 +8895,12 @@ export const WalletConnectCircle = React.forwardRef(
         />
       </svg>
     )
-  },
+  }
 )
 
 export const WalletConnect = React.forwardRef(function WalletConnect(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8858,7 +8921,7 @@ export const WalletConnect = React.forwardRef(function WalletConnect(
 
 export const Wallet = React.forwardRef(function Wallet(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8880,7 +8943,7 @@ export const Wallet = React.forwardRef(function Wallet(
 
 export const Warning = React.forwardRef(function Warning(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8910,7 +8973,7 @@ export const Warning = React.forwardRef(function Warning(
 
 export const Weth = React.forwardRef(function Weth(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8938,7 +9001,7 @@ export const Weth = React.forwardRef(function Weth(
 
 export const Whitepaper = React.forwardRef(function Whitepaper(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8960,7 +9023,7 @@ export const Whitepaper = React.forwardRef(function Whitepaper(
 
 export const Withdraw = React.forwardRef(function Withdraw(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -8988,7 +9051,7 @@ export const Withdraw = React.forwardRef(function Withdraw(
 
 export const Wrap = React.forwardRef(function Wrap(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -9010,7 +9073,7 @@ export const Wrap = React.forwardRef(function Wrap(
 
 export const Wsteth = React.forwardRef(function Wsteth(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -9056,7 +9119,7 @@ export const Wsteth = React.forwardRef(function Wsteth(
 
 export const XdefiWallet = React.forwardRef(function XdefiWallet(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
@@ -9080,7 +9143,7 @@ export const XdefiWallet = React.forwardRef(function XdefiWallet(
 
 export const Zengo = React.forwardRef(function Zengo(
   props: React.SVGProps<SVGSVGElement>,
-  svgRef?: React.Ref<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
     <svg
