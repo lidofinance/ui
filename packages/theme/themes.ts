@@ -22,6 +22,7 @@ export const themeLight = {
     background: '#f2f4f6',
     backgroundDarken: '#dae0e5',
     backgroundSecondary: '#EFF2F6',
+    backgroundBadge: 'rgba(122, 138, 160, 0.10)',
 
     foreground: '#fff',
 
@@ -69,6 +70,7 @@ export const themeDark = {
     background: '#1c1c21',
     backgroundDarken: '#131317',
     backgroundSecondary: '#27272E',
+    backgroundBadge: 'rgba(255, 255, 255, 0.10)',
 
     foreground: '#34343d',
 
