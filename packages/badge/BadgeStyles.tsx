@@ -25,12 +25,7 @@ const BadgeVariantsStyle = {
     color: var(--lido-color-foreground);
   `,
   gradient: css`
-    background: linear-gradient(
-      88deg,
-      #6a9aff 0.68%,
-      #c9acff 40.63%,
-      #ffcebe 106.85%
-    );
+    background: var(--lido-color-backgroundGradient);
     color: var(--lido-color-textDark);
   `,
 }
