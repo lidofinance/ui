@@ -579,6 +579,51 @@ export const Brave = React.forwardRef(function Brave(
   )
 })
 
+export const ChartColumnIncreasing = React.forwardRef(
+  function ChartColumnIncreasing(
+    props: React.SVGProps<SVGSVGElement>,
+    svgRef?: React.Ref<SVGSVGElement>,
+  ) {
+    return (
+      <svg
+        width={20}
+        height={20}
+        viewBox='0 0 20 20'
+        fill='currentColor'
+        ref={svgRef}
+        {...props}
+      >
+        <path d='M1.5 15.833V2.5a1 1 0 012 0v13.333a.667.667 0 00.667.667H17.5a1 1 0 110 2H4.167A2.668 2.668 0 011.5 15.833zm4.167-1.666v-2.5a1 1 0 112 0v2.5a1 1 0 01-2 0zm4.166 0V7.5a1 1 0 012 0v6.667a1 1 0 01-2 0zm4.167 0v-10a1 1 0 112 0v10a1 1 0 01-2 0z' />
+      </svg>
+    )
+  },
+)
+
+export const ChartPie = React.forwardRef(function ChartPie(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={20}
+      height={20}
+      viewBox='0 0 20 20'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <g clipPath='url(#prefix__prefix__clip0_930_6963)'>
+        <path d='M6.268 1.442a1 1 0 01.8 1.833 7.335 7.335 0 00.82 13.744 7.333 7.333 0 008.867-4.167 1 1 0 011.842.78 9.334 9.334 0 11-12.33-12.19zM10.93.715a9.333 9.333 0 018.356 8.354c.112 1.113-.804 1.932-1.786 1.932h-6.668A1.834 1.834 0 019 9.169V2.502C9 1.52 9.816.604 10.93.715zM11 9h6.263A7.333 7.333 0 0011 2.737v6.264z' />
+      </g>
+      <defs>
+        <clipPath id='prefix__prefix__clip0_930_6963'>
+          <path fill='#fff' d='M0 0h20v20H0z' />
+        </clipPath>
+      </defs>
+    </svg>
+  )
+})
+
 export const CheckLarge = React.forwardRef(function CheckLarge(
   props: React.SVGProps<SVGSVGElement>,
   svgRef?: React.Ref<SVGSVGElement>,
@@ -8339,6 +8384,24 @@ export const Referral = React.forwardRef(function Referral(
         clipRule='evenodd'
         d='M14.92 15.48A4 4 0 0118 14a4 4 0 11-4 4c.004-.239.027-.476.07-.71l-5.28-2.43a4 4 0 110-5.72l5.28-2.43a4 4 0 11.85 1.81l-5.1 2.35a3.64 3.64 0 010 2.26l5.1 2.35zM20 6a2 2 0 10-4 0 2 2 0 004 0zM6 14a2 2 0 110-4 2 2 0 010 4zm10 4a2 2 0 104 0 2 2 0 00-4 0z'
       />
+    </svg>
+  )
+})
+
+export const RotateCw = React.forwardRef(function RotateCw(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>,
+) {
+  return (
+    <svg
+      width={20}
+      height={20}
+      viewBox='0 0 20 20'
+      fill='currentColor'
+      ref={svgRef}
+      {...props}
+    >
+      <path d='M10 1.5c2.218 0 4.338.825 5.986 2.266l.324.296.014.014.176.176V2.5a1 1 0 112 0v4.167a1 1 0 01-1 1h-4.167a1 1 0 010-2h1.753l-.177-.177A7.117 7.117 0 0010 3.5a6.5 6.5 0 106.5 6.5 1 1 0 112 0 8.502 8.502 0 01-14.51 6.01A8.5 8.5 0 0110 1.5z' />
     </svg>
   )
 })
