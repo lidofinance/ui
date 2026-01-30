@@ -22,6 +22,9 @@ export const themeLight = {
     background: '#f2f4f6',
     backgroundDarken: '#dae0e5',
     backgroundSecondary: '#EFF2F6',
+    backgroundBadge: 'rgba(122, 138, 160, 0.10)',
+    backgroundGradient:
+      'linear-gradient(88deg, rgba(106, 154, 255, 0.50) 0.68%, rgba(201, 172, 255, 0.50) 40.63%, rgba(255, 206, 190, 0.50) 106.85%), #FFF',
 
     foreground: '#fff',
 
@@ -69,6 +72,9 @@ export const themeDark = {
     background: '#1c1c21',
     backgroundDarken: '#131317',
     backgroundSecondary: '#27272E',
+    backgroundBadge: 'rgba(255, 255, 255, 0.10)',
+    backgroundGradient:
+      'linear-gradient(88deg, #6A9AFF 0.68%, #C9ACFF 40.63%, #FFCEBE 106.85%)',
 
     foreground: '#34343d',
 
