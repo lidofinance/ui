@@ -43,6 +43,7 @@ export const themeLight = {
     borderLight: '#dfe5eb',
     accentBorder: 'rgba(0, 10, 61, 0.12)',
     accentBorderHover: 'rgba(0, 10, 61, 0.24)',
+    borderSubtle: 'rgba(0, 0, 0, 0.10)',
 
     controlBg: '#fff',
     accentControlBg: 'rgba(239, 242, 246, 0.56)',
@@ -93,6 +94,7 @@ export const themeDark = {
     borderLight: '#484855',
     accentBorder: 'rgba(255, 255, 255, 0.12)',
     accentBorderHover: 'rgba(255, 255, 255, 0.24)',
+    borderSubtle: 'rgba(255, 255, 255, 0.10)',
 
     controlBg: '#2f2f37',
     accentControlBg: 'rgba(39, 39, 46, 0.56)',
