@@ -17,6 +17,7 @@ export const AccordionTransparent = forwardRef(
       children,
       onExpand,
       onCollapse,
+      withoutBorder,
       ...rest
     }: AccordionTransparentProps,
     ref?: ForwardedRef<HTMLDivElement>,
@@ -28,7 +29,11 @@ export const AccordionTransparent = forwardRef(
     })
 
     return (
-      <AccordionTransparentStyle {...rest} ref={ref}>
+      <AccordionTransparentStyle
+        {...rest}
+        ref={ref}
+        $withoutBorder={withoutBorder}
+      >
         <AccordionTransparentSummaryStyle {...toggleProps}>
           <AccordionTransparentTitleStyle>
             {summary}

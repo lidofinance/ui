@@ -9,5 +9,6 @@ export type AccordionTransparentProps = LidoComponentProps<
     summary: ReactNode
     onExpand?: () => void
     onCollapse?: () => void
+    withoutBorder?: boolean
   }
 >

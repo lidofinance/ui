@@ -1,10 +1,15 @@
 import styled from '../utils/styled-components-wrapper.js'
 import { ArrowBottom } from '../icons'
 
-export const AccordionTransparentStyle = styled.div`
+type InjectedProps = {
+  $withoutBorder?: boolean
+}
+
+export const AccordionTransparentStyle = styled.div<InjectedProps>`
   padding: ${({ theme }) => theme.spaceMap.md}px 0;
   background: transparent;
-  border-bottom: 1px solid var(--lido-color-borderSubtle);
+  border-bottom: ${({ $withoutBorder }) =>
+    $withoutBorder ? 'none' : '1px solid var(--lido-color-borderSubtle)'};
   overflow: hidden;
   transition: border-color ${({ theme }) => theme.duration.norm} ease;
 
@@ -49,19 +54,4 @@ export const AccordionTransparentContentStyle = styled.div<{
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSizesMap.xxs}px;
   line-height: 1.6em;
-
-  ul,
-  ol {
-    padding: 0 0 0 1.5em;
-  }
-
-  p,
-  ul,
-  ol {
-    margin: 0 0 1.6em;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 `

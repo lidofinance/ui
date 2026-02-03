@@ -1,6 +1,7 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { AccordionTransparent } from './AccordionTransparent.js'
 import type { AccordionTransparentProps } from './types.js'
+import { Block } from '../block'
 
 export default {
   component: AccordionTransparent,
@@ -22,6 +23,7 @@ export const Basic: StoryFn<AccordionTransparentProps> = (
 
 Basic.args = {
   defaultExpanded: false,
+  withoutBorder: false,
   summary: 'What is Liquid Staking?',
 }
 
@@ -78,6 +80,17 @@ export const List: StoryFn = () => (
         Usually when staking ETH you choose only one validator. In the case of
         Lido you stake across many validators, minimising your staking risk.
       </p>
+    </AccordionTransparent>
+    <AccordionTransparent summary='What is Liquid Staking?' withoutBorder>
+      <Block>
+        Liquid staking protocols allow users to earn staking rewards without
+        locking assets or maintaining staking infrastructure. Users of these
+        protocols can deposit staking tokens and receive tradable liquid tokens
+        in return. The DAO controlled smart contract then stakes tokens with
+        DAO-picked staking providers. Users&#39; deposited funds are controlled
+        by the DAO, staking providers never have direct access to the users&#39;
+        assets.
+      </Block>
     </AccordionTransparent>
   </>
 )
