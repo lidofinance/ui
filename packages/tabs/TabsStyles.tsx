@@ -62,6 +62,7 @@ export const TabsIndicatorStyle = styled.span`
   will-change: transform, width;
   transform: translateX(var(--tabs-indicator-left, 0));
 
+  /* stylelint-disable property-no-unknown */
   @supports (position-anchor: --tabs-active) {
     position-anchor: --tabs-active;
     transform: translateX(anchor(left));
