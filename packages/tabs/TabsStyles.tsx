@@ -51,7 +51,7 @@ export const TabsIndicatorStyle = styled.span`
   position: absolute;
   bottom: 0;
   left: 0;
-  width: var(--tabs-indicator-width, 0px);
+  width: var(--tabs-indicator-width, 0);
   height: 2px;
   background-color: var(--lido-color-text);
   transition:
@@ -60,7 +60,7 @@ export const TabsIndicatorStyle = styled.span`
   pointer-events: none;
   z-index: 1;
   will-change: transform, width;
-  transform: translateX(var(--tabs-indicator-left, 0px));
+  transform: translateX(var(--tabs-indicator-left, 0));
 
   @supports (position-anchor: --tabs-active) {
     position-anchor: --tabs-active;
