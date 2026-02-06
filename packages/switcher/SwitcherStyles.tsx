@@ -18,6 +18,7 @@ export const SwitcherListStyle = styled.div`
   border-radius: ${PILL_RADIUS}px;
   box-sizing: border-box;
   position: relative;
+
   --switcher-indicator-left: 0px;
   --switcher-indicator-width: 0px;
 `
