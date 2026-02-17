@@ -12,6 +12,7 @@ import { MenuCSM } from './MenuCSM'
 import { MenuCSM2 } from './MenuCSM2'
 import { MenuContribute } from './MenuContribute'
 import { MenuCurated } from './MenuCurated'
+import { MenuCuratedV2 } from './MenuCuratedV2'
 import { MenuDG } from './MenuDG'
 import { MenuDVT } from './MenuDVT'
 import { MenuDeFi } from './MenuDeFi'
@@ -62,6 +63,7 @@ export const GENERAL_ICONS_MAP = {
   MenuCSM2,
   MenuContribute,
   MenuCurated,
+  MenuCuratedV2,
   MenuDG,
   MenuDVT,
   MenuDeFi,

@@ -1,7 +1,9 @@
 // THIS FILE IS AUTO GENERATED
 
 export { CSM } from './CSM'
+export { CSM2 } from './CSM2'
 export { Curated } from './Curated'
+export { CuratedV2 } from './CuratedV2'
 export { DVT } from './DVT'
 export { DefaultSignBlue } from './DefaultSignBlue'
 export { LEGO } from './LEGO'
