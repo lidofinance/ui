@@ -22,107 +22,101 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
       <path
+        d='M38.436 42.215a7.242 7.242 0 013.13 0c1.164.258 2.255.918 4.436 2.24l17.24 10.438c.421.255.632.383.785.558.136.155.238.336.3.532.04.126.058.261.065.445-.008.25-.03.428-.083.595a1.872 1.872 0 01-.375.665c-.191.219-.455.378-.982.697L46.347 68.426c-2.31 1.397-3.465 2.095-4.7 2.377a7.867 7.867 0 01-3.326.038c-1.241-.254-2.412-.926-4.753-2.27l-16.66-9.562c-.476-.273-.713-.41-.886-.6a1.624 1.624 0 01-.34-.586c-.066-.205-.077-.43-.079-.816.002-.44.014-.694.088-.927.078-.245.206-.471.375-.665.191-.219.455-.378.982-.697l16.95-10.264c2.182-1.32 3.272-1.98 4.438-2.239z'
         fill={`url(#${_id})`}
         fillOpacity={0.14}
-        d='M36.033 69.998l-18.212-10.39c-1.055-.64-1.085-2.826-.029-3.465l18.241-11.035a7.655 7.655 0 017.934 0l18.241 11.036c1.056.64.802 2.264-.253 2.903L43.967 70a7.655 7.655 0 01-7.934 0v-.001z'
       />
       <path
+        d='M15.602 24.237c0-.616 0-.924.089-1.2.078-.246.205-.473.374-.666.192-.219.455-.378.982-.697L33.998 11.41c2.181-1.32 3.272-1.981 4.437-2.239a7.242 7.242 0 013.13 0c1.165.258 2.255.918 4.436 2.239l17.24 10.439c.422.255.633.382.786.557.135.155.237.336.3.533.07.221.07.468.07.96v31.922c0 .616 0 .925-.088 1.202a1.873 1.873 0 01-.375.665c-.192.219-.456.378-.983.697L46.346 68.426c-2.31 1.397-3.464 2.095-4.7 2.377a7.865 7.865 0 01-3.325.038c-1.242-.254-2.412-.926-4.753-2.27L16.907 59.01c-.475-.273-.713-.41-.886-.6a1.623 1.623 0 01-.339-.586c-.08-.245-.08-.519-.08-1.067v-32.52z'
         fill={`url(#${_id0})`}
-        fillRule='evenodd'
-        d='M17.018 26.708c.032-.649.288-1.271.774-1.566l18.241-11.034a7.655 7.655 0 017.934 0l18.241 11.036c.493.298.7.811.674 1.339.073-.169.116-.334.118-.483v28.99l-.01 2.187a1.58 1.58 0 01-.794 1.529l-18.32 11.622a7.832 7.832 0 01-7.933-.057L17.78 59.386a1.583 1.583 0 01-.772-1.21L17 58.174V26.486c0 .074.007.148.018.222z'
-        clipRule='evenodd'
       />
       <path
+        d='M27.806 34.224l6.101 9.886 1.54 18.805-7.641-28.691z'
         fill={`url(#${_id2})`}
-        d='M28.486 36.618l5.736 9.293L35.67 63.59l-7.184-26.971z'
       />
       <path
+        d='M34.75 39.046l-5.195-8.253 12.896-19.372-7.702 27.625z'
         fill={`url(#${_id3})`}
-        d='M35.014 41.15l-4.883-7.757L42.254 15.18l-7.24 25.97z'
       />
       <path
+        d='M37.448 42.833l-9.642-8.609 6.083 9.934 3.56-1.325z'
         fill='#00A3FF'
         fillOpacity={0.3}
-        d='M37.551 44.71l-9.065-8.092 5.72 9.338 3.345-1.246z'
       />
       <path
+        d='M52.172 37.52L35.403 62.787 33.908 44.11l18.264-6.59z'
         fill={`url(#${_id4})`}
-        d='M51.392 39.716L35.628 63.47l-1.405-17.559 17.17-6.195z'
       />
       <path
+        d='M42.481 11.122l8.967 21.831-16.706 6.153 7.74-27.984z'
         fill={`url(#${_id5})`}
         fillOpacity={0.5}
-        d='M42.283 14.9l8.43 20.523-15.705 5.784L42.283 14.9z'
       />
       <path
+        d='M34.682 39.11l7.867.697 8.899-6.843-16.766 6.145z'
         fill='#00A3FF'
         fillOpacity={0.5}
-        d='M34.95 41.21l7.395.656 8.366-6.432L34.95 41.21z'
       />
       <path
+        d='M35.386 62.813l.006.065.008-.014.038.14-.015-.174 16.738-25.22-3.973 1.433 3.973-1.434c1.023 2.96 2.113 6.127 1.688 9.645-.635 8.275-8.79 17.639-16.883 16.66-8.094-.977-13.66-10.021-12.43-20.2.423-3.506 1.595-6.688 3.282-9.314l7.568 28.413z'
         fill={`url(#${_id1})`}
         fillOpacity={0.9}
-        fillRule='evenodd'
-        d='M28.499 36.784l7.114 26.71.005.06.008-.012.035.13-.013-.162L51.382 39.8c.962 2.783 1.986 5.76 1.587 9.066-.597 7.78-8.262 16.582-15.871 15.663-7.61-.919-12.841-9.421-11.685-18.99.398-3.296 1.5-6.287 3.086-8.755zm21.663 3.456l1.22-.44-1.22.44z'
-        clipRule='evenodd'
       />
       <path
+        d='M35.386 62.813l.006.065.008-.014.038.14-.015-.174 16.738-25.22-3.973 1.433 3.973-1.434c1.023 2.96 2.113 6.127 1.688 9.645-.635 8.275-8.79 17.639-16.883 16.66-8.094-.977-13.66-10.021-12.43-20.2.423-3.506 1.595-6.688 3.282-9.314l7.568 28.413z'
         fill={`url(#${_id10})`}
         fillOpacity={0.7}
-        fillRule='evenodd'
-        d='M28.499 36.784l7.114 26.71.005.06.008-.012.035.13-.013-.162L51.382 39.8c.962 2.783 1.986 5.76 1.587 9.066-.597 7.78-8.262 16.582-15.871 15.663-7.61-.919-12.841-9.421-11.685-18.99.398-3.296 1.5-6.287 3.086-8.755zm21.663 3.456l1.22-.44-1.22.44z'
-        clipRule='evenodd'
       />
-      <g filter={`url(#${_id13})`} opacity={0.4}>
+      <g opacity={0.4} filter={`url(#${_id13})`}>
         <path
+          d='M33.954 34.87l5.038 8.161 1.271 15.526-6.309-23.688z'
           fill={`url(#${_id6})`}
-          d='M34.266 37.225L39 44.897l1.196 14.595-5.931-22.267z'
         />
         <path
+          d='M39.686 38.85l-4.288-6.813 10.647-15.994-6.359 22.808z'
           fill={`url(#${_id7})`}
-          d='M39.655 40.967l-4.031-6.405 10.009-15.036-5.978 21.441z'
         />
         <path
+          d='M41.915 41.977l-7.96-7.108 5.022 8.202 2.938-1.094z'
           fill='#00A3FF'
           fillOpacity={0.3}
-          d='M41.75 43.906l-7.484-6.681 4.721 7.71 2.763-1.029z'
         />
         <path
+          d='M54.07 37.59L40.225 58.452l-1.234-15.42 15.08-5.442z'
           fill={`url(#${_id8})`}
-          d='M53.177 39.782L40.162 59.394l-1.16-14.496 14.175-5.116z'
         />
         <path
+          d='M46.07 15.796l7.403 18.025L39.68 38.9l6.39-23.104z'
           fill={`url(#${_id9})`}
           fillOpacity={0.5}
-          d='M45.656 19.294l6.96 16.945-12.967 4.775 6.007-21.72z'
         />
         <path
+          d='M39.63 38.903l6.496.575 7.347-5.649-13.842 5.074z'
           fill='#00A3FF'
           fillOpacity={0.5}
-          d='M39.602 41.016l6.106.541 6.907-5.31-13.013 4.77z'
         />
         <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M40.213 58.473l.004.054.006-.011.032.114-.013-.143 13.819-20.823h.002c.844 2.444 1.744 5.059 1.393 7.963-.525 6.832-7.256 14.563-13.939 13.756-6.682-.807-11.277-8.275-10.262-16.68.35-2.892 1.317-5.519 2.709-7.687l6.249 23.457z'
           fill={`url(#${_id11})`}
           fillOpacity={0.9}
-          fillRule='evenodd'
-          d='M34.276 37.362l5.874 22.052.004.05.006-.01.03.108-.012-.135 12.99-19.575h.001c.794 2.297 1.64 4.755 1.31 7.485-.493 6.423-6.821 13.69-13.103 12.932-6.282-.759-10.602-7.779-9.648-15.68.328-2.72 1.239-5.189 2.548-7.227z'
-          clipRule='evenodd'
         />
         <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M40.213 58.473l.004.054.006-.011.032.114-.013-.143 13.819-20.823h.002c.844 2.444 1.744 5.059 1.393 7.963-.525 6.832-7.256 14.563-13.939 13.756-6.682-.807-11.277-8.275-10.262-16.68.35-2.892 1.317-5.519 2.709-7.687l6.249 23.457z'
           fill={`url(#${_id12})`}
           fillOpacity={0.7}
-          fillRule='evenodd'
-          d='M34.276 37.362l5.874 22.052.004.05.006-.01.03.108-.012-.135 12.99-19.575h.001c.794 2.297 1.64 4.755 1.31 7.485-.493 6.423-6.821 13.69-13.103 12.932-6.282-.759-10.602-7.779-9.648-15.68.328-2.72 1.239-5.189 2.548-7.227z'
-          clipRule='evenodd'
         />
       </g>
       <defs>
         <linearGradient
           id={_id}
-          x1={19.613}
-          x2={44.442}
-          y1={62.183}
-          y2={49.92}
+          x1={18.368}
+          y1={61.468}
+          x2={44.82}
+          y2={48.458}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -130,10 +124,10 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </linearGradient>
         <linearGradient
           id={_id2}
-          x1={36.291}
-          x2={22.159}
-          y1={51.963}
-          y2={63.565}
+          x1={36.108}
+          y1={50.547}
+          x2={21.075}
+          y2={62.889}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -141,10 +135,10 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </linearGradient>
         <linearGradient
           id={_id3}
-          x1={39.758}
-          x2={25.342}
-          y1={29.691}
-          y2={40.603}
+          x1={39.795}
+          y1={26.855}
+          x2={24.461}
+          y2={38.463}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -152,10 +146,10 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </linearGradient>
         <linearGradient
           id={_id4}
-          x1={34.31}
-          x2={47.9}
-          y1={34.361}
-          y2={57.004}
+          x1={34.001}
+          y1={31.823}
+          x2={48.458}
+          y2={55.91}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -163,10 +157,10 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </linearGradient>
         <linearGradient
           id={_id5}
-          x1={45.639}
-          x2={42.403}
-          y1={15.306}
-          y2={42.1}
+          x1={46.051}
+          y1={11.553}
+          x2={42.609}
+          y2={40.056}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -174,10 +168,10 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </linearGradient>
         <linearGradient
           id={_id6}
-          x1={40.71}
-          x2={29.042}
-          y1={49.894}
-          y2={59.472}
+          x1={40.809}
+          y1={48.346}
+          x2={28.397}
+          y2={58.536}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -185,10 +179,10 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </linearGradient>
         <linearGradient
           id={_id7}
-          x1={43.571}
-          x2={31.67}
-          y1={31.506}
-          y2={40.515}
+          x1={43.852}
+          y1={28.786}
+          x2={31.192}
+          y2={38.37}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -196,10 +190,10 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </linearGradient>
         <linearGradient
           id={_id8}
-          x1={39.074}
-          x2={50.294}
-          y1={35.361}
-          y2={54.056}
+          x1={39.068}
+          y1={32.887}
+          x2={51.003}
+          y2={52.773}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -207,10 +201,10 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </linearGradient>
         <linearGradient
           id={_id9}
-          x1={48.427}
-          x2={45.755}
-          y1={19.629}
-          y2={41.751}
+          x1={49.017}
+          y1={16.152}
+          x2={46.175}
+          y2={39.684}
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -221,8 +215,8 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
           cx={0}
           cy={0}
           r={1}
-          gradientTransform='matrix(0 -44.0159 36.6517 0 40 51.111)'
           gradientUnits='userSpaceOnUse'
+          gradientTransform='matrix(0 -46.4982 38.9882 0 40.054 49.26)'
         >
           <stop offset={0.5} stopColor='#00A3FF' stopOpacity={0} />
           <stop offset={0.86} stopColor='#00A3FF' stopOpacity={0.5} />
@@ -232,7 +226,7 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
           cx={0}
           cy={0}
           r={1}
-          gradientTransform='rotate(55.651 -33.379 50.245) scale(23.7389 24.8629)'
+          gradientTransform='matrix(14.2481 20.8493 -21.836 14.9233 26.158 47.877)'
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -243,7 +237,7 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
           cx={0}
           cy={0}
           r={1}
-          gradientTransform='rotate(-20.113 192.87 -24.805) scale(45.7908 21.1313)'
+          gradientTransform='matrix(45.74 -16.7505 7.72953 21.1083 19.088 64.213)'
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -254,7 +248,7 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
           cx={0}
           cy={0}
           r={1}
-          gradientTransform='matrix(11.05839 16.18125 -16.9475 11.58205 32.987 47.822)'
+          gradientTransform='matrix(11.7633 17.2125 -18.0277 12.3201 32.594 46.143)'
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -265,7 +259,7 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
           cx={0}
           cy={0}
           r={1}
-          gradientTransform='matrix(35.49998 -13 5.99916 16.3823 27.5 60.5)'
+          gradientTransform='matrix(37.7628 -13.8284 6.38157 17.4263 26.757 59.629)'
           gradientUnits='userSpaceOnUse'
         >
           <stop stopColor='#00A3FF' />
@@ -273,18 +267,23 @@ export const MenuStvault = function (props: SVGProps<SVGSVGElement>) {
         </radialGradient>
         <filter
           id={_id13}
-          width={30.956}
-          height={49.029}
-          x={27.596}
-          y={15.294}
-          colorInterpolationFilters='sRGB'
+          x={26.859}
+          y={11.541}
+          width={32.93}
+          height={52.155}
           filterUnits='userSpaceOnUse'
+          colorInterpolationFilters='sRGB'
         >
           <feFlood floodOpacity={0} result='BackgroundImageFix' />
-          <feBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
+          <feBlend
+            mode='normal'
+            in='SourceGraphic'
+            in2='BackgroundImageFix'
+            result='shape'
+          />
           <feGaussianBlur
+            stdDeviation={2.128}
             result='effect1_foregroundBlur_55_2110'
-            stdDeviation={2}
           />
         </filter>
       </defs>
