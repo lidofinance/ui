@@ -30,9 +30,9 @@
   --lido-ui-color-backgrounds-error: rgb(215 71 88 / 20%);
   --lido-ui-color-backgrounds-success: rgb(41 195 140 / 20%);
   --lido-ui-color-backgrounds-warning: rgb(250 189 105 / 20%);
-  --lido-ui-color-backgrounds-grey: rgb(rgb(19 18 23) / 4%);
-  --lido-ui-color-backgrounds-grey-disabled: rgb(rgb(19 18 23) / 2%);
-  --lido-ui-color-backgrounds-grey-active: rgb(rgb(19 18 23) / 8%);
+  --lido-ui-color-backgrounds-grey: rgb(19 18 23 / 4%);
+  --lido-ui-color-backgrounds-grey-disabled: rgb(19 18 23 / 2%);
+  --lido-ui-color-backgrounds-grey-active: rgb(19 18 23 / 8%);
   --lido-ui-color-backgrounds-highlighted: rgb(0 133 255 / 20%);
   --lido-ui-color-backgrounds-featured: radial-gradient(
     50% 50% at 50% 50%,
