@@ -1,47 +1,51 @@
 .tabs {
   position: relative;
   border-radius: 34px;
-  border: 1px solid var(--lido-ui-color-borders-default, rgb(19 18 23 / 10%));
   display: inline-flex;
-  gap: 6px;
-  padding: 6px;
-  max-width: 100%;
+  gap: 12px;
   width: fit-content;
+  max-width: 100%;
   overflow: auto hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
 
   /* hide native scrollbars across browsers */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-color: transparent transparent; /* Firefox extra */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-color: transparent transparent;
 }
 
 .tabs::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .selection {
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 34px;
+  background-color: var(--lido-ui-color-buttons-primary);
+  pointer-events: none;
   transition:
     transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
     width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
     height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
-  background-color: var(--lido-ui-color-buttons-primary);
-  pointer-events: none;
-  border-radius: 34px;
   will-change: transform, width, height;
+}
+
+.tabs--icon {
+  border: 1px solid var(--lido-ui-color-borders-default, rgb(19 18 23 / 10%));
+  padding: 6px;
+  gap: 6px;
 }
 
 .tab {
   @mixin font-body-large-medium-static;
 
   position: relative;
-  color: var(--lido-ui-color-buttons-primary);
+  color: var(--lido-ui-color-text-primary);
   border: none;
-  background-color: transparent;
+  background-color: var(--lido-ui-color-backgrounds-grey);
   cursor: pointer;
   transition:
     color 0.3s ease,
@@ -50,170 +54,104 @@
   display: flex;
   gap: 8px;
   white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 34px;
+  flex-shrink: 0;
+  z-index: 1;
 
   &.active {
     @mixin font-body-large-bold-static;
 
-    &,
-    &:hover {
-      color: var(--lido-ui-color-text-inverted);
-    }
-  }
-
-  &:hover {
-    color: var(--lido-ui-color-text-primary-hover);
+    color: var(--lido-ui-color-text-inverted);
+    background-color: var(--lido-ui-color-text-primary);
   }
 
   &.disabled,
   &:disabled {
     cursor: not-allowed;
     color: var(--lido-ui-color-text-quaternary);
+    background-color: var(--lido-ui-color-backgrounds-grey-disabled);
   }
 }
 
-.shape--text {
+.tabs--text .tab {
   min-height: 56px;
   padding: 12px 26px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 34px;
+
+  &:hover:not(.active, .disabled, :disabled) {
+    background: var(--lido-ui-color-backgrounds-grey-active);
+  }
 }
 
-.shape--icon {
-  flex: none;
-  border-radius: 50%;
+.tabs--icon .tab {
+  background-color: transparent;
+  color: var(--lido-ui-color-icons-primary);
+}
+
+.tabs--icon .tab.active {
+  color: var(--lido-ui-color-icons-inverted);
+}
+
+.tabs--icon .tab.disabled,
+.tabs--icon .tab:disabled {
+  color: var(--lido-ui-color-icons-quaternary);
+  background-color: transparent;
+}
+
+.tabs--icon .tab:hover:not(.active, .disabled, :disabled) {
+  color: var(--lido-ui-color-icons-active);
+}
+
+.tabs--icon .tab > * {
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: initial;
-  width: 56px;
-  height: 56px;
-  padding: 12px;
+  place-content: center center;
+}
 
-  > * {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    place-content: center center;
-  }
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+.tabs--icon .tab svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* Size variants */
-.size--s {
-  .tab {
-    min-height: 36px;
-    padding: 2px 14px;
-  }
-
-  .shape--icon {
-    min-height: initial;
-    width: 36px;
-    height: 36px;
-    padding: 4px;
-  }
+.size--s.tabs--text .tab {
+  min-height: 36px;
+  padding: 2px 14px;
 }
 
-.size--m {
-  .tab {
-    min-height: 48px;
-    padding: 8px 22px;
-  }
-
-  .shape--icon {
-    min-height: initial;
-    width: 48px;
-    height: 48px;
-    padding: 8px;
-  }
+.size--s.tabs--icon .tab {
+  width: 36px;
+  height: 36px;
+  padding: 4px;
 }
 
-.size--l {
-  .tab {
-    min-height: 56px;
-    padding: 12px 26px;
-  }
-
-  .shape--icon {
-    min-height: initial;
-    width: 56px;
-    height: 56px;
-    padding: 12px;
-  }
+.size--m.tabs--text .tab {
+  min-height: 48px;
+  padding: 8px 22px;
 }
 
-/* Responsive styles */
+.size--m.tabs--icon .tab {
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+}
+
+.size--l.tabs--text .tab {
+  min-height: 56px;
+  padding: 12px 26px;
+}
+
+.size--l.tabs--icon .tab {
+  width: 56px;
+  height: 56px;
+  padding: 12px;
+}
+
 @media (--lido-ui-breakpoint-sm-down) {
   .tabs {
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    white-space: nowrap;
     width: 100%;
-    padding: 8px;
-    gap: 8px;
-    border: none;
-    border-radius: 0;
-  }
-
-  .tabs::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
-
-  .selection {
-    display: none;
-  }
-
-  .tab {
-    flex-shrink: 0;
-    border-radius: 34px;
-
-    &.active {
-      background-color: var(--lido-ui-color-buttons-primary);
-      color: var(--lido-ui-color-text-inverted);
-    }
-
-    &:not(.active) {
-      background-color: rgb(0 0 0 / 4%);
-      border: 1px solid transparent;
-
-      &:hover {
-        border-color: var(--lido-ui-color-borders-hover);
-      }
-    }
-  }
-
-  /* Size variants */
-  .size--m {
-    .tab {
-      min-height: 36px;
-      padding: 2px 14px;
-    }
-
-    .shape--icon {
-      min-height: initial;
-      width: 36px;
-      height: 36px;
-      padding: 4px;
-    }
-  }
-
-  .size--l {
-    .tab {
-      min-height: 48px;
-      padding: 8px 22px;
-    }
-
-    .shape--icon {
-      min-height: initial;
-      width: 48px;
-      height: 48px;
-      padding: 8px;
-    }
   }
 }
 

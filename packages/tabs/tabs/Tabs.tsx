@@ -76,8 +76,6 @@ export const Tabs = ({
         if (tabsRect) {
           const x = buttonRect.left - tabsRect.left
           const y = buttonRect.top - tabsRect.top
-
-          // Use transform for movement to leverage GPU acceleration and CSS transitions
           selectionRef.current.style.width = `${buttonRect.width}px`
           selectionRef.current.style.height = `${buttonRect.height}px`
           selectionRef.current.style.transform = `translate(${x}px, ${y}px)`
@@ -85,10 +83,8 @@ export const Tabs = ({
       }
     }
 
-    // Initial position update
     updateSelectionPosition()
 
-    // Recalculate on resize
     window.addEventListener('resize', updateSelectionPosition)
     return () => {
       window.removeEventListener('resize', updateSelectionPosition)
@@ -188,7 +184,12 @@ export const Tabs = ({
   return (
     <div
       ref={containerRef}
-      className={cn(styles.tabs, styles[`size--${size}`], className)}
+      className={cn(
+        styles.tabs,
+        styles[`tabs--${type}`],
+        styles[`size--${size}`],
+        className,
+      )}
       data-testid={dataTestId?.root}
       {...rest}
     >
@@ -202,7 +203,6 @@ export const Tabs = ({
             className={cn(styles.tab, {
               [styles.active]: isActive,
               [styles.disabled]: item.disabled,
-              [styles[`shape--${type}`]]: type,
             })}
             key={item.key}
             onClick={handleClick(item.key, item.disabled)}
