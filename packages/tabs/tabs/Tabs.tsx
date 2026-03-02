@@ -74,7 +74,8 @@ export const Tabs = ({
           activeButtonRef.current.parentElement?.getBoundingClientRect()
 
         if (tabsRect) {
-          const x = buttonRect.left - tabsRect.left
+          // adding 1 px to center the selection properly
+          const x = buttonRect.left - tabsRect.left - 1
           const y = buttonRect.top - tabsRect.top
           selectionRef.current.style.width = `${buttonRect.width}px`
           selectionRef.current.style.height = `${buttonRect.height}px`

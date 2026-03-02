@@ -61,10 +61,7 @@
   z-index: 1;
 
   &.active {
-    @mixin font-body-large-bold-static;
-
     color: var(--lido-ui-color-text-inverted);
-    background-color: var(--lido-ui-color-text-primary);
   }
 
   &.disabled,
