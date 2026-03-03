@@ -1,5 +1,9 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
-import Link from 'next/link'
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  ReactNode,
+  forwardRef,
+} from 'react'
 
 export type DynamicLinkDataTestId = {
   root?: string
@@ -9,6 +13,13 @@ export type DynamicLinkProps = ComponentPropsWithoutRef<'a'> & {
   href: string
   isExternal?: boolean
   prefetch?: boolean
+  useNextLink?: boolean
+  nextLinkComponent?: (props: {
+    href: string
+    prefetch?: boolean
+    children?: ReactNode
+    [key: string]: unknown
+  }) => JSX.Element
   dataTestId?: DynamicLinkDataTestId
 }
 
@@ -19,6 +30,8 @@ export const DynamicLink = forwardRef(
       isExternal,
       children,
       prefetch = false,
+      useNextLink = false,
+      nextLinkComponent: NextLinkComponent,
       dataTestId,
       onClick,
       ...rest
@@ -48,17 +61,30 @@ export const DynamicLink = forwardRef(
       )
     }
 
+    if (useNextLink && NextLinkComponent) {
+      return (
+        <NextLinkComponent
+          href={href}
+          prefetch={prefetch}
+          data-testid={dataTestId?.root}
+          onClick={onClick}
+          {...rest}
+        >
+          {children}
+        </NextLinkComponent>
+      )
+    }
+
     return (
-      <Link
+      <a
         href={href}
-        prefetch={prefetch}
         ref={ref}
         data-testid={dataTestId?.root}
         onClick={onClick}
         {...rest}
       >
         {children}
-      </Link>
+      </a>
     )
   },
 )
