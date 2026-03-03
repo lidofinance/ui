@@ -13,24 +13,8 @@ const { dependencies = {}, peerDependencies = {} } = JSON.parse(
   fs.readFileSync('package.json', 'utf-8'),
 )
 
-// in esm build we need to have imports in a form on next/link.js instead of next/link for it tow work
-function addNextJsExtensions() {
-  return {
-    name: 'add-next-link-extension',
-    renderChunk(code) {
-      return code.replace(/from ['"]next\/([^'"]+)['"]/g, (full, mod) => {
-        return `from 'next/${mod}.js'`
-      })
-    },
-  }
-}
-
 const external = [
   'react/jsx-runtime',
-  'next',
-  'next/link',
-  'next/image',
-  'next/font/google',
   '@inline-svg-unique-id/react',
   ...Object.keys({ ...dependencies, ...peerDependencies }),
 ]
@@ -65,7 +49,6 @@ export default [
         babelHelpers: 'bundled',
         extensions,
       }),
-      addNextJsExtensions(),
       /** index.css – combining styles, including global.css (without typography) */
       postcss({
         config: {
