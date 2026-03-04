@@ -63,7 +63,11 @@ export const ThemeToggler = forwardRef(
 
     return (
       <Button
-        className={cn(styles.themeToggler, className)}
+        className={cn(
+          styles.themeToggler,
+          className,
+          isLightTheme && styles.lightTheme,
+        )}
         ref={ref}
         onClick={toggleTheme}
         shape='circle'
