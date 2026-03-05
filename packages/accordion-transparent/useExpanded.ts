@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { AccordionTransparentProps } from './types.js'
 import _useCollapse from 'react-collapsed'
 import {
@@ -27,23 +27,16 @@ export const useExpanded: UseExpanded = ({
 }) => {
   const [isExpanded, setExpanded] = useState(defaultExpanded)
 
-  useEffect(() => {
-    setExpanded(defaultExpanded)
-  }, [defaultExpanded])
-
-  const handleToggle = useCallback(
-    () => setExpanded((previous) => !previous),
-    [],
-  )
-
   const { getToggleProps, getCollapseProps } = useCollapse({
-    isExpanded,
+    defaultExpanded,
+    onExpandStart: () => setExpanded(true),
+    onCollapseStart: () => setExpanded(false),
     onExpandEnd: onExpand,
     onCollapseEnd: onCollapse,
   })
 
   return {
-    toggleProps: getToggleProps({ onClick: handleToggle }),
+    toggleProps: getToggleProps(),
     collapseProps: getCollapseProps(),
     isExpanded,
   }
