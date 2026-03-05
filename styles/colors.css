@@ -21,8 +21,8 @@
   --lido-ui-color-icons-inverted: rgb(255 255 255 / 100%);
   --lido-ui-color-icons-active: rgb(0 133 255 / 100%);
   --lido-ui-color-icons-success: rgb(17 182 144 / 100%);
-  --lido-ui-color-icons-error: rgb(215 71 88 / 100%);
   --lido-ui-color-icons-warning: rgb(235 153 37 / 100%);
+  --lido-ui-color-icons-error: rgb(215 71 88 / 100%);
 
   /* Default backgrounds */
   --lido-ui-color-backgrounds-surface: rgb(255 249 249 / 100%);
