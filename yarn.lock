@@ -2550,7 +2550,7 @@ __metadata:
     postcss-styled-syntax: "npm:^0.4.0"
     prettier: "npm:^3.0.1"
     react: "npm:18.2.0"
-    react-collapsed: "npm:3.0.2"
+    react-collapsed: "npm:4.2.0"
     react-dom: "npm:18.2.0"
     react-is: "npm:18.2.0"
     react-jazzicon: "npm:^1.0.4"
@@ -16450,13 +16450,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"performance-now@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "performance-now@npm:2.1.0"
-  checksum: 10c0/22c54de06f269e29f640e0e075207af57de5052a3d15e360c09b9a8663f393f6f45902006c1e71aa8a5a1cdfb1a47fe268826f8496d6425c362f00f5bc3e85d9
-  languageName: node
-  linkType: hard
-
 "picocolors@npm:^1.0.0, picocolors@npm:^1.1.1":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
@@ -17066,15 +17059,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"raf@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "raf@npm:3.4.1"
-  dependencies:
-    performance-now: "npm:^2.1.0"
-  checksum: 10c0/337f0853c9e6a77647b0f499beedafea5d6facfb9f2d488a624f88b03df2be72b8a0e7f9118a3ff811377d534912039a3311815700d2b6d2313f82f736f9eb6e
-  languageName: node
-  linkType: hard
-
 "ramda@npm:0.29.0":
   version: 0.29.0
   resolution: "ramda@npm:0.29.0"
@@ -17124,15 +17108,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-collapsed@npm:3.0.2":
-  version: 3.0.2
-  resolution: "react-collapsed@npm:3.0.2"
+"react-collapsed@npm:4.2.0":
+  version: 4.2.0
+  resolution: "react-collapsed@npm:4.2.0"
   dependencies:
-    raf: "npm:^3.4.1"
     tiny-warning: "npm:^1.0.3"
   peerDependencies:
-    react: ">=16.8"
-  checksum: 10c0/c5487b78ba1770329aebcea0e8e9052c5ee5b2deecf7a6aee084e832bf7820eeb92401e9704f490da07003c180300f1d523072cd26191bd92e75dd74d58d7a19
+    react: ^16.9.0 || ^17 || ^18 || ^19
+    react-dom: ^16.9.0 || ^17 || ^18 || ^19
+  checksum: 10c0/163d892e3732254039b7102cbebc237332eec1e63194645c3e29f2c54dd5213c4dab3354bd236b1bcd26092f494c8533a6c3207133aa23c02bfe86747fdf7893
   languageName: node
   linkType: hard
 
