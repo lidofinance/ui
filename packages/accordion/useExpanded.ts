@@ -1,46 +1,21 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCollapse } from 'react-collapsed'
 import { AccordionProps } from './types.js'
-import _useCollapse from 'react-collapsed'
-import {
-  GetCollapsePropsOutput,
-  GetTogglePropsOutput,
-} from 'react-collapsed/dist/types.js'
 
-//@ts-expect-error Property default doesn't exist on type
-const useCollapse: typeof _useCollapse = _useCollapse.default || _useCollapse
-
-type UseExpanded = (
-  props: Pick<AccordionProps, 'defaultExpanded' | 'onExpand' | 'onCollapse'>,
-) => {
-  toggleProps: GetTogglePropsOutput
-  collapseProps: GetCollapsePropsOutput
-  isExpanded: boolean
-}
-
-export const useExpanded: UseExpanded = ({
+export const useExpanded = ({
   defaultExpanded = false,
   onExpand,
   onCollapse,
-}) => {
-  const [isExpanded, setExpanded] = useState(defaultExpanded)
-
-  useEffect(() => {
-    setExpanded(defaultExpanded)
-  }, [defaultExpanded])
-
-  const handleToggle = useCallback(
-    () => setExpanded((previous) => !previous),
-    [],
-  )
-
-  const { getToggleProps, getCollapseProps } = useCollapse({
-    isExpanded,
-    onExpandEnd: onExpand,
-    onCollapseEnd: onCollapse,
+}: Pick<AccordionProps, 'defaultExpanded' | 'onExpand' | 'onCollapse'>) => {
+  const { getToggleProps, getCollapseProps, isExpanded } = useCollapse({
+    defaultExpanded,
+    onTransitionStateChange: (state) => {
+      if (state === 'expandEnd') onExpand?.()
+      if (state === 'collapseEnd') onCollapse?.()
+    },
   })
 
   return {
-    toggleProps: getToggleProps({ onClick: handleToggle }),
+    toggleProps: getToggleProps(),
     collapseProps: getCollapseProps(),
     isExpanded,
   }
