@@ -106,6 +106,7 @@ import { Chronicle } from './Chronicle'
 import { Cian } from './Cian'
 import { Claystack } from './Claystack'
 import { Coingecko } from './Coingecko'
+import { CompSecurity } from './CompSecurity'
 import { Compound } from './Compound'
 import { Concentrator } from './Concentrator'
 import { Convex } from './Convex'
@@ -364,6 +365,7 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Cian,
   Claystack,
   Coingecko,
+  CompSecurity,
   Compound,
   Concentrator,
   Convex,
