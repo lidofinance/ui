@@ -12,7 +12,6 @@ import styles from './SimpleCard.module.css'
 
 export type SimpleCardDataTestId = {
   root?: string
-  button?: string
   title?: string
   tags?: string
   logos?: string
