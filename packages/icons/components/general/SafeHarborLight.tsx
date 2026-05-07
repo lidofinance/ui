@@ -2,7 +2,7 @@
 
 import React, { SVGProps } from 'react'
 
-export const SafeHarborWhite = (props: SVGProps<SVGSVGElement>) => {
+export const SafeHarborLight = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={40} height={40} viewBox='0 0 40 40' fill='none' {...props}>
       <path
