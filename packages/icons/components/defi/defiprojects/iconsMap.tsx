@@ -111,6 +111,7 @@ import { Concentrator } from './Concentrator'
 import { Convex } from './Convex'
 import { Copper } from './Copper'
 import { Cow } from './Cow'
+import { CryptoCom } from './CryptoCom'
 import { Curve } from './Curve'
 import { Debank } from './Debank'
 import { Defi } from './Defi'
@@ -132,6 +133,7 @@ import { Exactly } from './Exactly'
 import { Extrafi } from './Extrafi'
 import { Fireblock } from './Fireblock'
 import { Flipside } from './Flipside'
+import { FlowTraders } from './FlowTraders'
 import { Fluid } from './Fluid'
 import { Francium } from './Francium'
 import { Fxprotocol } from './Fxprotocol'
@@ -246,6 +248,7 @@ import { Traderjoe } from './Traderjoe'
 import { Uniswap } from './Uniswap'
 import { Unslashed } from './Unslashed'
 import { VesperFinance } from './VesperFinance'
+import { VirtuFinancial } from './VirtuFinancial'
 import { Voltz } from './Voltz'
 import { Wormhole } from './Wormhole'
 import { Yearn } from './Yearn'
@@ -369,6 +372,7 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Convex,
   Copper,
   Cow,
+  CryptoCom,
   Curve,
   Debank,
   Defi,
@@ -390,6 +394,7 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Extrafi,
   Fireblock,
   Flipside,
+  FlowTraders,
   Fluid,
   Francium,
   Fxprotocol,
@@ -504,6 +509,7 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Uniswap,
   Unslashed,
   VesperFinance,
+  VirtuFinancial,
   Voltz,
   Wormhole,
   Yearn,
