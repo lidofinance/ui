@@ -42,6 +42,8 @@ import { Immunefi } from './Immunefi'
 import { ImmunefiLight } from './ImmunefiLight'
 import { Percentage } from './Percentage'
 import { Rewards } from './Rewards'
+import { SafeHarborWhite } from './SafeHarborWhite'
+import { SafeHarbor } from './SafeHarbor'
 import { Strat } from './Strat'
 import { Telegram } from './Telegram'
 import { TwitterLight } from './TwitterLight'
@@ -93,6 +95,8 @@ export const GENERAL_ICONS_MAP = {
   ImmunefiLight,
   Percentage,
   Rewards,
+  SafeHarborWhite,
+  SafeHarbor,
   Strat,
   Telegram,
   TwitterLight,
