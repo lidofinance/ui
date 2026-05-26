@@ -1,5 +1,21 @@
 import { StoryFn, Meta } from '@storybook/react'
+import { AnchorHTMLAttributes, ReactNode } from 'react'
 import { Link, LinkProps } from '.'
+
+const MockNextLink = ({
+  href,
+  children,
+  ...props
+}: {
+  href: string
+  children: ReactNode
+}) => {
+  return (
+    <a href={href} {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}>
+      {children}
+    </a>
+  )
+}
 
 const meta: Meta<typeof Link> = {
   title: 'Links/Link',
@@ -9,7 +25,7 @@ const meta: Meta<typeof Link> = {
     docs: {
       description: {
         story:
-          'The Link component uses a DynamicLink component that automatically detects whether the link is internal or external and accordingly uses Next Link or a standard <a> tag. The external link will be opened in a separate tab.',
+          'The Link component renders a native <a> by default and can optionally render a Next-compatible link component via useNextLink + nextLinkComponent.',
       },
     },
   },
@@ -67,6 +83,10 @@ export const AllStates: StoryFn<LinkProps> = () => {
         </Link>
         , which adopts the surrounding text color.
       </p>
+      <br />
+      <Link useNextLink nextLinkComponent={MockNextLink} href='/next-link'>
+        And this link uses NextLinkComponent
+      </Link>
     </div>
   )
 }
