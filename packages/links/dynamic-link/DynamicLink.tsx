@@ -1,6 +1,7 @@
 import {
   ComponentPropsWithoutRef,
   ForwardedRef,
+  MouseEvent,
   ReactNode,
   forwardRef,
 } from 'react'
@@ -41,7 +42,7 @@ export const DynamicLink = forwardRef(
     const external = isExternal ?? href?.startsWith('https://')
 
     if (external) {
-      const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
         ;(e.target as HTMLAnchorElement).blur()
         onClick?.(e)
       }
