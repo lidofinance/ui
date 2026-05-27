@@ -14,12 +14,8 @@ export type LinkProps = {
   target?: '_blank' | '_self' | '_parent' | '_top'
   legacyBehavior?: boolean
   useNextLink?: boolean
-  nextLinkComponent?: React.ComponentType<{
-    href: string
-    target?: '_blank' | '_self' | '_parent' | '_top'
-    children?: ReactNode
-    [key: string]: unknown
-  }>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  nextLinkComponent?: React.ComponentType<any>
   dataTestId?: LinkDataTestId
 } & ComponentPropsWithoutRef<'a'>
 
@@ -58,13 +54,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       )
     }
 
-    const NextLink = NextLinkComponent as React.ComponentType<
-      Record<string, unknown>
-    >
-
     if (!legacyBehavior) {
       return (
-        <NextLink
+        <NextLinkComponent
           target={target}
           className={linkClassName}
           href={href}
@@ -72,17 +64,17 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
           {...props}
         >
           {children}
-        </NextLink>
+        </NextLinkComponent>
       )
     }
 
     return (
-      <NextLink href={href} target={target} legacyBehavior {...props}>
+      <NextLinkComponent href={href} target={target} legacyBehavior {...props}>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a className={linkClassName} ref={ref} data-testid={dataTestId?.root}>
           {children}
         </a>
-      </NextLink>
+      </NextLinkComponent>
     )
   },
 )
