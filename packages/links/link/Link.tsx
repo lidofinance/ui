@@ -14,12 +14,12 @@ export type LinkProps = {
   target?: '_blank' | '_self' | '_parent' | '_top'
   legacyBehavior?: boolean
   useNextLink?: boolean
-  nextLinkComponent?: (props: {
+  nextLinkComponent?: React.ComponentType<{
     href: string
     target?: '_blank' | '_self' | '_parent' | '_top'
     children?: ReactNode
     [key: string]: unknown
-  }) => ReactNode
+  }>
   dataTestId?: LinkDataTestId
 } & ComponentPropsWithoutRef<'a'>
 

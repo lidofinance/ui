@@ -1,5 +1,6 @@
 import {
   ComponentPropsWithoutRef,
+  ComponentType,
   ForwardedRef,
   ReactNode,
   forwardRef,
@@ -14,12 +15,12 @@ export type DynamicLinkProps = ComponentPropsWithoutRef<'a'> & {
   isExternal?: boolean
   prefetch?: boolean
   useNextLink?: boolean
-  nextLinkComponent?: (props: {
+  nextLinkComponent?: ComponentType<{
     href: string
     prefetch?: boolean
     children?: ReactNode
     [key: string]: unknown
-  }) => JSX.Element
+  }>
   dataTestId?: DynamicLinkDataTestId
 }
 
