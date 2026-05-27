@@ -73,6 +73,15 @@ export const AllStates: StoryFn<TabsProps> = () => {
       children: <Metamask />,
     },
     { key: '3', children: <Checkmark /> },
+    {
+      key: '4',
+      children: (
+        <img
+          src='https://raw.githubusercontent.com/Cyfrin/2023-09-vyper-compiler/main/images/lido.png'
+          alt={'img'}
+        />
+      ),
+    },
   ]
 
   const gridContainerStyle: React.CSSProperties = {
@@ -164,7 +173,7 @@ export const AllStates: StoryFn<TabsProps> = () => {
                                 key: '2',
                                 children: (
                                   <img
-                                    src='https://lido.fi/static/index/defi/metamask.svg'
+                                    src='https://raw.githubusercontent.com/Cyfrin/2023-09-vyper-compiler/main/images/lido.png'
                                     alt={'img'}
                                   />
                                 ),

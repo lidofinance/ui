@@ -45,6 +45,7 @@ import { BridgetowerLogo } from './BridgetowerLogo'
 import { BwarelabsLogo } from './BwarelabsLogo'
 import { BybitLogo } from './BybitLogo'
 import { CaladanLogo } from './CaladanLogo'
+import { CantinaLogo } from './CantinaLogo'
 import { CeffuLogo } from './CeffuLogo'
 import { CertoraLogo } from './CertoraLogo'
 import { CertusLogo } from './CertusLogo'
@@ -57,6 +58,7 @@ import { CoboLogo } from './CoboLogo'
 import { CodefiLogo } from './CodefiLogo'
 import { CoinbasePrimeLogo } from './CoinbasePrimeLogo'
 import { CoinbaseLogo } from './CoinbaseLogo'
+import { CompSecurityLogo } from './CompSecurityLogo'
 import { CompoundLogo } from './CompoundLogo'
 import { ConsensysDiligenceLogo } from './ConsensysDiligenceLogo'
 import { ConvexLogo } from './ConvexLogo'
@@ -207,6 +209,7 @@ export const LOGO_ICONS_MAP = {
   BwarelabsLogo,
   BybitLogo,
   CaladanLogo,
+  CantinaLogo,
   CeffuLogo,
   CertoraLogo,
   CertusLogo,
@@ -219,6 +222,7 @@ export const LOGO_ICONS_MAP = {
   CodefiLogo,
   CoinbasePrimeLogo,
   CoinbaseLogo,
+  CompSecurityLogo,
   CompoundLogo,
   ConsensysDiligenceLogo,
   ConvexLogo,

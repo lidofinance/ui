@@ -56,7 +56,7 @@
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .headerLogos {
@@ -70,7 +70,7 @@
 .headerLogo {
   width: 38px;
   height: 38px;
-  background: var(--lido-ui-color-backgrounds-grey);
+  background: var(--lido-ui-color-backgrounds-cards-hover);
   border-radius: 30px;
   text-align: center;
   display: flex;
@@ -90,7 +90,7 @@
 
 .tags {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -105,14 +105,6 @@
   box-sizing: border-box;
 }
 
-.button {
-  margin-top: 20px;
-
-  &.empty {
-    padding-left: 0;
-  }
-}
-
 .titleItem {
   @mixin font-h5;
 
@@ -124,7 +116,7 @@
   @mixin font-body;
 
   color: var(--lido-ui-color-text-tertiary);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   text-overflow: ellipsis;
   height: 100%;
   overflow: hidden;
@@ -133,7 +125,7 @@
   -webkit-box-orient: vertical;
 }
 
-@media (--lido-ui-breakpoint-md-down) {
+@media (--lido-ui-breakpoint-ml-down) {
   .card {
     padding: 24px;
 

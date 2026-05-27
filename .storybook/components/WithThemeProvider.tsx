@@ -19,6 +19,9 @@ export const WithThemeProvider: Decorator<{
           minWidth: '100%',
           display: 'flex',
           justifyContent: 'flex-end',
+          padding: '1em 1em 0 1em',
+          boxSizing: 'border-box',
+          background: 'var(--lido-ui-color-text-inverted)',
         }}
       >
         <ThemeToggler />
@@ -29,6 +32,7 @@ export const WithThemeProvider: Decorator<{
           minHeight: '10vh',
           color: 'var(--lido-ui-color-text-primary)',
           padding: '1em',
+          boxSizing: 'border-box',
           background: 'var(--lido-ui-color-text-inverted)',
         }}
       >

@@ -16,6 +16,10 @@
   visibility: var(--lido-ui-light-mode-visibility);
 }
 
+.lightTheme {
+  color: var(--lido-ui-color-icons-primary);
+}
+
 .themeToggler {
   display: inline-grid;
   grid-template-areas: 'a';
