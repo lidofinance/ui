@@ -1,4 +1,4 @@
-name: Publish canary lido-ui-v4
+name: Publish alpha
 
 on:
   push:
@@ -8,113 +8,44 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write # to enable use of OIDC for npm provenance
+  id-token: write
 
 concurrency:
-  group: "pages"
+  group: publish-alpha
   cancel-in-progress: false
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     environment: production
     env:
       NODE_OPTIONS: --max_old_space_size=4096
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@v4
         with:
-          ref: lido-ui-v4-canary
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: 'yarn'
-          cache-dependency-path: 'yarn.lock'
+          cache: yarn
+          cache-dependency-path: yarn.lock
 
-      - name: Install Dependencies
-        run: yarn install --immutable
+      - run: yarn install --immutable
 
-      - name: Build Components
-        run: yarn build
+      - run: yarn build
 
-      - name: Publish to NPM
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           echo "provenance=true" >> ~/.npmrc
           yarn release
-
-      - name: Build Storybook
-        run: yarn build-storybook
-        # output: storybook-static
-
-      # MAIN branch copy
-      - name: Checkout main
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          ref: main
-          path: other
-          persist-credentials: false
-
-      - name: Setup Node (main)
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
-        with:
-          node-version-file: .nvmrc
-          cache: 'yarn'
-          cache-dependency-path: 'other/yarn.lock'
-
-      - name: Install (main)
-        working-directory: other
-        run: |
-          corepack enable
-          yarn install --immutable
-
-      - name: Build Storybook (main)
-        working-directory: other
-        run: yarn build-storybook
-
-      # main -> / , v4 -> /v4
-      - name: Place MAIN (to root)
-        uses: ./.github/actions/prepare-storybook-builds
-        with:
-          release_type: main
-          target_folder: release-target
-          source_folder: other/storybook-static
-
-      - name: Place V4 (to /v4)
-        uses: ./.github/actions/prepare-storybook-builds
-        with:
-          release_type: v4
-          target_folder: release-target
-          source_folder: storybook-static
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: release-target
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

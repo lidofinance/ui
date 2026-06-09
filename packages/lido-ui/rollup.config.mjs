@@ -21,13 +21,13 @@ const external = [
 
 export default [
   {
-    input: './packages/index.ts',
+    input: './src/index.ts',
     output: [
       {
         dir: 'dist/cjs',
         format: 'cjs',
         preserveModules: true,
-        preserveModulesRoot: 'packages',
+        preserveModulesRoot: 'src',
         generatedCode: 'es2015',
         sourcemap: true,
       },
@@ -35,7 +35,7 @@ export default [
         dir: 'dist/esm',
         format: 'esm',
         preserveModules: true,
-        preserveModulesRoot: 'packages',
+        preserveModulesRoot: 'src',
         entryFileNames: '[name].mjs',
         generatedCode: 'es2015',
         sourcemap: true,
@@ -67,7 +67,7 @@ export default [
     external,
   },
   {
-    input: 'styles/typography.css',
+    input: 'src/styles/typography.css',
     output: {
       // we dont need js output
       file: 'dist/ignore.js',
@@ -85,7 +85,7 @@ export default [
       copy({
         targets: [
           {
-            src: 'styles/typography-mixins.css',
+            src: 'src/styles/typography-mixins.css',
             dest: 'dist/styles',
           },
           {

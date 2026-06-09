@@ -1,0 +1,2 @@
+// lido-ui-widget — widget-specific UI components
+// Built from scratch, shares common code with lido-ui-landing via @lido-ui/shared

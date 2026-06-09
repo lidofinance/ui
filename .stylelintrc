@@ -6,7 +6,10 @@
     "stylelint-prettier"
   ],
   "ignoreFiles": [
-    "dist/**/*"
+    "dist/**/*",
+    "packages/*/dist/**/*",
+    "packages/*/.storybook/styles/normalize.css",
+    "node_modules/**/*"
   ],
   "rules": {
     "prettier/prettier": true,

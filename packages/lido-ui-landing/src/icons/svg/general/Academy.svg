@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none" viewBox="0 0 80 80">
+  <g clip-path="url(#a)">
+    <path fill="url(#b)" d="M40.014 66.29c10.395 0 18.822-8.378 18.822-18.712a18.55 18.55 0 0 0-3.358-10.67l-15.59 9.33-15.59-8.96a18.546 18.546 0 0 0-3.107 10.3c0 10.334 8.427 18.712 18.823 18.712Z" opacity=".5"/>
+    <g filter="url(#c)">
+      <path fill="#0085FF" d="M40.06 53.497 17.34 40.654 40.06 29.28l22.6 11.33-22.6 12.888Z"/>
+    </g>
+    <path fill="url(#d)" d="M40.06 53.497 17.34 40.654 40.06 29.28l22.6 11.33-22.6 12.888Z" opacity=".5"/>
+    <path fill="url(#e)" d="M40.06 45.708 17.34 32.865l22.72-11.376 22.6 11.33-22.6 12.889Z" opacity=".5"/>
+    <path fill="#0085FF" d="M40.06 53.498 17.34 40.654v4.487L40 57.888l.062-4.39Zm0-7.79L17.34 32.865v4.487L40 50.169l.062-4.461Z" opacity=".6"/>
+    <path fill="#0085FF" d="M40 53.497 62.66 40.61v4.107L40 57.888v-4.39Zm0-7.789L62.66 32.82v4.107L40 50.169v-4.461Z"/>
+    <path fill="#0085FF" d="m26.759 32.271 13.255 7.577V12L26.759 32.271Z" opacity=".4"/>
+    <path fill="#0085FF" d="m53.247 32.271-13.233 7.577V12l13.233 20.271Z"/>
+  </g>
+  <defs>
+    <linearGradient id="b" x1="35.445" x2="35.445" y1="59.972" y2="40.561" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0085FF"/>
+      <stop offset="1" stop-color="#0085FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="d" x1="34.5" x2="34.5" y1="48.289" y2="32.289" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0085FF"/>
+      <stop offset="1" stop-color="#0085FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="e" x1="34.5" x2="34.5" y1="40.5" y2="24.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0085FF"/>
+      <stop offset="1" stop-color="#0085FF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="a">
+      <path fill="#fff" d="M0 0h80v80H0z"/>
+    </clipPath>
+    <filter id="c" width="93.321" height="72.219" x="-6.661" y="5.279" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_55_2116" stdDeviation="12"/>
+    </filter>
+  </defs>
+</svg>
