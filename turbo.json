@@ -1,0 +1,20 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**"],
+      "inputs": ["src/**", "packages/**", "styles/**", "tsdown.config.ts", "tsconfig.json"]
+    },
+    "build-storybook": {
+      "outputs": ["storybook-static/**"],
+      "inputs": ["src/**", "packages/**", ".storybook/**"]
+    },
+    "test": {
+      "dependsOn": ["build"]
+    },
+    "lint": {},
+    "lint:css": {},
+    "types": {}
+  }
+}

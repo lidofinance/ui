@@ -1,5 +1,5 @@
 export default {
-  stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
 
   addons: [
     '@storybook/addon-docs',
@@ -25,6 +25,13 @@ export default {
   },
   webpackFinal: async (config: any) => {
     const customConfig = { ...config }
+
+    if (process.env.PUBLIC_PATH) {
+      customConfig.output = {
+        ...customConfig.output,
+        publicPath: process.env.PUBLIC_PATH,
+      }
+    }
     // Configure webpack to allow using .js extension for typescript file imports.
     // Refer: https://github.com/storybookjs/storybook/issues/11587#issuecomment-1374816054
     customConfig.resolve.extensionAlias = {
@@ -56,11 +63,11 @@ export default {
     }
 
     // Exclude styles/global.css from CSS Modules
-    cssRule.exclude = [...(cssRule.exclude || []), /styles\/global\.css$/]
+    cssRule.exclude = [...(cssRule.exclude || []), /src\/styles\/global\.css$/]
 
     // Add a rule for global.css to be treated as global CSS
     customConfig.module.rules.push({
-      test: /styles\/global\.css$/,
+      test: /src\/styles\/global\.css$/,
       use: [
         'style-loader',
         {
@@ -74,7 +81,7 @@ export default {
     cssRule.use.push({
       loader: 'postcss-loader',
       options: {
-        postcssOptions: require('../postcss.config.js'),
+        postcssOptions: require('./postcss.config.js'),
       },
     })
 

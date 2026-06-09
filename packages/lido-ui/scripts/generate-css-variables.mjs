@@ -8,14 +8,14 @@ const projectRoot = path.join(__dirname, '..')
 
 // CSS files to scan
 const cssFiles = [
-  'styles/colors.css',
-  'styles/typography-variables.css',
-  'styles/variables.css',
+  'src/styles/colors.css',
+  'src/styles/typography-variables.css',
+  'src/styles/variables.css',
 ]
 
 // Additional files for breakpoints and mixins
-const breakpointFiles = ['styles/breakpoints.css']
-const mixinFiles = ['styles/typography-mixins.css']
+const breakpointFiles = ['src/styles/breakpoints.css']
+const mixinFiles = ['src/styles/typography-mixins.css']
 
 function extractCSSVariables(cssText) {
   const variableRegex = /--[\w-]+(?=\s*:)/g

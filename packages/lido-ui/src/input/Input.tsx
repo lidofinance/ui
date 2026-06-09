@@ -24,7 +24,7 @@ import {
   RightDecoratorType,
 } from './utils/rightDecoratorUtils'
 import { getIconElement, getIsColored } from './utils/leftDecoratorUtils'
-import { IconConfigProp } from 'packages/utils'
+import { IconConfigProp } from '../utils/index.js'
 
 export type InputDataTestId = {
   root?: string

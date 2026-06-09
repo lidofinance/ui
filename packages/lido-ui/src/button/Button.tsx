@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { IconConfig, IconConfigProp } from 'packages/utils'
+import { IconConfig, IconConfigProp } from '../utils/index.js'
 import {
   cloneElement,
   ComponentPropsWithoutRef,
