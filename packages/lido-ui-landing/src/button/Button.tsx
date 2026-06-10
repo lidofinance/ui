@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { IconConfig, IconConfigProp } from '../utils/index.js'
+import { IconConfig, IconConfigProp } from '@lido-ui/shared'
 import {
   cloneElement,
   ComponentPropsWithoutRef,

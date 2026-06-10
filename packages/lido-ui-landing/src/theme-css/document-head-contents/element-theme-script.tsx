@@ -1,4 +1,4 @@
-import { VOID_FN } from '../../utils/index.js'
+import { VOID_FN } from '@lido-ui/shared'
 import { themeCookieKey, ThemeName } from '../constants.js'
 import { setThemeCookie } from '../utils/set-theme-cookie.js'
 

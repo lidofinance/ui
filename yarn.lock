@@ -2610,6 +2610,7 @@ __metadata:
     "@babel/preset-typescript": "npm:7.27.0"
     "@csstools/postcss-global-data": "npm:3.0.0"
     "@inline-svg-unique-id/react": "npm:1.2.3"
+    "@lido-ui/shared": "npm:*"
     "@storybook/addon-actions": "npm:8.6.12"
     "@storybook/addon-docs": "npm:8.6.12"
     "@storybook/addon-essentials": "npm:8.6.12"
