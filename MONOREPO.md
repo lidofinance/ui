@@ -110,7 +110,7 @@ Tasks defined at root, run across all packages:
 
 | Task | Command | Depends on | Cached |
 |------|---------|------------|--------|
-| `build` | `tsdown` | — | ✅ |
+| `build` | `rollup -c` (via zx) | — | ✅ |
 | `build-storybook` | `storybook build` | — | ✅ |
 | `test` | `jest` | `build` | ✅ |
 | `lint` | `eslint` | — | ✅ |
@@ -125,15 +125,27 @@ yarn storybook:landing  # dev storybook for lido-ui-landing
 yarn storybook:widget   # dev storybook for lido-ui-widget
 ```
 
-### tsdown (`tsdown.config.ts`)
+### Rollup + tsc
 
-Replaces Rollup. Each package builds:
-- `dist/esm/index.mjs` — ES modules
-- `dist/cjs/index.js` — CommonJS
-- `dist/index.css` — bundled styles
-- TypeScript declarations (via `dts: true`)
+Each package uses Rollup with `preserveModules: true` — critical for tree-shaking and subpath imports. Build output per package:
 
-CSS Modules are processed natively by tsdown; PostCSS transforms (postcss-nested, autoprefixer, postcss-mixins) are picked up from `postcss.config.js` in each package.
+```
+dist/
+├── cjs/<component>/   ← CommonJS, one file per module
+├── esm/<component>/   ← ES modules (.mjs), one file per module
+├── types/<component>/ ← TypeScript declarations (via tsc)
+├── index.css          ← bundled CSS (all components)
+├── styles/
+│   ├── typography.css
+│   └── typography-mixins.css
+└── assets/fonts/
+```
+
+Build script: `zx ./scripts/build.cjs` → `rollup -c` + `tsc --project tsconfig.production.json`
+
+PostCSS pipeline (postcss-nested, autoprefixer, postcss-mixins) runs via `rollup-plugin-postcss`.
+
+> **Note on tsdown:** tsdown doesn't support `preserveModules` (single-file bundle only). For UI libraries, individual file output is essential for tree-shaking, so Rollup is kept. Turbo still orchestrates all build tasks.
 
 ---
 
