@@ -1,7 +1,5 @@
 import { Decorator } from '@storybook/react'
-import { ThemeName } from '../../src/theme-css/constants.js'
-import { CookieThemeProvider } from '../../src/theme-css/cookie-theme-provider.js'
-import { ThemeToggler } from '../../src/index.js'
+import { ThemeName, CookieThemeProvider, ThemeToggler } from '@lido-ui/shared'
 
 export const WithThemeProvider: Decorator<{
   themeOverride?: ThemeName | 'follow cookie and system'

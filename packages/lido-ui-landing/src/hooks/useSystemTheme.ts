@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ThemeName } from '../theme-css/constants'
+import { ThemeName } from '@lido-ui/shared'
 
 export const useSystemTheme = (): ThemeName | undefined => {
   const [systemTheme, setSystemTheme] = useState<ThemeName>()

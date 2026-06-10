@@ -1,12 +1,11 @@
-import { ForwardedRef, forwardRef } from 'react'
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react'
 import { useThemeToggle } from '../use-theme-toggle'
 import cn from 'classnames'
 import styles from './theme-toggler.module.css'
-import { Button, ButtonProps } from '../../button'
 import { DEFAULT_THEME_NAME } from '../constants'
 import React, { SVGProps, Ref } from 'react'
 
-export type ThemeTogglerProps = ButtonProps
+export type ThemeTogglerProps = ButtonHTMLAttributes<HTMLButtonElement>
 
 const Light = React.forwardRef(function Light(
   props: SVGProps<SVGSVGElement>,
@@ -54,7 +53,7 @@ const Dark = React.forwardRef(function Dark(
 
 export const ThemeToggler = forwardRef(
   (
-    { className, ...rest }: ThemeTogglerProps,
+    { className, onClick, ...rest }: ThemeTogglerProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     const { toggleTheme, themeName } = useThemeToggle()
@@ -62,25 +61,26 @@ export const ThemeToggler = forwardRef(
     const isLightTheme = themeName === DEFAULT_THEME_NAME
 
     return (
-      <Button
+      <button
+        type='button'
         className={cn(
           styles.themeToggler,
           className,
           isLightTheme && styles.lightTheme,
         )}
         ref={ref}
-        onClick={toggleTheme}
-        shape='circle'
-        size='s'
-        icon={
-          isLightTheme ? (
-            <Light className={styles.icon} />
-          ) : (
-            <Dark className={styles.icon} />
-          )
-        }
+        onClick={(e) => {
+          toggleTheme()
+          onClick?.(e)
+        }}
         {...rest}
-      ></Button>
+      >
+        {isLightTheme ? (
+          <Light className={styles.icon} />
+        ) : (
+          <Dark className={styles.icon} />
+        )}
+      </button>
     )
   },
 )
