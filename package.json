@@ -55,6 +55,8 @@
     "@semantic-release/github": "*",
     "@semantic-release/npm": "^11.0.2",
     "@semantic-release/release-notes-generator": "10.0.3",
+    "@storybook/react": "8.6.12",
+    "@storybook/react-webpack5": "8.6.12",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "autoprefixer": "10.4.21",

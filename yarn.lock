@@ -25176,6 +25176,8 @@ __metadata:
     "@semantic-release/github": "npm:*"
     "@semantic-release/npm": "npm:^11.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
+    "@storybook/react": "npm:8.6.12"
+    "@storybook/react-webpack5": "npm:8.6.12"
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
     "@typescript-eslint/parser": "npm:5.62.0"
     autoprefixer: "npm:10.4.21"
