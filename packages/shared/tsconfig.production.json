@@ -3,7 +3,17 @@
   "compilerOptions": {
     "noEmit": false,
     "emitDeclarationOnly": true,
-    "outDir": "./dist/types"
+    "outDir": "./dist/types",
+    "typeRoots": ["../../node_modules/@types"],
+    "paths": {
+      "react": ["../../node_modules/@types/react"],
+      "react/jsx-runtime": ["../../node_modules/@types/react/jsx-runtime"]
+    }
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/*.stories.ts",
+    "src/**/*.stories.tsx"
+  ]
 }

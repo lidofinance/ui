@@ -5,8 +5,10 @@
     "emitDeclarationOnly": true,
     "outDir": "./dist/types",
     "rootDir": "src",
+    "typeRoots": ["../../node_modules/@types"],
     "paths": {
       "react": ["../../node_modules/@types/react"],
+      "react/jsx-runtime": ["../../node_modules/@types/react/jsx-runtime"],
       "packages/*": ["./src/*"],
       "@lido-ui/shared": ["../shared/dist/types"],
       "@lido-ui/shared/*": ["../shared/dist/types/*"]
