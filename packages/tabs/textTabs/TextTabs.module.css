@@ -36,7 +36,7 @@
 }
 
 .tab {
-  @mixin font-body-large-medium;
+  @mixin font-body-large-medium-static;
 
   position: relative;
   min-height: 68px;
@@ -57,7 +57,7 @@
   white-space: nowrap;
 
   &.active {
-    @mixin font-body-large-bold;
+    @mixin font-body-large-bold-static;
 
     &,
     &:hover {

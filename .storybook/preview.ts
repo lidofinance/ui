@@ -10,43 +10,71 @@ export default {
     controls: { hideNoControlsWarning: true },
     viewport: {
       viewports: {
-        px1800: {
-          name: '1800px',
+        px1500: {
+          name: '[Desktop] 1500px',
           styles: {
-            width: '1800px',
-            height: '500px',
+            width: '1500px',
+            height: '800px',
           },
         },
-        px1500: {
-          name: '1200px',
+        px1300: {
+          name: '[Mid] 1300px',
           styles: {
-            width: '1200px',
-            height: '500px',
+            width: '1300px',
+            height: '800px',
+          },
+        },
+        px900: {
+          name: '[Mobile] 900px',
+          styles: {
+            width: '900px',
+            height: '800px',
+          },
+        },
+        px1800: {
+          name: '[Custom] 1800px',
+          styles: {
+            width: '1800px',
+            height: '800px',
+          },
+        },
+        px1200: {
+          name: '[Custom] 1200px',
+          styles: {
+            width: '1300px',
+            height: '800px',
           },
         },
         px800: {
-          name: '800px',
+          name: '[Custom] 800px',
           styles: {
             width: '800px',
             height: '800px',
           },
         },
         px600: {
-          name: '600px',
+          name: '[Custom] 600px',
           styles: {
             width: '600px',
             height: '800px',
           },
         },
         px550: {
-          name: '550px',
+          name: '[Custom] 550px',
           styles: {
             width: '550px',
             height: '800px',
           },
         },
+        px375: {
+          name: '[Custom] 375px',
+          styles: {
+            width: '375px',
+            height: '800px',
+          },
+        },
         px300: {
-          name: '300px',
+          name: '[Custom] 300px',
           styles: {
             width: '300px',
             height: '800px',

@@ -170,7 +170,7 @@
   }
 }
 
-@media (--lido-ui-breakpoint-md-down) {
+@media (--lido-ui-breakpoint-ml-down) {
   .card {
     height: 272px;
   }
