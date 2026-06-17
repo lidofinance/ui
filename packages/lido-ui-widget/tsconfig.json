@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "typeRoots": ["../../node_modules/@types"],
     "paths": {
       "react": ["../../node_modules/@types/react"],
       "@lido-ui/shared": ["../shared/src"],
