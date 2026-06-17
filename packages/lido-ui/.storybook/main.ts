@@ -20,10 +20,30 @@ export default {
     reactDocgen: 'react-docgen',
   },
   features: {
-    postcss: true,
     legacyDecoratorFileOrder: false,
   },
   webpackFinal: async (config: any) => {
+    // eslint-disable-next-line
+    // @ts-ignore
+    // eslint-disable-next-line
+    const path = require('path')
+    const packageRoot = process.cwd()
+
+    const postcssOptions = {
+      plugins: {
+        '@csstools/postcss-global-data': {
+          files: [path.join(packageRoot, 'src/styles/breakpoints.css')],
+        },
+        'postcss-mixins': {
+          mixinsDir: path.join(packageRoot, 'src/styles'),
+        },
+        autoprefixer: {},
+        'postcss-import': {},
+        'postcss-nested': {},
+        'postcss-custom-media': { preserve: false },
+      },
+    }
+
     const customConfig = { ...config }
 
     if (process.env.PUBLIC_PATH) {
@@ -74,15 +94,16 @@ export default {
           loader: 'css-loader',
           options: { modules: false },
         },
-        'postcss-loader',
+        {
+          loader: 'postcss-loader',
+          options: { postcssOptions },
+        },
       ],
     })
 
     cssRule.use.push({
       loader: 'postcss-loader',
-      options: {
-        postcssOptions: require('./postcss.config.js'),
-      },
+      options: { postcssOptions },
     })
 
     return customConfig
