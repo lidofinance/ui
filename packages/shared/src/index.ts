@@ -1,6 +1,5 @@
 // Shared internal package — used by lido-ui-landing and lido-ui-widget
 // Not published to npm
 
-export * from './hooks/index.js'
-export * from './utils/index.js'
-export * from './theme-css/index.js'
+export * from './utils'
+export * from './theme-css'

@@ -55,7 +55,6 @@
     "@semantic-release/github": "*",
     "@semantic-release/npm": "^11.0.2",
     "@semantic-release/release-notes-generator": "10.0.3",
-    "@tsdown/css": "^0.22.2",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "autoprefixer": "10.4.21",
@@ -81,7 +80,6 @@
     "stylelint": "15.11.0",
     "stylelint-config-standard": "34.0.0",
     "stylelint-prettier": "4.1.0",
-    "tsdown": "latest",
     "turbo": "latest",
     "typescript": "5.8.3"
   },

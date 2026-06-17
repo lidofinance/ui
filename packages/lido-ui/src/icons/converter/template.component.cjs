@@ -1,11 +1,14 @@
 module.exports = function template(
+  { template },
+  opts,
   { interfaces, componentName, props, jsx },
-  { tpl },
 ) {
-  return tpl`
+  return template.ast`
     ${interfaces}
-    export const ${componentName} = (${props}) =>{
+    export const ${componentName} = React.forwardRef(
+      function ${componentName}(${props}) {
         return ${jsx};
       }
+    )
   `
 }

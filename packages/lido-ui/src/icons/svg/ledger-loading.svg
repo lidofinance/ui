@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="354" height="38" viewBox="0 0 354 38" fill="none">
+    <rect x="58" y="1" width="238" height="36" rx="5" fill="#F6F7FB" stroke="#172340" stroke-width="2"></rect>
+    <path d="M83 19C83 15.134 79.866 12 76 12C72.134 12 69 15.134 69 19C69 22.866 72.134 26 76 26C79.866 26 83 22.866 83 19Z" fill="#F6F7FB" stroke="#172340"></path>
+    <rect x="96.5967" y="5.59667" width="60.8067" height="26.8067" rx="3.40333" fill="white" stroke="#172340" stroke-width="1.19333"></rect>
+    <circle opacity="0.1" cx="127" cy="19" r="6" stroke="#00A3FF" stroke-width="2"></circle>
+    <path id="path_to_rotate" d="M131.555 22.9052C132.302 22.0341 132.783 20.9669 132.942 19.8304C133.101 18.6939 132.931 17.5357 132.451 16.4932C131.972 15.4506 131.203 14.5674 130.237 13.9482C129.271 13.3291 128.148 13 127 13" stroke="#00A3FF" stroke-width="2" stroke-linecap="round">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 127 19" to="360 127 19" dur="1s" repeatCount="indefinite"/>
+    </path>
+    <path d="M168 19C168 9.05888 176.059 1 186 1H291.046C293.782 1 296 3.21807 296 5.9542V32.0458C296 34.7819 293.782 37 291.046 37H186C176.059 37 168 28.9411 168 19Z" fill="white" stroke="#172340" stroke-width="2"></path>
+    <path d="M193 19C193 15.134 189.866 12 186 12C182.134 12 179 15.134 179 19C179 22.866 182.134 26 186 26C189.866 26 193 22.866 193 19Z" fill="#F6F7FB" stroke="#172340"></path>
+    <path d="M44 16C44 14.3431 45.3431 13 47 13H56.6133C57.3792 13 58 13.6208 58 14.3867V23.6133C58 24.3792 57.3792 25 56.6133 25H47C45.3431 25 44 23.6569 44 22V16Z" fill="white" stroke="#172340" stroke-width="2"></path>
+    <path d="M34.5 17.3867C34.5 16.3447 35.3447 15.5 36.3867 15.5H42.8067C43.1896 15.5 43.5 15.8104 43.5 16.1933V21.8067C43.5 22.1896 43.1896 22.5 42.8067 22.5H36.3867C35.3447 22.5 34.5 21.6553 34.5 20.6133V17.3867Z" fill="white" stroke="#172340"></path>
+    <path d="M0.5 17.5H34.5V20.5H0.5V17.5Z" fill="url(#paint0_linear_10116:2259)" stroke="url(#paint1_linear_10116:2259)"></path>
+    <defs>
+        <linearGradient id="paint0_linear_10116:2259" x1="35.473" y1="19" x2="-2.22459e-07" y2="19" gradientUnits="userSpaceOnUse">
+            <stop stop-color="white"></stop>
+            <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="paint1_linear_10116:2259" x1="35" y1="21" x2="2.83784" y2="21" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#172340"></stop>
+            <stop offset="1" stop-color="#172340" stop-opacity="0"></stop>
+        </linearGradient>
+    </defs>
+</svg>

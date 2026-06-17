@@ -1,6 +1,6 @@
 import { UAParser } from 'ua-parser-js'
-import { getTopLevelDomain } from '../../utils/index.js'
-import { themeCookieMaxAge, themeCookieKey, ThemeName } from '../constants.js'
+import { getTopLevelDomain } from '../../utils/index'
+import { themeCookieMaxAge, themeCookieKey, ThemeName } from '../constants'
 
 const parser = new UAParser()
 

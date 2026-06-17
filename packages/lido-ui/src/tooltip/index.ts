@@ -1,7 +1,2 @@
-export { Tooltip } from './Tooltip'
-export type {
-  TooltipProps,
-  TooltipPosition,
-  TooltipDataTestId,
-  TooltipWidth,
-} from './Tooltip'
+export * from './Tooltip.js'
+export * from './types.js'

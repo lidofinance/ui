@@ -1,8 +1,8 @@
-import { ReactElement } from 'react'
+/* eslint-disable @typescript-eslint/ban-types */
 
 export type LidoComponentProps<
   T extends keyof JSX.IntrinsicElements,
-  Props extends object = object,
+  Props extends object = {},
 > = Props &
   Omit<
     JSX.IntrinsicElements[T] & {
@@ -11,10 +11,3 @@ export type LidoComponentProps<
     },
     'ref' | keyof Props
   >
-
-export type IconConfig = {
-  icon: ReactElement
-  isColored?: boolean
-}
-
-export type IconConfigProp = IconConfig | ReactElement

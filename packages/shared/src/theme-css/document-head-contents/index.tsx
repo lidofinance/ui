@@ -1,4 +1,1 @@
-export {
-  initGlobalCookieTheme,
-  ScriptThemeValue,
-} from './element-theme-script.js'
+export { initGlobalCookieTheme, ScriptThemeValue } from './element-theme-script'

@@ -1,6 +1,6 @@
-import { VOID_FN } from '@lido-ui/shared'
-import { themeCookieKey, ThemeName } from '../constants.js'
-import { setThemeCookie } from '../utils/set-theme-cookie.js'
+import { VOID_FN } from '../../utils/index'
+import { themeCookieKey, ThemeName } from '../constants'
+import { setThemeCookie } from '../utils/set-theme-cookie'
 
 export const getThemeNameFromUrl = (): ThemeName | undefined => {
   if (typeof window === 'undefined') return undefined

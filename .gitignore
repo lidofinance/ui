@@ -10,3 +10,9 @@ gh-pages
 .vscode/
 .DS_Store
 .yarn
+.turbo
+**/.turbo
+
+# Generated type declarations
+**/.storybook/**/*.d.ts
+**/.storybook/**/*.d.ts.map

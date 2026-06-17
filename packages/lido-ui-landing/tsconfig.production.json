@@ -1,17 +1,24 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "noEmit": false,
     "emitDeclarationOnly": true,
-    "outDir": "./dist/types"
+    "outDir": "./dist/types",
+    "rootDir": "src",
+    "paths": {
+      "react": ["../../node_modules/@types/react"],
+      "packages/*": ["./src/*"],
+      "@lido-ui/shared": ["../shared/dist/types"],
+      "@lido-ui/shared/*": ["../shared/dist/types/*"]
+    }
   },
+  "include": ["global.d.ts", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
-    ".storybook/**/*.ts",
-    ".storybook/**/*.tsx",
-    "src/**/*.test.ts",
-    "src/**/*.test.tsx",
+    "node_modules",
+    "dist",
     "src/**/*.stories.ts",
     "src/**/*.stories.tsx",
-    "node_modules",
-    "dist"
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
   ]
 }

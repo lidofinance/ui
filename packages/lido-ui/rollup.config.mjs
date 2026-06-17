@@ -1,10 +1,7 @@
 import fs from 'node:fs'
 import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
-import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
-import postcssNested from 'postcss-nested'
-import copy from 'rollup-plugin-copy'
 import commonjs from '@rollup/plugin-commonjs'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
@@ -48,6 +45,7 @@ export default [
         exclude: 'node_modules/**',
         babelHelpers: 'bundled',
         extensions,
+        rootMode: 'upward',
       }),
       /** index.css – combining styles, including global.css (without typography) */
       postcss({
@@ -65,35 +63,5 @@ export default [
       }),
     ],
     external,
-  },
-  {
-    input: 'src/styles/typography.css',
-    output: {
-      // we dont need js output
-      file: 'dist/ignore.js',
-      format: 'es',
-    },
-    plugins: [
-      postcss({
-        plugins: [postcssNested(), autoprefixer()],
-        include: /styles\/typography\.css$/,
-        modules: false,
-        inject: false,
-        extract: 'styles/typography.css',
-        minimize: true,
-      }),
-      copy({
-        targets: [
-          {
-            src: 'src/styles/typography-mixins.css',
-            dest: 'dist/styles',
-          },
-          {
-            src: './assets/fonts/*',
-            dest: 'dist/assets/fonts',
-          },
-        ],
-      }),
-    ],
   },
 ]

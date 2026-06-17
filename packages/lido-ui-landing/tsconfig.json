@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "react": ["../../node_modules/@types/react"],
-      "packages/*": ["./src/*"]
+      "packages/*": ["./src/*"],
+      "@lido-ui/shared": ["../shared/src"],
+      "@lido-ui/shared/*": ["../shared/src/*"]
     },
     "outDir": "./dist/types"
   },

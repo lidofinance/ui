@@ -3,8 +3,9 @@
   "ui": "tui",
   "tasks": {
     "build": {
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"],
-      "inputs": ["src/**", "packages/**", "styles/**", "tsdown.config.ts", "tsconfig.json"]
+      "inputs": ["src/**", "packages/**", "styles/**", "rollup.config.mjs", "tsconfig.json", "tsconfig.production.json", ".babelrc.json"]
     },
     "build-storybook": {
       "outputs": ["storybook-static/**"],

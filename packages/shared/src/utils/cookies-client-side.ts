@@ -1,5 +1,5 @@
 import { UAParser } from 'ua-parser-js'
-import { getTopLevelDomain } from './get-top-level-domain.js'
+import { getTopLevelDomain } from './get-top-level-domain'
 
 const parser = new UAParser()
 

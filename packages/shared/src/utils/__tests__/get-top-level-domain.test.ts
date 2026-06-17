@@ -1,4 +1,4 @@
-import { getTopLevelDomain } from '../get-top-level-domain.js'
+import { getTopLevelDomain } from '../get-top-level-domain'
 
 describe('getTopLevelDomain', () => {
   // Store original window.location

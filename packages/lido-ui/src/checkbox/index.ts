@@ -1,6 +1,2 @@
-export * from './Checkbox'
-export type {
-  CheckboxDataTestId,
-  CheckboxProps,
-  CheckboxVariant,
-} from './Checkbox'
+export * from './Checkbox.js'
+export * from './types.js'

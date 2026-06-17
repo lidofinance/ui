@@ -1,9 +1,7 @@
-import {
+import React, {
   ComponentPropsWithoutRef,
-  ComponentType,
   ForwardedRef,
   MouseEvent,
-  ReactNode,
   forwardRef,
 } from 'react'
 
@@ -16,12 +14,8 @@ export type DynamicLinkProps = ComponentPropsWithoutRef<'a'> & {
   isExternal?: boolean
   prefetch?: boolean
   useNextLink?: boolean
-  nextLinkComponent?: ComponentType<{
-    href: string
-    prefetch?: boolean
-    children?: ReactNode
-    [key: string]: unknown
-  }>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  nextLinkComponent?: React.ComponentType<any>
   dataTestId?: DynamicLinkDataTestId
 }
 

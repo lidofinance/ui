@@ -16,7 +16,9 @@ const { dependencies = {}, peerDependencies = {} } = JSON.parse(
 const external = [
   'react/jsx-runtime',
   '@inline-svg-unique-id/react',
-  ...Object.keys({ ...dependencies, ...peerDependencies }),
+  ...Object.keys({ ...dependencies, ...peerDependencies }).filter(
+    (dep) => dep !== '@lido-ui/shared',
+  ),
 ]
 
 export default [
@@ -48,6 +50,7 @@ export default [
         exclude: 'node_modules/**',
         babelHelpers: 'bundled',
         extensions,
+        rootMode: 'upward',
       }),
       postcss({
         config: {

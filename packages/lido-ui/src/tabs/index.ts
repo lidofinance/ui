@@ -1,8 +1,3 @@
-export * from './tabs/Tabs'
-export * from './textTabs/TextTabs'
-export type { TabsDataTestId, TabsProps, TabBaseItem } from './tabs/Tabs'
-export type {
-  TextTabsDataTestId,
-  TextTabsProps,
-  TextTabItem,
-} from './textTabs/TextTabs'
+export * from './Tabs.js'
+export * from './Tab.js'
+export * from './types.js'

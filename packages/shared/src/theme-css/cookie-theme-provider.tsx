@@ -12,13 +12,13 @@ import {
   DEFAULT_THEME_NAME,
   prefersDarkThemeMediaQuery,
   ThemeName,
-} from './constants.js'
-import { getThemeNameFromCookies } from './utils/cookies.js'
+} from './constants'
+import { getThemeNameFromCookies } from './utils/cookies'
 import {
   getThemeNameFromUrl,
   initGlobalCookieTheme,
   updateGlobalTheme,
-} from './document-head-contents/element-theme-script.js'
+} from './document-head-contents/element-theme-script'
 
 export type ThemeContext = {
   toggleTheme: () => void

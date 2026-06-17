@@ -3,10 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "types": "dist/types/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "default": "./src/index.ts",
+      "types": "./dist/types/index.d.ts"
+    }
   },
   "scripts": {
+    "build": "rm -rf dist && tsc --project tsconfig.production.json",
     "lint": "eslint src",
     "types": "tsc --noEmit"
   },

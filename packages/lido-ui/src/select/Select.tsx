@@ -1,174 +1,73 @@
-import {
-  ComponentPropsWithoutRef,
-  MouseEvent,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  forwardRef,
-  ForwardedRef,
-  SVGProps,
-} from 'react'
-import { Dropdown } from './dropdown'
-import styles from './Select.module.css'
-import cn from 'classnames'
-import { DownChevron } from '../icons'
-import { renderIcon, IconConfig } from './utils'
-
-export type SelectProps = Omit<ComponentPropsWithoutRef<'input'>, 'size'> & {
-  size?: SelectSize
-  defaultValue?: string | number
-  value?: string | number
-  open?: boolean
-  options?: SelectOption[]
-  placeholderIcon?: IconConfig
-  onOptionChange?: (option: SelectOption) => unknown
-}
-
-export type SelectOption = {
-  value?: string | number
-  label?: string
-  icon?: IconConfig
-}
-
-export type SelectSize = 'l' | 'm' | 's'
+import { ForwardedRef, forwardRef, useRef } from 'react'
+import { SelectWrapperStyle } from './SelectStyles.js'
+import { SelectArrow } from './SelectArrow.js'
+import { useMergeRefs } from '../hooks/index.js'
+import { PopupMenu } from '../popup-menu/index.js'
+import { SelectProps } from './types.js'
+import { useSelect } from './useSelect.js'
+import { useSelectWidth } from './useSelectWidth.js'
 
 export const Select = forwardRef(
   (
     {
-      size = 'l',
+      wrapperRef: externalWrapperRef,
+      anchorRef: externalAnchorRef,
+      arrow = 'default',
+      variant,
+      value,
       defaultValue,
-      value: _value,
-      open: _open,
-      options,
       disabled,
-      placeholderIcon,
-      className,
+      children,
       onClick,
-      onOptionChange,
+      onKeyDown,
+      onChange,
       ...rest
     }: SelectProps,
     ref?: ForwardedRef<HTMLInputElement>,
   ) => {
-    const [open, setOpen] = useState(false)
-    const [value, setValue] = useState(_value ?? defaultValue)
-    const selectedOption = options?.find((option) => option.value === value)
-    const iconToRender = selectedOption?.icon ?? placeholderIcon
+    const localAnchorRef = useRef<HTMLLabelElement>(null)
+    const wrapperRef = useMergeRefs([localAnchorRef, externalWrapperRef])
+    const anchorRef = externalAnchorRef || localAnchorRef
 
-    useEffect(() => {
-      setValue(_value)
-    }, [_value])
-
-    const handleClick = useCallback(
-      (event: MouseEvent<HTMLInputElement>) => {
-        if (disabled) {
-          event.preventDefault()
-          event.stopPropagation()
-        } else {
-          return onClick?.(event)
-        }
-      },
-      [disabled, onClick],
-    )
-
-    const items = useMemo(
-      () =>
-        options?.map((option, index) => ({
-          key: option.value ?? index,
-          value: option.value,
-          label: option.label ?? '',
-          icon: option.icon,
-          onClick: () => {
-            setValue(option.value)
-            onOptionChange?.(option)
-          },
-        })),
-      [options, onOptionChange],
-    )
+    const { opened, options, title, handleClick, handleClose, handleKeyDown } =
+      useSelect({
+        value,
+        defaultValue,
+        disabled,
+        onClick,
+        onChange,
+        onKeyDown,
+        children,
+      })
+    const width = useSelectWidth(opened, anchorRef)
 
     return (
-      <Dropdown
-        size={size}
-        className={cn(className)}
-        open={_open}
-        items={items}
-        disabled={disabled}
-        onOpenChange={setOpen}
-      >
-        <div
-          className={cn(styles.inputContainer, { [styles.disabled]: disabled })}
-        >
-          {iconToRender &&
-            renderIcon(iconToRender, size, styles, styles.selectIcon)}
-          <input
-            ref={ref}
-            value={selectedOption?.label}
-            className={cn(styles.select, styles[`input--size-${size}`], {
-              [styles.open]: open,
-              [styles.withIcon]: !!iconToRender,
-            })}
-            disabled={disabled}
-            onClick={handleClick}
-            {...rest}
-            readOnly
-          />
-        </div>
-        <DownChevron
-          className={cn(styles.arrow, styles[`arrow--size-${size}`], {
-            [styles.open]: open,
-            [styles.disabled]: disabled,
-          })}
-        />
-      </Dropdown>
-    )
-  },
-)
-
-Select.displayName = 'Select'
-
-export type SelectWithColoredIconProps = Omit<
-  SelectProps,
-  'placeholderIcon' | 'options'
-> & {
-  placeholderIcon?: React.ComponentType<SVGProps<SVGSVGElement>>
-  options?: SelectWithColoredIconOption[]
-}
-
-export type SelectWithColoredIconOption = Omit<SelectOption, 'icon'> & {
-  icon?: React.ComponentType<SVGProps<SVGSVGElement>>
-}
-
-export const SelectWithColoredIcon = forwardRef(
-  (
-    { placeholderIcon, options, ...props }: SelectWithColoredIconProps,
-    ref?: ForwardedRef<HTMLInputElement>,
-  ) => {
-    const coloredPlaceholderIcon = placeholderIcon
-      ? {
-          icon: placeholderIcon,
-          isColored: true,
-        }
-      : undefined
-
-    const coloredOptions = options?.map((option) => ({
-      ...option,
-      icon: option.icon
-        ? {
-            icon: option.icon,
-            isColored: true,
+      <>
+        <SelectWrapperStyle
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
+          active={opened}
+          value={title}
+          rightDecorator={
+            <SelectArrow arrow={arrow} disabled={disabled} opened={opened} />
           }
-        : undefined,
-    }))
-
-    return (
-      <Select
-        {...props}
-        ref={ref}
-        placeholderIcon={coloredPlaceholderIcon}
-        options={coloredOptions}
-      />
+          wrapperRef={wrapperRef}
+          variant={variant}
+          {...rest}
+          ref={ref}
+          readOnly
+        />
+        <PopupMenu
+          open={opened}
+          variant={variant}
+          anchorRef={anchorRef}
+          style={{ minWidth: width }}
+          onClose={handleClose}
+        >
+          {options}
+        </PopupMenu>
+      </>
     )
   },
 )
-
-SelectWithColoredIcon.displayName = 'SelectWithColoredIcon'
+Select.displayName = 'Select'
