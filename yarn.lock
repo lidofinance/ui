@@ -4341,8 +4341,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lido-ui/shared@workspace:packages/shared"
   dependencies:
-    "@types/react": "npm:18.0.17"
-    "@types/react-dom": "npm:18.0.6"
+    "@types/react": "npm:18.2.24"
+    "@types/react-dom": "npm:18.2.9"
   peerDependencies:
     react: ^18
     react-dom: ^18
@@ -4377,8 +4377,8 @@ __metadata:
     "@svgr/plugin-svgo": "npm:5.5.0"
     "@testing-library/react": "npm:15.0.7"
     "@types/jest": "npm:29.5.14"
-    "@types/react": "npm:18.0.17"
-    "@types/react-dom": "npm:18.0.6"
+    "@types/react": "npm:18.2.24"
+    "@types/react-dom": "npm:18.2.9"
     "@types/react-transition-group": "npm:4.4.12"
     "@types/ua-parser-js": "npm:0.7.39"
     babel-plugin-react-inline-svg-unique-id: "npm:1.5.0"
@@ -9981,15 +9981,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.6":
-  version: 18.0.6
-  resolution: "@types/react-dom@npm:18.0.6"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 10c0/8ea6e001b741cced20781b3e5e8704c2597815adf1dc22d6b4d24616f24db93364a7163543cb0690082201a351cbfcb6bb0f8ce44ee5ad76ccabacbfe0fb2dd3
-  languageName: node
-  linkType: hard
-
 "@types/react-dom@npm:18.2.24":
   version: 18.2.24
   resolution: "@types/react-dom@npm:18.2.24"
@@ -10041,17 +10032,6 @@ __metadata:
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 10c0/4908772be6dc941df276931efeb0e781777fa76e4d5d12ff9f75eb2dcc2db3065e0100efde16fde562c5bafa310cc8f50c1ee40a22640459e066e72cd342143e
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.0.17":
-  version: 18.0.17
-  resolution: "@types/react@npm:18.0.17"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10c0/bd4900d1d8567c8b6c2ef6cbb1c83a28b725faf27dc82249958e5d09b15f82e3f28591a22ae5797bc6ee0292d2cf542061bf0faba076bd1ba61266803eb95710
   languageName: node
   linkType: hard
 
