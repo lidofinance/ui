@@ -1,6 +1,6 @@
 import { Decorator } from '@storybook/react'
-import { ThemeName } from '../../src/theme-css/constants.js'
-import { CookieThemeProvider } from '../../src/theme-css/cookie-theme-provider.js'
+import { ThemeName } from '../../src/theme/constants.js'
+import { CookieThemeProvider } from '../../src/theme/cookie-theme-provider.js'
 import { ThemeToggler } from '../../src/index.js'
 
 export const WithThemeProvider: Decorator<{
@@ -21,7 +21,7 @@ export const WithThemeProvider: Decorator<{
           justifyContent: 'flex-end',
           padding: '1em 1em 0 1em',
           boxSizing: 'border-box',
-          background: 'var(--lido-ui-color-text-inverted)',
+          background: 'var(--lido-ui-color-text-inverted, #fff)',
         }}
       >
         <ThemeToggler />
@@ -30,10 +30,10 @@ export const WithThemeProvider: Decorator<{
       <div
         style={{
           minHeight: '10vh',
-          color: 'var(--lido-ui-color-text-primary)',
+          color: 'var(--lido-ui-color-text-primary, #000)',
           padding: '1em',
           boxSizing: 'border-box',
-          background: 'var(--lido-ui-color-text-inverted)',
+          background: 'var(--lido-ui-color-text-inverted, #fff)',
         }}
       >
         <Story />

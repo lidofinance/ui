@@ -1,7 +1,6 @@
 import { WithThemeProvider } from './components/WithThemeProvider.js'
 
 import './styles/storybook.css'
-import '../src/styles/global.css'
 
 export default {
   tags: ['autodocs'],

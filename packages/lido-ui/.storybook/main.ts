@@ -23,24 +23,11 @@ export default {
     legacyDecoratorFileOrder: false,
   },
   webpackFinal: async (config: any) => {
-    // eslint-disable-next-line
-    // @ts-ignore
-    // eslint-disable-next-line
-    const path = require('path')
-    const packageRoot = process.cwd()
-
     const postcssOptions = {
       plugins: {
-        '@csstools/postcss-global-data': {
-          files: [path.join(packageRoot, 'src/styles/breakpoints.css')],
-        },
-        'postcss-mixins': {
-          mixinsDir: path.join(packageRoot, 'src/styles'),
-        },
         autoprefixer: {},
         'postcss-import': {},
         'postcss-nested': {},
-        'postcss-custom-media': { preserve: false },
       },
     }
 
@@ -81,25 +68,6 @@ export default {
         },
       }
     }
-
-    // Exclude styles/global.css from CSS Modules
-    cssRule.exclude = [...(cssRule.exclude || []), /src\/styles\/global\.css$/]
-
-    // Add a rule for global.css to be treated as global CSS
-    customConfig.module.rules.push({
-      test: /src\/styles\/global\.css$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: { modules: false },
-        },
-        {
-          loader: 'postcss-loader',
-          options: { postcssOptions },
-        },
-      ],
-    })
 
     cssRule.use.push({
       loader: 'postcss-loader',
