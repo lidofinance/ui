@@ -47,7 +47,7 @@
   "multi-release": {
     "tagFormat": "${name}@${version}",
     "sequentialInit": true,
-    "ignorePrivate": true,
+    "ignorePrivate": false,
     "deps": {
       "bump": "override",
       "release": "patch",
