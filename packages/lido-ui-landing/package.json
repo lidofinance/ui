@@ -83,6 +83,7 @@
     "@types/ua-parser-js": "0.7.39",
     "babel-plugin-react-inline-svg-unique-id": "1.5.0",
     "browserslist": "4.24.5",
+    "cakeinpanic-shared": "workspace:*",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "postcss-loader": "8.1.1",

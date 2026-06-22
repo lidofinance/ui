@@ -9509,6 +9509,7 @@ __metadata:
     "@types/ua-parser-js": "npm:0.7.39"
     babel-plugin-react-inline-svg-unique-id: "npm:1.5.0"
     browserslist: "npm:4.24.5"
+    cakeinpanic-shared: "workspace:*"
     classnames: "npm:2.5.1"
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"
@@ -9535,7 +9536,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"cakeinpanic-shared@workspace:packages/shared":
+"cakeinpanic-shared@workspace:*, cakeinpanic-shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "cakeinpanic-shared@workspace:packages/shared"
   dependencies:
@@ -9657,6 +9658,7 @@ __metadata:
     "@types/jest": "npm:29.5.14"
     "@types/react": "npm:18.2.24"
     "@types/react-dom": "npm:18.2.24"
+    cakeinpanic-shared: "workspace:*"
     classnames: "npm:2.5.1"
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"

@@ -1,8 +1,8 @@
 {
   "name": "cakeinpanic-shared",
-  "private": true,
   "version": "0.0.0",
   "release": {
+    "verifyConditions": [],
     "plugins": [
       [
         "@semantic-release/commit-analyzer",
@@ -10,10 +10,13 @@
           "preset": "conventionalcommits"
         }
       ],
-      "@semantic-release/release-notes-generator"
-    ],
-    "verifyConditions": [
-      "@semantic-release/github"
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ]
     ]
   },
   "type": "module",
