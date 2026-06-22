@@ -4483,7 +4483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/commit-analyzer@npm:^13.0.1":
+"@semantic-release/commit-analyzer@npm:13.0.1, @semantic-release/commit-analyzer@npm:^13.0.1":
   version: 13.0.1
   resolution: "@semantic-release/commit-analyzer@npm:13.0.1"
   dependencies:
@@ -4508,7 +4508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/github@npm:^12.0.0":
+"@semantic-release/github@npm:12.0.8, @semantic-release/github@npm:^12.0.0":
   version: 12.0.8
   resolution: "@semantic-release/github@npm:12.0.8"
   dependencies:
@@ -4535,7 +4535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:^13.1.1":
+"@semantic-release/npm@npm:13.1.5, @semantic-release/npm@npm:^13.1.1":
   version: 13.1.5
   resolution: "@semantic-release/npm@npm:13.1.5"
   dependencies:
@@ -4560,7 +4560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/release-notes-generator@npm:^14.1.0":
+"@semantic-release/release-notes-generator@npm:14.1.1, @semantic-release/release-notes-generator@npm:^14.1.0":
   version: 14.1.1
   resolution: "@semantic-release/release-notes-generator@npm:14.1.1"
   dependencies:
@@ -9532,6 +9532,18 @@ __metadata:
     "@inline-svg-unique-id/react": 1.2.3
     react: 16 || 17 || 18
     react-dom: 16 || 17 || 18
+  languageName: unknown
+  linkType: soft
+
+"cakeinpanic-shared@workspace:packages/shared":
+  version: 0.0.0-use.local
+  resolution: "cakeinpanic-shared@workspace:packages/shared"
+  dependencies:
+    "@types/react": "npm:18.2.24"
+    "@types/react-dom": "npm:18.2.9"
+  peerDependencies:
+    react: ^18
+    react-dom: ^18
   languageName: unknown
   linkType: soft
 
@@ -20599,6 +20611,10 @@ __metadata:
     "@commitlint/cli": "npm:19.8.0"
     "@commitlint/config-conventional": "npm:19.8.0"
     "@lidofinance/multi-semantic-release": "npm:^1.0.0"
+    "@semantic-release/commit-analyzer": "npm:13.0.1"
+    "@semantic-release/github": "npm:12.0.8"
+    "@semantic-release/npm": "npm:13.1.5"
+    "@semantic-release/release-notes-generator": "npm:14.1.1"
     "@storybook/react": "npm:8.6.12"
     "@storybook/react-webpack5": "npm:8.6.12"
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
@@ -20981,18 +20997,6 @@ __metadata:
   checksum: 10c0/b926efb51cd0f47aa9bc061add788a4a650550bbe50647962113a4579b60af2abe7b62f9b02314acc6f97151d4cf87033a2b15fc20852fae306d1a095215396c
   languageName: node
   linkType: hard
-
-"shared-24f89e@workspace:packages/shared":
-  version: 0.0.0-use.local
-  resolution: "shared-24f89e@workspace:packages/shared"
-  dependencies:
-    "@types/react": "npm:18.2.24"
-    "@types/react-dom": "npm:18.2.9"
-  peerDependencies:
-    react: ^18
-    react-dom: ^18
-  languageName: unknown
-  linkType: soft
 
 "shebang-command@npm:^2.0.0":
   version: 2.0.0
