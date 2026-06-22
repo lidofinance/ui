@@ -3,7 +3,7 @@ import { ContentTheme } from './'
 import { Block } from '../block'
 
 export default {
-  title: 'Theme/Content Theme',
+  title: 'Theme/Content Themef',
 } satisfies Meta
 
 export const Basic: StoryFn = () => (
