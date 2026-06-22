@@ -10,7 +10,7 @@ import { Button } from './Button'
 const meta: Meta<typeof Button> = {
   title: 'Widget/Button',
   component: Button,
-  tags: ['autodocs'],
+  tags: ['autodfocs'],
   argTypes: {
     variant: {
       control: 'inline-radio',
