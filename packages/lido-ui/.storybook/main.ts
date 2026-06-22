@@ -23,6 +23,11 @@ export default {
     legacyDecoratorFileOrder: false,
   },
   webpackFinal: async (config: any) => {
+    // eslint-disable-next-line
+    // @ts-ignore
+    // eslint-disable-next-line
+    const path = require('path')
+
     const postcssOptions = {
       plugins: {
         autoprefixer: {},
@@ -32,6 +37,16 @@ export default {
     }
 
     const customConfig = { ...config }
+
+    // Fix @storybook/react-dom-shim version conflict: storybook v7 preset aliases
+    // @storybook/react-dom-shim to ./dist/react-18 but yarn hoisted v8 to root
+    // which doesn't export that sub-path. Use absolute path to local v7 file instead.
+    if (customConfig.resolve?.alias?.['@storybook/react-dom-shim']) {
+      customConfig.resolve.alias['@storybook/react-dom-shim'] = path.resolve(
+        process.cwd(),
+        'node_modules/@storybook/react-dom-shim/dist/react-18.js',
+      )
+    }
 
     if (process.env.PUBLIC_PATH) {
       customConfig.output = {
