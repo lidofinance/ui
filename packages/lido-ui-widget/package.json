@@ -26,7 +26,7 @@
     "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json",
     "dev": "storybook dev -p 5557",
     "build-storybook": "storybook build --output-dir storybook-static",
-    "test": "node --experimental-vm-modules ../../node_modules/.bin/jest",
+    "test": "node --experimental-vm-modules ../../node_modules/.bin/jest --passWithNoTests",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "lint:css": "stylelint '**/*.css'",
