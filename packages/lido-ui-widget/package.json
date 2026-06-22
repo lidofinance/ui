@@ -55,7 +55,7 @@
     "@types/jest": "29.5.14",
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.24",
-    "cakeinpanic-shared": "workspace:*",
+    "cakeinpanic-shared": "*",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "react": "18.2.0",
