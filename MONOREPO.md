@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository is a **Yarn 4 workspace monorepo** with three independently published npm packages and one private shared package. Build orchestration via **Turborepo**, library builds via **Rollup**.
+This repository is a **Yarn 4 workspace monorepo** with three independently published npm packages and one internal shared package. Build orchestration via **Turborepo**, library builds via **Rollup**.
 
 ---
 
@@ -22,55 +22,92 @@ lido-ui/                              ← monorepo root (private)
 ├── yarn.lock
 │
 ├── .github/workflows/
-│   ├── publish.yml                   ← release to npm (main branch)
-│   ├── publish-canary.yml            ← release alpha (lido-ui-v4-canary branch)
+│   ├── publish.yml                   ← release to npm (monorepo branch)
 │   ├── deploy-storybook.yml          ← build & deploy all 3 Storybooks to gh-pages
-│   └── test.yml
+│   ├── test.yml                      ← CI: types, lint, tests, build
+│   ├── ci-preview-deploy.yml         ← deploy preview stand on PR
+│   └── ci-preview-demolish.yml       ← tear down preview stand on PR close
 │
 └── packages/
-    ├── lido-ui/                      → @lidofinance/lido-ui
-    ├── lido-ui-landing/              → @lidofinance/lido-ui-landing
-    ├── lido-ui-widget/               → @lidofinance/lido-ui-widget
-    └── shared/                       → cakeinpanic-shared  (private, not published)
+    ├── lido-ui/                      → cakeinpanic-ui (published)
+    ├── lido-ui-landing/              → cakeinpanic-landing (published)
+    ├── lido-ui-widget/               → cakeinpanic-widget (published)
+    └── shared/                       → cakeinpanic-shared (NOT published)
 ```
 
 ---
 
 ## Packages
 
-### `@lidofinance/lido-ui` — `packages/lido-ui/`
+### `cakeinpanic-ui` — `packages/lido-ui/`
 
-- **Source branch:** `main`
 - **Purpose:** General-purpose design system (buttons, inputs, typography, icons, hooks, etc.)
 - **Styling:** CSS Modules + PostCSS
 - **React peer:** `16 || 17 || 18`
 - **Storybook port:** `5555`
 - **Exports:** JS + `./index.css` + `./styles/*`
 
-### `@lidofinance/lido-ui-landing` — `packages/lido-ui-landing/`
+### `cakeinpanic-landing` — `packages/lido-ui-landing/`
 
-- **Source branch:** `lido-ui-v4-canary`
 - **Purpose:** Landing page UI components
 - **Styling:** CSS Modules + PostCSS (shared `postcss.config.js` at root)
 - **React peer:** `^18`
 - **Storybook port:** `5556`
 - **Exports:** JS + `./index.css` + `./styles/*`
+- **Internal dep:** `cakeinpanic-shared` (devDependency)
 
-### `@lidofinance/lido-ui-widget` — `packages/lido-ui-widget/`
+### `cakeinpanic-widget` — `packages/lido-ui-widget/`
 
-- **Source branch:** written from scratch
 - **Purpose:** Widget UI components
 - **React peer:** `^18`
-- **Internal dep:** `cakeinpanic-shared`
 - **Storybook port:** `5557`
 - **Exports:** JS
+- **Internal dep:** `cakeinpanic-shared` (devDependency)
 
 ### `cakeinpanic-shared` — `packages/shared/`
 
-- **Private:** `true` — not published to npm
+- **NOT published to npm** — controlled via `"npmPublish": false` in its release config
 - **Purpose:** Common hooks, utilities and types shared between `lido-ui-landing` and `lido-ui-widget`
-- **Exports:** source-level (`.ts` files directly) — no build step, resolved via `tsconfig.json` paths
+- **Exports:** source-level (`.ts` files directly) — no separate build step, resolved via `tsconfig.json` paths
 - `lido-ui` does **not** depend on shared
+
+#### Why shared is set up this way
+
+`cakeinpanic-shared` is **not marked `"private": true`** in its `package.json`, even though it's never published. This is intentional — `@lidofinance/multi-semantic-release`'s CLI hardcodes `--ignore-private=true` and cannot be overridden via config, so a private package is completely excluded from the release queue and cannot trigger version cascades in dependent packages.
+
+Instead, publishing is blocked via `"npmPublish": false` in the package's own release config:
+
+```json
+// packages/shared/package.json
+{
+  "release": {
+    "verifyConditions": [],
+    "plugins": [
+      ["@semantic-release/commit-analyzer", { "preset": "conventionalcommits" }],
+      "@semantic-release/release-notes-generator",
+      ["@semantic-release/npm", { "npmPublish": false }]
+    ]
+  }
+}
+```
+
+`verifyConditions: []` skips npm and GitHub auth checks for this package (it has a different git remote).
+
+#### Cascade mechanism
+
+`cakeinpanic-landing` and `cakeinpanic-widget` list `cakeinpanic-shared` in their **`devDependencies`** (not `dependencies`) with version `"*"`:
+
+```json
+"devDependencies": {
+  "cakeinpanic-shared": "*"
+}
+```
+
+- `devDependencies` is enough for `multi-semantic-release` to build the dependency graph and trigger a cascade
+- `devDependencies` is **not included** in the published `package.json`, so consumers never see `cakeinpanic-shared`
+- `"*"` (not `"workspace:*"`) is used because `npm version` (called internally during release) does not support the `workspace:` protocol
+
+Result: when `packages/shared` has a relevant commit, shared gets a version bump → landing and widget automatically get a patch release.
 
 ---
 
@@ -84,8 +121,6 @@ packages/<name>/
 ├── rollup.config.mjs          ← library build config
 ├── .babelrc.json              ← babel presets (env, typescript, react)
 ├── postcss.config.js          ← PostCSS config (paths to src/styles/)
-├── scripts/
-│   └── build.cjs              ← rm dist && rollup -c && tsc --project tsconfig.production.json
 ├── jest.config.cjs
 ├── .storybook/                ← package-local Storybook
 │   ├── main.ts
@@ -109,15 +144,13 @@ packages/<name>/
 
 ### Turborepo (`turbo.json`)
 
-Tasks defined at root, run across all packages:
-
-| Task | Command | Depends on | Cached |
-|------|---------|------------|--------|
-| `build` | `zx ./scripts/build.cjs` | — | ✅ |
-| `build-storybook` | `storybook build` | — | ✅ |
-| `test` | `jest` | `build` | ✅ |
-| `lint` | `eslint` | — | ✅ |
-| `types` | `tsc --noEmit` | — | ✅ |
+| Task | Command | Cached |
+|------|---------|--------|
+| `build` | `rm -rf dist && rollup -c && tsc --project tsconfig.production.json` | ✅ |
+| `build-storybook` | `storybook build` | ✅ |
+| `test` | `jest` | ✅ |
+| `lint` | `eslint` | ✅ |
+| `types` | `tsc --noEmit` | ✅ |
 
 ```bash
 yarn build              # build all packages in parallel
@@ -128,36 +161,19 @@ yarn storybook:landing  # dev storybook for lido-ui-landing
 yarn storybook:widget   # dev storybook for lido-ui-widget
 ```
 
-### Rollup (`rollup.config.mjs`)
+### Rollup
 
 Each published package uses **Rollup** with `preserveModules: true` — one output file per source file. Critical for tree-shaking.
 
-Build output per package:
-
+Build output:
 ```
 dist/
 ├── cjs/                   ← CJS output (preserveModules)
-│   ├── index.js
-│   └── <component>/
-│       └── Component.js
 ├── esm/                   ← ESM output (preserveModules)
-│   ├── index.mjs
-│   └── <component>/
-│       └── Component.mjs
 ├── types/                 ← Declaration files from tsc
-│   └── index.d.ts
-├── index.css              ← bundled CSS (all components)
+├── index.css              ← bundled CSS
 └── styles/
-    ├── global.css
-    └── typography-mixins.css
 ```
-
-Build script (`scripts/build.cjs`):
-1. `rm -rf ./dist`
-2. `rollup -c` — compiles TS via Babel, processes CSS Modules + PostCSS, extracts `dist/index.css`
-3. `tsc --project tsconfig.production.json` — emits declaration files to `dist/types/`
-
-PostCSS pipeline (postcss-nested, autoprefixer, postcss-mixins) is picked up automatically from `postcss.config.js`.
 
 ---
 
@@ -165,14 +181,15 @@ PostCSS pipeline (postcss-nested, autoprefixer, postcss-mixins) is picked up aut
 
 ### Tool: `@lidofinance/multi-semantic-release`
 
-Analyzes commits per-package. Only packages with relevant commits since their last release are published. If package B depends on package A and A releases a new version, B is automatically updated and released too.
+Analyzes commits per-package via Conventional Commits. Only packages with relevant commits since their last release are published. Cascade: if package A releases, any package that lists A in its deps automatically gets a patch release.
 
-### Release config (root `package.json`)
+### Root release config (`package.json`)
 
 ```json
 {
   "release": {
     "branches": [
+      "monorepo",
       "main",
       { "name": "lido-ui-v4-canary", "channel": "alpha", "prerelease": "alpha" }
     ],
@@ -181,71 +198,77 @@ Analyzes commits per-package. Only packages with relevant commits since their la
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
       "@semantic-release/github"
-    ]
+    ],
+    "verifyConditions": ["@semantic-release/github"]
   },
   "multi-release": {
-    "sequentialInit": true
+    "tagFormat": "${name}@${version}",
+    "sequentialInit": true,
+    "ignorePrivate": true,
+    "deps": {
+      "bump": "override",
+      "release": "patch",
+      "prefix": "^"
+    }
   }
 }
 ```
 
+`verifyConditions` is overridden to skip the npm auth check — npm credentials are only needed at publish time, not at the verify stage. This allows `yarn release --dry-run` to work without an npm token.
+
+### Dry run
+
+```bash
+yarn release --dry-run
+```
+
+Shows what versions would be released without publishing anything.
+
 ### GitHub Actions
 
-| Workflow | Trigger | Channel |
-|----------|---------|---------|
-| `publish.yml` | push to `main` | `latest` (production) |
-| `publish-canary.yml` | push to `lido-ui-v4-canary` | `alpha` |
+| Workflow | Trigger | What it does |
+|----------|---------|--------------|
+| `publish.yml` | push to `monorepo` | Runs `yarn release` — publishes all packages with new commits |
+| `deploy-storybook.yml` | push to `monorepo` | Builds all 3 Storybooks and deploys to GitHub Pages |
+| `test.yml` | push / PR | Types, lint JS, lint CSS, tests, build |
+| `ci-preview-deploy.yml` | PR opened/updated | Deploys preview stand |
+| `ci-preview-demolish.yml` | PR closed/drafted | Tears down preview stand |
 
-Both run `yarn multi-semantic-release`. No per-package workflows needed.
+All workflows have `concurrency` configured. `publish.yml` uses `cancel-in-progress: false` to never interrupt an in-flight release.
 
 ### Commit convention
 
-Uses Conventional Commits (`feat:`, `fix:`, `chore:` etc.). semantic-release maps:
-- `feat:` → minor bump
-- `fix:` → patch bump
-- `feat!:` / `BREAKING CHANGE:` → major bump
+| Commit prefix | Version bump |
+|---------------|-------------|
+| `fix:` | patch |
+| `feat:` | minor |
+| `feat!:` / `BREAKING CHANGE:` | major |
+| `chore:`, `docs:`, `style:` | no release |
 
 ---
 
 ## Storybook Deployment
 
-All three Storybooks deploy to GitHub Pages in parallel:
-
 ```
-https://lidofinance.github.io/lido-ui/lido-ui/
-https://lidofinance.github.io/lido-ui/lido-ui-landing/
-https://lidofinance.github.io/lido-ui/lido-ui-widget/
+https://<org>.github.io/lido-ui/lido-ui/
+https://<org>.github.io/lido-ui/lido-ui-landing/
+https://<org>.github.io/lido-ui/lido-ui-widget/
 ```
 
-Workflow (`deploy-storybook.yml`):
-1. `yarn turbo run build-storybook` — builds all 3 in parallel
-2. Assembles outputs into `gh-pages/<name>/`
-3. Deploys via `peaceiris/actions-gh-pages`
-
-Each package's `webpackFinal` reads `process.env.PUBLIC_PATH` to set the correct asset base URL for the subdirectory.
+Workflow builds all 3 in parallel via `yarn turbo run build-storybook`, assembles into `gh-pages/<name>/`, deploys via `peaceiris/actions-gh-pages`.
 
 ---
 
 ## Development Workflow
 
 ```bash
-# Install deps (first time or after package.json changes)
-yarn install
-
-# Dev: start a specific storybook
-yarn storybook:landing
-
-# Build all packages
-yarn build
-
-# Run all tests
-yarn test
-
-# Lint everything
-yarn lint
-
-# Type check everything
-yarn types
+yarn install            # install deps
+yarn storybook:landing  # dev storybook for landing
+yarn build              # build all packages
+yarn test               # run all tests
+yarn lint               # lint everything
+yarn types              # type check everything
+yarn release --dry-run  # preview what would be released
 ```
 
 ### Adding a new shared component
@@ -254,12 +277,12 @@ yarn types
 2. Export from `packages/shared/src/index.ts`
 3. Import in `lido-ui-landing` or `lido-ui-widget` as `cakeinpanic-shared`
 
-### Adding a new package
+### Adding a new publishable package
 
 1. Create `packages/<name>/` with `package.json`, `tsconfig.json`, `rollup.config.mjs`, `tsconfig.production.json`
-2. Add to `workspaces` in root `package.json` (already covered by `packages/*` glob)
+2. Root `workspaces: ["packages/*"]` picks it up automatically
 3. Run `yarn install`
-4. Add Storybook port to root scripts if needed
+4. Add Storybook script to root `package.json` if needed
 
 ---
 
@@ -270,7 +293,7 @@ yarn types
 | Yarn 4 | Package manager + workspaces |
 | Turborepo | Task orchestration, caching |
 | Rollup (preserveModules) | Library build — per-file output, tree-shakeable |
-| Babel | TS/TSX transpilation, SVG id uniqueness |
+| Babel | TS/TSX transpilation |
 | TypeScript 5.x | Typing |
 | PostCSS | CSS transforms (nested, mixins, autoprefixer) |
 | CSS Modules | Component-scoped styles |
@@ -278,6 +301,6 @@ yarn types
 | Jest + ts-jest | Unit tests |
 | ESLint + Stylelint | Linting |
 | Husky + lint-staged | Pre-commit hooks |
-| @lidofinance/multi-semantic-release | Independent per-package releases |
+| @lidofinance/multi-semantic-release | Independent per-package releases with cascade |
 | Conventional Commits | Commit format for automatic versioning |
 | GitHub Actions | CI/CD |
