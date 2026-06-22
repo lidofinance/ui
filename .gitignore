@@ -12,7 +12,7 @@ gh-pages
 .yarn
 .turbo
 **/.turbo
-
+.env
 # Generated type declarations
 **/.storybook/**/*.d.ts
 **/.storybook/**/*.d.ts.map
