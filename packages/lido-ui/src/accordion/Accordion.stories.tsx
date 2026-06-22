@@ -3,7 +3,7 @@ import { Accordion, AccordionProps } from './index.js'
 
 export default {
   component: Accordion,
-  title: 'Layout/Accordion',
+  title: 'Layout/Accofrdion',
 } as Meta
 
 export const Basic: StoryFn<AccordionProps> = (props: AccordionProps) => (
