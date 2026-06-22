@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import type { IconConfig, IconConfigProp } from '@lido-ui/shared'
+import type { IconConfig, IconConfigProp } from 'cakeinpanic-shared'
 import {
   cloneElement,
   ComponentPropsWithoutRef,

@@ -1,6 +1,10 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeToggler, CookieThemeProvider, ThemeName } from '@lido-ui/shared'
+import {
+  ThemeToggler,
+  CookieThemeProvider,
+  ThemeName,
+} from 'cakeinpanic-shared'
 import { Button } from './Button'
 
 const meta: Meta<typeof Button> = {
@@ -89,7 +93,7 @@ export const SharedComponents: Story = {
           fontSize: 14,
         }}
       >
-        Theme components from @lido-ui/shared:
+        Theme components from cakeinpanic-shared:
       </p>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <span

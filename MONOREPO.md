@@ -31,7 +31,7 @@ lido-ui/                              ← monorepo root (private)
     ├── lido-ui/                      → @lidofinance/lido-ui
     ├── lido-ui-landing/              → @lidofinance/lido-ui-landing
     ├── lido-ui-widget/               → @lidofinance/lido-ui-widget
-    └── shared/                       → @lido-ui/shared  (private, not published)
+    └── shared/                       → cakeinpanic-shared  (private, not published)
 ```
 
 ---
@@ -61,11 +61,11 @@ lido-ui/                              ← monorepo root (private)
 - **Source branch:** written from scratch
 - **Purpose:** Widget UI components
 - **React peer:** `^18`
-- **Internal dep:** `@lido-ui/shared`
+- **Internal dep:** `cakeinpanic-shared`
 - **Storybook port:** `5557`
 - **Exports:** JS
 
-### `@lido-ui/shared` — `packages/shared/`
+### `cakeinpanic-shared` — `packages/shared/`
 
 - **Private:** `true` — not published to npm
 - **Purpose:** Common hooks, utilities and types shared between `lido-ui-landing` and `lido-ui-widget`
@@ -252,7 +252,7 @@ yarn types
 
 1. Create component in `packages/shared/src/`
 2. Export from `packages/shared/src/index.ts`
-3. Import in `lido-ui-landing` or `lido-ui-widget` as `@lido-ui/shared`
+3. Import in `lido-ui-landing` or `lido-ui-widget` as `cakeinpanic-shared`
 
 ### Adding a new package
 

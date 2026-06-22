@@ -5,8 +5,8 @@
     "paths": {
       "react": ["../../node_modules/@types/react"],
       "packages/*": ["./src/*"],
-      "@lido-ui/shared": ["../shared/src"],
-      "@lido-ui/shared/*": ["../shared/src/*"]
+      "cakeinpanic-shared": ["../shared/src"],
+      "cakeinpanic-shared/*": ["../shared/src/*"]
     },
     "outDir": "./dist/types"
   },

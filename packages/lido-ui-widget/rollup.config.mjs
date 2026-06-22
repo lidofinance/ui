@@ -13,7 +13,7 @@ const { dependencies = {}, peerDependencies = {} } = JSON.parse(
 const external = [
   'react/jsx-runtime',
   ...Object.keys({ ...dependencies, ...peerDependencies }).filter(
-    (dep) => dep !== '@lido-ui/shared',
+    (dep) => dep !== 'cakeinpanic-shared',
   ),
 ]
 

@@ -1,5 +1,9 @@
 import { Decorator } from '@storybook/react'
-import { ThemeName, CookieThemeProvider, ThemeToggler } from '@lido-ui/shared'
+import {
+  ThemeName,
+  CookieThemeProvider,
+  ThemeToggler,
+} from 'cakeinpanic-shared'
 
 export const WithThemeProvider: Decorator<{
   themeOverride?: ThemeName | 'follow cookie and system'

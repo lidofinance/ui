@@ -1,7 +1,11 @@
 {
-  "name": "@lido-ui/shared",
   "version": "0.0.0",
-  "private": true,
+  "release": {
+    "plugins": [
+      ["@semantic-release/commit-analyzer", { "preset": "conventionalcommits" }],
+      "@semantic-release/release-notes-generator"
+    ]
+  },
   "type": "module",
   "types": "dist/types/index.d.ts",
   "exports": {
