@@ -163,7 +163,7 @@ PostCSS pipeline (postcss-nested, autoprefixer, postcss-mixins) is picked up aut
 
 ## Releases
 
-### Tool: `@qiwi/multi-semantic-release`
+### Tool: `@lidofinance/multi-semantic-release`
 
 Analyzes commits per-package. Only packages with relevant commits since their last release are published. If package B depends on package A and A releases a new version, B is automatically updated and released too.
 
@@ -278,6 +278,6 @@ yarn types
 | Jest + ts-jest | Unit tests |
 | ESLint + Stylelint | Linting |
 | Husky + lint-staged | Pre-commit hooks |
-| @qiwi/multi-semantic-release | Independent per-package releases |
+| @lidofinance/multi-semantic-release | Independent per-package releases |
 | Conventional Commits | Commit format for automatic versioning |
 | GitHub Actions | CI/CD |

@@ -108,7 +108,7 @@ yarn build
 
 ## Publishing
 
-Packages are automatically published to npm when you push to master. The publication is based on [semantic-release](https://github.com/semantic-release/semantic-release) and [@qiwi/multi-semantic-release](https://github.com/qiwi/multi-semantic-release).
+Packages are automatically published to npm when you push to master. The publication is based on [semantic-release](https://github.com/semantic-release/semantic-release) and [@lidofinance/multi-semantic-release](https://github.com/lidofinance/multi-semantic-release).
 
 For correct version detection, please follow the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/).
 
