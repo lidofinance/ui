@@ -6381,7 +6381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/github@npm:*, @semantic-release/github@npm:^12.0.0":
+"@semantic-release/github@npm:^12.0.0":
   version: 12.0.8
   resolution: "@semantic-release/github@npm:12.0.8"
   dependencies:
@@ -25198,7 +25198,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:19.8.0"
     "@lidofinance/multi-semantic-release": "npm:^1.0.0"
     "@semantic-release/commit-analyzer": "npm:9.0.2"
-    "@semantic-release/github": "npm:*"
+    "@semantic-release/github": "npm:^8.0.0"
     "@semantic-release/npm": "npm:^11.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
     "@storybook/react": "npm:8.6.12"
