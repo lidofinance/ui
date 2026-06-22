@@ -18,3 +18,5 @@ export * from './tabs'
 export * from './typography'
 export * from './select'
 export * from './accordion'
+
+export * from '@lido-ui/shared'
