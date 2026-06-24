@@ -1,5 +1,5 @@
 import { cloneElement, ReactElement } from 'react'
-import type { IconConfig, IconConfigProp } from 'cakeinpanic-shared'
+import type { IconConfig, IconConfigProp } from '@lidofinance/lido-shared'
 import styles from '../Input.module.css'
 import cn from 'classnames'
 

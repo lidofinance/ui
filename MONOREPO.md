@@ -29,17 +29,17 @@ lido-ui/                              ← monorepo root (private)
 │   └── ci-preview-demolish.yml       ← tear down preview stand on PR close
 │
 └── packages/
-    ├── lido-ui/                      → cakeinpanic-ui (published)
-    ├── lido-ui-landing/              → cakeinpanic-landing (published)
-    ├── lido-ui-widget/               → cakeinpanic-widget (published)
-    └── shared/                       → cakeinpanic-shared (NOT published)
+    ├── lido-ui/                      → @lidofinance/lido-ui (published)
+    ├── lido-ui-landing/              → @lidofinance/lido-landing (published)
+    ├── lido-ui-widget/               → @lidofinance/lido-widget (published)
+    └── shared/                       → @lidofinance/lido-shared (NOT published)
 ```
 
 ---
 
 ## Packages
 
-### `cakeinpanic-ui` — `packages/lido-ui/`
+### `@lidofinance/lido-ui` — `packages/lido-ui/`
 
 - **Purpose:** General-purpose design system (buttons, inputs, typography, icons, hooks, etc.)
 - **Styling:** CSS Modules + PostCSS
@@ -47,24 +47,24 @@ lido-ui/                              ← monorepo root (private)
 - **Storybook port:** `5555`
 - **Exports:** JS + `./index.css` + `./styles/*`
 
-### `cakeinpanic-landing` — `packages/lido-ui-landing/`
+### `@lidofinance/lido-landing` — `packages/lido-ui-landing/`
 
 - **Purpose:** Landing page UI components
 - **Styling:** CSS Modules + PostCSS (shared `postcss.config.js` at root)
 - **React peer:** `^18`
 - **Storybook port:** `5556`
 - **Exports:** JS + `./index.css` + `./styles/*`
-- **Internal dep:** `cakeinpanic-shared` (devDependency)
+- **Internal dep:** `@lidofinance/lido-shared` (devDependency)
 
-### `cakeinpanic-widget` — `packages/lido-ui-widget/`
+### `@lidofinance/lido-widget` — `packages/lido-ui-widget/`
 
 - **Purpose:** Widget UI components
 - **React peer:** `^18`
 - **Storybook port:** `5557`
 - **Exports:** JS
-- **Internal dep:** `cakeinpanic-shared` (devDependency)
+- **Internal dep:** `@lidofinance/lido-shared` (devDependency)
 
-### `cakeinpanic-shared` — `packages/shared/`
+### `@lidofinance/lido-shared` — `packages/shared/`
 
 - **NOT published to npm** — controlled via `"npmPublish": false` in its release config
 - **Purpose:** Common hooks, utilities and types shared between `lido-ui-landing` and `lido-ui-widget`
@@ -73,7 +73,7 @@ lido-ui/                              ← monorepo root (private)
 
 #### Why shared is set up this way
 
-`cakeinpanic-shared` is **not marked `"private": true`** in its `package.json`, even though it's never published. This is intentional — `@lidofinance/multi-semantic-release`'s CLI hardcodes `--ignore-private=true` and cannot be overridden via config, so a private package is completely excluded from the release queue and cannot trigger version cascades in dependent packages.
+`@lidofinance/lido-shared` is **not marked `"private": true`** in its `package.json`, even though it's never published. This is intentional — `@lidofinance/multi-semantic-release`'s CLI hardcodes `--ignore-private=true` and cannot be overridden via config, so a private package is completely excluded from the release queue and cannot trigger version cascades in dependent packages.
 
 Instead, publishing is blocked via `"npmPublish": false` in the package's own release config:
 
@@ -95,16 +95,16 @@ Instead, publishing is blocked via `"npmPublish": false` in the package's own re
 
 #### Cascade mechanism
 
-`cakeinpanic-landing` and `cakeinpanic-widget` list `cakeinpanic-shared` in their **`devDependencies`** (not `dependencies`) with version `"*"`:
+`@lidofinance/lido-landing` and `@lidofinance/lido-widget` list `@lidofinance/lido-shared` in their **`devDependencies`** (not `dependencies`) with version `"*"`:
 
 ```json
 "devDependencies": {
-  "cakeinpanic-shared": "*"
+  "@lidofinance/lido-shared": "*"
 }
 ```
 
 - `devDependencies` is enough for `multi-semantic-release` to build the dependency graph and trigger a cascade
-- `devDependencies` is **not included** in the published `package.json`, so consumers never see `cakeinpanic-shared`
+- `devDependencies` is **not included** in the published `package.json`, so consumers never see `@lidofinance/lido-shared`
 - `"*"` (not `"workspace:*"`) is used because `npm version` (called internally during release) does not support the `workspace:` protocol
 
 Result: when `packages/shared` has a relevant commit, shared gets a version bump → landing and widget automatically get a patch release.
@@ -275,7 +275,7 @@ yarn release --dry-run  # preview what would be released
 
 1. Create component in `packages/shared/src/`
 2. Export from `packages/shared/src/index.ts`
-3. Import in `lido-ui-landing` or `lido-ui-widget` as `cakeinpanic-shared`
+3. Import in `lido-ui-landing` or `lido-ui-widget` as `@lidofinance/lido-shared`
 
 ### Adding a new publishable package
 

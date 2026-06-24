@@ -24,7 +24,7 @@ import {
   RightDecoratorType,
 } from './utils/rightDecoratorUtils'
 import { getIconElement, getIsColored } from './utils/leftDecoratorUtils'
-import type { IconConfigProp } from 'cakeinpanic-shared'
+import type { IconConfigProp } from '@lidofinance/lido-shared'
 
 export type InputDataTestId = {
   root?: string

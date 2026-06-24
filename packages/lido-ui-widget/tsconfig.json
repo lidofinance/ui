@@ -5,8 +5,8 @@
     "typeRoots": ["../../node_modules/@types"],
     "paths": {
       "react": ["../../node_modules/@types/react"],
-      "cakeinpanic-shared": ["../shared/src"],
-      "cakeinpanic-shared/*": ["../shared/src/*"]
+      "@lidofinance/lido-shared": ["../shared/src"],
+      "@lidofinance/lido-shared/*": ["../shared/src/*"]
     },
     "outDir": "./dist/types"
   },

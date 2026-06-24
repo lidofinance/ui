@@ -1,10 +1,10 @@
 {
-  "name": "cakeinpanic-landing",
+  "name": "@lidofinance/lido-landing",
   "version": "0.1.0",
   "homepage": "https://github.com/lidofinance/ui",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cakeinpanic/monorepo-test.git"
+    "url": "git+https://github.com/lidofinance/ui.git"
   },
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
@@ -83,7 +83,7 @@
     "@types/ua-parser-js": "0.7.39",
     "babel-plugin-react-inline-svg-unique-id": "1.5.0",
     "browserslist": "4.24.5",
-    "cakeinpanic-shared": "*",
+    "@lidofinance/lido-shared": "*",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "postcss-loader": "8.1.1",

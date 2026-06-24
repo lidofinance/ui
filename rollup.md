@@ -1,46 +1,46 @@
-# Почему rollup, а не tsdown
+# Why rollup and not tsdown
 
-## Краткий ответ
+## Short answer
 
-У нас CSS-модули и непубликуемый `cakeinpanic-shared` — tsdown не умеет нормально работать с обоими.
+We have CSS modules and a non-published `@lidofinance/lido-shared` — tsdown can't handle both properly.
 
-## Подробно
+## Details
 
-### 1. CSS-модули — главная причина
+### 1. CSS modules — the main reason
 
-`rollup-plugin-postcss` обрабатывает CSS-модули прямо в дереве сборки:
-- запускает весь PostCSS-пайплайн (mixins, nested, autoprefixer)
-- скопирует имена классов
-- извлекает всё в `dist/index.css` за один проход
+`rollup-plugin-postcss` processes CSS modules directly in the build tree:
+- runs the full PostCSS pipeline (mixins, nested, autoprefixer)
+- scopes class names
+- extracts everything into `dist/index.css` in a single pass
 
-tsdown не имеет полноценной поддержки PostCSS-модулей. В режиме `unbundle: true` CSS-классы перестают скопиться. Пришлось добавить отдельный скрипт `bundle-css.mjs`, который просто конкатенирует CSS-файлы по алфавиту — без postcss-обработки, без гарантии порядка.
+tsdown has no proper support for PostCSS modules. With `unbundle: true`, CSS class scoping stops working. We had to add a separate `bundle-css.mjs` script that simply concatenates CSS files alphabetically — no postcss processing, no guaranteed order.
 
-### 2. `cakeinpanic-shared` не публикуется
+### 2. `@lidofinance/lido-shared` is not published
 
-`shared` — внутренний пакет, существует только в монорепо, в npm не выходит. `lido-ui-landing` и `lido-ui-widget` должны инлайнить его содержимое в свой `dist`.
+`shared` is an internal package that only exists in the monorepo and is not published to npm. `lido-ui-landing` and `lido-ui-widget` must inline its contents into their `dist`.
 
-В tsdown для этого нужен `noExternal: ['cakeinpanic-shared']`, но это работает только для JS-части. CSS-файлы из shared при этом не обрабатываются postcss и теряют скопированные классы.
+tsdown requires `noExternal: ['@lidofinance/lido-shared']` for this, but it only works for the JS part. CSS files from shared are not processed by postcss and lose their scoped class names.
 
-Rollup с исключением shared из `external` инлайнит его честно: JS обрабатывается babel, CSS — postcss-plugin. Всё в одном проходе, никаких костылей.
+Rollup, with shared excluded from `external`, inlines it properly: JS is processed by babel, CSS by the postcss plugin. Everything in one pass, no workarounds.
 
-### 3. Babel-трансформы для SVG
+### 3. Babel transforms for SVG
 
-У нас `babel-plugin-react-inline-svg-unique-id` — делает id в SVG уникальными при монтировании нескольких копий иконки. tsdown использует esbuild/oxc, Babel-плагины там не запускаются. Иконки с одинаковыми id ломаются в Safari.
+We use `babel-plugin-react-inline-svg-unique-id` — it makes SVG ids unique when multiple copies of an icon are mounted. tsdown uses esbuild/oxc, Babel plugins don't run there. Icons with duplicate ids break in Safari.
 
 ### 4. `preserveModules`
 
-Rollup с `preserveModules: true` выдаёт один файл на каждый исходный — это нужно для tree-shaking. У tsdown есть `unbundle: true`, но он не работает вместе с нашими CSS-модулями (см. п. 1).
+Rollup with `preserveModules: true` outputs one file per source file — required for tree-shaking. tsdown has `unbundle: true`, but it doesn't work with our CSS modules (see point 1).
 
-### 5. Генерация типов
+### 5. Type generation
 
-tsdown генерирует `.d.mts`/`.d.cts` через собственный механизм, который не справляется с реэкспортами из shared. Rollup использует `tsc --project tsconfig.production.json` — стандартный компилятор, полная совместимость с IDE.
+tsdown generates `.d.mts`/`.d.cts` via its own mechanism, which doesn't handle re-exports from shared correctly. Rollup uses `tsc --project tsconfig.production.json` — the standard compiler, full IDE compatibility.
 
-## Когда tsdown подходит
+## When tsdown is a good fit
 
-[reef-knot](https://github.com/lidofinance/reef-knot) использует tsdown с `unbundle: true` — и у них всё работает. Причина: там **styled-components**, никаких CSS-файлов вообще, и нет непубликуемых internal-пакетов с CSS. Стили генерируются в рантайме — PostCSS-пайплайн не нужен.
+[reef-knot](https://github.com/lidofinance/reef-knot) uses tsdown with `unbundle: true` and it works fine. The reason: they use **styled-components**, no CSS files at all, and no non-published internal packages with CSS. Styles are generated at runtime — no PostCSS pipeline needed.
 
-У нас CSS-модули + shared без npm — tsdown для этого не подходит.
+We have CSS modules + shared without npm — tsdown is not a fit for that.
 
-## Итог
+## Summary
 
-tsdown хорош для TS-утилит и CSS-in-JS библиотек без статических стилей. Для React-библиотеки с CSS-модулями, Babel-трансформами и непубликуемым internal-пакетом — rollup.
+tsdown is great for TS utilities and CSS-in-JS libraries without static styles. For a React library with CSS modules, Babel transforms, and a non-published internal package — rollup.

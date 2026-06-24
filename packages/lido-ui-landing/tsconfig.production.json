@@ -8,8 +8,8 @@
     "paths": {
       "react": ["../../node_modules/@types/react"],
       "packages/*": ["./src/*"],
-      "cakeinpanic-shared": ["../shared/dist/types"],
-      "cakeinpanic-shared/*": ["../shared/dist/types/*"]
+      "@lidofinance/lido-shared": ["../shared/dist/types"],
+      "@lidofinance/lido-shared/*": ["../shared/dist/types/*"]
     }
   },
   "include": ["global.d.ts", "src/**/*.ts", "src/**/*.tsx"],

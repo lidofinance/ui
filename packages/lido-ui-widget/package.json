@@ -1,10 +1,10 @@
 {
-  "name": "cakeinpanic-widget",
+  "name": "@lidofinance/lido-widget",
   "version": "0.1.0",
   "homepage": "https://github.com/lidofinance/ui",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cakeinpanic/monorepo-test.git"
+    "url": "git+https://github.com/lidofinance/ui.git"
   },
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
@@ -55,7 +55,7 @@
     "@types/jest": "29.5.14",
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.24",
-    "cakeinpanic-shared": "*",
+    "@lidofinance/lido-shared": "*",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "react": "18.2.0",

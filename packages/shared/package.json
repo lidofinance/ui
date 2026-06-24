@@ -1,5 +1,5 @@
 {
-  "name": "cakeinpanic-shared",
+  "name": "@lidofinance/lido-shared",
   "version": "0.0.0",
   "release": {
     "verifyConditions": [],
