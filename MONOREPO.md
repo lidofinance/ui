@@ -30,9 +30,9 @@ lido-ui/                              ← monorepo root (private)
 │
 └── packages/
     ├── lido-ui/                      → @lidofinance/lido-ui (published)
-    ├── lido-ui-landing/              → @lidofinance/lido-landing (published)
-    ├── lido-ui-widget/               → @lidofinance/lido-widget (published)
-    └── shared/                       → @lidofinance/lido-shared (NOT published)
+    ├── lido-landing/                 → @lidofinance/lido-landing (published)
+    ├── lido-widget/                  → @lidofinance/lido-widget (published)
+    └── lido-shared/                  → @lidofinance/lido-shared (NOT published)
 ```
 
 ---
@@ -42,12 +42,12 @@ lido-ui/                              ← monorepo root (private)
 ### `@lidofinance/lido-ui` — `packages/lido-ui/`
 
 - **Purpose:** General-purpose design system (buttons, inputs, typography, icons, hooks, etc.)
-- **Styling:** CSS Modules + PostCSS
+- **Styling:** styled-components
 - **React peer:** `16 || 17 || 18`
 - **Storybook port:** `5555`
 - **Exports:** JS + `./index.css` + `./styles/*`
 
-### `@lidofinance/lido-landing` — `packages/lido-ui-landing/`
+### `@lidofinance/lido-landing` — `packages/lido-landing/`
 
 - **Purpose:** Landing page UI components
 - **Styling:** CSS Modules + PostCSS (shared `postcss.config.js` at root)
@@ -56,18 +56,19 @@ lido-ui/                              ← monorepo root (private)
 - **Exports:** JS + `./index.css` + `./styles/*`
 - **Internal dep:** `@lidofinance/lido-shared` (devDependency)
 
-### `@lidofinance/lido-widget` — `packages/lido-ui-widget/`
+### `@lidofinance/lido-widget` — `packages/lido-widget/`
 
 - **Purpose:** Widget UI components
+- **Styling:** CSS Modules + PostCSS (shared `postcss.config.js` at root)
 - **React peer:** `^18`
 - **Storybook port:** `5557`
-- **Exports:** JS
+- **Exports:** JS + `./index.css`
 - **Internal dep:** `@lidofinance/lido-shared` (devDependency)
 
-### `@lidofinance/lido-shared` — `packages/shared/`
+### `@lidofinance/lido-shared` — `packages/lido-shared/`
 
 - **NOT published to npm** — controlled via `"npmPublish": false` in its release config
-- **Purpose:** Common hooks, utilities and types shared between `lido-ui-landing` and `lido-ui-widget`
+- **Purpose:** Common hooks, utilities and types shared between `lido-landing` and `lido-widget`
 - **Exports:** source-level (`.ts` files directly) — no separate build step, resolved via `tsconfig.json` paths
 - `lido-ui` does **not** depend on shared
 
@@ -78,7 +79,7 @@ lido-ui/                              ← monorepo root (private)
 Instead, publishing is blocked via `"npmPublish": false` in the package's own release config:
 
 ```json
-// packages/shared/package.json
+// packages/lido-shared/package.json
 {
   "release": {
     "verifyConditions": [],
@@ -107,7 +108,7 @@ Instead, publishing is blocked via `"npmPublish": false` in the package's own re
 - `devDependencies` is **not included** in the published `package.json`, so consumers never see `@lidofinance/lido-shared`
 - `"*"` (not `"workspace:*"`) is used because `npm version` (called internally during release) does not support the `workspace:` protocol
 
-Result: when `packages/shared` has a relevant commit, shared gets a version bump → landing and widget automatically get a patch release.
+Result: when `packages/lido-shared` has a relevant commit, shared gets a version bump → landing and widget automatically get a patch release.
 
 ---
 
@@ -157,8 +158,8 @@ yarn build              # build all packages in parallel
 yarn test               # test all
 yarn lint               # lint all
 yarn storybook:ui       # dev storybook for lido-ui
-yarn storybook:landing  # dev storybook for lido-ui-landing
-yarn storybook:widget   # dev storybook for lido-ui-widget
+yarn storybook:landing  # dev storybook for lido-landing
+yarn storybook:widget   # dev storybook for lido-widget
 ```
 
 ### Rollup
@@ -251,8 +252,8 @@ All workflows have `concurrency` configured. `publish.yml` uses `cancel-in-progr
 
 ```
 https://<org>.github.io/lido-ui/lido-ui/
-https://<org>.github.io/lido-ui/lido-ui-landing/
-https://<org>.github.io/lido-ui/lido-ui-widget/
+https://<org>.github.io/lido-ui/lido-landing/
+https://<org>.github.io/lido-ui/lido-widget/
 ```
 
 Workflow builds all 3 in parallel via `yarn turbo run build-storybook`, assembles into `gh-pages/<name>/`, deploys via `peaceiris/actions-gh-pages`.
@@ -273,9 +274,9 @@ yarn release --dry-run  # preview what would be released
 
 ### Adding a new shared component
 
-1. Create component in `packages/shared/src/`
-2. Export from `packages/shared/src/index.ts`
-3. Import in `lido-ui-landing` or `lido-ui-widget` as `@lidofinance/lido-shared`
+1. Create component in `packages/lido-shared/src/`
+2. Export from `packages/lido-shared/src/index.ts`
+3. Import in `lido-landing` or `lido-widget` as `@lidofinance/lido-shared`
 
 ### Adding a new publishable package
 

@@ -14,8 +14,8 @@
     "types": "turbo run types",
     "build-storybook": "turbo run build-storybook",
     "storybook:ui": "yarn workspace @lidofinance/lido-ui dev",
-    "storybook:landing": "yarn workspace @lidofinance/lido-ui-landing dev",
-    "storybook:widget": "yarn workspace @lidofinance/lido-ui-widget dev",
+    "storybook:landing": "yarn workspace @lidofinance/lido-landing dev",
+    "storybook:widget": "yarn workspace @lidofinance/lido-widget dev",
     "release": "multi-semantic-release",
     "prepare": "husky"
   },

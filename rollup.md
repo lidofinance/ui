@@ -17,7 +17,7 @@ tsdown has no proper support for PostCSS modules. With `unbundle: true`, CSS cla
 
 ### 2. `@lidofinance/lido-shared` is not published
 
-`shared` is an internal package that only exists in the monorepo and is not published to npm. `lido-ui-landing` and `lido-ui-widget` must inline its contents into their `dist`.
+`lido-shared` is an internal package that only exists in the monorepo and is not published to npm. `lido-landing` and `lido-widget` must inline its contents into their `dist`.
 
 tsdown requires `noExternal: ['@lidofinance/lido-shared']` for this, but it only works for the JS part. CSS files from shared are not processed by postcss and lose their scoped class names.
 
