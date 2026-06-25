@@ -1,8 +1,18 @@
 {
   "name": "cakeinpanic-shared",
   "version": "0.0.0",
+  "homepage": "https://github.com/lidofinance/ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cakeinpanic/monorepo-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lidofinance/ui/issues"
+  },
   "release": {
-    "verifyConditions": [],
+    "verifyConditions": [
+      "@semantic-release/github"
+    ],
     "plugins": [
       [
         "@semantic-release/commit-analyzer",
@@ -11,24 +21,26 @@
         }
       ],
       "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/npm",
-        {
-          "npmPublish": false
-        }
-      ]
+      "@semantic-release/npm",
+      "@semantic-release/github"
     ]
   },
   "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "default": "./src/index.ts",
-      "types": "./dist/types/index.d.ts"
-    }
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js"
+    },
+    "./index.css": "./dist/index.css"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "rm -rf dist && tsc --project tsconfig.production.json",
+    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json",
     "lint": "eslint src",
     "types": "tsc --noEmit"
   },
@@ -37,7 +49,20 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@babel/preset-env": "7.26.9",
+    "@babel/preset-react": "7.26.3",
+    "@babel/preset-typescript": "7.27.0",
+    "@rollup/plugin-babel": "6.0.4",
+    "@rollup/plugin-commonjs": "28.0.3",
+    "@rollup/plugin-node-resolve": "16.0.1",
     "@types/react": "18.2.24",
-    "@types/react-dom": "18.2.9"
+    "@types/react-dom": "18.2.9",
+    "rollup": "3.29.5",
+    "rollup-plugin-postcss": "4.0.2",
+    "tslib": "2.3.1"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
   }
 }

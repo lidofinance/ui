@@ -1,4 +1,3 @@
-import fs from 'node:fs'
 import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import autoprefixer from 'autoprefixer'
@@ -9,17 +8,7 @@ import commonjs from '@rollup/plugin-commonjs'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
-const { dependencies = {}, peerDependencies = {} } = JSON.parse(
-  fs.readFileSync('package.json', 'utf-8'),
-)
-
-const external = [
-  'react/jsx-runtime',
-  '@inline-svg-unique-id/react',
-  ...Object.keys({ ...dependencies, ...peerDependencies }).filter(
-    (dep) => dep !== 'cakeinpanic-shared',
-  ),
-]
+const external = ['react/jsx-runtime', '@inline-svg-unique-id/react']
 
 export default [
   {

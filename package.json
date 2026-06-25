@@ -37,10 +37,6 @@
         }
       ],
       "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ],
-    "verifyConditions": [
       "@semantic-release/github"
     ]
   },
