@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { ThemeProvider, themeDefault } from '../theme/index.js'
-import 'jest-styled-components'
+import 'vitest-styled-components'
 
 import { Button } from './Button.js'
 

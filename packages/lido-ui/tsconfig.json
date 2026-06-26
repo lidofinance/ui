@@ -27,7 +27,8 @@
       "react": ["../../node_modules/@types/react"],
       "packages/*": ["./src/*"]
     },
-    "outDir": "./dist/types"
+    "outDir": "./dist/types",
+    "types": ["vitest/globals"]
   },
   "include": [
     "**/*.d.ts",

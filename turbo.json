@@ -8,6 +8,7 @@
       "inputs": ["src/**", "packages/**", "styles/**", "rollup.config.mjs", "tsconfig.json", "tsconfig.production.json", ".babelrc.json"]
     },
     "build-storybook": {
+      "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"],
       "inputs": ["src/**", "packages/**", ".storybook/**"]
     },

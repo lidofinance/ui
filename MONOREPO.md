@@ -119,7 +119,7 @@ packages/<name>/
 ├── rollup.config.mjs          ← library build config
 ├── .babelrc.json              ← babel presets (env, typescript, react)
 ├── postcss.config.js          ← PostCSS config (paths to src/styles/)
-├── jest.config.cjs
+├── vitest.config.ts
 ├── .storybook/                ← package-local Storybook
 │   ├── main.ts
 │   ├── preview.ts
@@ -146,7 +146,7 @@ packages/<name>/
 |------|---------|--------|
 | `build` | `rm -rf dist && rollup -c && tsc --project tsconfig.production.json` | ✅ |
 | `build-storybook` | `storybook build` | ✅ |
-| `test` | `jest` | ✅ |
+| `test` | `vitest run` | ✅ |
 | `lint` | `eslint` | ✅ |
 | `types` | `tsc --noEmit` | ✅ |
 
@@ -296,7 +296,7 @@ yarn release --dry-run  # preview what would be released
 | PostCSS                             | CSS transforms (nested, mixins, autoprefixer) |
 | CSS Modules                         | Component-scoped styles |
 | Storybook 8 (webpack5)              | Component development |
-| Jest + ts-jest                      | Unit tests |
+| Vitest (jsdom, globals)             | Unit tests |
 | ESLint + Stylelint                  | Linting |
 | .git-hooks + lint-staged            | Pre-commit hooks |
 | @lidofinance/multi-semantic-release | Independent per-package releases with cascade |

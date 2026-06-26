@@ -8,7 +8,8 @@
       "cakeinpanic-shared": ["../shared/src"],
       "cakeinpanic-shared/*": ["../shared/src/*"]
     },
-    "outDir": "./dist/types"
+    "outDir": "./dist/types",
+    "types": ["vitest/globals"]
   },
   "include": [
     "**/*.d.ts",

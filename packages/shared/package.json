@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json",
+    "test": "vitest run",
     "lint": "eslint src",
     "types": "tsc --noEmit"
   },
@@ -41,9 +42,11 @@
     "@rollup/plugin-node-resolve": "16.0.1",
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.9",
+    "jsdom": "^25.0.0",
     "rollup": "3.29.5",
     "rollup-plugin-postcss": "4.0.2",
-    "tslib": "2.3.1"
+    "tslib": "2.3.1",
+    "vitest": "^3.0.0"
   },
   "publishConfig": {
     "provenance": true,
