@@ -29,17 +29,17 @@ lido-ui/                              ← monorepo root (private)
 │   └── ci-preview-demolish.yml       ← tear down preview stand on PR close
 │
 └── packages/
-    ├── lido-ui/                      → cakeinpanic-ui (published)
-    ├── lido-ui-landing/              → cakeinpanic-landing (published)
-    ├── lido-ui-widget/               → cakeinpanic-widget (published)
-    └── shared/                       → cakeinpanic-shared (published)
+    ├── lido-ui/                      → @lidofinance/ui (published)
+    ├── lido-ui-landing/              → @lidofinance/landing (published)
+    ├── lido-ui-widget/               → @lidofinance/widget (published)
+    └── shared/                       → @lidofinance/shared (published)
 ```
 
 ---
 
 ## Packages
 
-### `cakeinpanic-ui` — `packages/lido-ui/`
+### `@lidofinance/ui` — `packages/lido-ui/`
 
 - **Purpose:** General-purpose design system (buttons, inputs, typography, icons, hooks, etc.)
 - **Styling:** CSS Modules + PostCSS
@@ -47,26 +47,26 @@ lido-ui/                              ← monorepo root (private)
 - **Storybook port:** `5555`
 - **Exports:** JS + `./index.css` + `./styles/*`
 
-### `cakeinpanic-landing` — `packages/lido-ui-landing/`
+### `@lidofinance/landing` — `packages/lido-landing/`
 
 - **Purpose:** Landing page UI components
 - **Styling:** CSS Modules + PostCSS (shared `postcss.config.js` at root)
 - **React peer:** `^18`
 - **Storybook port:** `5556`
 - **Exports:** JS + `./index.css` + `./styles/*`
-- **Internal dep:** `cakeinpanic-shared` (dependency)
+- **Internal dep:** `@lidofinance/shared` (dependency)
 
-### `cakeinpanic-widget` — `packages/lido-ui-widget/`
+### `@lidofinance/widget` — `packages/lido-widget/`
 
 - **Purpose:** Widget UI components
 - **React peer:** `^18`
 - **Storybook port:** `5557`
 - **Exports:** JS
-- **Internal dep:** `cakeinpanic-shared` (dependency)
+- **Internal dep:** `@lidofinance/shared` (dependency)
 
-### `cakeinpanic-shared` — `packages/shared/`
+### `@lidofinance/shared` — `packages/shared/`
 
-- **Purpose:** Common hooks, utilities and types shared between `lido-ui-landing` and `lido-ui-widget`
+- **Purpose:** Common hooks, utilities and types shared between `lido-landing` and `lido-widget`
 - **React peer:** `^18`
 - **Exports:** built output (`dist/`) — same Rollup + tsc build as other packages
 - `lido-ui` does **not** depend on shared
@@ -94,16 +94,16 @@ lido-ui/                              ← monorepo root (private)
 
 #### Cascade mechanism
 
-`cakeinpanic-landing` and `cakeinpanic-widget` list `cakeinpanic-shared` in their **`dependencies`** with version `"*"`:
+`@lidofinance/landing` and `@lidofinance/widget` list `@lidofinance/shared` in their **`dependencies`** with version `"*"`:
 
 ```json
 "dependencies": {
-  "cakeinpanic-shared": "*"
+  "@lidofinance/shared": "*"
 }
 ```
 
 - `"*"` (not `"workspace:*"`) is used because `npm version` (called internally during release) does not support the `workspace:` protocol
-- `dependencies` means consumers of landing/widget also receive `cakeinpanic-shared` as a transitive dependency
+- `dependencies` means consumers of landing/widget also receive `@lidofinance/shared` as a transitive dependency
 
 Result: when `packages/shared` has a relevant commit, shared gets a version bump → landing and widget automatically get a patch release.
 
@@ -155,8 +155,8 @@ yarn build              # build all packages in parallel
 yarn test               # test all
 yarn lint               # lint all
 yarn storybook:ui       # dev storybook for lido-ui
-yarn storybook:landing  # dev storybook for lido-ui-landing
-yarn storybook:widget   # dev storybook for lido-ui-widget
+yarn storybook:landing  # dev storybook for lido-landing
+yarn storybook:widget   # dev storybook for lido-widget
 ```
 
 ### Rollup
@@ -273,7 +273,7 @@ yarn release --dry-run  # preview what would be released
 
 1. Create component in `packages/shared/src/`
 2. Export from `packages/shared/src/index.ts`
-3. Import in `lido-ui-landing` or `lido-ui-widget` as `cakeinpanic-shared`
+3. Import in `lido-ui-landing` or `lido-ui-widget` as `@lidofinance/shared`
 
 ### Adding a new publishable package
 
