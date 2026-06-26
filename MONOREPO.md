@@ -204,7 +204,7 @@ Analyzes commits per-package via Conventional Commits. Only packages with releva
     "sequentialInit": true,
     "ignorePrivate": true,
     "deps": {
-      "bump": "override",
+      "bump": "satisfy",
       "release": "patch",
       "prefix": "^"
     }
@@ -228,7 +228,7 @@ Shows what versions would be released without publishing anything.
 |----------|---------|--------------|
 | `publish.yml` | push to `monorepo` | Runs `yarn release` — publishes all packages with new commits |
 | `deploy-storybook.yml` | push to `monorepo` | Builds all 3 Storybooks and deploys to GitHub Pages |
-| `test.yml` | push / PR | Types, lint JS, lint CSS, tests, build |
+| `test.yml` | push / PR | Parallel jobs: security scan, docker lint, actions lint, JS/TS lint, unit tests, build |
 | `ci-preview-deploy.yml` | PR opened/updated | Deploys preview stand |
 | `ci-preview-demolish.yml` | PR closed/drafted | Tears down preview stand |
 
