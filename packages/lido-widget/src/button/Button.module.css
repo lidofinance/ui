@@ -36,12 +36,14 @@
   line-height: 18px;
   min-height: 34px;
 }
+
 .md {
   padding: 10px 20px;
   font-size: 14px;
   line-height: 20px;
   min-height: 42px;
 }
+
 .lg {
   padding: 14px 28px;
   font-size: 16px;
@@ -54,7 +56,8 @@
   background: linear-gradient(135deg, #00a3ff 0%, #0047ff 100%);
   color: #fff;
 }
-.filled.primary:hover:not(:disabled):not(.loading) {
+
+.filled.primary:hover:not(:disabled, .loading) {
   background: linear-gradient(135deg, #33b5ff 0%, #2260ff 100%);
 }
 
@@ -62,7 +65,8 @@
   background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
   color: #e2e8f0;
 }
-.filled.secondary:hover:not(:disabled):not(.loading) {
+
+.filled.secondary:hover:not(:disabled, .loading) {
   background: linear-gradient(135deg, #3d4f65 0%, #2a3244 100%);
 }
 
@@ -70,28 +74,33 @@
   background: linear-gradient(135deg, #f6a623 0%, #e07b00 100%);
   color: #fff;
 }
-.filled.warning:hover:not(:disabled):not(.loading) {
+
+.filled.warning:hover:not(:disabled, .loading) {
   background: linear-gradient(135deg, #f8b84a 0%, #f09010 100%);
 }
 
 /* outlined */
 .outlined {
   background: transparent;
-  border: 1.5px solid currentColor;
+  border: 1.5px solid currentcolor;
 }
+
 .outlined.primary {
   color: #0047ff;
   border-color: #0047ff;
 }
-.outlined.primary:hover:not(:disabled):not(.loading) {
-  background: rgba(0, 71, 255, 0.07);
+
+.outlined.primary:hover:not(:disabled, .loading) {
+  background: rgb(0 71 255 / 7%);
 }
+
 .outlined.secondary {
   color: #718096;
   border-color: #718096;
 }
-.outlined.secondary:hover:not(:disabled):not(.loading) {
-  background: rgba(113, 128, 150, 0.07);
+
+.outlined.secondary:hover:not(:disabled, .loading) {
+  background: rgb(113 128 150 / 7%);
 }
 
 /* ghost */
@@ -99,17 +108,21 @@
   background: transparent;
   border: none;
 }
+
 .ghost.primary {
   color: #0047ff;
 }
-.ghost.primary:hover:not(:disabled):not(.loading) {
-  background: rgba(0, 71, 255, 0.07);
+
+.ghost.primary:hover:not(:disabled, .loading) {
+  background: rgb(0 71 255 / 7%);
 }
+
 .ghost.secondary {
   color: #718096;
 }
-.ghost.secondary:hover:not(:disabled):not(.loading) {
-  background: rgba(113, 128, 150, 0.07);
+
+.ghost.secondary:hover:not(:disabled, .loading) {
+  background: rgb(113 128 150 / 7%);
 }
 
 /* fullwidth */
@@ -121,7 +134,7 @@
 .loader {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgb(255 255 255 / 30%);
   border-top-color: #fff;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
