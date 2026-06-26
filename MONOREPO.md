@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository is a **Yarn 4 workspace monorepo** with three independently published npm packages and one internal shared package. Build orchestration via **Turborepo**, library builds via **Rollup**.
+This repository is a **Yarn 4 workspace monorepo** with four independently published npm packages. Build orchestration via **Turborepo**, library builds via **Rollup**.
 
 ---
 
@@ -32,7 +32,7 @@ lido-ui/                              ← monorepo root (private)
     ├── lido-ui/                      → cakeinpanic-ui (published)
     ├── lido-ui-landing/              → cakeinpanic-landing (published)
     ├── lido-ui-widget/               → cakeinpanic-widget (published)
-    └── shared/                       → cakeinpanic-shared (NOT published)
+    └── shared/                       → cakeinpanic-shared (published)
 ```
 
 ---
@@ -54,7 +54,7 @@ lido-ui/                              ← monorepo root (private)
 - **React peer:** `^18`
 - **Storybook port:** `5556`
 - **Exports:** JS + `./index.css` + `./styles/*`
-- **Internal dep:** `cakeinpanic-shared` (devDependency)
+- **Internal dep:** `cakeinpanic-shared` (dependency)
 
 ### `cakeinpanic-widget` — `packages/lido-ui-widget/`
 
@@ -62,50 +62,48 @@ lido-ui/                              ← monorepo root (private)
 - **React peer:** `^18`
 - **Storybook port:** `5557`
 - **Exports:** JS
-- **Internal dep:** `cakeinpanic-shared` (devDependency)
+- **Internal dep:** `cakeinpanic-shared` (dependency)
 
 ### `cakeinpanic-shared` — `packages/shared/`
 
-- **NOT published to npm** — controlled via `"npmPublish": false` in its release config
 - **Purpose:** Common hooks, utilities and types shared between `lido-ui-landing` and `lido-ui-widget`
-- **Exports:** source-level (`.ts` files directly) — no separate build step, resolved via `tsconfig.json` paths
+- **React peer:** `^18`
+- **Exports:** built output (`dist/`) — same Rollup + tsc build as other packages
 - `lido-ui` does **not** depend on shared
 
-#### Why shared is set up this way
-
-`cakeinpanic-shared` is **not marked `"private": true`** in its `package.json`, even though it's never published. This is intentional — `@lidofinance/multi-semantic-release`'s CLI hardcodes `--ignore-private=true` and cannot be overridden via config, so a private package is completely excluded from the release queue and cannot trigger version cascades in dependent packages.
-
-Instead, publishing is blocked via `"npmPublish": false` in the package's own release config:
+#### Release config
 
 ```json
 // packages/shared/package.json
 {
   "release": {
-    "verifyConditions": [],
+    "verifyConditions": ["@semantic-release/github"],
     "plugins": [
       ["@semantic-release/commit-analyzer", { "preset": "conventionalcommits" }],
       "@semantic-release/release-notes-generator",
-      ["@semantic-release/npm", { "npmPublish": false }]
+      "@semantic-release/npm",
+      "@semantic-release/github"
     ]
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
   }
 }
 ```
 
-`verifyConditions: []` skips npm and GitHub auth checks for this package (it has a different git remote).
-
 #### Cascade mechanism
 
-`cakeinpanic-landing` and `cakeinpanic-widget` list `cakeinpanic-shared` in their **`devDependencies`** (not `dependencies`) with version `"*"`:
+`cakeinpanic-landing` and `cakeinpanic-widget` list `cakeinpanic-shared` in their **`dependencies`** with version `"*"`:
 
 ```json
-"devDependencies": {
+"dependencies": {
   "cakeinpanic-shared": "*"
 }
 ```
 
-- `devDependencies` is enough for `multi-semantic-release` to build the dependency graph and trigger a cascade
-- `devDependencies` is **not included** in the published `package.json`, so consumers never see `cakeinpanic-shared`
 - `"*"` (not `"workspace:*"`) is used because `npm version` (called internally during release) does not support the `workspace:` protocol
+- `dependencies` means consumers of landing/widget also receive `cakeinpanic-shared` as a transitive dependency
 
 Result: when `packages/shared` has a relevant commit, shared gets a version bump → landing and widget automatically get a patch release.
 
@@ -288,19 +286,19 @@ yarn release --dry-run  # preview what would be released
 
 ## Tech Stack
 
-| Tool | Role |
-|------|------|
-| Yarn 4 | Package manager + workspaces |
-| Turborepo | Task orchestration, caching |
-| Rollup (preserveModules) | Library build — per-file output, tree-shakeable |
-| Babel | TS/TSX transpilation |
-| TypeScript 5.x | Typing |
-| PostCSS | CSS transforms (nested, mixins, autoprefixer) |
-| CSS Modules | Component-scoped styles |
-| Storybook 8 (webpack5) | Component development |
-| Jest + ts-jest | Unit tests |
-| ESLint + Stylelint | Linting |
-| Husky + lint-staged | Pre-commit hooks |
+| Tool                                | Role |
+|-------------------------------------|------|
+| Yarn 4                              | Package manager + workspaces |
+| Turborepo                           | Task orchestration, caching |
+| Rollup (preserveModules)            | Library build — per-file output, tree-shakeable |
+| Babel                               | TS/TSX transpilation |
+| TypeScript 5.x                      | Typing |
+| PostCSS                             | CSS transforms (nested, mixins, autoprefixer) |
+| CSS Modules                         | Component-scoped styles |
+| Storybook 8 (webpack5)              | Component development |
+| Jest + ts-jest                      | Unit tests |
+| ESLint + Stylelint                  | Linting |
+| .git-hooks + lint-staged            | Pre-commit hooks |
 | @lidofinance/multi-semantic-release | Independent per-package releases with cascade |
-| Conventional Commits | Commit format for automatic versioning |
-| GitHub Actions | CI/CD |
+| Conventional Commits                | Commit format for automatic versioning |
+| GitHub Actions                      | CI/CD |

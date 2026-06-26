@@ -14337,15 +14337,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:9.1.7":
-  version: 9.1.7
-  resolution: "husky@npm:9.1.7"
-  bin:
-    husky: bin.js
-  checksum: 10c0/35bb110a71086c48906aa7cd3ed4913fb913823715359d65e32e0b964cb1e255593b0ae8014a5005c66a68e6fa66c38dcfa8056dbbdfb8b0187c0ffe7ee3a58f
-  languageName: node
-  linkType: hard
-
 "husky@npm:^7.0.1":
   version: 7.0.4
   resolution: "husky@npm:7.0.4"
@@ -20642,7 +20633,6 @@ __metadata:
     eslint-plugin-react: "npm:7.33.1"
     eslint-plugin-react-hooks: "npm:5.2.0"
     eslint-plugin-storybook: "npm:0.12.0"
-    husky: "npm:9.1.7"
     lint-staged: "npm:15.5.1"
     postcss: "npm:8.5.3"
     postcss-custom-media: "npm:11.0.5"

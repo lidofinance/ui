@@ -17,7 +17,7 @@
     "storybook:landing": "yarn workspace @lidofinance/lido-ui-landing dev",
     "storybook:widget": "yarn workspace @lidofinance/lido-ui-widget dev",
     "release": "multi-semantic-release",
-    "prepare": "husky"
+    "prepare": "git config core.hooksPath .git-hooks || echo 'Not in a git repo'"
   },
   "release": {
     "branches": [
@@ -79,7 +79,6 @@
     "eslint-plugin-react": "7.33.1",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-storybook": "0.12.0",
-    "husky": "9.1.7",
     "lint-staged": "15.5.1",
     "postcss": "8.5.3",
     "postcss-custom-media": "11.0.5",

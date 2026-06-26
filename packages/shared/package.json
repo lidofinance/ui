@@ -9,22 +9,6 @@
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
   },
-  "release": {
-    "verifyConditions": [
-      "@semantic-release/github"
-    ],
-    "plugins": [
-      [
-        "@semantic-release/commit-analyzer",
-        {
-          "preset": "conventionalcommits"
-        }
-      ],
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ]
-  },
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
