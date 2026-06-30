@@ -22,7 +22,9 @@ lido-ui/                              ← monorepo root (private)
 ├── yarn.lock
 │
 ├── .github/workflows/
-│   ├── publish.yml                   ← release to npm (monorepo branch)
+│   ├── _dry-run.yml                  ← reusable: build + yarn release --dry-run (no publish)
+│   ├── publish-production.yml        ← dry-run → release to npm (monorepo / main)
+│   ├── publish-alpha.yml             ← dry-run → release to npm alpha (lido-ui-v4-canary)
 │   ├── deploy-storybook.yml          ← build & deploy all 3 Storybooks to gh-pages
 │   ├── test.yml                      ← CI: types, lint, tests, build
 │   ├── ci-preview-deploy.yml         ← deploy preview stand on PR
@@ -226,13 +228,17 @@ Shows what versions would be released without publishing anything.
 
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
-| `publish.yml` | push to `monorepo` | Runs `yarn release` — publishes all packages with new commits |
+| `_dry-run.yml` | `workflow_call` / PR to `monorepo` or `main` | Reusable: build + `yarn release --dry-run`. Requires `NPM_TOKEN` + `contents: write` — semantic-release runs full `verifyConditions` even in dry-run. No actual publish. |
+| `publish-production.yml` | push to `monorepo` or `main` | dry-run → `yarn release` behind `environment: production` gate |
+| `publish-alpha.yml` | push to `lido-ui-v4-canary` | dry-run → `yarn release` (alpha channel, no env gate) |
 | `deploy-storybook.yml` | push to `monorepo` | Builds all 3 Storybooks and deploys to GitHub Pages |
 | `test.yml` | push / PR | Parallel jobs: security scan, docker lint, actions lint, JS/TS lint, unit tests, build |
 | `ci-preview-deploy.yml` | PR opened/updated | Deploys preview stand |
 | `ci-preview-demolish.yml` | PR closed/drafted | Tears down preview stand |
 
-All workflows have `concurrency` configured. `publish.yml` uses `cancel-in-progress: false` to never interrupt an in-flight release.
+All workflows have `concurrency` configured. Both publish workflows use `cancel-in-progress: false` to never interrupt an in-flight release. `_dry-run.yml` uses `cancel-in-progress: true` — a newer PR supersedes the old one.
+
+The dry-run is gated before the publish job in both publish workflows (`needs: dry-run`), so a failed dry-run blocks the actual release.
 
 ### Commit convention
 
