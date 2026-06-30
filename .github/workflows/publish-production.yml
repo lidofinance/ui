@@ -1,28 +1,35 @@
-name: Publish
+name: Publish Production
 
 on:
   push:
     branches:
       - monorepo
+      - main
   workflow_dispatch:
 
-permissions:
-  contents: write
-  id-token: write
-
 concurrency:
-  group: publish
+  group: publish-production
   cancel-in-progress: false
 
 jobs:
-  release:
+  dry-run:
+    uses: ./.github/workflows/_dry-run.yml
+    permissions:
+      contents: read
+    secrets: inherit
+
+  publish:
+    needs: dry-run
     runs-on: ubuntu-latest
     environment: production
+    permissions:
+      contents: write
+      id-token: write
     env:
       NODE_OPTIONS: --max_old_space_size=4096
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -30,7 +37,7 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .nvmrc
           cache: yarn
