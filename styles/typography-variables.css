@@ -31,6 +31,8 @@
   --lido-ui-line-height-body-static: 28px;
   --lido-ui-font-size-description: 14px;
   --lido-ui-line-height-description: 20px;
+  --lido-ui-font-size-description-static: 14px;
+  --lido-ui-line-height-description-static: 20px;
   --lido-ui-font-weight-bold: 600;
   --lido-ui-font-weight-medium: 500;
   --lido-ui-font-weight-regular: 400;
@@ -67,7 +69,7 @@
   }
 }
 
-@media (--lido-ui-breakpoint-md-down) {
+@media (--lido-ui-breakpoint-ml-down) {
   :root {
     /* Mobile */
     --lido-ui-font-size-h1: 50px;
