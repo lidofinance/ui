@@ -5,6 +5,7 @@ import {
   forwardRef,
   MouseEvent,
   MouseEventHandler,
+  ReactNode,
   RefObject,
 } from 'react'
 import { Button } from '../../button'
@@ -23,6 +24,7 @@ export type BannerProps = {
   className?: string
   href: string
   title: string
+  icon?: ReactNode
   dataTestId?: BannerDataTestId
   onClose?: MouseEventHandler
   onLinkClick?: MouseEventHandler
@@ -35,6 +37,7 @@ export const Banner = forwardRef(
       className,
       href,
       title,
+      icon,
       onClose,
       dataTestId,
       onLinkClick,
@@ -64,7 +67,10 @@ export const Banner = forwardRef(
           href={href}
           className={styles.mainButton}
         >
-          <div className={styles.buttonContent}>{title}</div>
+          <div className={styles.buttonContent}>
+            {icon && <span className={styles.icon}>{icon}</span>}
+            {title}
+          </div>
         </DynamicLink>
         <Button
           size={'s'}

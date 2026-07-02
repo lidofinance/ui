@@ -79,6 +79,7 @@ import { Airswap } from './Airswap'
 import { Alchemix } from './Alchemix'
 import { Aldrin } from './Aldrin'
 import { Amphor } from './Amphor'
+import { Anchorage } from './Anchorage'
 import { Angle } from './Angle'
 import { Appwine } from './Appwine'
 import { Apricot } from './Apricot'
@@ -340,6 +341,7 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Alchemix,
   Aldrin,
   Amphor,
+  Anchorage,
   Angle,
   Appwine,
   Apricot,
