@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { TooltipIcon } from './TooltipIcon'
+import { TooltipPosition } from '../tooltip'
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
@@ -41,52 +42,62 @@ type Story = StoryObj<typeof meta>
 export const Basic: Story = {}
 
 export const AllStates = () => {
-  return (
-    <div style={{ display: 'flex', gap: '32px' }}>
-      <div
-        style={{
-          flex: 1,
-          border: '1px solid #eaeaea',
-          padding: '16px 16px 16px 60px',
-        }}
-      >
-        <h2>TooltipIcon</h2>
+  const shortContent =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
-        <div style={{ marginBottom: '32px' }}>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
-          >
-            <div style={{ padding: '16px' }}>
-              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-                <TooltipIcon position='top' width={352} content={content} />
-                <TooltipIcon position='right' width={352} content={content} />
-                <TooltipIcon position='bottom' width={352} content={content} />
-                <TooltipIcon position='left' content={content} />
-                <TooltipIcon
-                  position='top-left'
-                  width={352}
-                  content={content}
-                />
-                <TooltipIcon
-                  position='top-right'
-                  width={352}
-                  content={content}
-                />
-                <TooltipIcon
-                  position='bottom-left'
-                  width={352}
-                  content={content}
-                />
-                <TooltipIcon
-                  position='bottom-right'
-                  width={352}
-                  content={content}
-                />
-              </div>
-            </div>
+  // Icons are arranged in a 3x3 circle so every tooltip opens outwards
+  // into empty space and never covers another icon.
+  const positions: Array<TooltipPosition | null> = [
+    'top-left',
+    'top',
+    'top-right',
+    'left',
+    null,
+    'right',
+    'bottom-left',
+    'bottom',
+    'bottom-right',
+  ]
+
+  const gridStyle: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 140px)',
+    rowGap: '140px',
+    columnGap: '160px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '160px 80px',
+  }
+
+  const cellStyle: React.CSSProperties = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '8px',
+  }
+
+  const labelStyle: React.CSSProperties = {
+    fontSize: '14px',
+    color: 'var(--lido-ui-color-text-secondary)',
+    whiteSpace: 'nowrap',
+  }
+
+  return (
+    <div style={gridStyle}>
+      {positions.map((position, index) =>
+        position ? (
+          <div key={position} style={cellStyle}>
+            <span style={labelStyle}>{position}</span>
+            <TooltipIcon
+              position={position}
+              width={352}
+              content={shortContent}
+            />
           </div>
-        </div>
-      </div>
+        ) : (
+          <div key={`center-${index}`} />
+        ),
+      )}
     </div>
   )
 }

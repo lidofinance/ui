@@ -56,7 +56,7 @@ export const AllStates: StoryFn<DynamicLinkProps> = (props) => (
       <DynamicLink {...props} />
     </p>
     <p>
-      <DynamicLink {...props} href='https://lido.fi' isExternal>
+      <DynamicLink {...props} href='https://example.com' isExternal>
         External link
       </DynamicLink>
     </p>

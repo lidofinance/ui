@@ -60,7 +60,7 @@ export const AllStates: Story = () => {
           <div style={subGroupStyle}>
             <h5 style={subGroupTitleStyle}>With Label</h5>
             <div style={checkboxGroupStyle}>
-              <Checkbox variant='primary' checked>
+              <Checkbox variant='primary' checked readOnly>
                 Checkbox Label
               </Checkbox>
               <Checkbox variant='primary'>Checkbox Label</Checkbox>
@@ -69,7 +69,7 @@ export const AllStates: Story = () => {
           <div style={{ ...subGroupStyle, marginBottom: 0 }}>
             <h5 style={subGroupTitleStyle}>Without Label</h5>
             <div style={checkboxGroupStyle}>
-              <Checkbox variant='primary' checked />
+              <Checkbox variant='primary' checked readOnly />
               <Checkbox variant='primary' />
             </div>
           </div>
@@ -101,7 +101,7 @@ export const AllStates: Story = () => {
           <div style={subGroupStyle}>
             <h5 style={subGroupTitleStyle}>With Label</h5>
             <div style={checkboxGroupStyle}>
-              <Checkbox variant='secondary' checked>
+              <Checkbox variant='secondary' checked readOnly>
                 Checkbox Label
               </Checkbox>
               <Checkbox variant='secondary'>Checkbox Label</Checkbox>
@@ -110,7 +110,7 @@ export const AllStates: Story = () => {
           <div style={{ ...subGroupStyle, marginBottom: 0 }}>
             <h5 style={subGroupTitleStyle}>Without Label</h5>
             <div style={checkboxGroupStyle}>
-              <Checkbox variant='secondary' checked />
+              <Checkbox variant='secondary' checked readOnly />
               <Checkbox variant='secondary' />
             </div>
           </div>

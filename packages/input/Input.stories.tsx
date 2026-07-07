@@ -1573,7 +1573,7 @@ export const AllStates = () => {
                 </div>
               </div>
             </StorybookGroup>
-            <StorybookGroup title='Label+Button+Colored Icon'>
+            <StorybookGroup title='Placeholder+Button+Colored Icon'>
               <div style={variantStyle}>
                 <div style={columnStyle}>
                   <Input
@@ -1622,7 +1622,7 @@ export const AllStates = () => {
                 </div>
               </div>
             </StorybookGroup>
-            <StorybookGroup title='Label+Button+Mono Icon'>
+            <StorybookGroup title='Placeholder+Button+Mono Icon'>
               <div style={variantStyle}>
                 <div style={columnStyle}>
                   <Input
@@ -1671,7 +1671,7 @@ export const AllStates = () => {
                 </div>
               </div>
             </StorybookGroup>
-            <StorybookGroup title='Label+Colored Icon+Description'>
+            <StorybookGroup title='Placeholder+Colored Icon+Description'>
               <div style={variantStyle}>
                 <div style={columnStyle}>
                   <Input
