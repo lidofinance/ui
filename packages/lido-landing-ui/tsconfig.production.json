@@ -8,8 +8,8 @@
     "paths": {
       "react": ["../../node_modules/@types/react"],
       "packages/*": ["./src/*"],
-      "@lidofinance/lido-shared-ui": ["../shared/dist/types"],
-      "@lidofinance/lido-shared-ui/*": ["../shared/dist/types/*"]
+      "@lidofinance/lido-shared-ui": ["../lido-shared-ui/dist/types"],
+      "@lidofinance/lido-shared-ui/*": ["../lido-shared-ui/dist/types/*"]
     }
   },
   "include": ["global.d.ts", "src/**/*.ts", "src/**/*.tsx"],

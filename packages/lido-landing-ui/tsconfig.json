@@ -5,8 +5,8 @@
     "paths": {
       "react": ["../../node_modules/@types/react"],
       "packages/*": ["./src/*"],
-      "@lidofinance/lido-shared-ui": ["../shared/src"],
-      "@lidofinance/lido-shared-ui/*": ["../shared/src/*"]
+      "@lidofinance/lido-shared-ui": ["../lido-shared-ui/src"],
+      "@lidofinance/lido-shared-ui/*": ["../lido-shared-ui/src/*"]
     },
     "outDir": "./dist/types",
     "types": ["vitest/globals"]

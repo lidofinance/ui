@@ -2820,9 +2820,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lidofinance/lido-app-ui@workspace:packages/lido-widget":
+"@lidofinance/lido-app-ui@workspace:packages/lido-app-ui":
   version: 0.0.0-use.local
-  resolution: "@lidofinance/lido-app-ui@workspace:packages/lido-widget"
+  resolution: "@lidofinance/lido-app-ui@workspace:packages/lido-app-ui"
   dependencies:
     "@babel/preset-env": "npm:7.26.9"
     "@babel/preset-react": "npm:7.26.3"
@@ -2855,9 +2855,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/lido-landing-ui@workspace:packages/lido-landing":
+"@lidofinance/lido-landing-ui@workspace:packages/lido-landing-ui":
   version: 0.0.0-use.local
-  resolution: "@lidofinance/lido-landing-ui@workspace:packages/lido-landing"
+  resolution: "@lidofinance/lido-landing-ui@workspace:packages/lido-landing-ui"
   dependencies:
     "@babel/preset-env": "npm:7.26.9"
     "@babel/preset-react": "npm:7.26.3"
@@ -2909,14 +2909,14 @@ __metadata:
     vitest: "npm:^3.0.0"
   peerDependencies:
     "@inline-svg-unique-id/react": 1.2.3
-    react: 16 || 17 || 18
-    react-dom: 16 || 17 || 18
+    react: ^18
+    react-dom: ^18
   languageName: unknown
   linkType: soft
 
-"@lidofinance/lido-shared-ui@npm:*, @lidofinance/lido-shared-ui@workspace:packages/shared":
+"@lidofinance/lido-shared-ui@npm:*, @lidofinance/lido-shared-ui@workspace:packages/lido-shared-ui":
   version: 0.0.0-use.local
-  resolution: "@lidofinance/lido-shared-ui@workspace:packages/shared"
+  resolution: "@lidofinance/lido-shared-ui@workspace:packages/lido-shared-ui"
   dependencies:
     "@babel/preset-env": "npm:7.26.9"
     "@babel/preset-react": "npm:7.26.3"

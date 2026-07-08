@@ -40,13 +40,12 @@
   },
   "peerDependencies": {
     "@inline-svg-unique-id/react": "1.2.3",
-    "react": "16 || 17 || 18",
-    "react-dom": "16 || 17 || 18"
+    "react": "^18",
+    "react-dom": "^18"
   },
   "dependencies": {
     "@lidofinance/lido-shared-ui": "*",
     "classnames": "2.5.1",
-    "postcss-mixins": "11.0.3",
     "react-collapsed": "4.2.0",
     "react-jazzicon": "1.0.4",
     "react-toastify": "11.0.5",
@@ -86,6 +85,7 @@
     "browserslist": "4.24.5",
     "jsdom": "^25.0.0",
     "postcss-loader": "8.1.1",
+    "postcss-mixins": "11.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "3.29.5",
