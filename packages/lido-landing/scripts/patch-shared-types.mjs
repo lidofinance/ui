@@ -9,10 +9,10 @@ const sharedDistTypes = path.resolve(__dirname, '../../shared/dist/types')
 // Copy shared's built type declarations into dist/types/shared/
 fs.cpSync(sharedDistTypes, path.join(distTypes, 'shared'), { recursive: true })
 
-// Patch all .d.ts files: replace 'cakeinpanic-shared' with correct relative path
+// Patch all .d.ts files: replace '@lidofinance/lido-shared-ui' with correct relative path
 function patchFile(filePath) {
   const content = fs.readFileSync(filePath, 'utf8')
-  if (!content.includes('cakeinpanic-shared')) return
+  if (!content.includes('@lidofinance/lido-shared-ui')) return
 
   const rel = path.relative(
     path.dirname(filePath),
@@ -20,7 +20,10 @@ function patchFile(filePath) {
   )
   const relSpec = rel.startsWith('.') ? rel : './' + rel
 
-  const patched = content.replaceAll("'cakeinpanic-shared'", `'${relSpec}'`)
+  const patched = content.replaceAll(
+    "'@lidofinance/lido-shared-ui'",
+    `'${relSpec}'`,
+  )
   fs.writeFileSync(filePath, patched)
 }
 
@@ -33,4 +36,4 @@ function walk(dir) {
 }
 
 walk(distTypes)
-console.log('Patched cakeinpanic-shared references in dist/types/')
+console.log('Patched @lidofinance/lido-shared-ui references in dist/types/')

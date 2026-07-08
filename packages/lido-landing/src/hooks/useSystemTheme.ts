@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ThemeName } from 'cakeinpanic-shared'
+import { ThemeName } from '@lidofinance/lido-shared-ui'
 
 export const useSystemTheme = (): ThemeName | undefined => {
   const [systemTheme, setSystemTheme] = useState<ThemeName>()

@@ -4,7 +4,7 @@ import {
   ThemeName,
   CookieThemeProvider,
   ThemeToggler,
-} from 'cakeinpanic-shared'
+} from '@lidofinance/lido-shared-ui'
 
 const WithThemeProvider: Decorator<{
   themeOverride?: ThemeName | 'follow cookie and system'

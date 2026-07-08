@@ -3,7 +3,7 @@ import {
   ThemeName,
   CookieThemeProvider,
   ThemeToggler,
-} from 'cakeinpanic-shared'
+} from '@lidofinance/lido-shared-ui'
 
 export const WithThemeProvider: Decorator<{
   themeOverride?: ThemeName | 'follow cookie and system'

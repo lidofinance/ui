@@ -1,10 +1,10 @@
 {
-  "name": "cakeinpanic-widget",
+  "name": "@lidofinance/lido-app-ui",
   "version": "0.1.0",
   "homepage": "https://github.com/lidofinance/ui",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cakeinpanic/monorepo-test.git"
+    "url": "git+https://github.com/lidofinance/ui.git"
   },
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"
@@ -38,7 +38,7 @@
     "react-dom": "^18"
   },
   "dependencies": {
-    "cakeinpanic-shared": "*",
+    "@lidofinance/lido-shared-ui": "*",
     "classnames": "2.5.1"
   },
   "devDependencies": {

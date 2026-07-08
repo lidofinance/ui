@@ -5,8 +5,8 @@
     "paths": {
       "react": ["../../node_modules/@types/react"],
       "packages/*": ["./src/*"],
-      "cakeinpanic-shared": ["../shared/src"],
-      "cakeinpanic-shared/*": ["../shared/src/*"]
+      "@lidofinance/lido-shared-ui": ["../shared/src"],
+      "@lidofinance/lido-shared-ui/*": ["../shared/src/*"]
     },
     "outDir": "./dist/types",
     "types": ["vitest/globals"]

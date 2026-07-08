@@ -1,10 +1,10 @@
 {
-  "name": "cakeinpanic-ui",
+  "name": "@lidofinance/lido-ui",
   "version": "4.0.0-canary",
   "homepage": "https://github.com/lidofinance/ui",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cakeinpanic/monorepo-test.git"
+    "url": "git+https://github.com/lidofinance/ui.git"
   },
   "bugs": {
     "url": "https://github.com/lidofinance/ui/issues"

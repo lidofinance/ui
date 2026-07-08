@@ -4,7 +4,7 @@ import {
   ThemeToggler,
   CookieThemeProvider,
   ThemeName,
-} from 'cakeinpanic-shared'
+} from '@lidofinance/lido-shared-ui'
 import { Button } from './Button'
 
 const meta: Meta<typeof Button> = {
@@ -93,7 +93,7 @@ export const SharedComponents: Story = {
           fontSize: 14,
         }}
       >
-        Theme components from cakeinpanic-shared:
+        Theme components from @lidofinance/lido-shared-ui:
       </p>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <span
