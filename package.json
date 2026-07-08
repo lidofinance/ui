@@ -21,7 +21,7 @@
   },
   "release": {
     "branches": [
-      "monorepo",
+      "migrate-to-monorepo-structure",
       "main",
       {
         "name": "lido-ui-v4-canary",
