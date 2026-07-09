@@ -39,6 +39,7 @@ export const ChartProportion = forwardRef(
         {data.map((item, index) => {
           const { color, value, progress, label } = item
           const isShowLabel = showLabels && label
+          const showProgressLine = progress > 0 && progress < 100;
 
           return (
             <ProportionStyle
@@ -58,7 +59,7 @@ export const ChartProportion = forwardRef(
                 $border={border}
                 $borderSize={borderSize}
               >
-                {progress !== 100 && <ProportionProgressLineStyle />}
+                {showProgressLine && <ProportionProgressLineStyle />}
               </ProportionProgressStyle>
             </ProportionStyle>
           )
