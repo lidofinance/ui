@@ -1,19 +1,20 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalDependencies": ["babel.config.json", "tsconfig.base.json"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"],
-      "inputs": ["src/**", "packages/**", "styles/**", "rollup.config.mjs", "tsconfig.json", "tsconfig.production.json", ".babelrc.json"]
+      "inputs": ["src/**", "styles/**", "scripts/**", "rollup.config.mjs", "postcss.config.js", "tsconfig.json", "tsconfig.production.json", "package.json"]
     },
     "build-storybook": {
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"],
-      "inputs": ["src/**", "packages/**", ".storybook/**"]
+      "inputs": ["src/**", ".storybook/**"]
     },
     "test": {
-      "dependsOn": ["build"]
+      "dependsOn": ["^build"]
     },
     "lint": {},
     "lint:css": {},
