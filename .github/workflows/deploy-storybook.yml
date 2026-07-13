@@ -1,0 +1,50 @@
+name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - monorepo
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-storybook
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - run: yarn install --immutable
+
+      - name: Build all Storybooks
+        run: yarn turbo run build-storybook
+        env:
+          PUBLIC_PATH_UI: /lido-ui/lido-ui/
+          PUBLIC_PATH_LANDING: /lido-ui/lido-ui-landing/
+          PUBLIC_PATH_WIDGET: /lido-ui/lido-ui-widget/
+
+      - name: Assemble gh-pages directory
+        run: |
+          mkdir -p gh-pages/lido-ui gh-pages/lido-ui-landing gh-pages/lido-ui-widget
+          cp -r packages/lido-ui/storybook-static/. gh-pages/lido-ui/
+          cp -r packages/lido-landing-ui/storybook-static/. gh-pages/lido-ui-landing/
+          cp -r packages/lido-app-ui/storybook-static/. gh-pages/lido-ui-widget/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages

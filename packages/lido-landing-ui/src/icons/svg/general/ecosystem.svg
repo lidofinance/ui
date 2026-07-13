@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none" viewBox="0 0 80 80">
+  <g clip-path="url(#a)">
+    <circle cx="40" cy="40.75" r="26.25" fill="url(#b)"/>
+    <circle cx="40" cy="40.75" r="22.5" fill="url(#c)"/>
+
+    <path fill="url(#e)" fill-rule="evenodd" d="M40 24a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Zm0 29c6.904 0 12.5-5.596 12.5-12.5S46.904 28 40 28s-12.5 5.596-12.5 12.5S33.096 53 40 53Zm30-1.25a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Zm-52.5 7.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" clip-rule="evenodd" data-figma-bg-blur-radius="4"/>
+    <g filter="url(#f)" opacity=".2">
+      <circle cx="40" cy="40.75" r="26.25" fill="url(#g)"/>
+      <circle cx="40" cy="40.75" r="22.5" fill="url(#h)"/>
+      <path fill="url(#j)" fill-rule="evenodd" d="M40 24a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Zm0 29c6.904 0 12.5-5.596 12.5-12.5S46.904 28 40 28s-12.5 5.596-12.5 12.5S33.096 53 40 53Zm30-1.25a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Zm-52.5 7.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" clip-rule="evenodd" data-figma-bg-blur-radius="4"/>
+    </g>
+  </g>
+  <defs>
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientTransform="rotate(91.835 .307 42.205) scale(23.8812 22.6266)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0085FF"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity=".2"/>
+    </radialGradient>
+    <radialGradient id="c" cx="0" cy="0" r="1" gradientTransform="rotate(88.457 .46 41.067) scale(23.8711)" gradientUnits="userSpaceOnUse">
+      <stop offset=".748" stop-color="#00A3FF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity=".4"/>
+    </radialGradient>
+    <radialGradient id="e" cx="0" cy="0" r="1" gradientTransform="rotate(-152.65 22.96 18.18) scale(40.8121 36.1741)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00A3FF"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity=".3"/>
+    </radialGradient>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientTransform="rotate(91.835 .307 42.205) scale(23.8812 22.6266)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0085FF"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity=".2"/>
+    </radialGradient>
+    <radialGradient id="h" cx="0" cy="0" r="1" gradientTransform="rotate(88.457 .46 41.067) scale(23.8711)" gradientUnits="userSpaceOnUse">
+      <stop offset=".748" stop-color="#00A3FF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity=".4"/>
+    </radialGradient>
+    <radialGradient id="j" cx="0" cy="0" r="1" gradientTransform="rotate(-152.65 22.96 18.18) scale(40.8121 36.1741)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00A3FF"/>
+      <stop offset="1" stop-color="#00A3FF" stop-opacity=".3"/>
+    </radialGradient>
+    <clipPath id="d" transform="translate(-6 -5)">
+      <path fill-rule="evenodd" d="M40 24a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Zm0 29c6.904 0 12.5-5.596 12.5-12.5S46.904 28 40 28s-12.5 5.596-12.5 12.5S33.096 53 40 53Zm30-1.25a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Zm-52.5 7.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" clip-rule="evenodd"/>
+    </clipPath>
+    <clipPath id="i" transform="translate(-6 -5)">
+      <path fill-rule="evenodd" d="M40 24a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Zm0 29c6.904 0 12.5-5.596 12.5-12.5S46.904 28 40 28s-12.5 5.596-12.5 12.5S33.096 53 40 53Zm30-1.25a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Zm-52.5 7.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" clip-rule="evenodd"/>
+    </clipPath>
+    <clipPath id="a">
+      <path fill="#fff" d="M0 0h80v80H0z"/>
+    </clipPath>
+    <filter id="f" width="88" height="86" x="-4" y="-5" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_55_2127" stdDeviation="7"/>
+    </filter>
+  </defs>
+</svg>

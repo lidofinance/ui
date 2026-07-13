@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="81" height="80" fill="none" viewBox="0 0 81 80">
+  <g filter="url(#a)" opacity=".6">
+    <path fill="#4229EF" d="m50.052 55 9.99-10.003h-9.99V55Z"/>
+    <path fill="#5552FD" d="m60.042 35.004-9.99 10.003h9.99V35.004Z"/>
+    <path fill="#9695F8" d="m50.052 44.998 9.99-10.003h-9.99v10.003Z"/>
+    <path fill="#BDBDFF" d="m60.042 25.002-9.99 10.003h9.99V25.002Z"/>
+    <path fill="#FED84F" d="m50.052 35.005 9.99-10.003h-9.99v10.003Z"/>
+    <path fill="#4229EF" d="M20.07 25.003 30.06 15v10.003h-9.99Z"/>
+    <path fill="#5552FD" d="m40.05 15.016-9.99 10.003V15.016h9.99Z"/>
+    <path fill="#9695F8" d="M30.06 25.003 40.05 15v10.003h-9.99Z"/>
+    <path fill="#BDBDFF" d="m50.052 15.016-9.99 10.003V15.016h9.99Z"/>
+    <path fill="#FECE23" d="M40.05 25.003 50.04 15v10.003h-9.99Z"/>
+    <path fill="#FED84F" d="m60.042 15.016-9.99 10.003V15.016h9.99Z"/>
+    <path fill="#FECE23" d="M50.052 25.003 60.042 15v10.003h-9.99ZM30.06 44.982l-9.99 10.004V44.982h9.99Z"/>
+    <path fill="#FED84F" d="m20.07 54.97 9.99-10.003V54.97h-9.99Z"/>
+    <path fill="#FECE23" d="m40.05 44.982-9.99 10.004V44.982h9.99Z"/>
+    <path fill="#9695F8" d="m30.06 54.97 9.99-10.003V54.97h-9.99Z"/>
+    <path fill="#625FFF" d="m50.052 44.982-9.99 10.004V44.982h9.99Z"/>
+    <path fill="#FED84F" d="m30.06 34.995-9.99 10.003h9.99V34.995Z"/>
+    <path fill="#9695F8" d="m20.07 44.998 9.99-10.003h-9.99v10.003Z"/>
+    <path fill="#625FFF" d="m30.06 24.987-9.99 10.004h9.99V24.987Z"/>
+  </g>
+  <path fill="#4229EF" d="m50.052 60 9.99-10.003h-9.99V60Z"/>
+  <path fill="#5552FD" d="m60.042 40.004-9.99 10.003h9.99V40.004Z"/>
+  <path fill="#9695F8" d="m50.052 49.998 9.99-10.003h-9.99v10.003Z"/>
+  <path fill="#BDBDFF" d="m60.042 30.002-9.99 10.003h9.99V30.002Z"/>
+  <path fill="#FED84F" d="m50.052 40.005 9.99-10.003h-9.99v10.003Z"/>
+  <path fill="#4229EF" d="M20.07 30.003 30.06 20v10.003h-9.99Z"/>
+  <path fill="#5552FD" d="m40.05 20.016-9.99 10.003V20.016h9.99Z"/>
+  <path fill="#9695F8" d="M30.06 30.003 40.05 20v10.003h-9.99Z"/>
+  <path fill="#BDBDFF" d="m50.052 20.016-9.99 10.003V20.016h9.99Z"/>
+  <path fill="#FECE23" d="M40.05 30.003 50.04 20v10.003h-9.99Z"/>
+  <path fill="#FED84F" d="m60.042 20.016-9.99 10.003V20.016h9.99Z"/>
+  <path fill="#FECE23" d="M50.052 30.003 60.042 20v10.003h-9.99ZM30.06 49.982l-9.99 10.004V49.982h9.99Z"/>
+  <path fill="#FED84F" d="m20.07 59.97 9.99-10.003V59.97h-9.99Z"/>
+  <path fill="#FECE23" d="m40.05 49.982-9.99 10.004V49.982h9.99Z"/>
+  <path fill="#9695F8" d="m30.06 59.97 9.99-10.003V59.97h-9.99Z"/>
+  <path fill="#625FFF" d="m50.052 49.982-9.99 10.004V49.982h9.99Z"/>
+  <path fill="#FED84F" d="m30.06 39.995-9.99 10.003h9.99V39.995Z"/>
+  <path fill="#9695F8" d="m20.07 49.998 9.99-10.003h-9.99v10.003Z"/>
+  <path fill="#625FFF" d="m30.06 29.987-9.99 10.004h9.99V29.987Z"/>
+  <defs>
+    <filter id="a" width="59.973" height="60" x="10.069" y="5" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_52_17198" stdDeviation="5"/>
+    </filter>
+  </defs>
+</svg>

@@ -5,10 +5,45 @@
   "plugins": [
     "stylelint-prettier"
   ],
-  "customSyntax": "postcss-styled-syntax",
+  "ignoreFiles": [
+    "dist/**/*",
+    "packages/*/dist/**/*",
+    "packages/*/.storybook/styles/normalize.css",
+    "node_modules/**/*"
+  ],
   "rules": {
     "prettier/prettier": true,
     "custom-property-pattern": null,
-    "no-empty-source": null
+    "no-empty-source": null,
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "selector-max-type": [
+      0,
+      {
+        "ignoreTypes": [
+          "svg",
+          "path",
+          "img"
+        ],
+        "severity": "warning"
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "composes"
+        ]
+      }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "mixin",
+          "define-mixin"
+        ]
+      }
+    ]
   }
 }

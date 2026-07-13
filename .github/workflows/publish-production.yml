@@ -1,0 +1,58 @@
+name: Publish Production
+
+on:
+  push:
+    branches:
+      - monorepo
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: publish-production
+  cancel-in-progress: false
+
+jobs:
+  dry-run:
+    uses: ./.github/workflows/_dry-run.yml
+    permissions:
+      contents: read
+    secrets: inherit
+
+  publish:
+    needs: dry-run
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: write
+      id-token: write
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - run: yarn install --immutable
+
+      - run: yarn build
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          echo "provenance=true" >> ~/.npmrc
+          yarn release

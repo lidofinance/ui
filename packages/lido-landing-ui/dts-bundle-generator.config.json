@@ -1,0 +1,18 @@
+{
+  "compilationOptions": {
+    "preferredConfigPath": "./tsconfig.dts.json"
+  },
+  "entries": [
+    {
+      "filePath": "./src/index.ts",
+      "outFile": "./dist/types/index.d.ts",
+      "libraries": {
+        "importedLibraries": ["react", "react-dom"]
+      },
+      "output": {
+        "inlineDeclareGlobals": false,
+        "exportReferencedTypes": false
+      }
+    }
+  ]
+}

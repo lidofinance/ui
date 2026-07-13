@@ -4,10 +4,9 @@ WORKDIR /app
 
 # Copy package.json and yarn.lock first to leverage Docker cache
 COPY package.json yarn.lock .yarnrc.yml ./
-RUN corepack enable
-
-# Install dependencies
-RUN yarn install
+RUN corepack enable && \
+    yarn install && \
+    yarn cache clean
 
 # Copy the rest of the application
 COPY . .

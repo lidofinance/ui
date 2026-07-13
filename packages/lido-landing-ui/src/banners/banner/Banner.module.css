@@ -1,0 +1,107 @@
+.banner {
+  font-family: var(--lido-ui-font-family);
+  color: var(--lido-ui-color-buttons-text-static);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  min-height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.variantPrimary {
+  background: linear-gradient(91deg, #000 49.11%, #000 65.68%);
+
+  .mainButton,
+  .closeButton {
+    &:hover {
+      color: var(--lido-ui-color-buttons-primary-hover);
+    }
+  }
+
+  .closeButton {
+    &:hover {
+      color: var(--lido-ui-color-buttons-primary-hover);
+    }
+  }
+}
+
+.variantSecondary {
+  background: linear-gradient(90deg, #4584ff 23.14%, #2770ff 64.16%);
+
+  &:hover {
+    background: var(--lido-ui-color-buttons-primary-hover);
+    color: var(--lido-ui-color-buttons-text-static);
+  }
+
+  .mainButton {
+    &:hover {
+      color: var(--lido-ui-color-buttons-text-static);
+    }
+  }
+}
+
+.mainButton {
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  border: none;
+  transition: all 0.3s;
+}
+
+.closeButton {
+  flex-shrink: 0;
+
+  &,
+  &:hover {
+    border-color: var(--lido-ui-color-buttons-border-static);
+    color: var(--lido-ui-color-buttons-text-static);
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-weight: var(--lido-ui-font-weight-bold);
+  margin-bottom: -4px;
+}
+
+.buttonContent {
+  @mixin font-body-large-bold;
+
+  text-align: center;
+  padding-right: 16px;
+}
+
+@media (--lido-ui-breakpoint-sm-down) {
+  .content {
+    justify-content: space-around;
+  }
+
+  .banner {
+    height: auto;
+    padding: 10px;
+    min-height: unset;
+    align-items: start;
+
+    .closeButton {
+      position: relative;
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  .mainButton {
+    padding: 0;
+  }
+
+  .buttonContent {
+    text-align: left;
+  }
+}

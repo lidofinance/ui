@@ -1,0 +1,73 @@
+{
+  "name": "@lidofinance/lido-app-ui",
+  "version": "0.1.0",
+  "homepage": "https://github.com/lidofinance/ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lidofinance/ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lidofinance/ui/issues"
+  },
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js"
+    },
+    "./index.css": "./dist/index.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json && cp dist/esm/index.css dist/index.css",
+    "dev": "storybook dev -p 5557",
+    "build-storybook": "storybook build --output-dir storybook-static",
+    "test": "vitest run --passWithNoTests",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "lint:css": "stylelint '**/*.css'",
+    "types": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "dependencies": {
+    "@lidofinance/lido-shared-ui": "*",
+    "classnames": "2.5.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "7.26.9",
+    "@babel/preset-react": "7.26.3",
+    "@babel/preset-typescript": "7.27.0",
+    "@rollup/plugin-babel": "6.0.4",
+    "@rollup/plugin-commonjs": "28.0.3",
+    "@rollup/plugin-node-resolve": "16.0.1",
+    "@storybook/addon-docs": "8.6.12",
+    "@storybook/addon-essentials": "8.6.12",
+    "@storybook/addon-webpack5-compiler-swc": "3.0.0",
+    "@storybook/react": "8.6.12",
+    "@storybook/react-webpack5": "8.6.12",
+    "@storybook/test": "8.6.12",
+    "@types/react": "18.2.24",
+    "@types/react-dom": "18.2.24",
+    "@vitejs/plugin-react": "^4.0.0",
+    "jsdom": "^25.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rollup": "3.29.5",
+    "rollup-plugin-postcss": "4.0.2",
+    "storybook": "8.6.12",
+    "tslib": "2.3.1",
+    "vitest": "^3.0.0"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  }
+}
