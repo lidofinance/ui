@@ -68,19 +68,16 @@ export const Tabs = ({
 
   useEffect(() => {
     const updateSelectionPosition = () => {
-      if (activeButtonRef.current && selectionRef.current) {
-        const buttonRect = activeButtonRef.current.getBoundingClientRect()
-        const tabsRect =
-          activeButtonRef.current.parentElement?.getBoundingClientRect()
-
-        if (tabsRect) {
-          // adding 1 px to center the selection properly
-          const x = buttonRect.left - tabsRect.left - 1
-          const y = buttonRect.top - tabsRect.top
-          selectionRef.current.style.width = `${buttonRect.width}px`
-          selectionRef.current.style.height = `${buttonRect.height}px`
-          selectionRef.current.style.transform = `translate(${x}px, ${y}px)`
-        }
+      const button = activeButtonRef.current
+      if (button && selectionRef.current) {
+        // offsetLeft/offsetTop are relative to the tabs container and, unlike
+        // getBoundingClientRect(), are not affected by its scroll position
+        // subtracting 1 px to center the selection properly
+        const x = button.offsetLeft - 1
+        const y = button.offsetTop
+        selectionRef.current.style.width = `${button.offsetWidth}px`
+        selectionRef.current.style.height = `${button.offsetHeight}px`
+        selectionRef.current.style.transform = `translate(${x}px, ${y}px)`
       }
     }
 
@@ -154,12 +151,15 @@ export const Tabs = ({
     if (deltaX !== 0 || deltaY !== 0) {
       const targetLeft = container.scrollLeft + deltaX
       const targetTop = container.scrollTop + deltaY
+      const prefersReducedMotion = window.matchMedia?.(
+        '(prefers-reduced-motion: reduce)',
+      ).matches
       try {
         // Prefer smooth scroll when supported on elements
         container.scrollTo({
           left: targetLeft,
           top: targetTop,
-          behavior: 'smooth',
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
         } as ScrollToOptions)
       } catch {
         // Fallback for older browsers

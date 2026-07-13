@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Tag } from '.'
 import { Image } from '../icons'
+import {
+  StorybookContainer,
+  StorybookGroup,
+  StorybookSection,
+} from '../../.storybook/components'
 
 const meta: Meta<typeof Tag> = {
   title: 'Content helpers/Tag',
@@ -48,766 +53,91 @@ const Icon = () => <Image />
 
 export const Basic: Story = {}
 
+const shapes = ['rounded', 'squared'] as const
+const variants = ['primary', 'secondary'] as const
+const colors = [
+  'default',
+  'highlighted',
+  'error',
+  'warning',
+  'success',
+] as const
+
+const capitalize = (value: string) =>
+  value.charAt(0).toUpperCase() + value.slice(1)
+
 export const AllStates: Story = {
   render: () => {
-    const gridContainerStyle: React.CSSProperties = {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-      gap: '32px',
+    const colorTitleStyle: React.CSSProperties = {
+      margin: '0 0 12px 0',
+      fontSize: '14px',
+      fontWeight: '500',
+      color: 'var(--lido-ui-color-text-secondary)',
     }
 
-    const shapeCardStyle: React.CSSProperties = {
-      padding: '24px',
-      border: '1px solid #eaeaea',
-      borderRadius: '8px',
-    }
-
-    const variantSectionStyle: React.CSSProperties = {
-      marginBottom: '24px',
-    }
-
-    const colorSectionStyle: React.CSSProperties = {
-      marginBottom: '16px',
-    }
-
-    const tagsContainerStyle: React.CSSProperties = {
+    const tagsRowStyle: React.CSSProperties = {
       display: 'flex',
-      gap: '12px',
+      gap: '16px',
       flexWrap: 'wrap',
+      alignItems: 'center',
     }
 
     return (
-      <div style={gridContainerStyle}>
-        {/* Rounded Shape */}
-        <div style={shapeCardStyle}>
-          <h2>Shape: Rounded</h2>
-
-          {/* Primary Variant */}
-          <div style={variantSectionStyle}>
-            <h3>Variant: Primary</h3>
-
-            {/* Default Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Default</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='default' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='default'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='default'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='default'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Highlighted Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Highlighted</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='highlighted' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='highlighted'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='highlighted'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='highlighted'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Error Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Error</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='error' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='error'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='error'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='error'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Warning Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Warning</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='warning' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='warning'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='warning'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='warning'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Success Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Success</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='success' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='success'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='success'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='success'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-          </div>
-
-          {/* Secondary Variant */}
-          <div style={variantSectionStyle}>
-            <h3>Variant: Secondary</h3>
-
-            {/* Default Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Default</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='default' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='default'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='default'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='default'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Highlighted Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Highlighted</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='highlighted' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='highlighted'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='highlighted'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='highlighted'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Error Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Error</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='error' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='error'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='error'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='error'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Warning Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Warning</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='warning' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='warning'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='warning'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='warning'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Success Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Success</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='success' shape='rounded'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='success'
-                  shape='rounded'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='success'
-                  shape='rounded'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='success'
-                  shape='rounded'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Squared Shape */}
-        <div style={shapeCardStyle}>
-          <h2>Shape: Squared</h2>
-
-          {/* Primary Variant */}
-          <div style={variantSectionStyle}>
-            <h3>Variant: Primary</h3>
-
-            {/* Default Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Default</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='default' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='default'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='default'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='default'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Highlighted Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Highlighted</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='highlighted' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='highlighted'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='highlighted'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='highlighted'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Error Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Error</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='error' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='error'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='error'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='error'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Warning Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Warning</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='warning' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='warning'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='warning'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='warning'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Success Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Success</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='primary' color='success' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='success'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='success'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='primary'
-                  color='success'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-          </div>
-
-          {/* Secondary Variant */}
-          <div style={variantSectionStyle}>
-            <h3>Variant: Secondary</h3>
-
-            {/* Default Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Default</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='default' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='default'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='default'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='default'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Highlighted Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Highlighted</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='highlighted' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='highlighted'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='highlighted'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='highlighted'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Error Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Error</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='error' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='error'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='error'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='error'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Warning Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Warning</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='warning' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='warning'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='warning'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='warning'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-
-            {/* Success Color */}
-            <div style={colorSectionStyle}>
-              <h4>Color: Success</h4>
-              <div style={tagsContainerStyle}>
-                <Tag variant='secondary' color='success' shape='squared'>
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='success'
-                  shape='squared'
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='success'
-                  shape='squared'
-                  icon={<Icon />}
-                >
-                  Text
-                </Tag>
-                <Tag
-                  variant='secondary'
-                  color='success'
-                  shape='squared'
-                  icon={<Icon />}
-                  onClose={() => console.log('Tag closed')}
-                >
-                  Text
-                </Tag>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <StorybookContainer>
+        {shapes.map((shape) => (
+          <StorybookSection key={shape} title={`Shape: ${capitalize(shape)}`}>
+            {variants.map((variant, variantIndex) => (
+              <StorybookGroup
+                key={variant}
+                title={`Variant: ${capitalize(variant)}`}
+                last={variantIndex === variants.length - 1}
+              >
+                {colors.map((color, colorIndex) => (
+                  <div
+                    key={color}
+                    style={{
+                      marginBottom:
+                        colorIndex === colors.length - 1 ? 0 : '24px',
+                    }}
+                  >
+                    <h5 style={colorTitleStyle}>Color: {capitalize(color)}</h5>
+                    <div style={tagsRowStyle}>
+                      <Tag variant={variant} color={color} shape={shape}>
+                        Text
+                      </Tag>
+                      <Tag
+                        variant={variant}
+                        color={color}
+                        shape={shape}
+                        onClose={() => console.log('Tag closed')}
+                      >
+                        Text
+                      </Tag>
+                      <Tag
+                        variant={variant}
+                        color={color}
+                        shape={shape}
+                        icon={<Icon />}
+                      >
+                        Text
+                      </Tag>
+                      <Tag
+                        variant={variant}
+                        color={color}
+                        shape={shape}
+                        icon={<Icon />}
+                        onClose={() => console.log('Tag closed')}
+                      >
+                        Text
+                      </Tag>
+                    </div>
+                  </div>
+                ))}
+              </StorybookGroup>
+            ))}
+          </StorybookSection>
+        ))}
+      </StorybookContainer>
     )
   },
 }
