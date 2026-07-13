@@ -6,7 +6,7 @@ import {
 import { Accordion } from '.'
 import { Link } from '../links'
 import { Checkbox } from '../checkbox'
-import { Discord, Image } from '../icons/'
+import { Image } from '../icons/'
 import { useState } from 'react'
 
 const meta: Meta<typeof Accordion> = {
@@ -65,7 +65,8 @@ export const AllStates: Story = {
       height: '100%',
     }
 
-    const [checked, setChecked] = useState(false)
+    const [firstChecked, setFirstChecked] = useState(false)
+    const [secondChecked, setSecondChecked] = useState(false)
 
     return (
       <StorybookContainer>
@@ -81,19 +82,20 @@ export const AllStates: Story = {
                 pariatur eum necessitatibus. Voluptatum, eos voluptatem!
               </p>
               <p style={{ marginTop: '16px' }}>
-                Visit our <Link href='https://lido.fi'>external website </Link>
+                Visit our{' '}
+                <Link href='https://example.com'>external website </Link>
                 or check the <Link href='/docs'>internal documentation</Link>
                 .{' '}
               </p>
               <div
                 onClick={() => {
-                  setChecked(!checked)
+                  setFirstChecked(!firstChecked)
                 }}
                 role='button'
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
-                    setChecked(!checked)
+                    setFirstChecked(!firstChecked)
                   }
                 }}
                 style={{
@@ -118,11 +120,11 @@ export const AllStates: Story = {
                 >
                   <Image style={iconStyle} />
                 </div>
-                Network name
-                <Checkbox variant='primary' checked={checked} />
+                Application
+                <Checkbox variant='primary' checked={firstChecked} readOnly />
               </div>
             </Accordion>
-            <Accordion title='Title' expanded>
+            <Accordion title='Title' defaultExpanded>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -132,19 +134,20 @@ export const AllStates: Story = {
                 pariatur eum necessitatibus. Voluptatum, eos voluptatem!
               </p>
               <p style={{ marginTop: '16px' }}>
-                Visit our <Link href='https://lido.fi'>external website </Link>
+                Visit our{' '}
+                <Link href='https://example.com'>external website </Link>
                 or check the <Link href='/docs'>internal documentation</Link>
                 .{' '}
               </p>
               <div
                 onClick={() => {
-                  setChecked(!checked)
+                  setSecondChecked(!secondChecked)
                 }}
                 role='button'
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
-                    setChecked(!checked)
+                    setSecondChecked(!secondChecked)
                   }
                 }}
                 style={{
@@ -167,10 +170,10 @@ export const AllStates: Story = {
                     borderRadius: '50%',
                   }}
                 >
-                  <Discord style={iconStyle} />
+                  <Image style={iconStyle} />
                 </div>
-                Network name
-                <Checkbox variant='primary' checked={checked} />
+                Application
+                <Checkbox variant='primary' checked={secondChecked} readOnly />
               </div>
             </Accordion>
           </div>
@@ -183,7 +186,7 @@ export const AllStates: Story = {
     docs: {
       description: {
         story:
-          'Displays all possible Accordion states with DynamicLink and Checkbox components including colored icons for easy review.',
+          'Displays all possible Accordion states with Link and Checkbox components including colored icons for easy review.',
       },
     },
   },

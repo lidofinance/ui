@@ -6,7 +6,7 @@ export default {
   component: Banner,
   title: 'Banners/Banner',
   args: {
-    title: 'Learn more about the new era for Lido 🎉',
+    title: 'Banner title',
     variant: 'primary',
     href: 'https://example.com',
   },
@@ -25,12 +25,7 @@ export const Basic: StoryFn<BannerProps> = (props) => <Banner {...props} />
 export const AllStates: StoryFn<BannerProps> = () => {
   return (
     <>
-      <Banner title='Banner title' href='https://example.com'></Banner>
-      <br />
-      <Banner
-        title='Regular banner without title '
-        href='https://example.com'
-      ></Banner>
+      <Banner title='Regular banner' href='https://example.com'></Banner>
       <br />
       <Banner
         variant='secondary'
@@ -60,7 +55,7 @@ export const AllStates: StoryFn<BannerProps> = () => {
   )
 }
 
-Basic.parameters = {
+AllStates.parameters = {
   controls: { disable: true },
   docs: {
     description: {

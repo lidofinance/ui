@@ -10,17 +10,41 @@ import {
   StorybookGroup,
   StorybookSection,
 } from '../../../.storybook/components'
-import { Metamask } from '../../icons'
+import { Image } from '../../icons'
+
+const placeholderImage = (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 220 120'
+    role='img'
+    aria-label='Placeholder image'
+  >
+    <defs>
+      <linearGradient id='slider-card-placeholder' x1='0' y1='0' x2='1' y2='1'>
+        <stop offset='0%' stopColor='#74d9f8' />
+        <stop offset='50%' stopColor='#9d68f9' />
+        <stop offset='100%' stopColor='#f376dd' />
+      </linearGradient>
+    </defs>
+    <rect
+      width='220'
+      height='120'
+      rx='8'
+      fill='url(#slider-card-placeholder)'
+      opacity='0.7'
+    />
+  </svg>
+)
 
 export default {
   component: SliderCard,
   title: 'Cards/SliderCard',
   args: {
-    title: 'Name',
+    title: 'Application',
     subtitle: '',
     href: 'https://example.com',
-    text: 'Provide Liquidity to Balancer MetaStable Pools to liquidity mine LDO and BAL.',
-    icon: <Metamask />,
+    text: 'Lorem ipsum dolor sit amet consectetur. Amet aliquet venenatis mi senectussenectus',
+    icon: <Image />,
     buttonText: '',
     variant: 'default',
   },
@@ -56,7 +80,7 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
               <SliderCardIcon
                 title='Application'
                 href='https://example.com'
-                icon={<Metamask />}
+                icon={<Image />}
                 text='Lorem ipsum dolor sit amet consectetur. Amet aliquet venenatis mi senectussenectus'
               />
             </StorybookGroup>
@@ -66,7 +90,7 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
                 title='Title'
                 href='https://example.com'
                 subtitle='Subtitle'
-                text='Explore more apps on Lido Ecosystem page'
+                text='Lorem ipsum dolor sit amet consectetur. Amet aliquet'
                 buttonText='Explore'
                 variant='last-child'
               />
@@ -81,12 +105,7 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
               <SliderCardImage
                 title='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut l'
                 href='https://example.com'
-                image={
-                  <img
-                    src='https://lido.fi/static/index/node-operator/map-v3.svg'
-                    alt=''
-                  />
-                }
+                image={placeholderImage}
                 text='Description'
               />
             </StorybookGroup>
@@ -95,13 +114,8 @@ export const AllStates: StoryFn<SliderCardProps> = () => {
               <SliderCardImage
                 title='Explore'
                 href='https://example.com'
-                image={
-                  <img
-                    src='https://lido.fi/static/index/node-operator/map-v3.svg'
-                    alt=''
-                  />
-                }
-                text='Explore more videos on Lido Youtube channel'
+                image={placeholderImage}
+                text='Lorem ipsum dolor sit amet consectetur. Amet aliquet'
                 variant='last-child'
               />
             </StorybookGroup>

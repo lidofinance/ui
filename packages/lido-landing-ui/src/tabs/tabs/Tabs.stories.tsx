@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Tabs, TabsProps } from './Tabs'
-import { Checkmark, Metamask } from '../../icons'
+import { Checkmark, Image } from '../../icons'
 import { useState } from 'react'
 
 export default {
@@ -70,17 +70,12 @@ export const AllStates: StoryFn<TabsProps> = () => {
     { key: '1', children: <Checkmark /> },
     {
       key: '2',
-      children: <Metamask />,
+      children: <Image />,
     },
     { key: '3', children: <Checkmark /> },
     {
       key: '4',
-      children: (
-        <img
-          src='https://raw.githubusercontent.com/Cyfrin/2023-09-vyper-compiler/main/images/lido.png'
-          alt={'img'}
-        />
-      ),
+      children: <Image />,
     },
   ]
 
@@ -171,12 +166,7 @@ export const AllStates: StoryFn<TabsProps> = () => {
                               { key: '4', children: <Checkmark /> },
                               {
                                 key: '2',
-                                children: (
-                                  <img
-                                    src='https://raw.githubusercontent.com/Cyfrin/2023-09-vyper-compiler/main/images/lido.png'
-                                    alt={'img'}
-                                  />
-                                ),
+                                children: <Image />,
                                 disabled: true,
                               },
                               {
@@ -273,16 +263,6 @@ export const ScrollWithinContainer: StoryFn<TabsProps> = () => {
           onKeyChange={(k) => setActive(k)}
         />
       </div>
-
-      {/* Extra content to show that page doesn't jump when tabs scroll */}
-      <div
-        style={{
-          height: 200,
-          background:
-            'repeating-linear-gradient(45deg, rgba(125,125,125,0.1), rgba(125,125,125,0.1) 10px, rgba(125,125,125,0.2) 10px, rgba(125,125,125,0.2) 20px)',
-          borderRadius: 8,
-        }}
-      />
     </div>
   )
 }

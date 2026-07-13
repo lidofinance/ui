@@ -1,14 +1,11 @@
 import { StoryFn, Meta } from '@storybook/react'
 import { Select, SelectProps, SelectWithColoredIcon } from '.'
+import { Icon, Image } from '../icons'
 import {
-  Icon,
-  Image,
-  Farcaster,
-  GoogleCal,
-  Analytics,
-  Academy,
-  Discord,
-} from '../icons'
+  StorybookContainer,
+  StorybookGroup,
+  StorybookSection,
+} from '../../.storybook/components'
 
 export default {
   component: Select,
@@ -56,25 +53,15 @@ export default {
 export const Basic: StoryFn<SelectProps> = (props) => <Select {...props} />
 
 export const AllStates: StoryFn<SelectProps> = () => {
-  const gridContainerStyle: React.CSSProperties = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: '32px',
-  }
-
-  const sectionStyle: React.CSSProperties = {
-    padding: '16px',
-    border: '1px solid #eaeaea',
-  }
-
-  const stateContainerStyle: React.CSSProperties = {
-    marginBottom: '16px',
-  }
-
   const selectContainerStyle: React.CSSProperties = {
     display: 'flex',
-    gap: '8px',
+    gap: '24px',
     flexWrap: 'wrap',
+    alignItems: 'flex-start',
+  }
+
+  const selectWidthStyle: React.CSSProperties = {
+    width: '260px',
   }
 
   const commonOptions = [
@@ -105,203 +92,231 @@ export const AllStates: StoryFn<SelectProps> = () => {
     {
       value: 1,
       label: 'Option 1',
-      icon: Discord,
+      icon: Image,
     },
     {
       value: 2,
       label: 'Option 2',
-      icon: Farcaster,
+      icon: Image,
     },
     {
       value: 3,
       label: 'Option 3',
-      icon: GoogleCal,
+      icon: Image,
     },
   ]
 
   return (
-    <div style={gridContainerStyle}>
-      <div style={sectionStyle}>
-        <h3>Size: l</h3>
-
-        <div style={stateContainerStyle}>
-          <h5>State: Default</h5>
+    <StorybookContainer>
+      <StorybookSection title='Size: L'>
+        <StorybookGroup title='State: Default'>
           <div style={selectContainerStyle}>
-            <Select
-              size='l'
-              options={commonOptions}
-              placeholder='Select option'
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='l'
+                options={commonOptions}
+                placeholder='Select option'
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: Disabled</h5>
+        <StorybookGroup title='State: Disabled'>
           <div style={selectContainerStyle}>
-            <Select
-              size='l'
-              options={commonOptions}
-              defaultValue={1}
-              disabled
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='l'
+                options={commonOptions}
+                defaultValue={1}
+                disabled
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: With Placeholder Icon</h5>
+        <StorybookGroup title='State: With Placeholder Icon'>
           <div style={selectContainerStyle}>
-            <Select
-              size='l'
-              options={iconOptions}
-              placeholder='Select option'
-              placeholderIcon={{ icon: Icon }}
-            />
-            <SelectWithColoredIcon
-              size='l'
-              options={coloredIconOptions}
-              placeholder='Select option'
-              placeholderIcon={Analytics}
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='l'
+                options={iconOptions}
+                placeholder='Select option'
+                placeholderIcon={{ icon: Icon }}
+              />
+            </div>
+            <div style={selectWidthStyle}>
+              <SelectWithColoredIcon
+                size='l'
+                options={coloredIconOptions}
+                placeholder='Select option'
+                placeholderIcon={Image}
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: Disabled With Placeholder Icon</h5>
+        <StorybookGroup title='State: Disabled With Placeholder Icon' last>
           <div style={selectContainerStyle}>
-            <Select
-              size='l'
-              options={iconOptions}
-              placeholder='Select option'
-              placeholderIcon={{ icon: Icon }}
-              disabled
-            />
-            <SelectWithColoredIcon
-              size='l'
-              options={coloredIconOptions}
-              placeholder='Select option'
-              placeholderIcon={Analytics}
-              disabled
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='l'
+                options={iconOptions}
+                placeholder='Select option'
+                placeholderIcon={{ icon: Icon }}
+                disabled
+              />
+            </div>
+            <div style={selectWidthStyle}>
+              <SelectWithColoredIcon
+                size='l'
+                options={coloredIconOptions}
+                placeholder='Select option'
+                placeholderIcon={Image}
+                disabled
+              />
+            </div>
           </div>
-        </div>
-      </div>
+        </StorybookGroup>
+      </StorybookSection>
 
-      <div style={sectionStyle}>
-        <h3>Size: m</h3>
-
-        <div style={stateContainerStyle}>
-          <h5>State: Default</h5>
+      <StorybookSection title='Size: M'>
+        <StorybookGroup title='State: Default'>
           <div style={selectContainerStyle}>
-            <Select
-              size='m'
-              options={commonOptions}
-              placeholder='Select option'
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='m'
+                options={commonOptions}
+                placeholder='Select option'
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: Disabled</h5>
+        <StorybookGroup title='State: Disabled'>
           <div style={selectContainerStyle}>
-            <Select
-              size='m'
-              options={commonOptions}
-              defaultValue={1}
-              disabled
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='m'
+                options={commonOptions}
+                defaultValue={1}
+                disabled
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: With Placeholder Icon</h5>
+        <StorybookGroup title='State: With Placeholder Icon'>
           <div style={selectContainerStyle}>
-            <Select
-              size='m'
-              options={iconOptions}
-              placeholder='Select option'
-              placeholderIcon={{ icon: Icon }}
-            />
-            <SelectWithColoredIcon
-              size='m'
-              options={coloredIconOptions}
-              placeholder='Select option'
-              placeholderIcon={Academy}
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='m'
+                options={iconOptions}
+                placeholder='Select option'
+                placeholderIcon={{ icon: Icon }}
+              />
+            </div>
+            <div style={selectWidthStyle}>
+              <SelectWithColoredIcon
+                size='m'
+                options={coloredIconOptions}
+                placeholder='Select option'
+                placeholderIcon={Image}
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: Disabled with Icons</h5>
+        <StorybookGroup title='State: Disabled with Icons' last>
           <div style={selectContainerStyle}>
-            <Select size='m' options={iconOptions} defaultValue={1} disabled />
-            <SelectWithColoredIcon
-              size='m'
-              options={coloredIconOptions}
-              defaultValue={1}
-              disabled
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='m'
+                options={iconOptions}
+                defaultValue={1}
+                disabled
+              />
+            </div>
+            <div style={selectWidthStyle}>
+              <SelectWithColoredIcon
+                size='m'
+                options={coloredIconOptions}
+                defaultValue={1}
+                disabled
+              />
+            </div>
           </div>
-        </div>
-      </div>
+        </StorybookGroup>
+      </StorybookSection>
 
-      <div style={sectionStyle}>
-        <h3>Size: s</h3>
-
-        <div style={stateContainerStyle}>
-          <h5>State: Default</h5>
+      <StorybookSection title='Size: S'>
+        <StorybookGroup title='State: Default'>
           <div style={selectContainerStyle}>
-            <Select
-              size='s'
-              options={commonOptions}
-              placeholder='Select option'
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='s'
+                options={commonOptions}
+                placeholder='Select option'
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: Disabled</h5>
+        <StorybookGroup title='State: Disabled'>
           <div style={selectContainerStyle}>
-            <Select
-              size='s'
-              options={commonOptions}
-              defaultValue={1}
-              disabled
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='s'
+                options={commonOptions}
+                defaultValue={1}
+                disabled
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: With Placeholder Icon</h5>
+        <StorybookGroup title='State: With Placeholder Icon'>
           <div style={selectContainerStyle}>
-            <Select
-              size='s'
-              options={iconOptions}
-              placeholder='Select option'
-              placeholderIcon={{ icon: Icon }}
-            />
-            <SelectWithColoredIcon
-              size='s'
-              options={coloredIconOptions}
-              placeholder='Select option'
-              placeholderIcon={Image}
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='s'
+                options={iconOptions}
+                placeholder='Select option'
+                placeholderIcon={{ icon: Icon }}
+              />
+            </div>
+            <div style={selectWidthStyle}>
+              <SelectWithColoredIcon
+                size='s'
+                options={coloredIconOptions}
+                placeholder='Select option'
+                placeholderIcon={Image}
+              />
+            </div>
           </div>
-        </div>
+        </StorybookGroup>
 
-        <div style={stateContainerStyle}>
-          <h5>State: Disabled with Icons</h5>
+        <StorybookGroup title='State: Disabled with Icons' last>
           <div style={selectContainerStyle}>
-            <Select size='s' options={iconOptions} defaultValue={1} disabled />
-            <SelectWithColoredIcon
-              size='s'
-              options={coloredIconOptions}
-              defaultValue={1}
-              disabled
-            />
+            <div style={selectWidthStyle}>
+              <Select
+                size='s'
+                options={iconOptions}
+                defaultValue={1}
+                disabled
+              />
+            </div>
+            <div style={selectWidthStyle}>
+              <SelectWithColoredIcon
+                size='s'
+                options={coloredIconOptions}
+                defaultValue={1}
+                disabled
+              />
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </StorybookGroup>
+      </StorybookSection>
+    </StorybookContainer>
   )
 }
 
