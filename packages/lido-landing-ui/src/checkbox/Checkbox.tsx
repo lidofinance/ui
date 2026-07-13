@@ -1,47 +1,61 @@
-import { ForwardedRef, forwardRef } from 'react'
-import { CheckboxProps } from './types.js'
-import {
-  CheckboxWrapperStyle,
-  CheckboxInputStyle,
-  CheckboxIconStyle,
-} from './CheckboxStyles.js'
-import { Text } from '../text/index.js'
-import { Box } from '../box/index.js'
+import { forwardRef, ForwardedRef, ComponentPropsWithoutRef } from 'react'
+import styles from './Checkbox.module.css'
+import cn from 'classnames'
+
+export type CheckboxDataTestId = {
+  root?: string
+  input?: string
+  text?: string
+}
+
+export type CheckboxProps = Omit<
+  ComponentPropsWithoutRef<'input'>,
+  'type' | 'size'
+> & {
+  variant?: CheckboxVariant
+  dataTestId?: CheckboxDataTestId
+}
+
+export type CheckboxVariant = 'primary' | 'secondary'
 
 export const Checkbox = forwardRef(
   (
     {
+      variant = 'primary',
+      disabled = false,
       className,
       style,
-      wrapperRef,
-      disabled,
       children,
-      label,
+      dataTestId,
       ...rest
     }: CheckboxProps,
-    inputRef?: ForwardedRef<HTMLInputElement>,
+    ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
-      <CheckboxWrapperStyle
-        className={className}
+      <label
+        className={cn(className, styles.container, {
+          [styles.containerDisabled]: disabled,
+        })}
         style={style}
-        ref={wrapperRef}
+        data-testid={dataTestId?.root}
       >
-        <CheckboxInputStyle
+        <input
+          ref={ref}
+          className={cn(styles.input, styles[variant])}
           type='checkbox'
           disabled={disabled}
-          ref={inputRef}
+          data-testid={dataTestId?.input}
           {...rest}
         />
-        <CheckboxIconStyle />
-        {label && (
-          <Box ml={8}>
-            <Text size='xxs' color={disabled ? 'secondary' : 'default'}>
-              {label}
-            </Text>
-          </Box>
-        )}
-      </CheckboxWrapperStyle>
+        <span
+          className={cn(styles.text, {
+            [styles.textDisabled]: disabled,
+          })}
+          data-testid={dataTestId?.text}
+        >
+          {children}
+        </span>
+      </label>
     )
   },
 )

@@ -1,1 +1,0 @@
-{"version":3,"file":"StorybookSection.d.ts","sourceRoot":"","sources":["StorybookSection.tsx"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,EAAE,EAAE,iBAAiB,EAAE,MAAM,OAAO,CAAA;AAElD,oBAAY,qBAAqB,GAAG,iBAAiB,CAAC;IACpD,KAAK,EAAE,MAAM,CAAA;IACb,KAAK,CAAC,EAAE,KAAK,CAAC,aAAa,CAAA;CAC5B,CAAC,CAAA;AAEF,eAAO,MAAM,gBAAgB,EAAE,EAAE,CAAC,qBAAqB,CA2BtD,CAAA"}

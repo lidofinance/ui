@@ -1,74 +1,71 @@
-import {
-  ForwardedRef,
-  forwardRef,
-  Children,
-  useRef,
-  cloneElement,
-  useState,
-  MouseEvent,
-} from 'react'
-import { isElement } from 'react-is'
-import { TooltipPopoverStyle } from './TooltipStyles.js'
-import { useMergeRefs } from '../hooks/index.js'
-import { TooltipProps } from './types.js'
+import { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react'
+import cn from 'classnames'
+import styles from './Tooltip.module.css'
 
-const BODY_PERSISTENT_TIMEOUT = 150
+export type TooltipPosition =
+  | 'top'
+  | 'right'
+  | 'bottom'
+  | 'left'
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right'
 
-export const Tooltip = forwardRef(
-  (
-    { title, children, ...rest }: TooltipProps,
-    ref?: ForwardedRef<HTMLDivElement>,
-  ) => {
-    const [state, setState] = useState(false)
-    const keepTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+export type TooltipWidth = number | 'auto' | 'max-content'
 
-    const child = Children.only(children)
-    if (!isElement(child)) throw new Error('Child must be a React element')
+export type TooltipDataTestId = {
+  root?: string
+  content?: string
+}
 
-    const anchorRef = useRef<HTMLElement>(null)
-    const mergedRef = useMergeRefs([child.ref, anchorRef])
+export type TooltipProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'> & {
+  content?: ReactNode
+  position?: TooltipPosition
+  width?: TooltipWidth
+  dataTestId?: TooltipDataTestId
+}
 
-    const handleMouseEnter = () => {
-      if (keepTimeoutRef.current) {
-        clearTimeout(keepTimeoutRef.current)
-        keepTimeoutRef.current = null
-      }
-      setState(true)
-    }
-
-    const handleMouseLeave = () => {
-      keepTimeoutRef.current = setTimeout(() => {
-        setState(false)
-        keepTimeoutRef.current = null
-      }, BODY_PERSISTENT_TIMEOUT)
-    }
-
+export const Tooltip = ({
+  content,
+  position = 'right',
+  width = 352,
+  className,
+  children,
+  dataTestId,
+  ...rest
+}: TooltipProps) => {
+  if (!content) {
     return (
-      <>
-        {cloneElement(child, {
-          ref: mergedRef,
-          onMouseEnter(event: MouseEvent<HTMLElement>) {
-            handleMouseEnter()
-            child.props.onMouseEnter?.(event)
-          },
-          onMouseLeave(event: MouseEvent<HTMLElement>) {
-            handleMouseLeave()
-            child.props.onMouseLeave?.(event)
-          },
-        })}
-        <TooltipPopoverStyle
-          {...rest}
-          open={state}
-          backdrop={false}
-          anchorRef={anchorRef}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          ref={ref}
-        >
-          {title}
-        </TooltipPopoverStyle>
-      </>
+      <div className={className} data-testid={dataTestId?.root}>
+        {children}
+      </div>
     )
-  },
-)
-Tooltip.displayName = 'Tooltip'
+  }
+
+  const showTriangle = ['top', 'right', 'bottom', 'left'].includes(position)
+
+  return (
+    <div
+      className={cn(styles.tooltip, className)}
+      data-testid={dataTestId?.root}
+      {...rest}
+    >
+      {children}
+      <div
+        className={cn(styles.contentWrapper, styles[`position--${position}`])}
+      >
+        <div
+          className={styles.content}
+          style={
+            { '--lido-ui-local-tooltip-width': `${width}px` } as CSSProperties
+          }
+          data-testid={dataTestId?.content}
+        >
+          <div className={styles.text}>{content}</div>
+          {showTriangle && <div className={styles.triangle} />}
+        </div>
+      </div>
+    </div>
+  )
+}

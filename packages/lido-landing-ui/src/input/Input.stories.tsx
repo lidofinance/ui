@@ -1,300 +1,1795 @@
-import styled from '../utils/styled-components-wrapper.js'
-import { StoryFn, Meta } from '@storybook/react'
-import { Eth } from '../icons/index.js'
-import { Block } from '../block/index.js'
-import { Button } from '../button/index.js'
-import { Identicon } from '../identicon/index.js'
-import { useCallback, useState } from 'react'
-import { ModalProps } from '../modal/types.js'
-import { Modal } from '../modal/Modal.js'
-import {
-  Input,
-  InputProps,
-  InputType,
-  InputVariant,
-  InputColor,
-} from './index.js'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Input } from './Input'
+import { Icon, Image } from '../icons'
+import { StorybookContainer } from '../../.storybook/components/StorybookContainer'
+import { StorybookSection } from '../../.storybook/components/StorybookSection'
+import { StorybookGroup } from '../../.storybook/components/StorybookGroup'
 
-const getOptions = (enumObject: Record<string, string | number>) =>
-  Object.values(enumObject).filter((value) => typeof value === 'string')
-
-export default {
-  component: Input,
+const meta: Meta<typeof Input> = {
   title: 'Controls/Input',
+  component: Input,
+  tags: ['autodocs'],
   args: {
+    placeholder: 'Placeholder text',
+    size: 'l',
+    type: 'text',
+    error: '',
     disabled: false,
-    fullwidth: false,
-    active: false,
+    rightDecorator: undefined,
+    rightDecoratorType: 'element',
   },
   argTypes: {
-    onChange: {
-      action: 'change',
-      table: { disable: true },
+    onChange: { action: 'changed' },
+    onFocus: { action: 'focused' },
+    onBlur: { action: 'blurred' },
+    size: {
+      options: ['l', 'm', 's'],
+      control: { type: 'radio' },
+    },
+    rightDecoratorType: {
+      options: ['element', 'button'] as const,
+      control: { type: 'radio' },
+    },
+    disabled: {
+      control: { type: 'boolean' },
     },
   },
-} as Meta
-
-export const Basic: StoryFn<InputProps> = (props) => <Input {...props} />
-
-Basic.args = {
-  placeholder: 'Amount',
-  label: '',
-  type: 'text',
-}
-
-Basic.argTypes = {
-  type: {
-    options: getOptions(InputType),
-    control: 'inline-radio',
-  },
-  color: {
-    options: getOptions(InputColor),
-    control: 'inline-radio',
+  parameters: {
+    layout: 'centered',
   },
 }
 
-export const Small: StoryFn<InputProps> = (props) => <Input {...props} />
+export default meta
+type Story = StoryObj<typeof Input>
 
-Small.args = {
-  variant: 'small',
-  placeholder: 'Amount',
-}
-
-Small.argTypes = {
-  variant: {
-    options: getOptions(InputVariant),
-    control: 'inline-radio',
+export const Base: Story = {
+  args: {
+    placeholder: 'Enter text',
   },
 }
 
-export const Label: StoryFn<InputProps> = (props) => <Input {...props} />
+export const AllStates = () => {
+  const sizeStyle: React.CSSProperties = {
+    width: '100%',
+    display: 'flex',
+    gap: '50px',
+    marginTop: '30px',
+  }
 
-Label.args = {
-  label: 'Email address',
-}
-Label.argTypes = {
-  color: {
-    options: getOptions(InputColor),
-    control: 'inline-radio',
-  },
-}
+  const variantStyle: React.CSSProperties = {
+    display: 'flex',
+    gap: '50px',
+  }
 
-const EthIcon = styled(Eth)`
-  fill: var(--lido-color-text);
-`
-
-const MaxButton = () => (
-  <Button
-    variant='translucent'
-    size='xxs'
-    style={{
-      marginRight: '-4px',
-    }}
-  >
-    MAX
-  </Button>
-)
-
-export const WithDecorators: StoryFn<InputProps> = (props) => (
-  <Input
-    leftDecorator={<EthIcon />}
-    rightDecorator={<MaxButton />}
-    {...props}
-  />
-)
-
-WithDecorators.args = {
-  label: 'Amount',
-}
-WithDecorators.argTypes = {
-  color: {
-    options: getOptions(InputColor),
-    control: 'inline-radio',
-  },
-}
-
-export const WithIdenticon: StoryFn<InputProps> = (props) => {
-  const [value, setValue] = useState('')
+  const columnStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '24px',
+    minWidth: '330px',
+  }
 
   return (
-    <Input
-      {...props}
-      value={value}
-      onChange={(event) => {
-        setValue(event.currentTarget.value)
-        props.onChange?.(event)
-      }}
-      rightDecorator={<Identicon address={String(value ?? '')} />}
-    />
+    <div>
+      <StorybookContainer>
+        <StorybookSection title='Size: L'>
+          <h1>Label</h1>
+          <div style={sizeStyle}>
+            <StorybookGroup title='Label'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input size='l' placeholder='Label' />
+                  <Input size='l' placeholder='Label' disabled />
+                  <Input size='l' placeholder='Label' error='' />
+                  <Input size='l' placeholder='Label' error='Error message' />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+ Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    icon={{ icon: <Image />, isColored: true }}
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input size='l' placeholder='Label' icon={<Icon />} />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    icon={<Icon />}
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    icon={<Icon />}
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    icon={<Icon />}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Button'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Button+Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Button+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Colored Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Mono Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+          </div>
+        </StorybookSection>
+        <StorybookSection title='Size: L'>
+          <h1>Placeholder</h1>
+          <div style={sizeStyle}>
+            <StorybookGroup title='Placeholder'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+ Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={<Icon />}
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={<Icon />}
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={<Icon />}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Button'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Button+Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Button+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Colored Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Mono Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                  />
+                  <Input
+                    size='l'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+          </div>
+        </StorybookSection>
+        <StorybookSection title='Size: M'>
+          <h1>Label</h1>
+          <div style={sizeStyle}>
+            <StorybookGroup title='Label'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input size='m' placeholder='Label' />
+                  <Input size='m' placeholder='Label' disabled />
+                  <Input size='m' placeholder='Label' error='' />
+                  <Input size='m' placeholder='Label' error='Error message' />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+ Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    icon={{ icon: <Image />, isColored: true }}
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input size='m' placeholder='Label' icon={<Icon />} />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    icon={<Icon />}
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    icon={<Icon />}
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    icon={<Icon />}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Button'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Button+Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Button+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Colored Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Mono Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Label'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+          </div>
+        </StorybookSection>
+        <StorybookSection title='Size: M'>
+          <h1>Placeholder</h1>
+          <div style={sizeStyle}>
+            <StorybookGroup title='Placeholder'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+ Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={<Icon />}
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={<Icon />}
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    icon={<Icon />}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Button'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Button+Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Button+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Colored Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Mono Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                  />
+                  <Input
+                    size='m'
+                    placeholder='Placeholder'
+                    variant='placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+          </div>
+        </StorybookSection>
+        <StorybookSection title='Size: S'>
+          <h1>Placeholder</h1>
+          <div style={sizeStyle}>
+            <StorybookGroup title='Placeholder'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input size='s' placeholder='Placeholder' />
+                  <Input size='s' placeholder='Placeholder' disabled />
+                  <Input size='s' placeholder='Placeholder' error='' />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+ Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    disabled
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error=''
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    icon={{ icon: <Image />, isColored: true }}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input size='s' placeholder='Placeholder' icon={<Icon />} />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    icon={<Icon />}
+                    disabled
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    icon={<Icon />}
+                    error=''
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    icon={<Icon />}
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Button'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Button+Colored Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Button+Mono Icon'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={{
+                      children: 'Button',
+                      onClick: () => console.log('Button clicked'),
+                    }}
+                    rightDecoratorType='button'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Label+Colored Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={{ icon: <Image />, isColored: true }}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Mono Icon+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                    icon={<Icon />}
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                    icon={<Icon />}
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+            <StorybookGroup title='Placeholder+Description'>
+              <div style={variantStyle}>
+                <div style={columnStyle}>
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    disabled
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error=''
+                  />
+                  <Input
+                    size='s'
+                    placeholder='Placeholder'
+                    rightDecorator={<span>Description</span>}
+                    rightDecoratorType='element'
+                    error='Error message'
+                  />
+                </div>
+              </div>
+            </StorybookGroup>
+          </div>
+        </StorybookSection>
+      </StorybookContainer>
+    </div>
   )
 }
 
-WithIdenticon.args = {
-  placeholder: 'Ethereum address',
-}
-
-export const WithButton: StoryFn<InputProps> = (props) => (
-  <Input
-    rightDecorator={
-      <Button
-        size='sm'
-        style={{
-          marginRight: '-10px',
-        }}
-        disabled={props.disabled}
-      >
-        Subscribe
-      </Button>
-    }
-    {...props}
-  />
-)
-
-WithButton.args = {
-  fullwidth: true,
-  label: 'Email address',
-}
-WithButton.argTypes = {
-  color: {
-    options: getOptions(InputColor),
-    control: 'inline-radio',
-  },
-}
-
-export const WithError: StoryFn<InputProps> = (props) => <Input {...props} />
-
-WithError.args = {
-  fullwidth: true,
-  defaultValue: 'info@lido.',
-  label: 'Email address',
-  error: 'Email is invalid',
-}
-WithError.argTypes = {
-  color: {
-    options: getOptions(InputColor),
-    control: 'inline-radio',
-  },
-}
-
-export const WithWarning: StoryFn<InputProps> = (props) => <Input {...props} />
-
-WithWarning.args = {
-  fullwidth: true,
-  defaultValue: '10',
-  label: 'Token amount',
-  warning: 'Amount may be insufficient.',
-}
-
-const Success = styled.span`
-  font-weight: 600;
-  font-size: ${({ theme }) => theme.fontSizesMap.xs}px;
-  color: var(--lido-color-success);
-`
-
-export const WithSuccess: StoryFn<InputProps> = (props) => (
-  <Input rightDecorator={<Success>Subscribed</Success>} {...props} />
-)
-
-WithSuccess.args = {
-  fullwidth: true,
-  disabled: true,
-  defaultValue: 'info@lido.fi',
-  success:
-    'Thank you for subscribing! We will notify you once we kick off our platform.',
-}
-
-export const AccentColor: StoryFn<InputProps> = (props) => {
-  const [value, setValue] = useState('')
-
-  return (
-    <Block
-      color='accent'
-      style={{
-        display: 'flex',
-        background: 'linear-gradient(60deg, #413e58 20%, #30363f 100%)',
-      }}
-    >
-      <Input
-        {...props}
-        value={value}
-        onChange={(event) => {
-          setValue(event.currentTarget.value)
-          props.onChange?.(event)
-        }}
-        rightDecorator={<Identicon address={String(value ?? '')} />}
-        color='accent'
-      />
-      <Button
-        style={{
-          marginLeft: 12,
-          flexShrink: 0,
-        }}
-      >
-        Calculate
-      </Button>
-    </Block>
-  )
-}
-
-AccentColor.args = {
-  fullwidth: true,
-  label: '',
-  placeholder: 'Ethereum address',
-}
-
-const useModal = ({ onClose, onBack }: ModalProps) => {
-  const [state, setState] = useState(false)
-  const handleOpen = useCallback(() => setState(true), [])
-  const handleClose = useCallback(() => {
-    setState(false)
-    onClose?.()
-  }, [onClose])
-  const handleBack = useCallback(() => {
-    onBack?.()
-  }, [onBack])
-
-  return { state, handleOpen, handleClose, handleBack }
-}
-
-export const ErrorsOverlapCase: StoryFn<InputProps> = (props) => {
-  const { state, handleOpen, handleClose } = useModal(props)
-
-  return (
-    <>
-      <Input {...props} />
-      <br />
-      <br />
-      <Input {...props} />
-      <br />
-      <br />
-      <Button onClick={handleOpen}>Show modal</Button>
-      <Modal
-        open={state}
-        onClose={handleClose}
-        title='Modal Title'
-        subtitle=''
-        center={false}
-      >
-        <Input {...props} />
-        <br />
-        <br />
-        <Input {...props} />
-        <br />
-        <br />
-        <br />
-      </Modal>
-    </>
-  )
-}
-
-ErrorsOverlapCase.args = {
-  fullwidth: true,
-  label: 'Email address',
-  error: 'Email is invalid',
-}
-ErrorsOverlapCase.argTypes = {
-  color: {
-    options: getOptions(InputColor),
-    control: 'inline-radio',
+AllStates.parameters = {
+  controls: { disable: true },
+  docs: {
+    description: {
+      story: 'Displays all possible Input states for easy review.',
+    },
   },
 }

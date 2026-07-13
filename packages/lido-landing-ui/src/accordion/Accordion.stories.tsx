@@ -1,80 +1,190 @@
-import { StoryFn, Meta } from '@storybook/react'
-import { Accordion, AccordionProps } from './index.js'
+import type { Meta, StoryObj } from '@storybook/react'
+import {
+  StorybookContainer,
+  StorybookSection,
+} from '../../.storybook/components'
+import { Accordion } from '.'
+import { Link } from '../links'
+import { Checkbox } from '../checkbox'
+import { Discord, Image } from '../icons/'
+import { useState } from 'react'
 
-export default {
+const meta: Meta<typeof Accordion> = {
+  title: 'Content Organization/Accordion',
   component: Accordion,
-  title: 'Layout/Accordion',
-} as Meta
+  args: {
+    title: 'Accordion Title',
+    defaultExpanded: false,
+  },
+  argTypes: {
+    defaultExpanded: {
+      control: { type: 'boolean' },
+    },
+    expanded: {
+      control: { type: 'boolean' },
+    },
+    title: {
+      control: { type: 'text' },
+    },
+  },
+  tags: ['autodocs'],
+} satisfies Meta<typeof Accordion>
 
-export const Basic: StoryFn<AccordionProps> = (props: AccordionProps) => (
-  <Accordion {...props}>
-    Liquid staking protocols allow users to earn staking rewards without locking
-    assets or maintaining staking infrastructure. Users of these protocols can
-    deposit staking tokens and receive tradable liquid tokens in return. The DAO
-    controlled smart contract then stakes tokens with DAO-picked staking
-    providers. Users&#39; deposited funds are controlled by the DAO, staking
-    providers never have direct access to the users&#39; assets.
-  </Accordion>
-)
+export default meta
 
-Basic.args = {
-  defaultExpanded: false,
-  summary: 'What is Liquid Staking?',
+type Story = StoryObj<typeof meta>
+
+export const Basic: Story = {
+  args: {
+    children: (
+      <div>
+        <p>This is the accordion content. It can contain any React elements.</p>
+        <p>
+          Multiple paragraphs, lists, buttons, or other components work here.
+        </p>
+      </div>
+    ),
+  },
 }
 
-Basic.argTypes = {
-  defaultExpanded: {
-    description: 'Accordion default state',
+export const AllStates: Story = {
+  render: () => {
+    const containerStyle: React.CSSProperties = {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '16px',
+    }
+
+    const iconStyle: React.CSSProperties = {
+      verticalAlign: 'middle',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: '100%',
+      height: '100%',
+    }
+
+    const [checked, setChecked] = useState(false)
+
+    return (
+      <StorybookContainer>
+        <StorybookSection title='Accordion'>
+          <div style={containerStyle}>
+            <Accordion title='Title' defaultExpanded={false}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+                possimus doloribus cupiditate quos quia illum excepturi, eius
+                repellendus dignissimos quasi, vel, quas laboriosam harum
+                pariatur eum necessitatibus. Voluptatum, eos voluptatem!
+              </p>
+              <p style={{ marginTop: '16px' }}>
+                Visit our <Link href='https://lido.fi'>external website </Link>
+                or check the <Link href='/docs'>internal documentation</Link>
+                .{' '}
+              </p>
+              <div
+                onClick={() => {
+                  setChecked(!checked)
+                }}
+                role='button'
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setChecked(!checked)
+                  }
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '16px',
+                  cursor: 'pointer',
+                  marginTop: '16px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    position: 'relative',
+                    width: '38px',
+                    height: '38px',
+                    border: '1px solid var(--lido-ui-color-borders-default)',
+                    borderRadius: '50%',
+                  }}
+                >
+                  <Image style={iconStyle} />
+                </div>
+                Network name
+                <Checkbox variant='primary' checked={checked} />
+              </div>
+            </Accordion>
+            <Accordion title='Title' expanded>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+                possimus doloribus cupiditate quos quia illum excepturi, eius
+                repellendus dignissimos quasi, vel, quas laboriosam harum
+                pariatur eum necessitatibus. Voluptatum, eos voluptatem!
+              </p>
+              <p style={{ marginTop: '16px' }}>
+                Visit our <Link href='https://lido.fi'>external website </Link>
+                or check the <Link href='/docs'>internal documentation</Link>
+                .{' '}
+              </p>
+              <div
+                onClick={() => {
+                  setChecked(!checked)
+                }}
+                role='button'
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setChecked(!checked)
+                  }
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '16px',
+                  cursor: 'pointer',
+                  marginTop: '16px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    position: 'relative',
+                    width: '38px',
+                    height: '38px',
+                    border: '1px solid var(--lido-ui-color-borders-default)',
+                    borderRadius: '50%',
+                  }}
+                >
+                  <Discord style={iconStyle} />
+                </div>
+                Network name
+                <Checkbox variant='primary' checked={checked} />
+              </div>
+            </Accordion>
+          </div>
+        </StorybookSection>
+      </StorybookContainer>
+    )
   },
-  summary: {
-    description: 'Summary title',
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Displays all possible Accordion states with DynamicLink and Checkbox components including colored icons for easy review.',
+      },
+    },
   },
 }
-
-export const List: StoryFn = () => (
-  <>
-    <Accordion summary='What is Liquid Staking?'>
-      <p>
-        Liquid staking protocols allow users to earn staking rewards without
-        locking assets or maintaining staking infrastructure. Users of these
-        protocols can deposit staking tokens and receive tradable liquid tokens
-        in return. The DAO controlled smart contract then stakes tokens with
-        DAO-picked staking providers. Users&#39; deposited funds are controlled
-        by the DAO, staking providers never have direct access to the users&#39;
-        assets.
-      </p>
-    </Accordion>
-    <Accordion summary='How does lido work?'>
-      <p>
-        When staking with Lido, users receive stETH tokens on a 1:1 basis
-        representing their staked ETH. stETH balances can be used like regular
-        ETH to earn yields and lending rewards, and are updated on a daily basis
-        to reflect your ETH staking rewards. Note that there are no lock-ups or
-        minimum deposits when staking with Lido.
-      </p>
-      <p>
-        When using Lido, users receive secure staking rewards in real-time,
-        allowing for participation in the securing of Ethereum without the
-        associated risks and downside potential.
-      </p>
-    </Accordion>
-    <Accordion summary='How is Lido secure?'>
-      <p>Lido is a secure liquid staking solution for a number of reasons:</p>
-      <ul>
-        <li>Open-sourcing & continuous review of all code.</li>
-        <li>
-          Committee of elected, best-in-class validators to minimise staking
-          risk.
-        </li>
-        <li>
-          Use of non-custodial staking service to eliminate counterparty risk.
-        </li>
-        <li>Use of DAO for governance decisions & to manage risk factors.</li>
-      </ul>
-      <p>
-        Usually when staking ETH you choose only one validator. In the case of
-        Lido you stake across many validators, minimising your staking risk.
-      </p>
-    </Accordion>
-  </>
-)

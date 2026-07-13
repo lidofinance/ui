@@ -39,7 +39,6 @@ module.exports = {
     // Hacky workaround to enforce extensions in ESM imports. See:
     // https://github.com/import-js/eslint-plugin-import/issues/2170#issuecomment-1149473239
     'import/extensions': ['error', 'always', { ts: 'never', tsx: 'never' }],
-    'node/file-extension-in-import': ['error', 'always'],
     'node/no-missing-import': 'off',
   },
   overrides: [

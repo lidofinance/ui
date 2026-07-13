@@ -1,152 +1,315 @@
-import { useRef, useState } from 'react'
 import { StoryFn, Meta } from '@storybook/react'
-import { Eth, Steth, Solana } from '../icons/index.js'
-import { InputGroup, Input, InputColor } from '../input/index.js'
-import { Select, SelectIcon, SelectProps, Option } from './index.js'
-
-const getOptions = (enumObject: Record<string, string | number>) =>
-  Object.values(enumObject).filter((value) => typeof value === 'string')
+import { Select, SelectProps, SelectWithColoredIcon } from '.'
+import {
+  Icon,
+  Image,
+  Farcaster,
+  GoogleCal,
+  Analytics,
+  Academy,
+  Discord,
+} from '../icons'
 
 export default {
   component: Select,
   title: 'Controls/Select',
+  parameters: {
+    layout: 'centered',
+  },
   args: {
+    defaultValue: 1,
+    options: [
+      { value: 1, label: 'Text 1' },
+      { value: 2, label: 'Text 2' },
+      { value: 3, label: 'Text 3' },
+      { value: 4, label: 'Text 4' },
+      { value: 5, label: 'Text 5' },
+      { value: 6, label: 'Text 6' },
+      { value: 7, label: 'Text 7' },
+      { value: 8, label: 'Text 8' },
+      { value: 9, label: 'Text 9' },
+    ],
+    size: 'l',
     disabled: false,
-    fullwidth: false,
   },
   argTypes: {
-    onChange: {
-      action: 'change',
-      table: { disable: true },
+    onOptionChange: { action: 'option changed' },
+    items: {
+      table: {
+        disable: true,
+      },
+    },
+    options: {
+      control: 'object',
+    },
+    disabled: {
+      control: 'boolean',
+    },
+    size: {
+      options: ['l', 'm', 's'],
+      control: { type: 'radio' },
     },
   },
-} as Meta
+  tags: ['autodocs'],
+} satisfies Meta
 
-export const Basic: StoryFn<SelectProps> = (props) => (
-  <Select {...props} value={1}>
-    <Option value={1}>First</Option>
-    <Option value={2}>Second</Option>
-    <Option value={3}>Third</Option>
-  </Select>
-)
+export const Basic: StoryFn<SelectProps> = (props) => <Select {...props} />
 
-export const Labeled: StoryFn<SelectProps> = (props) => (
-  <Select {...props} label='Labeled select' value={1}>
-    <Option value={1}>First</Option>
-    <Option value={2}>Second</Option>
-    <Option value={3}>Third</Option>
-  </Select>
-)
+export const AllStates: StoryFn<SelectProps> = () => {
+  const gridContainerStyle: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '32px',
+  }
 
-const iconsMap = {
-  eth: <Eth />,
-  steth: <Steth />,
-  sol: <Solana />,
-}
+  const sectionStyle: React.CSSProperties = {
+    padding: '16px',
+    border: '1px solid #eaeaea',
+  }
 
-export const Icons: StoryFn<SelectProps> = (props) => {
-  const [value, setValue] = useState<keyof typeof iconsMap>('eth')
+  const stateContainerStyle: React.CSSProperties = {
+    marginBottom: '16px',
+  }
+
+  const selectContainerStyle: React.CSSProperties = {
+    display: 'flex',
+    gap: '8px',
+    flexWrap: 'wrap',
+  }
+
+  const commonOptions = [
+    { value: 1, label: 'Option 1' },
+    { value: 2, label: 'Option 2' },
+    { value: 3, label: 'Option 3' },
+  ]
+
+  const iconOptions = [
+    {
+      value: 1,
+      label: 'Option 1',
+      icon: { icon: Icon },
+    },
+    {
+      value: 2,
+      label: 'Option 2',
+      icon: { icon: Icon },
+    },
+    {
+      value: 3,
+      label: 'Option 3',
+      icon: { icon: Icon },
+    },
+  ]
+
+  const coloredIconOptions = [
+    {
+      value: 1,
+      label: 'Option 1',
+      icon: Discord,
+    },
+    {
+      value: 2,
+      label: 'Option 2',
+      icon: Farcaster,
+    },
+    {
+      value: 3,
+      label: 'Option 3',
+      icon: GoogleCal,
+    },
+  ]
 
   return (
-    <Select
-      {...props}
-      leftDecorator={iconsMap[value]}
-      value={value}
-      onChange={(value) => setValue(value as keyof typeof iconsMap)}
-    >
-      <Option leftDecorator={iconsMap.eth} value='eth'>
-        Ethereum (ETH)
-      </Option>
-      <Option leftDecorator={iconsMap.steth} value='steth'>
-        Lido (STETH)
-      </Option>
-      <Option leftDecorator={iconsMap.sol} value='sol'>
-        Solana (SOL)
-      </Option>
-    </Select>
+    <div style={gridContainerStyle}>
+      <div style={sectionStyle}>
+        <h3>Size: l</h3>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Default</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='l'
+              options={commonOptions}
+              placeholder='Select option'
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='l'
+              options={commonOptions}
+              defaultValue={1}
+              disabled
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: With Placeholder Icon</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='l'
+              options={iconOptions}
+              placeholder='Select option'
+              placeholderIcon={{ icon: Icon }}
+            />
+            <SelectWithColoredIcon
+              size='l'
+              options={coloredIconOptions}
+              placeholder='Select option'
+              placeholderIcon={Analytics}
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled With Placeholder Icon</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='l'
+              options={iconOptions}
+              placeholder='Select option'
+              placeholderIcon={{ icon: Icon }}
+              disabled
+            />
+            <SelectWithColoredIcon
+              size='l'
+              options={coloredIconOptions}
+              placeholder='Select option'
+              placeholderIcon={Analytics}
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+
+      <div style={sectionStyle}>
+        <h3>Size: m</h3>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Default</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='m'
+              options={commonOptions}
+              placeholder='Select option'
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='m'
+              options={commonOptions}
+              defaultValue={1}
+              disabled
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: With Placeholder Icon</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='m'
+              options={iconOptions}
+              placeholder='Select option'
+              placeholderIcon={{ icon: Icon }}
+            />
+            <SelectWithColoredIcon
+              size='m'
+              options={coloredIconOptions}
+              placeholder='Select option'
+              placeholderIcon={Academy}
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled with Icons</h5>
+          <div style={selectContainerStyle}>
+            <Select size='m' options={iconOptions} defaultValue={1} disabled />
+            <SelectWithColoredIcon
+              size='m'
+              options={coloredIconOptions}
+              defaultValue={1}
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+
+      <div style={sectionStyle}>
+        <h3>Size: s</h3>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Default</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='s'
+              options={commonOptions}
+              placeholder='Select option'
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='s'
+              options={commonOptions}
+              defaultValue={1}
+              disabled
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: With Placeholder Icon</h5>
+          <div style={selectContainerStyle}>
+            <Select
+              size='s'
+              options={iconOptions}
+              placeholder='Select option'
+              placeholderIcon={{ icon: Icon }}
+            />
+            <SelectWithColoredIcon
+              size='s'
+              options={coloredIconOptions}
+              placeholder='Select option'
+              placeholderIcon={Image}
+            />
+          </div>
+        </div>
+
+        <div style={stateContainerStyle}>
+          <h5>State: Disabled with Icons</h5>
+          <div style={selectContainerStyle}>
+            <Select size='s' options={iconOptions} defaultValue={1} disabled />
+            <SelectWithColoredIcon
+              size='s'
+              options={coloredIconOptions}
+              defaultValue={1}
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
-export const OnlyIcon: StoryFn<SelectProps> = (props) => {
-  const [value, setValue] = useState<keyof typeof iconsMap>('eth')
-
-  return (
-    <SelectIcon
-      {...props}
-      icon={iconsMap[value]}
-      value={value}
-      onChange={(value) => setValue(value as keyof typeof iconsMap)}
-    >
-      <Option leftDecorator={iconsMap.eth} value='eth'>
-        Ethereum (ETH)
-      </Option>
-      <Option leftDecorator={iconsMap.steth} value='steth'>
-        Lido (STETH)
-      </Option>
-      <Option leftDecorator={iconsMap.sol} value='sol'>
-        Solana (SOL)
-      </Option>
-    </SelectIcon>
-  )
-}
-
-OnlyIcon.argTypes = {
-  fullwidth: {
-    table: { disable: true },
+AllStates.parameters = {
+  controls: { disable: true },
+  docs: {
+    description: {
+      story: 'Displays all possible Select states for easy review.',
+    },
   },
 }
-
-export const WithInput: StoryFn<SelectProps> = ({
-  fullwidth,
-  disabled,
-  color,
-  ...rest
-}) => {
-  const [value, setValue] = useState<keyof typeof iconsMap>('eth')
-  const ref = useRef<HTMLSpanElement>(null)
-
-  return (
-    <InputGroup fullwidth={fullwidth} ref={ref}>
-      <SelectIcon
-        {...rest}
-        disabled={disabled}
-        color={color}
-        anchorRef={ref}
-        icon={iconsMap[value]}
-        value={value}
-        onChange={(value) => setValue(value as keyof typeof iconsMap)}
-      >
-        <Option leftDecorator={iconsMap.eth} value='eth'>
-          Ethereum (ETH)
-        </Option>
-        <Option leftDecorator={iconsMap.steth} value='steth'>
-          Lido (STETH)
-        </Option>
-        <Option leftDecorator={iconsMap.sol} value='sol'>
-          Solana (SOL)
-        </Option>
-      </SelectIcon>
-      <Input
-        fullwidth={fullwidth}
-        disabled={disabled}
-        color={color}
-        placeholder='Amount'
-      />
-    </InputGroup>
-  )
-}
-
-WithInput.argTypes = {
-  color: {
-    options: getOptions(InputColor),
-    control: 'inline-radio',
-  },
-}
-
-export const Small: StoryFn<SelectProps> = (props) => (
-  <Select {...props} variant='small' arrow='small' value={1}>
-    <Option value={1}>First</Option>
-    <Option value={2}>Second</Option>
-    <Option value={3}>Third</Option>
-  </Select>
-)

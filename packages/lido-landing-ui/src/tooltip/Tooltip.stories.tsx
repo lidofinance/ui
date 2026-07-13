@@ -1,46 +1,113 @@
-import { StoryFn, Meta } from '@storybook/react'
-import { Question } from '../icons/index.js'
-import { PopoverOffset, PopoverPlacement } from '../popover/index.js'
-import { Tooltip, TooltipProps } from './index.js'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Tooltip } from './Tooltip'
 
-const getOptions = (enumObject: Record<string, string | number>) =>
-  Object.values(enumObject).filter((value) => typeof value === 'string')
-
-export default {
+const meta: Meta<typeof Tooltip> = {
+  title: 'Content helpers/Tooltip',
   component: Tooltip,
-  title: 'Dialogs/Tooltip',
+  args: {
+    content: 'This is a tooltip content',
+    position: 'right',
+    children: <>Hover me</>,
+    width: 352,
+  },
+  argTypes: {
+    position: {
+      options: [
+        'top',
+        'right',
+        'bottom',
+        'left',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+      ],
+      control: { type: 'radio' },
+    },
+    content: {
+      control: { type: 'text' },
+    },
+    width: { control: { type: 'text' } },
+  },
   parameters: {
     layout: 'centered',
   },
-  args: {
-    title:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum voluptates pariatur culpa consectetur velit iste rem, aspernatur voluptatem aperiam itaque obcaecati vero non quis id iure vitae, quae quibusdam quidem.',
-    offset: 'xs',
-    placement: 'bottom',
-  },
-  argTypes: {
-    title: {
-      control: 'text',
-    },
-    offset: {
-      options: getOptions(PopoverOffset),
-      control: 'inline-radio',
-    },
-    placement: {
-      options: getOptions(PopoverPlacement),
-      control: 'radio',
-    },
-  },
-} as Meta
+  tags: ['autodocs'],
+}
 
-export const Basic: StoryFn<TooltipProps> = (props) => (
-  <Tooltip {...props}>
-    <span>Hover me</span>
-  </Tooltip>
-)
+export default meta
+type Story = StoryObj<typeof Tooltip>
 
-export const Icon: StoryFn<TooltipProps> = (props) => (
-  <Tooltip {...props}>
-    <Question />
-  </Tooltip>
-)
+export const Basic: Story = {}
+
+export const AllStates = () => {
+  const gridContainerStyle: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+    gap: '32px',
+    padding: '50px',
+  }
+
+  const sectionStyle: React.CSSProperties = {
+    padding: '16px',
+    border: '1px solid #eaeaea',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '16px',
+  }
+
+  const tooltipGroupStyle: React.CSSProperties = {
+    display: 'flex',
+    gap: '32px',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '16px 0',
+  }
+
+  const content =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+
+  return (
+    <div style={gridContainerStyle}>
+      <div style={sectionStyle}>
+        <h3>Tooltip</h3>
+        <div style={tooltipGroupStyle}>
+          <Tooltip position='top' content={content}>
+            top
+          </Tooltip>
+          <Tooltip position='right' content={content}>
+            right
+          </Tooltip>
+          <Tooltip position='bottom' content={content}>
+            bottom
+          </Tooltip>
+          <Tooltip position='left' content={content}>
+            left
+          </Tooltip>
+          <Tooltip position='top-left' content={content}>
+            top-left
+          </Tooltip>
+          <Tooltip position='top-right' content={content}>
+            top-right
+          </Tooltip>
+          <Tooltip position='bottom-left' content={content}>
+            bottom-left
+          </Tooltip>
+          <Tooltip position='bottom-right' content={content}>
+            bottom-right
+          </Tooltip>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+AllStates.parameters = {
+  controls: { disable: true },
+  docs: {
+    description: {
+      story: 'Displays all possible Tooltip states for easy review.',
+    },
+  },
+}
