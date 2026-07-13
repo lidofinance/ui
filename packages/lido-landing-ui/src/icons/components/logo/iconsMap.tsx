@@ -30,6 +30,7 @@ import { AaveLogo } from './AaveLogo'
 import { AckeeLogo } from './AckeeLogo'
 import { AegisLogo } from './AegisLogo'
 import { AllnodesLogo } from './AllnodesLogo'
+import { AnchorageLogo } from './AnchorageLogo'
 import { AntalphaLogo } from './AntalphaLogo'
 import { AnyblockLogo } from './AnyblockLogo'
 import { ApolloLogo } from './ApolloLogo'
@@ -194,6 +195,7 @@ export const LOGO_ICONS_MAP = {
   AckeeLogo,
   AegisLogo,
   AllnodesLogo,
+  AnchorageLogo,
   AntalphaLogo,
   AnyblockLogo,
   ApolloLogo,

@@ -150,3 +150,19 @@
   line-height: var(--lido-ui-line-height-description);
   letter-spacing: normal;
 }
+
+@define-mixin font-description-static {
+  font-family: var(--lido-ui-font-family);
+  font-size: var(--lido-ui-font-size-description-static);
+  font-weight: var(--lido-ui-font-weight-regular);
+  line-height: var(--lido-ui-line-height-description-static);
+  letter-spacing: normal;
+}
+
+@define-mixin font-description-bold-static {
+  font-family: var(--lido-ui-font-family);
+  font-size: var(--lido-ui-font-size-description-static);
+  font-weight: var(--lido-ui-font-weight-bold);
+  line-height: var(--lido-ui-line-height-description-static);
+  letter-spacing: normal;
+}

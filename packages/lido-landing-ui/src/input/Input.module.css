@@ -10,7 +10,7 @@
 }
 
 .input {
-  @mixin font-body-large-medium;
+  @mixin font-body-large-medium-static;
 
   width: 100%;
   color: var(--lido-ui-color-text-primary);
@@ -237,7 +237,7 @@
 }
 
 .rightDecoratorElement {
-  @mixin font-description;
+  @mixin font-description-static;
 
   display: flex;
   align-items: center;
@@ -270,7 +270,7 @@
 }
 
 .error {
-  @mixin font-description-bold;
+  @mixin font-description-bold-static;
 
   margin-top: 4px;
   left: 0;
@@ -289,7 +289,7 @@
 }
 
 .floatingLabel {
-  @mixin font-description;
+  @mixin font-description-static;
 
   position: absolute;
   left: 0;

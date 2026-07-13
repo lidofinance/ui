@@ -1,5 +1,5 @@
 import { cloneElement, ReactElement } from 'react'
-import type { IconConfig, IconConfigProp } from '@lidofinance/lido-shared-ui'
+import { IconConfig, IconConfigProp } from '../../utils'
 import styles from '../Input.module.css'
 import cn from 'classnames'
 

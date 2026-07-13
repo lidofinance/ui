@@ -24,7 +24,7 @@ import {
   RightDecoratorType,
 } from './utils/rightDecoratorUtils'
 import { getIconElement, getIsColored } from './utils/leftDecoratorUtils'
-import type { IconConfigProp } from '@lidofinance/lido-shared-ui'
+import { IconConfigProp } from 'packages/utils'
 
 export type InputDataTestId = {
   root?: string

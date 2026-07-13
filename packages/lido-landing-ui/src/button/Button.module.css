@@ -4,7 +4,7 @@
   --local-button-border-width: 0px;
   --local-button-border-radius: var(--lido-ui-border-radius-34);
 
-  @mixin font-body-large-bold;
+  @mixin font-body-large-bold-static;
 
   position: relative;
   display: inline-flex;
