@@ -1,5 +1,0 @@
-export * from './checkViewport.js'
-export * from './handlePositioning.js'
-export * from './getContainerSize.js'
-export * from './processData.js'
-export * from './constants.js'

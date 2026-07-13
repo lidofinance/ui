@@ -21,10 +21,10 @@
   },
   "release": {
     "branches": [
-      "migrate-to-monorepo-structure",
+      "feature/we-2376-migrate-lido-ui-to-monorepo-structure",
       "main",
       {
-        "name": "lido-ui-v4-canary",
+        "name": "alpha-release",
         "channel": "alpha",
         "prerelease": "alpha"
       }
@@ -34,15 +34,6 @@
         "@semantic-release/commit-analyzer",
         {
           "preset": "conventionalcommits"
-        }
-      ],
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      [
-        "@semantic-release/github",
-        {
-          "successComment": false,
-          "failComment": false
         }
       ]
     ]
