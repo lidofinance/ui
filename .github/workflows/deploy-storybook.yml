@@ -31,17 +31,13 @@ jobs:
 
       - name: Build all Storybooks
         run: yarn turbo run build-storybook
-        env:
-          PUBLIC_PATH_UI: /lido-ui/lido-ui/
-          PUBLIC_PATH_LANDING: /lido-ui/lido-ui-landing/
-          PUBLIC_PATH_WIDGET: /lido-ui/lido-ui-widget/
 
       - name: Assemble gh-pages directory
         run: |
-          mkdir -p gh-pages/lido-ui gh-pages/lido-ui-landing gh-pages/lido-ui-widget
+          mkdir -p gh-pages/lido-ui gh-pages/lido-landing-ui gh-pages/lido-app-ui
           cp -r packages/lido-ui/storybook-static/. gh-pages/lido-ui/
-          cp -r packages/lido-landing-ui/storybook-static/. gh-pages/lido-ui-landing/
-          cp -r packages/lido-app-ui/storybook-static/. gh-pages/lido-ui-widget/
+          cp -r packages/lido-landing-ui/storybook-static/. gh-pages/lido-landing-ui/
+          cp -r packages/lido-app-ui/storybook-static/. gh-pages/lido-app-ui/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
