@@ -2,10 +2,10 @@ export const getTopLevelDomain =
   typeof window === 'undefined'
     ? () => 'localhost'
     : () => {
-        if (document.location.host.indexOf('localhost') === 0) {
+        const parts = location.hostname.split('.')
+        if (parts[parts.length - 1] === 'localhost') {
           return 'localhost'
-        } else {
-          // Get host with dot in first position
-          return `.${location.hostname.split('.').slice(-2).join('.')}`
         }
+        // Get host with dot in first position
+        return `.${parts.slice(-2).join('.')}`
       }

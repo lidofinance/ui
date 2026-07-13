@@ -13,7 +13,7 @@ RUN corepack enable && \
 
 # Serves the assembled static output; baked into the image (not under /app,
 # so it survives the docker-compose bind mount described below).
-RUN npm install -g serve
+RUN npm install -g serve@14.2.6
 
 # The deployment docker-compose.yml bind-mounts the host checkout over /app
 # and keeps /app/node_modules as a separate volume, so anything built into
