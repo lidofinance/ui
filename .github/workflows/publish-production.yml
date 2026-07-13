@@ -3,7 +3,6 @@ name: Publish Production
 on:
   push:
     branches:
-      - monorepo
       - main
   workflow_dispatch:
 

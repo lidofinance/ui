@@ -3,7 +3,7 @@ name: Publish Alpha
 on:
   push:
     branches:
-      - lido-ui-v4-canary
+      - release-alpha
   workflow_dispatch:
 
 concurrency:

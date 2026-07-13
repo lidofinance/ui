@@ -1,9 +1,6 @@
 name: Deploy Storybook
 
 on:
-  push:
-    branches:
-      - monorepo
   workflow_dispatch:
 
 concurrency:
