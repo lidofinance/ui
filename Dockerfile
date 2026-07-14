@@ -25,7 +25,7 @@ RUN npm install -g serve@14.2.6
 EXPOSE 5555
 
 CMD ["sh", "-c", "\
-    yarn turbo run build-storybook && \
+    yarn turbo run build-storybook --concurrency=1 && \
     rm -rf /srv/storybooks && \
     mkdir -p /srv/storybooks/lido-ui /srv/storybooks/lido-landing-ui /srv/storybooks/lido-app-ui && \
     cp -r packages/lido-ui/storybook-static/. /srv/storybooks/lido-ui/ && \
