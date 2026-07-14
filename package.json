@@ -21,10 +21,14 @@
   },
   "release": {
     "branches": [
-      "feature/we-2376-migrate-lido-ui-to-monorepo-structure",
       "main",
       {
         "name": "alpha-release",
+        "channel": "alpha",
+        "prerelease": "alpha"
+      },
+      {
+        "name": "feature/we-2376-migrate-lido-ui-to-monorepo-structure",
         "channel": "alpha",
         "prerelease": "alpha"
       }

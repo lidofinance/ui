@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - release-alpha
+      - feature/we-2376-migrate-lido-ui-to-monorepo-structure
   workflow_dispatch:
 
 concurrency:
@@ -20,6 +21,7 @@ jobs:
   publish:
     needs: dry-run
     runs-on: ubuntu-latest
+    environment: production
     permissions:
       contents: write
       id-token: write
