@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - release-alpha
-      - feature/we-2376-migrate-lido-ui-to-monorepo-structure
   workflow_dispatch:
 
 concurrency:

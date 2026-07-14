@@ -23,12 +23,7 @@
     "branches": [
       "main",
       {
-        "name": "alpha-release",
-        "channel": "alpha",
-        "prerelease": "alpha"
-      },
-      {
-        "name": "feature/we-2376-migrate-lido-ui-to-monorepo-structure",
+        "name": "release-alpha",
         "channel": "alpha",
         "prerelease": "alpha"
       }
