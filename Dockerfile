@@ -24,13 +24,13 @@ RUN npm install -g serve@14.2.6
 # shadow it.
 EXPOSE 5555
 
+# TEMPORARY: only building lido-ui's storybook for now; restore the
+# lido-landing-ui/lido-app-ui build-and-copy steps below once needed again.
 CMD ["sh", "-c", "\
-    yarn turbo run build-storybook --concurrency=1 && \
+    yarn turbo run build-storybook --concurrency=1 --filter=@lidofinance/lido-ui && \
     rm -rf /srv/storybooks && \
-    mkdir -p /srv/storybooks/lido-ui /srv/storybooks/lido-landing-ui /srv/storybooks/lido-app-ui && \
+    mkdir -p /srv/storybooks/lido-ui && \
     cp -r packages/lido-ui/storybook-static/. /srv/storybooks/lido-ui/ && \
-    cp -r packages/lido-landing-ui/storybook-static/. /srv/storybooks/lido-landing-ui/ && \
-    cp -r packages/lido-app-ui/storybook-static/. /srv/storybooks/lido-app-ui/ && \
     printf '%s\\n' \
       '<!doctype html>' \
       '<html>' \
@@ -39,8 +39,6 @@ CMD ["sh", "-c", "\
       '<h1>Lido UI Storybooks</h1>' \
       '<ul>' \
       '<li><a href=\"lido-ui/\">lido-ui</a></li>' \
-      '<li><a href=\"lido-landing-ui/\">lido-landing-ui</a></li>' \
-      '<li><a href=\"lido-app-ui/\">lido-app-ui</a></li>' \
       '</ul>' \
       '</body>' \
       '</html>' \
