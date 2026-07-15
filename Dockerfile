@@ -1,47 +1,23 @@
 FROM node:24.13-alpine
 
-WORKDIR /app
-
-# Yarn workspaces need every package.json present to resolve the graph,
-# so install after copying the full source rather than just the root
-# manifest (installing against the root manifest alone leaves workspace
-# packages under-linked, e.g. missing bins like `storybook`).
-COPY . .
-RUN corepack enable && \
-    yarn install && \
-    yarn cache clean
-
 # Serves the assembled static output; baked into the image (not under /app,
 # so it survives the docker-compose bind mount described below).
 RUN npm install -g serve@14.2.6
 
-# The deployment docker-compose.yml bind-mounts the host checkout over /app
-# and keeps /app/node_modules as a separate volume, so anything built into
-# /app at image-build time would just be replaced by the live source as
-# soon as the container starts. build-storybook therefore has to run at
-# container start instead, against whatever source is mounted then, with
-# its output written outside /app (/srv/storybooks) so the mount can't
-# shadow it.
 EXPOSE 5555
 
-# TEMPORARY: only building lido-ui's storybook for now; restore the
-# lido-landing-ui/lido-app-ui build-and-copy steps below once needed again.
-CMD ["sh", "-c", "\
-    yarn turbo run build-storybook --concurrency=1 --filter=@lidofinance/lido-ui && \
-    rm -rf /srv/storybooks && \
-    mkdir -p /srv/storybooks/lido-ui && \
-    cp -r packages/lido-ui/storybook-static/. /srv/storybooks/lido-ui/ && \
-    printf '%s\\n' \
+# TEMPORARY: skip install/build entirely and just serve a dummy page, to
+# isolate whether OOM is coming from yarn install / turbo build. Restore
+# the full install + build-storybook CMD once diagnosed.
+RUN mkdir -p /srv/storybooks && \
+    printf '%s\n' \
       '<!doctype html>' \
       '<html>' \
-      '<head><title>Lido UI Storybooks</title></head>' \
+      '<head><title>Lido UI Storybooks (dummy)</title></head>' \
       '<body>' \
-      '<h1>Lido UI Storybooks</h1>' \
-      '<ul>' \
-      '<li><a href=\"lido-ui/\">lido-ui</a></li>' \
-      '</ul>' \
+      '<h1>Dummy placeholder page</h1>' \
       '</body>' \
       '</html>' \
-      > /srv/storybooks/index.html && \
-    serve -l 5555 /srv/storybooks \
-"]
+      > /srv/storybooks/index.html
+
+CMD ["serve", "-l", "5555", "/srv/storybooks"]
