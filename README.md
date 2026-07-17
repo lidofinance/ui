@@ -6,6 +6,8 @@ Check out our Storybook at [https://ui.lido.fi/v4](https://ui.lido.fi/v4)
 
 For release a new version of the library you need to create a commit with `!` like this - `feat!: ui v4`
 
+> **Note:** `@lidofinance/lido-ui` (this package) is deprecated and no longer the primary library. It is being slowly replaced by `@lidofinance/lido-landing-ui` or `@lidofinance/lido-app-ui`, depending on the design requirements of the consuming project. Avoid adding new components here — see [Monorepo Structure](#monorepo-structure) below for which package to use instead.
+
 ## Breaking Changes
 
 `useBreakpoint` has been deleted, because getting styles in js is a legacy of styled-components, but the library has switched to module-css. This can be created locally in your project.
@@ -74,6 +76,64 @@ Simply import any components and use in your project:
 ```js
 import { Button } from '@lidofinance/lido-ui'
 ```
+
+## Monorepo Structure
+
+This repository is a [Yarn workspaces](https://yarnpkg.com/features/workspaces) monorepo orchestrated with [Turborepo](https://turbo.build/repo). It contains four publishable packages under `packages/`:
+
+| Package | npm name | Description | Storybook port |
+| --- | --- | --- | --- |
+| [`packages/lido-ui`](./packages/lido-ui) | `@lidofinance/lido-ui` | **Deprecated / legacy.** The original component library (buttons, inputs, modals, data tables, icons, theme, etc). No longer the primary library — being phased out in favor of `lido-landing-ui` / `lido-app-ui`. Avoid adding new components here. | `5555` |
+| [`packages/lido-landing-ui`](./packages/lido-landing-ui) | `@lidofinance/lido-landing-ui` | Components tailored for Lido's landing / marketing pages (banners, cards, tags, tooltips, typography, etc). One of the two current replacements for `lido-ui`. | `5556` |
+| [`packages/lido-app-ui`](./packages/lido-app-ui) | `@lidofinance/lido-app-ui` | Components for Lido app/widget products. Currently small and growing. The other current replacement for `lido-ui`. | `5557` |
+| [`packages/lido-shared-ui`](./packages/lido-shared-ui) | `@lidofinance/lido-shared-ui` | Shared hooks, utils, theme CSS and types consumed by the other packages. Not published with its own Storybook. | — |
+
+`lido-ui` is being slowly replaced by `lido-landing-ui` or `lido-app-ui`, depending on the design requirements of the consuming project — pick whichever matches the target project's design system for new work instead of adding to `lido-ui`.
+
+### Package dependency graph
+
+- `lido-shared-ui` has no internal dependencies — it's the shared foundation (hooks, utils, theme-css, types).
+- `lido-landing-ui` and `lido-app-ui` depend on `lido-shared-ui`.
+- `lido-ui` currently has no internal dependencies and is self-contained (legacy, not built on the shared foundation).
+
+### Package layout
+
+Each package under `packages/*` follows the same shape:
+
+- `src/` - component source code
+- `dist/` - build output (`cjs` and `esm`), generated on `build`, not committed
+- `rollup.config.mjs` - Rollup build config
+- `tsconfig.json` / `tsconfig.production.json` - TypeScript configs (production config is used for `.d.ts` generation during build)
+- `vitest.config.ts` - test config
+
+### Build orchestration
+
+[Turborepo](https://turbo.build/repo) (configured in [`turbo.json`](./turbo.json)) runs tasks across all packages and caches results:
+
+- `yarn build` → `turbo run build` - builds every package; a package's `build` depends on `^build` (its dependencies' builds), so `lido-shared-ui` is always built before `lido-landing-ui`/`lido-app-ui`.
+- `yarn test` → `turbo run test`
+- `yarn lint` → `turbo run lint`
+- `yarn types` → `turbo run types`
+- `yarn build-storybook` → `turbo run build-storybook`
+
+### Working on a single package
+
+Run a package's Storybook directly:
+
+- `yarn storybook:ui` - Storybook for `lido-ui` (port `5555`)
+- `yarn storybook:landing` - Storybook for `lido-landing-ui` (port `5556`)
+- `yarn storybook:widget` - Storybook for `lido-app-ui` (port `5557`)
+
+Or target any workspace script directly with `yarn workspace <package-name> <script>`, e.g.:
+
+```bash
+yarn workspace @lidofinance/lido-ui test
+yarn workspace @lidofinance/lido-landing-ui icons:convert
+```
+
+### Versioning & publishing
+
+All four packages are versioned and published together via [multi-semantic-release](https://github.com/dhoulb/multi-semantic-release), which understands the internal dependency graph above (e.g. a breaking change in `lido-shared-ui` bumps the packages depending on it too). See [RELEASES.md](./RELEASES.md) for the full release process.
 
 ## Developing
 
