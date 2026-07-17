@@ -1,94 +1,21 @@
-# Lido UI Components v4
+# Lido UI
 
-> React components (v4) for Lido Finance projects. (Released February 2026)
+> Monorepo of React component libraries for Lido Finance projects.
 
-Check out our Storybook at [https://ui.lido.fi/v4](https://ui.lido.fi/v4)
+This repository is a [Yarn workspaces](https://yarnpkg.com/features/workspaces) monorepo orchestrated with [Turborepo](https://turbo.build/repo). It publishes the following packages to npm:
 
-For release a new version of the library you need to create a commit with `!` like this - `feat!: ui v4`
+| Package | npm name | Description | Storybook |
+| --- | --- | --- | --- |
+| [`packages/lido-landing-ui`](./packages/lido-landing-ui) | `@lidofinance/lido-landing-ui` | Components tailored for Lido's landing / marketing pages (banners, cards, tags, tooltips, typography, etc). One of the two current replacements for `lido-ui`. | [ui.lido.fi/lido-landing-ui](https://ui.lido.fi/lido-landing-ui/) |
+| [`packages/lido-app-ui`](./packages/lido-app-ui) | `@lidofinance/lido-app-ui` | Components for Lido app/widget products. Currently small and growing. The other current replacement for `lido-ui`. | [ui.lido.fi/lido-app-ui](https://ui.lido.fi/lido-app-ui/) |
+| [`packages/lido-shared-ui`](./packages/lido-shared-ui) | `@lidofinance/lido-shared-ui` | Shared hooks, utils, theme CSS and types consumed by the other packages. No Storybook of its own. | — |
+| [`packages/lido-ui`](./packages/lido-ui) | `@lidofinance/lido-ui` | **Deprecated / legacy.** The original component library (buttons, inputs, modals, data tables, icons, theme, etc). Being phased out in favor of `lido-landing-ui` / `lido-app-ui`. Avoid adding new components here. | [ui.lido.fi](https://ui.lido.fi/) |
 
-> **Note:** `@lidofinance/lido-ui` (this package) is deprecated and no longer the primary library. It is being slowly replaced by `@lidofinance/lido-landing-ui` or `@lidofinance/lido-app-ui`, depending on the design requirements of the consuming project. Avoid adding new components here — see [Monorepo Structure](#monorepo-structure) below for which package to use instead.
+> **Note:** `@lidofinance/lido-ui` is deprecated and no longer the primary library. It is being slowly replaced by `@lidofinance/lido-landing-ui` or `@lidofinance/lido-app-ui`, depending on the design requirements of the consuming project — pick whichever matches the target project's design system for new work.
 
-## Breaking Changes
-
-`useBreakpoint` has been deleted, because getting styles in js is a legacy of styled-components, but the library has switched to module-css. This can be created locally in your project.
-
-## Getting Started
-
-1. Simply add `lido-ui` to your dependencies:
-
-```bash
-yarn add @lidofinance/lido-ui
-```
-
-2. Import Lido theme provider and wrap your components in `_app.js`:
-
-```js
-import { ThemeProvider } from '@lidofinance/lido-ui'
-
-function App({ Component }) {
-  return (
-    <ThemeProvider>
-      <Component />
-    </ThemeProvider>
-  )
-}
-```
-
-3. Import styles into your `_app.js` file:
-```tsx
-import '@lidofinance/lido-ui/index.css';
-```
-
-4. CSS variables are initially embedded in the `index.css` file. To use typography styles across your application, you have two options:
-
-   1. **Include the CSS file**:  
-      If you want to use ready-made classes with styles, you need to import an additional CSS file.  
-      Insert the following line at the top of your `_app.js` file to import the typography styles:
-      ```tsx
-      import '@lidofinance/lido-ui/styles/typography.css';
-      ```
-
-   2. **Use PostCSS mixins**:  
-      If you prefer to use PostCSS mixins for typography, you need to configure PostCSS in your project. Add the `postcss-mixins` plugin to your PostCSS configuration and include the typography mixins provided by the library.  
-      Example `postcss.config.js` configuration:
-      ```js
-      module.exports = {
-        plugins: [
-          ...
-          [
-            "postcss-mixins",
-            {
-               mixinsDir: path.resolve('./node_modules/@lidofinance/lido-ui/dist/styles'),
-            },
-         ],
-        ],
-      };
-      ```  
-      Once configured, you can use the typography mixins directly in your CSS files. For example:
-      ```css
-      @mixin font-h2;
-      ```
-
-## Usage
-
-Simply import any components and use in your project:
-
-```js
-import { Button } from '@lidofinance/lido-ui'
-```
+Published Storybooks are deployed to GitHub Pages by [`deploy-storybook.yml`](./.github/workflows/deploy-storybook.yml): `lido-ui` is published at the domain root ([ui.lido.fi](https://ui.lido.fi/)), while `lido-landing-ui` and `lido-app-ui` are published under their own subfolders.
 
 ## Monorepo Structure
-
-This repository is a [Yarn workspaces](https://yarnpkg.com/features/workspaces) monorepo orchestrated with [Turborepo](https://turbo.build/repo). It contains four publishable packages under `packages/`:
-
-| Package | npm name | Description | Storybook port |
-| --- | --- | --- | --- |
-| [`packages/lido-ui`](./packages/lido-ui) | `@lidofinance/lido-ui` | **Deprecated / legacy.** The original component library (buttons, inputs, modals, data tables, icons, theme, etc). No longer the primary library — being phased out in favor of `lido-landing-ui` / `lido-app-ui`. Avoid adding new components here. | `5555` |
-| [`packages/lido-landing-ui`](./packages/lido-landing-ui) | `@lidofinance/lido-landing-ui` | Components tailored for Lido's landing / marketing pages (banners, cards, tags, tooltips, typography, etc). One of the two current replacements for `lido-ui`. | `5556` |
-| [`packages/lido-app-ui`](./packages/lido-app-ui) | `@lidofinance/lido-app-ui` | Components for Lido app/widget products. Currently small and growing. The other current replacement for `lido-ui`. | `5557` |
-| [`packages/lido-shared-ui`](./packages/lido-shared-ui) | `@lidofinance/lido-shared-ui` | Shared hooks, utils, theme CSS and types consumed by the other packages. Not published with its own Storybook. | — |
-
-`lido-ui` is being slowly replaced by `lido-landing-ui` or `lido-app-ui`, depending on the design requirements of the consuming project — pick whichever matches the target project's design system for new work instead of adding to `lido-ui`.
 
 ### Package dependency graph
 
@@ -116,31 +43,7 @@ Each package under `packages/*` follows the same shape:
 - `yarn types` → `turbo run types`
 - `yarn build-storybook` → `turbo run build-storybook`
 
-### Working on a single package
-
-Run a package's Storybook directly:
-
-- `yarn storybook:ui` - Storybook for `lido-ui` (port `5555`)
-- `yarn storybook:landing` - Storybook for `lido-landing-ui` (port `5556`)
-- `yarn storybook:widget` - Storybook for `lido-app-ui` (port `5557`)
-
-Or target any workspace script directly with `yarn workspace <package-name> <script>`, e.g.:
-
-```bash
-yarn workspace @lidofinance/lido-ui test
-yarn workspace @lidofinance/lido-landing-ui icons:convert
-```
-
-### Versioning & publishing
-
-All four packages are versioned and published together via [multi-semantic-release](https://github.com/dhoulb/multi-semantic-release), which understands the internal dependency graph above (e.g. a breaking change in `lido-shared-ui` bumps the packages depending on it too). See [RELEASES.md](./RELEASES.md) for the full release process.
-
 ## Developing
-
-- `yarn dev` - Start Storybook locally to start developing components.
-- `yarn build` - Build all components.
-- `yarn test` - Run tests across components.
-- `yarn lint` - Run eslint across components.
 
 ### Initial setup
 
@@ -161,16 +64,97 @@ yarn install
 yarn build
 ```
 
-4. Run the storybook:
+### Working on a single package
 
-```yarn dev
+Run a package's Storybook directly:
+
+- `yarn storybook:ui` - Storybook for `lido-ui` (port `5555`)
+- `yarn storybook:landing` - Storybook for `lido-landing-ui` (port `5556`)
+- `yarn storybook:widget` - Storybook for `lido-app-ui` (port `5557`)
+
+Or target any workspace script directly with `yarn workspace <package-name> <script>`, e.g.:
+
+```bash
+yarn workspace @lidofinance/lido-ui test
+yarn workspace @lidofinance/lido-landing-ui icons:convert
 ```
+
+Repo-wide scripts:
+
+- `yarn build` - Build all packages.
+- `yarn test` - Run tests across packages.
+- `yarn lint` - Run eslint across packages.
 
 ## Publishing
 
 Packages are automatically published to npm when you push to master. The publication is based on [semantic-release](https://github.com/semantic-release/semantic-release) and [@lidofinance/multi-semantic-release](https://github.com/lidofinance/multi-semantic-release).
 
-For correct version detection, please follow the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/).
+All packages are versioned and published together — multi-semantic-release understands the internal dependency graph above (e.g. a breaking change in `lido-shared-ui` bumps the packages depending on it too). See [RELEASES.md](./RELEASES.md) for the full release process.
+
+For correct version detection, please follow the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/). To release a new major version, create a commit with `!` like this - `feat!: ui v4`
+
+## Using libraries
+
+1. Simply add a library to your dependencies:
+
+```bash
+yarn add @lidofinance/lido-landing-ui # or @lidofinance/lido-app-ui
+```
+
+2. Import Lido theme provider and wrap your components in `_app.js`:
+
+```js
+import { ThemeProvider } from '@lidofinance/lido-app-ui'
+
+function App({ Component }) {
+  return (
+    <ThemeProvider>
+      <Component />
+    </ThemeProvider>
+  )
+}
+```
+
+3. Import styles into your `_app.js` file:
+```tsx
+import '@lidofinance/lido-app-ui/index.css';
+```
+
+4. CSS variables are initially embedded in the `index.css` file. To use typography styles across your application, you have two options:
+
+   1. **Include the CSS file**:  
+      If you want to use ready-made classes with styles, you need to import an additional CSS file.  
+      Insert the following line at the top of your `_app.js` file to import the typography styles:
+      ```tsx
+      import '@lidofinance/lido-app-ui/styles/typography.css';
+      ```
+
+   2. **Use PostCSS mixins**:  
+      If you prefer to use PostCSS mixins for typography, you need to configure PostCSS in your project. Add the `postcss-mixins` plugin to your PostCSS configuration and include the typography mixins provided by the library.  
+      Example `postcss.config.js` configuration:
+      ```js
+      module.exports = {
+        plugins: [
+          ...
+          [
+            "postcss-mixins",
+            {
+               mixinsDir: path.resolve('./node_modules/@lidofinance/lido-app-ui/dist/styles'),
+            },
+         ],
+        ],
+      };
+      ```  
+      Once configured, you can use the typography mixins directly in your CSS files. For example:
+      ```css
+      @mixin font-h2;
+      ```
+
+Then simply import any components and use in your project:
+
+```js
+import { Button } from '@lidofinance/lido-app-ui'
+```
 
 ## Customizing CSS Variables
 
@@ -195,7 +179,7 @@ To customize the CSS variables, create a CSS file in your project with new defin
 Import this file after the Lido UI styles in your application:
 
 ```tsx
-import '@lidofinance/lido-ui/index.css';
+import '@lidofinance/lido-app-ui/index.css';
 import './your-custom-variables.css'; // Import your overrides after Lido UI styles
 ```
 
