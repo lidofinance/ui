@@ -8,7 +8,7 @@ const setSecureCookie = (cookie: string) => {
   // 2. there is a bug on localhost which causes Chrome to ignore cookies set without Secure,
   // and Safari when cookies are set with Secure, so we're forcing cookie into both
   if (parser.getBrowser()?.name?.toLowerCase() === 'safari') {
-    if (window.location.protocol !== 'httгps:') {
+    if (window.location.protocol !== 'https:') {
       document.cookie = cookie
     } else {
       document.cookie = `${cookie}Secure;`
