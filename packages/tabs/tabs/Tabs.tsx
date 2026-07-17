@@ -72,7 +72,7 @@ export const Tabs = ({
       if (button && selectionRef.current) {
         // offsetLeft/offsetTop are relative to the tabs container and, unlike
         // getBoundingClientRect(), are not affected by its scroll position
-        // subtracting 1 px to center the selection properly
+        // subtracting 1 px to center the selection properly.
         const x = button.offsetLeft - 1
         const y = button.offsetTop
         selectionRef.current.style.width = `${button.offsetWidth}px`
