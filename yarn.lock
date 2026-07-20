@@ -2827,7 +2827,7 @@ __metadata:
     "@babel/preset-env": "npm:7.26.9"
     "@babel/preset-react": "npm:7.26.3"
     "@babel/preset-typescript": "npm:7.27.0"
-    "@lidofinance/lido-shared-ui": "workspace:^"
+    "@lidofinance/lido-shared-ui": "npm:*"
     "@rollup/plugin-babel": "npm:6.0.4"
     "@rollup/plugin-commonjs": "npm:28.0.3"
     "@rollup/plugin-node-resolve": "npm:16.0.1"
@@ -2864,7 +2864,7 @@ __metadata:
     "@babel/preset-typescript": "npm:7.27.0"
     "@csstools/postcss-global-data": "npm:3.0.0"
     "@inline-svg-unique-id/react": "npm:1.2.3"
-    "@lidofinance/lido-shared-ui": "workspace:^"
+    "@lidofinance/lido-shared-ui": "npm:*"
     "@rollup/plugin-babel": "npm:6.0.4"
     "@rollup/plugin-commonjs": "npm:28.0.3"
     "@rollup/plugin-node-resolve": "npm:16.0.1"
@@ -2914,7 +2914,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/lido-shared-ui@workspace:^, @lidofinance/lido-shared-ui@workspace:packages/lido-shared-ui":
+"@lidofinance/lido-shared-ui@npm:*, @lidofinance/lido-shared-ui@workspace:packages/lido-shared-ui":
   version: 0.0.0-use.local
   resolution: "@lidofinance/lido-shared-ui@workspace:packages/lido-shared-ui"
   dependencies:
