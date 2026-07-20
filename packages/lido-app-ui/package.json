@@ -28,7 +28,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json && cp dist/esm/index.css dist/index.css",
+    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json && cp dist/esm/index.css dist/index.css && cp README.md dist/README.md",
     "dev": "storybook dev -p 5557",
     "build-storybook": "storybook build --output-dir storybook-static",
     "test": "vitest run --passWithNoTests",

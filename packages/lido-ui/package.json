@@ -28,7 +28,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json",
+    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json && cp README.md dist/README.md",
     "dev": "storybook dev -p 5555",
     "build-storybook": "storybook build --output-dir storybook-static",
     "test": "vitest run",
