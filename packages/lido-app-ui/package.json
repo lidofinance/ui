@@ -42,7 +42,7 @@
     "react-dom": "^18"
   },
   "dependencies": {
-    "@lidofinance/lido-shared-ui": "*",
+    "@lidofinance/lido-shared-ui": "workspace:^",
     "classnames": "2.5.1"
   },
   "devDependencies": {

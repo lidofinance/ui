@@ -3,10 +3,10 @@ import path from 'path'
 export default {
   plugins: {
     '@csstools/postcss-global-data': {
-      files: ['./src/styles/breakpoints.css'],
+      files: ['./styles/breakpoints.css'],
     },
     'postcss-mixins': {
-      mixinsDir: path.resolve('./', 'src/styles'),
+      mixinsDir: path.resolve('./', 'styles'),
     },
     autoprefixer: {},
     'postcss-import': {},

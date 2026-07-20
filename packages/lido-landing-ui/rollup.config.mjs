@@ -65,7 +65,7 @@ export default [
     external,
   },
   {
-    input: 'src/styles/typography.css',
+    input: 'styles/typography.css',
     output: {
       file: 'dist/ignore.js',
       format: 'es',
@@ -73,7 +73,7 @@ export default [
     plugins: [
       postcss({
         plugins: [postcssNested(), autoprefixer()],
-        include: /src\/styles\/typography\.css$/,
+        include: /styles\/typography\.css$/,
         modules: false,
         inject: false,
         extract: 'styles/typography.css',
@@ -82,7 +82,7 @@ export default [
       copy({
         targets: [
           {
-            src: 'src/styles/typography-mixins.css',
+            src: 'styles/typography-mixins.css',
             dest: 'dist/styles',
           },
           {

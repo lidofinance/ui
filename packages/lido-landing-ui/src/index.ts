@@ -1,5 +1,5 @@
-import './styles/global.css'
-import './styles/typography-mixins.css'
+import '../styles/global.css'
+import '../styles/typography-mixins.css'
 
 export * from './hooks/index.js'
 export * from './icons/index.js'
