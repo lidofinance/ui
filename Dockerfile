@@ -15,36 +15,32 @@ RUN corepack enable && \
 # so it survives the docker-compose bind mount described below).
 RUN npm install -g serve@14.2.6
 
-# The deployment docker-compose.yml bind-mounts the host checkout over /app
-# and keeps /app/node_modules as a separate volume, so anything built into
-# /app at image-build time would just be replaced by the live source as
-# soon as the container starts. build-storybook therefore has to run at
-# container start instead, against whatever source is mounted then, with
-# its output written outside /app (/srv/storybooks) so the mount can't
-# shadow it.
-EXPOSE 5555
-
-CMD ["sh", "-c", "\
-    turbo run build-storybook --filter=@lidofinance/lido-landing-ui --filter=@lidofinance/lido-app-ui && \
+# Built at image-build time and written outside /app (/srv/storybooks) so
+# the output survives the deployment docker-compose.yml bind-mounting the
+# host checkout over /app at container start. Note this means the served
+# storybook reflects the source at image-build time, not the live mount.
+RUN yarn turbo run build-storybook && \
     rm -rf /srv/storybooks && \
     mkdir -p /srv/storybooks/lido-ui /srv/storybooks/lido-landing-ui /srv/storybooks/lido-app-ui && \
-    mkdir -p /srv/storybooks/lido-ui && \
+    cp -r packages/lido-ui/storybook-static/. /srv/storybooks/lido-ui/ && \
     cp -r packages/lido-landing-ui/storybook-static/. /srv/storybooks/lido-landing-ui/ && \
     cp -r packages/lido-app-ui/storybook-static/. /srv/storybooks/lido-app-ui/ && \
-    printf '%s\\n' \
+    printf '%s\n' \
       '<!doctype html>' \
       '<html>' \
       '<head><title>Lido UI Storybooks</title></head>' \
       '<body>' \
       '<h1>Lido UI Storybooks</h1>' \
       '<ul>' \
-      '<li><a href=\"lido-ui/\">lido-ui</a></li>' \
-      '<li><a href=\"lido-landing-ui/\">lido-landing-ui</a></li>' \
-      '<li><a href=\"lido-app-ui/\">lido-app-ui</a></li>' \
+      '<li><a href="lido-ui/">lido-ui</a></li>' \
+      '<li><a href="lido-landing-ui/">lido-landing-ui</a></li>' \
+      '<li><a href="lido-app-ui/">lido-app-ui</a></li>' \
       '</ul>' \
       '</body>' \
       '</html>' \
-      > /srv/storybooks/index.html && \
-    serve -l 5555 /srv/storybooks \
-"]
+      > /srv/storybooks/index.html
+
+EXPOSE 5555
+
+CMD ["serve", "-l", "5555", "/srv/storybooks"]
 
