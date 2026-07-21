@@ -5,7 +5,7 @@
 Releases are triggered automatically by CI:
 
 - Pushes to `main` run [`publish-production.yml`](./.github/workflows/publish-production.yml) → production npm channel.
-- Pushes to `release-alpha` run [`publish-alpha.yml`](./.github/workflows/publish-alpha.yml) → alpha npm channel (prerelease id `alpha`).
+- Pushes to `develop` run [`publish-alpha.yml`](./.github/workflows/publish-alpha.yml) → alpha npm channel (prerelease id `alpha`).
 
 Both first call the shared [`_dry-run.yml`](./.github/workflows/_dry-run.yml) reusable workflow as a gate (builds all packages and runs `semantic-release --dry-run` for every package), then on success run the real build + release job:
 
@@ -38,6 +38,6 @@ With these settings, a package that depends on another released package gets a p
 
 ## Known Issues
 
-`publish-alpha.yml` has a `guard` job that checks `release-alpha` isn't behind `main` before running the alpha dry-run. This exists because semantic-release only sees tags reachable from the branch it runs on — if `release-alpha` hasn't had `main` merged into it recently, it can compute a version *below* the latest stable release. The guard fails closed (blocks the publish) if `release-alpha` is behind, or if the GitHub API comparison can't be read. Merge `main` into `release-alpha` before cutting an alpha release if this guard fails.
+`publish-alpha.yml` has a `guard` job that checks `develop` isn't behind `main` before running the alpha dry-run. This exists because semantic-release only sees tags reachable from the branch it runs on — if `develop` hasn't had `main` merged into it recently, it can compute a version *below* the latest stable release. The guard fails closed (blocks the publish) if `develop` is behind, or if the GitHub API comparison can't be read. Merge `main` into `develop` before cutting an alpha release if this guard fails.
 
 There are potential incompatibilities when dependencies of the packages and `@lidofinance/multi-semantic-release` are not updated for some time — check the Node version used by the release workflows (`.nvmrc`) against what `@lidofinance/multi-semantic-release` supports if releases start failing unexpectedly.

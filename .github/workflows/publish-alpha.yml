@@ -3,7 +3,7 @@ name: Publish Alpha
 on:
   push:
     branches:
-      - release-alpha
+      - develop
   workflow_dispatch:
 
 concurrency:
@@ -16,25 +16,25 @@ jobs:
   # the branch) computes a version below the latest stable. gh api needs no
   # checkout and works on private repos via GITHUB_TOKEN.
   guard:
-    if: github.ref == 'refs/heads/release-alpha'
+    if: github.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - name: Ensure release-alpha is not behind main
+      - name: Ensure develop is not behind main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          behind=$(gh api "repos/${{ github.repository }}/compare/release-alpha...main" --jq '.ahead_by')
+          behind=$(gh api "repos/${{ github.repository }}/compare/develop...main" --jq '.ahead_by')
           # Fail closed: a non-numeric result (API error / unexpected body) must
           # block the publish, not silently pass the guard.
           if ! [[ "$behind" =~ ^[0-9]+$ ]]; then
-            echo "::error::could not compare release-alpha vs main (got: '$behind')"
+            echo "::error::could not compare develop vs main (got: '$behind')"
             exit 1
           fi
           if [ "$behind" -gt 0 ]; then
-            echo "::error::release-alpha is behind main by $behind commit(s) — merge main into release-alpha before an alpha release"
+            echo "::error::develop is behind main by $behind commit(s) — merge main into develop before an alpha release"
             exit 1
           fi
 
