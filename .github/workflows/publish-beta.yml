@@ -1,0 +1,73 @@
+name: Publish beta lido-ui-v4
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to release beta version from'
+        required: true
+        default: 'lido-ui-v4-canary'
+  push:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
+      SOURCE_BRANCH: 'release-beta-version' # ${{ github.event.inputs.branch }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_BRANCH }}
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install --immutable
+
+      - name: Build Components
+        run: yarn build
+
+      - name: Publish Beta to NPM
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          # Run semantic-release and capture its output
+          RELEASE_OUTPUT=$(npx semantic-release -t '${version}-${{ github.workflow_sha }}' --dry-run)
+
+          # Extract the version from semantic-release output
+          if echo "$RELEASE_OUTPUT" | grep -q "The next release version is"; then
+            PACKAGE_VERSION=$(echo "$RELEASE_OUTPUT" | grep "The next release version is" | sed -E 's/.*The next release version is ([0-9]+\.[0-9]+\.[0-9]+-beta\.[0-9]+).*/\1/')
+            echo "Detected version: $PACKAGE_VERSION"
+          else
+            echo "No new version detected, using current version"
+            PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          fi
+
+          # Actually run semantic-release
+          npx semantic-release -t '${version}-${{ github.workflow_sha }}' 
+
+          echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> $GITHUB_ENV
+
+#      # Note: You need to create a Personal Access Token with 'repo' scope
+#      # and add it as a repository secret named REPO_ACCESS_TOKEN
+#      - name: Trigger workflow in target repository
+#        uses: peter-evans/repository-dispatch@v2
+#        with:
+#          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+#          repository: ${{ github.event.inputs.target_repo }}
+#          event-type: beta-release
+#          client-payload: '{"version": "${{ env.PACKAGE_VERSION }}", "workflow": "${{ github.event.inputs.target_workflow }}"}'

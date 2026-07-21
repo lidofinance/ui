@@ -3,6 +3,9 @@ module.exports = {
     { name: 'lido-ui-v4' },
     {
       name: 'lido-ui-v4-canary', "channel": "alpha", "prerelease": "alpha"
+    },
+    {
+      name: 'release-beta-version', "channel": "alpha", "prerelease": "beta"
     }
   ],
   plugins: [
