@@ -25,11 +25,10 @@ RUN npm install -g serve@14.2.6
 EXPOSE 5555
 
 CMD ["sh", "-c", "\
-    yarn turbo run build-storybook --concurrency=1 && \
+    turbo run build-storybook --filter=@lidofinance/lido-landing-ui --filter=@lidofinance/lido-app-ui && \
     rm -rf /srv/storybooks && \
     mkdir -p /srv/storybooks/lido-ui /srv/storybooks/lido-landing-ui /srv/storybooks/lido-app-ui && \
     mkdir -p /srv/storybooks/lido-ui && \
-    cp -r packages/lido-ui/storybook-static/. /srv/storybooks/lido-ui/ && \
     cp -r packages/lido-landing-ui/storybook-static/. /srv/storybooks/lido-landing-ui/ && \
     cp -r packages/lido-app-ui/storybook-static/. /srv/storybooks/lido-app-ui/ && \
     printf '%s\\n' \
