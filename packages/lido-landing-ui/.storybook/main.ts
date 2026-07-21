@@ -32,10 +32,10 @@ export default {
     const postcssOptions = {
       plugins: {
         '@csstools/postcss-global-data': {
-          files: [path.join(packageRoot, 'src/styles/breakpoints.css')],
+          files: [path.join(packageRoot, 'styles/breakpoints.css')],
         },
         'postcss-mixins': {
-          mixinsDir: path.join(packageRoot, 'src/styles'),
+          mixinsDir: path.join(packageRoot, 'styles'),
         },
         autoprefixer: {},
         'postcss-import': {},
@@ -83,11 +83,11 @@ export default {
     }
 
     // Exclude styles/global.css from CSS Modules
-    cssRule.exclude = [...(cssRule.exclude || []), /src\/styles\/global\.css$/]
+    cssRule.exclude = [...(cssRule.exclude || []), /styles\/global\.css$/]
 
     // Add a rule for global.css to be treated as global CSS
     customConfig.module.rules.push({
-      test: /src\/styles\/global\.css$/,
+      test: /styles\/global\.css$/,
       use: [
         'style-loader',
         {
