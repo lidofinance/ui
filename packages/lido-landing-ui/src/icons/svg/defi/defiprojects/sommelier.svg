@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none" viewBox="0 0 80 80">
+  <g filter="url(#a)">
+    <path fill="#674FD1" fill-opacity=".7" fill-rule="evenodd" d="M42.504 27.875A6.875 6.875 0 0 0 49.379 21h-13.75a6.875 6.875 0 0 0 6.875 6.875Zm-16.5 16.5v-13.75a6.875 6.875 0 1 1 0 13.75Zm16.5 0a6.875 6.875 0 1 0 0-13.75 6.875 6.875 0 0 0 0 13.75Zm9.625-6.875a6.875 6.875 0 0 0 6.875 6.875v-13.75a6.875 6.875 0 0 0-6.875 6.875ZM59.004 21v6.875A6.875 6.875 0 0 1 52.129 21h6.875Zm-33 6.875A6.875 6.875 0 0 0 32.879 21h-6.875v6.875Zm11.638 21.264A6.875 6.875 0 0 1 49.38 54H35.63c0-1.823.724-3.572 2.014-4.861ZM52.13 54h6.875v-6.875A6.875 6.875 0 0 0 52.129 54Zm-26.125 0v-6.875A6.875 6.875 0 0 1 32.879 54h-6.875Z" clip-rule="evenodd"/>
+  </g>
+  <path fill="#000" fill-rule="evenodd" d="M40.504 30.292A7.292 7.292 0 0 0 47.796 23H33.212a7.292 7.292 0 0 0 7.292 7.292Zm-17.5 17.5V33.208a7.292 7.292 0 0 1 0 14.584Zm17.5 0a7.292 7.292 0 1 0 0-14.584 7.292 7.292 0 0 0 0 14.584ZM50.712 40.5a7.291 7.291 0 0 0 7.292 7.292V33.208a7.292 7.292 0 0 0-7.292 7.292ZM58.004 23v7.292A7.292 7.292 0 0 1 50.712 23h7.292Zm-35 7.292A7.292 7.292 0 0 0 30.296 23h-7.292v7.292Zm12.344 22.552A7.292 7.292 0 0 1 47.796 58H33.212c0-1.934.768-3.789 2.136-5.156ZM50.712 58h7.292v-7.292A7.292 7.292 0 0 0 50.712 58Zm-27.708 0v-7.292A7.292 7.292 0 0 1 30.296 58h-7.292Z" clip-rule="evenodd"/>
+  <defs>
+    <filter id="a" width="49" height="49" x="18.004" y="13" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_52_25158" stdDeviation="4"/>
+    </filter>
+  </defs>
+</svg>

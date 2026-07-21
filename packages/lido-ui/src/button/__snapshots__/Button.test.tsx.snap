@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders correctly 1`] = `
+<button
+  class="sc-iGgWBj lgmytJ"
+  type="button"
+>
+  <span
+    class="sc-kAyceB eAlAML"
+  >
+    Test
+  </span>
+</button>
+`;

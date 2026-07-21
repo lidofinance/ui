@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "react": ["../../node_modules/@types/react"],
+      "packages/*": ["./src/*"],
+      "@lidofinance/lido-shared-ui": ["../lido-shared-ui/src"],
+      "@lidofinance/lido-shared-ui/*": ["../lido-shared-ui/src/*"]
+    },
+    "outDir": "./dist/types",
+    "types": ["vitest/globals"]
+  },
+  "include": [
+    "**/*.d.ts",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.stories.ts",
+    "src/**/*.stories.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "global.d.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

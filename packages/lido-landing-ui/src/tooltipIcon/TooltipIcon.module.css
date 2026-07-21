@@ -1,0 +1,19 @@
+.tooltipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover .icon {
+    color: var(--lido-ui-color-icons-active);
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s var(--ease-out-quad);
+  width: 24px;
+  height: 24px;
+  color: var(--lido-ui-color-text-tertiary);
+}

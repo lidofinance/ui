@@ -2,33 +2,42 @@
 
 ## Overview
 
-[Release workflow](https://github.com/lidofinance/ui/blob/main/.github/workflows/deploy.yml) is triggered automatically on pushes to `main`. It will:
+Releases are triggered automatically by CI:
 
-- Build all packages
-- Run tests
-- Release packages if they need releasing
+- Pushes to `main` run [`publish-production.yml`](./.github/workflows/publish-production.yml) → production npm channel.
+- Pushes to `develop` run [`publish-alpha.yml`](./.github/workflows/publish-alpha.yml) → alpha npm channel (prerelease id `alpha`).
+
+Both first call the shared [`_dry-run.yml`](./.github/workflows/_dry-run.yml) reusable workflow as a gate (builds all packages and runs `semantic-release --dry-run` for every package), then on success run the real build + release job:
+
+- Build all packages (`yarn build`)
+- Release packages if they need releasing (`yarn release`)
 
 ## Technical Setup
 
-NPM token is stored as a repo secret and passed as an environment variable.
+NPM token is stored as a repo secret (`NPM_TOKEN`) and passed as an environment variable to the release step.
 
-[Yarn 3](https://yarnpkg.com/features/pnp) is used with PNP resolution.
+Yarn 4.9 is used (via Corepack — see `packageManager` in [`package.json`](./package.json)) with the `node-modules` linker; PnP is disabled (see [`.yarnrc.yml`](./.yarnrc.yml)).
 
-[semantic-release](https://github.com/semantic-release/semantic-release) is used to parse commit messages to determine how to bump package versions. It is ran on each package of Yarn workspaces. It reads versions in tags to find latest.
+[semantic-release](https://github.com/semantic-release/semantic-release) parses commit messages (Conventional Commits preset) to determine version bumps. It runs once per package across the Yarn workspaces and reads versions from git tags to find the latest release per package.
 
-It is configured via [.releaserc.js](https://github.com/lidofinance/ui/blob/main/.releaserc.js) with a Conventional Commits preset (not Angular).
+Release configuration lives inline in the root [`package.json`](./package.json) — under the `"release"` key (branches, plugins) and the `"multi-release"` key (multi-package options) — rather than a separate `.releaserc.js` file.
 
-[multi-semantic-release](https://github.com/dhoulb/multi-semantic-release) is used to release all packages at once, accounting for their in-repo dependencies.
+[`@lidofinance/multi-semantic-release`](https://github.com/lidofinance/multi-semantic-release) (a Lido-maintained fork of [`dhoulb/multi-semantic-release`](https://github.com/dhoulb/multi-semantic-release)) is used to release all packages at once, accounting for their in-repo dependencies.
 
-CLI args in [workflow](https://github.com/lidofinance/ui/blob/a203e52f64a6b91938820765d9573bbcddc18f5a/package.json#L18):
+Current `multi-release.deps` settings (`package.json`):
 
-- deps.bump=satisfy
-- deps.release=inherit
+```json
+"deps": {
+  "bump": "satisfy",
+  "release": "patch",
+  "prefix": "^"
+}
+```
 
-With these settings, ui global package will follow version changes of each package inside it eg when hooks is upgraded from 1.0.0 -> 2.0.0 with a breaking change, ui will also be upgraded to a new major version.
+With these settings, a package that depends on another released package gets a patch release cascaded to it whenever that dependency releases — e.g. when `lido-shared-ui` gets a new version, `lido-landing-ui` and `lido-app-ui` also get released.
 
 ## Known Issues
 
-We now have a lot of packages and our release method is not ideal - semantic-release tries to verify conditions of each package, leading to npm throttling whoami requests. We use a special [@semantic-release/npm](https://github.com/semantic-release/npm) wrapper - [@semrel-extra/npm](https://github.com/semrel-extra/npm), which has memoization for npm token verification. Now, we even have [verify conditions disabled](https://github.com/lidofinance/ui/blob/6a2998453a4239a3a94c3ea88a64647a599cdef6/.releaserc.js#L8).
+`publish-alpha.yml` has a `guard` job that checks `develop` isn't behind `main` before running the alpha dry-run. This exists because semantic-release only sees tags reachable from the branch it runs on — if `develop` hasn't had `main` merged into it recently, it can compute a version *below* the latest stable release. The guard fails closed (blocks the publish) if `develop` is behind, or if the GitHub API comparison can't be read. Merge `main` into `develop` before cutting an alpha release if this guard fails.
 
-There are potential incompatibilities when dependencies of lido-ui and multi-semantic-release are not updated for some time. [Node version of the release workflow](https://github.com/lidofinance/ui/blob/a203e52f64a6b91938820765d9573bbcddc18f5a/.github/workflows/deploy.yml#L22) may need to be tweaked in the future.
+There are potential incompatibilities when dependencies of the packages and `@lidofinance/multi-semantic-release` are not updated for some time — check the Node version used by the release workflows (`.nvmrc`) against what `@lidofinance/multi-semantic-release` supports if releases start failing unexpectedly.

@@ -1,0 +1,45 @@
+.banner {
+  font-family: var(--lido-ui-font-family);
+  color: #fff;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  padding: 20px 10px;
+  width: 100%;
+  background: radial-gradient(
+    37.01% 248.43% at 50% 50%,
+    #c00734 10.3%,
+    #ff265a 100%
+  );
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
+  gap: 10px;
+}
+
+.title {
+  @mixin font-h5-bold;
+
+  color: var(--lido-ui-color-buttons-text-static);
+  text-align: center;
+}
+
+.description {
+  @mixin font-body-large-medium;
+
+  color: var(--lido-ui-color-buttons-text-static);
+  text-align: center;
+}
+
+.button {
+  margin-top: 5px;
+}
+
+.icon {
+  margin-bottom: -5px;
+}

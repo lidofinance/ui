@@ -1,0 +1,78 @@
+@import url('typography-mixins.css');
+
+/* Typography Classes */
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+div,
+body,
+p {
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-style: normal;
+}
+
+/* Typography Utility Classes */
+.ui-typography-h1 {
+  @mixin font-h1;
+}
+
+.ui-typography-h2 {
+  @mixin font-h2;
+}
+
+.ui-typography-h3-bold {
+  @mixin font-h3-bold;
+}
+
+.ui-typography-h3 {
+  @mixin font-h3;
+}
+
+.ui-typography-h4-bold {
+  @mixin font-h4-bold;
+}
+
+.ui-typography-h4 {
+  @mixin font-h4;
+}
+
+.ui-typography-h5-bold {
+  @mixin font-h5-bold;
+}
+
+.ui-typography-h5 {
+  @mixin font-h5;
+}
+
+.ui-typography-body-large {
+  @mixin font-body-large;
+}
+
+.ui-typography-body-large-medium {
+  @mixin font-body-large-medium;
+}
+
+.ui-typography-body-large-bold {
+  @mixin font-body-large-bold;
+}
+
+.ui-typography-body {
+  @mixin font-body;
+}
+
+.ui-typography-body-bold {
+  @mixin font-body-bold;
+}
+
+.ui-typography-description {
+  @mixin font-description;
+}
+
+.ui-typography-description-bold {
+  @mixin font-description-bold;
+}

@@ -1,8 +1,15 @@
 name: test
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
   pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -15,6 +22,9 @@ jobs:
   security:
     uses: lidofinance/linters/.github/workflows/security.yml@master
 
+  docker:
+    uses: lidofinance/linters/.github/workflows/docker.yml@master
+
   actions:
     uses: lidofinance/linters/.github/workflows/actions.yml@master
 
@@ -26,13 +36,13 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Enable corepack
+      - name: Enable Corepack
         run: corepack enable
 
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
@@ -43,7 +53,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  check-types:
+  lint:
     runs-on: ubuntu-latest
     needs: cache-deps
     steps:
@@ -52,13 +62,13 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Enable corepack
+      - name: Enable Corepack
         run: corepack enable
 
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
@@ -66,69 +76,19 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install dependencies
-        run: yarn install --immutable
-
-      - name: Check types
-        run: yarn types
-
-  lint-js:
-    runs-on: ubuntu-latest
-    needs: cache-deps
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          persist-credentials: false
-
-      - name: Enable corepack
-        run: corepack enable
-
-      - name: Set up node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
-        with:
-          node-version: '20'
-
-      - name: Restore cache
+      - name: Cache turbo
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
 
       - name: Install dependencies
         run: yarn install --immutable
 
       - name: Lint JS/TS
-        run: yarn lint:js
-
-  lint-css:
-    runs-on: ubuntu-latest
-    needs: cache-deps
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          persist-credentials: false
-
-      - name: Enable corepack
-        run: corepack enable
-
-      - name: Set up node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
-        with:
-          node-version: '20'
-
-      - name: Restore cache
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install dependencies
-        run: yarn install --immutable
-
-      - name: Lint CSS
-        run: yarn lint:css
+        run: yarn lint
 
   run-tests:
     runs-on: ubuntu-latest
@@ -139,13 +99,13 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Enable corepack
+      - name: Enable Corepack
         run: corepack enable
 
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
@@ -153,11 +113,20 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Cache turbo
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
       - name: Install dependencies
         run: yarn install --immutable
 
       - name: Run tests
         run: yarn test
+
 
   demo-build:
     runs-on: ubuntu-latest
@@ -168,19 +137,27 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Enable corepack
+      - name: Enable Corepack
         run: corepack enable
 
       - name: Set up node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
 
       - name: Restore cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
           path: node_modules
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Cache turbo
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
 
       - name: Install dependencies
         run: yarn install --immutable

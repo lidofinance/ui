@@ -1,6 +1,7 @@
 node_modules
 dist
 storybook-static
+gh-pages
 *.log
 .jest-cache
 
@@ -9,3 +10,10 @@ storybook-static
 .vscode/
 .DS_Store
 .yarn
+.turbo
+**/.turbo
+.env
+# Generated type declarations
+**/.storybook/**/*.d.ts
+**/.storybook/**/*.d.ts.map
+.claude

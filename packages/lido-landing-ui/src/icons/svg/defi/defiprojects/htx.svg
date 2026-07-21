@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="none" viewBox="0 0 80 80">
+  <g clip-path="url(#a)">
+    <g filter="url(#b)" opacity=".5">
+      <path fill="#3D8AD1" d="M42 50c-5.2 7.6-.166 14.833 3 17.5C47 63 54 64 57.5 53c2.8-8.8-3.5-16.333-7-19 0 5-2 6.5-8.5 16Z"/>
+      <path fill="#00003B" d="M21 48.5c0 14.006 10.5 19.167 15.5 20C28 53.5 33 50.5 42 37c7.2-10.8.667-21.167-3.5-25C39.5 31.5 21 32 21 48.5Z"/>
+    </g>
+    <path fill="#3D8AD1" d="M42 50c-5.2 7.6-.166 14.833 3 17.5C47 63 54 64 57.5 53c2.8-8.8-3.5-16.333-7-19 0 5-2 6.5-8.5 16Z"/>
+    <path fill="#00003B" d="M21 48.5c0 14.006 10.5 19.167 15.5 20C28 53.5 33 50.5 42 37c7.2-10.8.667-21.167-3.5-25C39.5 31.5 21 32 21 48.5Z"/>
+  </g>
+  <defs>
+    <clipPath id="a">
+      <path fill="#fff" d="M0 0h80v80H0z"/>
+    </clipPath>
+    <filter id="b" width="65.198" height="84.5" x="7" y="-2" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur result="effect1_foregroundBlur_52_21724" stdDeviation="7"/>
+    </filter>
+  </defs>
+</svg>
