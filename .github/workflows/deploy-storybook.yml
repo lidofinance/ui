@@ -1,17 +1,23 @@
 name: Deploy Storybook
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
+permissions:
+  pages: write
+  id-token: write
+
 concurrency:
-  group: deploy-storybook
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
+    environment: production
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
@@ -38,15 +44,28 @@ jobs:
       - name: Build all Storybooks
         run: yarn turbo run build-storybook
 
-      - name: Assemble gh-pages directory
+      - name: Assemble Pages directory
         run: |
-          mkdir -p gh-pages/lido-landing-ui gh-pages/lido-app-ui
-          cp -r packages/lido-ui/storybook-static/. gh-pages/
-          cp -r packages/lido-landing-ui/storybook-static/. gh-pages/lido-landing-ui/
-          cp -r packages/lido-app-ui/storybook-static/. gh-pages/lido-app-ui/
+          mkdir -p release-target/lido-landing-ui release-target/lido-app-ui
+          cp -r packages/lido-ui/storybook-static/. release-target/
+          cp -r packages/lido-landing-ui/storybook-static/. release-target/lido-landing-ui/
+          cp -r packages/lido-app-ui/storybook-static/. release-target/lido-app-ui/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./gh-pages
+          path: release-target
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
