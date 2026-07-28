@@ -51,6 +51,19 @@ type TooltipAdjustment = {
 const clampValue = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), Math.max(max, min))
 
+const getMaxWidth = (width: TooltipWidth, adaptive: boolean) => {
+  const viewportLimit = `calc(100vw - ${VIEWPORT_MARGIN * 2}px)`
+
+  if (typeof width === 'number')
+    return adaptive ? `min(${width}px, ${viewportLimit})` : `${width}px`
+
+  // Keyword widths can't go inside min(), so the viewport is the whole limit
+  if (adaptive) return viewportLimit
+
+  // 'auto' means "no limit", but `max-width: auto` is invalid CSS — spell it 'none'
+  return width === 'auto' ? 'none' : width
+}
+
 const getAdjustment = (
   position: TooltipPosition,
   anchor: DOMRect,
@@ -202,14 +215,7 @@ export const Tooltip = ({
     effectivePosition,
   )
 
-  const maxWidth =
-    typeof width === 'number'
-      ? adaptive
-        ? `min(${width}px, calc(100vw - ${VIEWPORT_MARGIN * 2}px))`
-        : `${width}px`
-      : adaptive
-        ? `calc(100vw - ${VIEWPORT_MARGIN * 2}px)`
-        : width
+  const maxWidth = getMaxWidth(width, adaptive)
 
   return (
     <div
