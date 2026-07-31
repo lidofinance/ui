@@ -22,19 +22,19 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
-  pull-requests: read
+permissions: {}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.draft == false }}
     name: Build and deploy
+    permissions:
+      pull-requests: read # for lidofinance/gh-find-current-pr
     outputs:
       stand_url: ${{ steps.stand.outputs.url }}
     steps:
-      - uses: lidofinance/gh-find-current-pr@v1
+      - uses: lidofinance/gh-find-current-pr@15e7a49f2d3f153952a3aa5e6ad6cfe07f770bd5 # v1
         id: pr
 
       - name: Set ref
@@ -42,7 +42,7 @@ jobs:
         run: echo "short_ref=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
 
       - name: Preview stand deploying
-        uses: lidofinance/dispatch-workflow@v1
+        uses: lidofinance/dispatch-workflow@f6160026f09afc4076f8350b5e23a1a12e2c36b6 # v1
         env:
           APP_ID: ${{ secrets.APP_ID }}
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
@@ -54,8 +54,10 @@ jobs:
           INPUTS_INVENTORY: "${{ inputs.inventory || 'testnet' }}"
 
       - name: Define repo short name
-        run: echo "short_name=$(echo ${{ github.repository }} | cut -d "/" -f 2)" >> $GITHUB_OUTPUT
+        run: echo "short_name=${REPOSITORY#*/}" >> "$GITHUB_OUTPUT"
         id: repo
+        env:
+          REPOSITORY: ${{ github.repository }}
 
       - name: Define branch hash
         run: echo "hash=$(echo "$HEAD_REF" | shasum -a 256 | cut -c -10)" >> $GITHUB_OUTPUT

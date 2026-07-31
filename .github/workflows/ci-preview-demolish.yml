@@ -18,7 +18,7 @@ jobs:
     name: Build and deploy
     steps:
       - name: Preview stand deploying
-        uses: lidofinance/dispatch-workflow@v1
+        uses: lidofinance/dispatch-workflow@f6160026f09afc4076f8350b5e23a1a12e2c36b6 # v1
         env:
           APP_ID: ${{ secrets.APP_ID }}
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
