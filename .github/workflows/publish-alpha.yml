@@ -10,6 +10,8 @@ concurrency:
   group: publish-alpha
   cancel-in-progress: false
 
+permissions: {}
+
 jobs:
   # Gate the whole alpha publish before the dry-run: a prerelease branch must
   # have main merged in, or semantic-release (which only sees tags merged into
@@ -24,9 +26,10 @@ jobs:
       - name: Ensure develop is not behind main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          behind=$(gh api "repos/${{ github.repository }}/compare/develop...main" --jq '.ahead_by')
+          behind=$(gh api "repos/$REPOSITORY/compare/develop...main" --jq '.ahead_by')
           # Fail closed: a non-numeric result (API error / unexpected body) must
           # block the publish, not silently pass the guard.
           if ! [[ "$behind" =~ ^[0-9]+$ ]]; then
@@ -56,7 +59,7 @@ jobs:
       NODE_OPTIONS: --max_old_space_size=4096
 
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -64,12 +67,12 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: .nvmrc
 
       - name: Cache node_modules and turbo
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: |
             node_modules
