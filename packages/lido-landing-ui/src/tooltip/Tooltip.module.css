@@ -2,6 +2,7 @@
   font-family: var(--lido-ui-font-family);
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .tooltip:hover .contentWrapper {
@@ -14,6 +15,7 @@
   z-index: 1;
   display: none;
   position: absolute;
+  cursor: default;
 }
 
 .content {
