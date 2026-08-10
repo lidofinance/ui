@@ -1,0 +1,87 @@
+.button {
+  --local-border-width: 1px;
+  --local-color: var(--lido-app-ui-color-text-primary);
+  --local-border-color: var(--lido-app-ui-color-borders-outline-on-light);
+  --local-hover-bg: var(--lido-app-ui-color-backgrounds-control-on-light-hover);
+  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 34px;
+  padding: calc(6px - var(--local-border-width))
+    calc(16px - var(--local-border-width));
+  border: var(--local-border-width) solid var(--local-border-color);
+  border-radius: var(--lido-app-ui-border-radius-control);
+  background-color: transparent;
+  color: var(--local-color);
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: var(--lido-app-ui-line-height-label);
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover:not(:disabled),
+.button:active:not(:disabled) {
+  background-color: var(--local-hover-bg);
+}
+
+.button:active:not(:disabled) .content {
+  opacity: var(--lido-app-ui-opacity-pressed-content);
+}
+
+.button:disabled {
+  border-color: transparent;
+  background-color: var(--local-disabled-bg);
+  cursor: not-allowed;
+}
+
+.button:disabled .content {
+  opacity: var(--lido-app-ui-opacity-disabled-content);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline-offset: 2px;
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.icon > * {
+  width: 100%;
+  height: 100%;
+}
+
+.back {
+  --local-color: var(--lido-app-ui-color-text-primary);
+  --local-border-color: var(--lido-app-ui-color-borders-outline-on-light);
+  --local-hover-bg: var(--lido-app-ui-color-backgrounds-control-on-light-hover);
+  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+}
+
+.white {
+  --local-color: var(--lido-app-ui-color-text-inverted);
+  --local-border-color: var(
+    --lido-app-ui-color-borders-outline-on-dark-secondary
+  );
+  --local-hover-bg: var(--lido-app-ui-color-backgrounds-control-on-dark-hover);
+  --local-disabled-bg: var(
+    --lido-app-ui-color-backgrounds-control-on-dark-disabled
+  );
+}

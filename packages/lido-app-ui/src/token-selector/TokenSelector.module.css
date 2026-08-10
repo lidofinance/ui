@@ -1,0 +1,115 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+  height: 40px;
+  padding: calc(8px - 1px) calc(12px - 1px) calc(8px - 1px) calc(8px - 1px);
+  border: 1px solid var(--lido-app-ui-color-borders-default);
+  border-radius: var(--lido-app-ui-border-radius-control);
+  background-color: transparent;
+  color: var(--lido-app-ui-color-text-primary);
+
+  @mixin font-body-large-semibold;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.trigger:hover,
+.trigger:active,
+.trigger.open {
+  background-color: var(--lido-app-ui-color-backgrounds-control-hover-faint);
+}
+
+.trigger:active .label,
+.trigger:active .chevron {
+  opacity: var(--lido-app-ui-opacity-pressed-content);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.label {
+  white-space: nowrap;
+}
+
+.chevron {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.single {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 8px 12px 8px 8px;
+  color: var(--lido-app-ui-color-text-primary);
+
+  @mixin font-body-large-semibold;
+}
+
+.panel {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+  padding: calc(8px - 0.5px);
+  border: 0.5px solid var(--lido-app-ui-color-borders-default);
+  border-radius: var(--lido-app-ui-border-radius-dropdown);
+  background-color: var(--lido-app-ui-color-backgrounds-dropdown);
+  box-shadow: var(--lido-app-ui-shadow-dropdown);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+  padding: 8px 12px 8px 8px;
+  border: none;
+  border-radius: var(--lido-app-ui-border-radius-dropdown-item);
+  background-color: transparent;
+  color: var(--lido-app-ui-color-text-primary);
+
+  @mixin font-body-large-semibold;
+
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.option:hover,
+.option[aria-selected='true'] {
+  background-color: var(--lido-app-ui-color-backgrounds-control-on-light-hover);
+}
+
+.option:active .label {
+  opacity: var(--lido-app-ui-opacity-pressed-content);
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline-offset: 2px;
+}

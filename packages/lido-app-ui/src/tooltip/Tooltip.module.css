@@ -1,0 +1,93 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.content {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: var(--local-tooltip-width, 280px);
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: var(--lido-app-ui-border-radius-tooltip);
+  background-color: var(--lido-app-ui-color-backgrounds-tooltip);
+  color: var(--lido-app-ui-color-text-tooltip);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-tooltip);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+
+.wrapper:hover .content,
+.wrapper:focus-within .content {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0s;
+}
+
+.position-top {
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: 8px;
+  transform: translateX(-50%);
+}
+
+.position-bottom {
+  top: 100%;
+  left: 50%;
+  margin-top: 8px;
+  transform: translateX(-50%);
+}
+
+.position-left {
+  right: 100%;
+  top: 50%;
+  margin-right: 8px;
+  transform: translateY(-50%);
+}
+
+.position-right {
+  left: 100%;
+  top: 50%;
+  margin-left: 8px;
+  transform: translateY(-50%);
+}
+
+.position-top-left {
+  bottom: 100%;
+  right: 100%;
+  margin-bottom: 2px;
+  margin-right: 2px;
+}
+
+.position-top-right {
+  bottom: 100%;
+  left: 100%;
+  margin-bottom: 2px;
+  margin-left: 2px;
+}
+
+.position-bottom-left {
+  top: 100%;
+  right: 100%;
+  margin-top: 2px;
+  margin-right: 2px;
+}
+
+.position-bottom-right {
+  top: 100%;
+  left: 100%;
+  margin-top: 2px;
+  margin-left: 2px;
+}

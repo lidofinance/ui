@@ -1,0 +1,136 @@
+.row {
+  --local-rule: rgb(255 255 255 / 10%);
+  --local-label: rgb(255 255 255 / 60%);
+  --local-value: var(--lido-app-ui-color-text-inverted);
+  --local-sub: rgb(255 255 255 / 60%);
+  --local-info: rgb(255 255 255 / 60%);
+
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.onLight {
+  --local-rule: var(--lido-app-ui-color-borders-default);
+  --local-label: var(--lido-app-ui-color-text-primary);
+  --local-value: var(--lido-app-ui-color-text-primary);
+  --local-sub: var(--lido-app-ui-color-text-secondary);
+  --local-info: var(--lido-app-ui-color-text-secondary);
+  --local-column-padding: 32px;
+  --local-column-padding-md: 20px;
+}
+
+.column {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  padding: var(--local-column-padding, 32px 40px);
+}
+
+.column + .column {
+  border-left: 1px solid var(--local-rule);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.label {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-bold);
+  line-height: var(--lido-app-ui-line-height-label);
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  color: var(--local-label);
+}
+
+.info {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--local-info);
+}
+
+.info svg {
+  width: 16px;
+  height: 16px;
+}
+
+.valueRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.value {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: 24px;
+  font-weight: var(--lido-app-ui-font-weight-medium);
+  line-height: 28.8px;
+  letter-spacing: -0.84px;
+  color: var(--local-value);
+  white-space: nowrap;
+}
+
+.sub {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 22px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  color: var(--local-sub);
+  white-space: nowrap;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+}
+
+@media (--lido-app-ui-breakpoint-md-down) {
+  .row {
+    flex-direction: column;
+  }
+
+  .column {
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--local-column-padding-md, 32px);
+  }
+
+  .column + .column {
+    border-left: none;
+    border-top: 1px solid var(--local-rule);
+  }
+
+  .action {
+    flex-shrink: 0;
+  }
+}
+
+@media (--lido-app-ui-breakpoint-sm-down) {
+  .column {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

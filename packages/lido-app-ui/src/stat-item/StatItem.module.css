@@ -1,0 +1,54 @@
+.item {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  align-self: stretch;
+  min-width: 0;
+}
+
+.label {
+  @mixin font-body-large;
+
+  color: var(--lido-app-ui-color-text-secondary);
+  white-space: nowrap;
+}
+
+.valueRow {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.value {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: 24px;
+  font-weight: var(--lido-app-ui-font-weight-medium);
+  line-height: 28.8px;
+  letter-spacing: -0.84px;
+  color: var(--lido-app-ui-color-text-primary);
+  white-space: nowrap;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.subValue {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 20px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  color: var(--lido-app-ui-color-text-secondary);
+  white-space: nowrap;
+}

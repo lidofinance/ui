@@ -1,0 +1,72 @@
+@define-mixin font-h1 {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-h1);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-h1);
+  letter-spacing: var(--lido-app-ui-letter-spacing-h1);
+}
+
+@define-mixin font-h2 {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-h2);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-h2);
+  letter-spacing: var(--lido-app-ui-letter-spacing-h2);
+}
+
+@define-mixin font-h3 {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-h3);
+  font-weight: var(--lido-app-ui-font-weight-medium);
+  line-height: var(--lido-app-ui-line-height-h3);
+  letter-spacing: var(--lido-app-ui-letter-spacing-h3);
+}
+
+@define-mixin font-body-large {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-body);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-body);
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+}
+
+@define-mixin font-body-large-semibold {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-body);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: var(--lido-app-ui-line-height-body);
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+}
+
+@define-mixin font-body {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-label);
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+}
+
+@define-mixin font-body-semibold {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: var(--lido-app-ui-line-height-label);
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+}
+
+@define-mixin font-description {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+}
+
+@define-mixin font-group-name {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-bold);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  text-transform: uppercase;
+}

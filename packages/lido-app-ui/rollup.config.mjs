@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
+import copy from 'rollup-plugin-copy'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -47,11 +48,24 @@ export default [
         rootMode: 'upward',
       }),
       postcss({
-        config: false,
-        modules: true,
+        config: {
+          path: './postcss.config.js',
+        },
+        // Only *.module.css get scoped class names; the token/font layer in
+        // styles/ must stay global.
+        modules: {
+          auto: (id) => /\.module\.css$/.test(id),
+        },
         inject: false,
         extract: 'index.css',
         minimize: true,
+      }),
+      copy({
+        targets: [
+          { src: 'styles/typography-mixins.css', dest: 'dist/styles' },
+          { src: 'styles/breakpoints.css', dest: 'dist/styles' },
+          { src: './assets/fonts/*', dest: 'dist/assets/fonts' },
+        ],
       }),
     ],
     external,

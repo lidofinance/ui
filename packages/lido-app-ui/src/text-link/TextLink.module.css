@@ -1,0 +1,26 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-link);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:active {
+  opacity: var(--lido-app-ui-opacity-pressed-content);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}

@@ -1,0 +1,64 @@
+.box {
+  --local-bg: var(--lido-app-ui-color-backgrounds-message-default);
+  --local-icon-color: var(--lido-app-ui-color-icons-primary);
+  --local-headline-color: var(--lido-app-ui-color-text-primary);
+  --local-description-color: var(--lido-app-ui-color-text-secondary);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: var(--lido-app-ui-border-radius-card);
+  background-color: var(--local-bg);
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--local-icon-color);
+}
+
+.icon > * {
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.headline {
+  @mixin font-body-semibold;
+
+  color: var(--local-headline-color);
+}
+
+.description {
+  @mixin font-body;
+
+  color: var(--local-description-color);
+}
+
+.attention {
+  --local-bg: var(--lido-app-ui-color-backgrounds-message-attention);
+  --local-icon-color: var(--lido-app-ui-color-icons-attention);
+  --local-headline-color: var(--lido-app-ui-color-text-attention-headline);
+  --local-description-color: var(
+    --lido-app-ui-color-text-attention-description
+  );
+}
+
+.warning {
+  --local-bg: var(--lido-app-ui-color-backgrounds-message-warning);
+  --local-icon-color: var(--lido-app-ui-color-text-warning);
+  --local-headline-color: var(--lido-app-ui-color-text-warning);
+  --local-description-color: var(--lido-app-ui-color-text-warning);
+}

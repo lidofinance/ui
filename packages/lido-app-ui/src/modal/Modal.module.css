@@ -1,0 +1,99 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  overflow-y: auto;
+  padding: 16px;
+  background-color: rgb(0 0 0 / 40%);
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+  max-width: 100%;
+  margin: auto;
+  padding: 32px;
+  overflow: clip;
+  border-radius: 20px;
+  background-color: var(--lido-app-ui-color-backgrounds-button-white);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: 24px;
+  font-weight: var(--lido-app-ui-font-weight-medium);
+  line-height: 28.8px;
+  letter-spacing: -0.84px;
+  color: var(--lido-app-ui-color-text-primary);
+}
+
+.titleHidden {
+  visibility: hidden;
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--lido-app-ui-color-icons-primary);
+  cursor: pointer;
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Below ~600 the modal goes full-screen (no scrim, square corners) when it
+   owns the overlay — matches the mobile macet, which is full-screen, not a
+   bottom-sheet. The bare card (no overlay) just fills its container's width. */
+@media (--lido-app-ui-breakpoint-sm-down) {
+  .card {
+    width: 100%;
+  }
+
+  .overlay {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .overlay .card {
+    min-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .overlay .cardBodyFill .body {
+    flex: 1;
+    min-height: 0;
+  }
+}
+
+@media (--lido-app-ui-breakpoint-xxs-down) {
+  .card {
+    padding: 20px;
+  }
+}

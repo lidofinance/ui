@@ -1,160 +1,98 @@
-import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+
 import {
-  ThemeToggler,
-  CookieThemeProvider,
-  ThemeName,
-} from '@lidofinance/lido-shared-ui'
-import { Button } from './Button'
+  DarkSurface,
+  StoryContainer,
+  StorySection,
+} from '../../.storybook/components'
+import { Button } from '.'
 
 const meta: Meta<typeof Button> = {
-  title: 'Widget/Button',
+  title: 'Buttons/Button',
   component: Button,
-  tags: ['autodfocs'],
+  tags: ['autodocs'],
+  args: {
+    variant: 'black',
+    children: 'Connect wallet',
+  },
   argTypes: {
     variant: {
-      control: 'inline-radio',
-      options: ['filled', 'outlined', 'ghost'],
+      description:
+        'black / blackOutline for light surfaces, white / whiteOutline for the navy band',
+      options: ['white', 'black', 'blackOutline', 'whiteOutline'],
+      control: { type: 'inline-radio' },
     },
-    color: {
-      control: 'inline-radio',
-      options: ['primary', 'secondary', 'warning'],
-    },
-    size: {
-      control: 'inline-radio',
-      options: ['sm', 'md', 'lg'],
+    children: { description: 'Button label', control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The primary call to action — 48px tall, fully rounded. Variants come in pairs: pick the black ones on light surfaces and the white ones on the dark hero band.',
+      },
     },
   },
 }
 
 export default meta
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: 'Connect Wallet',
-    variant: 'filled',
-    color: 'primary',
-    size: 'md',
+export const Basic: Story = {}
+
+export const OnLight: Story = {
+  render: () => (
+    <StoryContainer>
+      <StorySection title='default'>
+        <Button variant='black'>Black</Button>
+        <Button variant='blackOutline'>Black outline</Button>
+      </StorySection>
+      <StorySection title='disabled'>
+        <Button variant='black' disabled>
+          Black
+        </Button>
+        <Button variant='blackOutline' disabled>
+          Black outline
+        </Button>
+      </StorySection>
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Disabled swaps the background and dims the label, and turns the border transparent so the button keeps its size.',
+      },
+    },
   },
 }
 
-export const AllVariants: Story = {
+export const OnDark: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-      <Section label='filled'>
-        <Button variant='filled' color='primary'>
-          Primary
-        </Button>
-        <Button variant='filled' color='secondary'>
-          Secondary
-        </Button>
-        <Button variant='filled' color='warning'>
-          Warning
-        </Button>
-      </Section>
-      <Section label='outlined'>
-        <Button variant='outlined' color='primary'>
-          Primary
-        </Button>
-        <Button variant='outlined' color='secondary'>
-          Secondary
-        </Button>
-      </Section>
-      <Section label='ghost'>
-        <Button variant='ghost' color='primary'>
-          Primary
-        </Button>
-        <Button variant='ghost' color='secondary'>
-          Secondary
-        </Button>
-      </Section>
-      <Section label='sizes'>
-        <Button size='sm'>Small</Button>
-        <Button size='md'>Medium</Button>
-        <Button size='lg'>Large</Button>
-      </Section>
-      <Section label='states'>
-        <Button loading>Loading</Button>
-        <Button disabled>Disabled</Button>
-        <Button fullwidth>Full Width</Button>
-      </Section>
-    </div>
-  ),
-}
-
-export const SharedComponents: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <p
-        style={{
-          margin: 0,
-          color: 'var(--lido-ui-color-text-secondary)',
-          fontSize: 14,
-        }}
-      >
-        Theme components from @lidofinance/lido-shared-ui:
-      </p>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <span
-          style={{ fontSize: 13, color: 'var(--lido-ui-color-text-secondary)' }}
-        >
-          ThemeToggler:
-        </span>
-        <ThemeToggler />
-      </div>
-      <CookieThemeProvider overrideThemeName={ThemeName.dark}>
-        <div
-          style={{
-            padding: 16,
-            background: 'var(--lido-ui-color-text-inverted)',
-            borderRadius: 8,
-            display: 'flex',
-            gap: 12,
-          }}
-        >
-          <Button variant='filled' color='primary'>
-            Dark theme
+    <DarkSurface>
+      <StoryContainer>
+        <StorySection title='default'>
+          <Button variant='white'>White</Button>
+          <Button variant='whiteOutline'>White outline</Button>
+        </StorySection>
+        <StorySection title='disabled'>
+          <Button variant='white' disabled>
+            White
           </Button>
-          <Button variant='outlined' color='secondary'>
-            Button
+          <Button variant='whiteOutline' disabled>
+            White outline
           </Button>
-        </div>
-      </CookieThemeProvider>
-    </div>
+        </StorySection>
+      </StoryContainer>
+    </DarkSurface>
   ),
-}
-
-function Section({
-  label,
-  children,
-}: {
-  label: string
-  children: React.ReactNode
-}) {
-  return (
-    <div>
-      <p
-        style={{
-          margin: '0 0 8px',
-          fontSize: 12,
-          color: 'var(--lido-ui-color-text-secondary)',
-          textTransform: 'uppercase',
-          letterSpacing: '0.05em',
-        }}
-      >
-        {label}
-      </p>
-      <div
-        style={{
-          display: 'flex',
-          gap: 12,
-          flexWrap: 'wrap',
-          alignItems: 'center',
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  )
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: 'The same two states on the navy band the app uses for heroes.',
+      },
+    },
+  },
 }
