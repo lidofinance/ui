@@ -5,15 +5,12 @@ import { Badge } from './badge'
 import { Button } from './button'
 import { Checkbox } from './checkbox'
 import { DataList, DetailRow } from './data-list'
-import { DepositColumns } from './deposit-columns'
 import { Identicon } from './identicon'
-import { LtvSlider } from './ltv-slider'
 import { MessageBox } from './message-box'
 import { MiniButton } from './mini-button'
 import { Modal } from './modal'
 import { RichInput } from './rich-input'
 import { SmallButton } from './small-button'
-import { StatArrowRow } from './stat-arrow-row'
 import { StatItem } from './stat-item'
 import { StatsRow } from './stats-row'
 import { Stepper } from './stepper'
@@ -42,25 +39,14 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   [
-    'DepositColumns',
-    () => (
-      <DepositColumns columns={[{ label: 'Collateral', value: '12.42' }]} />
-    ),
-  ],
-  [
     'Identicon',
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
-  ['LtvSlider', () => <LtvSlider value={30} max={85} />],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['MiniButton', () => <MiniButton>Max</MiniButton>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['RichInput', () => <RichInput label='Amount' error='Too much' />],
   ['SmallButton', () => <SmallButton variant='back'>Back</SmallButton>],
-  [
-    'StatArrowRow',
-    () => <StatArrowRow stats={[{ label: 'TVL', value: '1M' }]} />,
-  ],
   ['StatItem', () => <StatItem label='TVL' value='1M' />],
   ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
   ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],
@@ -120,13 +106,5 @@ describe('behaviour that survived the migration', () => {
 
     expect(screen.getByText('stETH')).toBeDefined()
     expect(screen.queryByText('ETH')).toBeNull()
-  })
-
-  it('LtvSlider exposes slider semantics', () => {
-    render(<LtvSlider value={30} max={85} onChange={() => undefined} />)
-    const slider = screen.getByRole('slider')
-
-    expect(slider.getAttribute('aria-valuenow')).toBe('30')
-    expect(slider.getAttribute('aria-valuemax')).toBe('85')
   })
 })

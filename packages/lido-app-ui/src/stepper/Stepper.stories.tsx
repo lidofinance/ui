@@ -14,12 +14,12 @@ const meta: Meta<typeof Stepper> = {
         description: 'Any EVM wallet works — MetaMask, Ledger, WalletConnect.',
       },
       {
-        title: 'Deposit collateral',
-        description: 'Supply stETH or wstETH to open a borrowing position.',
+        title: 'Choose an amount',
+        description: 'Supply stETH or wstETH from your wallet balance.',
       },
       {
-        title: 'Borrow',
-        description: 'Pick an amount within your LTV limit and confirm.',
+        title: 'Confirm',
+        description: 'Sign the transaction and wait for it to land.',
       },
     ],
   },

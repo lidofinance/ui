@@ -49,7 +49,7 @@ export const Variants: Story = {
     docs: {
       description: {
         story:
-          'The three colour sets. Badge and LtvSlider use different orange-red shades on purpose — they are not one shared risk scale.',
+          'The three colour sets. They read as a status scale, not a risk scale — pick by meaning, not by how far along something is.',
       },
     },
   },

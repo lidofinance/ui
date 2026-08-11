@@ -56,7 +56,9 @@ export default {
     },
     'postcss-mixins': {
       mixinsDir: path.dirname(
-        require.resolve('@lidofinance/lido-app-ui/styles/typography-mixins.css'),
+        require.resolve(
+          '@lidofinance/lido-app-ui/styles/typography-mixins.css',
+        ),
       ),
     },
     'postcss-custom-media': { preserve: false },
