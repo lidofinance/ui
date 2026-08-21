@@ -17,6 +17,9 @@ import { ThemeProvider, useThemeToggle } from '@lidofinance/lido-shared-ui'
 import '@lidofinance/lido-shared-ui/index.css'
 ```
 
+Styles of this package are **not** bundled into `lido-landing-ui` / `lido-app-ui`, so
+`@lidofinance/lido-shared-ui/index.css` has to be imported alongside their own stylesheets.
+
 ## More
 
 This package is part of the [`lidofinance/ui`](https://github.com/lidofinance/ui) monorepo — see the [repo README](https://github.com/lidofinance/ui#readme) for the full package overview and contribution guide.
