@@ -4,10 +4,10 @@ import { EnvBannerProps } from './types'
 
 import styles from './EnvBanner.module.css'
 
-export const ENV_BANNER_DEFAULT_TEXT =
+const ENV_BANNER_DEFAULT_TEXT =
   'This is a TEST instance for integrations and testing'
 
-export const ENV_BANNER_DEFAULT_SHORT_TEXT = 'This is a TEST instance'
+const ENV_BANNER_DEFAULT_SHORT_TEXT = 'This is a TEST instance'
 
 export const EnvBanner = forwardRef(
   (

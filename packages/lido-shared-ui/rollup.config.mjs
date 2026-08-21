@@ -4,6 +4,8 @@ import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
 import postcssUrl from 'postcss-url'
+import postcssGlobalData from '@csstools/postcss-global-data'
+import postcssCustomMedia from 'postcss-custom-media'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -59,6 +61,8 @@ export default [
         // copies whatever the styles reference into dist/assets and rewrites
         // the path, so component folders can keep their own images
         plugins: [
+          postcssGlobalData({ files: ['styles/breakpoints.css'] }),
+          postcssCustomMedia({ preserve: false }),
           postcssUrl({ url: 'copy', assetsPath: 'assets', useHash: true }),
         ],
       }),
