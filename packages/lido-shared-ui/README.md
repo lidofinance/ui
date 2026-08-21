@@ -17,8 +17,9 @@ import { ThemeProvider, useThemeToggle } from '@lidofinance/lido-shared-ui'
 import '@lidofinance/lido-shared-ui/index.css'
 ```
 
-Styles of this package are **not** bundled into `lido-landing-ui` / `lido-app-ui`, so
-`@lidofinance/lido-shared-ui/index.css` has to be imported alongside their own stylesheets.
+The stylesheet above is only needed when this package is installed on its own.
+`lido-landing-ui` and `lido-app-ui` inline it into their own `index.css`, so
+their consumers import a single stylesheet.
 
 ## More
 

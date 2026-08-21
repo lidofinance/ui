@@ -47,8 +47,15 @@ export default [
         rootMode: 'upward',
       }),
       postcss({
-        config: false,
-        modules: true,
+        config: {
+          path: './postcss.config.js',
+        },
+        // asset paths are resolved relative to the extracted stylesheet, which
+        // is what this package exports
+        to: 'dist/esm/index.css',
+        modules: {
+          auto: (id) => !/src\/styles[\\/]global\.css$/.test(id),
+        },
         inject: false,
         extract: 'index.css',
         minimize: true,

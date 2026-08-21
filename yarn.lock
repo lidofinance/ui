@@ -2840,8 +2840,11 @@ __metadata:
     "@types/react": "npm:18.2.24"
     "@types/react-dom": "npm:18.2.9"
     "@vitejs/plugin-react": "npm:^4.0.0"
+    autoprefixer: "npm:10.4.21"
     classnames: "npm:2.5.1"
     jsdom: "npm:^25.0.0"
+    postcss-import: "npm:16.1.0"
+    postcss-url: "npm:10.1.4"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rollup: "npm:3.29.5"
@@ -2893,6 +2896,7 @@ __metadata:
     jsdom: "npm:^25.0.0"
     postcss-loader: "npm:8.1.1"
     postcss-mixins: "npm:11.0.3"
+    postcss-url: "npm:10.1.4"
     react: "npm:18.2.0"
     react-collapsed: "npm:4.2.0"
     react-dom: "npm:18.2.0"
@@ -18692,7 +18696,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-url@npm:^10.1.4":
+"postcss-url@npm:10.1.4, postcss-url@npm:^10.1.4":
   version: 10.1.4
   resolution: "postcss-url@npm:10.1.4"
   dependencies:
