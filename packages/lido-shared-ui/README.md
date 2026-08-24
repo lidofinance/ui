@@ -22,5 +22,4 @@ The stylesheet above is only needed when this package is installed on its own.
 their consumers import a single stylesheet.
 
 ## More
-
 This package is part of the [`lidofinance/ui`](https://github.com/lidofinance/ui) monorepo — see the [repo README](https://github.com/lidofinance/ui#readme) for the full package overview and contribution guide.
