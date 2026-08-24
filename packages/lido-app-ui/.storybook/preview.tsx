@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Decorator } from '@storybook/react'
 import {
   ThemeName,
@@ -6,15 +6,16 @@ import {
   ThemeToggler,
 } from '@lidofinance/lido-shared-ui'
 
-const WithThemeProvider: Decorator<{
-  themeOverride?: ThemeName | 'follow cookie and system'
-}> = (Story, { args }): JSX.Element => {
+const WithThemeProvider: Decorator = (Story, { globals }): ReactElement => {
+  const themeOverride = globals.themeOverride as
+    | ThemeName
+    | 'follow cookie and system'
+    | undefined
+
   return (
     <CookieThemeProvider
       overrideThemeName={
-        args.themeOverride === 'follow cookie and system'
-          ? undefined
-          : (args.themeOverride as ThemeName | undefined)
+        themeOverride === 'follow cookie and system' ? undefined : themeOverride
       }
     >
       <div
@@ -52,10 +53,16 @@ export default {
   initialGlobals: {
     themeOverride: 'light',
   },
-  argTypes: {
+  // a global rather than an arg: as an argType it was spread into every
+  // component, showing up in the DOM and in the generated code snippets
+  globalTypes: {
     themeOverride: {
-      control: 'inline-radio',
-      options: ['dark', 'light', 'follow cookie and system'],
+      description: 'Theme',
+      toolbar: {
+        title: 'Theme',
+        items: ['dark', 'light', 'follow cookie and system'],
+        dynamicTitle: true,
+      },
     },
   },
   decorators: [WithThemeProvider],

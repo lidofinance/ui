@@ -1,19 +1,24 @@
 import { Decorator } from '@storybook/react'
+import { ReactElement } from 'react'
 import {
   ThemeName,
   CookieThemeProvider,
   ThemeToggler,
 } from '@lidofinance/lido-shared-ui'
 
-export const WithThemeProvider: Decorator<{
-  themeOverride?: ThemeName | 'follow cookie and system'
-}> = (Story, { args }): JSX.Element => {
+export const WithThemeProvider: Decorator = (
+  Story,
+  { globals },
+): ReactElement => {
+  const themeOverride = globals.themeOverride as
+    | ThemeName
+    | 'follow cookie and system'
+    | undefined
+
   return (
     <CookieThemeProvider
       overrideThemeName={
-        args.themeOverride === 'follow cookie and system'
-          ? undefined
-          : args.themeOverride
+        themeOverride === 'follow cookie and system' ? undefined : themeOverride
       }
     >
       <div

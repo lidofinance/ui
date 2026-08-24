@@ -2840,11 +2840,15 @@ __metadata:
     "@types/react": "npm:18.2.24"
     "@types/react-dom": "npm:18.2.9"
     "@vitejs/plugin-react": "npm:^4.0.0"
+    autoprefixer: "npm:10.4.21"
     classnames: "npm:2.5.1"
     jsdom: "npm:^25.0.0"
+    postcss-import: "npm:16.1.0"
+    postcss-url: "npm:10.1.4"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rollup: "npm:3.29.5"
+    rollup-plugin-copy: "npm:3.5.0"
     rollup-plugin-postcss: "npm:4.0.2"
     storybook: "npm:8.6.12"
     tslib: "npm:2.3.1"
@@ -2893,6 +2897,7 @@ __metadata:
     jsdom: "npm:^25.0.0"
     postcss-loader: "npm:8.1.1"
     postcss-mixins: "npm:11.0.3"
+    postcss-url: "npm:10.1.4"
     react: "npm:18.2.0"
     react-collapsed: "npm:4.2.0"
     react-dom: "npm:18.2.0"
@@ -2927,6 +2932,7 @@ __metadata:
     "@types/react": "npm:18.2.24"
     "@types/react-dom": "npm:18.2.9"
     jsdom: "npm:^25.0.0"
+    postcss-url: "npm:^10.1.4"
     rollup: "npm:3.29.5"
     rollup-plugin-postcss: "npm:4.0.2"
     tslib: "npm:2.3.1"
@@ -10762,6 +10768,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cuint@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "cuint@npm:0.2.2"
+  checksum: 10c0/ba56735799e04cd8fd8e386bfde52298e26179665f0063a7a22aaf5771e1b350f1b3baa83c719097cb650766b0e5067d16121db71f88fad4b2ef1ed423d646b7
+  languageName: node
+  linkType: hard
+
 "damerau-levenshtein@npm:^1.0.8":
   version: 1.0.8
   resolution: "damerau-levenshtein@npm:1.0.8"
@@ -15914,7 +15927,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-dir@npm:^3.0.2":
+"make-dir@npm:^3.0.2, make-dir@npm:~3.1.0":
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
   dependencies:
@@ -16413,6 +16426,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mime@npm:~2.5.2":
+  version: 2.5.2
+  resolution: "mime@npm:2.5.2"
+  bin:
+    mime: cli.js
+  checksum: 10c0/6feb4a221498b25913590c6d6b2e980d519b57a6fc07849be3b8ee507a8980211e11b371d2d53d92dd883e46e699cd6f7712e7d71743f036adb5b0a8ea3005d5
+  languageName: node
+  linkType: hard
+
 "mimic-fn@npm:^2.1.0":
   version: 2.1.0
   resolution: "mimic-fn@npm:2.1.0"
@@ -16450,7 +16472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^3.0.2, minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
+"minimatch@npm:^3.0.2, minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2, minimatch@npm:^3.1.5":
   version: 3.1.5
   resolution: "minimatch@npm:3.1.5"
   dependencies:
@@ -18672,6 +18694,20 @@ __metadata:
   peerDependencies:
     postcss: ^8.2.15
   checksum: 10c0/484f6409346d6244c134c5cdcd62f4f2751b269742f95222f13d8bac5fb224471ffe04e28a354670cbe0bdc2707778ead034fc1b801b473ffcbea5436807de30
+  languageName: node
+  linkType: hard
+
+"postcss-url@npm:10.1.4, postcss-url@npm:^10.1.4":
+  version: 10.1.4
+  resolution: "postcss-url@npm:10.1.4"
+  dependencies:
+    make-dir: "npm:~3.1.0"
+    mime: "npm:~2.5.2"
+    minimatch: "npm:^3.1.5"
+    xxhashjs: "npm:~0.2.2"
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: 10c0/7bb5ac1b6ae6f7d99705408ee1cd1d6dca5b74922f8f1bd53fa076d3306df5f77215b15a3c93dde30569d305ec15df918cffdd2f4d5c120e6c19d78a7021f565
   languageName: node
   linkType: hard
 
@@ -23499,6 +23535,15 @@ __metadata:
   version: 4.0.2
   resolution: "xtend@npm:4.0.2"
   checksum: 10c0/366ae4783eec6100f8a02dff02ac907bf29f9a00b82ac0264b4d8b832ead18306797e283cf19de776538babfdcb2101375ec5646b59f08c52128ac4ab812ed0e
+  languageName: node
+  linkType: hard
+
+"xxhashjs@npm:~0.2.2":
+  version: 0.2.2
+  resolution: "xxhashjs@npm:0.2.2"
+  dependencies:
+    cuint: "npm:^0.2.2"
+  checksum: 10c0/78f3a5e10c7ba026bfc52f07ab02acb972c9c681dd53c283b386042822bae15577667103efe843725e9b0914f7bc53d70fe2f24a3e85d15aac13378fdf2db50e
   languageName: node
   linkType: hard
 

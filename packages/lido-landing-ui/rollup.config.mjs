@@ -89,6 +89,10 @@ export default [
             src: './assets/fonts/*',
             dest: 'dist/assets/fonts',
           },
+          {
+            src: '../lido-shared-ui/dist/assets/*',
+            dest: 'dist/assets',
+          },
         ],
       }),
     ],

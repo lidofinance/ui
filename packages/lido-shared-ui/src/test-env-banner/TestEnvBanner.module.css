@@ -1,0 +1,52 @@
+.banner {
+  --lido-ui-local-test-env-banner-accent: var(
+    --lido-ui-color-text-error,
+    rgb(215 71 88 / 100%)
+  );
+
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 60px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--lido-ui-local-test-env-banner-accent);
+  background-image: url('./background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: var(--lido-ui-font-family);
+}
+
+.label {
+  position: relative;
+  display: flex;
+  min-height: 30px;
+  max-width: 100%;
+  align-items: center;
+  padding: 5px 8px;
+  background: var(--lido-ui-local-test-env-banner-accent);
+  color: var(--lido-ui-color-buttons-text-static, rgb(255 255 255 / 100%));
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.shortText {
+  display: none;
+}
+
+/* literal until the app-side breakpoint scale is settled */
+@media (max-width: 599px) {
+  .textWithShort {
+    display: none;
+  }
+
+  .shortText {
+    display: block;
+  }
+}
