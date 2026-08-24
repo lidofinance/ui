@@ -2848,6 +2848,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rollup: "npm:3.29.5"
+    rollup-plugin-copy: "npm:3.5.0"
     rollup-plugin-postcss: "npm:4.0.2"
     storybook: "npm:8.6.12"
     tslib: "npm:2.3.1"

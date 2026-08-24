@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
+import copy from 'rollup-plugin-copy'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -46,13 +47,15 @@ export default [
         extensions,
         rootMode: 'upward',
       }),
+      copy({
+        targets: [
+          { src: '../lido-shared-ui/dist/assets/*', dest: 'dist/assets' },
+        ],
+      }),
       postcss({
         config: {
           path: './postcss.config.js',
         },
-        // asset paths are resolved relative to the extracted stylesheet, which
-        // is what this package exports
-        to: 'dist/esm/index.css',
         modules: {
           auto: (id) => !/src\/styles[\\/]global\.css$/.test(id),
         },

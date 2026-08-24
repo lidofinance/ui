@@ -10,9 +10,9 @@ export type {
 
 // Re-exported from lido-shared-ui so app products get the same non-production
 // banner as the landing. Its styles come in through styles/global.css.
-export { EnvBanner } from '@lidofinance/lido-shared-ui'
+export { TestEnvBanner } from '@lidofinance/lido-shared-ui'
 export type {
-  EnvBannerProps,
-  EnvBannerOwnProps,
-  EnvBannerDataTestId,
+  TestEnvBannerProps,
+  TestEnvBannerOwnProps,
+  TestEnvBannerDataTestId,
 } from '@lidofinance/lido-shared-ui'

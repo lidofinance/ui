@@ -60,10 +60,14 @@ export default {
     themeOverride: 'light',
   },
 
-  argTypes: {
+  globalTypes: {
     themeOverride: {
-      control: 'inline-radio',
-      options: ['dark', 'light', 'follow cookie and system'],
+      description: 'Theme',
+      toolbar: {
+        title: 'Theme',
+        items: ['dark', 'light', 'follow cookie and system'],
+        dynamicTitle: true,
+      },
     },
   },
 

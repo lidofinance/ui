@@ -1,0 +1,7 @@
+/*
+ * Bundled into this package's index.css so consumers import a single
+ * stylesheet. Kept out of global.css on purpose: Storybook imports that file,
+ * and the asset paths in this built stylesheet only resolve next to it in dist
+ * — in Storybook the shared components are compiled from source instead.
+ */
+@import url('@lidofinance/lido-shared-ui/dist/index.css');

@@ -1,5 +1,5 @@
 .banner {
-  --lido-ui-local-env-banner-accent: var(
+  --lido-ui-local-test-env-banner-accent: var(
     --lido-ui-color-text-error,
     rgb(215 71 88 / 100%)
   );
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--lido-ui-local-env-banner-accent);
+  background-color: var(--lido-ui-local-test-env-banner-accent);
   background-image: url('./background.svg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,7 +26,7 @@
   max-width: 100%;
   align-items: center;
   padding: 5px 8px;
-  background: var(--lido-ui-local-env-banner-accent);
+  background: var(--lido-ui-local-test-env-banner-accent);
   color: var(--lido-ui-color-buttons-text-static, rgb(255 255 255 / 100%));
   font-size: 14px;
   font-weight: 800;

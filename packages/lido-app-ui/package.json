@@ -68,6 +68,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "3.29.5",
+    "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
     "storybook": "8.6.12",
     "tslib": "2.3.1",
