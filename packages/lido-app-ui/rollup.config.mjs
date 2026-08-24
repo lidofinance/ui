@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
+import copy from 'rollup-plugin-copy'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -46,9 +47,18 @@ export default [
         extensions,
         rootMode: 'upward',
       }),
+      copy({
+        targets: [
+          { src: '../lido-shared-ui/dist/assets/*', dest: 'dist/assets' },
+        ],
+      }),
       postcss({
-        config: false,
-        modules: true,
+        config: {
+          path: './postcss.config.js',
+        },
+        modules: {
+          auto: (id) => !/src\/styles[\\/]global\.css$/.test(id),
+        },
         inject: false,
         extract: 'index.css',
         minimize: true,

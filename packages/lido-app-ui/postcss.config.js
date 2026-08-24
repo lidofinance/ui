@@ -1,16 +1,7 @@
-import path from 'path'
-
 const plugins = {
-  '@csstools/postcss-global-data': {
-    files: ['./styles/breakpoints.css'],
-  },
-  'postcss-mixins': {
-    mixinsDir: path.resolve('./', 'styles'),
-  },
-  autoprefixer: {},
+  // inlines the lido-shared-ui stylesheet imported from styles/global.css
   'postcss-import': {},
-  'postcss-nested': {},
-  'postcss-custom-media': { preserve: false },
+  autoprefixer: {},
   // the inlined lido-shared-ui styles point at assets next to their own
   // stylesheet; rebase them onto dist/assets, where rollup copies them
   'postcss-url': {
