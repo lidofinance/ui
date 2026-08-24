@@ -67,7 +67,7 @@
     "sequentialInit": true,
     "ignorePrivate": true,
     "deps": {
-      "bump": "satisfy",
+      "bump": "override",
       "release": "patch",
       "prefix": "^"
     }
