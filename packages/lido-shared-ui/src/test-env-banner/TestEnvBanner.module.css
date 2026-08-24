@@ -40,7 +40,8 @@
   display: none;
 }
 
-@media (--lido-ui-breakpoint-sm-down) {
+/* literal until the app-side breakpoint scale is settled */
+@media (max-width: 599px) {
   .textWithShort {
     display: none;
   }

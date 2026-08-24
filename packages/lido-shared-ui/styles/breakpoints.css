@@ -1,5 +1,0 @@
-/*
- * Breakpoints used by this package's own components. Kept here rather than
- * shared with lido-landing-ui / lido-app-ui, whose scales may diverge.
- */
-@custom-media --lido-ui-breakpoint-sm-down (max-width: 599px);
