@@ -44,7 +44,7 @@
     "@types/react-dom": "18.2.9",
     "jsdom": "^25.0.0",
     "postcss-url": "^10.1.4",
-    "rollup": "3.29.5",
+    "rollup": "3.30.0",
     "rollup-plugin-postcss": "4.0.2",
     "tslib": "2.3.1",
     "vitest": "^3.0.0"

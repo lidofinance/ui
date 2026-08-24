@@ -53,7 +53,7 @@
     "react-jazzicon": "1.0.4",
     "react-toastify": "11.0.5",
     "react-transition-group": "4",
-    "ua-parser-js": "2.0.3",
+    "ua-parser-js": "2.0.10",
     "use-callback-ref": "1.2.5"
   },
   "devDependencies": {
@@ -92,10 +92,10 @@
     "postcss-url": "10.1.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rollup": "3.29.5",
+    "rollup": "3.30.0",
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
-    "storybook": "8.6.12",
+    "storybook": "8.6.17",
     "tslib": "2.3.1",
     "vitest": "^3.0.0"
   },
