@@ -25,6 +25,7 @@ export default [
         format: 'cjs',
         preserveModules: true,
         preserveModulesRoot: 'src',
+        entryFileNames: '[name].cjs',
         generatedCode: 'es2015',
         sourcemap: true,
       },

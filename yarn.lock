@@ -2931,11 +2931,13 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:16.0.1"
     "@types/react": "npm:18.2.24"
     "@types/react-dom": "npm:18.2.9"
+    classnames: "npm:2.5.1"
     jsdom: "npm:^25.0.0"
     postcss-url: "npm:^10.1.4"
     rollup: "npm:3.29.5"
     rollup-plugin-postcss: "npm:4.0.2"
     tslib: "npm:2.3.1"
+    ua-parser-js: "npm:2.0.3"
     vitest: "npm:^3.0.0"
   peerDependencies:
     react: ^18
