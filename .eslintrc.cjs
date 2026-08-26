@@ -66,5 +66,8 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['!.storybook'],
+  // Kept here rather than in .eslintignore: that file is only picked up from
+  // the directory eslint runs in, and every package lints itself with
+  // `eslint .` from its own folder, so the root one never applied to them.
+  ignorePatterns: ['node_modules', 'dist', 'storybook-static', '!.storybook'],
 }
