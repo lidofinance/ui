@@ -18,13 +18,19 @@ const external = [
 
 export default [
   {
-    input: './src/index.ts',
+    // global.css is a build-level input, not an import in src/index.ts:
+    // keeping it out of the TS module graph keeps tsc from emitting a
+    // dangling `import './styles/global.css'` into dist/types (declaration
+    // emit always preserves side-effect imports). Listed first so its rules
+    // land ahead of component styles in the extracted index.css.
+    input: ['./src/styles/global.css', './src/index.ts'],
     output: [
       {
         dir: 'dist/cjs',
         format: 'cjs',
         preserveModules: true,
         preserveModulesRoot: 'src',
+        entryFileNames: '[name].cjs',
         generatedCode: 'es2015',
         sourcemap: true,
       },

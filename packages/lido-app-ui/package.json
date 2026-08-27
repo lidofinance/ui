@@ -10,19 +10,22 @@
     "url": "https://github.com/lidofinance/ui/issues"
   },
   "type": "module",
-  "main": "dist/cjs/index.js",
+  "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.cjs"
     },
     "./index.css": {
       "import": "./dist/esm/index.css",
       "require": "./dist/cjs/index.css"
-    },
-    "./styles/*": "./dist/styles/*"
+    }
   },
   "files": [
     "dist"
