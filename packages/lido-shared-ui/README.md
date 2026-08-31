@@ -4,7 +4,7 @@ Shared hooks, utils, theme CSS and types consumed by [`@lidofinance/lido-landing
 
 ## Install
 
-Usually you won't install this directly — it comes in as a dependency of `lido-landing-ui` / `lido-app-ui`. If you do need it standalone:
+Usually yofu won't install this directly — it comes in as a dependency of `lido-landing-ui` / `lido-app-ui`. If you do need it standalone:
 
 ```bash
 yarn add @lidofinance/lido-shared-ui
