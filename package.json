@@ -16,12 +16,13 @@
     "storybook:ui": "yarn workspace @lidofinance/lido-ui dev",
     "storybook:landing": "yarn workspace @lidofinance/lido-landing-ui dev",
     "storybook:widget": "yarn workspace @lidofinance/lido-app-ui dev",
-    "release": "multi-semantic-release",
+    "release": "SLACK_WEBHOOK=https://gg CI=true multi-semantic-release",
     "prepare": "git config core.hooksPath .git-hooks || echo 'Not in a git repo'"
   },
   "release": {
     "branches": [
       "main",
+      "test",
       {
         "name": "develop",
         "channel": "alpha",
@@ -29,21 +30,6 @@
       }
     ],
     "plugins": [
-      [
-        "@semantic-release/commit-analyzer",
-        {
-          "preset": "conventionalcommits"
-        }
-      ],
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      [
-        "@semantic-release/github",
-        {
-          "successComment": false,
-          "failComment": false
-        }
-      ],
       [
         "semantic-release-slack-bot",
         {
