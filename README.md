@@ -2,6 +2,14 @@
 
 > Monorepo of React component libraries for Lido Finance projects.
 
+## Storybooks
+
+[![lido-landing-ui Storybook](https://img.shields.io/badge/Storybook-lido--landing--ui-FF4785?style=for-the-badge&logo=storybook&logoColor=white)](https://ui.lido.fi/lido-landing-ui/)
+[![lido-app-ui Storybook](https://img.shields.io/badge/Storybook-lido--app--ui-FF4785?style=for-the-badge&logo=storybook&logoColor=white)](https://ui.lido.fi/lido-app-ui/)
+[![lido-ui Storybook (deprecated)](https://img.shields.io/badge/Storybook-lido--ui%20(deprecated)-8b8b8b?style=for-the-badge&logo=storybook&logoColor=white)](https://ui.lido.fi/lido-ui/)
+
+[ui.lido.fi](https://ui.lido.fi/) itself is a landing page linking to all three.
+
 This repository is a [Yarn workspaces](https://yarnpkg.com/features/workspaces) monorepo orchestrated with [Turborepo](https://turbo.build/repo). It publishes the following packages to npm:
 
 | Package | npm name | Description | Storybook |
@@ -9,11 +17,11 @@ This repository is a [Yarn workspaces](https://yarnpkg.com/features/workspaces) 
 | [`packages/lido-landing-ui`](./packages/lido-landing-ui) | `@lidofinance/lido-landing-ui` | Components tailored for Lido's landing / marketing pages (banners, cards, tags, tooltips, typography, etc). One of the two current replacements for `lido-ui`. | [ui.lido.fi/lido-landing-ui](https://ui.lido.fi/lido-landing-ui/) |
 | [`packages/lido-app-ui`](./packages/lido-app-ui) | `@lidofinance/lido-app-ui` | Components for Lido app/widget products. Currently small and growing. The other current replacement for `lido-ui`. | [ui.lido.fi/lido-app-ui](https://ui.lido.fi/lido-app-ui/) |
 | [`packages/lido-shared-ui`](./packages/lido-shared-ui) | `@lidofinance/lido-shared-ui` | Shared hooks, utils, theme CSS and types consumed by the other packages. No Storybook of its own. | — |
-| [`packages/lido-ui`](./packages/lido-ui) | `@lidofinance/lido-ui` | **Deprecated / legacy.** The original component library (buttons, inputs, modals, data tables, icons, theme, etc). Being phased out in favor of `lido-landing-ui` / `lido-app-ui`. Avoid adding new components here. | [ui.lido.fi](https://ui.lido.fi/) |
+| [`packages/lido-ui`](./packages/lido-ui) | `@lidofinance/lido-ui` | **Deprecated / legacy.** The original component library (buttons, inputs, modals, data tables, icons, theme, etc). Being phased out in favor of `lido-landing-ui` / `lido-app-ui`. Avoid adding new components here. | [ui.lido.fi/lido-ui](https://ui.lido.fi/lido-ui/) |
 
 > **Note:** `@lidofinance/lido-ui` is deprecated and no longer the primary library. It is being slowly replaced by `@lidofinance/lido-landing-ui` or `@lidofinance/lido-app-ui`, depending on the design requirements of the consuming project — pick whichever matches the target project's design system for new work.
 
-Published Storybooks are deployed to GitHub Pages by [`deploy-storybook.yml`](./.github/workflows/deploy-storybook.yml): `lido-ui` is published at the domain root ([ui.lido.fi](https://ui.lido.fi/)), while `lido-landing-ui` and `lido-app-ui` are published under their own subfolders.
+Published Storybooks are deployed to GitHub Pages by the `deploy-storybook` / `deploy-pages` jobs in [`publish-production.yml`](./.github/workflows/publish-production.yml): each package's Storybook is published under its own subfolder, and the domain root ([ui.lido.fi](https://ui.lido.fi/)) serves a landing page (source: [`.github/pages/index.html`](./.github/pages/index.html)) linking to all three.
 
 ## Monorepo Structure
 

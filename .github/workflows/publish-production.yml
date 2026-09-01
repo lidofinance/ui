@@ -99,8 +99,9 @@ jobs:
 
       - name: Assemble Pages directory
         run: |
-          mkdir -p release-target/lido-landing-ui release-target/lido-app-ui
-          cp -r packages/lido-ui/storybook-static/. release-target/
+          mkdir -p release-target/lido-ui release-target/lido-landing-ui release-target/lido-app-ui
+          cp .github/pages/index.html release-target/index.html
+          cp -r packages/lido-ui/storybook-static/. release-target/lido-ui/
           cp -r packages/lido-landing-ui/storybook-static/. release-target/lido-landing-ui/
           cp -r packages/lido-app-ui/storybook-static/. release-target/lido-app-ui/
 
