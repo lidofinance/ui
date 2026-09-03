@@ -17,6 +17,7 @@ export type TooltipIconProps = Omit<
   content: ReactNode
   position?: TooltipPosition
   width?: TooltipWidth
+  adaptive?: boolean
   dataTestId?: TooltipIconDataTestId
 }
 
@@ -26,6 +27,7 @@ export const TooltipIcon = ({
   className,
   dataTestId,
   width,
+  adaptive,
   ...rest
 }: TooltipIconProps) => {
   return (
@@ -33,6 +35,7 @@ export const TooltipIcon = ({
       content={content}
       position={position}
       width={width}
+      adaptive={adaptive}
       className={cn(styles.tooltipIcon, className)}
       dataTestId={{
         root: dataTestId?.tooltip,

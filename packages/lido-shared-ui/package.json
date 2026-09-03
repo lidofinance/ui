@@ -10,13 +10,17 @@
     "url": "https://github.com/lidofinance/ui/issues"
   },
   "type": "module",
-  "main": "dist/cjs/index.js",
+  "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.cjs"
     },
     "./index.css": "./dist/index.css"
   },
@@ -33,6 +37,10 @@
     "react": "^18",
     "react-dom": "^18"
   },
+  "dependencies": {
+    "classnames": "2.5.1",
+    "ua-parser-js": "2.0.3"
+  },
   "devDependencies": {
     "@babel/preset-env": "7.26.9",
     "@babel/preset-react": "7.26.3",
@@ -43,6 +51,7 @@
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.9",
     "jsdom": "^25.0.0",
+    "postcss-url": "^10.1.4",
     "rollup": "3.29.5",
     "rollup-plugin-postcss": "4.0.2",
     "tslib": "2.3.1",

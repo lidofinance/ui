@@ -1,9 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "noEmit": false,
     "emitDeclarationOnly": true,
     "outDir": "./dist/types",
-    "rootDir": "src",
+    "rootDir": "./src",
     "paths": {
       "react": ["../../node_modules/@types/react"],
       "@lidofinance/lido-shared-ui": ["../lido-shared-ui/dist/types"],

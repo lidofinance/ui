@@ -4,8 +4,8 @@
 
 Releases are triggered automatically by CI:
 
-- Pushes to `main` run [`publish-production.yml`](./.github/workflows/publish-production.yml) → production npm channel.
-- Pushes to `develop` run [`publish-alpha.yml`](./.github/workflows/publish-alpha.yml) → alpha npm channel (prerelease id `alpha`).
+- Pushes to `main` run [`publish-production.yml`](./.github/workflows/publish-production.yml) → production npm channel, then build and deploy all Storybooks to GitHub Pages.
+- Pushes to `develop` run [`publish-alpha.yml`](./.github/workflows/publish-alpha.yml) → alpha npm channel (prerelease id `alpha`). Storybook is not deployed for alpha.
 
 Both first call the shared [`_dry-run.yml`](./.github/workflows/_dry-run.yml) reusable workflow as a gate (builds all packages and runs `semantic-release --dry-run` for every package), then on success run the real build + release job:
 
@@ -35,6 +35,12 @@ Current `multi-release.deps` settings (`package.json`):
 ```
 
 With these settings, a package that depends on another released package gets a patch release cascaded to it whenever that dependency releases — e.g. when `lido-shared-ui` gets a new version, `lido-landing-ui` and `lido-app-ui` also get released.
+
+### Slack notifications
+
+The [`semantic-release-slack-bot`](https://github.com/juliuscc/semantic-release-slack-bot) plugin posts a Slack message whenever a package is actually released (it does nothing when semantic-release decides there's nothing to release). It's configured with `notifyOnSuccess: false` at the root and a `branchesConfig` entry that turns notifications on only for `main`, so alpha (`develop`) releases stay silent. The webhook URL comes from the `SLACK_WEBHOOK_URL` repo secret, passed to the `publish` job's `Release` step as the `SLACK_WEBHOOK` env var (the name the plugin reads by default).
+
+Because multi-semantic-release runs semantic-release once per package, a cascaded release (e.g. `lido-shared-ui` bumping its dependents) can post one Slack message per released package rather than a single combined message.
 
 ## Known Issues
 

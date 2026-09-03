@@ -1,7 +1,12 @@
 import path from 'path'
 
 export default {
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    // lido-shared-ui has no Storybook of its own; it serves both libraries,
+    // so its components are rendered here as well as in lido-landing-ui
+    '../../lido-shared-ui/src/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
 
   addons: [
     '@storybook/addon-docs',

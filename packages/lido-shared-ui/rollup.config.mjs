@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
+import postcssUrl from 'postcss-url'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -24,6 +25,7 @@ export default [
         format: 'cjs',
         preserveModules: true,
         preserveModulesRoot: 'src',
+        entryFileNames: '[name].cjs',
         generatedCode: 'es2015',
         sourcemap: true,
       },
@@ -52,6 +54,14 @@ export default [
         inject: false,
         extract: 'index.css',
         minimize: true,
+        // dist/index.css is what the package exports, so asset paths are
+        // resolved relative to it
+        to: 'dist/index.css',
+        // copies whatever the styles reference into dist/assets and rewrites
+        // the path, so component folders can keep their own images
+        plugins: [
+          postcssUrl({ url: 'copy', assetsPath: 'assets', useHash: true }),
+        ],
       }),
     ],
     external,

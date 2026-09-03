@@ -2,6 +2,7 @@
   font-family: var(--lido-ui-font-family);
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .tooltip:hover .contentWrapper {
@@ -14,6 +15,7 @@
   z-index: 1;
   display: none;
   position: absolute;
+  cursor: default;
 }
 
 .content {
@@ -57,12 +59,16 @@
   left: 100%;
   padding-left: 15px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(calc(-50% + var(--lido-ui-local-tooltip-shift-y, 0px)));
 }
 
 .position--right .triangle {
   left: -12px;
-  top: 50%;
+  top: clamp(
+    24px,
+    calc(50% - var(--lido-ui-local-tooltip-shift-y, 0px)),
+    calc(100% - 24px)
+  );
   transform: translateY(-50%) rotate(90deg);
 }
 
@@ -70,12 +76,16 @@
   right: 100%;
   padding-right: 15px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(calc(-50% + var(--lido-ui-local-tooltip-shift-y, 0px)));
 }
 
 .position--left .triangle {
   right: -12px;
-  top: 50%;
+  top: clamp(
+    24px,
+    calc(50% - var(--lido-ui-local-tooltip-shift-y, 0px)),
+    calc(100% - 24px)
+  );
   transform: translateY(-50%) rotate(-90deg);
 }
 
@@ -83,12 +93,16 @@
   bottom: 100%;
   padding-bottom: 15px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% + var(--lido-ui-local-tooltip-shift-x, 0px)));
 }
 
 .position--top .triangle {
   bottom: -8px;
-  left: 50%;
+  left: clamp(
+    24px,
+    calc(50% - var(--lido-ui-local-tooltip-shift-x, 0px)),
+    calc(100% - 24px)
+  );
   transform: translateX(-50%) rotate(0deg);
 }
 
@@ -96,12 +110,16 @@
   top: 100%;
   padding-top: 15px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% + var(--lido-ui-local-tooltip-shift-x, 0px)));
 }
 
 .position--bottom .triangle {
   top: -8px;
-  left: 50%;
+  left: clamp(
+    24px,
+    calc(50% - var(--lido-ui-local-tooltip-shift-x, 0px)),
+    calc(100% - 24px)
+  );
   transform: translateX(-50%) rotate(180deg);
 }
 
@@ -109,6 +127,8 @@
 .position--top-right,
 .position--bottom-left,
 .position--bottom-right {
+  transform: translateX(var(--lido-ui-local-tooltip-shift-x, 0));
+
   &::before {
     content: '';
     position: absolute;
