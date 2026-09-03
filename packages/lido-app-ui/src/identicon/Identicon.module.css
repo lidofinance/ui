@@ -1,0 +1,12 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.empty {
+  background: linear-gradient(135deg, #5c6bc0, #26a69a);
+}

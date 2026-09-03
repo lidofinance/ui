@@ -1,0 +1,6 @@
+@custom-media --lido-app-ui-breakpoint-lg-down (max-width: 1439px);
+@custom-media --lido-app-ui-breakpoint-ml-down (max-width: 1063px);
+@custom-media --lido-app-ui-breakpoint-md-down (max-width: 899px);
+@custom-media --lido-app-ui-breakpoint-sm-down (max-width: 599px);
+@custom-media --lido-app-ui-breakpoint-xs-down (max-width: 439px);
+@custom-media --lido-app-ui-breakpoint-xxs-down (max-width: 399px);

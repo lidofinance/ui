@@ -1,0 +1,124 @@
+:root {
+  /* Text */
+  --lido-app-ui-color-text-primary: #000;
+  --lido-app-ui-color-text-secondary: rgb(0 0 0 / 60%);
+  --lido-app-ui-color-text-placeholder: rgb(0 0 0 / 30%);
+  --lido-app-ui-color-text-inverted: #fff;
+  --lido-app-ui-color-text-tooltip: #fff;
+  --lido-app-ui-color-text-error: #e9152d;
+  --lido-app-ui-color-text-warning: #bf5300;
+  --lido-app-ui-color-text-link: #0085ff;
+  --lido-app-ui-color-text-attention-headline: #051b3f;
+  --lido-app-ui-color-text-attention-description: rgb(5 27 63 / 60%);
+
+  /* Icons */
+  --lido-app-ui-color-icons-primary: #000;
+  --lido-app-ui-color-icons-attention: #1179b6;
+
+  /* Backgrounds */
+  --lido-app-ui-color-backgrounds-input-default: #f7f7fa;
+  --lido-app-ui-color-backgrounds-input-hover: #f2f2f5;
+  --lido-app-ui-color-backgrounds-input-active: #fff;
+  --lido-app-ui-color-backgrounds-control-default: rgb(0 0 0 / 8%);
+  --lido-app-ui-color-backgrounds-control-hover: rgb(0 0 0 / 10%);
+  --lido-app-ui-color-backgrounds-control-disabled: rgb(0 0 0 / 4%);
+  --lido-app-ui-color-backgrounds-control-hover-faint: rgb(0 0 0 / 1%);
+  --lido-app-ui-color-backgrounds-control-on-light-hover: rgb(0 0 0 / 4%);
+  --lido-app-ui-color-backgrounds-control-on-dark-hover: rgb(255 255 255 / 8%);
+  --lido-app-ui-color-backgrounds-control-on-dark-disabled: rgb(
+    255 255 255 / 10%
+  );
+  --lido-app-ui-color-backgrounds-message-default: rgb(0 0 0 / 4%);
+  --lido-app-ui-color-backgrounds-message-attention: rgb(0 98 255 / 8%);
+  --lido-app-ui-color-backgrounds-message-warning: rgb(191 83 0 / 4%);
+  --lido-app-ui-color-backgrounds-tab-bar: #e5e5ea;
+  --lido-app-ui-color-backgrounds-dropdown: #fff;
+  --lido-app-ui-color-backgrounds-button-black: #000;
+  --lido-app-ui-color-backgrounds-button-white: #fff;
+  --lido-app-ui-color-backgrounds-tooltip: #000;
+
+  /* Borders */
+  --lido-app-ui-color-borders-default: #e5e5ea;
+  --lido-app-ui-color-borders-focus: #0085ff;
+  --lido-app-ui-color-borders-outline-on-light: rgb(0 0 0 / 10%);
+  --lido-app-ui-color-borders-outline-on-dark: rgb(255 255 255 / 20%);
+  --lido-app-ui-color-borders-outline-on-dark-secondary: rgb(255 255 255 / 30%);
+
+  /* Hover overlays */
+  --lido-app-ui-color-overlay-button-white-hover: rgb(0 0 0 / 6%);
+  --lido-app-ui-color-overlay-button-black-hover: rgb(255 255 255 / 10%);
+
+  /* Badge */
+  --lido-app-ui-color-badge-success-text: #11b690;
+  --lido-app-ui-color-badge-success-bg: rgb(17 182 144 / 10%);
+  --lido-app-ui-color-badge-warning-text: #fa9200;
+  --lido-app-ui-color-badge-warning-bg: rgb(250 146 0 / 10%);
+  --lido-app-ui-color-badge-error-text: #f00a38;
+  --lido-app-ui-color-badge-error-bg: rgb(240 10 56 / 10%);
+
+  /* Typography */
+  --lido-app-ui-font-family:
+    'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
+    'Helvetica Neue', sans-serif;
+  --lido-app-ui-font-weight-regular: 400;
+  --lido-app-ui-font-weight-medium: 500;
+  --lido-app-ui-font-weight-semibold: 600;
+  --lido-app-ui-font-weight-bold: 700;
+  --lido-app-ui-font-size-amount: 36px;
+  --lido-app-ui-line-height-amount: 1.4;
+  --lido-app-ui-letter-spacing-amount: -1.5px;
+  --lido-app-ui-font-size-body: 16px;
+  --lido-app-ui-line-height-body: 24px;
+  --lido-app-ui-letter-spacing-body: -0.14px;
+  --lido-app-ui-letter-spacing-button: -0.14px;
+  --lido-app-ui-font-size-label: 14px;
+  --lido-app-ui-line-height-label: 22px;
+  --lido-app-ui-letter-spacing-label: -0.14px;
+  --lido-app-ui-font-size-tooltip: 12px;
+  --lido-app-ui-line-height-tooltip: 18px;
+  --lido-app-ui-letter-spacing-tooltip: -0.14px;
+  --lido-app-ui-line-height-description: 20px;
+
+  /* Heading scale */
+  --lido-app-ui-font-size-h1: 42px;
+  --lido-app-ui-line-height-h1: 58px;
+  --lido-app-ui-letter-spacing-h1: -1.26px;
+  --lido-app-ui-font-size-h2: 32px;
+  --lido-app-ui-line-height-h2: 46px;
+  --lido-app-ui-letter-spacing-h2: -0.96px;
+  --lido-app-ui-font-size-h3: 24px;
+  --lido-app-ui-line-height-h3: 34px;
+  --lido-app-ui-letter-spacing-h3: -0.74px;
+
+  /* Radii */
+  --lido-app-ui-border-radius-badge: 8px;
+  --lido-app-ui-border-radius-pill: 100px;
+  --lido-app-ui-border-radius-button-50: 50px;
+  --lido-app-ui-border-radius-control: 100px;
+  --lido-app-ui-border-radius-control-inactive: 110px;
+  --lido-app-ui-border-radius-card: 16px;
+  --lido-app-ui-border-radius-dropdown: 20px;
+  --lido-app-ui-border-radius-dropdown-item: 12px;
+  --lido-app-ui-border-radius-tooltip: 12px;
+
+  /* Shadows */
+  --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
+
+  /* Interaction-state opacities */
+  --lido-app-ui-opacity-pressed-content: 0.7;
+  --lido-app-ui-opacity-disabled-content: 0.3;
+  --lido-app-ui-opacity-disabled-content-compact: 0.2;
+}
+
+/* Mobile heading scale. Only H1/H2 change; H3 stays identical. Headings using
+   the typography tokens/mixins pick this up automatically. */
+@media (--lido-app-ui-breakpoint-md-down) {
+  :root {
+    --lido-app-ui-font-size-h1: 34px;
+    --lido-app-ui-line-height-h1: 48px;
+    --lido-app-ui-letter-spacing-h1: -0.98px;
+    --lido-app-ui-font-size-h2: 28px;
+    --lido-app-ui-line-height-h2: 40px;
+    --lido-app-ui-letter-spacing-h2: -0.84px;
+  }
+}

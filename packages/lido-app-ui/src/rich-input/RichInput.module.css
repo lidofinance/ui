@@ -1,0 +1,103 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: calc(16px - 1px);
+  border: 1px solid var(--lido-app-ui-color-borders-default);
+  border-radius: var(--lido-app-ui-border-radius-card);
+  background-color: var(--lido-app-ui-color-backgrounds-input-default);
+  font-family: var(--lido-app-ui-font-family);
+  cursor: text;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.root:hover {
+  background-color: var(--lido-app-ui-color-backgrounds-input-hover);
+}
+
+.root:has(.input:focus),
+.root.error {
+  border-color: var(--lido-app-ui-color-borders-focus);
+  background-color: var(--lido-app-ui-color-backgrounds-input-active);
+}
+
+.label {
+  @mixin font-body-large-semibold;
+
+  align-self: flex-start;
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.amountRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--lido-app-ui-color-text-primary);
+  font-family: inherit;
+  font-size: var(--lido-app-ui-font-size-amount);
+  font-weight: var(--lido-app-ui-font-weight-medium);
+  line-height: var(--lido-app-ui-line-height-amount);
+  letter-spacing: var(--lido-app-ui-letter-spacing-amount);
+}
+
+.input::placeholder {
+  color: var(--lido-app-ui-color-text-placeholder);
+}
+
+.error .input {
+  caret-color: var(--lido-app-ui-color-text-error);
+  color: var(--lido-app-ui-color-text-error);
+}
+
+.token {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  height: 26px;
+}
+
+.secondary {
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.balanceGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.balance {
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.error .balance {
+  color: var(--lido-app-ui-color-text-error);
+}
+
+.errorMessage {
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-error);
+}

@@ -1,0 +1,62 @@
+.root {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--lido-app-ui-color-text-primary);
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tick {
+  width: 16px;
+  height: 16px;
+  color: var(--lido-app-ui-color-text-inverted);
+  opacity: 0;
+}
+
+.input:checked + .box {
+  background-color: var(--lido-app-ui-color-backgrounds-button-black);
+}
+
+.input:checked + .box .tick {
+  opacity: 1;
+}
+
+.input:focus-visible + .box {
+  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline-offset: 2px;
+}
+
+.label {
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-primary);
+}

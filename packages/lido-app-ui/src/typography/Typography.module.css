@@ -1,0 +1,35 @@
+.root {
+  margin: 0;
+}
+
+.h1 {
+  @mixin font-h1;
+}
+
+.h2 {
+  @mixin font-h2;
+}
+
+.h3 {
+  @mixin font-h3;
+}
+
+.bodyLarge {
+  @mixin font-body-large;
+}
+
+.body {
+  @mixin font-body;
+}
+
+.description {
+  @mixin font-description;
+}
+
+.groupName {
+  @mixin font-group-name;
+}
+
+.semibold {
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+}

@@ -1,0 +1,22 @@
+/* Storybook's chrome follows the OS colour scheme, but this kit's token layer
+   is light-only. Pin the preview surface so components never end up rendering
+   on Storybook's dark canvas. */
+
+/* stylelint-disable-next-line selector-max-type -- a page-level reset has to reach html/body */
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--lido-app-ui-font-family);
+  color: var(--lido-app-ui-color-text-primary);
+  background: var(--lido-app-ui-color-text-inverted);
+}
+
+#storybook-root {
+  width: 100%;
+  background: var(--lido-app-ui-color-text-inverted);
+}
+
+.docs-story {
+  background: var(--lido-app-ui-color-text-inverted);
+}

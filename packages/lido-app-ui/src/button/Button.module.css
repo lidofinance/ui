@@ -1,158 +1,115 @@
 .button {
+  --local-border-width: 0px;
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-primary);
+  --local-border-color: transparent;
+  --local-hover-overlay: transparent;
+  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+  --local-disabled-color: var(--local-color);
+
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border: none;
-  border-radius: 10px;
-  font-family: inherit;
-  font-weight: 600;
+  box-sizing: border-box;
+  height: 50px;
+  padding: calc(13px - var(--local-border-width))
+    calc(24px - var(--local-border-width));
+  border: var(--local-border-width) solid var(--local-border-color);
+  border-radius: var(--lido-app-ui-border-radius-button-50);
+  background-color: var(--local-bg);
+  color: var(--local-color);
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-body);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: var(--lido-app-ui-line-height-body);
+  letter-spacing: var(--lido-app-ui-letter-spacing-button);
   cursor: pointer;
-  transition:
-    background 0.15s ease,
-    transform 0.1s ease,
-    opacity 0.15s ease;
-  white-space: nowrap;
-  text-decoration: none;
-  outline: none;
-  position: relative;
-  overflow: hidden;
 }
 
-.button:active:not(.loading) {
-  transform: scale(0.97);
+/* Hover overlay as a faded pseudo-element so it animates (gradient
+   background-image can't transition from none). Covers the border box to
+   match the previous full-bleed overlay. */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--local-border-width));
+  z-index: 0;
+  border-radius: inherit;
+  background-color: var(--local-hover-overlay);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
-.button:disabled,
-.button.loading {
-  opacity: 0.5;
+.button:hover:not(:disabled)::before,
+.button:active:not(:disabled)::before {
+  opacity: 1;
+}
+
+.button:active:not(:disabled) .content {
+  opacity: var(--lido-app-ui-opacity-pressed-content);
+}
+
+.button:disabled {
+  border-color: transparent;
+  background-color: var(--local-disabled-bg);
+  color: var(--local-disabled-color);
   cursor: not-allowed;
 }
 
-/* sizes */
-.sm {
-  padding: 8px 16px;
-  font-size: 13px;
-  line-height: 18px;
-  min-height: 34px;
+.button:disabled .content {
+  opacity: var(--lido-app-ui-opacity-disabled-content);
 }
 
-.md {
-  padding: 10px 20px;
-  font-size: 14px;
-  line-height: 20px;
-  min-height: 42px;
-}
-
-.lg {
-  padding: 14px 28px;
-  font-size: 16px;
-  line-height: 24px;
-  min-height: 52px;
-}
-
-/* filled */
-.filled.primary {
-  background: linear-gradient(135deg, #00a3ff 0%, #0047ff 100%);
-  color: #fff;
-}
-
-.filled.primary:hover:not(:disabled, .loading) {
-  background: linear-gradient(135deg, #33b5ff 0%, #2260ff 100%);
-}
-
-.filled.secondary {
-  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-  color: #e2e8f0;
-}
-
-.filled.secondary:hover:not(:disabled, .loading) {
-  background: linear-gradient(135deg, #3d4f65 0%, #2a3244 100%);
-}
-
-.filled.warning {
-  background: linear-gradient(135deg, #f6a623 0%, #e07b00 100%);
-  color: #fff;
-}
-
-.filled.warning:hover:not(:disabled, .loading) {
-  background: linear-gradient(135deg, #f8b84a 0%, #f09010 100%);
-}
-
-/* outlined */
-.outlined {
-  background: transparent;
-  border: 1.5px solid currentcolor;
-}
-
-.outlined.primary {
-  color: #0047ff;
-  border-color: #0047ff;
-}
-
-.outlined.primary:hover:not(:disabled, .loading) {
-  background: rgb(0 71 255 / 7%);
-}
-
-.outlined.secondary {
-  color: #718096;
-  border-color: #718096;
-}
-
-.outlined.secondary:hover:not(:disabled, .loading) {
-  background: rgb(113 128 150 / 7%);
-}
-
-/* ghost */
-.ghost {
-  background: transparent;
-  border: none;
-}
-
-.ghost.primary {
-  color: #0047ff;
-}
-
-.ghost.primary:hover:not(:disabled, .loading) {
-  background: rgb(0 71 255 / 7%);
-}
-
-.ghost.secondary {
-  color: #718096;
-}
-
-.ghost.secondary:hover:not(:disabled, .loading) {
-  background: rgb(113 128 150 / 7%);
-}
-
-/* fullwidth */
-.fullwidth {
-  width: 100%;
-}
-
-/* loader */
-.loader {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgb(255 255 255 / 30%);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  position: absolute;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+.button:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline-offset: 2px;
 }
 
 .content {
-  display: flex;
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
 }
 
-.content.hidden {
-  visibility: hidden;
+.white {
+  --local-bg: var(--lido-app-ui-color-backgrounds-button-white);
+  --local-color: var(--lido-app-ui-color-text-primary);
+  --local-hover-overlay: var(--lido-app-ui-color-overlay-button-white-hover);
+  --local-disabled-bg: var(
+    --lido-app-ui-color-backgrounds-control-on-dark-disabled
+  );
+  --local-disabled-color: var(--lido-app-ui-color-text-inverted);
+}
+
+.black {
+  --local-bg: var(--lido-app-ui-color-backgrounds-button-black);
+  --local-color: var(--lido-app-ui-color-text-inverted);
+  --local-hover-overlay: var(--lido-app-ui-color-overlay-button-black-hover);
+  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+  --local-disabled-color: var(--lido-app-ui-color-text-primary);
+}
+
+.blackOutline {
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-borders-outline-on-light);
+  --local-color: var(--lido-app-ui-color-text-primary);
+  --local-hover-overlay: var(
+    --lido-app-ui-color-backgrounds-control-on-light-hover
+  );
+  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+}
+
+.whiteOutline {
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-borders-outline-on-dark);
+  --local-color: var(--lido-app-ui-color-text-inverted);
+  --local-hover-overlay: var(
+    --lido-app-ui-color-backgrounds-control-on-dark-hover
+  );
+  --local-disabled-bg: var(
+    --lido-app-ui-color-backgrounds-control-on-dark-disabled
+  );
 }

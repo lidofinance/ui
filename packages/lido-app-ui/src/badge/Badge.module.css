@@ -1,0 +1,47 @@
+.badge {
+  --local-text: var(--lido-app-ui-color-badge-success-text);
+  --local-bg: var(--lido-app-ui-color-badge-success-bg);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  height: 24px;
+  padding: 6px 8px;
+  border-radius: var(--lido-app-ui-border-radius-badge);
+  background-color: var(--local-bg);
+  color: var(--local-text);
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-medium);
+  line-height: 12px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  white-space: nowrap;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+}
+
+.icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.success {
+  --local-text: var(--lido-app-ui-color-badge-success-text);
+  --local-bg: var(--lido-app-ui-color-badge-success-bg);
+}
+
+.warning {
+  --local-text: var(--lido-app-ui-color-badge-warning-text);
+  --local-bg: var(--lido-app-ui-color-badge-warning-bg);
+}
+
+.error {
+  --local-text: var(--lido-app-ui-color-badge-error-text);
+  --local-bg: var(--lido-app-ui-color-badge-error-bg);
+}

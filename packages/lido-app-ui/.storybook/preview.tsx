@@ -1,69 +1,56 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Decorator } from '@storybook/react'
-import {
-  ThemeName,
-  CookieThemeProvider,
-  ThemeToggler,
-} from '@lidofinance/lido-shared-ui'
+import { LightThemeProvider } from '@lidofinance/lido-shared-ui'
 
-const WithThemeProvider: Decorator = (Story, { globals }): ReactElement => {
-  const themeOverride = globals.themeOverride as
-    | ThemeName
-    | 'follow cookie and system'
-    | undefined
+import '../styles/global.css'
+import './styles/storybook.css'
 
-  return (
-    <CookieThemeProvider
-      overrideThemeName={
-        themeOverride === 'follow cookie and system' ? undefined : themeOverride
-      }
+// The kit's token layer is single-theme (light) for now, so the surface is
+// pinned rather than driven by a toggler.
+const WithSurface: Decorator = (Story): JSX.Element => (
+  <LightThemeProvider>
+    <div
+      style={{
+        fontFamily: 'var(--lido-app-ui-font-family)',
+        color: 'var(--lido-app-ui-color-text-primary)',
+        background: 'var(--lido-app-ui-color-text-inverted)',
+        padding: 16,
+        boxSizing: 'border-box',
+      }}
     >
-      <div
-        style={{
-          minWidth: '100%',
-          display: 'flex',
-          justifyContent: 'flex-end',
-          padding: '1em 1em 0 1em',
-          boxSizing: 'border-box',
-          background: 'var(--lido-ui-color-text-inverted)',
-        }}
-      >
-        <ThemeToggler />
-      </div>
-      <div
-        style={{
-          minHeight: '10vh',
-          color: 'var(--lido-ui-color-text-primary)',
-          padding: '1em',
-          boxSizing: 'border-box',
-          background: 'var(--lido-ui-color-text-inverted)',
-        }}
-      >
-        <Story />
-      </div>
-    </CookieThemeProvider>
-  )
-}
+      <Story />
+    </div>
+  </LightThemeProvider>
+)
 
 export default {
   tags: ['autodocs'],
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
-  initialGlobals: {
-    themeOverride: 'light',
-  },
-  // a global rather than an arg: as an argType it was spread into every
-  // component, showing up in the DOM and in the generated code snippets
-  globalTypes: {
-    themeOverride: {
-      description: 'Theme',
-      toolbar: {
-        title: 'Theme',
-        items: ['dark', 'light', 'follow cookie and system'],
-        dynamicTitle: true,
+    viewport: {
+      viewports: {
+        px1440: {
+          name: '1440px — desktop',
+          styles: { width: '1440px', height: '900px' },
+        },
+        px900: {
+          name: '900px — md boundary',
+          styles: { width: '900px', height: '900px' },
+        },
+        px899: {
+          name: '899px — md-down',
+          styles: { width: '899px', height: '900px' },
+        },
+        px599: {
+          name: '599px — sm-down',
+          styles: { width: '599px', height: '800px' },
+        },
+        px375: {
+          name: '375px — mobile',
+          styles: { width: '375px', height: '800px' },
+        },
       },
     },
   },
-  decorators: [WithThemeProvider],
+  decorators: [WithSurface],
 }

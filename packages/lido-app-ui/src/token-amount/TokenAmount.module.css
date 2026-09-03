@@ -1,0 +1,17 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.amount {
+  @mixin font-body-large-semibold;
+
+  color: var(--lido-app-ui-color-text-primary);
+}

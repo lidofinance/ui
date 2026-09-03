@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (--lido-app-ui-breakpoint-md-down) {
+  .row {
+    flex-wrap: wrap;
+    row-gap: 32px;
+  }
+
+  .row > * {
+    flex: 1 1 calc(50% - 10px);
+    align-items: flex-start;
+  }
+}

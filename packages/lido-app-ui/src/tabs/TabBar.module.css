@@ -1,0 +1,47 @@
+.tabBar {
+  --local-border-width: 1px;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  height: 34px;
+  padding: calc(4px - var(--local-border-width));
+  border: var(--local-border-width) solid
+    var(--lido-app-ui-color-borders-default);
+  border-radius: var(--lido-app-ui-border-radius-pill);
+  background-color: var(--lido-app-ui-color-backgrounds-tab-bar);
+}
+
+.filled {
+  display: flex;
+}
+
+.filled > button {
+  flex: 1 0 0;
+}
+
+.selection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: var(--lido-app-ui-border-radius-control);
+  background-color: var(--lido-app-ui-color-backgrounds-button-white);
+  pointer-events: none;
+  will-change: transform, width, height;
+}
+
+.animated {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated {
+    transition: none;
+  }
+}
