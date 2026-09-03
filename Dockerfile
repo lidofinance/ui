@@ -25,20 +25,7 @@ RUN yarn turbo run build-storybook && \
     cp -r packages/lido-ui/storybook-static/. /srv/storybooks/lido-ui/ && \
     cp -r packages/lido-landing-ui/storybook-static/. /srv/storybooks/lido-landing-ui/ && \
     cp -r packages/lido-app-ui/storybook-static/. /srv/storybooks/lido-app-ui/ && \
-    printf '%s\n' \
-      '<!doctype html>' \
-      '<html>' \
-      '<head><title>Lido UI Storybooks</title></head>' \
-      '<body>' \
-      '<h1>Lido UI Storybooks</h1>' \
-      '<ul>' \
-      '<li><a href="lido-ui/">lido-ui</a></li>' \
-      '<li><a href="lido-landing-ui/">lido-landing-ui</a></li>' \
-      '<li><a href="lido-app-ui/">lido-app-ui</a></li>' \
-      '</ul>' \
-      '</body>' \
-      '</html>' \
-      > /srv/storybooks/index.html
+    cp .github/pages/index.html /srv/storybooks/index.html
 
 EXPOSE 5555
 

@@ -2835,6 +2835,7 @@ __metadata:
     "@storybook/addon-docs": "npm:8.6.12"
     "@storybook/addon-essentials": "npm:8.6.12"
     "@storybook/addon-webpack5-compiler-swc": "npm:3.0.0"
+    "@storybook/manager-api": "npm:8.6.12"
     "@storybook/react": "npm:8.6.12"
     "@storybook/react-webpack5": "npm:8.6.12"
     "@storybook/test": "npm:8.6.12"
@@ -2884,6 +2885,7 @@ __metadata:
     "@storybook/addon-essentials": "npm:8.6.12"
     "@storybook/addon-webpack5-compiler-swc": "npm:3.0.0"
     "@storybook/cli": "npm:8.6.12"
+    "@storybook/manager-api": "npm:8.6.12"
     "@storybook/react": "npm:8.6.12"
     "@storybook/react-webpack5": "npm:8.6.12"
     "@storybook/test": "npm:8.6.12"
@@ -2965,6 +2967,7 @@ __metadata:
     "@storybook/addon-essentials": "npm:^7.2.3"
     "@storybook/addons": "npm:^7.2.3"
     "@storybook/cli": "npm:^7.2.3"
+    "@storybook/manager-api": "npm:^7.2.3"
     "@storybook/react": "npm:^7.2.3"
     "@storybook/react-webpack5": "npm:^7.2.3"
     "@storybook/storybook-deployer": "npm:^2.8.16"
@@ -5950,7 +5953,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/manager-api@npm:7.6.24, @storybook/manager-api@npm:^7.0.0":
+"@storybook/manager-api@npm:7.6.24, @storybook/manager-api@npm:^7.0.0, @storybook/manager-api@npm:^7.2.3":
   version: 7.6.24
   resolution: "@storybook/manager-api@npm:7.6.24"
   dependencies:
