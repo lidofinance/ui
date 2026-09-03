@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lido UI Storybooks</title>
+    <style>
+      :root {
+        --bg: #f6f7f9;
+        --card-bg: #ffffff;
+        --text: #16181d;
+        --text-muted: #6b7280;
+        --border: #e5e7eb;
+        --accent: #00a3ff;
+        --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
+        --glow-peach: rgba(255, 206, 190, 0.55);
+        --glow-violet: rgba(170, 159, 255, 0.45);
+        --glow-cyan: rgba(158, 255, 247, 0.3);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #101114;
+          --card-bg: #17181c;
+          --text: #f2f3f5;
+          --text-muted: #9aa0aa;
+          --border: #2a2c31;
+          --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.35);
+          --glow-peach: rgba(255, 206, 190, 0.16);
+          --glow-violet: rgba(170, 159, 255, 0.16);
+          --glow-cyan: rgba(158, 255, 247, 0.1);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 24px;
+        background:
+          radial-gradient(50% 45% at 12% -5%, var(--glow-peach) 0%, transparent 70%),
+          radial-gradient(50% 45% at 88% 5%, var(--glow-violet) 0%, transparent 70%),
+          radial-gradient(45% 40% at 50% 105%, var(--glow-cyan) 0%, transparent 70%),
+          var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      main {
+        width: 100%;
+        max-width: 880px;
+        text-align: center;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        letter-spacing: -0.02em;
+      }
+
+      p.subtitle {
+        margin: 0 0 40px;
+        color: var(--text-muted);
+        font-size: 16px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      @media (max-width: 720px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      a.card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 28px 20px;
+        border-radius: 16px;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      }
+
+      a.card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+        box-shadow: 0 4px 8px rgba(16, 24, 40, 0.06), 0 16px 32px rgba(16, 24, 40, 0.1);
+      }
+
+      .card .name {
+        font-size: 17px;
+        font-weight: 600;
+      }
+
+      .card .desc {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.4;
+      }
+
+      .badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 3px 8px;
+        border-radius: 999px;
+      }
+
+      .badge.new {
+        color: #067647;
+        background: #d1fadf;
+      }
+
+      .badge.legacy {
+        color: #b54708;
+        background: #ffead5;
+      }
+
+      footer {
+        margin-top: 40px;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      footer a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <svg class="logo" viewBox="26 20 48 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M49.4848 26L57.6014 38.3983L49.4848 43.0113L41.3682 38.3983L49.4848 26ZM43.8511 37.8093L49.4848 29.2078L55.1185 37.8093L49.4848 41.01L43.8511 37.8093Z" fill="currentColor"/>
+        <path d="M49.4777 45.7363L40.0615 40.3853L39.8074 40.7756C36.9107 45.2041 37.5568 51.0022 41.3611 54.721C45.8405 59.0927 53.1077 59.0927 57.5943 54.721C61.4058 51.0022 62.0519 45.2041 59.1479 40.7756L58.8938 40.3853L49.4777 45.7363Z" fill="currentColor"/>
+      </svg>
+
+      <h1>Lido UI</h1>
+      <p class="subtitle">Storybooks for Lido Finance's React component libraries</p>
+
+      <div class="cards">
+        <a class="card" href="./lido-landing-ui/">
+          <span class="badge new">Active</span>
+          <span class="name">lido-landing-ui</span>
+          <span class="desc">Components for landing &amp; marketing pages</span>
+        </a>
+        <a class="card" href="./lido-app-ui/">
+          <span class="badge new">Active</span>
+          <span class="name">lido-app-ui</span>
+          <span class="desc">Components for Lido app &amp; widget products</span>
+        </a>
+        <a class="card" href="./lido-ui/">
+          <span class="badge legacy">Deprecated</span>
+          <span class="name">lido-ui</span>
+          <span class="desc">Legacy component library, being phased out</span>
+        </a>
+      </div>
+
+      <footer>
+        <a href="https://github.com/lidofinance/ui">github.com/lidofinance/ui</a>
+      </footer>
+    </main>
+  </body>
+</html>
