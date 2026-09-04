@@ -10,10 +10,10 @@
   box-sizing: border-box;
   height: 40px;
   padding: calc(8px - 1px) calc(12px - 1px) calc(8px - 1px) calc(8px - 1px);
-  border: 1px solid var(--lido-app-ui-color-borders-default);
+  border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-control);
   background-color: transparent;
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
 
   @mixin font-body-large-semibold;
 
@@ -24,7 +24,9 @@
 .trigger:hover,
 .trigger:active,
 .trigger.open {
-  background-color: var(--lido-app-ui-color-backgrounds-control-hover-faint);
+  background-color: var(
+    --lido-app-ui-color-deprecated-backgrounds-control-hover-faint
+  );
 }
 
 .trigger:active .label,
@@ -33,7 +35,7 @@
 }
 
 .trigger:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
 }
 
@@ -60,7 +62,7 @@
   box-sizing: border-box;
   height: 40px;
   padding: 8px 12px 8px 8px;
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
 
   @mixin font-body-large-semibold;
 }
@@ -76,9 +78,9 @@
   gap: 4px;
   box-sizing: border-box;
   padding: calc(8px - 0.5px);
-  border: 0.5px solid var(--lido-app-ui-color-borders-default);
+  border: 0.5px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-dropdown);
-  background-color: var(--lido-app-ui-color-backgrounds-dropdown);
+  background-color: var(--lido-app-ui-color-background-surface);
   box-shadow: var(--lido-app-ui-shadow-dropdown);
 }
 
@@ -91,7 +93,7 @@
   border: none;
   border-radius: var(--lido-app-ui-border-radius-dropdown-item);
   background-color: transparent;
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
 
   @mixin font-body-large-semibold;
 
@@ -102,7 +104,7 @@
 
 .option:hover,
 .option[aria-selected='true'] {
-  background-color: var(--lido-app-ui-color-backgrounds-control-on-light-hover);
+  background-color: var(--lido-app-ui-color-tint-neutral-hover);
 }
 
 .option:active .label {
@@ -110,6 +112,6 @@
 }
 
 .option:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
 }

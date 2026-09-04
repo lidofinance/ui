@@ -1,7 +1,7 @@
 .box {
-  --local-bg: var(--lido-app-ui-color-backgrounds-message-default);
-  --local-icon-color: var(--lido-app-ui-color-icons-primary);
-  --local-headline-color: var(--lido-app-ui-color-text-primary);
+  --local-bg: var(--lido-app-ui-color-tint-neutral);
+  --local-icon-color: var(--lido-app-ui-color-icons-default);
+  --local-headline-color: var(--lido-app-ui-color-text-default);
   --local-description-color: var(--lido-app-ui-color-text-secondary);
 
   display: flex;
@@ -48,16 +48,18 @@
 }
 
 .attention {
-  --local-bg: var(--lido-app-ui-color-backgrounds-message-attention);
-  --local-icon-color: var(--lido-app-ui-color-icons-attention);
-  --local-headline-color: var(--lido-app-ui-color-text-attention-headline);
+  --local-bg: var(--lido-app-ui-color-tint-active);
+  --local-icon-color: var(--lido-app-ui-color-deprecated-icons-attention);
+  --local-headline-color: var(
+    --lido-app-ui-color-deprecated-text-attention-headline
+  );
   --local-description-color: var(
-    --lido-app-ui-color-text-attention-description
+    --lido-app-ui-color-deprecated-text-attention-description
   );
 }
 
 .warning {
-  --local-bg: var(--lido-app-ui-color-backgrounds-message-warning);
+  --local-bg: var(--lido-app-ui-color-tint-warning);
   --local-icon-color: var(--lido-app-ui-color-text-warning);
   --local-headline-color: var(--lido-app-ui-color-text-warning);
   --local-description-color: var(--lido-app-ui-color-text-warning);

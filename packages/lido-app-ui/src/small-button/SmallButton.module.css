@@ -1,9 +1,17 @@
+/* This default variant and .back / .white below are picked explicitly by the
+   consumer to match whatever surface the button sits on, independent of the
+   page theme - they use fixed palette primitives, not the theme-aware
+   semantic tokens. */
 .button {
   --local-border-width: 1px;
-  --local-color: var(--lido-app-ui-color-text-primary);
-  --local-border-color: var(--lido-app-ui-color-borders-outline-on-light);
-  --local-hover-bg: var(--lido-app-ui-color-backgrounds-control-on-light-hover);
-  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+  --local-color: var(--lido-app-ui-palette-black-a900);
+  --local-border-color: var(--lido-app-ui-palette-black-a200);
+  --local-hover-bg: var(
+    --lido-app-ui-color-deprecated-backgrounds-control-on-light-hover
+  );
+  --local-disabled-bg: var(
+    --lido-app-ui-color-deprecated-backgrounds-control-disabled
+  );
 
   display: inline-flex;
   align-items: center;
@@ -45,7 +53,7 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
 }
 
@@ -69,19 +77,23 @@
 }
 
 .back {
-  --local-color: var(--lido-app-ui-color-text-primary);
-  --local-border-color: var(--lido-app-ui-color-borders-outline-on-light);
-  --local-hover-bg: var(--lido-app-ui-color-backgrounds-control-on-light-hover);
-  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+  --local-color: var(--lido-app-ui-palette-black-a900);
+  --local-border-color: var(--lido-app-ui-palette-black-a200);
+  --local-hover-bg: var(
+    --lido-app-ui-color-deprecated-backgrounds-control-on-light-hover
+  );
+  --local-disabled-bg: var(
+    --lido-app-ui-color-deprecated-backgrounds-control-disabled
+  );
 }
 
 .white {
-  --local-color: var(--lido-app-ui-color-text-inverted);
+  --local-color: var(--lido-app-ui-palette-white-a900);
   --local-border-color: var(
-    --lido-app-ui-color-borders-outline-on-dark-secondary
+    --lido-app-ui-color-deprecated-borders-outline-on-dark-secondary
   );
-  --local-hover-bg: var(--lido-app-ui-color-backgrounds-control-on-dark-hover);
-  --local-disabled-bg: var(
-    --lido-app-ui-color-backgrounds-control-on-dark-disabled
+  --local-hover-bg: var(
+    --lido-app-ui-color-deprecated-backgrounds-control-on-dark-hover
   );
+  --local-disabled-bg: var(--lido-app-ui-palette-white-a200);
 }

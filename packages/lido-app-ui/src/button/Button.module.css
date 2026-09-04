@@ -1,10 +1,10 @@
 .button {
   --local-border-width: 0px;
   --local-bg: transparent;
-  --local-color: var(--lido-app-ui-color-text-primary);
+  --local-color: var(--lido-app-ui-color-text-default);
   --local-border-color: transparent;
   --local-hover-overlay: transparent;
-  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+  --local-disabled-bg: var(--lido-app-ui-color-background-disabled);
   --local-disabled-color: var(--local-color);
 
   position: relative;
@@ -63,7 +63,7 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
 }
 
@@ -74,42 +74,48 @@
   align-items: center;
 }
 
+/* .white / .black / .blackOutline / .whiteOutline are picked explicitly by
+   the consumer to match whatever surface the button sits on, independent of
+   the page theme - they intentionally use fixed palette primitives instead
+   of the theme-aware semantic tokens above. */
 .white {
-  --local-bg: var(--lido-app-ui-color-backgrounds-button-white);
-  --local-color: var(--lido-app-ui-color-text-primary);
-  --local-hover-overlay: var(--lido-app-ui-color-overlay-button-white-hover);
-  --local-disabled-bg: var(
-    --lido-app-ui-color-backgrounds-control-on-dark-disabled
+  --local-bg: var(--lido-app-ui-palette-white-a900);
+  --local-color: var(--lido-app-ui-palette-black-a900);
+  --local-hover-overlay: var(
+    --lido-app-ui-color-deprecated-overlay-button-white-hover
   );
-  --local-disabled-color: var(--lido-app-ui-color-text-inverted);
+  --local-disabled-bg: var(--lido-app-ui-palette-white-a200);
+  --local-disabled-color: var(--lido-app-ui-palette-white-a900);
 }
 
 .black {
-  --local-bg: var(--lido-app-ui-color-backgrounds-button-black);
-  --local-color: var(--lido-app-ui-color-text-inverted);
-  --local-hover-overlay: var(--lido-app-ui-color-overlay-button-black-hover);
-  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
-  --local-disabled-color: var(--lido-app-ui-color-text-primary);
+  --local-bg: var(--lido-app-ui-palette-black-a900);
+  --local-color: var(--lido-app-ui-palette-white-a900);
+  --local-hover-overlay: var(--lido-app-ui-palette-white-a200);
+  --local-disabled-bg: var(
+    --lido-app-ui-color-deprecated-backgrounds-control-disabled
+  );
+  --local-disabled-color: var(--lido-app-ui-palette-black-a900);
 }
 
 .blackOutline {
   --local-border-width: 1px;
-  --local-border-color: var(--lido-app-ui-color-borders-outline-on-light);
-  --local-color: var(--lido-app-ui-color-text-primary);
+  --local-border-color: var(--lido-app-ui-palette-black-a200);
+  --local-color: var(--lido-app-ui-palette-black-a900);
   --local-hover-overlay: var(
-    --lido-app-ui-color-backgrounds-control-on-light-hover
+    --lido-app-ui-color-deprecated-backgrounds-control-on-light-hover
   );
-  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
+  --local-disabled-bg: var(
+    --lido-app-ui-color-deprecated-backgrounds-control-disabled
+  );
 }
 
 .whiteOutline {
   --local-border-width: 1px;
-  --local-border-color: var(--lido-app-ui-color-borders-outline-on-dark);
-  --local-color: var(--lido-app-ui-color-text-inverted);
+  --local-border-color: var(--lido-app-ui-palette-white-a300);
+  --local-color: var(--lido-app-ui-palette-white-a900);
   --local-hover-overlay: var(
-    --lido-app-ui-color-backgrounds-control-on-dark-hover
+    --lido-app-ui-color-deprecated-backgrounds-control-on-dark-hover
   );
-  --local-disabled-bg: var(
-    --lido-app-ui-color-backgrounds-control-on-dark-disabled
-  );
+  --local-disabled-bg: var(--lido-app-ui-palette-white-a200);
 }

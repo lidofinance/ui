@@ -49,7 +49,7 @@ export const States: Story = {
         gap: 4,
         padding: 4,
         borderRadius: 'var(--lido-app-ui-border-radius-control)',
-        background: 'var(--lido-app-ui-color-backgrounds-tab-bar)',
+        background: 'var(--lido-app-ui-color-background-secondary)',
         width: 'fit-content',
       }}
     >

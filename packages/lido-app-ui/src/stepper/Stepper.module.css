@@ -42,7 +42,7 @@
   font-weight: var(--lido-app-ui-font-weight-medium);
   line-height: var(--lido-app-ui-line-height-body);
   letter-spacing: var(--lido-app-ui-letter-spacing-body);
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
   text-align: center;
 }
 
@@ -75,7 +75,7 @@
 .title {
   @mixin font-body-large-semibold;
 
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
 }
 
 .icon {
@@ -83,7 +83,7 @@
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  color: var(--lido-app-ui-color-icons-attention);
+  color: var(--lido-app-ui-color-deprecated-icons-attention);
 }
 
 .icon svg {

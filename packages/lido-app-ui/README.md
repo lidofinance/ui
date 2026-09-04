@@ -28,7 +28,7 @@ function Widget() {
 }
 ```
 
-Theme providers (`ThemeProvider`, `CookieThemeProvider`, `ThemeToggler`) are re-exported from `@lidofinance/lido-shared-ui`. Note the token layer is currently light-only, so switching to the dark theme won't restyle these components.
+Theme providers (`ThemeProvider`, `CookieThemeProvider`, `ThemeToggler`) are re-exported from `@lidofinance/lido-shared-ui`. The color tokens follow the `data-lido-theme` attribute they set, so switching to the dark theme restyles these components.
 
 ## Customization
 
@@ -36,7 +36,7 @@ Override any token after importing the stylesheet:
 
 ```css
 :root {
-  --lido-app-ui-color-borders-focus: #0085ff;
+  --lido-app-ui-color-border-active: #0085ff;
   --lido-app-ui-border-radius-card: 20px;
 }
 ```

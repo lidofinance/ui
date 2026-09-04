@@ -61,7 +61,7 @@
 .circleIcon {
   width: 32px;
   height: 32px;
-  color: var(--lido-app-ui-color-text-inverted);
+  color: var(--lido-app-ui-palette-white-a900);
 }
 
 .textGroup {
@@ -77,7 +77,7 @@
   font-weight: var(--lido-app-ui-font-weight-medium);
   line-height: 28.8px;
   letter-spacing: -0.84px;
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
   text-align: center;
 }
 

@@ -13,5 +13,5 @@
 .amount {
   @mixin font-body-large-semibold;
 
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
 }

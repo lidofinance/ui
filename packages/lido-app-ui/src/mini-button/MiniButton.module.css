@@ -7,8 +7,8 @@
   padding: 2px 12px;
   border: none;
   border-radius: var(--lido-app-ui-border-radius-control);
-  background-color: var(--lido-app-ui-color-backgrounds-control-default);
-  color: var(--lido-app-ui-color-text-primary);
+  background-color: var(--lido-app-ui-color-tint-neutral);
+  color: var(--lido-app-ui-color-text-default);
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-label);
   font-weight: var(--lido-app-ui-font-weight-bold);
@@ -20,7 +20,7 @@
 
 .button:hover:not(:disabled),
 .button:active:not(:disabled) {
-  background-color: var(--lido-app-ui-color-backgrounds-control-hover);
+  background-color: var(--lido-app-ui-color-tint-neutral-hover);
 }
 
 .button:active:not(:disabled) .content {
@@ -28,7 +28,7 @@
 }
 
 .button:disabled {
-  background-color: var(--lido-app-ui-color-backgrounds-control-disabled);
+  background-color: var(--lido-app-ui-color-background-disabled);
   cursor: not-allowed;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
 }
 
