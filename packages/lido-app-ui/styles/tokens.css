@@ -71,38 +71,114 @@
   /* Semantic - Text */
   --lido-app-ui-color-text-default: var(--lido-app-ui-palette-black-a900);
   --lido-app-ui-color-text-secondary: var(--lido-app-ui-palette-black-a500);
+  --lido-app-ui-color-text-tertiary: var(--lido-app-ui-palette-black-a400);
   --lido-app-ui-color-text-neutral: var(--lido-app-ui-palette-black-a300);
   --lido-app-ui-color-text-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-text-active-hover: var(--lido-app-ui-palette-blue-700);
   --lido-app-ui-color-text-success: var(--lido-app-ui-palette-green-600);
   --lido-app-ui-color-text-warning: var(--lido-app-ui-palette-orange-600);
   --lido-app-ui-color-text-error: var(--lido-app-ui-palette-red-600);
+  --lido-app-ui-color-text-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-text-inverse: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-text-disabled: var(--lido-app-ui-palette-black-a300);
 
   /* Semantic - Icons */
   --lido-app-ui-color-icons-default: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-icons-secondary: var(--lido-app-ui-palette-black-a500);
+  --lido-app-ui-color-icons-tertiary: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-icons-neutral: var(--lido-app-ui-palette-black-a300);
+  --lido-app-ui-color-icons-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-icons-active-hover: var(--lido-app-ui-palette-blue-700);
+  --lido-app-ui-color-icons-light-blue: var(--lido-app-ui-palette-blue-300);
+  --lido-app-ui-color-icons-success: var(--lido-app-ui-palette-green-600);
+  --lido-app-ui-color-icons-warning: var(--lido-app-ui-palette-orange-600);
+  --lido-app-ui-color-icons-error: var(--lido-app-ui-palette-red-600);
+  --lido-app-ui-color-icons-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-icons-inverse: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-icons-disabled: var(--lido-app-ui-palette-black-a300);
 
   /* Semantic - Border */
   --lido-app-ui-color-border-default: var(--lido-app-ui-palette-black-a200);
+  --lido-app-ui-color-border-tertiary: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-border-hover: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-border-black: var(--lido-app-ui-palette-black-a900);
   --lido-app-ui-color-border-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-border-success: var(--lido-app-ui-palette-green-600);
+  --lido-app-ui-color-border-warning: var(--lido-app-ui-palette-orange-600);
+  --lido-app-ui-color-border-error: var(--lido-app-ui-palette-red-600);
+  --lido-app-ui-color-border-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-border-card: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-white-a200);
 
-  /* Semantic - Background */
+  /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-gray-200);
+
+  /* Semantic - Background / Elements */
   --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-background-surface-hover: var(
+    --lido-app-ui-palette-blue-100
+  );
+  --lido-app-ui-color-background-surface-active: var(
+    --lido-app-ui-palette-blue-100
+  );
+  --lido-app-ui-color-background-surface-active-hover: var(
+    --lido-app-ui-palette-blue-200
+  );
   --lido-app-ui-color-background-default: var(--lido-app-ui-palette-gray-100);
   --lido-app-ui-color-background-default-hover: var(
     --lido-app-ui-palette-gray-200
   );
+  --lido-app-ui-color-background-default-pressed: var(
+    --lido-app-ui-palette-gray-300
+  );
+  --lido-app-ui-color-background-default-active: var(
+    --lido-app-ui-palette-white-a900
+  );
+  --lido-app-ui-color-background-transparent-hover: var(
+    --lido-app-ui-palette-black-a100
+  );
+  --lido-app-ui-color-background-transparent-pressed: var(
+    --lido-app-ui-palette-black-a200
+  );
   --lido-app-ui-color-background-secondary: var(--lido-app-ui-palette-gray-300);
+  --lido-app-ui-color-background-secondary-hover: var(
+    --lido-app-ui-palette-gray-400
+  );
+  --lido-app-ui-color-background-action: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-background-action-hover: var(
+    --lido-app-ui-palette-gray-700
+  );
+  --lido-app-ui-color-background-action-pressed: var(
+    --lido-app-ui-palette-gray-600
+  );
   --lido-app-ui-color-background-disabled: var(
     --lido-app-ui-palette-black-a200
   );
+  --lido-app-ui-color-background-surface-selected: var(
+    --lido-app-ui-palette-blue-600
+  );
+  --lido-app-ui-color-background-surface-selected-hover: var(
+    --lido-app-ui-palette-blue-700
+  );
 
-  /* Semantic - tint fills (banners, badges) */
+  /* Semantic - Background / Color (tint fills, e.g. banners/tags) */
   --lido-app-ui-color-tint-neutral: var(--lido-app-ui-palette-black-a100);
   --lido-app-ui-color-tint-neutral-hover: var(--lido-app-ui-palette-black-a200);
   --lido-app-ui-color-tint-active: var(--lido-app-ui-palette-blue-100);
+  --lido-app-ui-color-tint-active-hover: var(--lido-app-ui-palette-blue-200);
+  --lido-app-ui-color-tint-info: var(--lido-app-ui-palette-purple-100);
+  --lido-app-ui-color-tint-info-hover: var(--lido-app-ui-palette-purple-200);
   --lido-app-ui-color-tint-success: var(--lido-app-ui-palette-green-100);
+  --lido-app-ui-color-tint-success-hover: var(--lido-app-ui-palette-green-200);
   --lido-app-ui-color-tint-warning: var(--lido-app-ui-palette-orange-100);
+  --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-200);
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-100);
+  --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-200);
+
+  /* Root-level "info" token from Figma - resolves to the same value as
+     --lido-app-ui-color-tint-info in both themes; kept as an alias since it
+     exists as a separate Figma variable (likely legacy/duplicate). */
+  --lido-app-ui-color-info-surface: var(--lido-app-ui-color-tint-info);
 
   /* Deprecated - kept at their original fixed value. These style a handful of
      "on-light"/"on-dark" button-variant pairs (Button .black/.white/
@@ -187,32 +263,112 @@
    color tokens flip - primitives and the deprecated on-light/on-dark
    button-variant tokens above are intentionally fixed in both themes. */
 [data-lido-theme='dark'] {
+  /* Semantic - Text */
   --lido-app-ui-color-text-default: var(--lido-app-ui-palette-white-a900);
   --lido-app-ui-color-text-secondary: var(--lido-app-ui-palette-white-a500);
+  --lido-app-ui-color-text-tertiary: var(--lido-app-ui-palette-white-a400);
   --lido-app-ui-color-text-neutral: var(--lido-app-ui-palette-white-a300);
   --lido-app-ui-color-text-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-text-active-hover: var(--lido-app-ui-palette-blue-300);
   --lido-app-ui-color-text-success: var(--lido-app-ui-palette-green-400);
   --lido-app-ui-color-text-warning: var(--lido-app-ui-palette-orange-400);
   --lido-app-ui-color-text-error: var(--lido-app-ui-palette-red-400);
+  --lido-app-ui-color-text-info: var(--lido-app-ui-palette-purple-400);
+  --lido-app-ui-color-text-inverse: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-text-disabled: var(--lido-app-ui-palette-white-a300);
+
+  /* Semantic - Icons */
   --lido-app-ui-color-icons-default: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-icons-secondary: var(--lido-app-ui-palette-white-a400);
+  --lido-app-ui-color-icons-tertiary: var(--lido-app-ui-palette-white-a300);
+  --lido-app-ui-color-icons-neutral: var(--lido-app-ui-palette-white-a300);
+  --lido-app-ui-color-icons-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-icons-active-hover: var(--lido-app-ui-palette-blue-300);
+  --lido-app-ui-color-icons-light-blue: var(--lido-app-ui-palette-blue-800);
+  --lido-app-ui-color-icons-success: var(--lido-app-ui-palette-green-400);
+  --lido-app-ui-color-icons-warning: var(--lido-app-ui-palette-orange-400);
+  --lido-app-ui-color-icons-error: var(--lido-app-ui-palette-red-400);
+  --lido-app-ui-color-icons-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-icons-inverse: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-icons-disabled: var(--lido-app-ui-palette-white-a300);
+
+  /* Semantic - Border */
   --lido-app-ui-color-border-default: var(--lido-app-ui-palette-white-a200);
+  --lido-app-ui-color-border-tertiary: var(--lido-app-ui-palette-white-a400);
+  --lido-app-ui-color-border-hover: var(--lido-app-ui-palette-white-a400);
+  --lido-app-ui-color-border-black: var(--lido-app-ui-palette-white-a900);
   --lido-app-ui-color-border-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-border-success: var(--lido-app-ui-palette-green-600);
+  --lido-app-ui-color-border-warning: var(--lido-app-ui-palette-orange-600);
+  --lido-app-ui-color-border-error: var(--lido-app-ui-palette-red-600);
+  --lido-app-ui-color-border-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-border-card: var(--lido-app-ui-palette-gray-800);
+  --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-black-a200);
+
+  /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-black-a900);
+
+  /* Semantic - Background / Elements */
   --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-gray-800);
+  --lido-app-ui-color-background-surface-hover: var(
+    --lido-app-ui-palette-blue-900
+  );
+  --lido-app-ui-color-background-surface-active: var(
+    --lido-app-ui-palette-blue-900
+  );
+  --lido-app-ui-color-background-surface-active-hover: var(
+    --lido-app-ui-palette-blue-800
+  );
   --lido-app-ui-color-background-default: var(--lido-app-ui-palette-gray-700);
   --lido-app-ui-color-background-default-hover: var(
     --lido-app-ui-palette-gray-800
   );
+  --lido-app-ui-color-background-default-pressed: var(
+    --lido-app-ui-palette-gray-700
+  );
+  --lido-app-ui-color-background-default-active: var(
+    --lido-app-ui-palette-black-a900
+  );
+  --lido-app-ui-color-background-transparent-hover: var(
+    --lido-app-ui-palette-white-a100
+  );
+  --lido-app-ui-color-background-transparent-pressed: var(
+    --lido-app-ui-palette-white-a200
+  );
   --lido-app-ui-color-background-secondary: var(--lido-app-ui-palette-gray-600);
+  --lido-app-ui-color-background-secondary-hover: var(
+    --lido-app-ui-palette-gray-600
+  );
+  --lido-app-ui-color-background-action: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-background-action-hover: var(
+    --lido-app-ui-palette-white-a700
+  );
+  --lido-app-ui-color-background-action-pressed: var(
+    --lido-app-ui-palette-white-a600
+  );
   --lido-app-ui-color-background-disabled: var(
     --lido-app-ui-palette-white-a200
   );
+  --lido-app-ui-color-background-surface-selected: var(
+    --lido-app-ui-palette-blue-600
+  );
+  --lido-app-ui-color-background-surface-selected-hover: var(
+    --lido-app-ui-palette-blue-500
+  );
+
+  /* Semantic - Background / Color (tint fills, e.g. banners/tags) */
   --lido-app-ui-color-tint-neutral: var(--lido-app-ui-palette-white-a100);
   --lido-app-ui-color-tint-neutral-hover: var(--lido-app-ui-palette-white-a200);
   --lido-app-ui-color-tint-active: var(--lido-app-ui-palette-blue-900);
+  --lido-app-ui-color-tint-active-hover: var(--lido-app-ui-palette-blue-800);
+  --lido-app-ui-color-tint-info: var(--lido-app-ui-palette-purple-900);
+  --lido-app-ui-color-tint-info-hover: var(--lido-app-ui-palette-purple-800);
   --lido-app-ui-color-tint-success: var(--lido-app-ui-palette-green-900);
+  --lido-app-ui-color-tint-success-hover: var(--lido-app-ui-palette-green-800);
   --lido-app-ui-color-tint-warning: var(--lido-app-ui-palette-orange-900);
+  --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-800);
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-900);
+  --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-800);
 }
 
 /* Mobile heading scale. Only H1/H2 change; H3 stays identical. Headings using
