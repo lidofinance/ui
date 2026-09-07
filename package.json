@@ -15,7 +15,7 @@
     "build-storybook": "turbo run build-storybook",
     "storybook:ui": "yarn workspace @lidofinance/lido-ui dev",
     "storybook:landing": "yarn workspace @lidofinance/lido-landing-ui dev",
-    "storybook:widget": "yarn workspace @lidofinance/lido-app-ui dev",
+    "storybook:app": "yarn workspace @lidofinance/lido-app-ui dev",
     "release": "multi-semantic-release",
     "prepare": "git config core.hooksPath .git-hooks || echo 'Not in a git repo'"
   },
