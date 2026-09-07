@@ -48,14 +48,10 @@
 }
 
 .attention {
-  --local-bg: var(--lido-app-ui-color-tint-active);
-  --local-icon-color: var(--lido-app-ui-color-deprecated-icons-attention);
-  --local-headline-color: var(
-    --lido-app-ui-color-deprecated-text-attention-headline
-  );
-  --local-description-color: var(
-    --lido-app-ui-color-deprecated-text-attention-description
-  );
+  --local-bg: var(--lido-app-ui-color-tint-info);
+  --local-icon-color: var(--lido-app-ui-color-icons-info);
+  --local-headline-color: var(--lido-app-ui-color-text-info);
+  --local-description-color: var(--lido-app-ui-color-text-info);
 }
 
 .warning {

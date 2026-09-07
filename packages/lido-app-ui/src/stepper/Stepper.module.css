@@ -83,7 +83,7 @@
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  color: var(--lido-app-ui-color-deprecated-icons-attention);
+  color: var(--lido-app-ui-color-icons-active);
 }
 
 .icon svg {

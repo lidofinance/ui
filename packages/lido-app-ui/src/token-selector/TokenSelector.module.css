@@ -24,9 +24,7 @@
 .trigger:hover,
 .trigger:active,
 .trigger.open {
-  background-color: var(
-    --lido-app-ui-color-deprecated-backgrounds-control-hover-faint
-  );
+  background-color: var(--lido-app-ui-color-background-default-pressed);
 }
 
 .trigger:active .label,
