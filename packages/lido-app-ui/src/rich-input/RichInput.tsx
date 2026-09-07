@@ -6,10 +6,10 @@ import {
   type MouseEvent,
   type MouseEventHandler,
   type ReactNode,
+  type ButtonHTMLAttributes,
 } from 'react'
 
 import cn from 'classnames'
-import { MiniButton } from '../mini-button'
 import { Tooltip } from '../tooltip'
 
 import styles from './RichInput.module.css'
@@ -24,6 +24,16 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   onMaxClick?: MouseEventHandler<HTMLButtonElement>
   maxTooltip?: ReactNode
 }
+
+const MiniButton = ({
+  children,
+  className,
+  ...rest
+}: ButtonHTMLAttributes<HTMLButtonElement>) => (
+  <button type={'button'} className={cn(styles.button, className)} {...rest}>
+    <span className={styles.content}>{children}</span>
+  </button>
+)
 
 // Keep only digits and a single decimal point; comma is treated as the
 // decimal separator and normalized to a dot (en-US canonical form).

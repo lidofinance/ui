@@ -7,10 +7,8 @@ import { Checkbox } from './checkbox'
 import { DataList, DetailRow } from './data-list'
 import { Identicon } from './identicon'
 import { MessageBox } from './message-box'
-import { MiniButton } from './mini-button'
 import { Modal } from './modal'
 import { RichInput } from './rich-input'
-import { SmallButton } from './small-button'
 import { StatItem } from './stat-item'
 import { StatsRow } from './stats-row'
 import { Stepper } from './stepper'
@@ -27,7 +25,7 @@ import { Typography } from './typography'
 // crash — which type-checking alone does not.
 const cases: Array<[string, () => JSX.Element]> = [
   ['Badge', () => <Badge variant='success'>Active</Badge>],
-  ['Button', () => <Button variant='black'>Connect</Button>],
+  ['Button', () => <Button>Connect</Button>],
   ['Checkbox', () => <Checkbox label='Accept' />],
   [
     'DataList',
@@ -43,10 +41,8 @@ const cases: Array<[string, () => JSX.Element]> = [
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
-  ['MiniButton', () => <MiniButton>Max</MiniButton>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['RichInput', () => <RichInput label='Amount' error='Too much' />],
-  ['SmallButton', () => <SmallButton variant='back'>Back</SmallButton>],
   ['StatItem', () => <StatItem label='TVL' value='1M' />],
   ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
   ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],

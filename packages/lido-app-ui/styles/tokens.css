@@ -180,30 +180,6 @@
      exists as a separate Figma variable (likely legacy/duplicate). */
   --lido-app-ui-color-info-surface: var(--lido-app-ui-color-tint-info);
 
-  /* Deprecated - kept at their original fixed value. These style a handful of
-     "on-light"/"on-dark" button-variant pairs (Button .black/.white/
-     .blackOutline/.whiteOutline, SmallButton default/.back/.white) whose
-     colors are chosen per-instance by the consumer and must stay fixed
-     regardless of `data-lido-theme`, unlike the semantic tokens above. No
-     replacement is planned; do not build new UI on these. */
-  --lido-app-ui-color-deprecated-text-attention-headline: #051b3f;
-  --lido-app-ui-color-deprecated-text-attention-description: rgb(5 27 63 / 60%);
-  --lido-app-ui-color-deprecated-icons-attention: #1179b6;
-  --lido-app-ui-color-deprecated-backgrounds-control-disabled: rgb(0 0 0 / 4%);
-  --lido-app-ui-color-deprecated-backgrounds-control-hover-faint: rgb(
-    0 0 0 / 1%
-  );
-  --lido-app-ui-color-deprecated-backgrounds-control-on-light-hover: rgb(
-    0 0 0 / 4%
-  );
-  --lido-app-ui-color-deprecated-backgrounds-control-on-dark-hover: rgb(
-    255 255 255 / 8%
-  );
-  --lido-app-ui-color-deprecated-borders-outline-on-dark-secondary: rgb(
-    255 255 255 / 30%
-  );
-  --lido-app-ui-color-deprecated-overlay-button-white-hover: rgb(0 0 0 / 6%);
-
   /* Typography */
   --lido-app-ui-font-family:
     'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
@@ -259,9 +235,7 @@
 }
 
 /* Dark theme. Follows the `data-lido-theme` attribute set by ThemeProvider /
-   CookieThemeProvider from @lidofinance/lido-shared-ui. Only the semantic
-   color tokens flip - primitives and the deprecated on-light/on-dark
-   button-variant tokens above are intentionally fixed in both themes. */
+   CookieThemeProvider from @lidofinance/lido-shared-ui. */
 [data-lido-theme='dark'] {
   /* Semantic - Text */
   --lido-app-ui-color-text-default: var(--lido-app-ui-palette-white-a900);

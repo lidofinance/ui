@@ -1,11 +1,11 @@
 .button {
   --local-border-width: 0px;
-  --local-bg: transparent;
-  --local-color: var(--lido-app-ui-color-text-default);
+  --local-bg: var(--lido-app-ui-color-background-action);
+  --local-color: var(--lido-app-ui-color-text-inverse);
   --local-border-color: transparent;
   --local-hover-overlay: transparent;
   --local-disabled-bg: var(--lido-app-ui-color-background-disabled);
-  --local-disabled-color: var(--local-color);
+  --local-disabled-color: var(--lido-app-ui-color-text-disabled);
 
   position: relative;
   display: inline-flex;
@@ -42,13 +42,12 @@
   pointer-events: none;
 }
 
-.button:hover:not(:disabled)::before,
-.button:active:not(:disabled)::before {
-  opacity: 1;
+.button:hover {
+  --local-bg: var(--lido-app-ui-color-background-action-hover);
 }
 
-.button:active:not(:disabled) .content {
-  opacity: var(--lido-app-ui-opacity-pressed-content);
+.button:active {
+  --local-bg: var(--lido-app-ui-color-background-action-pressed);
 }
 
 .button:disabled {
@@ -56,10 +55,6 @@
   background-color: var(--local-disabled-bg);
   color: var(--local-disabled-color);
   cursor: not-allowed;
-}
-
-.button:disabled .content {
-  opacity: var(--lido-app-ui-opacity-disabled-content);
 }
 
 .button:focus-visible {
@@ -72,50 +67,4 @@
   z-index: 1;
   display: inline-flex;
   align-items: center;
-}
-
-/* .white / .black / .blackOutline / .whiteOutline are picked explicitly by
-   the consumer to match whatever surface the button sits on, independent of
-   the page theme - they intentionally use fixed palette primitives instead
-   of the theme-aware semantic tokens above. */
-.white {
-  --local-bg: var(--lido-app-ui-palette-white-a900);
-  --local-color: var(--lido-app-ui-palette-black-a900);
-  --local-hover-overlay: var(
-    --lido-app-ui-color-deprecated-overlay-button-white-hover
-  );
-  --local-disabled-bg: var(--lido-app-ui-palette-white-a200);
-  --local-disabled-color: var(--lido-app-ui-palette-white-a900);
-}
-
-.black {
-  --local-bg: var(--lido-app-ui-palette-black-a900);
-  --local-color: var(--lido-app-ui-palette-white-a900);
-  --local-hover-overlay: var(--lido-app-ui-palette-white-a200);
-  --local-disabled-bg: var(
-    --lido-app-ui-color-deprecated-backgrounds-control-disabled
-  );
-  --local-disabled-color: var(--lido-app-ui-palette-black-a900);
-}
-
-.blackOutline {
-  --local-border-width: 1px;
-  --local-border-color: var(--lido-app-ui-palette-black-a200);
-  --local-color: var(--lido-app-ui-palette-black-a900);
-  --local-hover-overlay: var(
-    --lido-app-ui-color-deprecated-backgrounds-control-on-light-hover
-  );
-  --local-disabled-bg: var(
-    --lido-app-ui-color-deprecated-backgrounds-control-disabled
-  );
-}
-
-.whiteOutline {
-  --local-border-width: 1px;
-  --local-border-color: var(--lido-app-ui-palette-white-a300);
-  --local-color: var(--lido-app-ui-palette-white-a900);
-  --local-hover-overlay: var(
-    --lido-app-ui-color-deprecated-backgrounds-control-on-dark-hover
-  );
-  --local-disabled-bg: var(--lido-app-ui-palette-white-a200);
 }
