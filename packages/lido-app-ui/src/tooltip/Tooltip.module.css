@@ -15,8 +15,8 @@
   box-sizing: border-box;
   padding: 12px;
   border-radius: var(--lido-app-ui-border-radius-tooltip);
-  background-color: var(--lido-app-ui-color-backgrounds-tooltip);
-  color: var(--lido-app-ui-color-text-tooltip);
+  background-color: var(--lido-app-ui-palette-black-a900);
+  color: var(--lido-app-ui-palette-white-a900);
   font-size: var(--lido-app-ui-font-size-tooltip);
   font-weight: var(--lido-app-ui-font-weight-regular);
   line-height: var(--lido-app-ui-line-height-tooltip);

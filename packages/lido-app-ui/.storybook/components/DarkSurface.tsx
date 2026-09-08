@@ -8,7 +8,7 @@ export const DarkSurface: FC<PropsWithChildren> = ({ children }) => (
       padding: 32,
       borderRadius: 'var(--lido-app-ui-border-radius-card)',
       background: '#051b3f',
-      color: 'var(--lido-app-ui-color-text-inverted)',
+      color: 'var(--lido-app-ui-palette-white-a900)',
     }}
   >
     {children}

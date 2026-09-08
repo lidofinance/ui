@@ -5,7 +5,7 @@
 
   @mixin font-body;
 
-  color: var(--lido-app-ui-color-text-link);
+  color: var(--lido-app-ui-color-text-active);
   text-decoration: none;
   cursor: pointer;
 }
@@ -15,7 +15,7 @@
 }
 
 .link:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
   border-radius: 2px;
 }

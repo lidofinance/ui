@@ -30,7 +30,7 @@
   box-sizing: border-box;
   width: 20px;
   height: 20px;
-  border: 1px solid var(--lido-app-ui-color-text-primary);
+  border: 1px solid var(--lido-app-ui-palette-black-a900);
   border-radius: 4px;
   background-color: transparent;
 }
@@ -38,12 +38,12 @@
 .tick {
   width: 16px;
   height: 16px;
-  color: var(--lido-app-ui-color-text-inverted);
+  color: var(--lido-app-ui-palette-white-a900);
   opacity: 0;
 }
 
 .input:checked + .box {
-  background-color: var(--lido-app-ui-color-backgrounds-button-black);
+  background-color: var(--lido-app-ui-palette-black-a900);
 }
 
 .input:checked + .box .tick {
@@ -51,12 +51,12 @@
 }
 
 .input:focus-visible + .box {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
 }
 
 .label {
   @mixin font-body;
 
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
 }

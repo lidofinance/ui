@@ -9,7 +9,7 @@ export const PageSurface: FC<PropsWithChildren> = ({ children }) => (
       justifyContent: 'center',
       padding: 32,
       borderRadius: 'var(--lido-app-ui-border-radius-card)',
-      background: 'var(--lido-app-ui-color-backgrounds-input-default)',
+      background: 'var(--lido-app-ui-color-background-page)',
     }}
   >
     {children}

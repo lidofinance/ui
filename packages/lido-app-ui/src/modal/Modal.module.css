@@ -19,7 +19,7 @@
   padding: 32px;
   overflow: clip;
   border-radius: 20px;
-  background-color: var(--lido-app-ui-color-backgrounds-button-white);
+  background-color: var(--lido-app-ui-palette-white-a900);
 }
 
 .header {
@@ -35,7 +35,7 @@
   font-weight: var(--lido-app-ui-font-weight-medium);
   line-height: 28.8px;
   letter-spacing: -0.84px;
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-palette-black-a900);
 }
 
 .titleHidden {
@@ -53,12 +53,12 @@
   padding: 0;
   border: none;
   background: none;
-  color: var(--lido-app-ui-color-icons-primary);
+  color: var(--lido-app-ui-palette-black-a900);
   cursor: pointer;
 }
 
 .close:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
   border-radius: 4px;
 }

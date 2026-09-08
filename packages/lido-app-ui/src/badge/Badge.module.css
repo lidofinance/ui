@@ -1,6 +1,6 @@
 .badge {
-  --local-text: var(--lido-app-ui-color-badge-success-text);
-  --local-bg: var(--lido-app-ui-color-badge-success-bg);
+  --local-text: var(--lido-app-ui-color-text-success);
+  --local-bg: var(--lido-app-ui-color-tint-success);
 
   display: inline-flex;
   align-items: center;
@@ -32,16 +32,16 @@
 }
 
 .success {
-  --local-text: var(--lido-app-ui-color-badge-success-text);
-  --local-bg: var(--lido-app-ui-color-badge-success-bg);
+  --local-text: var(--lido-app-ui-color-text-success);
+  --local-bg: var(--lido-app-ui-color-tint-success);
 }
 
 .warning {
-  --local-text: var(--lido-app-ui-color-badge-warning-text);
-  --local-bg: var(--lido-app-ui-color-badge-warning-bg);
+  --local-text: var(--lido-app-ui-color-text-warning);
+  --local-bg: var(--lido-app-ui-color-tint-warning);
 }
 
 .error {
-  --local-text: var(--lido-app-ui-color-badge-error-text);
-  --local-bg: var(--lido-app-ui-color-badge-error-bg);
+  --local-text: var(--lido-app-ui-color-text-error);
+  --local-bg: var(--lido-app-ui-color-tint-error);
 }

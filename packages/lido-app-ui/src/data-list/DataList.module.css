@@ -55,7 +55,7 @@
 .infoIcon {
   width: 16px;
   height: 16px;
-  color: var(--lido-app-ui-color-icons-primary);
+  color: var(--lido-app-ui-color-icons-default);
 }
 
 .infoFaint {
@@ -71,7 +71,7 @@
   font-weight: var(--lido-app-ui-font-weight-regular);
   line-height: 22.4px;
   letter-spacing: var(--lido-app-ui-letter-spacing-label);
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
   text-align: right;
 }
 

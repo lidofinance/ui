@@ -13,13 +13,13 @@ export const IconSpinner = (props: SVGProps<SVGSVGElement>) => (
       cx={32}
       cy={32}
       r={28}
-      stroke='var(--lido-app-ui-color-borders-focus)'
+      stroke='var(--lido-app-ui-color-border-active)'
       strokeOpacity={0.12}
       strokeWidth={6}
     />
     <path
       d='M32 4a28 28 0 0 1 28 28'
-      stroke='var(--lido-app-ui-color-borders-focus)'
+      stroke='var(--lido-app-ui-color-border-active)'
       strokeWidth={6}
       strokeLinecap='round'
     />

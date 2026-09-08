@@ -5,15 +5,15 @@ import { LightThemeProvider } from '@lidofinance/lido-shared-ui'
 import '../styles/global.css'
 import './styles/storybook.css'
 
-// The kit's token layer is single-theme (light) for now, so the surface is
-// pinned rather than driven by a toggler.
+// Storybook's preview surface is pinned to light rather than driven by a
+// toggler, for consistent docs/screenshots.
 const WithSurface: Decorator = (Story): JSX.Element => (
   <LightThemeProvider>
     <div
       style={{
         fontFamily: 'var(--lido-app-ui-font-family)',
-        color: 'var(--lido-app-ui-color-text-primary)',
-        background: 'var(--lido-app-ui-color-text-inverted)',
+        color: 'var(--lido-app-ui-color-text-default)',
+        background: 'var(--lido-app-ui-color-background-page)',
         padding: 16,
         boxSizing: 'border-box',
       }}

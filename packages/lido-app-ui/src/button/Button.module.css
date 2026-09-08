@@ -1,11 +1,11 @@
 .button {
   --local-border-width: 0px;
-  --local-bg: transparent;
-  --local-color: var(--lido-app-ui-color-text-primary);
+  --local-bg: var(--lido-app-ui-color-background-action);
+  --local-color: var(--lido-app-ui-color-text-inverse);
   --local-border-color: transparent;
   --local-hover-overlay: transparent;
-  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
-  --local-disabled-color: var(--local-color);
+  --local-disabled-bg: var(--lido-app-ui-color-background-disabled);
+  --local-disabled-color: var(--lido-app-ui-color-text-disabled);
 
   position: relative;
   display: inline-flex;
@@ -42,13 +42,12 @@
   pointer-events: none;
 }
 
-.button:hover:not(:disabled)::before,
-.button:active:not(:disabled)::before {
-  opacity: 1;
+.button:hover {
+  --local-bg: var(--lido-app-ui-color-background-action-hover);
 }
 
-.button:active:not(:disabled) .content {
-  opacity: var(--lido-app-ui-opacity-pressed-content);
+.button:active {
+  --local-bg: var(--lido-app-ui-color-background-action-pressed);
 }
 
 .button:disabled {
@@ -58,12 +57,8 @@
   cursor: not-allowed;
 }
 
-.button:disabled .content {
-  opacity: var(--lido-app-ui-opacity-disabled-content);
-}
-
 .button:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-borders-focus);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
 }
 
@@ -72,44 +67,4 @@
   z-index: 1;
   display: inline-flex;
   align-items: center;
-}
-
-.white {
-  --local-bg: var(--lido-app-ui-color-backgrounds-button-white);
-  --local-color: var(--lido-app-ui-color-text-primary);
-  --local-hover-overlay: var(--lido-app-ui-color-overlay-button-white-hover);
-  --local-disabled-bg: var(
-    --lido-app-ui-color-backgrounds-control-on-dark-disabled
-  );
-  --local-disabled-color: var(--lido-app-ui-color-text-inverted);
-}
-
-.black {
-  --local-bg: var(--lido-app-ui-color-backgrounds-button-black);
-  --local-color: var(--lido-app-ui-color-text-inverted);
-  --local-hover-overlay: var(--lido-app-ui-color-overlay-button-black-hover);
-  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
-  --local-disabled-color: var(--lido-app-ui-color-text-primary);
-}
-
-.blackOutline {
-  --local-border-width: 1px;
-  --local-border-color: var(--lido-app-ui-color-borders-outline-on-light);
-  --local-color: var(--lido-app-ui-color-text-primary);
-  --local-hover-overlay: var(
-    --lido-app-ui-color-backgrounds-control-on-light-hover
-  );
-  --local-disabled-bg: var(--lido-app-ui-color-backgrounds-control-disabled);
-}
-
-.whiteOutline {
-  --local-border-width: 1px;
-  --local-border-color: var(--lido-app-ui-color-borders-outline-on-dark);
-  --local-color: var(--lido-app-ui-color-text-inverted);
-  --local-hover-overlay: var(
-    --lido-app-ui-color-backgrounds-control-on-dark-hover
-  );
-  --local-disabled-bg: var(
-    --lido-app-ui-color-backgrounds-control-on-dark-disabled
-  );
 }

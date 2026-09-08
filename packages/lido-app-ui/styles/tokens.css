@@ -1,60 +1,184 @@
 :root {
-  /* Text */
-  --lido-app-ui-color-text-primary: #000;
-  --lido-app-ui-color-text-secondary: rgb(0 0 0 / 60%);
-  --lido-app-ui-color-text-placeholder: rgb(0 0 0 / 30%);
-  --lido-app-ui-color-text-inverted: #fff;
-  --lido-app-ui-color-text-tooltip: #fff;
-  --lido-app-ui-color-text-error: #e9152d;
-  --lido-app-ui-color-text-warning: #bf5300;
-  --lido-app-ui-color-text-link: #0085ff;
-  --lido-app-ui-color-text-attention-headline: #051b3f;
-  --lido-app-ui-color-text-attention-description: rgb(5 27 63 / 60%);
+  /* Primitives - gray */
+  --lido-app-ui-palette-gray-100: #f9f9fb;
+  --lido-app-ui-palette-gray-200: #f2f2f6;
+  --lido-app-ui-palette-gray-300: #e7e7ee;
+  --lido-app-ui-palette-gray-400: #dbdbe6;
+  --lido-app-ui-palette-gray-600: #30304a;
+  --lido-app-ui-palette-gray-700: #202031;
+  --lido-app-ui-palette-gray-800: #181825;
 
-  /* Icons */
-  --lido-app-ui-color-icons-primary: #000;
-  --lido-app-ui-color-icons-attention: #1179b6;
+  /* Primitives - blue */
+  --lido-app-ui-palette-blue-100: #e5f3ff;
+  --lido-app-ui-palette-blue-200: #cce7ff;
+  --lido-app-ui-palette-blue-300: #99ceff;
+  --lido-app-ui-palette-blue-500: #339dff;
+  --lido-app-ui-palette-blue-600: #0085ff;
+  --lido-app-ui-palette-blue-700: #006acc;
+  --lido-app-ui-palette-blue-800: #005099;
+  --lido-app-ui-palette-blue-900: #003566;
 
-  /* Backgrounds */
-  --lido-app-ui-color-backgrounds-input-default: #f7f7fa;
-  --lido-app-ui-color-backgrounds-input-hover: #f2f2f5;
-  --lido-app-ui-color-backgrounds-input-active: #fff;
-  --lido-app-ui-color-backgrounds-control-default: rgb(0 0 0 / 8%);
-  --lido-app-ui-color-backgrounds-control-hover: rgb(0 0 0 / 10%);
-  --lido-app-ui-color-backgrounds-control-disabled: rgb(0 0 0 / 4%);
-  --lido-app-ui-color-backgrounds-control-hover-faint: rgb(0 0 0 / 1%);
-  --lido-app-ui-color-backgrounds-control-on-light-hover: rgb(0 0 0 / 4%);
-  --lido-app-ui-color-backgrounds-control-on-dark-hover: rgb(255 255 255 / 8%);
-  --lido-app-ui-color-backgrounds-control-on-dark-disabled: rgb(
-    255 255 255 / 10%
+  /* Primitives - purple */
+  --lido-app-ui-palette-purple-100: #edefff;
+  --lido-app-ui-palette-purple-200: #dbdfff;
+  --lido-app-ui-palette-purple-400: #939eff;
+  --lido-app-ui-palette-purple-600: #4b5dff;
+  --lido-app-ui-palette-purple-800: #2d3899;
+  --lido-app-ui-palette-purple-900: #1e2566;
+
+  /* Primitives - green */
+  --lido-app-ui-palette-green-100: #e7f8f4;
+  --lido-app-ui-palette-green-200: #cff0e9;
+  --lido-app-ui-palette-green-400: #70d3bc;
+  --lido-app-ui-palette-green-600: #11b690;
+  --lido-app-ui-palette-green-800: #0a6d56;
+  --lido-app-ui-palette-green-900: #074939;
+
+  /* Primitives - orange */
+  --lido-app-ui-palette-orange-100: #fef4e5;
+  --lido-app-ui-palette-orange-200: #fee9cc;
+  --lido-app-ui-palette-orange-400: #fcbe66;
+  --lido-app-ui-palette-orange-600: #fa9200;
+  --lido-app-ui-palette-orange-800: #965800;
+  --lido-app-ui-palette-orange-900: #643a00;
+
+  /* Primitives - red */
+  --lido-app-ui-palette-red-100: #fde8ea;
+  --lido-app-ui-palette-red-200: #fbd0d5;
+  --lido-app-ui-palette-red-400: #f27381;
+  --lido-app-ui-palette-red-600: #e9152d;
+  --lido-app-ui-palette-red-800: #8c0d1b;
+  --lido-app-ui-palette-red-900: #5d0812;
+
+  /* Primitives - white alpha (base #fff) */
+  --lido-app-ui-palette-white-a100: rgb(255 255 255 / 5%);
+  --lido-app-ui-palette-white-a200: rgb(255 255 255 / 10%);
+  --lido-app-ui-palette-white-a300: rgb(255 255 255 / 20%);
+  --lido-app-ui-palette-white-a400: rgb(255 255 255 / 40%);
+  --lido-app-ui-palette-white-a500: rgb(255 255 255 / 60%);
+  --lido-app-ui-palette-white-a600: rgb(255 255 255 / 75%);
+  --lido-app-ui-palette-white-a700: rgb(255 255 255 / 85%);
+  --lido-app-ui-palette-white-a900: #fff;
+
+  /* Primitives - black alpha (base #0c0c0d) */
+  --lido-app-ui-palette-black-a100: rgb(12 12 13 / 5%);
+  --lido-app-ui-palette-black-a200: rgb(12 12 13 / 10%);
+  --lido-app-ui-palette-black-a300: rgb(12 12 13 / 25%);
+  --lido-app-ui-palette-black-a400: rgb(12 12 13 / 40%);
+  --lido-app-ui-palette-black-a500: rgb(12 12 13 / 70%);
+  --lido-app-ui-palette-black-a900: #0c0c0d;
+
+  /* Semantic - Text */
+  --lido-app-ui-color-text-default: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-text-secondary: var(--lido-app-ui-palette-black-a500);
+  --lido-app-ui-color-text-tertiary: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-text-neutral: var(--lido-app-ui-palette-black-a300);
+  --lido-app-ui-color-text-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-text-active-hover: var(--lido-app-ui-palette-blue-700);
+  --lido-app-ui-color-text-success: var(--lido-app-ui-palette-green-600);
+  --lido-app-ui-color-text-warning: var(--lido-app-ui-palette-orange-600);
+  --lido-app-ui-color-text-error: var(--lido-app-ui-palette-red-600);
+  --lido-app-ui-color-text-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-text-inverse: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-text-disabled: var(--lido-app-ui-palette-black-a300);
+
+  /* Semantic - Icons */
+  --lido-app-ui-color-icons-default: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-icons-secondary: var(--lido-app-ui-palette-black-a500);
+  --lido-app-ui-color-icons-tertiary: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-icons-neutral: var(--lido-app-ui-palette-black-a300);
+  --lido-app-ui-color-icons-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-icons-active-hover: var(--lido-app-ui-palette-blue-700);
+  --lido-app-ui-color-icons-light-blue: var(--lido-app-ui-palette-blue-300);
+  --lido-app-ui-color-icons-success: var(--lido-app-ui-palette-green-600);
+  --lido-app-ui-color-icons-warning: var(--lido-app-ui-palette-orange-600);
+  --lido-app-ui-color-icons-error: var(--lido-app-ui-palette-red-600);
+  --lido-app-ui-color-icons-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-icons-inverse: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-icons-disabled: var(--lido-app-ui-palette-black-a300);
+
+  /* Semantic - Border */
+  --lido-app-ui-color-border-default: var(--lido-app-ui-palette-black-a200);
+  --lido-app-ui-color-border-tertiary: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-border-hover: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-border-black: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-border-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-border-success: var(--lido-app-ui-palette-green-600);
+  --lido-app-ui-color-border-warning: var(--lido-app-ui-palette-orange-600);
+  --lido-app-ui-color-border-error: var(--lido-app-ui-palette-red-600);
+  --lido-app-ui-color-border-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-border-card: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-white-a200);
+
+  /* Semantic - Background / page */
+  --lido-app-ui-color-background-page: var(--lido-app-ui-palette-gray-200);
+
+  /* Semantic - Background / Elements */
+  --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-background-surface-hover: var(
+    --lido-app-ui-palette-blue-100
   );
-  --lido-app-ui-color-backgrounds-message-default: rgb(0 0 0 / 4%);
-  --lido-app-ui-color-backgrounds-message-attention: rgb(0 98 255 / 8%);
-  --lido-app-ui-color-backgrounds-message-warning: rgb(191 83 0 / 4%);
-  --lido-app-ui-color-backgrounds-tab-bar: #e5e5ea;
-  --lido-app-ui-color-backgrounds-dropdown: #fff;
-  --lido-app-ui-color-backgrounds-button-black: #000;
-  --lido-app-ui-color-backgrounds-button-white: #fff;
-  --lido-app-ui-color-backgrounds-tooltip: #000;
+  --lido-app-ui-color-background-surface-active: var(
+    --lido-app-ui-palette-blue-100
+  );
+  --lido-app-ui-color-background-surface-active-hover: var(
+    --lido-app-ui-palette-blue-200
+  );
+  --lido-app-ui-color-background-default: var(--lido-app-ui-palette-gray-100);
+  --lido-app-ui-color-background-default-hover: var(
+    --lido-app-ui-palette-gray-200
+  );
+  --lido-app-ui-color-background-default-pressed: var(
+    --lido-app-ui-palette-gray-300
+  );
+  --lido-app-ui-color-background-default-active: var(
+    --lido-app-ui-palette-white-a900
+  );
+  --lido-app-ui-color-background-transparent-hover: var(
+    --lido-app-ui-palette-black-a100
+  );
+  --lido-app-ui-color-background-transparent-pressed: var(
+    --lido-app-ui-palette-black-a200
+  );
+  --lido-app-ui-color-background-secondary: var(--lido-app-ui-palette-gray-300);
+  --lido-app-ui-color-background-secondary-hover: var(
+    --lido-app-ui-palette-gray-400
+  );
+  --lido-app-ui-color-background-action: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-background-action-hover: var(
+    --lido-app-ui-palette-gray-700
+  );
+  --lido-app-ui-color-background-action-pressed: var(
+    --lido-app-ui-palette-gray-600
+  );
+  --lido-app-ui-color-background-disabled: var(
+    --lido-app-ui-palette-black-a200
+  );
+  --lido-app-ui-color-background-surface-selected: var(
+    --lido-app-ui-palette-blue-600
+  );
+  --lido-app-ui-color-background-surface-selected-hover: var(
+    --lido-app-ui-palette-blue-700
+  );
 
-  /* Borders */
-  --lido-app-ui-color-borders-default: #e5e5ea;
-  --lido-app-ui-color-borders-focus: #0085ff;
-  --lido-app-ui-color-borders-outline-on-light: rgb(0 0 0 / 10%);
-  --lido-app-ui-color-borders-outline-on-dark: rgb(255 255 255 / 20%);
-  --lido-app-ui-color-borders-outline-on-dark-secondary: rgb(255 255 255 / 30%);
+  /* Semantic - Background / Color (tint fills, e.g. banners/tags) */
+  --lido-app-ui-color-tint-neutral: var(--lido-app-ui-palette-black-a100);
+  --lido-app-ui-color-tint-neutral-hover: var(--lido-app-ui-palette-black-a200);
+  --lido-app-ui-color-tint-active: var(--lido-app-ui-palette-blue-100);
+  --lido-app-ui-color-tint-active-hover: var(--lido-app-ui-palette-blue-200);
+  --lido-app-ui-color-tint-info: var(--lido-app-ui-palette-purple-100);
+  --lido-app-ui-color-tint-info-hover: var(--lido-app-ui-palette-purple-200);
+  --lido-app-ui-color-tint-success: var(--lido-app-ui-palette-green-100);
+  --lido-app-ui-color-tint-success-hover: var(--lido-app-ui-palette-green-200);
+  --lido-app-ui-color-tint-warning: var(--lido-app-ui-palette-orange-100);
+  --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-200);
+  --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-100);
+  --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-200);
 
-  /* Hover overlays */
-  --lido-app-ui-color-overlay-button-white-hover: rgb(0 0 0 / 6%);
-  --lido-app-ui-color-overlay-button-black-hover: rgb(255 255 255 / 10%);
-
-  /* Badge */
-  --lido-app-ui-color-badge-success-text: #11b690;
-  --lido-app-ui-color-badge-success-bg: rgb(17 182 144 / 10%);
-  --lido-app-ui-color-badge-warning-text: #fa9200;
-  --lido-app-ui-color-badge-warning-bg: rgb(250 146 0 / 10%);
-  --lido-app-ui-color-badge-error-text: #f00a38;
-  --lido-app-ui-color-badge-error-bg: rgb(240 10 56 / 10%);
+  /* Root-level "info" token from Figma - resolves to the same value as
+     --lido-app-ui-color-tint-info in both themes; kept as an alias since it
+     exists as a separate Figma variable (likely legacy/duplicate). */
+  --lido-app-ui-color-info-surface: var(--lido-app-ui-color-tint-info);
 
   /* Typography */
   --lido-app-ui-font-family:
@@ -108,6 +232,117 @@
   --lido-app-ui-opacity-pressed-content: 0.7;
   --lido-app-ui-opacity-disabled-content: 0.3;
   --lido-app-ui-opacity-disabled-content-compact: 0.2;
+}
+
+/* Dark theme. Follows the `data-lido-theme` attribute set by ThemeProvider /
+   CookieThemeProvider from @lidofinance/lido-shared-ui. */
+[data-lido-theme='dark'] {
+  /* Semantic - Text */
+  --lido-app-ui-color-text-default: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-text-secondary: var(--lido-app-ui-palette-white-a500);
+  --lido-app-ui-color-text-tertiary: var(--lido-app-ui-palette-white-a400);
+  --lido-app-ui-color-text-neutral: var(--lido-app-ui-palette-white-a300);
+  --lido-app-ui-color-text-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-text-active-hover: var(--lido-app-ui-palette-blue-300);
+  --lido-app-ui-color-text-success: var(--lido-app-ui-palette-green-400);
+  --lido-app-ui-color-text-warning: var(--lido-app-ui-palette-orange-400);
+  --lido-app-ui-color-text-error: var(--lido-app-ui-palette-red-400);
+  --lido-app-ui-color-text-info: var(--lido-app-ui-palette-purple-400);
+  --lido-app-ui-color-text-inverse: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-text-disabled: var(--lido-app-ui-palette-white-a300);
+
+  /* Semantic - Icons */
+  --lido-app-ui-color-icons-default: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-icons-secondary: var(--lido-app-ui-palette-white-a400);
+  --lido-app-ui-color-icons-tertiary: var(--lido-app-ui-palette-white-a300);
+  --lido-app-ui-color-icons-neutral: var(--lido-app-ui-palette-white-a300);
+  --lido-app-ui-color-icons-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-icons-active-hover: var(--lido-app-ui-palette-blue-300);
+  --lido-app-ui-color-icons-light-blue: var(--lido-app-ui-palette-blue-800);
+  --lido-app-ui-color-icons-success: var(--lido-app-ui-palette-green-400);
+  --lido-app-ui-color-icons-warning: var(--lido-app-ui-palette-orange-400);
+  --lido-app-ui-color-icons-error: var(--lido-app-ui-palette-red-400);
+  --lido-app-ui-color-icons-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-icons-inverse: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-icons-disabled: var(--lido-app-ui-palette-white-a300);
+
+  /* Semantic - Border */
+  --lido-app-ui-color-border-default: var(--lido-app-ui-palette-white-a200);
+  --lido-app-ui-color-border-tertiary: var(--lido-app-ui-palette-white-a400);
+  --lido-app-ui-color-border-hover: var(--lido-app-ui-palette-white-a400);
+  --lido-app-ui-color-border-black: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-border-active: var(--lido-app-ui-palette-blue-600);
+  --lido-app-ui-color-border-success: var(--lido-app-ui-palette-green-600);
+  --lido-app-ui-color-border-warning: var(--lido-app-ui-palette-orange-600);
+  --lido-app-ui-color-border-error: var(--lido-app-ui-palette-red-600);
+  --lido-app-ui-color-border-info: var(--lido-app-ui-palette-purple-600);
+  --lido-app-ui-color-border-card: var(--lido-app-ui-palette-gray-800);
+  --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-black-a200);
+
+  /* Semantic - Background / page */
+  --lido-app-ui-color-background-page: var(--lido-app-ui-palette-black-a900);
+
+  /* Semantic - Background / Elements */
+  --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-gray-800);
+  --lido-app-ui-color-background-surface-hover: var(
+    --lido-app-ui-palette-blue-900
+  );
+  --lido-app-ui-color-background-surface-active: var(
+    --lido-app-ui-palette-blue-900
+  );
+  --lido-app-ui-color-background-surface-active-hover: var(
+    --lido-app-ui-palette-blue-800
+  );
+  --lido-app-ui-color-background-default: var(--lido-app-ui-palette-gray-700);
+  --lido-app-ui-color-background-default-hover: var(
+    --lido-app-ui-palette-gray-800
+  );
+  --lido-app-ui-color-background-default-pressed: var(
+    --lido-app-ui-palette-gray-700
+  );
+  --lido-app-ui-color-background-default-active: var(
+    --lido-app-ui-palette-black-a900
+  );
+  --lido-app-ui-color-background-transparent-hover: var(
+    --lido-app-ui-palette-white-a100
+  );
+  --lido-app-ui-color-background-transparent-pressed: var(
+    --lido-app-ui-palette-white-a200
+  );
+  --lido-app-ui-color-background-secondary: var(--lido-app-ui-palette-gray-600);
+  --lido-app-ui-color-background-secondary-hover: var(
+    --lido-app-ui-palette-gray-600
+  );
+  --lido-app-ui-color-background-action: var(--lido-app-ui-palette-white-a900);
+  --lido-app-ui-color-background-action-hover: var(
+    --lido-app-ui-palette-white-a700
+  );
+  --lido-app-ui-color-background-action-pressed: var(
+    --lido-app-ui-palette-white-a600
+  );
+  --lido-app-ui-color-background-disabled: var(
+    --lido-app-ui-palette-white-a200
+  );
+  --lido-app-ui-color-background-surface-selected: var(
+    --lido-app-ui-palette-blue-600
+  );
+  --lido-app-ui-color-background-surface-selected-hover: var(
+    --lido-app-ui-palette-blue-500
+  );
+
+  /* Semantic - Background / Color (tint fills, e.g. banners/tags) */
+  --lido-app-ui-color-tint-neutral: var(--lido-app-ui-palette-white-a100);
+  --lido-app-ui-color-tint-neutral-hover: var(--lido-app-ui-palette-white-a200);
+  --lido-app-ui-color-tint-active: var(--lido-app-ui-palette-blue-900);
+  --lido-app-ui-color-tint-active-hover: var(--lido-app-ui-palette-blue-800);
+  --lido-app-ui-color-tint-info: var(--lido-app-ui-palette-purple-900);
+  --lido-app-ui-color-tint-info-hover: var(--lido-app-ui-palette-purple-800);
+  --lido-app-ui-color-tint-success: var(--lido-app-ui-palette-green-900);
+  --lido-app-ui-color-tint-success-hover: var(--lido-app-ui-palette-green-800);
+  --lido-app-ui-color-tint-warning: var(--lido-app-ui-palette-orange-900);
+  --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-800);
+  --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-900);
+  --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-800);
 }
 
 /* Mobile heading scale. Only H1/H2 change; H3 stays identical. Headings using

@@ -27,7 +27,7 @@
   font-weight: var(--lido-app-ui-font-weight-medium);
   line-height: 28.8px;
   letter-spacing: -0.84px;
-  color: var(--lido-app-ui-color-text-primary);
+  color: var(--lido-app-ui-color-text-default);
   white-space: nowrap;
 }
 
