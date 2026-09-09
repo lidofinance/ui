@@ -3,36 +3,44 @@ import {
   useRef,
   type ChangeEvent,
   type InputHTMLAttributes,
+  type KeyboardEvent,
   type MouseEvent,
   type MouseEventHandler,
   type ReactNode,
-  type ButtonHTMLAttributes,
 } from 'react'
 
 import cn from 'classnames'
+import { IconInfo } from '../icons'
+import { Tag, type TagProps } from '../tag'
 import { Tooltip } from '../tooltip'
 
 import styles from './RichInput.module.css'
 
 export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: ReactNode
+  labelTooltip?: ReactNode
   secondaryValue?: ReactNode
   balance?: ReactNode
   tokenSelector?: ReactNode
   error?: ReactNode | boolean
   showMaxButton?: boolean
-  onMaxClick?: MouseEventHandler<HTMLButtonElement>
+  onMaxClick?: MouseEventHandler<HTMLSpanElement>
   maxTooltip?: ReactNode
 }
 
-const MiniButton = ({
-  children,
-  className,
-  ...rest
-}: ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <button type={'button'} className={cn(styles.button, className)} {...rest}>
-    <span className={styles.content}>{children}</span>
-  </button>
+const MaxTag = ({ onClick, className, ...rest }: TagProps) => (
+  <Tag
+    role='button'
+    tabIndex={0}
+    className={cn(styles.maxTag, className)}
+    onClick={onClick}
+    onKeyDown={(event: KeyboardEvent<HTMLSpanElement>) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return
+      event.preventDefault()
+      onClick?.(event as unknown as MouseEvent<HTMLSpanElement>)
+    }}
+    {...rest}
+  />
 )
 
 // Keep only digits and a single decimal point; comma is treated as the
@@ -48,6 +56,7 @@ const sanitizeDecimal = (raw: string): string => {
 
 export const RichInput = ({
   label,
+  labelTooltip,
   secondaryValue,
   balance,
   tokenSelector,
@@ -58,6 +67,7 @@ export const RichInput = ({
   onChange,
   className,
   id,
+  disabled,
   ...inputProps
 }: RichInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -68,8 +78,8 @@ export const RichInput = ({
   const errorMessage = typeof error === 'boolean' ? null : error
   const showErrorMessage = errorMessage != null && errorMessage !== ''
   const errorId = `${inputId}-error`
-  const hasBottomRow =
-    secondaryValue != null || balance != null || showMaxButton
+  const showMax = showMaxButton && !disabled
+  const hasBottomRow = secondaryValue != null || balance != null || showMax
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value: rawValue, selectionStart } = event.target
@@ -106,9 +116,19 @@ export const RichInput = ({
       onClick={handleRootClick}
     >
       {label != null ? (
-        <label className={styles.label} htmlFor={inputId}>
-          {label}
-        </label>
+        <span className={styles.labelRow}>
+          <label className={styles.label} htmlFor={inputId}>
+            {label}
+          </label>
+          {labelTooltip != null ? (
+            <Tooltip content={labelTooltip}>
+              <IconInfo
+                className={styles.labelTooltipIcon}
+                aria-hidden='true'
+              />
+            </Tooltip>
+          ) : null}
+        </span>
       ) : null}
       <div className={styles.amountRow}>
         <input
@@ -116,6 +136,7 @@ export const RichInput = ({
           id={inputId}
           className={styles.input}
           inputMode='decimal'
+          disabled={disabled}
           aria-invalid={hasError || undefined}
           aria-describedby={showErrorMessage ? errorId : undefined}
           onChange={handleChange}
@@ -134,17 +155,17 @@ export const RichInput = ({
             {balance != null ? (
               <span className={styles.balance}>{balance}</span>
             ) : null}
-            {showMaxButton ? (
+            {showMax ? (
               maxTooltip != null ? (
                 <Tooltip
                   content={maxTooltip}
                   position='bottom-left'
                   width={240}
                 >
-                  <MiniButton onClick={onMaxClick}>Max</MiniButton>
+                  <MaxTag onClick={onMaxClick}>Max</MaxTag>
                 </Tooltip>
               ) : (
-                <MiniButton onClick={onMaxClick}>Max</MiniButton>
+                <MaxTag onClick={onMaxClick}>Max</MaxTag>
               )
             ) : null}
           </div>

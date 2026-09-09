@@ -45,7 +45,7 @@ const meta: Meta<typeof RichInput> = {
     docs: {
       description: {
         component:
-          'The amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card. Input is filtered to decimals as you type. Note the design has no disabled visual — `disabled` blocks typing but looks the same.',
+          'The amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card. Input is filtered to decimals as you type. `disabled` dims the card and hides the Max shortcut.',
       },
     },
   },
@@ -110,7 +110,21 @@ export const States: Story = {
         maxTooltip='Leaves a small amount of ETH to cover gas.'
         tokenSelector={tokenSelector}
       />
+      <RichInput
+        label='With label tooltip'
+        labelTooltip='The amount you want to deposit.'
+        placeholder='0'
+        balance='Balance: 12.4218'
+        tokenSelector={tokenSelector}
+      />
       <RichInput label='No bottom row' placeholder='0' showMaxButton={false} />
+      <RichInput
+        label='Disabled'
+        placeholder='0'
+        balance='Balance: 12.4218'
+        tokenSelector={tokenSelector}
+        disabled
+      />
     </StoryContainer>
   ),
   parameters: {
@@ -118,7 +132,7 @@ export const States: Story = {
     docs: {
       description: {
         story:
-          'The error state keeps the blue focus border and only turns the numbers red — that is the design, not a bug. The Max tooltip opens bottom-left because the field usually sits inside a Modal, which clips anything above it.',
+          'The Max tooltip opens bottom-left because the field usually sits inside a Modal, which clips anything above it.',
       },
     },
   },
