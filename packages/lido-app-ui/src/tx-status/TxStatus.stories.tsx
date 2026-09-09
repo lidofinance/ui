@@ -66,7 +66,7 @@ export const AllStatuses: Story = {
         status='error'
         title='Transaction failed'
         message='The transaction was rejected in your wallet.'
-        footer={<Button variant='black'>Try again</Button>}
+        footer={<Button>Try again</Button>}
       />
     </StoryContainer>
   ),

@@ -10,6 +10,10 @@
   cursor: pointer;
 }
 
+.link:hover {
+  color: var(--lido-app-ui-color-text-active-hover);
+}
+
 .link:active {
   opacity: var(--lido-app-ui-opacity-pressed-content);
 }

@@ -1,59 +1,32 @@
 .button {
   --local-border-width: 0px;
-  --local-bg: var(--lido-app-ui-color-background-action);
-  --local-color: var(--lido-app-ui-color-text-inverse);
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-default);
   --local-border-color: transparent;
-  --local-hover-overlay: transparent;
-  --local-disabled-bg: var(--lido-app-ui-color-background-disabled);
-  --local-disabled-color: var(--lido-app-ui-color-text-disabled);
 
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  height: 50px;
-  padding: calc(13px - var(--local-border-width))
-    calc(24px - var(--local-border-width));
+  padding: calc(var(--local-pad-v) - var(--local-border-width))
+    calc(var(--local-pad-h) - var(--local-border-width));
   border: var(--local-border-width) solid var(--local-border-color);
   border-radius: var(--lido-app-ui-border-radius-button-50);
   background-color: var(--local-bg);
   color: var(--local-color);
   font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-body);
   font-weight: var(--lido-app-ui-font-weight-semibold);
-  line-height: var(--lido-app-ui-line-height-body);
   letter-spacing: var(--lido-app-ui-letter-spacing-button);
+  white-space: nowrap;
   cursor: pointer;
-}
-
-/* Hover overlay as a faded pseudo-element so it animates (gradient
-   background-image can't transition from none). Covers the border box to
-   match the previous full-bleed overlay. */
-.button::before {
-  content: '';
-  position: absolute;
-  inset: calc(-1 * var(--local-border-width));
-  z-index: 0;
-  border-radius: inherit;
-  background-color: var(--local-hover-overlay);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-}
-
-.button:hover {
-  --local-bg: var(--lido-app-ui-color-background-action-hover);
-}
-
-.button:active {
-  --local-bg: var(--lido-app-ui-color-background-action-pressed);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .button:disabled {
-  border-color: transparent;
-  background-color: var(--local-disabled-bg);
-  color: var(--local-disabled-color);
   cursor: not-allowed;
 }
 
@@ -63,8 +36,186 @@
 }
 
 .content {
-  position: relative;
-  z-index: 1;
   display: inline-flex;
   align-items: center;
+  padding: 0 8px;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.spinner {
+  flex-shrink: 0;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sizes */
+
+.big {
+  --local-pad-v: 12px;
+  --local-pad-h: 20px;
+
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.big .icon,
+.big .spinner {
+  width: 20px;
+  height: 20px;
+}
+
+.small {
+  --local-pad-v: 6px;
+  --local-pad-h: 16px;
+
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.small .icon,
+.small .spinner {
+  width: 16px;
+  height: 16px;
+}
+
+/* Variants */
+
+.primary {
+  --local-bg: var(--lido-app-ui-color-background-action);
+  --local-color: var(--lido-app-ui-color-text-inverse);
+}
+
+.primary:hover {
+  --local-bg: var(--lido-app-ui-color-background-action-hover);
+}
+
+.primary:active {
+  --local-bg: var(--lido-app-ui-color-background-action-pressed);
+}
+
+.primary:disabled {
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+.outline {
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-border-default);
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.outline:hover {
+  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.outline:active {
+  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
+}
+
+.outline:disabled {
+  --local-border-width: 0px;
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+.outlineSecondary {
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-border-default);
+  --local-color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.outlineSecondary:hover {
+  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.outlineSecondary:active {
+  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.outlineSecondary:disabled {
+  --local-border-width: 0px;
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+.ghost {
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.ghost:hover {
+  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.ghost:active {
+  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
+}
+
+.ghost:disabled {
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+.danger {
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-border-error);
+  --local-color: var(--lido-app-ui-color-text-error);
+}
+
+.danger:hover {
+  --local-bg: var(--lido-app-ui-color-tint-error-hover);
+}
+
+.danger:active {
+  --local-bg: var(--lido-app-ui-color-tint-error);
+}
+
+.danger:disabled {
+  --local-border-width: 0px;
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+/* Loading keeps the variant's default look (plus the spinner) instead of
+   the disabled treatment, even though the button is also :disabled. */
+
+.loading {
+  cursor: wait;
+}
+
+.primary.loading:disabled {
+  --local-bg: var(--lido-app-ui-color-background-action);
+  --local-color: var(--lido-app-ui-color-text-inverse);
+}
+
+.outline.loading:disabled {
+  --local-border-width: 1px;
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.outlineSecondary.loading:disabled {
+  --local-border-width: 1px;
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.ghost.loading:disabled {
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.danger.loading:disabled {
+  --local-border-width: 1px;
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-error);
 }

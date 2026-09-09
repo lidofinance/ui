@@ -95,9 +95,7 @@ export const WithOverlay: Story = {
 
     return (
       <>
-        <Button variant='black' onClick={() => setOpen(true)}>
-          Open modal
-        </Button>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
         {open ? (
           <Modal
             title='Supply stETH'

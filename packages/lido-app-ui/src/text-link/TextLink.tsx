@@ -24,11 +24,11 @@ export const TextLink = ({
     rel={rel ?? (external ? 'noopener noreferrer' : undefined)}
     {...rest}
   >
+    {children}
     {icon != null ? (
       <span className={styles.icon} aria-hidden='true'>
         {icon}
       </span>
     ) : null}
-    {children}
   </a>
 )

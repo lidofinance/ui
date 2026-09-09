@@ -5,6 +5,7 @@ import { Badge } from './badge'
 import { Button } from './button'
 import { Checkbox } from './checkbox'
 import { DataList, DetailRow } from './data-list'
+import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
@@ -35,6 +36,10 @@ const cases: Array<[string, () => JSX.Element]> = [
         <DetailRow label='Change' value={{ from: '1%', to: '2%' }} />
       </DataList>
     ),
+  ],
+  [
+    'IconButton',
+    () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,
   ],
   [
     'Identicon',
