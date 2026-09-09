@@ -47,7 +47,7 @@
   color: var(--local-description-color);
 }
 
-.attention {
+.info {
   --local-bg: var(--lido-app-ui-color-tint-info);
   --local-icon-color: var(--lido-app-ui-color-icons-info);
   --local-headline-color: var(--lido-app-ui-color-text-info);
@@ -56,7 +56,21 @@
 
 .warning {
   --local-bg: var(--lido-app-ui-color-tint-warning);
-  --local-icon-color: var(--lido-app-ui-color-text-warning);
+  --local-icon-color: var(--lido-app-ui-color-icons-warning);
   --local-headline-color: var(--lido-app-ui-color-text-warning);
   --local-description-color: var(--lido-app-ui-color-text-warning);
+}
+
+.error {
+  --local-bg: var(--lido-app-ui-color-tint-error);
+  --local-icon-color: var(--lido-app-ui-color-icons-error);
+  --local-headline-color: var(--lido-app-ui-color-text-error);
+  --local-description-color: var(--lido-app-ui-color-text-error);
+}
+
+.success {
+  --local-bg: var(--lido-app-ui-color-tint-success);
+  --local-icon-color: var(--lido-app-ui-color-icons-success);
+  --local-headline-color: var(--lido-app-ui-color-text-success);
+  --local-description-color: var(--lido-app-ui-color-text-success);
 }

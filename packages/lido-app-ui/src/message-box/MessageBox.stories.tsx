@@ -14,8 +14,9 @@ const meta: Meta<typeof MessageBox> = {
   },
   argTypes: {
     variant: {
-      description: 'default (neutral), attention (blue), warning (orange)',
-      options: ['default', 'attention', 'warning'],
+      description:
+        'default (neutral), info (blue), warning (orange), error (red), success (green)',
+      options: ['default', 'info', 'warning', 'error', 'success'],
       control: { type: 'inline-radio' },
     },
     icon: {
@@ -45,12 +46,18 @@ export const Variants: Story = {
       <MessageBox variant='default'>
         Withdrawals take up to 5 days to process.
       </MessageBox>
-      <MessageBox variant='attention' headline='Your funds are protected'>
+      <MessageBox variant='info' headline='Your funds are protected'>
         Collateral is held in an audited vault and can be withdrawn at any time.
       </MessageBox>
       <MessageBox variant='warning' headline='Liquidation risk'>
         Your position is close to the liquidation threshold. Add collateral or
         repay part of the loan.
+      </MessageBox>
+      <MessageBox variant='error' headline='Transaction failed'>
+        The transaction was rejected in your wallet.
+      </MessageBox>
+      <MessageBox variant='success' headline='Deposit confirmed'>
+        Your stETH is now earning rewards.
       </MessageBox>
       <MessageBox variant='default' icon={false}>
         No icon.
@@ -62,7 +69,7 @@ export const Variants: Story = {
     docs: {
       description: {
         story:
-          'All three variants, with and without a headline, plus the icon-less form.',
+          'All five variants, with and without a headline, plus the icon-less form.',
       },
     },
   },

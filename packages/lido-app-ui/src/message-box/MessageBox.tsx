@@ -1,16 +1,23 @@
 import type { HTMLAttributes, ReactNode } from 'react'
 
-import { IconInfo, IconShield, IconWarning } from '../icons'
+import { IconCheck, IconInfo, IconShield, IconWarning } from '../icons'
 import cn from 'classnames'
 
 import styles from './MessageBox.module.css'
 
-export type MessageBoxVariant = 'default' | 'attention' | 'warning'
+export type MessageBoxVariant =
+  | 'default'
+  | 'info'
+  | 'warning'
+  | 'error'
+  | 'success'
 
 const variantIcons = {
   default: IconInfo,
-  attention: IconShield,
+  info: IconShield,
   warning: IconWarning,
+  error: IconWarning,
+  success: IconCheck,
 }
 
 export type MessageBoxProps = HTMLAttributes<HTMLDivElement> & {
