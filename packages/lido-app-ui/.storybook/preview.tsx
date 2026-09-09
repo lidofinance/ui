@@ -1,27 +1,7 @@
-import React from 'react'
-import { Decorator } from '@storybook/react'
-import { LightThemeProvider } from '@lidofinance/lido-shared-ui'
+import { WithThemeProvider } from './components/WithThemeProvider'
 
 import '../styles/global.css'
 import './styles/storybook.css'
-
-// Storybook's preview surface is pinned to light rather than driven by a
-// toggler, for consistent docs/screenshots.
-const WithSurface: Decorator = (Story): JSX.Element => (
-  <LightThemeProvider>
-    <div
-      style={{
-        fontFamily: 'var(--lido-app-ui-font-family)',
-        color: 'var(--lido-app-ui-color-text-default)',
-        background: 'var(--lido-app-ui-color-background-page)',
-        padding: 16,
-        boxSizing: 'border-box',
-      }}
-    >
-      <Story />
-    </div>
-  </LightThemeProvider>
-)
 
 export default {
   tags: ['autodocs'],
@@ -52,5 +32,18 @@ export default {
       },
     },
   },
-  decorators: [WithSurface],
+  initialGlobals: {
+    themeOverride: 'light',
+  },
+  globalTypes: {
+    themeOverride: {
+      description: 'Theme',
+      toolbar: {
+        title: 'Theme',
+        items: ['dark', 'light', 'follow cookie and system'],
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [WithThemeProvider],
 }
