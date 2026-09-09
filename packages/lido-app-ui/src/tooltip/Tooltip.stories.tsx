@@ -74,7 +74,7 @@ export const Basic: Story = {
 
 export const Positions: Story = {
   render: () => (
-    <StorySection style={{ gap: 48, padding: '80px 40px' }}>
+    <StorySection style={{ gap: 40, padding: '32px 24px' }}>
       {(
         [
           'top',
