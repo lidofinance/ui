@@ -1,0 +1,72 @@
+.accordion {
+  width: 100%;
+  border-bottom: 1px solid var(--lido-app-ui-color-border-default);
+}
+
+.accordion.borderless {
+  border-bottom: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 24px 0;
+  border: none;
+  margin: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.title {
+  flex: 1 1 0%;
+  min-width: 0;
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-body);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: 28px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  color: var(--lido-app-ui-color-text-default);
+  word-break: break-word;
+}
+
+.chevron {
+  display: flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--lido-app-ui-color-icons-default);
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.contentWrapper.expanded {
+  grid-template-rows: 1fr;
+}
+
+.content {
+  overflow: hidden;
+  min-height: 0;
+  padding-bottom: 24px;
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  color: var(--lido-app-ui-color-text-secondary);
+  word-break: break-word;
+}
