@@ -1,44 +1,45 @@
-.tab {
+.segment {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  height: 26px;
   padding: 2px 12px;
   border: none;
   border-radius: var(--lido-app-ui-border-radius-control-inactive);
   background-color: transparent;
-  color: var(--lido-app-ui-color-text-secondary);
+  color: var(--lido-app-ui-color-text-tertiary);
   font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-bold);
-  line-height: var(--lido-app-ui-line-height-label);
+  font-size: 14px;
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: 24px;
   letter-spacing: var(--lido-app-ui-letter-spacing-label);
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.tab:hover:not(:disabled, .active),
-.tab:active:not(:disabled) {
+.segment:hover:not(:disabled, .active) {
+  background-color: var(--lido-app-ui-color-background-transparent-hover);
   color: var(--lido-app-ui-color-text-default);
 }
 
-.tab:active:not(:disabled) .content {
+.segment:active:not(:disabled) {
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.segment:active:not(:disabled) .content {
   opacity: var(--lido-app-ui-opacity-pressed-content);
 }
 
-.tab:disabled {
-  color: var(--lido-app-ui-color-text-default);
+.segment:disabled {
+  color: var(--lido-app-ui-color-text-disabled);
   cursor: not-allowed;
 }
 
-.tab:disabled .content {
-  opacity: var(--lido-app-ui-opacity-disabled-content-compact);
-}
-
-.tab:focus-visible {
+.segment:focus-visible {
   outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
 }

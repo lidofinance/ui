@@ -10,10 +10,10 @@ import { Identicon } from './identicon'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { RichInput } from './rich-input'
+import { Segment, SegmentedControl } from './segmented-control'
 import { StatItem } from './stat-item'
 import { StatsRow } from './stats-row'
 import { Stepper } from './stepper'
-import { TabBar, TabButton } from './tabs'
 import { Tag } from './tag'
 import { TextLink } from './text-link'
 import { TokenAmount } from './token-amount'
@@ -49,20 +49,20 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['RichInput', () => <RichInput label='Amount' error='Too much' />],
-  ['StatItem', () => <StatItem label='TVL' value='1M' />],
-  ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
-  ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],
+  ['Segment', () => <Segment active>Tab</Segment>],
   [
-    'TabBar',
+    'SegmentedControl',
     () => (
-      <TabBar
+      <SegmentedControl
         items={[{ value: 'a', label: 'A' }]}
         value='a'
         onChange={() => undefined}
       />
     ),
   ],
-  ['TabButton', () => <TabButton active>Tab</TabButton>],
+  ['StatItem', () => <StatItem label='TVL' value='1M' />],
+  ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
+  ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],
   ['Tag', () => <Tag variant='success'>Active</Tag>],
   ['TextLink', () => <TextLink href='https://lido.fi'>Link</TextLink>],
   ['TokenAmount', () => <TokenAmount symbol='stETH' amount='1.0' />],

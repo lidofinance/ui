@@ -2,30 +2,30 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
-import styles from './TabBar.module.css'
-import { TabButton } from './TabButton'
+import { Segment } from './Segment'
+import styles from './SegmentedControl.module.css'
 
-export type TabItem = {
+export type SegmentItem = {
   value: string
   label: ReactNode
   disabled?: boolean
 }
 
-export type TabBarProps = {
-  items: TabItem[]
+export type SegmentedControlProps = {
+  items: SegmentItem[]
   value: string
   onChange: (value: string) => void
   filled?: boolean
   className?: string
 }
 
-export const TabBar = ({
+export const SegmentedControl = ({
   items,
   value,
   onChange,
   filled = false,
   className,
-}: TabBarProps) => {
+}: SegmentedControlProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const activeButtonRef = useRef<HTMLButtonElement>(null)
   const selectionRef = useRef<HTMLDivElement>(null)
@@ -69,7 +69,11 @@ export const TabBar = ({
     <div
       ref={containerRef}
       role='tablist'
-      className={cn(styles.tabBar, filled && styles.filled, className)}
+      className={cn(
+        styles.segmentedControl,
+        filled && styles.filled,
+        className,
+      )}
     >
       <div
         ref={selectionRef}
@@ -79,7 +83,7 @@ export const TabBar = ({
       {items.map((item) => {
         const active = item.value === value
         return (
-          <TabButton
+          <Segment
             key={item.value}
             ref={active ? activeButtonRef : undefined}
             active={active}
@@ -89,7 +93,7 @@ export const TabBar = ({
             }}
           >
             {item.label}
-          </TabButton>
+          </Segment>
         )
       })}
     </div>

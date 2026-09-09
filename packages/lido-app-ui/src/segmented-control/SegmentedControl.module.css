@@ -1,4 +1,4 @@
-.tabBar {
+.segmentedControl {
   --local-border-width: 1px;
 
   position: relative;
@@ -6,7 +6,6 @@
   align-items: center;
   gap: 4px;
   box-sizing: border-box;
-  height: 34px;
   padding: calc(4px - var(--local-border-width));
   border: var(--local-border-width) solid
     var(--lido-app-ui-color-border-default);
@@ -28,7 +27,7 @@
   left: 0;
   z-index: 0;
   border-radius: var(--lido-app-ui-border-radius-control);
-  background-color: var(--lido-app-ui-palette-white-a900);
+  background-color: var(--lido-app-ui-color-background-surface);
   pointer-events: none;
   will-change: transform, width, height;
 }

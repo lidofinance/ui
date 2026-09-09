@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StorySection } from '../../.storybook/components'
-import { TabButton } from '.'
+import { Segment } from '.'
 
-const meta: Meta<typeof TabButton> = {
-  title: 'Navigation/TabButton',
-  component: TabButton,
+const meta: Meta<typeof Segment> = {
+  title: 'Navigation/Segment',
+  component: Segment,
   tags: ['autodocs'],
   args: {
     children: 'Supply',
@@ -13,7 +13,8 @@ const meta: Meta<typeof TabButton> = {
   },
   argTypes: {
     active: {
-      description: 'Darkens the label; the pill itself is drawn by TabBar',
+      description:
+        'Darkens the label; the pill itself is drawn by SegmentedControl',
       control: { type: 'boolean' },
     },
     disabled: { control: { type: 'boolean' } },
@@ -22,7 +23,7 @@ const meta: Meta<typeof TabButton> = {
     docs: {
       description: {
         component:
-          'The primitive behind `TabBar` — a 26px text button with no background of its own. The white sliding pill belongs to `TabBar`, which is why this renders as plain text on its own. Reach for it only when you are building a custom tab layout.',
+          'The primitive behind `SegmentedControl` — a text button with no background of its own. The white sliding pill belongs to `SegmentedControl`, which is why this renders as plain text on its own. Reach for it only when you are building a custom segmented layout.',
       },
     },
   },
@@ -53,9 +54,9 @@ export const States: Story = {
         width: 'fit-content',
       }}
     >
-      <TabButton>Idle</TabButton>
-      <TabButton active>Active</TabButton>
-      <TabButton disabled>Disabled</TabButton>
+      <Segment>Idle</Segment>
+      <Segment active>Active</Segment>
+      <Segment disabled>Disabled</Segment>
     </StorySection>
   ),
   parameters: {
@@ -63,7 +64,7 @@ export const States: Story = {
     docs: {
       description: {
         story:
-          'Shown on the grey track `TabBar` provides, since that is the only place these buttons ever appear.',
+          'Shown on the grey track `SegmentedControl` provides, since that is the only place these buttons ever appear.',
       },
     },
   },
