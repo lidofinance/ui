@@ -64,7 +64,9 @@ export const Accordion = ({
           [styles.expanded]: isExpanded,
         })}
       >
-        <div className={styles.content}>{children}</div>
+        <div className={styles.content}>
+          <div className={styles.contentInner}>{children}</div>
+        </div>
       </div>
     </div>
   )

@@ -61,6 +61,9 @@
 .content {
   overflow: hidden;
   min-height: 0;
+}
+
+.contentInner {
   padding-bottom: 24px;
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-label);
