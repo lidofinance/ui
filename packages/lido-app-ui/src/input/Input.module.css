@@ -1,3 +1,34 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.label {
+  font-size: var(--lido-app-ui-font-size-body);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 28px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  color: var(--lido-app-ui-color-text-secondary);
+  white-space: nowrap;
+}
+
+.tooltipIcon {
+  display: flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--lido-app-ui-color-icons-tertiary);
+}
+
 .root {
   display: inline-flex;
   align-items: center;
@@ -97,4 +128,24 @@
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
+}
+
+.errorText {
+  margin: 0;
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  color: var(--lido-app-ui-color-text-error);
+  word-break: break-word;
+}
+
+.description {
+  margin: 0;
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  color: var(--lido-app-ui-color-text-tertiary);
+  word-break: break-word;
 }

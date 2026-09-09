@@ -28,7 +28,7 @@ const meta: Meta<typeof Input> = {
     docs: {
       description: {
         component:
-          'A bordered text field. `icon` adds a leading icon, `rightDecorator` is a slot on the right — a `Tag` for a "Max" button, a unit label, whatever fits.',
+          'A bordered text field. `icon` adds a leading icon, `rightDecorator` is a slot on the right — a `Tag` for a "Max" button, a unit label, whatever fits. `label`/`description`/`error` add the field chrome around it; `tooltip` puts an info icon next to the label wired up to the `Tooltip` component.',
       },
     },
   },
@@ -85,4 +85,32 @@ export const States: Story = {
       },
     },
   },
+}
+
+export const WithField: Story = {
+  args: {
+    label: 'Field label',
+    tooltip: 'Extra context shown on hover.',
+    description: 'Description text',
+  },
+  render: (args) => (
+    <StoryContainer style={{ maxWidth: 400 }}>
+      <Input {...args} />
+    </StoryContainer>
+  ),
+}
+
+export const WithError: Story = {
+  args: {
+    label: 'Field label',
+    tooltip: 'Extra context shown on hover.',
+    description: 'Description text',
+    error: 'Error text',
+    defaultValue: 'Text',
+  },
+  render: (args) => (
+    <StoryContainer style={{ maxWidth: 400 }}>
+      <Input {...args} />
+    </StoryContainer>
+  ),
 }
