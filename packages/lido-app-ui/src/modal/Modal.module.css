@@ -12,55 +12,51 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   width: 500px;
   max-width: 100%;
   margin: auto;
   padding: 32px;
   overflow: clip;
-  border-radius: 20px;
-  background-color: var(--lido-app-ui-palette-white-a900);
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-modal);
+  background-color: var(--lido-app-ui-color-background-surface);
+}
+
+.headerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
 .header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
 }
 
 .title {
+  flex: 1 0 0;
+  min-width: 0;
   font-family: var(--lido-app-ui-font-family);
   font-size: 24px;
   font-weight: var(--lido-app-ui-font-weight-medium);
-  line-height: 28.8px;
-  letter-spacing: -0.84px;
-  color: var(--lido-app-ui-palette-black-a900);
+  line-height: 36px;
+  letter-spacing: -0.14px;
+  color: var(--lido-app-ui-color-text-default);
 }
 
 .titleHidden {
   visibility: hidden;
 }
 
-.close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-left: auto;
-  padding: 0;
-  border: none;
-  background: none;
-  color: var(--lido-app-ui-palette-black-a900);
-  cursor: pointer;
-}
+.subtitle {
+  @mixin font-body;
 
-.close:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-border-active);
-  outline-offset: 2px;
-  border-radius: 4px;
+  width: 100%;
+  color: var(--lido-app-ui-color-text-secondary);
 }
 
 .body {
@@ -83,6 +79,7 @@
 
   .overlay .card {
     min-height: 100dvh;
+    border: none;
     border-radius: 0;
   }
 

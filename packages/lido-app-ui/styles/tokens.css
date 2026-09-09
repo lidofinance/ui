@@ -224,6 +224,7 @@
   --lido-app-ui-border-radius-dropdown: 20px;
   --lido-app-ui-border-radius-dropdown-item: 12px;
   --lido-app-ui-border-radius-tooltip: 12px;
+  --lido-app-ui-border-radius-modal: 32px;
 
   /* Shadows */
   --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);

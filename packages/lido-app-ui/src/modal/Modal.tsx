@@ -6,6 +6,7 @@ import {
   type ReactNode,
 } from 'react'
 
+import { IconButton } from '../icon-button'
 import { IconCross } from '../icons'
 import cn from 'classnames'
 
@@ -33,6 +34,7 @@ const unlockBodyScroll = () => {
 
 export type ModalProps = {
   title?: ReactNode
+  subtitle?: ReactNode
   onClose?: () => void
   withOverlay?: boolean
   bodyFill?: boolean
@@ -42,6 +44,7 @@ export type ModalProps = {
 
 export const Modal = ({
   title,
+  subtitle,
   onClose,
   withOverlay = false,
   bodyFill = false,
@@ -74,22 +77,25 @@ export const Modal = ({
       aria-modal={withOverlay || undefined}
       aria-labelledby={title ? titleId : undefined}
     >
-      <div className={styles.header}>
-        <span
-          id={titleId}
-          className={cn(styles.title, !title && styles.titleHidden)}
-        >
-          {title}
-        </span>
-        {onClose ? (
-          <button
-            type='button'
-            className={styles.close}
-            aria-label='Close'
-            onClick={onClose}
+      <div className={styles.headerGroup}>
+        <div className={styles.header}>
+          <span
+            id={titleId}
+            className={cn(styles.title, !title && styles.titleHidden)}
           >
-            <IconCross />
-          </button>
+            {title}
+          </span>
+          {onClose ? (
+            <IconButton
+              variant='outline'
+              aria-label='Close'
+              icon={<IconCross />}
+              onClick={onClose}
+            />
+          ) : null}
+        </div>
+        {subtitle != null ? (
+          <p className={styles.subtitle}>{subtitle}</p>
         ) : null}
       </div>
       <div className={styles.body}>{children}</div>

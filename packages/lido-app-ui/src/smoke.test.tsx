@@ -14,6 +14,7 @@ import { StatItem } from './stat-item'
 import { StatsRow } from './stats-row'
 import { Stepper } from './stepper'
 import { TabBar, TabButton } from './tabs'
+import { Tag } from './tag'
 import { TextLink } from './text-link'
 import { TokenAmount } from './token-amount'
 import { TokenSelector } from './token-selector'
@@ -62,6 +63,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['TabButton', () => <TabButton active>Tab</TabButton>],
+  ['Tag', () => <Tag variant='success'>Active</Tag>],
   ['TextLink', () => <TextLink href='https://lido.fi'>Link</TextLink>],
   ['TokenAmount', () => <TokenAmount symbol='stETH' amount='1.0' />],
   [

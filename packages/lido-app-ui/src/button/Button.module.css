@@ -46,6 +46,11 @@
   flex-shrink: 0;
 }
 
+.icon > svg {
+  width: 100%;
+  height: 100%;
+}
+
 .spinner {
   flex-shrink: 0;
   animation: spin 0.9s linear infinite;

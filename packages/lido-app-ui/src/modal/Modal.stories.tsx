@@ -17,6 +17,7 @@ const meta: Meta<typeof Modal> = {
   },
   argTypes: {
     title: { description: 'Header text; omit for a bare card' },
+    subtitle: { description: 'Optional line under the title' },
     withOverlay: {
       description: 'Wraps the card in the scrim and locks body scroll',
       control: { type: 'boolean' },
@@ -63,6 +64,26 @@ export const Card: Story = {
       description: {
         story:
           'By default the card renders bare — you own the portal and the positioning. Shown here on a muted surface so the white card reads.',
+      },
+    },
+  },
+}
+
+export const WithSubtitle: Story = {
+  args: { subtitle: 'Review the details before you confirm' },
+  render: (args) => (
+    <PageSurface>
+      <div style={{ width: '100%', maxWidth: 460 }}>
+        <Modal {...args} onClose={() => undefined}>
+          {body}
+        </Modal>
+      </div>
+    </PageSurface>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'A subtitle line sits under the title, above the body.',
       },
     },
   },
