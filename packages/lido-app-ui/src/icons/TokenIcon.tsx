@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react'
-import { TokenEth } from './TokenEth'
-import { TokenSteth } from './TokenSteth'
-import { TokenWsteth } from './TokenWsteth'
+import { TokenEth } from './components/token/TokenEth'
+import { TokenSteth } from './components/token/TokenSteth'
+import { TokenWsteth } from './components/token/TokenWsteth'
 
 export type TokenIconSymbol = 'ETH' | 'stETH' | 'wstETH'
 

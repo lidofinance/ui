@@ -1,0 +1,22 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 48095647">
+<circle id="Ellipse 14796" cx="12" cy="12" r="12" fill="url(#paint0_linear_0_4)"/>
+<g id="Group 48095646">
+<path id="Vector" opacity="0.6" d="M16.3959 10.9414L16.5159 11.1255C17.8693 13.2016 17.5671 15.9206 15.7892 17.6626C14.7433 18.6874 13.3726 19.1998 12.0018 19.2C12.0018 19.2 12.0018 19.2 16.3959 10.9414Z" fill="white"/>
+<path id="Vector_2" opacity="0.2" d="M12.0017 13.4514L16.3959 10.9414C12.0018 19.2 12.0017 19.2 12.0017 19.2C12.0017 17.4013 12.0017 15.3403 12.0017 13.4514Z" fill="white"/>
+<path id="Vector_3" d="M7.60309 10.9414L7.4831 11.1255C6.1297 13.2016 6.43196 15.9206 8.2098 17.6626C9.25569 18.6874 10.6265 19.1998 11.9973 19.2C11.9973 19.2 11.9973 19.2 7.60309 10.9414Z" fill="white"/>
+<path id="Vector_4" opacity="0.6" d="M11.9964 13.4514L7.60217 10.9414C11.9964 19.2 11.9964 19.2 11.9964 19.2C11.9964 17.4013 11.9964 15.3403 11.9964 13.4514Z" fill="white"/>
+<path id="Vector_5" opacity="0.2" d="M12.0033 7.84417V12.1732L15.7884 10.0101L12.0033 7.84417Z" fill="white"/>
+<path id="Vector_6" opacity="0.6" d="M12.0022 7.84417L8.2144 10.01L12.0022 12.1732V7.84417Z" fill="white"/>
+<path id="Vector_7" d="M12.0022 4.20338L8.2144 10.0114L12.0022 7.8394V4.20338Z" fill="white"/>
+<path id="Vector_8" opacity="0.6" d="M12.0033 7.83883L15.7913 10.0108L12.0033 4.19999V7.83883Z" fill="white"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_4" x1="-0.333495" y1="-8.90194e-07" x2="23.6531" y2="24.5131" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFAC91"/>
+<stop offset="0.5" stop-color="#A276FF"/>
+<stop offset="1" stop-color="#5BFFF2"/>
+</linearGradient>
+</defs>
+</svg>

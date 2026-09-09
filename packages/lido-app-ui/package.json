@@ -38,7 +38,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "lint:css": "stylelint '**/*.css'",
-    "types": "tsc --noEmit"
+    "types": "tsc --noEmit",
+    "icons:convert": "node ./src/icons/converter/index.cjs"
   },
   "peerDependencies": {
     "react": "^18",
@@ -64,11 +65,16 @@
     "@storybook/react": "8.6.12",
     "@storybook/react-webpack5": "8.6.12",
     "@storybook/test": "8.6.12",
+    "@svgr/core": "8.1.0",
+    "@svgr/plugin-jsx": "8.1.0",
+    "@svgr/plugin-prettier": "8.1.0",
+    "@svgr/plugin-svgo": "5.5.0",
     "@testing-library/react": "15.0.7",
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.9",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "10.4.21",
+    "babel-plugin-react-inline-svg-unique-id": "1.5.0",
     "jsdom": "^25.0.0",
     "postcss-custom-media": "11.0.5",
     "postcss-import": "16.1.0",

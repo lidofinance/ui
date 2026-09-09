@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1171277941">
+<circle id="Ellipse 15759" cx="12" cy="12" r="12" fill="#00D743"/>
+<g id="Union">
+<path d="M11.232 18.048H6.528V16.704H11.232V18.048Z" fill="white"/>
+<path d="M17.088 18.048H12.384V16.704H17.088V18.048Z" fill="white"/>
+<path d="M11.232 15.36H6.528L6.528 14.016H11.232L11.232 15.36Z" fill="white"/>
+<path d="M17.088 15.36H12.384L12.384 14.016H17.088V15.36Z" fill="white"/>
+<path d="M11.232 12.672H6.528V11.328H11.232V12.672Z" fill="white"/>
+<path d="M17.088 12.672L12.384 12.672V11.328L17.088 11.328V12.672Z" fill="white"/>
+<path d="M11.232 9.984H6.528L6.528 8.64H11.232V9.984Z" fill="white"/>
+<path d="M17.088 9.984L12.384 9.984V8.64L17.088 8.64V9.984Z" fill="white"/>
+<path d="M17.088 7.296L12.384 7.296V5.952L17.088 5.952V7.296Z" fill="white"/>
+</g>
+</g>
+</svg>

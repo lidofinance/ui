@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { IconCheck, IconCross } from '../icons'
-import { IconSpinner } from '../icons/IconSpinner'
+import { IconCheck, IconCross, IconSpinner } from '../icons'
 import cn from 'classnames'
 
 import styles from './TxStatus.module.css'
