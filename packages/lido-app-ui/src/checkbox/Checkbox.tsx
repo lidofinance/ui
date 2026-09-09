@@ -13,15 +13,29 @@ export type CheckboxProps = Omit<
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ label, className, ...rest }, ref) => (
-    <label className={cn(styles.root, className)}>
+  ({ label, className, disabled, ...rest }, ref) => (
+    <label
+      className={cn(styles.container, className, {
+        [styles.containerDisabled]: disabled,
+      })}
+    >
       <span className={styles.control}>
-        <input ref={ref} type='checkbox' className={styles.input} {...rest} />
-        <span className={styles.box}>
-          <IconCheck className={styles.tick} />
-        </span>
+        <input
+          ref={ref}
+          type='checkbox'
+          className={styles.input}
+          disabled={disabled}
+          {...rest}
+        />
+        <IconCheck className={styles.tick} />
       </span>
-      {label ? <span className={styles.label}>{label}</span> : null}
+      {label ? (
+        <span
+          className={cn(styles.label, { [styles.labelDisabled]: disabled })}
+        >
+          {label}
+        </span>
+      ) : null}
     </label>
   ),
 )

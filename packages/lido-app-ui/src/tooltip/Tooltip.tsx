@@ -23,7 +23,7 @@ export type TooltipProps = Omit<HTMLAttributes<HTMLSpanElement>, 'content'> & {
 export const Tooltip = ({
   content,
   position = 'top',
-  width = 280,
+  width = 320,
   className,
   children,
   ...rest

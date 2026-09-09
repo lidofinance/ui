@@ -19,7 +19,7 @@ const meta: Meta<typeof Checkbox> = {
     docs: {
       description: {
         component:
-          'A 20px box with a label, wrapped in a `<label>` so the text is clickable. It forwards every native input prop, so use it controlled or uncontrolled as you like. Note the design has no disabled visual — `disabled` blocks input but looks the same.',
+          'A 24px box with a label, wrapped in a `<label>` so the text is clickable. It forwards every native input prop, so use it controlled or uncontrolled as you like.',
       },
     },
   },
@@ -58,6 +58,8 @@ export const States: Story = {
       <Checkbox label='Unchecked' defaultChecked={false} />
       <Checkbox label='Checked' defaultChecked />
       <Checkbox aria-label='Without a label' />
+      <Checkbox label='Disabled unchecked' disabled />
+      <Checkbox label='Disabled checked' disabled defaultChecked />
     </StoryContainer>
   ),
   parameters: {
@@ -65,7 +67,7 @@ export const States: Story = {
     docs: {
       description: {
         story:
-          'The two visual states, plus the label-less form — drop `label` and pass `aria-label` when the text lives elsewhere. Disabled is deliberately not shown: it renders identically to the enabled box.',
+          'Checked/unchecked, the label-less form (drop `label` and pass `aria-label` when the text lives elsewhere), and the two disabled states.',
       },
     },
   },

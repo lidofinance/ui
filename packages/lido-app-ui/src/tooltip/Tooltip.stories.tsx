@@ -11,7 +11,7 @@ const meta: Meta<typeof Tooltip> = {
   args: {
     content: 'Annual percentage yield, net of protocol fees.',
     position: 'top',
-    width: 280,
+    width: 320,
     children: <IconInfo />,
   },
   argTypes: {
@@ -104,6 +104,44 @@ export const Positions: Story = {
       description: {
         story:
           'All eight anchors — hover each icon; the bubble names its own position. There is no flipping logic, so pick the one that fits the space you have.',
+      },
+    },
+  },
+}
+
+export const RichContent: Story = {
+  args: {
+    width: 320,
+    content: (
+      <>
+        <p
+          style={{
+            margin: 0,
+            fontWeight: 600,
+            fontSize: 16,
+            lineHeight: '28px',
+          }}
+        >
+          Your key got a strike
+        </p>
+        <div>
+          <p style={{ margin: '0 0 8px' }}>
+            The following keys got strikes for low performance during the latest
+            monitoring frame (Nov 12 — Dec 12):
+          </p>
+          <ul style={{ margin: 0, paddingLeft: 21 }}>
+            <li>0x1234...0982</li>
+            <li>0x1234...0982</li>
+          </ul>
+        </div>
+      </>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'The bubble stacks arbitrary content in a column with an 8px gap — pass a title plus a paragraph/list as `content` for richer bubbles like this one.',
       },
     },
   },

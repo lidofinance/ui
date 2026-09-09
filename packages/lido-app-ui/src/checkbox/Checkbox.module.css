@@ -1,62 +1,85 @@
-.root {
+.container {
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   cursor: pointer;
 }
 
 .control {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   flex-shrink: 0;
   width: 24px;
   height: 24px;
 }
 
 .input {
-  position: absolute;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  opacity: 0;
-}
-
-.box {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  appearance: none;
   box-sizing: border-box;
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--lido-app-ui-palette-black-a900);
+  margin: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: 4px;
-  background-color: transparent;
+  background-color: var(--lido-app-ui-color-background-default);
+  cursor: pointer;
+  transition:
+    background-color 150ms,
+    border-color 150ms;
 }
 
 .tick {
-  width: 16px;
-  height: 16px;
-  color: var(--lido-app-ui-palette-white-a900);
+  position: absolute;
+  inset: 2px;
+  width: 20px;
+  height: 20px;
+  color: var(--lido-app-ui-color-icons-inverse);
   opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+  transition:
+    opacity 150ms,
+    transform 150ms;
 }
 
-.input:checked + .box {
-  background-color: var(--lido-app-ui-palette-black-a900);
+.input:checked {
+  background-color: var(--lido-app-ui-color-background-surface-selected);
 }
 
-.input:checked + .box .tick {
+.input:checked + .tick {
   opacity: 1;
+  transform: scale(1);
 }
 
-.input:focus-visible + .box {
+.input:not(:disabled):hover {
+  background-color: var(--lido-app-ui-color-background-default-hover);
+}
+
+.input:checked:not(:disabled):hover {
+  background-color: var(--lido-app-ui-color-background-surface-selected-hover);
+}
+
+.input:focus-visible {
   outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  background-color: var(--lido-app-ui-color-icons-disabled);
 }
 
 .label {
   @mixin font-body;
 
   color: var(--lido-app-ui-color-text-default);
+}
+
+.containerDisabled {
+  cursor: not-allowed;
+}
+
+.labelDisabled {
+  color: var(--lido-app-ui-color-text-disabled);
 }

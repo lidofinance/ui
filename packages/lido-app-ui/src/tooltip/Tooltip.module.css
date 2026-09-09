@@ -7,20 +7,24 @@
 .content {
   position: absolute;
   z-index: 1;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   visibility: hidden;
   opacity: 0;
   width: max-content;
-  max-width: var(--local-tooltip-width, 280px);
+  max-width: var(--local-tooltip-width, 320px);
   box-sizing: border-box;
-  padding: 12px;
+  padding: 16px;
+  border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-tooltip);
-  background-color: var(--lido-app-ui-palette-black-a900);
+  background-color: rgb(0 0 0 / 90%);
   color: var(--lido-app-ui-palette-white-a900);
-  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-size: var(--lido-app-ui-font-size-label);
   font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: var(--lido-app-ui-line-height-tooltip);
-  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  word-break: break-word;
   pointer-events: none;
   transition:
     opacity 0.2s ease,
