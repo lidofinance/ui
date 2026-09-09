@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { describe, expect, it } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 
@@ -10,7 +11,12 @@ import { Identicon } from './identicon'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { RichInput } from './rich-input'
-import { Segment, SegmentedControl } from './segmented-control'
+import {
+  Segment,
+  SegmentCard,
+  SegmentedControl,
+  SegmentedControlCard,
+} from './segmented-control'
 import { StatItem } from './stat-item'
 import { StatsRow } from './stats-row'
 import { Stepper } from './stepper'
@@ -60,6 +66,17 @@ const cases: Array<[string, () => JSX.Element]> = [
       />
     ),
   ],
+  ['SegmentCard', () => <SegmentCard title='Eject' active />],
+  [
+    'SegmentedControlCard',
+    () => (
+      <SegmentedControlCard
+        items={[{ value: 'a', title: 'A' }]}
+        value='a'
+        onChange={() => undefined}
+      />
+    ),
+  ],
   ['StatItem', () => <StatItem label='TVL' value='1M' />],
   ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
   ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],
@@ -93,6 +110,27 @@ describe('behaviour that survived the migration', () => {
     fireEvent.change(input, { target: { value: '1a.2.3' } })
 
     expect(input.value).toBe('1.23')
+  })
+
+  it('SegmentedControl still switches between enabled items when one item is disabled', () => {
+    const items = [
+      { value: 'a', label: 'A' },
+      { value: 'b', label: 'B' },
+      { value: 'c', label: 'C', disabled: true },
+    ]
+    const Controlled = () => {
+      const [value, setValue] = useState('a')
+      return (
+        <SegmentedControl items={items} value={value} onChange={setValue} />
+      )
+    }
+    render(<Controlled />)
+
+    fireEvent.click(screen.getByText('B'))
+
+    expect(
+      screen.getByText('B').closest('button')?.getAttribute('aria-selected'),
+    ).toBe('true')
   })
 
   it('TokenSelector renders the selected option in single mode', () => {

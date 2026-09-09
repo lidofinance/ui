@@ -1,0 +1,10 @@
+.segmentedControlCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: 20px;
+  background-color: var(--lido-app-ui-color-background-default);
+}

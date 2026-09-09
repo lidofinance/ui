@@ -42,12 +42,18 @@ const meta: Meta<typeof SegmentedControl> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const Controlled = ({ filled }: { filled?: boolean }) => {
+const Controlled = ({
+  filled,
+  controlItems = items,
+}: {
+  filled?: boolean
+  controlItems?: SegmentItem[]
+}) => {
   const [value, setValue] = useState('supply')
 
   return (
     <SegmentedControl
-      items={items}
+      items={controlItems}
       value={value}
       onChange={setValue}
       filled={filled}
@@ -76,10 +82,11 @@ export const Variants: Story = {
         <Controlled filled />
       </StorySection>
       <StorySection title='with disabled item'>
-        <SegmentedControl
-          items={[...items, { value: 'repay', label: 'Repay', disabled: true }]}
-          value='supply'
-          onChange={() => undefined}
+        <Controlled
+          controlItems={[
+            ...items,
+            { value: 'repay', label: 'Repay', disabled: true },
+          ]}
         />
       </StorySection>
     </StoryContainer>
