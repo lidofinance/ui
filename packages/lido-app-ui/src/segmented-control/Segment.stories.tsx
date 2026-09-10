@@ -4,7 +4,7 @@ import { StorySection } from '../../.storybook/components'
 import { Segment } from '.'
 
 const meta: Meta<typeof Segment> = {
-  title: 'Navigation/Segment',
+  title: 'Controls/Segment',
   component: Segment,
   tags: ['autodocs'],
   args: {

@@ -5,7 +5,7 @@ import { StoryContainer, StorySection } from '../../.storybook/components'
 import { IconInfo } from '../icons'
 
 const meta: Meta<typeof Button> = {
-  title: 'Buttons/Button',
+  title: 'Controls/Button',
   component: Button,
   tags: ['autodocs'],
   args: {

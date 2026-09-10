@@ -2,6 +2,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 
   /* Figma "Radius/lg" (20px) — no matching semantic token yet. */
   border-radius: 20px;
@@ -9,6 +10,7 @@
 }
 
 .big {
+  gap: 32px;
   padding: 32px;
 }
 

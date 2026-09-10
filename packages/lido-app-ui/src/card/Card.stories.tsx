@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { StoryContainer } from '../../.storybook/components'
 import { Button } from '../button'
 import { Input } from '../input'
 import { Tag } from '../tag'
@@ -24,7 +23,7 @@ const meta: Meta<typeof Card> = {
     docs: {
       description: {
         component:
-          'A plain surface container — padding, radius, and background only. `size="big"` is a white 32px-padded box; `size="small"` is a 16px-padded box that starts on the default (grey) background and, when `interactive`, lightens to surface on hover.',
+          'A plain surface container — padding, radius, and background only. `size="big"` is a white 32px-padded box with a 32px gap between children; `size="small"` is a 16px-padded box with a 16px gap that starts on the default (grey) background and, when `interactive`, lightens to surface on hover.',
       },
     },
   },
@@ -35,28 +34,10 @@ type Story = StoryObj<typeof meta>
 
 export const Big: Story = {
   render: (args) => (
-    <Card {...args} style={{ width: 480 }}>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 32,
-        }}
-      >
-        <div
-          style={{ display: 'flex', justifyContent: 'space-between', gap: 20 }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-            <strong>Choose a token to claim</strong>
-            <span style={{ opacity: 0.5, fontSize: 14 }}>
-              Splitter addresses receive stETH. Choose the token for your
-              Rewards Address.
-            </span>
-          </div>
-        </div>
-        <Input placeholder='Placeholder' />
-        <Button>Button</Button>
-      </div>
+    <Card {...args}>
+      <strong>Choose a token to claim</strong>
+      <Input placeholder='Placeholder' />
+      <Button>Button</Button>
     </Card>
   ),
 }
@@ -64,29 +45,16 @@ export const Big: Story = {
 export const Small: Story = {
   args: { size: 'small' },
   render: (args) => (
-    <Card {...args} style={{ width: 248 }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <div
-          style={{ display: 'flex', justifyContent: 'space-between', gap: 8 }}
-        >
-          <strong style={{ fontSize: 14 }}>CSM Sentinel</strong>
-        </div>
-        <span style={{ opacity: 0.4, fontSize: 12 }}>
-          Provides your CSM Node Operator events to the telegram chats
-        </span>
-      </div>
+    <Card {...args}>
+      <strong>CSM Sentinel</strong>
       <Tag variant='info'>Notification tool</Tag>
     </Card>
   ),
 }
 
-export const InteractiveSmall: Story = {
+export const Interactive: Story = {
   args: { size: 'small', interactive: true },
-  render: (args) => (
-    <Card {...args} style={{ width: 248 }}>
-      <strong style={{ fontSize: 14 }}>Hover me</strong>
-    </Card>
-  ),
+  render: (args) => <Card {...args}>Hover me</Card>,
   parameters: {
     controls: { disable: true },
     docs: {
@@ -96,18 +64,4 @@ export const InteractiveSmall: Story = {
       },
     },
   },
-}
-
-export const Sizes: Story = {
-  render: () => (
-    <StoryContainer gap={16}>
-      <Card size='big' style={{ width: 320 }}>
-        Big card
-      </Card>
-      <Card size='small' style={{ width: 320 }}>
-        Small card
-      </Card>
-    </StoryContainer>
-  ),
-  parameters: { controls: { disable: true } },
 }

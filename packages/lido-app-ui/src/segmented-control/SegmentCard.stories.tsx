@@ -5,7 +5,7 @@ import { IconShield } from '../icons'
 import { SegmentCard } from '.'
 
 const meta: Meta<typeof SegmentCard> = {
-  title: 'Navigation/SegmentCard',
+  title: 'Controls/SegmentCard',
   component: SegmentCard,
   tags: ['autodocs'],
   args: {

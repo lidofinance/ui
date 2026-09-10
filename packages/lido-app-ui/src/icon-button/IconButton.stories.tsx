@@ -5,7 +5,7 @@ import { StorySection } from '../../.storybook/components'
 import { IconCross } from '../icons'
 
 const meta: Meta<typeof IconButton> = {
-  title: 'Buttons/IconButton',
+  title: 'Controls/IconButton',
   component: IconButton,
   tags: ['autodocs'],
   args: {

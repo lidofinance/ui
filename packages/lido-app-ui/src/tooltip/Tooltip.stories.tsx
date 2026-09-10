@@ -5,7 +5,7 @@ import { IconInfo } from '../icons'
 import { Tooltip } from '.'
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Content helpers/Tooltip',
+  title: 'Feedback/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   args: {

@@ -6,7 +6,7 @@ import { TokenIcon } from '../icons'
 import { Banner } from '.'
 
 const meta: Meta<typeof Banner> = {
-  title: 'Content helpers/Banner',
+  title: 'Feedback/Banner',
   component: Banner,
   tags: ['autodocs'],
   args: {
