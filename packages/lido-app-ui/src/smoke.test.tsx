@@ -4,12 +4,16 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 
 import { Badge } from './badge'
 import { Button } from './button'
+import { Card } from './card'
 import { Checkbox } from './checkbox'
+import { Counter } from './counter'
 import { DataList, DetailRow } from './data-list'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
+import { Notification } from './notification'
+import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
 import {
   Segment,
@@ -17,9 +21,11 @@ import {
   SegmentedControl,
   SegmentedControlCard,
 } from './segmented-control'
+import { Slider } from './slider'
 import { StatItem } from './stat-item'
 import { StatsRow } from './stats-row'
 import { Stepper } from './stepper'
+import { Switch } from './switch'
 import { Tag } from './tag'
 import { TextLink } from './text-link'
 import { TokenAmount } from './token-amount'
@@ -32,9 +38,11 @@ import { Typography } from './typography'
 // migration introduces — a missing module, a bad import path, a render-time
 // crash — which type-checking alone does not.
 const cases: Array<[string, () => JSX.Element]> = [
-  ['Badge', () => <Badge variant='success'>Active</Badge>],
+  ['Badge', () => <Badge>Badge text</Badge>],
   ['Button', () => <Button>Connect</Button>],
+  ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
+  ['Counter', () => <Counter>1</Counter>],
   [
     'DataList',
     () => (
@@ -54,6 +62,8 @@ const cases: Array<[string, () => JSX.Element]> = [
   ],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
+  ['Notification', () => <Notification title='Saved' />],
+  ['RadioButton', () => <RadioButton label='Option' />],
   ['RichInput', () => <RichInput label='Amount' error='Too much' />],
   ['Segment', () => <Segment active>Tab</Segment>],
   [
@@ -77,9 +87,11 @@ const cases: Array<[string, () => JSX.Element]> = [
       />
     ),
   ],
+  ['Slider', () => <Slider defaultValue={40} />],
   ['StatItem', () => <StatItem label='TVL' value='1M' />],
   ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
   ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],
+  ['Switch', () => <Switch label='Enable' />],
   ['Tag', () => <Tag variant='success'>Active</Tag>],
   ['TextLink', () => <TextLink href='https://lido.fi'>Link</TextLink>],
   ['TokenAmount', () => <TokenAmount symbol='stETH' amount='1.0' />],

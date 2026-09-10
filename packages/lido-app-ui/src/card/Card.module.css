@@ -1,0 +1,27 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  /* Figma "Radius/lg" (20px) — no matching semantic token yet. */
+  border-radius: 20px;
+  background-color: var(--lido-app-ui-color-background-surface);
+}
+
+.big {
+  padding: 32px;
+}
+
+.small {
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--lido-app-ui-color-background-default);
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive.small:hover {
+  background-color: var(--lido-app-ui-color-background-surface);
+}

@@ -1,0 +1,140 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  height: 32px;
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: var(--lido-app-ui-border-radius-control);
+  background-color: var(--lido-app-ui-color-background-secondary);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fill {
+  height: 100%;
+  background-color: var(--lido-app-ui-color-background-surface-selected);
+}
+
+.mark {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: var(--lido-app-ui-color-background-surface);
+  pointer-events: none;
+}
+
+.input {
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.input::-webkit-slider-runnable-track {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.input::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+}
+
+.input::-webkit-slider-thumb {
+  appearance: none;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border: 4px solid var(--lido-app-ui-color-border-active);
+  border-radius: 50%;
+  background-color: var(--lido-app-ui-color-background-surface);
+  cursor: pointer;
+}
+
+.input::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border: 4px solid var(--lido-app-ui-color-border-active);
+  border-radius: 50%;
+  background-color: var(--lido-app-ui-color-background-surface);
+  cursor: pointer;
+}
+
+.input:hover::-webkit-slider-thumb {
+  background-color: var(--lido-app-ui-color-tint-active);
+}
+
+.input:hover::-moz-range-thumb {
+  background-color: var(--lido-app-ui-color-tint-active);
+}
+
+.input:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.input:focus-visible::-moz-range-thumb {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.input:disabled::-webkit-slider-thumb {
+  cursor: not-allowed;
+  border-color: var(--lido-app-ui-color-icons-disabled);
+  background-color: var(--lido-app-ui-color-background-surface);
+}
+
+.input:disabled::-moz-range-thumb {
+  cursor: not-allowed;
+  border-color: var(--lido-app-ui-color-icons-disabled);
+  background-color: var(--lido-app-ui-color-background-surface);
+}
+
+.fillDisabled {
+  background-color: var(--lido-app-ui-color-icons-disabled);
+}
+
+.labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.label {
+  @mixin font-description;
+
+  color: var(--lido-app-ui-color-text-default);
+  opacity: 0.5;
+}
