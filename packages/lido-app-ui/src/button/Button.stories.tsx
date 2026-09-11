@@ -5,7 +5,7 @@ import { StoryContainer, StorySection } from '../../.storybook/components'
 import { IconInfo } from '../icons'
 
 const meta: Meta<typeof Button> = {
-  title: 'Controls/Button',
+  title: 'Buttons/Button',
   component: Button,
   tags: ['autodocs'],
   args: {
@@ -15,7 +15,7 @@ const meta: Meta<typeof Button> = {
     children: { description: 'Button label', control: { type: 'text' } },
     variant: {
       control: { type: 'select' },
-      options: ['primary', 'outline', 'outlineSecondary', 'ghost', 'danger'],
+      options: ['primary', 'outline', 'subtle', 'ghost', 'danger'],
     },
     size: {
       control: { type: 'select' },
@@ -23,8 +23,10 @@ const meta: Meta<typeof Button> = {
     },
     disabled: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
+    type: { table: { disable: true } },
   },
   parameters: {
+    controls: { exclude: ['type'] },
     docs: {
       description: {
         component:
@@ -42,7 +44,7 @@ export const Basic: Story = {}
 const variants: ButtonVariant[] = [
   'primary',
   'outline',
-  'outlineSecondary',
+  'subtle',
   'ghost',
   'danger',
 ]
@@ -88,6 +90,15 @@ export const States: Story = {
           <Button variant={variant} disabled>
             Disabled
           </Button>
+          <Button variant={variant} size='small'>
+            Default
+          </Button>
+          <Button variant={variant} size='small' loading>
+            Loading
+          </Button>
+          <Button variant={variant} size='small' disabled>
+            Disabled
+          </Button>
         </StorySection>
       ))}
     </StoryContainer>
@@ -109,6 +120,9 @@ export const WithIcons: Story = {
       <Button iconLeft={<IconInfo />}>Left icon</Button>
       <Button iconRight={<IconInfo />}>Right icon</Button>
       <Button variant='outline' size='small' iconLeft={<IconInfo />}>
+        Small
+      </Button>
+      <Button variant='outline' size='small' iconRight={<IconInfo />}>
         Small
       </Button>
     </StorySection>

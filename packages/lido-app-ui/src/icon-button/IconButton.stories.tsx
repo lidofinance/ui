@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { IconButton } from '.'
 
-import { StorySection } from '../../.storybook/components'
-import { IconCross } from '../icons'
+import { StoryContainer, StorySection } from '../../.storybook/components'
+import { IconBell, IconCross } from '../icons'
 
 const meta: Meta<typeof IconButton> = {
-  title: 'Controls/IconButton',
+  title: 'Buttons/IconButton',
   component: IconButton,
   tags: ['autodocs'],
   args: {
-    'aria-label': 'Close',
     icon: <IconCross />,
+    'aria-label': 'Close',
   },
   argTypes: {
     variant: {
@@ -19,8 +19,10 @@ const meta: Meta<typeof IconButton> = {
     },
     disabled: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
+    type: { table: { disable: true } },
   },
   parameters: {
+    controls: { exclude: ['type'] },
     docs: {
       description: {
         component:
@@ -38,8 +40,12 @@ export const Basic: Story = {}
 export const Variants: Story = {
   render: () => (
     <StorySection>
-      <IconButton aria-label='Close' icon={<IconCross />} variant='outline' />
-      <IconButton aria-label='Close' icon={<IconCross />} variant='ghost' />
+      <IconButton icon={<IconCross />} variant='outline' aria-label='Close' />
+      <IconButton
+        icon={<IconBell />}
+        variant='ghost'
+        aria-label='Notifications'
+      />
     </StorySection>
   ),
   parameters: { controls: { disable: true } },
@@ -47,34 +53,49 @@ export const Variants: Story = {
 
 export const States: Story = {
   render: () => (
-    <StorySection>
-      <IconButton aria-label='Close' icon={<IconCross />} variant='outline' />
-      <IconButton
-        aria-label='Close'
-        icon={<IconCross />}
-        variant='outline'
-        loading
-      />
-      <IconButton
-        aria-label='Close'
-        icon={<IconCross />}
-        variant='outline'
-        disabled
-      />
-      <IconButton aria-label='Close' icon={<IconCross />} variant='ghost' />
-      <IconButton
-        aria-label='Close'
-        icon={<IconCross />}
-        variant='ghost'
-        loading
-      />
-      <IconButton
-        aria-label='Close'
-        icon={<IconCross />}
-        variant='ghost'
-        disabled
-      />
-    </StorySection>
+    <StoryContainer>
+      <StorySection title='outline'>
+        <IconButton icon={<IconCross />} variant='outline' aria-label='Close' />
+        <IconButton
+          icon={<IconCross />}
+          variant='outline'
+          loading
+          aria-label='Close'
+        />
+        <IconButton
+          icon={<IconCross />}
+          variant='outline'
+          disabled
+          aria-label='Close'
+        />
+      </StorySection>
+      <StorySection title='ghost'>
+        <IconButton
+          icon={<IconBell />}
+          variant='ghost'
+          aria-label='Notifications'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='ghost'
+          loading
+          aria-label='Notifications'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='ghost'
+          disabled
+          aria-label='Notifications'
+        />
+      </StorySection>
+    </StoryContainer>
   ),
-  parameters: { controls: { disable: true } },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: 'Each row is default, loading, then disabled.',
+      },
+    },
+  },
 }

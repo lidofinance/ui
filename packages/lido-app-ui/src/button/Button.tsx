@@ -8,7 +8,7 @@ import styles from './Button.module.css'
 export type ButtonVariant =
   | 'primary'
   | 'outline'
-  | 'outlineSecondary'
+  | 'subtle'
   | 'ghost'
   | 'danger'
 

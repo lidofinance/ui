@@ -99,11 +99,11 @@
   --local-color: var(--lido-app-ui-color-text-inverse);
 }
 
-.primary:hover {
+.primary:not(:disabled):hover {
   --local-bg: var(--lido-app-ui-color-background-action-hover);
 }
 
-.primary:active {
+.primary:not(:disabled):active {
   --local-bg: var(--lido-app-ui-color-background-action-pressed);
 }
 
@@ -118,11 +118,11 @@
   --local-color: var(--lido-app-ui-color-text-default);
 }
 
-.outline:hover {
+.outline:not(:disabled):hover {
   --local-bg: var(--lido-app-ui-color-background-transparent-hover);
 }
 
-.outline:active {
+.outline:not(:disabled):active {
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
@@ -132,23 +132,23 @@
   --local-color: var(--lido-app-ui-color-text-disabled);
 }
 
-.outlineSecondary {
+.subtle {
   --local-border-width: 1px;
   --local-border-color: var(--lido-app-ui-color-border-default);
   --local-color: var(--lido-app-ui-color-text-tertiary);
 }
 
-.outlineSecondary:hover {
+.subtle:not(:disabled):hover {
   --local-bg: var(--lido-app-ui-color-background-transparent-hover);
   --local-color: var(--lido-app-ui-color-text-default);
 }
 
-.outlineSecondary:active {
+.subtle:not(:disabled):active {
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
   --local-color: var(--lido-app-ui-color-text-default);
 }
 
-.outlineSecondary:disabled {
+.subtle:disabled {
   --local-border-width: 0px;
   --local-bg: var(--lido-app-ui-color-background-disabled);
   --local-color: var(--lido-app-ui-color-text-disabled);
@@ -158,11 +158,11 @@
   --local-color: var(--lido-app-ui-color-text-default);
 }
 
-.ghost:hover {
+.ghost:not(:disabled):hover {
   --local-bg: var(--lido-app-ui-color-background-transparent-hover);
 }
 
-.ghost:active {
+.ghost:not(:disabled):active {
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
@@ -176,11 +176,11 @@
   --local-color: var(--lido-app-ui-color-text-error);
 }
 
-.danger:hover {
+.danger:not(:disabled):hover {
   --local-bg: var(--lido-app-ui-color-tint-error-hover);
 }
 
-.danger:active {
+.danger:not(:disabled):active {
   --local-bg: var(--lido-app-ui-color-tint-error);
 }
 
@@ -208,7 +208,7 @@
   --local-color: var(--lido-app-ui-color-text-default);
 }
 
-.outlineSecondary.loading:disabled {
+.subtle.loading:disabled {
   --local-border-width: 1px;
   --local-bg: transparent;
   --local-color: var(--lido-app-ui-color-text-tertiary);

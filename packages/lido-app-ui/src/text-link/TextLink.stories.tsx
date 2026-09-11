@@ -5,7 +5,7 @@ import { IconArrowRight } from '../icons'
 import { TextLink } from '.'
 
 const meta: Meta<typeof TextLink> = {
-  title: 'Controls/TextLink',
+  title: 'Buttons/TextLink',
   component: TextLink,
   tags: ['autodocs'],
   args: {
