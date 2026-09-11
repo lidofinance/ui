@@ -21,7 +21,7 @@ const meta: Meta<typeof Card> = {
     interactive: { control: { type: 'boolean' } },
   },
   parameters: {
-    storyBackground: 'var(--stotybook-background-intense)',
+    storyBackground: 'var(--storybook-background-intence)',
     docs: {
       description: {
         component:

@@ -16,7 +16,8 @@ export const WithThemeProvider: Decorator = (
     | 'follow cookie and system'
     | undefined
   console.log(parameters.storyBackground)
-  const background = parameters.storyBackground ?? 'var(--stotybook-background)'
+  const background =
+    parameters.storyBackground ?? 'var(--storybook-background-default)'
 
   return (
     <CookieThemeProvider

@@ -23,6 +23,7 @@ import {
   SegmentedControlCard,
 } from './segmented-control'
 import { Slider } from './slider'
+import { SmallCard } from './small-card'
 import { StatItem } from './stat-item'
 import { StatsRow } from './stats-row'
 import { Stepper } from './stepper'
@@ -90,6 +91,10 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Slider', () => <Slider defaultValue={40} />],
+  [
+    'SmallCard',
+    () => <SmallCard title='CSM Sentinel' href='https://lido.fi' />,
+  ],
   ['StatItem', () => <StatItem label='TVL' value='1M' />],
   ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
   ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],

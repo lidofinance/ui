@@ -1,0 +1,86 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  padding: 16px;
+
+  /* Figma "Radius/lg" (20px) — no matching semantic token yet. */
+  border-radius: 20px;
+  background-color: var(--lido-app-ui-color-background-default);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+
+.card:hover {
+  background-color: var(--lido-app-ui-color-background-surface);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.logo {
+  display: flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.title {
+  overflow: hidden;
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+
+  /* Figma "Body 2" — no matching size/line-height token pair. */
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  color: var(--lido-app-ui-color-text-default);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--lido-app-ui-color-icons-secondary);
+}
+
+.description {
+  margin: 0;
+  width: 100%;
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.tagSlot {
+  flex-shrink: 0;
+}
