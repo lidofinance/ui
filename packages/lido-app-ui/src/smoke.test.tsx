@@ -28,6 +28,7 @@ import { StatItem } from './stat-item'
 import { StatsRow } from './stats-row'
 import { Stepper } from './stepper'
 import { Switch } from './switch'
+import { Tabs } from './tabs'
 import { Tag } from './tag'
 import { TextLink } from './text-link'
 import { TokenAmount } from './token-amount'
@@ -99,6 +100,16 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
   ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],
   ['Switch', () => <Switch label='Enable' />],
+  [
+    'Tabs',
+    () => (
+      <Tabs
+        items={[{ value: 'a', label: 'A' }]}
+        value='a'
+        onChange={() => undefined}
+      />
+    ),
+  ],
   ['Tag', () => <Tag variant='success'>Active</Tag>],
   ['TextLink', () => <TextLink href='https://lido.fi'>Link</TextLink>],
   ['TokenAmount', () => <TokenAmount symbol='stETH' amount='1.0' />],

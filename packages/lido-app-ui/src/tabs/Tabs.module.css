@@ -1,0 +1,29 @@
+.tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--lido-app-ui-color-border-default);
+}
+
+.selection {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--lido-app-ui-color-border-black);
+  pointer-events: none;
+  will-change: transform, width;
+}
+
+.animated {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated {
+    transition: none;
+  }
+}
