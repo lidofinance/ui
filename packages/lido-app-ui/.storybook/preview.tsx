@@ -7,6 +7,9 @@ export default {
   tags: ['autodocs'],
   parameters: {
     controls: { hideNoControlsWarning: true },
+    docs: {
+      source: { type: 'dynamic' },
+    },
     viewport: {
       viewports: {
         px1440: {
