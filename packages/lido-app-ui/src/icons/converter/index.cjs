@@ -47,7 +47,7 @@ const svgoConfig = (convertAllToCurrentColor, prefix) => {
         convertColors: {
           currentColor: {
             exec: (a) => {
-              if (a.indexOf('url(#') === 0) {
+              if (a === 'none' || a.indexOf('url(#') === 0) {
                 return false
               }
               return convertAllToCurrentColor
