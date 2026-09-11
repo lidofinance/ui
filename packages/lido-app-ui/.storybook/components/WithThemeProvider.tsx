@@ -25,7 +25,7 @@ export const WithThemeProvider: Decorator = (Story, { globals }) => {
           justifyContent: 'flex-end',
           padding: '16px 16px 0',
           boxSizing: 'border-box',
-          background: 'var(--lido-app-ui-color-background-page)',
+          background: 'var(--lido-app-ui-color-background-surface)',
         }}
       >
         <ThemeToggleButton />
@@ -35,7 +35,7 @@ export const WithThemeProvider: Decorator = (Story, { globals }) => {
         style={{
           fontFamily: 'var(--lido-app-ui-font-family)',
           color: 'var(--lido-app-ui-color-text-default)',
-          background: 'var(--lido-app-ui-color-background-page)',
+          background: 'var(--lido-app-ui-color-background-surface)',
           padding: 16,
           boxSizing: 'border-box',
         }}
