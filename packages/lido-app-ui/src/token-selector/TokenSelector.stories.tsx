@@ -6,9 +6,28 @@ import { TokenEth, TokenSteth, TokenWsteth } from '../icons'
 import { TokenSelector, type TokenSelectorOption } from '.'
 
 const options: TokenSelectorOption[] = [
-  { value: 'ETH', label: 'ETH', icon: <TokenEth /> },
-  { value: 'stETH', label: 'stETH', icon: <TokenSteth /> },
-  { value: 'wstETH', label: 'wstETH', icon: <TokenWsteth /> },
+  {
+    value: 'ETH',
+    label: 'ETH',
+    secondaryLabel: 'Ethereum',
+    description: 'The base asset — unstaked.',
+    icon: <TokenEth />,
+  },
+  {
+    value: 'stETH',
+    label: 'stETH',
+    secondaryLabel: 'Staked Ether',
+    description: 'Rebasing — balance grows with rewards.',
+    icon: <TokenSteth />,
+  },
+  {
+    value: 'wstETH',
+    label: 'wstETH',
+    secondaryLabel: 'Wrapped Staked Ether',
+    description: 'Non-rebasing — value grows instead.',
+    icon: <TokenWsteth />,
+    disabled: true,
+  },
 ]
 
 const meta: Meta<typeof TokenSelector> = {
@@ -19,10 +38,15 @@ const meta: Meta<typeof TokenSelector> = {
     options,
     value: 'stETH',
     single: false,
+    size: 'default',
   },
   argTypes: {
     options: { description: 'Value, label and glyph per token' },
     value: { description: 'Selected token value' },
+    size: {
+      options: ['default', 'small'],
+      control: { type: 'select' },
+    },
     single: {
       description: 'Renders a static chip with no dropdown',
       control: { type: 'boolean' },
@@ -32,7 +56,7 @@ const meta: Meta<typeof TokenSelector> = {
     docs: {
       description: {
         component:
-          'The token chip inside `RichInput`. Click it for the dropdown; it closes on outside click and on Escape.',
+          'The token chip inside `RichInput`. Click it for the dropdown; it closes on outside click and on Escape. `secondaryLabel` and `description` only render at `size="default"`.',
       },
     },
   },
@@ -41,7 +65,13 @@ const meta: Meta<typeof TokenSelector> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const Controlled = ({ single }: { single?: boolean }) => {
+const Controlled = ({
+  single,
+  size,
+}: {
+  single?: boolean
+  size?: 'default' | 'small'
+}) => {
   const [value, setValue] = useState('stETH')
 
   return (
@@ -50,6 +80,7 @@ const Controlled = ({ single }: { single?: boolean }) => {
       value={value}
       onChange={setValue}
       single={single}
+      size={size}
     />
   )
 }
@@ -60,6 +91,30 @@ export const Basic: Story = {
     docs: {
       description: {
         story: 'Open it and pick a token — the chip updates.',
+      },
+    },
+  },
+}
+
+export const Empty: Story = {
+  args: { value: undefined },
+  parameters: {
+    controls: { disable: true },
+  },
+}
+
+export const Sizes: Story = {
+  render: () => (
+    <StoryContainer gap={16}>
+      <Controlled size='default' />
+      <Controlled size='small' />
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: '`size="small"` renders a compact pill with no secondary label.',
       },
     },
   },

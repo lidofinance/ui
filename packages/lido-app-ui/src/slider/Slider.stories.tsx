@@ -1,17 +1,18 @@
-import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+import { Slider } from '.'
 
 import { StoryContainer } from '../../.storybook/components'
-import { Slider } from '.'
 
 const meta: Meta<typeof Slider> = {
   title: 'Controls/Slider',
   component: Slider,
   tags: ['autodocs'],
   args: {
-    defaultValue: 40,
+    value: 40,
     minLabel: 'min label',
     maxLabel: 'max label',
+    marks: true,
+    step: 5,
   },
   argTypes: {
     disabled: { control: { type: 'boolean' } },
@@ -39,29 +40,6 @@ export const WithMarks: Story = {
     step: 1,
     defaultValue: 7,
     marks: true,
-  },
-}
-
-export const Controlled: Story = {
-  render: function Render() {
-    const [value, setValue] = useState(25)
-
-    return (
-      <Slider
-        value={value}
-        onChange={(event) => setValue(event.target.valueAsNumber)}
-        minLabel='0'
-        maxLabel='100'
-      />
-    )
-  },
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: {
-        story: 'Pass `value` + `onChange` to drive it from your own state.',
-      },
-    },
   },
 }
 
