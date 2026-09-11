@@ -7,11 +7,16 @@ import { ThemeToggleButton } from './ThemeToggleButton'
 // both themes without leaving Storybook. Also renders a toggle button on
 // the story itself, same as lido-landing-ui's decorator, for a one-click
 // flip without touching the toolbar.
-export const WithThemeProvider: Decorator = (Story, { globals }) => {
+export const WithThemeProvider: Decorator = (
+  Story,
+  { globals, parameters },
+) => {
   const themeOverride = globals.themeOverride as
     | ThemeName
     | 'follow cookie and system'
     | undefined
+  console.log(parameters.storyBackground)
+  const background = parameters.storyBackground ?? 'var(--stotybook-background)'
 
   return (
     <CookieThemeProvider
@@ -25,7 +30,7 @@ export const WithThemeProvider: Decorator = (Story, { globals }) => {
           justifyContent: 'flex-end',
           padding: '16px 16px 0',
           boxSizing: 'border-box',
-          background: 'var(--lido-app-ui-color-background-surface)',
+          background: background,
         }}
       >
         <ThemeToggleButton />
@@ -35,8 +40,8 @@ export const WithThemeProvider: Decorator = (Story, { globals }) => {
         style={{
           fontFamily: 'var(--lido-app-ui-font-family)',
           color: 'var(--lido-app-ui-color-text-default)',
-          background: 'var(--lido-app-ui-color-background-surface)',
-          padding: 16,
+          background: background,
+          padding: 20,
           boxSizing: 'border-box',
         }}
       >
