@@ -3,27 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  padding: 32px;
 
   /* Figma "Radius/lg" (20px) — no matching semantic token yet. */
   border-radius: 20px;
-  background-color: var(--lido-app-ui-color-background-surface);
-}
-
-.big {
-  gap: 32px;
-  padding: 32px;
-}
-
-.small {
-  gap: 16px;
-  padding: 16px;
-  background-color: var(--lido-app-ui-color-background-default);
-}
-
-.interactive {
-  cursor: pointer;
-}
-
-.interactive.small:hover {
   background-color: var(--lido-app-ui-color-background-surface);
 }

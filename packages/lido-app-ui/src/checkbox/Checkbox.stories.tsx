@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+import { Checkbox } from '.'
 
 import { StoryContainer } from '../../.storybook/components'
-import { Checkbox } from '.'
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Controls/Checkbox',
@@ -30,36 +29,18 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
 
-export const Controlled: Story = {
-  render: function Render() {
-    const [checked, setChecked] = useState(false)
-
-    return (
-      <Checkbox
-        checked={checked}
-        onChange={(event) => setChecked(event.target.checked)}
-        label={checked ? 'Terms accepted' : 'Accept the Terms of Use'}
-      />
-    )
-  },
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: {
-        story: 'Pass `checked` + `onChange` to drive it from your own state.',
-      },
-    },
-  },
-}
-
 export const States: Story = {
+  args: {
+    icon: undefined,
+    action: undefined,
+  },
   render: () => (
     <StoryContainer gap={16}>
       <Checkbox label='Unchecked' defaultChecked={false} />
       <Checkbox label='Checked' defaultChecked />
       <Checkbox aria-label='Without a label' />
       <Checkbox label='Disabled unchecked' disabled />
-      <Checkbox label='Disabled checked' disabled defaultChecked />
+      <Checkbox label='Disabled checked' disabled checked={true} />
     </StoryContainer>
   ),
   parameters: {

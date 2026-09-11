@@ -9,7 +9,6 @@ const meta: Meta<typeof RadioButton> = {
   component: RadioButton,
   tags: ['autodocs'],
   args: {
-    name: 'story-radio',
     label: 'Option',
   },
   argTypes: {

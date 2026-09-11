@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+import { Switch } from '.'
 
 import { StoryContainer } from '../../.storybook/components'
-import { Switch } from '.'
 
 const meta: Meta<typeof Switch> = {
   title: 'Controls/Switch',
@@ -30,28 +29,6 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
 
-export const Controlled: Story = {
-  render: function Render() {
-    const [checked, setChecked] = useState(false)
-
-    return (
-      <Switch
-        checked={checked}
-        onChange={(event) => setChecked(event.target.checked)}
-        label={checked ? 'Notifications on' : 'Notifications off'}
-      />
-    )
-  },
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: {
-        story: 'Pass `checked` + `onChange` to drive it from your own state.',
-      },
-    },
-  },
-}
-
 export const States: Story = {
   render: () => (
     <StoryContainer gap={16}>
@@ -59,7 +36,7 @@ export const States: Story = {
       <Switch label='On' defaultChecked />
       <Switch aria-label='Without a label' />
       <Switch label='Disabled off' disabled />
-      <Switch label='Disabled on' disabled defaultChecked />
+      <Switch label='Disabled on' disabled checked={true} />
     </StoryContainer>
   ),
   parameters: {
