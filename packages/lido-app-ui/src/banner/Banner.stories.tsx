@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryContainer, StorySection } from '../../.storybook/components'
 
-import { StoryContainer } from '../../.storybook/components'
 import { Button } from '../button'
 import { TokenIcon } from '../icons'
 import { Banner } from '.'
@@ -23,6 +23,13 @@ const meta: Meta<typeof Banner> = {
     title: { control: { type: 'text' } },
     description: { control: { type: 'text' } },
   },
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: 436 }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: 'padded',
     docs: {
@@ -37,32 +44,34 @@ const meta: Meta<typeof Banner> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Basic: Story = {
-  render: (args) => (
-    <StoryContainer style={{ maxWidth: 436 }}>
-      <Banner {...args} title={args.title ?? 'Add stETH to your wallet'} />
-    </StoryContainer>
-  ),
-}
+export const Basic: Story = {}
 
-export const WithoutAction: Story = {
+export const Minimal: Story = {
   args: {
+    icon: undefined,
     action: undefined,
   },
   render: (args) => (
-    <StoryContainer style={{ maxWidth: 436 }}>
-      <Banner {...args} title={args.title ?? 'Add stETH to your wallet'} />
-    </StoryContainer>
-  ),
-}
-
-export const WithoutIcon: Story = {
-  args: {
-    icon: undefined,
-  },
-  render: (args) => (
-    <StoryContainer style={{ maxWidth: 436 }}>
-      <Banner {...args} title={args.title ?? 'Add stETH to your wallet'} />
+    <StoryContainer gap={20}>
+      <StorySection title='No button'>
+        <Banner
+          {...args}
+          icon={<TokenIcon token='stETH' />}
+          title={args.title ?? 'Add stETH to your wallet'}
+        />
+      </StorySection>
+      <StorySection title='No icon'>
+        <Banner
+          {...args}
+          action={
+            <Button variant='outline' size='small'>
+              Add to wallet
+            </Button>
+          }
+          title={args.title ?? 'Add stETH to your wallet'}
+          icon={undefined}
+        />
+      </StorySection>
     </StoryContainer>
   ),
 }
