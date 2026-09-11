@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '../button'
 import { Input } from '../input'
+import { SectionTitle } from '../section-title'
 import { Tag } from '../tag'
 import { Card } from '.'
 
@@ -20,6 +21,7 @@ const meta: Meta<typeof Card> = {
     interactive: { control: { type: 'boolean' } },
   },
   parameters: {
+    storyBackground: 'var(--stotybook-background-intense)',
     docs: {
       description: {
         component:
@@ -35,7 +37,16 @@ type Story = StoryObj<typeof meta>
 export const Big: Story = {
   render: (args) => (
     <Card {...args}>
-      <strong>Choose a token to claim</strong>
+      <SectionTitle
+        title='Choose a token to claim'
+        subtitle='Splitter addresses receive stETH. Choose the token for your Rewards Address.'
+        tooltip='Splitter addresses receive stETH.'
+        action={
+          <Button variant='outline' size='small'>
+            Learn more
+          </Button>
+        }
+      />
       <Input placeholder='Placeholder' />
       <Button>Button</Button>
     </Card>

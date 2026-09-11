@@ -15,6 +15,7 @@ import { Modal } from './modal'
 import { Notification } from './notification'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
+import { SectionTitle } from './section-title'
 import {
   Segment,
   SegmentCard,
@@ -65,6 +66,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Notification', () => <Notification title='Saved' />],
   ['RadioButton', () => <RadioButton label='Option' />],
   ['RichInput', () => <RichInput label='Amount' error='Too much' />],
+  ['SectionTitle', () => <SectionTitle title='Choose a token' />],
   ['Segment', () => <Segment active>Tab</Segment>],
   [
     'SegmentedControl',
