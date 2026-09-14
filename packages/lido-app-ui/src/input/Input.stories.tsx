@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StoryContainer } from '../../.storybook/components'
-import { Tag } from '../tag'
-import { IconInfo } from '../icons'
+import { IconInfo, IconSearch } from '../icons'
 import { Input } from '.'
 
 const meta: Meta<typeof Input> = {
@@ -28,7 +27,7 @@ const meta: Meta<typeof Input> = {
     docs: {
       description: {
         component:
-          'A bordered text field. `icon` adds a leading icon, `rightDecorator` is a slot on the right — a `Tag` for a "Max" button, a unit label, whatever fits. `label`/`description`/`error` add the field chrome around it; `tooltip` puts an info icon next to the label wired up to the `Tooltip` component.',
+          'A bordered text field. `icon` adds a leading icon. `label`/`description`/`error` add the field chrome around it; `tooltip` puts an info icon next to the label wired up to the `Tooltip` component.',
       },
     },
   },
@@ -45,27 +44,34 @@ export const Basic: Story = {
   ),
 }
 
-export const WithRightDecorator: Story = {
-  args: {
-    rightDecorator: <Tag>Max</Tag>,
-  },
-  render: (args) => (
-    <StoryContainer style={{ maxWidth: 400 }}>
-      <Input {...args} />
-    </StoryContainer>
-  ),
-}
-
 export const Small: Story = {
   args: {
     size: 'small',
-    icon: <IconInfo />,
   },
   render: (args) => (
     <StoryContainer style={{ maxWidth: 240 }}>
       <Input {...args} />
     </StoryContainer>
   ),
+}
+
+export const WithIcon: Story = {
+  render: (args) => (
+    <StoryContainer gap={16} style={{ maxWidth: 400 }}>
+      <Input {...args} icon={<IconInfo />} />
+      <div style={{ maxWidth: 240 }}>
+        <Input {...args} size='small' icon={<IconSearch />} />
+      </div>
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: 'Leading icon on both sizes.',
+      },
+    },
+  },
 }
 
 export const States: Story = {

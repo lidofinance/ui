@@ -16,7 +16,6 @@ export type InputSize = 'default' | 'small'
 export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   size?: InputSize
   icon?: ReactNode
-  rightDecorator?: ReactNode
   label?: ReactNode
   tooltip?: ReactNode
   description?: ReactNode
@@ -28,7 +27,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     {
       size = 'default',
       icon,
-      rightDecorator,
       label,
       tooltip,
       description,
@@ -82,9 +80,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             aria-describedby={showErrorMessage ? errorId : undefined}
             {...rest}
           />
-          {rightDecorator ? (
-            <span className={styles.decorator}>{rightDecorator}</span>
-          ) : null}
         </label>
         {showErrorMessage ? (
           <p id={errorId} className={styles.errorText} role='alert'>

@@ -26,7 +26,7 @@
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  color: var(--lido-app-ui-color-icons-tertiary);
+  color: var(--lido-app-ui-color-icons-secondary);
 }
 
 .root {
@@ -49,7 +49,7 @@
 
 .root:has(.input:focus) {
   border-color: var(--lido-app-ui-color-border-active);
-  background-color: var(--lido-app-ui-color-background-surface);
+  background-color: var(--lido-app-ui-color-background-default-active);
 }
 
 .root.error {
@@ -121,13 +121,7 @@
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: var(--lido-app-ui-color-icons-tertiary);
-}
-
-.decorator {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
+  color: var(--lido-app-ui-color-icons-secondary);
 }
 
 .errorText {
