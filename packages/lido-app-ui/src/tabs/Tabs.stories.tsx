@@ -26,7 +26,7 @@ const meta: Meta<typeof Tabs> = {
     docs: {
       description: {
         component:
-          'A row of text tabs with an underline on the active/hover item.',
+          'A row of text tabs with an underline on the active item; hover only darkens the text.',
       },
     },
   },

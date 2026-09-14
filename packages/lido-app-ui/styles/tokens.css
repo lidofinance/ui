@@ -190,7 +190,7 @@
   --lido-app-ui-font-weight-bold: 700;
   --lido-app-ui-font-size-amount: 36px;
   --lido-app-ui-line-height-amount: 1.4;
-  --lido-app-ui-letter-spacing-amount: -1.5px;
+  --lido-app-ui-letter-spacing-amount: 0;
   --lido-app-ui-font-size-body: 16px;
   --lido-app-ui-line-height-body: 24px;
   --lido-app-ui-letter-spacing-body: -0.14px;

@@ -14,7 +14,7 @@
   border: var(--local-border-width) solid var(--local-border-color);
   border-radius: var(--lido-app-ui-border-radius-button-50);
   background-color: var(--local-bg);
-  color: var(--lido-app-ui-color-icons-default);
+  color: var(--lido-app-ui-color-icons-secondary);
   cursor: pointer;
   transition:
     background-color 0.2s ease,
@@ -72,8 +72,6 @@
 .outline:disabled {
   --local-border-width: 0px;
   --local-bg: var(--lido-app-ui-color-background-disabled);
-
-  color: var(--lido-app-ui-color-icons-disabled);
 }
 
 .ghost:hover {
@@ -86,8 +84,6 @@
 
 .ghost:disabled {
   --local-bg: var(--lido-app-ui-color-background-disabled);
-
-  color: var(--lido-app-ui-color-icons-disabled);
 }
 
 /* Loading keeps the variant's default look (plus the spinner) instead of
@@ -100,12 +96,8 @@
 .outline.loading:disabled {
   --local-border-width: 1px;
   --local-bg: transparent;
-
-  color: var(--lido-app-ui-color-icons-default);
 }
 
 .ghost.loading:disabled {
   --local-bg: transparent;
-
-  color: var(--lido-app-ui-color-icons-default);
 }

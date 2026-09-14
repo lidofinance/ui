@@ -19,7 +19,9 @@ const meta: Meta<typeof TextLink> = {
       description: 'Adds target="_blank" and rel="noreferrer"',
       control: { type: 'boolean' },
     },
-    icon: { description: 'Optional trailing glyph' },
+    icon: {
+      description: 'Optional trailing glyph, sized to 20×20 by the component',
+    },
   },
   parameters: {
     docs: {
@@ -43,11 +45,7 @@ export const Variants: Story = {
       <TextLink href='https://etherscan.io' external>
         External link
       </TextLink>
-      <TextLink
-        href='https://etherscan.io'
-        external
-        icon={<IconArrowRight width={16} height={16} />}
-      >
+      <TextLink href='https://etherscan.io' external icon={<IconArrowRight />}>
         With icon
       </TextLink>
     </StorySection>

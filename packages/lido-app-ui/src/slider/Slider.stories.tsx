@@ -8,7 +8,7 @@ const meta: Meta<typeof Slider> = {
   component: Slider,
   tags: ['autodocs'],
   args: {
-    value: 40,
+    defaultValue: 40,
     minLabel: 'min label',
     maxLabel: 'max label',
     marks: true,

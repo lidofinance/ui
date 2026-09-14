@@ -67,7 +67,7 @@
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: var(--lido-app-ui-color-icons-secondary);
+  color: var(--lido-app-ui-color-icons-default);
 }
 
 .description {

@@ -88,11 +88,11 @@
 }
 
 .input:hover::-webkit-slider-thumb {
-  background-color: var(--lido-app-ui-color-tint-active);
+  background-color: var(--lido-app-ui-color-background-surface-hover);
 }
 
 .input:hover::-moz-range-thumb {
-  background-color: var(--lido-app-ui-color-tint-active);
+  background-color: var(--lido-app-ui-color-background-surface-hover);
 }
 
 .input:focus-visible::-webkit-slider-thumb {
