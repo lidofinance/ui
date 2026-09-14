@@ -117,7 +117,6 @@ import { Concentrator } from './Concentrator'
 import { Convex } from './Convex'
 import { Copper } from './Copper'
 import { Cow } from './Cow'
-import { CryptoCom } from './CryptoCom'
 import { Curve } from './Curve'
 import { Debank } from './Debank'
 import { Defi } from './Defi'
@@ -385,7 +384,6 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Convex,
   Copper,
   Cow,
-  CryptoCom,
   Curve,
   Debank,
   Defi,

@@ -76,6 +76,7 @@ import { ConsensysDiligenceLogo } from './ConsensysDiligenceLogo'
 import { ConvexLogo } from './ConvexLogo'
 import { CopperLogo } from './CopperLogo'
 import { CosmostationLogo } from './CosmostationLogo'
+import { CryptoComLogo } from './CryptoComLogo'
 import { CryptofinanceLogo } from './CryptofinanceLogo'
 import { CurveLogo } from './CurveLogo'
 import { DefinanceLogo } from './DefinanceLogo'
@@ -257,6 +258,7 @@ export const LOGO_ICONS_MAP = {
   ConvexLogo,
   CopperLogo,
   CosmostationLogo,
+  CryptoComLogo,
   CryptofinanceLogo,
   CurveLogo,
   DefinanceLogo,
