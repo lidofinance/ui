@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { IconBell } from '../icons'
+import { IconArrowNarrowUpRight, IconBell } from '../icons'
 import { Tag } from '../tag'
 import { SmallCard } from '.'
 
@@ -10,6 +10,7 @@ const meta: Meta<typeof SmallCard> = {
   tags: ['autodocs'],
   args: {
     logo: <IconBell />,
+    icon: <IconArrowNarrowUpRight />,
     title: 'CSM Sentinel',
     description: 'Provides your CSM Node Operator events to the telegram chats',
     href: 'https://lido.fi',
@@ -34,7 +35,7 @@ const meta: Meta<typeof SmallCard> = {
     docs: {
       description: {
         component:
-          'A clickable card that always renders as a link: logo + title + a trailing "external" arrow, a description, and an optional `tag` footer slot. Background lightens from the default surface to white on hover.',
+          'A clickable card that always renders as a link: an optional `image` (fixed 120px height), an optional `logo` + title + an optional trailing `icon`, a `description`, and an optional `footer` slot that wraps arbitrary content (e.g. a row of `Tag`s). Title and description wrap to multiple lines rather than truncating. Background lightens from the default surface to white on hover.',
       },
     },
   },
@@ -45,8 +46,50 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
 
-export const WithTag: Story = {
+export const WithFooter: Story = {
   args: {
-    tag: <Tag variant='info'>Notification tool</Tag>,
+    footer: (
+      <>
+        <Tag variant='info'>Notification tool</Tag>
+        <Tag variant='active'>Lido</Tag>
+        <Tag variant='success'>Design</Tag>
+      </>
+    ),
+  },
+}
+
+export const WithImage: Story = {
+  args: {
+    image: (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(135deg, #6c8cff, #ff6cab)',
+        }}
+      />
+    ),
+    title:
+      'Introducing CSM Sentinel: Your Ultimate Solution for Comprehensive Cybersecurity Management!',
+    description:
+      "In today's fast-paced digital landscape, staying connected with your team and stakeholders is crucial. This integration allows for real-time updates and notifications, ensuring that everyone involved is informed about important events as they happen.",
+    footer: (
+      <>
+        <Tag variant='info'>Notification tool</Tag>
+        <Tag variant='active'>Lido</Tag>
+        <Tag variant='success'>Design</Tag>
+        <Tag variant='warning'>Dev</Tag>
+        <Tag variant='error'>Tag</Tag>
+        <Tag variant='neutral'>Tag 2</Tag>
+      </>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'With an `image` and a long title/description — both wrap instead of clipping, and the footer wraps multiple tags across rows.',
+      },
+    },
   },
 }

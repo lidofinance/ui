@@ -25,19 +25,27 @@
   width: 100%;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+.image {
   width: 100%;
+  height: 120px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
-.identity {
+.image img,
+.image svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  min-width: 0;
+  width: 100%;
 }
 
 .logo {
@@ -50,7 +58,8 @@
 }
 
 .title {
-  overflow: hidden;
+  flex: 1 1 0%;
+  min-width: 0;
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-label);
   font-weight: var(--lido-app-ui-font-weight-semibold);
@@ -59,14 +68,19 @@
   line-height: 24px;
   letter-spacing: var(--lido-app-ui-letter-spacing-label);
   color: var(--lido-app-ui-color-text-default);
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
-.arrow {
+.icon {
+  display: inline-flex;
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+
+  /* Figma's example icons here (arrow, gem) both bake their own
+     fill-opacity: 0.7 — pair with an opaque color or the two alphas
+     multiply into a too-faint result (see the .logo-adjacent icon bug
+     already fixed once on this component). */
   color: var(--lido-app-ui-color-icons-default);
 }
 
@@ -81,6 +95,10 @@
   color: var(--lido-app-ui-color-text-tertiary);
 }
 
-.tagSlot {
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px;
   flex-shrink: 0;
 }
