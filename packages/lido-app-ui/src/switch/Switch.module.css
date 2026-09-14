@@ -1,7 +1,7 @@
 .container {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   cursor: pointer;
 }
 
@@ -79,8 +79,13 @@
 }
 
 .label {
-  @mixin font-body;
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-body);
+  font-weight: var(--lido-app-ui-font-weight-regular);
 
+  /* Figma "Body 1" — no matching size/line-height token pair (line-height-body is 24px, not 28px). */
+  line-height: 28px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
   color: var(--lido-app-ui-color-text-default);
 }
 
