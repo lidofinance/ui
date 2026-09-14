@@ -17,6 +17,9 @@ export const Harvest = function (props: SVGProps<SVGSVGElement>) {
           x={22}
           y={19}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'luminance',
+          }}
         >
           <path fill='#fff' d='M65.897 19H22v38.41h43.897V19z' />
         </mask>
@@ -194,6 +197,9 @@ export const Harvest = function (props: SVGProps<SVGSVGElement>) {
         x={18}
         y={21}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'luminance',
+        }}
       >
         <path fill='#fff' d='M61.897 21H18v38.41h43.897V21z' />
       </mask>

@@ -20,6 +20,9 @@ export const Quasar = function (props: SVGProps<SVGSVGElement>) {
           x={22}
           y={15}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#fff'
@@ -41,6 +44,9 @@ export const Quasar = function (props: SVGProps<SVGSVGElement>) {
         x={22}
         y={22}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'alpha',
+        }}
       >
         <path
           fill='#fff'
@@ -61,6 +67,9 @@ export const Quasar = function (props: SVGProps<SVGSVGElement>) {
         x={22}
         y={22}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'luminance',
+        }}
       >
         <path fill='#fff' d='M58.271 22H22v36.271h36.271V22z' />
       </mask>

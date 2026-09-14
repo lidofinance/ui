@@ -31,6 +31,9 @@ export const Pendle = function (props: SVGProps<SVGSVGElement>) {
           x={27}
           y={15}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#fff'
@@ -67,6 +70,9 @@ export const Pendle = function (props: SVGProps<SVGSVGElement>) {
         x={29}
         y={18}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'alpha',
+        }}
       >
         <path
           fill='#fff'

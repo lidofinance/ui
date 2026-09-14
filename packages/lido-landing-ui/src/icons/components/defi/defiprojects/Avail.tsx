@@ -80,6 +80,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
             x={44}
             y={22}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill='#DEA00D'
@@ -111,6 +114,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
             x={30}
             y={41}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill={`url(#${_id8})`}
@@ -148,6 +154,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
             x={22}
             y={18}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill='#00CCC0'
@@ -184,6 +193,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
               x={15}
               y={38}
               maskUnits='userSpaceOnUse'
+              style={{
+                maskType: 'alpha',
+              }}
             >
               <path
                 fill={`url(#${_id17})`}
@@ -209,6 +221,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
               x={27}
               y={15}
               maskUnits='userSpaceOnUse'
+              style={{
+                maskType: 'alpha',
+              }}
             >
               <path
                 fill={`url(#${_id18})`}
@@ -234,6 +249,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
               x={16}
               y={11}
               maskUnits='userSpaceOnUse'
+              style={{
+                maskType: 'alpha',
+              }}
             >
               <path
                 fill={`url(#${_id20})`}
@@ -259,6 +277,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
           x={40}
           y={22}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#DEA00D'
@@ -302,6 +323,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
           x={26}
           y={41}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill={`url(#${_id58})`}
@@ -339,6 +363,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
           x={17}
           y={18}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#00CCC0'
@@ -375,6 +402,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
             x={11}
             y={38}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill={`url(#${_id29})`}
@@ -400,6 +430,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
             x={23}
             y={15}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill={`url(#${_id30})`}
@@ -425,6 +458,9 @@ export const Avail = function (props: SVGProps<SVGSVGElement>) {
             x={11}
             y={11}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill={`url(#${_id32})`}

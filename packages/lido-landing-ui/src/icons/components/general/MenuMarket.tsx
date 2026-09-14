@@ -1,0 +1,111 @@
+// THIS FILE IS AUTO GENERATED
+
+import React, { SVGProps } from 'react'
+
+import { useUniqueInlineId } from '@inline-svg-unique-id/react'
+export const MenuMarket = function (props: SVGProps<SVGSVGElement>) {
+  const _id6 = useUniqueInlineId()
+  const _id5 = useUniqueInlineId()
+  const _id4 = useUniqueInlineId()
+  const _id3 = useUniqueInlineId()
+  const _id2 = useUniqueInlineId()
+  const _id = useUniqueInlineId()
+  return (
+    <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
+      <g filter={`url(#${_id6})`}>
+        <circle cx={44.761} cy={41.761} r={22.308} fill={`url(#${_id})`} />
+      </g>
+      <circle cx={40.227} cy={40} r={22.308} fill={`url(#${_id2})`} />
+      <path
+        d='M53.884 22.362c5.262 4.081 8.65 10.463 8.65 17.638 0 .698-.035 1.389-.097 2.07-1.36-.413-3.045-1.321-4.728-2.918-2.265-2.148-5.788-1.39-6.04 1.644-.116 1.404-.755 3.034-2.39 4.045-.634.391-2.172 1.693-2.527 4.329-.455 3.383-1.075 4.752-2.56 5.494-2.504 1.252-5.636-.509-5.636-4.379 0-2.792-.226-3.168-1.359-5.064-1.332-2.23-2.761-2.02-4.3-1.794-.8.118-1.632.24-2.494.023-4.016-1.008-3.05-5.863-1.888-7.585.405-.6.932-1.207 1.499-1.86 1.059-1.22 2.259-2.604 3.078-4.415 1.636-5.056 5.77-6.374 8.424-6.374 1 0 2.018.231 3.033.462 1.758.4 3.511.797 5.163-.007a14.364 14.364 0 014.172-1.309z'
+        fill={`url(#${_id3})`}
+      />
+      <path
+        d='M18.03 37.753c.713.9 1.408 2.113 1.63 3.43.189 1.128 1.028 1.631 1.858 2.129.803.48 1.596.956 1.784 1.988.229 1.259-.06 1.716-.403 2.259-.34.537-.735 1.159-.735 2.726a8.74 8.74 0 01-.334 2.334A22.203 22.203 0 0117.92 40c0-.758.036-1.508.11-2.247z'
+        fill={`url(#${_id4})`}
+      />
+      <path
+        d='M33.927 18.596c.136.423.033 1.02-.608 1.66-.838.838-1.13 1.236-1.63 2.245-.499 1.009-1.71 2.309-3.833 2.309-1.341 0-2.014.675-2.655 1.32-.373.376-.737.742-1.216.956-.804.36-1.51.33-2.056.151a22.347 22.347 0 0111.998-8.641z'
+        fill={`url(#${_id5})`}
+      />
+      <defs>
+        <radialGradient
+          id={_id}
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(-.48813 40.7694 -37.6785 4.3603 45.488 42.73)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#87B7FA' stopOpacity={0.07} />
+          <stop offset={1} stopColor='#67BBFF' />
+        </radialGradient>
+        <radialGradient
+          id={_id2}
+          cx={0}
+          cy={0}
+          r={1}
+          gradientUnits='userSpaceOnUse'
+          gradientTransform='matrix(0 25 -23.6485 0 40 40)'
+        >
+          <stop stopColor='#87B7FA' stopOpacity={0.07} />
+          <stop offset={1} stopColor='#67BBFF' />
+        </radialGradient>
+        <radialGradient
+          id={_id3}
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(24.2981 -30.4312 38.474 15.9293 34 45.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#0981DD' />
+          <stop offset={0.944} stopColor='#253D9D' stopOpacity={0.07} />
+        </radialGradient>
+        <radialGradient
+          id={_id4}
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(24.2981 -30.4312 38.474 15.9293 34 45.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#0981DD' />
+          <stop offset={0.944} stopColor='#253D9D' stopOpacity={0.07} />
+        </radialGradient>
+        <radialGradient
+          id={_id5}
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform='matrix(24.2981 -30.4312 38.474 15.9293 34 45.5)'
+          gradientUnits='userSpaceOnUse'
+        >
+          <stop stopColor='#0981DD' />
+          <stop offset={0.944} stopColor='#253D9D' stopOpacity={0.07} />
+        </radialGradient>
+        <filter
+          id={_id6}
+          x={14.453}
+          y={11.453}
+          width={60.615}
+          height={60.615}
+          filterUnits='userSpaceOnUse'
+          colorInterpolationFilters='sRGB'
+        >
+          <feFlood floodOpacity={0} result='BackgroundImageFix' />
+          <feBlend
+            mode='normal'
+            in='SourceGraphic'
+            in2='BackgroundImageFix'
+            result='shape'
+          />
+          <feGaussianBlur
+            stdDeviation={4}
+            result='effect1_foregroundBlur_5082_719'
+          />
+        </filter>
+      </defs>
+    </svg>
+  )
+}

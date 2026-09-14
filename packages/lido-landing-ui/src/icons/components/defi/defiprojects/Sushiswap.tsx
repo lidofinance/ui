@@ -39,6 +39,9 @@ export const Sushiswap = function (props: SVGProps<SVGSVGElement>) {
             x={24}
             y={18}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill='#0E0F23'

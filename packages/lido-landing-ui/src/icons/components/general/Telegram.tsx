@@ -18,6 +18,9 @@ export const Telegram = function (props: SVGProps<SVGSVGElement>) {
           x={14}
           y={21}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'luminance',
+          }}
         >
           <path fill='#fff' d='M58.964 21.926H14.883v35.685h44.081V21.926z' />
         </mask>
@@ -35,6 +38,9 @@ export const Telegram = function (props: SVGProps<SVGSVGElement>) {
             x={22}
             y={18}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'luminance',
+            }}
           >
             <path fill='#fff' d='M67 18.913H22.92v35.684H67V18.913z' />
           </mask>

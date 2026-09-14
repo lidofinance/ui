@@ -20,6 +20,9 @@ export const Meteora = function (props: SVGProps<SVGSVGElement>) {
         x={13}
         y={11}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'luminance',
+        }}
       >
         <path fill='#fff' d='M67.632 11.848H13v55.206h54.632V11.848z' />
       </mask>
@@ -31,6 +34,9 @@ export const Meteora = function (props: SVGProps<SVGSVGElement>) {
           x={3}
           y={18}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#795E5E'
@@ -56,6 +62,9 @@ export const Meteora = function (props: SVGProps<SVGSVGElement>) {
           x={18}
           y={8}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'luminance',
+          }}
         >
           <path fill='#fff' d='M73.441 8.943H18.81V64.15h54.63V8.943z' />
         </mask>
@@ -67,6 +76,9 @@ export const Meteora = function (props: SVGProps<SVGSVGElement>) {
             x={9}
             y={15}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill='#795E5E'

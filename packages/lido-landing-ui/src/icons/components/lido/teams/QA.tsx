@@ -90,6 +90,9 @@ export const QA = function (props: SVGProps<SVGSVGElement>) {
             r={58.669}
             fill={`url(#${_id9})`}
             opacity={0.3}
+            style={{
+              mixBlendMode: 'plus-lighter',
+            }}
           />
           <path
             fill={`url(#${_id0})`}
@@ -148,6 +151,9 @@ export const QA = function (props: SVGProps<SVGSVGElement>) {
           r={58.669}
           fill={`url(#${_id19})`}
           opacity={0.3}
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
         />
         <path
           fill={`url(#${_id20})`}

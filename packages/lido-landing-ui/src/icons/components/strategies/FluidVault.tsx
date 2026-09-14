@@ -165,6 +165,9 @@ export const FluidVault = function (props: SVGProps<SVGSVGElement>) {
         x={236}
         y={107}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'luminance',
+        }}
       >
         <path
           fill='#fff'

@@ -51,6 +51,7 @@ import { GithubLight } from './GithubLight'
 import { GoogleCal } from './GoogleCal'
 import { Immunefi } from './Immunefi'
 import { ImmunefiLight } from './ImmunefiLight'
+import { LumaLight } from './LumaLight'
 import { Luma } from './Luma'
 import { Percentage } from './Percentage'
 import { Rewards } from './Rewards'
@@ -117,6 +118,7 @@ export const GENERAL_ICONS_MAP = {
   GoogleCal,
   Immunefi,
   ImmunefiLight,
+  LumaLight,
   Luma,
   Percentage,
   Rewards,

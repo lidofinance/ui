@@ -140,7 +140,6 @@ import { Exactly } from './Exactly'
 import { Extrafi } from './Extrafi'
 import { Fireblock } from './Fireblock'
 import { Flipside } from './Flipside'
-import { FlowTraders } from './FlowTraders'
 import { Fluid } from './Fluid'
 import { Francium } from './Francium'
 import { Fxprotocol } from './Fxprotocol'
@@ -257,7 +256,6 @@ import { Traderjoe } from './Traderjoe'
 import { Uniswap } from './Uniswap'
 import { Unslashed } from './Unslashed'
 import { VesperFinance } from './VesperFinance'
-import { VirtuFinancial } from './VirtuFinancial'
 import { Voltz } from './Voltz'
 import { Wormhole } from './Wormhole'
 import { Yearn } from './Yearn'
@@ -410,7 +408,6 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Extrafi,
   Fireblock,
   Flipside,
-  FlowTraders,
   Fluid,
   Francium,
   Fxprotocol,
@@ -527,7 +524,6 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Uniswap,
   Unslashed,
   VesperFinance,
-  VirtuFinancial,
   Voltz,
   Wormhole,
   Yearn,

@@ -4,7 +4,6 @@ import React, { SVGProps } from 'react'
 
 import { useUniqueInlineId } from '@inline-svg-unique-id/react'
 export const MellowPoints = function (props: SVGProps<SVGSVGElement>) {
-  const _id8 = useUniqueInlineId()
   const _id7 = useUniqueInlineId()
   const _id6 = useUniqueInlineId()
   const _id5 = useUniqueInlineId()
@@ -15,7 +14,7 @@ export const MellowPoints = function (props: SVGProps<SVGSVGElement>) {
   return (
     <svg width={81} height={80} viewBox='0 0 81 80' fill='none' {...props}>
       <g clipPath={`url(#${_id})`}>
-        <g clipPath={`url(#${_id2})`} filter={`url(#${_id8})`} opacity={0.7}>
+        <g filter={`url(#${_id2})`} opacity={0.7}>
           <mask
             id={_id}
             width={43}
@@ -23,12 +22,15 @@ export const MellowPoints = function (props: SVGProps<SVGSVGElement>) {
             x={17}
             y={12}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'luminance',
+            }}
           >
             <path fill='#fff' d='M59.01 12.998h-42v42h42v-42z' />
           </mask>
           <g mask={`url(#${_id})`}>
             <path
-              fill={`url(#${_id6})`}
+              fill={`url(#${_id3})`}
               d='M38.01 54.998c11.599 0 21-9.402 21-21s-9.401-21-21-21c-11.597 0-21 9.402-21 21s9.403 21 21 21z'
             />
             <path
@@ -45,7 +47,7 @@ export const MellowPoints = function (props: SVGProps<SVGSVGElement>) {
             />
           </g>
         </g>
-        <g clipPath={`url(#${_id5})`}>
+        <g clipPath={`url(#${_id6})`}>
           <mask
             id={_id2}
             width={81}
@@ -53,12 +55,15 @@ export const MellowPoints = function (props: SVGProps<SVGSVGElement>) {
             x={0}
             y={-1}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'luminance',
+            }}
           >
             <path fill='#fff' d='M80.01-.002h-80v80h80v-80z' />
           </mask>
           <g mask={`url(#${_id2})`}>
             <path
-              fill={`url(#${_id7})`}
+              fill={`url(#${_id4})`}
               d='M40.01 79.998c22.092 0 40-17.908 40-40 0-22.091-17.908-40-40-40-22.09 0-40 17.909-40 40 0 22.092 17.91 40 40 40z'
             />
             <path
@@ -77,17 +82,8 @@ export const MellowPoints = function (props: SVGProps<SVGSVGElement>) {
         </g>
       </g>
       <defs>
-        <clipPath id={_id3}>
-          <path fill='#fff' d='M.01-.002h80v80h-80z' />
-        </clipPath>
-        <clipPath id={_id4}>
-          <path fill='#fff' d='M17.01 12.998h42v42h-42z' />
-        </clipPath>
-        <clipPath id={_id5}>
-          <path fill='#fff' d='M.01-.002h80v80h-80z' />
-        </clipPath>
         <linearGradient
-          id={_id6}
+          id={_id3}
           x1={38.011}
           x2={38.011}
           y1={12.998}
@@ -98,7 +94,7 @@ export const MellowPoints = function (props: SVGProps<SVGSVGElement>) {
           <stop offset={1} stopColor='#D7002B' />
         </linearGradient>
         <linearGradient
-          id={_id7}
+          id={_id4}
           x1={40.011}
           x2={40.011}
           y1={-0.002}
@@ -108,8 +104,14 @@ export const MellowPoints = function (props: SVGProps<SVGSVGElement>) {
           <stop stopColor='#F50D3C' />
           <stop offset={1} stopColor='#D7002B' />
         </linearGradient>
+        <clipPath id={_id5}>
+          <path fill='#fff' d='M.01-.002h80v80h-80z' />
+        </clipPath>
+        <clipPath id={_id6}>
+          <path fill='#fff' d='M.01-.002h80v80h-80z' />
+        </clipPath>
         <filter
-          id={_id8}
+          id={_id7}
           width={70}
           height={70}
           x={3.011}

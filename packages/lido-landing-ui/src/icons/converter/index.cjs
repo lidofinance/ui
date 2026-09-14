@@ -60,7 +60,7 @@ const svgoConfig = (convertAllToCurrentColor, prefix) => {
       {
         removeAttrs: {
           attrs: [
-            '(class|style)',
+            'class',
             'svg:fill',
             'aria-labelledby',
             'aria-describedby',
