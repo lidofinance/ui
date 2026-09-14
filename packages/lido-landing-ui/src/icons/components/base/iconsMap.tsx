@@ -4,13 +4,16 @@ import { Burger } from './Burger'
 import { CopyLink } from './CopyLink'
 import { Cross } from './Cross'
 import { DownArrow } from './DownArrow'
+import { Exclamation } from './Exclamation'
 import { Filter } from './Filter'
 import { FlipBackward } from './FlipBackward'
 import { FlipForward } from './FlipForward'
 import { Icon } from './Icon'
 import { Including } from './Including'
 import { L2 } from './L2'
+import { LineChartUp } from './LineChartUp'
 import { LinkIcon } from './LinkIcon'
+import { Lock } from './Lock'
 import { Navigation } from './Navigation'
 import { Search } from './Search'
 import { UpArrow } from './UpArrow'
@@ -32,13 +35,16 @@ export const BASE_ICONS_MAP = {
   CopyLink,
   Cross,
   DownArrow,
+  Exclamation,
   Filter,
   FlipBackward,
   FlipForward,
   Icon,
   Including,
   L2,
+  LineChartUp,
   LinkIcon,
+  Lock,
   Navigation,
   Search,
   UpArrow,

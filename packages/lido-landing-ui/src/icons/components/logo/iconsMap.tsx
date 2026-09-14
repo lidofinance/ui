@@ -2,28 +2,39 @@
 
 import { AttestantLogo } from './AttestantLogo'
 import { BitGoLogo } from './BitGoLogo'
+import { BitcoinSuisseLogo } from './BitcoinSuisseLogo'
 import { BlockLogicLogo } from './BlockLogicLogo'
+import { BlockOpsLogo } from './BlockOpsLogo'
+import { CactusCustodyLogo } from './CactusCustodyLogo'
 import { ChainnodeLogo } from './ChainnodeLogo'
 import { ChainsafeLogo } from './ChainsafeLogo'
 import { ConsensysLogo } from './ConsensysLogo'
+import { ContributionDaoLogo } from './ContributionDaoLogo'
 import { CryptoManufacturLogo } from './CryptoManufacturLogo'
 import { DLTFinanceLogo } from './DLTFinanceLogo'
+import { DevelpLogo } from './DevelpLogo'
 import { GalaxyLogo } from './GalaxyLogo'
 import { HashKeyCloudLogo } from './HashKeyCloudLogo'
 import { KukisGlobalLogo } from './KukisGlobalLogo'
+import { LineaLogo } from './LineaLogo'
 import { MatrixStakeLogo } from './MatrixStakeLogo'
 import { NansenLogo } from './NansenLogo'
 import { NethermindLogo } from './NethermindLogo'
 import { NodesGuruLogo } from './NodesGuruLogo'
 import { OffchainLabsLogo } from './OffchainLabsLogo'
+import { PiconbelloLogo } from './PiconbelloLogo'
 import { PierTwoLogo } from './PierTwoLogo'
 import { PrysmaticLabsLogo } from './PrysmaticLabsLogo'
+import { RhinoFiLogo } from './RhinoFiLogo'
 import { RockLogicLogo } from './RockLogicLogo'
+import { SentraLogo } from './SentraLogo'
 import { SigmaprimeLogo } from './SigmaprimeLogo'
 import { SimplyStakingLogo } from './SimplyStakingLogo'
 import { SolsticeLogo } from './SolsticeLogo'
 import { StakeLabLogo } from './StakeLabLogo'
 import { StereumLogo } from './StereumLogo'
+import { TwinstakeLogo } from './TwinstakeLogo'
+import { Web3SOCLogo } from './Web3SOCLogo'
 import { A16zcryptoLogo } from './A16zcryptoLogo'
 import { A41Logo } from './A41Logo'
 import { AaveLogo } from './AaveLogo'
@@ -76,9 +87,11 @@ import { DsrvLogo } from './DsrvLogo'
 import { EbunkerLogo } from './EbunkerLogo'
 import { EverstakeLogo } from './EverstakeLogo'
 import { ExodusLogo } from './ExodusLogo'
+import { FalconxLogo } from './FalconxLogo'
 import { FigmentLogo } from './FigmentLogo'
 import { FinoaLogo } from './FinoaLogo'
 import { FireblocksLogo } from './FireblocksLogo'
+import { FlowtradersLogo } from './FlowtradersLogo'
 import { ForboleLogo } from './ForboleLogo'
 import { FtxLogo } from './FtxLogo'
 import { GatewayLogo } from './GatewayLogo'
@@ -119,6 +132,7 @@ import { MixbytesLogo } from './MixbytesLogo'
 import { NimbusLogo } from './NimbusLogo'
 import { NodeinfraLogo } from './NodeinfraLogo'
 import { NodemonsterLogo } from './NodemonsterLogo'
+import { NorthstakeLogo } from './NorthstakeLogo'
 import { NumicLogo } from './NumicLogo'
 import { ObolLogo } from './ObolLogo'
 import { OkxLogo } from './OkxLogo'
@@ -129,6 +143,7 @@ import { P2pLogo } from './P2pLogo'
 import { PanteraLogo } from './PanteraLogo'
 import { ParafiLogo } from './ParafiLogo'
 import { PopsteamLogo } from './PopsteamLogo'
+import { PothosLogo } from './PothosLogo'
 import { RibbonLogo } from './RibbonLogo'
 import { RockawayLogo } from './RockawayLogo'
 import { RocketpoolLogo } from './RocketpoolLogo'
@@ -157,6 +172,7 @@ import { TaneLogo } from './TaneLogo'
 import { TaurusLogo } from './TaurusLogo'
 import { TrustLogo } from './TrustLogo'
 import { UniswapLogo } from './UniswapLogo'
+import { VirtuLogo } from './VirtuLogo'
 import { WalletconnectLogo } from './WalletconnectLogo'
 import { WintermuteLogo } from './WintermuteLogo'
 import { XrockLogo } from './XrockLogo'
@@ -167,28 +183,39 @@ import { ZeroonenodeLogo } from './ZeroonenodeLogo'
 export const LOGO_ICONS_MAP = {
   AttestantLogo,
   BitGoLogo,
+  BitcoinSuisseLogo,
   BlockLogicLogo,
+  BlockOpsLogo,
+  CactusCustodyLogo,
   ChainnodeLogo,
   ChainsafeLogo,
   ConsensysLogo,
+  ContributionDaoLogo,
   CryptoManufacturLogo,
   DLTFinanceLogo,
+  DevelpLogo,
   GalaxyLogo,
   HashKeyCloudLogo,
   KukisGlobalLogo,
+  LineaLogo,
   MatrixStakeLogo,
   NansenLogo,
   NethermindLogo,
   NodesGuruLogo,
   OffchainLabsLogo,
+  PiconbelloLogo,
   PierTwoLogo,
   PrysmaticLabsLogo,
+  RhinoFiLogo,
   RockLogicLogo,
+  SentraLogo,
   SigmaprimeLogo,
   SimplyStakingLogo,
   SolsticeLogo,
   StakeLabLogo,
   StereumLogo,
+  TwinstakeLogo,
+  Web3SOCLogo,
   A16zcryptoLogo,
   A41Logo,
   AaveLogo,
@@ -241,9 +268,11 @@ export const LOGO_ICONS_MAP = {
   EbunkerLogo,
   EverstakeLogo,
   ExodusLogo,
+  FalconxLogo,
   FigmentLogo,
   FinoaLogo,
   FireblocksLogo,
+  FlowtradersLogo,
   ForboleLogo,
   FtxLogo,
   GatewayLogo,
@@ -284,6 +313,7 @@ export const LOGO_ICONS_MAP = {
   NimbusLogo,
   NodeinfraLogo,
   NodemonsterLogo,
+  NorthstakeLogo,
   NumicLogo,
   ObolLogo,
   OkxLogo,
@@ -294,6 +324,7 @@ export const LOGO_ICONS_MAP = {
   PanteraLogo,
   ParafiLogo,
   PopsteamLogo,
+  PothosLogo,
   RibbonLogo,
   RockawayLogo,
   RocketpoolLogo,
@@ -322,6 +353,7 @@ export const LOGO_ICONS_MAP = {
   TaurusLogo,
   TrustLogo,
   UniswapLogo,
+  VirtuLogo,
   WalletconnectLogo,
   WintermuteLogo,
   XrockLogo,

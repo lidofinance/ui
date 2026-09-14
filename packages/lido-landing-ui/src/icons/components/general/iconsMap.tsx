@@ -10,6 +10,7 @@ import { LegoSmall } from './LegoSmall'
 import { MenuAragon } from './MenuAragon'
 import { MenuCSM } from './MenuCSM'
 import { MenuCSM2 } from './MenuCSM2'
+import { MenuCSM2New } from './MenuCSM2New'
 import { MenuContribute } from './MenuContribute'
 import { MenuCurated } from './MenuCurated'
 import { MenuCuratedV2 } from './MenuCuratedV2'
@@ -18,17 +19,27 @@ import { MenuDVT } from './MenuDVT'
 import { MenuDeFi } from './MenuDeFi'
 import { MenuDoc } from './MenuDoc'
 import { MenuDune } from './MenuDune'
+import { MenuEarnETH } from './MenuEarnETH'
+import { MenuEarnUSD } from './MenuEarnUSD'
 import { MenuForum } from './MenuForum'
+import { MenuGGV } from './MenuGGV'
 import { MenuHelp } from './MenuHelp'
 import { MenuInsti } from './MenuInsti'
 import { MenuInstiLight } from './MenuInstiLight'
+import { MenuMarket } from './MenuMarket'
 import { MenuMulti } from './MenuMulti'
 import { MenuSDK } from './MenuSDK'
 import { MenuSSV } from './MenuSSV'
 import { MenuSmartContract } from './MenuSmartContract'
 import { MenuSnap } from './MenuSnap'
 import { MenuStaking } from './MenuStaking'
+import { MenuStrategy } from './MenuStrategy'
 import { MenuStvault } from './MenuStvault'
+import { PM } from './PM'
+import { PP } from './PP'
+import { TH } from './TH'
+import { ToC } from './ToC'
+import { Check } from './Check'
 import { Discord } from './Discord'
 import { Doc } from './Doc'
 import { Docs } from './Docs'
@@ -40,10 +51,12 @@ import { GithubLight } from './GithubLight'
 import { GoogleCal } from './GoogleCal'
 import { Immunefi } from './Immunefi'
 import { ImmunefiLight } from './ImmunefiLight'
+import { Luma } from './Luma'
 import { Percentage } from './Percentage'
 import { Rewards } from './Rewards'
 import { SafeHarborLight } from './SafeHarborLight'
 import { SafeHarbor } from './SafeHarbor'
+import { Status } from './Status'
 import { Strat } from './Strat'
 import { Telegram } from './Telegram'
 import { TwitterLight } from './TwitterLight'
@@ -63,6 +76,7 @@ export const GENERAL_ICONS_MAP = {
   MenuAragon,
   MenuCSM,
   MenuCSM2,
+  MenuCSM2New,
   MenuContribute,
   MenuCurated,
   MenuCuratedV2,
@@ -71,17 +85,27 @@ export const GENERAL_ICONS_MAP = {
   MenuDeFi,
   MenuDoc,
   MenuDune,
+  MenuEarnETH,
+  MenuEarnUSD,
   MenuForum,
+  MenuGGV,
   MenuHelp,
   MenuInsti,
   MenuInstiLight,
+  MenuMarket,
   MenuMulti,
   MenuSDK,
   MenuSSV,
   MenuSmartContract,
   MenuSnap,
   MenuStaking,
+  MenuStrategy,
   MenuStvault,
+  PM,
+  PP,
+  TH,
+  ToC,
+  Check,
   Discord,
   Doc,
   Docs,
@@ -93,10 +117,12 @@ export const GENERAL_ICONS_MAP = {
   GoogleCal,
   Immunefi,
   ImmunefiLight,
+  Luma,
   Percentage,
   Rewards,
   SafeHarborLight,
   SafeHarbor,
+  Status,
   Strat,
   Telegram,
   TwitterLight,
