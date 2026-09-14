@@ -1,6 +1,6 @@
 .box {
   --local-bg: var(--lido-app-ui-color-tint-neutral);
-  --local-icon-color: var(--lido-app-ui-color-icons-default);
+  --local-icon-color: var(--lido-app-ui-color-icons-secondary);
   --local-headline-color: var(--lido-app-ui-color-text-default);
   --local-description-color: var(--lido-app-ui-color-text-secondary);
 
@@ -36,14 +36,20 @@
 }
 
 .headline {
-  @mixin font-body-semibold;
-
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
   color: var(--local-headline-color);
 }
 
 .description {
-  @mixin font-body;
-
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
   color: var(--local-description-color);
 }
 
