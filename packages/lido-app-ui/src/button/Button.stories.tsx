@@ -15,7 +15,7 @@ const meta: Meta<typeof Button> = {
     children: { description: 'Button label', control: { type: 'text' } },
     variant: {
       control: { type: 'select' },
-      options: ['primary', 'outline', 'subtle', 'ghost', 'danger'],
+      options: ['primary', 'outline', 'subtle', 'ghost', 'error'],
     },
     size: {
       control: { type: 'select' },
@@ -46,7 +46,7 @@ const variants: ButtonVariant[] = [
   'outline',
   'subtle',
   'ghost',
-  'danger',
+  'error',
 ]
 
 export const Variants: Story = {

@@ -5,12 +5,7 @@ import cn from 'classnames'
 import { IconLoaderCircle } from '../icons'
 import styles from './Button.module.css'
 
-export type ButtonVariant =
-  | 'primary'
-  | 'outline'
-  | 'subtle'
-  | 'ghost'
-  | 'danger'
+export type ButtonVariant = 'primary' | 'outline' | 'subtle' | 'ghost' | 'error'
 
 export type ButtonSize = 'big' | 'small'
 

@@ -170,21 +170,21 @@
   --local-color: var(--lido-app-ui-color-text-disabled);
 }
 
-.danger {
+.error {
   --local-border-width: 1px;
   --local-border-color: var(--lido-app-ui-color-border-error);
   --local-color: var(--lido-app-ui-color-text-error);
 }
 
-.danger:not(:disabled):hover {
+.error:not(:disabled):hover {
   --local-bg: var(--lido-app-ui-color-tint-error-hover);
 }
 
-.danger:not(:disabled):active {
+.error:not(:disabled):active {
   --local-bg: var(--lido-app-ui-color-tint-error);
 }
 
-.danger:disabled {
+.error:disabled {
   --local-border-width: 0px;
   --local-bg: var(--lido-app-ui-color-background-disabled);
   --local-color: var(--lido-app-ui-color-text-disabled);
@@ -219,7 +219,7 @@
   --local-color: var(--lido-app-ui-color-text-default);
 }
 
-.danger.loading:disabled {
+.error.loading:disabled {
   --local-border-width: 1px;
   --local-bg: transparent;
   --local-color: var(--lido-app-ui-color-text-error);
