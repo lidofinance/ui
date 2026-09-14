@@ -107,6 +107,9 @@
   flex-shrink: 0;
   width: 24px;
   height: 24px;
+
+  /* Figma "Icons/secondary" — chevron is muted, not full text-default. */
+  color: var(--lido-app-ui-color-icons-secondary);
 }
 
 .chevron svg {

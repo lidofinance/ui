@@ -53,6 +53,7 @@ const meta: Meta<typeof TokenSelector> = {
     },
   },
   parameters: {
+    controls: { disable: true },
     docs: {
       description: {
         component:
@@ -96,18 +97,21 @@ export const Basic: Story = {
   },
 }
 
-export const Empty: Story = {
-  args: { value: undefined },
-  parameters: {
-    controls: { disable: true },
-  },
-}
-
-export const Sizes: Story = {
+export const Variants: Story = {
   render: () => (
-    <StoryContainer gap={16}>
-      <Controlled size='default' />
-      <Controlled size='small' />
+    <StoryContainer gap={16} style={{ width: '400px' }}>
+      <StorySection title={'Default size'}>
+        <Controlled size='default' />
+      </StorySection>
+      <StorySection title={'small size'}>
+        <Controlled size='small' />
+      </StorySection>
+      <StorySection title='Single (read-only)'>
+        <Controlled single />
+      </StorySection>
+      <StorySection title={'Empty'}>
+        <TokenSelector options={options} value={undefined} />
+      </StorySection>
     </StoryContainer>
   ),
   parameters: {
@@ -115,28 +119,6 @@ export const Sizes: Story = {
     docs: {
       description: {
         story: '`size="small"` renders a compact pill with no secondary label.',
-      },
-    },
-  },
-}
-
-export const Variants: Story = {
-  render: () => (
-    <StoryContainer>
-      <StorySection title='dropdown'>
-        <Controlled />
-      </StorySection>
-      <StorySection title='single (read-only)'>
-        <Controlled single />
-      </StorySection>
-    </StoryContainer>
-  ),
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: {
-        story:
-          'With one token there is nothing to choose — `single` drops the chevron and the dropdown, keeping the chip for consistency.',
       },
     },
   },
