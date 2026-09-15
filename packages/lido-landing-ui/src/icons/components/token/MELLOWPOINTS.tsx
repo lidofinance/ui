@@ -17,6 +17,9 @@ export const MELLOWPOINTS = function (props: SVGProps<SVGSVGElement>) {
           x={0}
           y={0}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'luminance',
+          }}
         >
           <path fill='#fff' d='M80 0H0v80h80V0z' />
         </mask>

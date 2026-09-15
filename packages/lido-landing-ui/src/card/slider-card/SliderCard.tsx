@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react'
 import { Button } from '../../button'
-import { Link } from '../../links'
+import { Link, LinkProps } from '../../links'
 import styles from './SliderCard.module.css'
 
 export type SliderCardDataTestId = {
@@ -17,6 +17,7 @@ export type SliderCardDataTestId = {
   title?: string
   subtitle?: string
   description?: string
+  footer?: string
   icon?: string
   image?: string
 }
@@ -28,7 +29,11 @@ export type SliderCardProps = ComponentPropsWithoutRef<'div'> & {
   icon?: ReactNode
   image?: ReactNode
   buttonText?: string
+  footer?: ReactNode
   href: string
+  target?: LinkProps['target']
+  useNextLink?: LinkProps['useNextLink']
+  nextLinkComponent?: LinkProps['nextLinkComponent']
   variant?: SliderCardVariant
   onClick?: MouseEventHandler<HTMLAnchorElement | HTMLDivElement>
   dataTestId?: SliderCardDataTestId
@@ -42,12 +47,17 @@ export const SliderCard = forwardRef(
       title,
       text,
       buttonText,
+      footer,
       icon,
       image,
       href,
+      target = '_blank',
+      useNextLink,
+      nextLinkComponent,
       subtitle,
       variant = 'default',
       className,
+      style,
       onClick,
       dataTestId,
     }: SliderCardProps,
@@ -62,7 +72,10 @@ export const SliderCard = forwardRef(
     return (
       <Link
         href={href}
-        target={'_blank'}
+        target={target}
+        useNextLink={useNextLink}
+        nextLinkComponent={nextLinkComponent}
+        style={style}
         className={cn(
           className,
           styles.card,
@@ -75,7 +88,7 @@ export const SliderCard = forwardRef(
         ref={ref}
       >
         <div
-          className={styles.cardContainer}
+          className={cn(styles.cardContainer, footer && styles.hasFooter)}
           onMouseEnter={() => setHasHover(true)}
           onMouseLeave={() => setHasHover(false)}
         >
@@ -118,6 +131,11 @@ export const SliderCard = forwardRef(
               {text}
             </div>
           </div>
+          {footer && (
+            <div className={styles.footer} data-testid={dataTestId?.footer}>
+              {footer}
+            </div>
+          )}
           {buttonText && (
             <Button
               data-testid={dataTestId?.button}

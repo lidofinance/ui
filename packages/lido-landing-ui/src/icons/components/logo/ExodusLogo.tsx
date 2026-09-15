@@ -22,6 +22,9 @@ export const ExodusLogo = function (props: SVGProps<SVGSVGElement>) {
           x={22}
           y={26}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill={`url(#${_id2})`}

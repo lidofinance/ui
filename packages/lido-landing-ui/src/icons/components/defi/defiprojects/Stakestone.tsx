@@ -49,6 +49,9 @@ export const Stakestone = function (props: SVGProps<SVGSVGElement>) {
         x={18}
         y={42}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'luminance',
+        }}
       >
         <path
           fill='#fff'

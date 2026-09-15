@@ -23,6 +23,9 @@ export const ZKLEND = function (props: SVGProps<SVGSVGElement>) {
           x={19}
           y={24}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'luminance',
+          }}
         >
           <path fill='#fff' d='M61 24H19v41.814h42V24z' />
         </mask>
@@ -48,6 +51,9 @@ export const ZKLEND = function (props: SVGProps<SVGSVGElement>) {
         x={19}
         y={19}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'luminance',
+        }}
       >
         <path fill='#fff' d='M61 19H19v41.814h42V19z' />
       </mask>

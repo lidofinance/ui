@@ -4,8 +4,6 @@ import React, { SVGProps } from 'react'
 
 import { useUniqueInlineId } from '@inline-svg-unique-id/react'
 export const Axelar = function (props: SVGProps<SVGSVGElement>) {
-  const _id8 = useUniqueInlineId()
-  const _id7 = useUniqueInlineId()
   const _id6 = useUniqueInlineId()
   const _id5 = useUniqueInlineId()
   const _id4 = useUniqueInlineId()
@@ -20,13 +18,13 @@ export const Axelar = function (props: SVGProps<SVGSVGElement>) {
           d='M49.433 46.333h-1.965c-.246 0-.445.2-.445.445v1.355a.932.932 0 01-.273.658l-.125.125a.93.93 0 01-.658.273h-8.324a.93.93 0 01-.659-.273l-.125-.125a.932.932 0 01-.272-.658v-1.355c0-.246-.2-.445-.446-.445h-1.965c-.246 0-.446.2-.446.445v1.965c0 .246.2.446.446.446h1.48a.931.931 0 01.93.931v1.437c0 .269.22.488.488.488h9.461a.49.49 0 00.488-.488V50.12a.93.93 0 01.93-.931h1.48c.246 0 .446-.2.446-.446v-1.965c0-.246-.2-.445-.446-.445z'
         />
       </g>
-      <g clipPath={`url(#${_id7})`} filter={`url(#${_id2})`}>
+      <g filter={`url(#${_id2})`}>
         <path
           fill={`url(#${_id5})`}
           d='M42.72 36.368l14.043-14.041L51.435 17 40.058 28.378 28.68 17l-5.327 5.327 14.041 14.041a3.755 3.755 0 002.664 1.103c.964 0 1.927-.367 2.663-1.103zm20.328 15L51.67 39.99l11.378-11.378-5.327-5.326L43.68 37.327a3.767 3.767 0 000 5.327l14.04 14.041 5.327-5.327zm-23.01.254L51.416 63l5.327-5.327L42.7 43.632a3.767 3.767 0 00-5.327 0l-14.04 14.041L28.66 63l11.378-11.378zm-3.622-8.949a3.766 3.766 0 000-5.327L22.375 23.305l-5.327 5.327L28.426 40.01 17.048 51.388l5.327 5.327 14.04-14.042z'
         />
       </g>
-      <g clipPath={`url(#${_id8})`} filter={`url(#${_id3})`} opacity={0.5}>
+      <g filter={`url(#${_id3})`} opacity={0.5}>
         <g filter={`url(#${_id4})`}>
           <path
             fill={`url(#${_id6})`}
@@ -145,12 +143,6 @@ export const Axelar = function (props: SVGProps<SVGSVGElement>) {
           <stop stopColor='#009DFF' />
           <stop offset={1} stopColor='#00B2FD' />
         </linearGradient>
-        <clipPath id={_id7}>
-          <path fill='#fff' d='M17.048 17h46v46h-46z' />
-        </clipPath>
-        <clipPath id={_id8}>
-          <path fill='#fff' d='M17.048 14h46v46h-46z' />
-        </clipPath>
       </defs>
     </svg>
   )

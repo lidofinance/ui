@@ -24,6 +24,9 @@ export const Polynomial = function (props: SVGProps<SVGSVGElement>) {
         x={19}
         y={18}
         maskUnits='userSpaceOnUse'
+        style={{
+          maskType: 'alpha',
+        }}
       >
         <path
           fill='#000'
@@ -56,6 +59,9 @@ export const Polynomial = function (props: SVGProps<SVGSVGElement>) {
           x={19}
           y={18}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#000'

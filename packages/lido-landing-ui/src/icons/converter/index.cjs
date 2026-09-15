@@ -2,7 +2,7 @@ const { transform } = require('@svgr/core')
 const svgrSvgo = require('@svgr/plugin-svgo').default
 const svgrJsx = require('@svgr/plugin-jsx')
 const svgrPrettier = require('@svgr/plugin-prettier')
-const prettierConfig = require('../../../.prettierrc.cjs')
+const prettierConfig = require('../../../../../.prettierrc.cjs')
 const fs = require('fs/promises')
 const { extname, resolve } = require('path')
 
@@ -60,7 +60,7 @@ const svgoConfig = (convertAllToCurrentColor, prefix) => {
       {
         removeAttrs: {
           attrs: [
-            '(class|style)',
+            'class',
             'svg:fill',
             'aria-labelledby',
             'aria-describedby',

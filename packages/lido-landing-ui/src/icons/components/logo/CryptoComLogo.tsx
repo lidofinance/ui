@@ -3,11 +3,11 @@
 import React, { SVGProps } from 'react'
 
 import { useUniqueInlineId } from '@inline-svg-unique-id/react'
-export const CryptoCom = function (props: SVGProps<SVGSVGElement>) {
+export const CryptoComLogo = function (props: SVGProps<SVGSVGElement>) {
   const _id = useUniqueInlineId()
   return (
     <svg width={150} height={63} viewBox='0 0 150 63' fill='none' {...props}>
-      <g clipPath={`url(#${_id})`} fill='#fff'>
+      <g clipPath={`url(#${_id})`} fill='currentColor'>
         <path d='M82.795 28.026v4.802c0 .87.437 1.222 1.19 1.222h.87v2.004h-1.517c-1.614-.004-2.76-.73-2.76-2.875v-5.153h-1.23v-1.928h1.23v-2.69h2.215v2.69h2.06v1.928h-2.058zm-16.418-2.132l-4.9 12.965h-2.245l1.069-2.745-4.196-10.22h2.364l2.863 7.55 2.748-7.55h2.297zM38.18 31.032c0 2.8 2.126 5.08 5.002 5.08v.002c1.887 0 3.005-.76 3.958-1.837l-1.34-1.335c-.694.722-1.465 1.224-2.51 1.224-1.704 0-2.894-1.447-2.894-3.17 0-1.724 1.173-3.135 2.785-3.135 1.116 0 1.832.502 2.51 1.224l1.374-1.502c-.898-1.002-2.035-1.688-3.867-1.688-2.893 0-5.02 2.337-5.02 5.137zm10.949 5.08h2.217v-3.953c0-2.596 1.356-3.876 3.298-3.876h.129V25.91c-1.705-.075-2.821.928-3.427 2.392V25.91H49.13v10.202z' />
         <path
           fillRule='evenodd'
@@ -24,7 +24,11 @@ export const CryptoCom = function (props: SVGProps<SVGSVGElement>) {
       </g>
       <defs>
         <clipPath id={_id}>
-          <path fill='#fff' transform='translate(10 18)' d='M0 0h130v26H0z' />
+          <path
+            fill='currentColor'
+            transform='translate(10 18)'
+            d='M0 0h130v26H0z'
+          />
         </clipPath>
       </defs>
     </svg>
