@@ -14,10 +14,6 @@ const meta: Meta<typeof Badge> = {
   argTypes: {
     children: { description: 'Badge label', control: { type: 'text' } },
     icon: { description: 'Glyph before the label — defaults to a shield' },
-    iconColor: {
-      description: 'Any CSS color for the icon glyph, e.g. a design token',
-      control: { type: 'color' },
-    },
   },
   parameters: {
     docs: {
@@ -32,17 +28,11 @@ const meta: Meta<typeof Badge> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Basic: Story = {}
-
-export const ColoredIcon: Story = {
-  args: {
-    iconColor: 'var(--lido-app-ui-color-icons-warning)',
-    children: 'Needs attention',
-  },
+export const Basic: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Pass `iconColor` to recolor the icon glyph.',
+        story: 'The default: a shield glyph, green (success) by default.',
       },
     },
   },

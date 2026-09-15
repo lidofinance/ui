@@ -1,6 +1,7 @@
 .accordion {
   width: 100%;
   border-bottom: 1px solid var(--lido-app-ui-color-border-default);
+  transition: border-bottom-color 0.2s ease;
 }
 
 .accordion.borderless {
