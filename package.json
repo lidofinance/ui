@@ -79,7 +79,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
-    "@lidofinance/multi-semantic-release": "^1.0.0",
+    "@lidofinance/multi-semantic-release": "^1.0.3",
     "@semantic-release/commit-analyzer": "13.0.1",
     "@semantic-release/github": "12.0.8",
     "@semantic-release/npm": "13.1.5",
