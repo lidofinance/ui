@@ -84,11 +84,13 @@ export const WithDisabledItem: Story = {
   render: () => {
     const [value, setValue] = useState('eject')
     return (
-      <SegmentedControlCard
-        items={[...items.slice(0, 2), { ...items[2], disabled: true }]}
-        value={value}
-        onChange={setValue}
-      />
+      <div style={{ width: '600px' }}>
+        <SegmentedControlCard
+          items={[...items.slice(0, 2), { ...items[2], disabled: true }]}
+          value={value}
+          onChange={setValue}
+        />
+      </div>
     )
   },
   parameters: {

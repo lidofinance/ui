@@ -40,31 +40,33 @@ export const SegmentCard = forwardRef<HTMLButtonElement, SegmentCardProps>(
       className={cn(styles.card, active && styles.active, className)}
       {...rest}
     >
-      {icon != null ? (
-        <span className={styles.icon} aria-hidden='true'>
-          {icon}
+      <span className={styles.content}>
+        {icon != null ? (
+          <span className={styles.icon} aria-hidden='true'>
+            {icon}
+          </span>
+        ) : null}
+        <span className={styles.title}>
+          <span className={styles.titleText}>{title}</span>
+          {tag != null ? (
+            <Tag
+              variant='neutral'
+              style={
+                disabled
+                  ? ({
+                      '--local-text': 'var(--lido-app-ui-color-text-disabled)',
+                    } as React.CSSProperties)
+                  : undefined
+              }
+            >
+              {tag}
+            </Tag>
+          ) : null}
         </span>
-      ) : null}
-      <span className={styles.title}>
-        <span className={styles.titleText}>{title}</span>
-        {tag != null ? (
-          <Tag
-            variant='neutral'
-            style={
-              disabled
-                ? ({
-                    '--local-text': 'var(--lido-app-ui-color-text-disabled)',
-                  } as React.CSSProperties)
-                : undefined
-            }
-          >
-            {tag}
-          </Tag>
+        {description != null ? (
+          <span className={styles.description}>{description}</span>
         ) : null}
       </span>
-      {description != null ? (
-        <span className={styles.description}>{description}</span>
-      ) : null}
     </button>
   ),
 )

@@ -1,4 +1,9 @@
 .card {
+  /* No z-index here on purpose: an unpositioned/auto-z-index element never
+     creates its own stacking context, so .content's z-index (below) can
+     still be compared directly against the shared .selection pill, which
+     is a sibling of .card, not a descendant of it. */
+  position: relative;
   display: flex;
   flex: 1 1 0;
   min-width: 0;
@@ -13,9 +18,7 @@
   background-color: var(--lido-app-ui-color-background-default);
   text-align: left;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .card:hover:not(:disabled, .active) {
@@ -31,9 +34,18 @@
   outline-offset: 2px;
 }
 
-.active {
-  border-color: var(--lido-app-ui-color-border-default);
-  background-color: var(--lido-app-ui-color-background-surface);
+/* Sits above the shared sliding .selection pill (SegmentedControlCard,
+   z-index 1) so icon/title/description stay legible while the pill
+   travels underneath — it's the pill's own background that "moves",
+   not each card fading in and out. */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
 }
 
 .icon {
