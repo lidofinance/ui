@@ -22,6 +22,10 @@ const meta: Meta<typeof TextLink> = {
     icon: {
       description: 'Optional trailing glyph, sized to 20×20 by the component',
     },
+    disabled: {
+      description: 'Drops the href and blocks clicks/keyboard focus',
+      control: { type: 'boolean' },
+    },
   },
   parameters: {
     docs: {
@@ -48,6 +52,9 @@ export const Variants: Story = {
       <TextLink href='https://etherscan.io' external icon={<IconArrowRight />}>
         With icon
       </TextLink>
+      <TextLink href='https://etherscan.io' icon={<IconArrowRight />} disabled>
+        Disabled
+      </TextLink>
     </StorySection>
   ),
   parameters: {
@@ -55,7 +62,7 @@ export const Variants: Story = {
     docs: {
       description: {
         story:
-          'Internal, external and with a trailing icon. The icon takes the link colour through `currentColor`.',
+          'Internal, external, with a trailing icon, and disabled. The icon takes the link colour through `currentColor`.',
       },
     },
   },

@@ -25,6 +25,12 @@
   border-radius: 2px;
 }
 
+.link[aria-disabled='true'] {
+  color: var(--lido-app-ui-color-text-disabled);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .icon {
   display: inline-flex;
   flex-shrink: 0;
