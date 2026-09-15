@@ -8,7 +8,23 @@
   border-radius: 20px;
 }
 
+.divided {
+  gap: 8px;
+}
+
+.divided > * + * {
+  padding-top: 8px;
+  border-top: 1px solid var(--lido-app-ui-color-border-default);
+}
+
 .row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.mainRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +71,7 @@
 .infoIcon {
   width: 16px;
   height: 16px;
-  color: var(--lido-app-ui-color-icons-default);
+  color: var(--lido-app-ui-color-icons-secondary);
 }
 
 .infoFaint {
@@ -78,4 +94,26 @@
 .valueOld,
 .valueArrow {
   opacity: 0.6;
+}
+
+.descriptionRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.description {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.descriptionIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--lido-app-ui-color-icons-tertiary);
 }

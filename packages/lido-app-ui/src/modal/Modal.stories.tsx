@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '../button'
-import { DataList, DetailRow } from '../data-list'
+import { DataList, DataListRow } from '../data-list'
 import { Modal } from '.'
 
 const meta: Meta<typeof Modal> = {
@@ -43,9 +43,9 @@ type Story = StoryObj<typeof meta>
 
 const body = (
   <DataList>
-    <DetailRow label='Exchange rate' value='1 stETH = 1 ETH' />
-    <DetailRow label='Max transaction cost' value='$2.41' />
-    <DetailRow label='Reward fee' value='10%' />
+    <DataListRow label='Exchange rate' value='1 stETH = 1 ETH' />
+    <DataListRow label='Max transaction cost' value='$2.41' />
+    <DataListRow label='Reward fee' value='10%' />
   </DataList>
 )
 
