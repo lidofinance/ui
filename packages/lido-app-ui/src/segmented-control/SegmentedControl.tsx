@@ -15,7 +15,6 @@ export type SegmentedControlProps = {
   items: SegmentItem[]
   value: string
   onChange: (value: string) => void
-  filled?: boolean
   className?: string
 }
 
@@ -23,7 +22,6 @@ export const SegmentedControl = ({
   items,
   value,
   onChange,
-  filled = false,
   className,
 }: SegmentedControlProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -63,17 +61,13 @@ export const SegmentedControl = ({
     return () => {
       window.removeEventListener('resize', updateSelection)
     }
-  }, [value, items, filled])
+  }, [value, items])
 
   return (
     <div
       ref={containerRef}
       role='tablist'
-      className={cn(
-        styles.segmentedControl,
-        filled && styles.filled,
-        className,
-      )}
+      className={cn(styles.segmentedControl, className)}
     >
       <div
         ref={selectionRef}

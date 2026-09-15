@@ -37,11 +37,21 @@ export const Sizes: Story = {
   render: () => (
     <StorySection>
       {[24, 32, 40, 64].map((size) => (
-        <Identicon
+        <div
           key={size}
-          size={size}
-          address='0x1f9840a85d5af5bf1d1762f925bdaddc4201f984'
-        />
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 8,
+          }}
+        >
+          <Identicon
+            size={size}
+            address='0x1f9840a85d5af5bf1d1762f925bdaddc4201f984'
+          />
+          <span style={{ fontSize: 12, opacity: 0.6 }}>{size}px</span>
+        </div>
       ))}
     </StorySection>
   ),
@@ -50,7 +60,7 @@ export const Sizes: Story = {
     docs: {
       description: {
         story:
-          'Any size works — the pattern scales with the circle. 24, 32, 40 and 64px shown.',
+          'Any size works — the pattern scales with the circle. 24, 32, 40 and 64px shown, labeled with their `size` value.',
       },
     },
   },

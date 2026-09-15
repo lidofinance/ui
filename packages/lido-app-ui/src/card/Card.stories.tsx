@@ -16,7 +16,7 @@ const meta: Meta<typeof Card> = {
     docs: {
       description: {
         component:
-          "A plain surface container — 32px padding, 32px gap between children, white background. It has no size or interactive variants: it fills its parent's width, so the parent decides how wide it renders and what goes inside.",
+          'A typical action card: a `SectionTitle` header (with its own tooltip and action button), an `Input`, and a submit `Button` — the shape you get for a "do a thing" panel like claiming or supplying.',
       },
     },
   },
@@ -89,4 +89,12 @@ export const Variants: Story = {
       </div>
     </StoryContainer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Any content can go inside — a narrow form-like card on the left, versus a wide card used purely to group a row of `StatItem` metrics on the right. `Card` itself only supplies the surface, padding and gap.',
+      },
+    },
+  },
 }

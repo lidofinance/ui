@@ -17,16 +17,11 @@ const meta: Meta<typeof SegmentedControl> = {
   args: {
     items,
     value: 'supply',
-    filled: false,
   },
   argTypes: {
     items: { description: 'Value, label and an optional `disabled` flag' },
     value: {
       description: 'Active segment value — the component is controlled',
-    },
-    filled: {
-      description: 'Grey track instead of the outlined one',
-      control: { type: 'boolean' },
     },
   },
   parameters: {
@@ -63,26 +58,13 @@ const itemsWithDisabled: SegmentItem[] = [
 
 export const Variants: Story = {
   render: function Render() {
-    const [outlinedValue, setOutlinedValue] = useState('supply')
-    const [filledValue, setFilledValue] = useState('supply')
+    const [value, setValue] = useState('supply')
     const [disabledValue, setDisabledValue] = useState('supply')
 
     return (
       <StoryContainer>
-        <StorySection title='outlined'>
-          <SegmentedControl
-            items={items}
-            value={outlinedValue}
-            onChange={setOutlinedValue}
-          />
-        </StorySection>
-        <StorySection title='filled'>
-          <SegmentedControl
-            items={items}
-            value={filledValue}
-            onChange={setFilledValue}
-            filled
-          />
+        <StorySection title='default'>
+          <SegmentedControl items={items} value={value} onChange={setValue} />
         </StorySection>
         <StorySection title='with disabled item'>
           <SegmentedControl
@@ -99,7 +81,7 @@ export const Variants: Story = {
     docs: {
       description: {
         story:
-          'Both tracks, plus a bar with an unavailable segment. A disabled item stays visible but cannot take focus.',
+          'The grey track, plus a bar with an unavailable segment. A disabled item stays visible but cannot take focus.',
       },
     },
   },

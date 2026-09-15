@@ -41,11 +41,6 @@
   transition: left 150ms;
 }
 
-.input:not(:checked, :disabled) ~ .knob {
-  top: 1px;
-  left: 1px;
-}
-
 .input:checked {
   border-color: transparent;
   background-color: var(--lido-app-ui-color-background-surface-selected);

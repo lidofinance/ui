@@ -31,7 +31,11 @@ const meta: Meta<typeof Slider> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Basic: Story = {}
+export const Basic: Story = {
+  args: {
+    marks: false,
+  },
+}
 
 export const WithMarks: Story = {
   args: {

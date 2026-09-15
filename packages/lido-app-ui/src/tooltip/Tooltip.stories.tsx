@@ -15,7 +15,7 @@ const meta: Meta<typeof Tooltip> = {
     children: <IconInfo />,
   },
   argTypes: {
-    content: { description: 'Bubble text; omit to disable the tooltip' },
+    content: { description: 'Bubble content — required' },
     position: {
       description: 'Where the bubble opens relative to the trigger',
       options: [
@@ -38,7 +38,7 @@ const meta: Meta<typeof Tooltip> = {
     docs: {
       description: {
         component:
-          'CSS-only tooltip: the bubble is a sibling revealed on `:hover` and `:focus-within`, so there is no portal and no JS. That also means it is clipped by any ancestor with `overflow: clip` — inside `Modal`, open it downwards.',
+          'The bubble is a sibling revealed on `:hover` and `:focus-within` — no portal. It measures itself on hover/focus and flips or slides to stay inside the viewport, so it never gets clipped near a screen edge; it can still be clipped by an ancestor with `overflow: clip` — inside `Modal`, open it downwards.',
       },
     },
   },
@@ -48,7 +48,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
-  render: (args) => <Tooltip {...args} />,
   parameters: {
     docs: {
       description: {
@@ -90,7 +89,7 @@ export const Positions: Story = {
     docs: {
       description: {
         story:
-          'All eight anchors — hover each icon; the bubble names its own position. There is no flipping logic, so pick the one that fits the space you have.',
+          'All eight anchors — hover each icon; the bubble names its own position. With room on every side none of them need to flip; see `NearViewportEdge` for that.',
       },
     },
   },
@@ -134,15 +133,36 @@ export const RichContent: Story = {
   },
 }
 
-export const WithoutContent: Story = {
-  args: {
-    content: undefined,
-  },
+export const NearViewportEdge: Story = {
+  render: () => (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: '100%',
+      }}
+    >
+      <Tooltip
+        position='top-left'
+        content='Flips and slides so it stays inside the viewport, even right at the edge.'
+      >
+        <IconInfo />
+      </Tooltip>
+      <Tooltip
+        position='top-right'
+        content='Flips and slides so it stays inside the viewport, even right at the edge.'
+      >
+        <IconInfo />
+      </Tooltip>
+    </div>
+  ),
   parameters: {
+    layout: 'padded',
+    controls: { disable: true },
     docs: {
       description: {
         story:
-          'With no `content` the wrapper renders its children untouched — handy when the hint is optional data.',
+          'Triggers pinned to the left and right edges of the canvas — the bubble adjusts itself instead of overflowing.',
       },
     },
   },

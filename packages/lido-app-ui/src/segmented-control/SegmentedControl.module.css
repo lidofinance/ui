@@ -1,23 +1,15 @@
 .segmentedControl {
-  --local-border-width: 1px;
-
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 4px;
   box-sizing: border-box;
-  padding: calc(4px - var(--local-border-width));
-  border: var(--local-border-width) solid
-    var(--lido-app-ui-color-border-default);
+  padding: 4px;
   border-radius: var(--lido-app-ui-border-radius-pill);
   background-color: var(--lido-app-ui-color-background-secondary);
 }
 
-.filled {
-  display: flex;
-}
-
-.filled > button {
+.segmentedControl > button {
   flex: 1 0 0;
 }
 
