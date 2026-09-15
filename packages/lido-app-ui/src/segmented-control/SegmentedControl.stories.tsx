@@ -42,27 +42,11 @@ const meta: Meta<typeof SegmentedControl> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const Controlled = ({
-  filled,
-  controlItems = items,
-}: {
-  filled?: boolean
-  controlItems?: SegmentItem[]
-}) => {
-  const [value, setValue] = useState('supply')
-
-  return (
-    <SegmentedControl
-      items={controlItems}
-      value={value}
-      onChange={setValue}
-      filled={filled}
-    />
-  )
-}
-
 export const Basic: Story = {
-  render: () => <Controlled />,
+  render: function Render() {
+    const [value, setValue] = useState('supply')
+    return <SegmentedControl items={items} value={value} onChange={setValue} />
+  },
   parameters: {
     docs: {
       description: {
@@ -72,25 +56,44 @@ export const Basic: Story = {
   },
 }
 
+const itemsWithDisabled: SegmentItem[] = [
+  ...items,
+  { value: 'repay', label: 'Repay', disabled: true },
+]
+
 export const Variants: Story = {
-  render: () => (
-    <StoryContainer>
-      <StorySection title='outlined'>
-        <Controlled />
-      </StorySection>
-      <StorySection title='filled'>
-        <Controlled filled />
-      </StorySection>
-      <StorySection title='with disabled item'>
-        <Controlled
-          controlItems={[
-            ...items,
-            { value: 'repay', label: 'Repay', disabled: true },
-          ]}
-        />
-      </StorySection>
-    </StoryContainer>
-  ),
+  render: function Render() {
+    const [outlinedValue, setOutlinedValue] = useState('supply')
+    const [filledValue, setFilledValue] = useState('supply')
+    const [disabledValue, setDisabledValue] = useState('supply')
+
+    return (
+      <StoryContainer>
+        <StorySection title='outlined'>
+          <SegmentedControl
+            items={items}
+            value={outlinedValue}
+            onChange={setOutlinedValue}
+          />
+        </StorySection>
+        <StorySection title='filled'>
+          <SegmentedControl
+            items={items}
+            value={filledValue}
+            onChange={setFilledValue}
+            filled
+          />
+        </StorySection>
+        <StorySection title='with disabled item'>
+          <SegmentedControl
+            items={itemsWithDisabled}
+            value={disabledValue}
+            onChange={setDisabledValue}
+          />
+        </StorySection>
+      </StoryContainer>
+    )
+  },
   parameters: {
     controls: { disable: true },
     docs: {

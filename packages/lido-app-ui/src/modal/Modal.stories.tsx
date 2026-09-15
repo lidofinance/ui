@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { PageSurface } from '../../.storybook/components'
 import { Button } from '../button'
 import { DataList, DetailRow } from '../data-list'
 import { Modal } from '.'
@@ -14,6 +13,7 @@ const meta: Meta<typeof Modal> = {
     title: 'Supply stETH',
     withOverlay: false,
     bodyFill: false,
+    subtitle: 'Review the details before you confirm',
   },
   argTypes: {
     title: { description: 'Header text; omit for a bare card' },
@@ -51,60 +51,15 @@ const body = (
 
 export const Card: Story = {
   render: (args) => (
-    <PageSurface>
-      <div style={{ width: '100%', maxWidth: 460 }}>
-        <Modal {...args} onClose={() => undefined}>
-          {body}
-        </Modal>
-      </div>
-    </PageSurface>
+    <Modal {...args} onClose={() => undefined}>
+      {body}
+    </Modal>
   ),
   parameters: {
     docs: {
       description: {
         story:
           'By default the card renders bare — you own the portal and the positioning. Shown here on a muted surface so the white card reads.',
-      },
-    },
-  },
-}
-
-export const WithSubtitle: Story = {
-  args: { subtitle: 'Review the details before you confirm' },
-  render: (args) => (
-    <PageSurface>
-      <div style={{ width: '100%', maxWidth: 460 }}>
-        <Modal {...args} onClose={() => undefined}>
-          {body}
-        </Modal>
-      </div>
-    </PageSurface>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story: 'A subtitle line sits under the title, above the body.',
-      },
-    },
-  },
-}
-
-export const WithoutTitle: Story = {
-  args: { title: undefined },
-  render: (args) => (
-    <PageSurface>
-      <div style={{ width: '100%', maxWidth: 460 }}>
-        <Modal {...args} onClose={() => undefined}>
-          {body}
-        </Modal>
-      </div>
-    </PageSurface>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Without a title the header collapses to just the close button, and the body moves up.',
       },
     },
   },

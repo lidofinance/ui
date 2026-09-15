@@ -10,6 +10,7 @@ const meta: Meta<typeof MessageBox> = {
   args: {
     variant: 'default',
     icon: true,
+    headline: 'Important to know',
     children: 'Withdrawals take up to 5 days to process.',
   },
   argTypes: {

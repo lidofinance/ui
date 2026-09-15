@@ -48,20 +48,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
-  render: (args) => (
-    <span
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 8,
-        fontFamily: 'var(--lido-app-ui-font-family)',
-        color: 'var(--lido-app-ui-color-text-secondary)',
-      }}
-    >
-      Hover the icon
-      <Tooltip {...args} />
-    </span>
-  ),
+  render: (args) => <Tooltip {...args} />,
   parameters: {
     docs: {
       description: {

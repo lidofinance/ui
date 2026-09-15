@@ -61,16 +61,13 @@ const meta: Meta<typeof SegmentedControlCard> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const Controlled = () => {
-  const [value, setValue] = useState('eject')
-
-  return (
-    <SegmentedControlCard items={items} value={value} onChange={setValue} />
-  )
-}
-
 export const Basic: Story = {
-  render: () => <Controlled />,
+  render: function Render() {
+    const [value, setValue] = useState('eject')
+    return (
+      <SegmentedControlCard items={items} value={value} onChange={setValue} />
+    )
+  },
   parameters: {
     docs: {
       description: {

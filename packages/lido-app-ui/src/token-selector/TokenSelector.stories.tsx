@@ -66,28 +66,11 @@ const meta: Meta<typeof TokenSelector> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const Controlled = ({
-  single,
-  size,
-}: {
-  single?: boolean
-  size?: 'default' | 'small'
-}) => {
-  const [value, setValue] = useState('stETH')
-
-  return (
-    <TokenSelector
-      options={options}
-      value={value}
-      onChange={setValue}
-      single={single}
-      size={size}
-    />
-  )
-}
-
 export const Basic: Story = {
-  render: () => <Controlled />,
+  render: function Render() {
+    const [value, setValue] = useState('stETH')
+    return <TokenSelector options={options} value={value} onChange={setValue} />
+  },
   parameters: {
     docs: {
       description: {
@@ -98,22 +81,37 @@ export const Basic: Story = {
 }
 
 export const Variants: Story = {
-  render: () => (
-    <StoryContainer gap={16} style={{ width: '400px' }}>
-      <StorySection title={'Default size'}>
-        <Controlled size='default' />
-      </StorySection>
-      <StorySection title={'small size'}>
-        <Controlled size='small' />
-      </StorySection>
-      <StorySection title='Single (read-only)'>
-        <Controlled single />
-      </StorySection>
-      <StorySection title={'Empty'}>
-        <TokenSelector options={options} value={undefined} />
-      </StorySection>
-    </StoryContainer>
-  ),
+  render: function Render() {
+    const [defaultValue, setDefaultValue] = useState('stETH')
+    const [smallValue, setSmallValue] = useState('stETH')
+
+    return (
+      <StoryContainer gap={16} style={{ width: '400px' }}>
+        <StorySection title={'Default size'}>
+          <TokenSelector
+            options={options}
+            value={defaultValue}
+            onChange={setDefaultValue}
+            size='default'
+          />
+        </StorySection>
+        <StorySection title={'small size'}>
+          <TokenSelector
+            options={options}
+            value={smallValue}
+            onChange={setSmallValue}
+            size='small'
+          />
+        </StorySection>
+        <StorySection title='Single (read-only)'>
+          <TokenSelector options={options} value='stETH' single />
+        </StorySection>
+        <StorySection title={'Empty'}>
+          <TokenSelector options={options} value={undefined} />
+        </StorySection>
+      </StoryContainer>
+    )
+  },
   parameters: {
     controls: { disable: true },
     docs: {
