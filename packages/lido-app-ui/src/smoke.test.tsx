@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { describe, expect, it } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 
+import { Accordion } from './accordion'
 import { Badge } from './badge'
+import { Banner } from './banner'
 import { Button } from './button'
 import { Card } from './card'
 import { Checkbox } from './checkbox'
@@ -10,6 +12,7 @@ import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
+import { Input } from './input'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { Notification } from './notification'
@@ -39,7 +42,9 @@ import { Typography } from './typography'
 // migration introduces — a missing module, a bad import path, a render-time
 // crash — which type-checking alone does not.
 const cases: Array<[string, () => JSX.Element]> = [
+  ['Accordion', () => <Accordion title='Section'>Content</Accordion>],
   ['Badge', () => <Badge>Badge text</Badge>],
+  ['Banner', () => <Banner title='Heads up' />],
   ['Button', () => <Button>Connect</Button>],
   ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
@@ -61,6 +66,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Identicon',
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
+  ['Input', () => <Input label='Amount' />],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['Notification', () => <Notification title='Saved' />],
