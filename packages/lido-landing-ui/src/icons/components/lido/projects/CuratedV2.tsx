@@ -978,7 +978,7 @@ export const CuratedV2 = function (props: SVGProps<SVGSVGElement>) {
           cy={0}
           r={1}
           gradientUnits='userSpaceOnUse'
-          gradientTransform='scale(120.65 81.5237) rotate(90 -.838 2.91)'
+          gradientTransform='matrix(0 81.5237 -120.65 0 249.987 305.55)'
         >
           <stop stopColor='#fff' />
           <stop offset={0.627} stopColor='#EDF7FF' stopOpacity={0.79} />
@@ -1460,7 +1460,7 @@ export const CuratedV2 = function (props: SVGProps<SVGSVGElement>) {
           cy={0}
           r={1}
           gradientUnits='userSpaceOnUse'
-          gradientTransform='scale(120.65 81.5237) rotate(90 -.838 2.91)'
+          gradientTransform='matrix(0 81.5237 -120.65 0 249.987 305.55)'
         >
           <stop stopColor='#fff' />
           <stop offset={0.627} stopColor='#EDF7FF' stopOpacity={0.79} />

@@ -284,6 +284,9 @@ export const LidoLabs = function (props: SVGProps<SVGSVGElement>) {
           stroke={`url(#${_id51})`}
           strokeWidth={2.847}
           d='M369.389 292.73c0 64.468-52.262 116.729-116.73 116.729-34.584 0-65.656-15.04-87.03-38.936M135.93 292.73c0-24.309 7.43-46.882 20.143-65.572m32.409 119.892c-12.36-14.555-19.811-33.372-19.811-53.919 0-3.68.239-7.304.702-10.858m0 0c1.857-14.243 7.316-27.36 15.439-38.418m-15.439 38.418l.247.017m-.247-.017l-16.169-1.155a99.548 99.548 0 0117.151-45.416m173.122 99.234l-14.421-6.977c-7.438 16.126-19.882 29.491-35.351 38.125-12.135 6.773-26.131 10.634-41.033 10.634-9.91 0-19.419-1.707-28.246-4.843m119.051-36.939l.051.025m-.051-.025c5.97-12.825 9.304-27.126 9.304-42.206 0-22.102-7.161-42.53-19.29-59.093m9.986 101.299a100.225 100.225 0 01-14.178 22.224m-176.761-64.43c0 55.296 44.826 100.122 100.121 100.122v-15.897m0-16.845c-37.213 0-67.38-30.056-67.38-67.133 0-15.463 5.247-29.705 14.064-41.055'
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
         />
         <path
           fill={`url(#${_id36})`}
@@ -318,16 +321,25 @@ export const LidoLabs = function (props: SVGProps<SVGSVGElement>) {
           stroke={`url(#${_id53})`}
           strokeWidth={2.847}
           d='M176.217 204.51c20.479-17.761 47.206-28.51 76.442-28.51 29.237 0 55.963 10.749 76.443 28.51'
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
         />
         <path
           stroke={`url(#${_id54})`}
           strokeWidth={2.847}
           d='M192.276 212.859c15.964-12.088 35.189-19.483 56.587-20.18v15.197c-17.234.663-32.676 6.44-45.79 15.886'
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
         />
         <path
           stroke={`url(#${_id55})`}
           strokeWidth={2.847}
           d='M221.104 233.18c9.414-4.999 20.154-7.83 31.555-7.83a67.227 67.227 0 0123.659 4.27'
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
         />
         <circle
           cx={326.683}
@@ -364,7 +376,12 @@ export const LidoLabs = function (props: SVGProps<SVGSVGElement>) {
           stroke='#35C5F5'
           strokeWidth={2.847}
         />
-        <g strokeWidth={2.847}>
+        <g
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
+          strokeWidth={2.847}
+        >
           <path
             stroke={`url(#${_id56})`}
             d='M227.445 268.293c-6.128 6.321-9.899 14.939-9.899 24.437 0 19.393 15.721 35.114 35.114 35.114 19.393 0 35.114-15.721 35.114-35.114 0-9.498-3.772-18.116-9.899-24.437'
@@ -382,11 +399,17 @@ export const LidoLabs = function (props: SVGProps<SVGSVGElement>) {
           stroke={`url(#${_id59})`}
           strokeWidth={2.847}
           d='M305.976 251.922a66.954 66.954 0 0110.738 20.167m6.173 4.507a5.22 5.22 0 11-10.44 0 5.22 5.22 0 0110.44 0z'
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
         />
         <path
           stroke={`url(#${_id60})`}
           strokeWidth={2.847}
           d='M162.977 195.553c23.483-21.57 54.808-34.737 89.208-34.737 35.099 0 66.996 13.708 90.63 36.063'
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
         />
         <mask
           id={_id}
@@ -395,6 +418,9 @@ export const LidoLabs = function (props: SVGProps<SVGSVGElement>) {
           x={129}
           y={226}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#35C5F5'
@@ -426,12 +452,18 @@ export const LidoLabs = function (props: SVGProps<SVGSVGElement>) {
             fill={`url(#${_id40})`}
             rx={31.318}
             ry={32.504}
+            style={{
+              mixBlendMode: 'plus-lighter',
+            }}
           />
         </g>
         <path
           stroke={`url(#${_id61})`}
           strokeWidth={2.847}
           d='M279.706 191.185a5.22 5.22 0 110 10.44 5.22 5.22 0 010-10.44z'
+          style={{
+            mixBlendMode: 'color-dodge',
+          }}
         />
       </g>
       <defs>

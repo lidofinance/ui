@@ -20,6 +20,9 @@ export const Stakehouse = function (props: SVGProps<SVGSVGElement>) {
           x={13}
           y={18}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'luminance',
+          }}
         >
           <path
             fill='#fff'
@@ -40,6 +43,9 @@ export const Stakehouse = function (props: SVGProps<SVGSVGElement>) {
             x={13}
             y={14}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'luminance',
+            }}
           >
             <path
               fill='#fff'

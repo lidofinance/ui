@@ -57,6 +57,9 @@ export const Ambire = function (props: SVGProps<SVGSVGElement>) {
             x={41}
             y={32}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill='#fff'
@@ -112,6 +115,9 @@ export const Ambire = function (props: SVGProps<SVGSVGElement>) {
               x={25}
               y={19}
               maskUnits='userSpaceOnUse'
+              style={{
+                maskType: 'alpha',
+              }}
             >
               <path
                 fill='#fff'
@@ -180,6 +186,9 @@ export const Ambire = function (props: SVGProps<SVGSVGElement>) {
           x={38}
           y={33}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#fff'
@@ -235,6 +244,9 @@ export const Ambire = function (props: SVGProps<SVGSVGElement>) {
             x={23}
             y={20}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'alpha',
+            }}
           >
             <path
               fill='#fff'

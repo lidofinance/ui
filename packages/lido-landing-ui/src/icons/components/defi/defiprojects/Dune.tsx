@@ -20,6 +20,9 @@ export const Dune = function (props: SVGProps<SVGSVGElement>) {
           x={28}
           y={19}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#F1603F'

@@ -4,8 +4,6 @@ import React, { SVGProps } from 'react'
 
 import { useUniqueInlineId } from '@inline-svg-unique-id/react'
 export const LegoSmall = function (props: SVGProps<SVGSVGElement>) {
-  const _id9 = useUniqueInlineId()
-  const _id8 = useUniqueInlineId()
   const _id7 = useUniqueInlineId()
   const _id6 = useUniqueInlineId()
   const _id5 = useUniqueInlineId()
@@ -15,7 +13,7 @@ export const LegoSmall = function (props: SVGProps<SVGSVGElement>) {
   const _id = useUniqueInlineId()
   return (
     <svg width={80} height={80} viewBox='0 0 80 80' fill='none' {...props}>
-      <g filter={`url(#${_id9})`} opacity={0.8}>
+      <g filter={`url(#${_id7})`} opacity={0.8}>
         <path
           fill='#CDBEFF'
           d='M24.706 26.264l13.517-7.885 13.517 7.885-13.517 7.885-13.517-7.885z'
@@ -234,14 +232,8 @@ export const LegoSmall = function (props: SVGProps<SVGSVGElement>) {
           <stop stopColor='#F79998' />
           <stop offset={1} stopColor='#F88887' />
         </linearGradient>
-        <clipPath id={_id7} transform='translate(15.776 11.965)'>
-          <path d='M38.224 62.874l13.517-7.885V42.035L38.224 49.92v12.954z' />
-        </clipPath>
-        <clipPath id={_id8} transform='translate(13.725 11.965)'>
-          <path d='M40.275 62.874l13.518-7.885V42.035L40.275 49.92v12.954z' />
-        </clipPath>
         <filter
-          id={_id9}
+          id={_id7}
           width={76.069}
           height={66.494}
           x={0.189}

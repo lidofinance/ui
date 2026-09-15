@@ -18,6 +18,9 @@ export const Mai = function (props: SVGProps<SVGSVGElement>) {
           x={22}
           y={11}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'luminance',
+          }}
         >
           <path fill='#fff' d='M61.403 11.998H22.007v55.154h39.396V11.998z' />
         </mask>
@@ -33,6 +36,9 @@ export const Mai = function (props: SVGProps<SVGSVGElement>) {
             x={26}
             y={9}
             maskUnits='userSpaceOnUse'
+            style={{
+              maskType: 'luminance',
+            }}
           >
             <path fill='#fff' d='M65.798 9.998H26.402v55.154h39.396V9.998z' />
           </mask>

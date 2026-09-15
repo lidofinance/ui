@@ -5,8 +5,10 @@ import { Aark } from './Aark'
 import { AgniFinance } from './AgniFinance'
 import { AlchemyPay } from './AlchemyPay'
 import { Ambient } from './Ambient'
+import { Aragon } from './Aragon'
 import { BADGER } from './BADGER'
 import { Balancer } from './Balancer'
+import { BitGo } from './BitGo'
 import { Bolt } from './Bolt'
 import { CAMELOT } from './CAMELOT'
 import { Cleopatra } from './Cleopatra'
@@ -66,6 +68,7 @@ import { Treehouse } from './Treehouse'
 import { VaultCraft } from './VaultCraft'
 import { Velocore } from './Velocore'
 import { Velodrome } from './Velodrome'
+import { Velora } from './Velora'
 import { Venus } from './Venus'
 import { Vesu } from './Vesu'
 import { Wintermute } from './Wintermute'
@@ -93,6 +96,7 @@ import { Bancor } from './Bancor'
 import { Bebop } from './Bebop'
 import { Beefy } from './Beefy'
 import { BeethovenX } from './BeethovenX'
+import { Binance } from './Binance'
 import { Bingx } from './Bingx'
 import { Blockchain } from './Blockchain'
 import { BridgeMutual } from './BridgeMutual'
@@ -102,6 +106,7 @@ import { Cega } from './Cega'
 import { ChainProof } from './ChainProof'
 import { Chainlayer } from './Chainlayer'
 import { Chainlink } from './Chainlink'
+import { Changelly } from './Changelly'
 import { Chorus } from './Chorus'
 import { Chronicle } from './Chronicle'
 import { Cian } from './Cian'
@@ -112,12 +117,12 @@ import { Concentrator } from './Concentrator'
 import { Convex } from './Convex'
 import { Copper } from './Copper'
 import { Cow } from './Cow'
-import { CryptoCom } from './CryptoCom'
 import { Curve } from './Curve'
 import { Debank } from './Debank'
 import { Defi } from './Defi'
 import { DefiSaver } from './DefiSaver'
 import { Defillama } from './Defillama'
+import { Derive } from './Derive'
 import { Drop } from './Drop'
 import { Drpc } from './Drpc'
 import { Dune } from './Dune'
@@ -134,7 +139,6 @@ import { Exactly } from './Exactly'
 import { Extrafi } from './Extrafi'
 import { Fireblock } from './Fireblock'
 import { Flipside } from './Flipside'
-import { FlowTraders } from './FlowTraders'
 import { Fluid } from './Fluid'
 import { Francium } from './Francium'
 import { Fxprotocol } from './Fxprotocol'
@@ -154,8 +158,10 @@ import { Itoken } from './Itoken'
 import { JetProtocol } from './JetProtocol'
 import { Jojo } from './Jojo'
 import { Karak } from './Karak'
+import { Katana } from './Katana'
 import { Ki } from './Ki'
 import { Koi } from './Koi'
+import { Kraken } from './Kraken'
 import { Kwenta } from './Kwenta'
 import { Larix } from './Larix'
 import { LayerZero } from './LayerZero'
@@ -249,7 +255,6 @@ import { Traderjoe } from './Traderjoe'
 import { Uniswap } from './Uniswap'
 import { Unslashed } from './Unslashed'
 import { VesperFinance } from './VesperFinance'
-import { VirtuFinancial } from './VirtuFinancial'
 import { Voltz } from './Voltz'
 import { Wormhole } from './Wormhole'
 import { Yearn } from './Yearn'
@@ -267,8 +272,10 @@ export const DEFIPROJECTS_ICONS_MAP = {
   AgniFinance,
   AlchemyPay,
   Ambient,
+  Aragon,
   BADGER,
   Balancer,
+  BitGo,
   Bolt,
   CAMELOT,
   Cleopatra,
@@ -328,6 +335,7 @@ export const DEFIPROJECTS_ICONS_MAP = {
   VaultCraft,
   Velocore,
   Velodrome,
+  Velora,
   Venus,
   Vesu,
   Wintermute,
@@ -355,6 +363,7 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Bebop,
   Beefy,
   BeethovenX,
+  Binance,
   Bingx,
   Blockchain,
   BridgeMutual,
@@ -364,6 +373,7 @@ export const DEFIPROJECTS_ICONS_MAP = {
   ChainProof,
   Chainlayer,
   Chainlink,
+  Changelly,
   Chorus,
   Chronicle,
   Cian,
@@ -374,12 +384,12 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Convex,
   Copper,
   Cow,
-  CryptoCom,
   Curve,
   Debank,
   Defi,
   DefiSaver,
   Defillama,
+  Derive,
   Drop,
   Drpc,
   Dune,
@@ -396,7 +406,6 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Extrafi,
   Fireblock,
   Flipside,
-  FlowTraders,
   Fluid,
   Francium,
   Fxprotocol,
@@ -416,8 +425,10 @@ export const DEFIPROJECTS_ICONS_MAP = {
   JetProtocol,
   Jojo,
   Karak,
+  Katana,
   Ki,
   Koi,
+  Kraken,
   Kwenta,
   Larix,
   LayerZero,
@@ -511,7 +522,6 @@ export const DEFIPROJECTS_ICONS_MAP = {
   Uniswap,
   Unslashed,
   VesperFinance,
-  VirtuFinancial,
   Voltz,
   Wormhole,
   Yearn,

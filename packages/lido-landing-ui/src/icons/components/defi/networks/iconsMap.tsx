@@ -1,6 +1,7 @@
 // THIS FILE IS AUTO GENERATED
 
 import { BNB } from './BNB'
+import { EthereumDark } from './EthereumDark'
 import { EthereumLight } from './EthereumLight'
 import { Linea } from './Linea'
 import { Lisk } from './Lisk'
@@ -24,6 +25,7 @@ import { ZkSync } from './ZkSync'
 // Export a constant with all icons in this directory
 export const NETWORKS_ICONS_MAP = {
   BNB,
+  EthereumDark,
   EthereumLight,
   Linea,
   Lisk,

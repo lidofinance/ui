@@ -1,10 +1,14 @@
 // THIS FILE IS AUTO GENERATED
 
 export { DAI } from './DAI'
+export { EARNETH } from './EARNETH'
+export { EARNUSD } from './EARNUSD'
 export { ETH } from './ETH'
+export { GG } from './GG'
 export { LDO } from './LDO'
 export { MELLOWPOINTS } from './MELLOWPOINTS'
 export { STETH } from './STETH'
+export { STRETH } from './STRETH'
 export { SYMBIOTICPOINTS } from './SYMBIOTICPOINTS'
 export { USDC } from './USDC'
 export { USDT } from './USDT'

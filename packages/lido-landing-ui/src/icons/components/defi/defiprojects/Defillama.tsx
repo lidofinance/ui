@@ -30,6 +30,9 @@ export const Defillama = function (props: SVGProps<SVGSVGElement>) {
           x={28}
           y={17}
           maskUnits='userSpaceOnUse'
+          style={{
+            maskType: 'alpha',
+          }}
         >
           <path
             fill='#C4C4C4'
