@@ -38,6 +38,9 @@ const meta: Meta<typeof Tag> = {
     onClose: {
       control: { type: 'boolean' },
     },
+    hoverable: {
+      control: { type: 'boolean' },
+    },
     children: {
       control: { type: 'text' },
     },
