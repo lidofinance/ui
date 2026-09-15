@@ -4,8 +4,8 @@ import { StoryContainer } from '../../.storybook/components'
 import { Button } from '../button'
 import { Input } from '../input'
 import { SectionTitle } from '../section-title'
-import { StatsRow } from '../stats-row'
 import { Card } from '.'
+import { StatItem } from '../stat-item'
 
 const meta: Meta<typeof Card> = {
   title: 'Layout/Card',
@@ -61,25 +61,30 @@ export const Variants: Story = {
       </div>
       <div style={{ width: 800 }}>
         <Card>
-          <StatsRow
-            items={[
-              {
-                label: 'TVL',
-                value: '24.1B',
-                subValue: 'Total value locked in the protocol',
-              },
-              {
-                label: 'APR',
-                value: '3.2%',
-                subValue: 'Annual percentage rate',
-              },
-              {
-                label: 'Validators',
-                value: '12,480',
-                subValue: 'Number of active validators',
-              },
-            ]}
-          />
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              width: '100%',
+              justifyContent: 'space-between',
+            }}
+          >
+            <StatItem
+              label='TVL'
+              value='24.1B'
+              subValue='Total value locked in the protocol'
+            />
+            <StatItem
+              label='APR'
+              value='3.2%'
+              subValue='Annual percentage rate'
+            />
+            <StatItem
+              label='Validators'
+              value='12,480'
+              subValue='Number of active validators'
+            />
+          </div>
         </Card>
       </div>
     </StoryContainer>

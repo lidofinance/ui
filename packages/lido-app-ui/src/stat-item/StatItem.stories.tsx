@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StorySection } from '../../.storybook/components'
-import { TokenSteth } from '../icons'
+import { IconShield, TokenEth, TokenSteth } from '../icons'
 import { StatItem } from '.'
 
 const meta: Meta<typeof StatItem> = {
@@ -15,8 +15,18 @@ const meta: Meta<typeof StatItem> = {
   argTypes: {
     label: { description: 'Caption above the number' },
     value: { description: 'The number itself' },
+    titleIcon: { description: 'Optional 24×24 glyph before the label' },
+    info: {
+      description:
+        'Optional tooltip content, shown as an info icon after the label',
+    },
     icon: { description: 'Optional token glyph next to the value' },
-    subValue: { description: 'Small line under the value' },
+    subValue: {
+      description:
+        "Small secondary line — inline for `align='left'`, below the value for `align='center'`",
+    },
+    description: { description: 'Optional muted caption at the bottom' },
+    align: { control: { type: 'radio' }, options: ['left', 'center'] },
   },
   parameters: {
     docs: {
@@ -50,6 +60,41 @@ export const Variants: Story = {
     docs: {
       description: {
         story: 'Plain, with a token glyph, and with a secondary line.',
+      },
+    },
+  },
+}
+
+export const Align: Story = {
+  render: () => (
+    <StorySection style={{ gap: 48, alignItems: 'flex-start' }}>
+      <StatItem
+        align='left'
+        titleIcon={<IconShield width={24} height={24} />}
+        label='Rewards balance, stETH'
+        info='Rewards accrue daily and compound automatically.'
+        value='0.0841'
+        icon={<TokenEth width={24} height={24} />}
+        subValue='$271.88'
+        description='Description text'
+      />
+      <StatItem
+        align='center'
+        titleIcon={<IconShield width={24} height={24} />}
+        label='Available Liquidity'
+        info='Funds currently available to borrow.'
+        value='20.9K'
+        icon={<TokenEth width={24} height={24} />}
+        subValue='$271.88'
+      />
+    </StorySection>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          "`align='left'` keeps `subValue` inline with the number and puts `description` on its own line below. `align='center'` (default) centers everything and drops `subValue` to its own centered line.",
       },
     },
   },

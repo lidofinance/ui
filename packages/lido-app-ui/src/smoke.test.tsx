@@ -25,8 +25,6 @@ import {
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
 import { StatItem } from './stat-item'
-import { StatsRow } from './stats-row'
-import { Stepper } from './stepper'
 import { Switch } from './switch'
 import { Tabs } from './tabs'
 import { Tag } from './tag'
@@ -97,8 +95,6 @@ const cases: Array<[string, () => JSX.Element]> = [
     () => <SmallCard title='CSM Sentinel' href='https://lido.fi' />,
   ],
   ['StatItem', () => <StatItem label='TVL' value='1M' />],
-  ['StatsRow', () => <StatsRow items={[{ label: 'TVL', value: '1M' }]} />],
-  ['Stepper', () => <Stepper steps={[{ title: 'One' }, { title: 'Two' }]} />],
   ['Switch', () => <Switch label='Enable' />],
   [
     'Tabs',
