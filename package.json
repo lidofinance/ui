@@ -15,7 +15,7 @@
     "build-storybook": "turbo run build-storybook",
     "storybook:ui": "yarn workspace @lidofinance/lido-ui dev",
     "storybook:landing": "yarn workspace @lidofinance/lido-landing-ui dev",
-    "storybook:widget": "yarn workspace @lidofinance/lido-app-ui dev",
+    "storybook:app": "yarn workspace @lidofinance/lido-app-ui dev",
     "release": "multi-semantic-release",
     "prepare": "git config core.hooksPath .git-hooks || echo 'Not in a git repo'"
   },
@@ -79,7 +79,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
-    "@lidofinance/multi-semantic-release": "^1.0.0",
+    "@lidofinance/multi-semantic-release": "^1.0.3",
     "@semantic-release/commit-analyzer": "13.0.1",
     "@semantic-release/github": "12.0.8",
     "@semantic-release/npm": "13.1.5",

@@ -62,12 +62,21 @@ export default [
         config: {
           path: './postcss.config.js',
         },
+        // Only *.module.css get scoped class names; the token/font layer in
+        // styles/ must stay global.
         modules: {
-          auto: (id) => !/src\/styles[\\/]global\.css$/.test(id),
+          auto: (id) => /\.module\.css$/.test(id),
         },
         inject: false,
         extract: 'index.css',
         minimize: true,
+      }),
+      copy({
+        targets: [
+          { src: 'styles/typography-mixins.css', dest: 'dist/styles' },
+          { src: 'styles/breakpoints.css', dest: 'dist/styles' },
+          { src: './assets/fonts/*', dest: 'dist/assets/fonts' },
+        ],
       }),
     ],
     external,

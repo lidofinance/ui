@@ -2827,6 +2827,7 @@ __metadata:
     "@babel/preset-env": "npm:7.26.9"
     "@babel/preset-react": "npm:7.26.3"
     "@babel/preset-typescript": "npm:7.27.0"
+    "@csstools/postcss-global-data": "npm:3.0.0"
     "@lidofinance/lido-shared-ui": "npm:*"
     "@rollup/plugin-babel": "npm:6.0.4"
     "@rollup/plugin-commonjs": "npm:28.0.3"
@@ -2838,16 +2839,27 @@ __metadata:
     "@storybook/react": "npm:8.6.12"
     "@storybook/react-webpack5": "npm:8.6.12"
     "@storybook/test": "npm:8.6.12"
+    "@svgr/core": "npm:8.1.0"
+    "@svgr/plugin-jsx": "npm:8.1.0"
+    "@svgr/plugin-prettier": "npm:8.1.0"
+    "@svgr/plugin-svgo": "npm:5.5.0"
+    "@testing-library/react": "npm:15.0.7"
     "@types/react": "npm:18.2.24"
     "@types/react-dom": "npm:18.2.9"
     "@vitejs/plugin-react": "npm:^4.0.0"
     autoprefixer: "npm:10.4.21"
+    babel-plugin-react-inline-svg-unique-id: "npm:1.5.0"
     classnames: "npm:2.5.1"
     jsdom: "npm:^25.0.0"
+    postcss-custom-media: "npm:11.0.5"
     postcss-import: "npm:16.1.0"
+    postcss-loader: "npm:8.1.1"
+    postcss-mixins: "npm:11.0.3"
+    postcss-nested: "npm:7.0.2"
     postcss-url: "npm:10.1.4"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
+    react-jazzicon: "npm:1.0.4"
     rollup: "npm:3.29.5"
     rollup-plugin-copy: "npm:3.5.0"
     rollup-plugin-postcss: "npm:4.0.2"
@@ -3028,9 +3040,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/multi-semantic-release@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "@lidofinance/multi-semantic-release@npm:1.0.2"
+"@lidofinance/multi-semantic-release@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@lidofinance/multi-semantic-release@npm:1.0.3"
   dependencies:
     "@semrel-extra/topo": "npm:^1.14.1"
     "@types/git-log-parser": "npm:^1.2.3"
@@ -3043,12 +3055,12 @@ __metadata:
     execa: "npm:^9.6.0"
     git-log-parser: "npm:^1.2.1"
     lodash-es: "npm:^4.17.21"
-    semantic-release: "npm:^25.0.5"
+    semantic-release: "npm:^25.0.9"
     semver: "npm:^7.7.1"
     winston: "npm:^3.17.0"
   bin:
     multi-semantic-release: dist/cli.js
-  checksum: 10c0/ecf0298eaab1bd054a8cee1ae0aff886ff4eab03ab1ce7d8890a76f91653fb91922f913ffd7ebbe8499b807e556e852fd8c36d876b07a7afbf9524276899d587
+  checksum: 10c0/89b6cf84ab33666a056d805af0e8c3bac4be1e6ef4821986f806e115d2fe960adc8a0633f4d5e9c5b9bc9a0e64b1194bfc4052897db22e279d1bbe8901ffd094
   languageName: node
   linkType: hard
 
@@ -20080,7 +20092,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:19.8.0"
     "@commitlint/config-conventional": "npm:19.8.0"
-    "@lidofinance/multi-semantic-release": "npm:^1.0.0"
+    "@lidofinance/multi-semantic-release": "npm:^1.0.3"
     "@semantic-release/commit-analyzer": "npm:13.0.1"
     "@semantic-release/github": "npm:12.0.8"
     "@semantic-release/npm": "npm:13.1.5"
@@ -20284,9 +20296,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:^25.0.5":
-  version: 25.0.7
-  resolution: "semantic-release@npm:25.0.7"
+"semantic-release@npm:^25.0.9":
+  version: 25.0.9
+  resolution: "semantic-release@npm:25.0.9"
   dependencies:
     "@semantic-release/commit-analyzer": "npm:^13.0.1"
     "@semantic-release/error": "npm:^4.0.0"
@@ -20318,7 +20330,7 @@ __metadata:
     yargs: "npm:^18.0.0"
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: 10c0/fb49fcb1fe6c589980f955f9dfd05d034be2e0b8d3fa921a73f1e098fa414b2b60f242eb727a66a2749fa7ab0772d1ab0025b95defd1645eb09e6c1a75228835
+  checksum: 10c0/00ef3109206c023678c3b8771bb2985d2911cf990868a54d8e4302d08664b3246636e9f2a3e4f7cbe162eab5dfbeae7535a92381aa60b00a1d893375e3fc4b0d
   languageName: node
   linkType: hard
 

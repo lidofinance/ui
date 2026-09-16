@@ -6,4 +6,11 @@ if [ -n "$STAGED_SVG_FILES" ]; then
   git add packages/lido-ui/src/icons/components/ packages/lido-ui/src/icons/index.tsx
 fi
 
+STAGED_APP_UI_SVG_FILES=$(echo "$STAGED_SVG_FILES" | grep '^packages/lido-app-ui/src/icons/svg/' || true)
+if [ -n "$STAGED_APP_UI_SVG_FILES" ]; then
+  echo "lido-app-ui SVG files changed, running yarn icons:convert..."
+  yarn workspace @lidofinance/lido-app-ui icons:convert
+  git add packages/lido-app-ui/src/icons/components/ packages/lido-app-ui/src/icons/allIcons.tsx packages/lido-app-ui/src/icons/iconMaps.tsx
+fi
+
 npx lint-staged

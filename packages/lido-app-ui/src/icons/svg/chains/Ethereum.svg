@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="chain/Ethereum">
+<path id="Vector" d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#5F7EDD"/>
+<g id="Group">
+<path id="Vector_2" opacity="0.6" d="M12 9.9155L7.08816 12.1494L12 15.0513L16.9098 12.1494L12 9.9155Z" fill="white"/>
+<path id="Vector_3" opacity="0.45" d="M7.08818 12.1492L12 15.0511V3.99952L7.08818 12.1492Z" fill="white"/>
+<path id="Vector_4" opacity="0.8" d="M11.9983 3.99954V15.0511L16.9082 12.1492L11.9983 3.99954Z" fill="white"/>
+<path id="Vector_5" opacity="0.45" d="M7.08816 13.0796L12 19.9993V15.9815L7.08816 13.0796Z" fill="white"/>
+<path id="Vector_6" opacity="0.8" d="M11.9983 15.9815V19.9993L16.912 13.0796L11.9983 15.9815Z" fill="white"/>
+</g>
+</g>
+</svg>

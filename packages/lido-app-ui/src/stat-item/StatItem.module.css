@@ -1,0 +1,99 @@
+.item {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  align-self: stretch;
+  min-width: 0;
+}
+
+.left {
+  align-items: flex-start;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.titleIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.titleIcon > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.label {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-body);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 28px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  color: var(--lido-app-ui-color-text-secondary);
+  white-space: nowrap;
+}
+
+.info {
+  display: inline-flex;
+  align-items: center;
+}
+
+.infoIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--lido-app-ui-color-icons-secondary);
+}
+
+.valueRow {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.value {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: 28px;
+  font-weight: var(--lido-app-ui-font-weight-medium);
+  line-height: 40px;
+  letter-spacing: -0.84px;
+  color: var(--lido-app-ui-color-text-default);
+  white-space: nowrap;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.subValue {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  color: var(--lido-app-ui-color-text-secondary);
+  white-space: nowrap;
+}
+
+.description {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  color: var(--lido-app-ui-color-text-tertiary);
+}

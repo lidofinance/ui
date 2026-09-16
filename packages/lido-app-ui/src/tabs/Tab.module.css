@@ -1,0 +1,30 @@
+.tab {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 0 8px;
+  border: none;
+  background: none;
+  color: var(--lido-app-ui-color-text-secondary);
+  font-family: var(--lido-app-ui-font-family);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+
+  /* Figma "Body 1" — no matching size/line-height token pair. */
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tab:hover:not(:disabled) {
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.tab.active {
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.tab:disabled {
+  color: var(--lido-app-ui-color-text-disabled);
+  cursor: not-allowed;
+}

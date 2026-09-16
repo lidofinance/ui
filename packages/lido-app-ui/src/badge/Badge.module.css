@@ -1,0 +1,32 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  border: 0.5px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-pill);
+  background-color: var(--lido-app-ui-color-background-default);
+  color: var(--lido-app-ui-color-text-default);
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+
+  /* Figma "Body 2" — no matching size/line-height token pair. */
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  white-space: nowrap;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--lido-app-ui-color-icons-success);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,80 @@
+/*
+ * A toast-style notification — always dark regardless of the host theme
+ * (matches Figma exactly), so colors below are literal, not `--lido-app-ui-*`
+ * tokens.
+ */
+
+.notification {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 320px;
+  max-width: 100%;
+  padding: 16px;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 20px;
+  background-color: rgb(0 0 0 / 90%);
+  color: #fff;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--lido-app-ui-font-family);
+
+  /* Figma "Body 1" — no matching size/line-height token pair. */
+  font-size: 16px;
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: 28px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+}
+
+.body {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-label);
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+}
+
+.body p {
+  margin: 0 0 8px;
+}
+
+.body ul {
+  margin: 0;
+  padding-left: 21px;
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.button {
+  @mixin font-body-semibold;
+
+  box-sizing: border-box;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.button.primary {
+  background-color: #fff;
+  color: #000;
+}
+
+.button.secondary {
+  border: 1px solid rgb(255 255 255 / 10%);
+  background: none;
+  color: #fff;
+}

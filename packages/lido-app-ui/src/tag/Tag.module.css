@@ -1,0 +1,93 @@
+.tag {
+  --local-bg: var(--lido-app-ui-color-background-secondary);
+  --local-bg-hover: var(--lido-app-ui-color-background-secondary-hover);
+  --local-text: var(--lido-app-ui-color-text-secondary);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  padding: 2px 8px;
+  border-radius: var(--lido-app-ui-border-radius-badge);
+  background-color: var(--local-bg);
+  color: var(--local-text);
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  white-space: nowrap;
+}
+
+.tag:hover {
+  background-color: var(--local-bg-hover);
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.closeButton {
+  all: unset;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.closeButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.neutral {
+  --local-bg: var(--lido-app-ui-color-tint-neutral);
+  --local-bg-hover: var(--lido-app-ui-color-background-secondary-hover);
+  --local-text: var(--lido-app-ui-color-text-tertiary);
+}
+
+.success {
+  --local-bg: var(--lido-app-ui-color-tint-success);
+  --local-bg-hover: var(--lido-app-ui-color-tint-success-hover);
+  --local-text: var(--lido-app-ui-color-text-success);
+}
+
+.warning {
+  --local-bg: var(--lido-app-ui-color-tint-warning);
+  --local-bg-hover: var(--lido-app-ui-color-tint-warning-hover);
+  --local-text: var(--lido-app-ui-color-text-warning);
+}
+
+.error {
+  --local-bg: var(--lido-app-ui-color-tint-error);
+  --local-bg-hover: var(--lido-app-ui-color-tint-error-hover);
+  --local-text: var(--lido-app-ui-color-text-error);
+}
+
+.info {
+  --local-bg: var(--lido-app-ui-color-tint-info);
+  --local-bg-hover: var(--lido-app-ui-color-tint-info-hover);
+  --local-text: var(--lido-app-ui-color-text-info);
+}
+
+.active {
+  --local-bg: var(--lido-app-ui-color-background-surface-active);
+  --local-bg-hover: var(--lido-app-ui-color-background-surface-active-hover);
+  --local-text: var(--lido-app-ui-color-text-active);
+}
+
+.action {
+  --local-bg: var(--lido-app-ui-color-background-action);
+  --local-bg-hover: var(--lido-app-ui-color-background-action-hover);
+  --local-text: var(--lido-app-ui-color-text-inverse);
+}

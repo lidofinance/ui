@@ -1,0 +1,15 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="white"/>
+<mask id="pendleLightMask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="white"/>
+</mask>
+<g mask="url(#pendleLightMask0)">
+<path d="M6.60151 29.999C10.2475 29.999 13.2031 27.0434 13.2031 23.3974C13.2031 19.7514 10.2475 16.7958 6.60151 16.7958C2.95553 16.7958 -0.00012207 19.7514 -0.00012207 23.3974C-0.00012207 27.0434 2.95553 29.999 6.60151 29.999Z" fill="#082B53"/>
+<mask id="pendleLightMask1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="5" y="0" width="3" height="19">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.87445 18.3729V0.680481H7.34612V18.3729H5.87445Z" fill="white"/>
+</mask>
+<g mask="url(#pendleLightMask1)">
+<path d="M23.9994 12C23.9994 18.6274 18.6269 24 11.9994 24C5.37199 24 -0.000610352 18.6274 -0.000610352 12C-0.000610352 5.37258 5.37199 0 11.9994 0C18.6269 0 23.9994 5.37258 23.9994 12Z" fill="#082B53"/>
+</g>
+</g>
+</svg>

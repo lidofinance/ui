@@ -1,0 +1,101 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.content {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: var(--local-tooltip-width, 320px);
+  box-sizing: border-box;
+  padding: 16px;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-tooltip);
+  background-color: rgb(0 0 0 / 90%);
+  color: var(--lido-app-ui-palette-white-a900);
+  font-size: var(--lido-app-ui-font-size-label);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: 24px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  word-break: break-word;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+
+.wrapper:hover .content,
+.wrapper:focus-within .content {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0s;
+}
+
+.position-top {
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: 8px;
+  transform: translateX(calc(-50% + var(--local-tooltip-shift-x, 0)));
+}
+
+.position-bottom {
+  top: 100%;
+  left: 50%;
+  margin-top: 8px;
+  transform: translateX(calc(-50% + var(--local-tooltip-shift-x, 0)));
+}
+
+.position-left {
+  right: 100%;
+  top: 50%;
+  margin-right: 8px;
+  transform: translateY(calc(-50% + var(--local-tooltip-shift-y, 0px)));
+}
+
+.position-right {
+  left: 100%;
+  top: 50%;
+  margin-left: 8px;
+  transform: translateY(calc(-50% + var(--local-tooltip-shift-y, 0px)));
+}
+
+.position-top-left {
+  bottom: 100%;
+  right: 100%;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  transform: translateX(var(--local-tooltip-shift-x, 0));
+}
+
+.position-top-right {
+  bottom: 100%;
+  left: 100%;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  transform: translateX(var(--local-tooltip-shift-x, 0));
+}
+
+.position-bottom-left {
+  top: 100%;
+  right: 100%;
+  margin-top: 2px;
+  margin-right: 2px;
+  transform: translateX(var(--local-tooltip-shift-x, 0));
+}
+
+.position-bottom-right {
+  top: 100%;
+  left: 100%;
+  margin-top: 2px;
+  margin-left: 2px;
+  transform: translateX(var(--local-tooltip-shift-x, 0));
+}

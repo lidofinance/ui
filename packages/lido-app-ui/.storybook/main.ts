@@ -1,3 +1,5 @@
+import path from 'path'
+
 export default {
   stories: [
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
@@ -23,7 +25,31 @@ export default {
   },
 
   webpackFinal: async (config: any) => {
+    const packageRoot = process.cwd()
+
+    const postcssOptions = {
+      plugins: {
+        '@csstools/postcss-global-data': {
+          files: [path.join(packageRoot, 'styles/breakpoints.css')],
+        },
+        'postcss-mixins': {
+          mixinsDir: path.join(packageRoot, 'styles'),
+        },
+        autoprefixer: {},
+        'postcss-import': {},
+        'postcss-nested': {},
+        'postcss-custom-media': { preserve: false },
+      },
+    }
+
     const customConfig = { ...config }
+
+    if (process.env.PUBLIC_PATH) {
+      customConfig.output = {
+        ...customConfig.output,
+        publicPath: process.env.PUBLIC_PATH,
+      }
+    }
 
     customConfig.resolve.extensionAlias = {
       '.js': ['.tsx', '.ts', '.js'],
@@ -49,7 +75,25 @@ export default {
           },
         }
       }
+
+      // Everything under a `styles/` folder is a global layer (tokens, fonts,
+      // the Storybook surface) and must not be turned into CSS Modules.
+      cssRule.exclude = [...(cssRule.exclude || []), /styles[\\/][^\\/]+\.css$/]
+
+      cssRule.use.push({
+        loader: 'postcss-loader',
+        options: { postcssOptions },
+      })
     }
+
+    customConfig.module.rules.push({
+      test: /styles[\\/][^\\/]+\.css$/,
+      use: [
+        'style-loader',
+        { loader: 'css-loader', options: { modules: false } },
+        { loader: 'postcss-loader', options: { postcssOptions } },
+      ],
+    })
 
     return customConfig
   },

@@ -1,56 +1,61 @@
-import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode } from 'react'
+
 import cn from 'classnames'
+
+import { IconLoaderCircle } from '../icons'
 import styles from './Button.module.css'
 
-export type ButtonSize = 'sm' | 'md' | 'lg'
-export type ButtonVariant = 'filled' | 'outlined' | 'ghost'
-export type ButtonColor = 'primary' | 'secondary' | 'warning'
+export type ButtonVariant = 'primary' | 'outline' | 'subtle' | 'ghost' | 'error'
+
+export type ButtonSize = 'big' | 'small'
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  size?: ButtonSize
   variant?: ButtonVariant
-  color?: ButtonColor
-  fullwidth?: boolean
+  size?: ButtonSize
   loading?: boolean
-  children?: ReactNode
+  iconLeft?: ReactNode
+  iconRight?: ReactNode
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      size = 'md',
-      variant = 'filled',
-      color = 'primary',
-      fullwidth = false,
-      loading = false,
-      disabled,
-      children,
+export const Button = ({
+  className,
+  children,
+  type = 'button',
+  variant = 'primary',
+  size = 'big',
+  loading = false,
+  disabled = false,
+  iconLeft,
+  iconRight,
+  ...rest
+}: ButtonProps) => (
+  <button
+    type={type}
+    disabled={disabled || loading}
+    aria-busy={loading || undefined}
+    className={cn(
+      styles.button,
+      styles[variant],
+      styles[size],
+      loading && styles.loading,
       className,
-      ...rest
-    },
-    ref,
-  ) => {
-    return (
-      <button
-        ref={ref}
-        disabled={disabled || loading}
-        className={cn(
-          styles.button,
-          styles[size],
-          styles[variant],
-          styles[color],
-          { [styles.fullwidth]: fullwidth, [styles.loading]: loading },
-          className,
-        )}
-        {...rest}
-      >
-        <span className={cn(styles.content, { [styles.hidden]: loading })}>
-          {children}
+    )}
+    {...rest}
+  >
+    {loading ? (
+      <IconLoaderCircle className={styles.spinner} aria-hidden='true' />
+    ) : (
+      iconLeft != null && (
+        <span className={styles.icon} aria-hidden='true'>
+          {iconLeft}
         </span>
-        {loading && <span className={styles.loader} />}
-      </button>
-    )
-  },
+      )
+    )}
+    <span className={styles.content}>{children}</span>
+    {!loading && iconRight != null ? (
+      <span className={styles.icon} aria-hidden='true'>
+        {iconRight}
+      </span>
+    ) : null}
+  </button>
 )
-
-Button.displayName = 'Button'

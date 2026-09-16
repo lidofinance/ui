@@ -1,0 +1,135 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: calc(16px - 1px);
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-card);
+  background-color: var(--lido-app-ui-color-background-default);
+  font-family: var(--lido-app-ui-font-family);
+  cursor: text;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.root:hover {
+  background-color: var(--lido-app-ui-color-background-default-hover);
+}
+
+.root.error {
+  border-color: var(--lido-app-ui-color-border-error);
+}
+
+.root:has(.input:focus) {
+  border-color: var(--lido-app-ui-color-border-active);
+  background-color: var(--lido-app-ui-color-background-default-active);
+}
+
+.root:has(.input:disabled) {
+  background-color: var(--lido-app-ui-color-background-disabled);
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+}
+
+.label {
+  @mixin font-body-large-semibold;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.labelTooltipIcon {
+  display: flex;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--lido-app-ui-color-icons-secondary);
+}
+
+.amountRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input {
+  @mixin font-rich-input;
+
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.input::placeholder {
+  color: var(--lido-app-ui-color-text-neutral);
+}
+
+.input:disabled,
+.input:disabled::placeholder {
+  color: var(--lido-app-ui-color-text-disabled);
+}
+
+.error .input {
+  caret-color: var(--lido-app-ui-color-text-error);
+  color: var(--lido-app-ui-color-text-error);
+}
+
+.token {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  height: 26px;
+}
+
+.secondary {
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.balanceGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.balance {
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.error .balance {
+  color: var(--lido-app-ui-color-text-error);
+}
+
+.errorMessage {
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-error);
+}
+
+.maxTag {
+  cursor: pointer;
+}
+
+.maxTag:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}

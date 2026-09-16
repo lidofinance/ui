@@ -1,0 +1,99 @@
+.card {
+  /* No z-index here on purpose: an unpositioned/auto-z-index element never
+     creates its own stacking context, so .content's z-index (below) can
+     still be compared directly against the shared .selection pill, which
+     is a sibling of .card, not a descendant of it. */
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: var(--lido-app-ui-border-radius-card);
+  background-color: var(--lido-app-ui-color-background-default);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card:hover:not(:disabled, .active) {
+  background-color: var(--lido-app-ui-color-background-default-hover);
+}
+
+.card:disabled {
+  cursor: not-allowed;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+/* Sits above the shared sliding .selection pill (SegmentedControlCard,
+   z-index 1) so icon/title/description stay legible while the pill
+   travels underneath — it's the pill's own background that "moves",
+   not each card fading in and out. */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: 24px;
+  height: 24px;
+  color: var(--lido-app-ui-color-icons-info);
+}
+
+.card:disabled .icon {
+  opacity: 0.5;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.titleText {
+  overflow: hidden;
+  color: var(--lido-app-ui-color-text-default);
+  font-family: var(--lido-app-ui-font-family);
+  font-size: 16px;
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: 28px;
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card:disabled .titleText {
+  color: var(--lido-app-ui-color-text-disabled);
+}
+
+.description {
+  width: 100%;
+  color: var(--lido-app-ui-color-text-tertiary);
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+}
+
+.card:disabled .description {
+  color: var(--lido-app-ui-color-text-disabled);
+}

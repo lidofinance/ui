@@ -1,0 +1,45 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  @mixin font-body;
+
+  line-height: 24px;
+  color: var(--lido-app-ui-color-text-active);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--lido-app-ui-color-text-active-hover);
+}
+
+.link:active {
+  opacity: var(--lido-app-ui-opacity-pressed-content);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.link[aria-disabled='true'] {
+  color: var(--lido-app-ui-color-text-disabled);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.icon > * {
+  width: 100%;
+  height: 100%;
+}

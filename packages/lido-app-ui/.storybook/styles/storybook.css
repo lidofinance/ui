@@ -1,0 +1,25 @@
+/* Storybook's chrome follows the OS colour scheme. Pin the preview surface to
+   light so components never end up rendering on Storybook's dark canvas. */
+
+/* stylelint-disable-next-line selector-max-type -- a page-level reset has to reach html/body */
+html,
+body {
+  --storybook-background-default: var(--lido-app-ui-color-background-surface);
+  --storybook-background-intence: var(--lido-app-ui-color-background-page);
+
+  [data-lido-theme='dark'] & {
+    --storybook-background: var(--lido-app-ui-color-background-surface);
+    --storybook-background-intence: var(--lido-app-ui-color-background-page);
+  }
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--lido-app-ui-font-family);
+  color: var(--lido-app-ui-color-text-default);
+  background: var(--storybook-background-default);
+}
+
+#storybook-root {
+  width: 100%;
+  background: var(--storybook-background-default);
+}

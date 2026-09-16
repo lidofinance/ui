@@ -21,6 +21,7 @@ export type TagProps = Omit<ComponentPropsWithoutRef<'div'>, 'color'> & {
   shape?: TagShape
   icon?: ReactNode
   onClose?: () => void
+  hoverable?: boolean
   dataTestId?: TagDataTestId
 }
 
@@ -43,13 +44,12 @@ export const Tag = forwardRef(
       className,
       children,
       onClose,
+      hoverable = Boolean(onClose),
       dataTestId,
       ...rest
     }: TagProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const hoverable = Boolean(onClose)
-
     const handleKeyDown = (e: React.KeyboardEvent) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault()

@@ -1,144 +1,59 @@
 .button {
+  --local-border-width: 0px;
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-default);
+  --local-border-color: transparent;
+
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border: none;
-  border-radius: 10px;
-  font-family: inherit;
-  font-weight: 600;
+  box-sizing: border-box;
+  padding: calc(var(--local-pad-v) - var(--local-border-width))
+    calc(var(--local-pad-h) - var(--local-border-width));
+  border: var(--local-border-width) solid var(--local-border-color);
+  border-radius: var(--lido-app-ui-border-radius-button-50);
+  background-color: var(--local-bg);
+  color: var(--local-color);
+  font-family: var(--lido-app-ui-font-family);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  letter-spacing: var(--lido-app-ui-letter-spacing-button);
+  white-space: nowrap;
   cursor: pointer;
   transition:
-    background 0.15s ease,
-    transform 0.1s ease,
-    opacity 0.15s ease;
-  white-space: nowrap;
-  text-decoration: none;
-  outline: none;
-  position: relative;
-  overflow: hidden;
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.button:active:not(.loading) {
-  transform: scale(0.97);
-}
-
-.button:disabled,
-.button.loading {
-  opacity: 0.5;
+.button:disabled {
   cursor: not-allowed;
 }
 
-/* sizes */
-.sm {
-  padding: 8px 16px;
-  font-size: 13px;
-  line-height: 18px;
-  min-height: 34px;
+.button:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
 }
 
-.md {
-  padding: 10px 20px;
-  font-size: 14px;
-  line-height: 20px;
-  min-height: 42px;
+.content {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
 }
 
-.lg {
-  padding: 14px 28px;
-  font-size: 16px;
-  line-height: 24px;
-  min-height: 52px;
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
 }
 
-/* filled */
-.filled.primary {
-  background: linear-gradient(135deg, #00a3ff 0%, #0047ff 100%);
-  color: #fff;
-}
-
-.filled.primary:hover:not(:disabled, .loading) {
-  background: linear-gradient(135deg, #33b5ff 0%, #2260ff 100%);
-}
-
-.filled.secondary {
-  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-  color: #e2e8f0;
-}
-
-.filled.secondary:hover:not(:disabled, .loading) {
-  background: linear-gradient(135deg, #3d4f65 0%, #2a3244 100%);
-}
-
-.filled.warning {
-  background: linear-gradient(135deg, #f6a623 0%, #e07b00 100%);
-  color: #fff;
-}
-
-.filled.warning:hover:not(:disabled, .loading) {
-  background: linear-gradient(135deg, #f8b84a 0%, #f09010 100%);
-}
-
-/* outlined */
-.outlined {
-  background: transparent;
-  border: 1.5px solid currentcolor;
-}
-
-.outlined.primary {
-  color: #0047ff;
-  border-color: #0047ff;
-}
-
-.outlined.primary:hover:not(:disabled, .loading) {
-  background: rgb(0 71 255 / 7%);
-}
-
-.outlined.secondary {
-  color: #718096;
-  border-color: #718096;
-}
-
-.outlined.secondary:hover:not(:disabled, .loading) {
-  background: rgb(113 128 150 / 7%);
-}
-
-/* ghost */
-.ghost {
-  background: transparent;
-  border: none;
-}
-
-.ghost.primary {
-  color: #0047ff;
-}
-
-.ghost.primary:hover:not(:disabled, .loading) {
-  background: rgb(0 71 255 / 7%);
-}
-
-.ghost.secondary {
-  color: #718096;
-}
-
-.ghost.secondary:hover:not(:disabled, .loading) {
-  background: rgb(113 128 150 / 7%);
-}
-
-/* fullwidth */
-.fullwidth {
+.icon > svg {
   width: 100%;
+  height: 100%;
 }
 
-/* loader */
-.loader {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgb(255 255 255 / 30%);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  position: absolute;
+.spinner {
+  flex-shrink: 0;
+  animation: spin 0.9s linear infinite;
 }
 
 @keyframes spin {
@@ -147,12 +62,165 @@
   }
 }
 
-.content {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* Sizes */
+
+.big {
+  --local-pad-v: 12px;
+  --local-pad-h: 20px;
+
+  font-size: 16px;
+  line-height: 28px;
 }
 
-.content.hidden {
-  visibility: hidden;
+.big .icon,
+.big .spinner {
+  width: 20px;
+  height: 20px;
+}
+
+.small {
+  --local-pad-v: 6px;
+  --local-pad-h: 16px;
+
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.small .icon,
+.small .spinner {
+  width: 16px;
+  height: 16px;
+}
+
+/* Variants */
+
+.primary {
+  --local-bg: var(--lido-app-ui-color-background-action);
+  --local-color: var(--lido-app-ui-color-text-inverse);
+}
+
+.primary:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-action-hover);
+}
+
+.primary:not(:disabled):active {
+  --local-bg: var(--lido-app-ui-color-background-action-pressed);
+}
+
+.primary:disabled {
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+.outline {
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-border-default);
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.outline:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.outline:not(:disabled):active {
+  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
+}
+
+.outline:disabled {
+  --local-border-width: 0px;
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+.subtle {
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-border-default);
+  --local-color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.subtle:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.subtle:not(:disabled):active {
+  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.subtle:disabled {
+  --local-border-width: 0px;
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+.ghost {
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.ghost:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.ghost:not(:disabled):active {
+  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
+}
+
+.ghost:disabled {
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+.error {
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-border-error);
+  --local-color: var(--lido-app-ui-color-text-error);
+}
+
+.error:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-tint-error-hover);
+}
+
+.error:not(:disabled):active {
+  --local-bg: var(--lido-app-ui-color-tint-error);
+}
+
+.error:disabled {
+  --local-border-width: 0px;
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-disabled);
+}
+
+/* Loading keeps the variant's default look (plus the spinner) instead of
+   the disabled treatment, even though the button is also :disabled. */
+
+.loading {
+  cursor: wait;
+}
+
+.primary.loading:disabled {
+  --local-bg: var(--lido-app-ui-color-background-action);
+  --local-color: var(--lido-app-ui-color-text-inverse);
+}
+
+.outline.loading:disabled {
+  --local-border-width: 1px;
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.subtle.loading:disabled {
+  --local-border-width: 1px;
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.ghost.loading:disabled {
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-default);
+}
+
+.error.loading:disabled {
+  --local-border-width: 1px;
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-error);
 }

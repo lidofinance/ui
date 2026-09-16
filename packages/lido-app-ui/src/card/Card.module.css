@@ -1,0 +1,13 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  padding: 32px;
+
+  /* Figma "Radius/lg" (20px) — no matching semantic token yet. */
+  border-radius: 20px;
+  background-color: var(--lido-app-ui-color-background-surface);
+}

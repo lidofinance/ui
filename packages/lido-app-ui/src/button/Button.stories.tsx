@@ -1,160 +1,133 @@
-import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import {
-  ThemeToggler,
-  CookieThemeProvider,
-  ThemeName,
-} from '@lidofinance/lido-shared-ui'
-import { Button } from './Button'
+import { Button, type ButtonVariant } from '.'
+
+import { StoryContainer, StorySection } from '../../.storybook/components'
+import { IconInfo } from '../icons'
 
 const meta: Meta<typeof Button> = {
-  title: 'Widget/Button',
+  title: 'Buttons/Button',
   component: Button,
-  tags: ['autodfocs'],
+  tags: ['autodocs'],
+  args: {
+    children: 'Button',
+  },
   argTypes: {
+    children: { description: 'Button label', control: { type: 'text' } },
     variant: {
-      control: 'inline-radio',
-      options: ['filled', 'outlined', 'ghost'],
-    },
-    color: {
-      control: 'inline-radio',
-      options: ['primary', 'secondary', 'warning'],
+      control: { type: 'select' },
+      options: ['primary', 'outline', 'subtle', 'ghost', 'error'],
     },
     size: {
-      control: 'inline-radio',
-      options: ['sm', 'md', 'lg'],
+      control: { type: 'select' },
+      options: ['big', 'small'],
+    },
+    disabled: { control: { type: 'boolean' } },
+    loading: { control: { type: 'boolean' } },
+    type: { table: { disable: true } },
+  },
+  parameters: {
+    controls: { exclude: ['type'] },
+    docs: {
+      description: {
+        component:
+          'Fully rounded call to action. `variant` picks the fill/border treatment, `size` picks big (52px) or small (36px), `loading` swaps the icon slot for a spinner and disables the button.',
+      },
     },
   },
 }
 
 export default meta
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: 'Connect Wallet',
-    variant: 'filled',
-    color: 'primary',
-    size: 'md',
+export const Basic: Story = {}
+
+const variants: ButtonVariant[] = [
+  'primary',
+  'outline',
+  'subtle',
+  'ghost',
+  'error',
+]
+
+export const Variants: Story = {
+  render: () => (
+    <StoryContainer>
+      <StorySection title='big'>
+        {variants.map((variant) => (
+          <Button key={variant} variant={variant}>
+            {variant}
+          </Button>
+        ))}
+      </StorySection>
+      <StorySection title='small'>
+        {variants.map((variant) => (
+          <Button key={variant} variant={variant} size='small'>
+            {variant}
+          </Button>
+        ))}
+      </StorySection>
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: 'The five variants at both sizes.',
+      },
+    },
   },
 }
 
-export const AllVariants: Story = {
+export const States: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-      <Section label='filled'>
-        <Button variant='filled' color='primary'>
-          Primary
-        </Button>
-        <Button variant='filled' color='secondary'>
-          Secondary
-        </Button>
-        <Button variant='filled' color='warning'>
-          Warning
-        </Button>
-      </Section>
-      <Section label='outlined'>
-        <Button variant='outlined' color='primary'>
-          Primary
-        </Button>
-        <Button variant='outlined' color='secondary'>
-          Secondary
-        </Button>
-      </Section>
-      <Section label='ghost'>
-        <Button variant='ghost' color='primary'>
-          Primary
-        </Button>
-        <Button variant='ghost' color='secondary'>
-          Secondary
-        </Button>
-      </Section>
-      <Section label='sizes'>
-        <Button size='sm'>Small</Button>
-        <Button size='md'>Medium</Button>
-        <Button size='lg'>Large</Button>
-      </Section>
-      <Section label='states'>
-        <Button loading>Loading</Button>
-        <Button disabled>Disabled</Button>
-        <Button fullwidth>Full Width</Button>
-      </Section>
-    </div>
+    <StoryContainer>
+      {variants.map((variant) => (
+        <StorySection key={variant} title={variant}>
+          <Button variant={variant}>Default</Button>
+          <Button variant={variant} loading>
+            Loading
+          </Button>
+          <Button variant={variant} disabled>
+            Disabled
+          </Button>
+          <Button variant={variant} size='small'>
+            Default
+          </Button>
+          <Button variant={variant} size='small' loading>
+            Loading
+          </Button>
+          <Button variant={variant} size='small' disabled>
+            Disabled
+          </Button>
+        </StorySection>
+      ))}
+    </StoryContainer>
   ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Loading swaps the leading icon slot for a spinner and disables the button; disabled flattens the background and dims the label.',
+      },
+    },
+  },
 }
 
-export const SharedComponents: Story = {
+export const WithIcons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <p
-        style={{
-          margin: 0,
-          color: 'var(--lido-ui-color-text-secondary)',
-          fontSize: 14,
-        }}
-      >
-        Theme components from @lidofinance/lido-shared-ui:
-      </p>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <span
-          style={{ fontSize: 13, color: 'var(--lido-ui-color-text-secondary)' }}
-        >
-          ThemeToggler:
-        </span>
-        <ThemeToggler />
-      </div>
-      <CookieThemeProvider overrideThemeName={ThemeName.dark}>
-        <div
-          style={{
-            padding: 16,
-            background: 'var(--lido-ui-color-text-inverted)',
-            borderRadius: 8,
-            display: 'flex',
-            gap: 12,
-          }}
-        >
-          <Button variant='filled' color='primary'>
-            Dark theme
-          </Button>
-          <Button variant='outlined' color='secondary'>
-            Button
-          </Button>
-        </div>
-      </CookieThemeProvider>
-    </div>
+    <StorySection>
+      <Button iconLeft={<IconInfo />}>Left icon</Button>
+      <Button iconRight={<IconInfo />}>Right icon</Button>
+      <Button variant='outline' size='small' iconLeft={<IconInfo />}>
+        Small
+      </Button>
+      <Button variant='outline' size='small' iconRight={<IconInfo />}>
+        Small
+      </Button>
+    </StorySection>
   ),
-}
-
-function Section({
-  label,
-  children,
-}: {
-  label: string
-  children: React.ReactNode
-}) {
-  return (
-    <div>
-      <p
-        style={{
-          margin: '0 0 8px',
-          fontSize: 12,
-          color: 'var(--lido-ui-color-text-secondary)',
-          textTransform: 'uppercase',
-          letterSpacing: '0.05em',
-        }}
-      >
-        {label}
-      </p>
-      <div
-        style={{
-          display: 'flex',
-          gap: 12,
-          flexWrap: 'wrap',
-          alignItems: 'center',
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  )
+  parameters: {
+    controls: { disable: true },
+  },
 }
