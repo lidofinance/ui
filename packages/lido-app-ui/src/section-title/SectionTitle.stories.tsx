@@ -4,7 +4,7 @@ import { Button } from '../button'
 import { SectionTitle } from '.'
 
 const meta: Meta<typeof SectionTitle> = {
-  title: 'Layout/SectionTitle',
+  title: 'Content & Data/SectionTitle',
   component: SectionTitle,
   tags: ['autodocs'],
   args: {

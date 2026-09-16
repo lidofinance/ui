@@ -4,7 +4,7 @@ import { Switch } from '.'
 import { StoryContainer } from '../../.storybook/components'
 
 const meta: Meta<typeof Switch> = {
-  title: 'Controls/Switch',
+  title: 'Inputs & Controls/Switch',
   component: Switch,
   tags: ['autodocs'],
   args: {

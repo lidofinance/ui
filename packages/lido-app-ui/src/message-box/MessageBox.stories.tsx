@@ -4,7 +4,7 @@ import { StoryContainer } from '../../.storybook/components'
 import { MessageBox } from '.'
 
 const meta: Meta<typeof MessageBox> = {
-  title: 'Feedback/MessageBox',
+  title: 'Feedback & Overlays/MessageBox',
   component: MessageBox,
   tags: ['autodocs'],
   args: {

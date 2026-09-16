@@ -5,7 +5,7 @@ import { IconInfo, IconSearch } from '../icons'
 import { Input } from '.'
 
 const meta: Meta<typeof Input> = {
-  title: 'Controls/Input',
+  title: 'Inputs & Controls/Input',
   component: Input,
   tags: ['autodocs'],
   args: {

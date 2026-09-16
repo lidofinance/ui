@@ -5,7 +5,7 @@ import { IconInfo } from '../icons'
 import { Tag } from '.'
 
 const meta: Meta<typeof Tag> = {
-  title: 'Data display/Tag',
+  title: 'Tags & Badges/Tag',
   component: Tag,
   tags: ['autodocs'],
   args: {

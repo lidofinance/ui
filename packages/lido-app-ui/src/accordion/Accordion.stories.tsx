@@ -4,7 +4,7 @@ import { Accordion } from '.'
 import { StoryContainer } from '../../.storybook/components'
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Layout/Accordion',
+  title: 'Content & Data/Accordion',
   component: Accordion,
   tags: ['autodocs'],
   args: {

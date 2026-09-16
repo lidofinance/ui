@@ -6,7 +6,7 @@ import { DataList, DataListRow } from '../data-list'
 import { Modal } from '.'
 
 const meta: Meta<typeof Modal> = {
-  title: 'Feedback/Modal',
+  title: 'Feedback & Overlays/Modal',
   component: Modal,
   tags: ['autodocs'],
   args: {

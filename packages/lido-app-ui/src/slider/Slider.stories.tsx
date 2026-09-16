@@ -4,7 +4,7 @@ import { Slider } from '.'
 import { StoryContainer } from '../../.storybook/components'
 
 const meta: Meta<typeof Slider> = {
-  title: 'Controls/Slider',
+  title: 'Inputs & Controls/Slider',
   component: Slider,
   tags: ['autodocs'],
   args: {

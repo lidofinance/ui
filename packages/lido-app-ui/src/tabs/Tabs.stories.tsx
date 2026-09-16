@@ -11,7 +11,7 @@ const items: TabItem[] = [
 ]
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Controls/Tabs',
+  title: 'Navigation/Tabs',
   component: Tabs,
   tags: ['autodocs'],
   args: {

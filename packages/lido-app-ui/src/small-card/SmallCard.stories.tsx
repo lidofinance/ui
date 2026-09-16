@@ -5,7 +5,7 @@ import { Tag } from '../tag'
 import { SmallCard } from '.'
 
 const meta: Meta<typeof SmallCard> = {
-  title: 'Layout/SmallCard',
+  title: 'Cards/SmallCard',
   component: SmallCard,
   tags: ['autodocs'],
   args: {

@@ -4,7 +4,7 @@ import { StorySection } from '../../.storybook/components'
 import { TokenAmount } from '.'
 
 const meta: Meta<typeof TokenAmount> = {
-  title: 'Data display/TokenAmount',
+  title: 'Content & Data/TokenAmount',
   component: TokenAmount,
   tags: ['autodocs'],
   args: {

@@ -15,7 +15,7 @@ const tokenSelector = (
 )
 
 const meta: Meta<typeof RichInput> = {
-  title: 'Controls/RichInput',
+  title: 'Inputs & Controls/RichInput',
   component: RichInput,
   tags: ['autodocs'],
   args: {

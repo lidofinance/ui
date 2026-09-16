@@ -11,7 +11,7 @@ const items: SegmentItem[] = [
 ]
 
 const meta: Meta<typeof SegmentedControl> = {
-  title: 'Controls/SegmentedControl',
+  title: 'Navigation/SegmentedControl',
   component: SegmentedControl,
   tags: ['autodocs'],
   args: {

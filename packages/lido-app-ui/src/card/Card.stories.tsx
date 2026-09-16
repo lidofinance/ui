@@ -8,7 +8,7 @@ import { Card } from '.'
 import { StatItem } from '../stat-item'
 
 const meta: Meta<typeof Card> = {
-  title: 'Layout/Card',
+  title: 'Cards/Card',
   component: Card,
   tags: ['autodocs'],
   parameters: {

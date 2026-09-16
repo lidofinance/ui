@@ -32,7 +32,7 @@ const items: SegmentCardItem[] = [
 ]
 
 const meta: Meta<typeof SegmentedControlCard> = {
-  title: 'Controls/SegmentedControlCard',
+  title: 'Navigation/SegmentedControlCard',
   component: SegmentedControlCard,
   tags: ['autodocs'],
   args: {

@@ -5,7 +5,7 @@ import { StoryContainer } from '../../.storybook/components'
 import { RadioButton } from '.'
 
 const meta: Meta<typeof RadioButton> = {
-  title: 'Controls/RadioButton',
+  title: 'Inputs & Controls/RadioButton',
   component: RadioButton,
   tags: ['autodocs'],
   args: {

@@ -4,7 +4,7 @@ import { StorySection } from '../../.storybook/components'
 import { Identicon } from '.'
 
 const meta: Meta<typeof Identicon> = {
-  title: 'Data display/Identicon',
+  title: 'Content & Data/Identicon',
   component: Identicon,
   tags: ['autodocs'],
   args: {

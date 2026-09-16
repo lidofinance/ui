@@ -31,7 +31,7 @@ const options: TokenSelectorOption[] = [
 ]
 
 const meta: Meta<typeof TokenSelector> = {
-  title: 'Controls/TokenSelector',
+  title: 'Inputs & Controls/TokenSelector',
   component: TokenSelector,
   tags: ['autodocs'],
   args: {

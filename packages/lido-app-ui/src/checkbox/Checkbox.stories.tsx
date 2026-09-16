@@ -4,7 +4,7 @@ import { Checkbox } from '.'
 import { StoryContainer } from '../../.storybook/components'
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Controls/Checkbox',
+  title: 'Inputs & Controls/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
   args: {

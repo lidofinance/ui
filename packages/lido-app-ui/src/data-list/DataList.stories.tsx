@@ -4,7 +4,7 @@ import { DataList, DataListRow } from '.'
 import { TokenSteth } from '../icons'
 
 const meta: Meta<typeof DataList> = {
-  title: 'Data display/DataList',
+  title: 'Content & Data/DataList',
   component: DataList,
   tags: ['autodocs'],
   args: {

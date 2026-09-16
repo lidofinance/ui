@@ -7,7 +7,7 @@ import { TokenAmount } from '../token-amount'
 import { TxStatus } from '.'
 
 const meta: Meta<typeof TxStatus> = {
-  title: 'Feedback/TxStatus',
+  title: 'Feedback & Overlays/TxStatus',
   component: TxStatus,
   tags: ['autodocs'],
   args: {

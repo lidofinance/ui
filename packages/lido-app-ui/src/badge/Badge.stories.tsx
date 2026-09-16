@@ -4,7 +4,7 @@ import { IconCheck } from '../icons'
 import { Badge } from '.'
 
 const meta: Meta<typeof Badge> = {
-  title: 'Data display/Badge',
+  title: 'Tags & Badges/Badge',
   component: Badge,
   tags: ['autodocs'],
   args: {

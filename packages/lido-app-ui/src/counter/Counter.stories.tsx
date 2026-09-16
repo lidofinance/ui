@@ -4,7 +4,7 @@ import { StorySection } from '../../.storybook/components'
 import { Counter } from '.'
 
 const meta: Meta<typeof Counter> = {
-  title: 'Data display/Counter',
+  title: 'Tags & Badges/Counter',
   component: Counter,
   tags: ['autodocs'],
   args: {

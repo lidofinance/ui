@@ -5,7 +5,7 @@ import { IconShield, TokenEth, TokenSteth } from '../icons'
 import { StatItem } from '.'
 
 const meta: Meta<typeof StatItem> = {
-  title: 'Data display/StatItem',
+  title: 'Content & Data/StatItem',
   component: StatItem,
   tags: ['autodocs'],
   args: {
