@@ -25,6 +25,7 @@ import { IconCross } from './IconCross'
 import { IconDashboard } from './IconDashboard'
 import { IconDay } from './IconDay'
 import { IconDownload } from './IconDownload'
+import { IconExclamation } from './IconExclamation'
 import { IconFilter } from './IconFilter'
 import { IconGem } from './IconGem'
 import { IconHourglass } from './IconHourglass'
@@ -76,6 +77,7 @@ export const BASE_ICONS_MAP = {
   IconDashboard,
   IconDay,
   IconDownload,
+  IconExclamation,
   IconFilter,
   IconGem,
   IconHourglass,

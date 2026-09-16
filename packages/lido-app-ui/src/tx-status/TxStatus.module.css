@@ -2,14 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 64px;
-  width: 100%;
-}
-
-.statusBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 32px;
   width: 100%;
 }
@@ -51,11 +43,15 @@
 }
 
 .circleSuccess {
-  background-color: #11b690;
+  background-color: var(--lido-app-ui-color-icons-success);
 }
 
 .circleError {
-  background-color: var(--lido-app-ui-color-text-error);
+  background-color: var(--lido-app-ui-color-icons-error);
+}
+
+.circleWarning {
+  background-color: var(--lido-app-ui-color-icons-warning);
 }
 
 .circleIcon {
@@ -68,15 +64,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 }
 
 .title {
   font-family: var(--lido-app-ui-font-family);
-  font-size: 24px;
+  font-size: var(--lido-app-ui-font-size-h3);
   font-weight: var(--lido-app-ui-font-weight-medium);
-  line-height: 28.8px;
-  letter-spacing: -0.84px;
+  line-height: var(--lido-app-ui-line-height-h3);
+  letter-spacing: var(--lido-app-ui-letter-spacing-h3);
   color: var(--lido-app-ui-color-text-default);
   text-align: center;
 }
@@ -88,6 +84,12 @@
 
 .message {
   width: 100%;
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-label);
+  line-height: var(--lido-app-ui-line-height-label);
+  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  color: var(--lido-app-ui-color-text-tertiary);
+  text-align: center;
 }
 
 .footer {

@@ -3,7 +3,7 @@
 import React, { SVGProps } from 'react'
 
 import { useUniqueInlineId } from '@inline-svg-unique-id/react'
-export const Ethena = function (props: SVGProps<SVGSVGElement>) {
+export const ETHENA = function (props: SVGProps<SVGSVGElement>) {
   const _id = useUniqueInlineId()
   return (
     <svg
