@@ -59,6 +59,8 @@
 }
 
 .input {
+  @mixin font-rich-input;
+
   flex: 1;
   min-width: 0;
   padding: 0;
@@ -66,11 +68,6 @@
   outline: none;
   background-color: transparent;
   color: var(--lido-app-ui-color-text-default);
-  font-family: inherit;
-  font-size: var(--lido-app-ui-font-size-amount);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: var(--lido-app-ui-line-height-amount);
-  letter-spacing: var(--lido-app-ui-letter-spacing-amount);
 }
 
 .input::placeholder {

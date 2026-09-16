@@ -9,6 +9,7 @@ import {
   H1,
   H2,
   H3,
+  RichInput,
   Typography,
 } from '.'
 
@@ -27,6 +28,7 @@ const meta: Meta<typeof Typography> = {
         'h1',
         'h2',
         'h3',
+        'richInput',
         'bodyLarge',
         'body',
         'description',
@@ -35,7 +37,7 @@ const meta: Meta<typeof Typography> = {
       control: { type: 'select' },
     },
     weight: {
-      description: 'Only bodyLarge and body have two weights',
+      description: 'Only bodyLarge, body, and description have two weights',
       options: ['regular', 'semibold'],
       control: { type: 'inline-radio' },
     },
@@ -61,13 +63,15 @@ export const Scale: Story = {
   render: () => (
     <StoryContainer gap={20}>
       <H1>H1 — 42/58</H1>
-      <H2>H2 — 32/46</H2>
-      <H3>H3 — 24/34</H3>
-      <BodyLarge>BodyLarge regular — 16/24</BodyLarge>
-      <BodyLarge weight='semibold'>BodyLarge semibold — 16/24</BodyLarge>
-      <Body>Body regular — 14/22</Body>
-      <Body weight='semibold'>Body semibold — 14/22</Body>
-      <Description>Description — 12/20</Description>
+      <H2>H2 — 28/40</H2>
+      <H3>H3 — 24/36</H3>
+      <RichInput>RichInput — 36/50</RichInput>
+      <BodyLarge>BodyLarge regular — 16/28</BodyLarge>
+      <BodyLarge weight='semibold'>BodyLarge semibold — 16/28</BodyLarge>
+      <Body>Body regular — 14/24</Body>
+      <Body weight='semibold'>Body semibold — 14/24</Body>
+      <Description>Description regular — 12/20</Description>
+      <Description weight='semibold'>Description semibold — 12/20</Description>
       <GroupName>Group name — 12/20 uppercase</GroupName>
     </StoryContainer>
   ),
@@ -75,8 +79,7 @@ export const Scale: Story = {
     controls: { disable: true },
     docs: {
       description: {
-        story:
-          'The whole scale, labelled size/line-height. H1 and H2 shrink below 900px — switch to the 375px viewport and they drop to 34/48 and 28/40.',
+        story: 'The whole scale, labelled size/line-height.',
       },
     },
   },

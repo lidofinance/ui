@@ -188,15 +188,14 @@
   --lido-app-ui-font-weight-medium: 500;
   --lido-app-ui-font-weight-semibold: 600;
   --lido-app-ui-font-weight-bold: 700;
-  --lido-app-ui-font-size-amount: 36px;
-  --lido-app-ui-line-height-amount: 1.4;
-  --lido-app-ui-letter-spacing-amount: 0;
+  --lido-app-ui-font-size-rich-input: 36px;
+  --lido-app-ui-line-height-rich-input: 50px;
   --lido-app-ui-font-size-body: 16px;
-  --lido-app-ui-line-height-body: 24px;
+  --lido-app-ui-line-height-body: 28px;
   --lido-app-ui-letter-spacing-body: -0.14px;
   --lido-app-ui-letter-spacing-button: -0.14px;
   --lido-app-ui-font-size-label: 14px;
-  --lido-app-ui-line-height-label: 22px;
+  --lido-app-ui-line-height-label: 24px;
   --lido-app-ui-letter-spacing-label: -0.14px;
   --lido-app-ui-font-size-tooltip: 12px;
   --lido-app-ui-line-height-tooltip: 18px;
@@ -206,13 +205,13 @@
   /* Heading scale */
   --lido-app-ui-font-size-h1: 42px;
   --lido-app-ui-line-height-h1: 58px;
-  --lido-app-ui-letter-spacing-h1: -1.26px;
-  --lido-app-ui-font-size-h2: 32px;
-  --lido-app-ui-line-height-h2: 46px;
-  --lido-app-ui-letter-spacing-h2: -0.96px;
+  --lido-app-ui-letter-spacing-h1: -1.5px;
+  --lido-app-ui-font-size-h2: 28px;
+  --lido-app-ui-line-height-h2: 40px;
+  --lido-app-ui-letter-spacing-h2: -3px;
   --lido-app-ui-font-size-h3: 24px;
-  --lido-app-ui-line-height-h3: 34px;
-  --lido-app-ui-letter-spacing-h3: -0.74px;
+  --lido-app-ui-line-height-h3: 36px;
+  --lido-app-ui-letter-spacing-h3: -0.14px;
 
   /* Radii */
   --lido-app-ui-border-radius-badge: 8px;

@@ -9,7 +9,7 @@
 @define-mixin font-h2 {
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-h2);
-  font-weight: var(--lido-app-ui-font-weight-regular);
+  font-weight: var(--lido-app-ui-font-weight-medium);
   line-height: var(--lido-app-ui-line-height-h2);
   letter-spacing: var(--lido-app-ui-letter-spacing-h2);
 }
@@ -65,8 +65,15 @@
 @define-mixin font-group-name {
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-tooltip);
-  font-weight: var(--lido-app-ui-font-weight-bold);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
   line-height: var(--lido-app-ui-line-height-description);
   letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
   text-transform: uppercase;
+}
+
+@define-mixin font-rich-input {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-rich-input);
+  font-weight: var(--lido-app-ui-font-weight-regular);
+  line-height: var(--lido-app-ui-line-height-rich-input);
 }

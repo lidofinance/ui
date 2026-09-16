@@ -8,12 +8,13 @@ export type TypographyVariant =
   | 'h1'
   | 'h2'
   | 'h3'
+  | 'richInput'
   | 'bodyLarge'
   | 'body'
   | 'description'
   | 'groupName'
 
-// Weight only applies to bodyLarge/body; headings are single-weight by design.
+// Weight only applies to bodyLarge/body/description; headings are single-weight by design.
 export type TypographyWeight = 'regular' | 'semibold'
 
 export type TypographyProps = HTMLAttributes<HTMLElement> & {
@@ -26,6 +27,7 @@ const variantTag: Record<TypographyVariant, ElementType> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
+  richInput: 'p',
   bodyLarge: 'p',
   body: 'p',
   description: 'p',
@@ -33,7 +35,7 @@ const variantTag: Record<TypographyVariant, ElementType> = {
 }
 
 const isBodyVariant = (variant: TypographyVariant): boolean =>
-  variant === 'bodyLarge' || variant === 'body'
+  variant === 'bodyLarge' || variant === 'body' || variant === 'description'
 
 export const Typography = ({
   variant,
@@ -88,4 +90,8 @@ export const Description = (props: ShorthandProps) => (
 
 export const GroupName = (props: ShorthandProps) => (
   <Typography {...props} variant='groupName' />
+)
+
+export const RichInput = (props: ShorthandProps) => (
+  <Typography {...props} variant='richInput' />
 )
