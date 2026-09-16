@@ -1,6 +1,6 @@
 // THIS FILE IS AUTO GENERATED
 
-import { BitGet } from './BitGet'
+import { BitGet } from './Bitget'
 import { Browser } from './Browser'
 import { WalletsMetamask } from './WalletsMetamask'
 import { OKX } from './OKX'
