@@ -129,4 +129,4 @@ export const ALL_COLOR_TOKENS: ColorToken[] = [
   ...BACKGROUND_COLOR,
 ]
 
-export const EXCLUDED_FROM_STORY = []
+export const EXCLUDED_FROM_STORY: string[] = []
