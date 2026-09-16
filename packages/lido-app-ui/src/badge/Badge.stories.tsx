@@ -13,13 +13,13 @@ const meta: Meta<typeof Badge> = {
   },
   argTypes: {
     children: { description: 'Badge label', control: { type: 'text' } },
-    icon: { description: 'Glyph before the label — defaults to a shield' },
+    icon: { description: 'Optional glyph before the label' },
   },
   parameters: {
     docs: {
       description: {
         component:
-          'A bordered pill for a single trust/verification marker (audited, verified). Defaults to a shield glyph; pass `icon` to swap it, and `iconColor` to recolor it.',
+          'A bordered pill for a single trust/verification marker (audited, verified). Pass `icon` for a leading glyph, e.g. a green `IconCheck`.',
       },
     },
   },
@@ -32,7 +32,20 @@ export const Basic: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'The default: a shield glyph, green (success) by default.',
+        story: 'With a leading icon.',
+      },
+    },
+  },
+}
+
+export const WithoutIcon: Story = {
+  args: {
+    icon: undefined,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'No `icon` passed — the icon slot is skipped entirely.',
       },
     },
   },
