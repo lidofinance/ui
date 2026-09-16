@@ -175,11 +175,6 @@
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-100);
   --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-200);
 
-  /* Root-level "info" token from Figma - resolves to the same value as
-     --lido-app-ui-color-tint-info in both themes; kept as an alias since it
-     exists as a separate Figma variable (likely legacy/duplicate). */
-  --lido-app-ui-color-info-surface: var(--lido-app-ui-color-tint-info);
-
   /* Typography */
   --lido-app-ui-font-family:
     'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
