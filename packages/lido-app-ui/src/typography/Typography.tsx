@@ -91,7 +91,3 @@ export const Description = (props: ShorthandProps) => (
 export const GroupName = (props: ShorthandProps) => (
   <Typography {...props} variant='groupName' />
 )
-
-export const RichInput = (props: ShorthandProps) => (
-  <Typography {...props} variant='richInput' />
-)

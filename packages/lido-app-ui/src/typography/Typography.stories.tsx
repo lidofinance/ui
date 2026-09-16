@@ -9,7 +9,6 @@ import {
   H1,
   H2,
   H3,
-  RichInput,
   Typography,
 } from '.'
 
@@ -65,7 +64,6 @@ export const Scale: Story = {
       <H1>H1 — 42/58</H1>
       <H2>H2 — 28/40</H2>
       <H3>H3 — 24/36</H3>
-      <RichInput>RichInput — 36/50</RichInput>
       <BodyLarge>BodyLarge regular — 16/28</BodyLarge>
       <BodyLarge weight='semibold'>BodyLarge semibold — 16/28</BodyLarge>
       <Body>Body regular — 14/24</Body>
