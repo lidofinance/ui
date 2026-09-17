@@ -2,7 +2,7 @@
 
 import React, { SVGProps } from 'react'
 
-export const Bitget = (props: SVGProps<SVGSVGElement>) => {
+export const BitGet = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={24} height={24} viewBox='0 0 24 24' fill='none' {...props}>
       <rect width={24} height={24} rx={12} fill='#001F29' />

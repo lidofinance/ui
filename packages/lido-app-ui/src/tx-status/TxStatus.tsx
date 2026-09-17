@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
 
-import { IconCheck, IconCross, IconSpinner } from '../icons'
+import { IconCheck, IconCross, IconExclamation, IconSpinner } from '../icons'
 import cn from 'classnames'
 
 import styles from './TxStatus.module.css'
 
-export type TxStatusVariant = 'loading' | 'success' | 'error'
+export type TxStatusVariant = 'loading' | 'success' | 'error' | 'warning'
 
 export type TxStatusProps = {
   status: TxStatusVariant
@@ -28,6 +28,11 @@ const graphicByStatus: Record<TxStatusVariant, ReactNode> = {
       <IconCross className={styles.circleIcon} />
     </span>
   ),
+  warning: (
+    <span className={cn(styles.circle, styles.circleWarning)}>
+      <IconExclamation className={styles.circleIcon} />
+    </span>
+  ),
 }
 
 export const TxStatus = ({
@@ -39,15 +44,13 @@ export const TxStatus = ({
   className,
 }: TxStatusProps) => (
   <div className={cn(styles.root, className)}>
-    <div className={styles.statusBlock}>
-      <div className={styles.graphicGroup}>
-        <span className={styles.graphic}>{graphicByStatus[status]}</span>
-        <div className={styles.textGroup}>
-          <span className={styles.title}>{title}</span>
-          {amount ? <div className={styles.amount}>{amount}</div> : null}
-        </div>
+    <div className={styles.graphicGroup}>
+      <span className={styles.graphic}>{graphicByStatus[status]}</span>
+      <div className={styles.textGroup}>
+        <span className={styles.title}>{title}</span>
+        {amount ? <div className={styles.amount}>{amount}</div> : null}
+        {message ? <div className={styles.message}>{message}</div> : null}
       </div>
-      {message ? <div className={styles.message}>{message}</div> : null}
     </div>
     {footer ? <div className={styles.footer}>{footer}</div> : null}
   </div>

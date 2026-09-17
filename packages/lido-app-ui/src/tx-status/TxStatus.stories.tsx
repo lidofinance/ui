@@ -1,9 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StoryContainer } from '../../.storybook/components'
+import { Banner } from '../banner'
 import { Button } from '../button'
+import { TokenIcon } from '../icons'
 import { TextLink } from '../text-link'
 import { TokenAmount } from '../token-amount'
+import { Description } from '../typography'
 import { TxStatus } from '.'
 
 const meta: Meta<typeof TxStatus> = {
@@ -18,8 +21,8 @@ const meta: Meta<typeof TxStatus> = {
   },
   argTypes: {
     status: {
-      description: 'Picks the top glyph: spinner, shield or warning',
-      options: ['loading', 'success', 'error'],
+      description: 'Picks the top glyph: spinner, check, cross or exclamation',
+      options: ['loading', 'success', 'error', 'warning'],
       control: { type: 'inline-radio' },
     },
     title: { description: 'Headline under the glyph' },
@@ -68,6 +71,33 @@ export const AllStatuses: Story = {
         message='The transaction was rejected in your wallet.'
         footer={<Button>Try again</Button>}
       />
+      <TxStatus
+        status='warning'
+        title='Network mismatch'
+        message='Switch your wallet to Ethereum Mainnet to continue.'
+        footer={<Button>Switch network</Button>}
+      />
+
+      <TxStatus
+        status='loading'
+        title='Awaiting confirmation'
+        message='Confirm the transaction in your wallet. This can take a few minutes depending on network congestion — keep this window open and avoid refreshing the page until the transaction is fully processed.'
+        amount={<TokenAmount symbol='stETH' amount='12.4218' />}
+        footer={
+          <div
+            style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+          >
+            <Banner
+              icon={<TokenIcon token='stETH' />}
+              title='Add stETH to your wallet'
+              description='to track your supply balance'
+            />
+            <Description style={{ textAlign: 'center' }}>
+              Proceed in your wallet
+            </Description>
+          </div>
+        }
+      ></TxStatus>
     </StoryContainer>
   ),
   parameters: {
@@ -75,7 +105,7 @@ export const AllStatuses: Story = {
     docs: {
       description: {
         story:
-          'The three stages of a transaction, each with the footer it usually carries — nothing while pending, an Explorer link on success, a retry button on failure.',
+          'The stages of a transaction, each with the footer it usually carries — nothing while pending, an Explorer link on success, a retry/action button on failure or warning.',
       },
     },
   },

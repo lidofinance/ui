@@ -1,7 +1,6 @@
 // THIS FILE IS AUTO GENERATED
 
 import { Avalanche } from './Avalanche'
-import { Base } from './Base'
 import { Bitcoin } from './Bitcoin'
 import { Ethereum } from './Ethereum'
 import { Mantle } from './Mantle'
@@ -11,11 +10,11 @@ import { Monad } from './Monad'
 import { Optimism } from './Optimism'
 import { Plasma } from './Plasma'
 import { Robinhood } from './Robinhood'
+import { Base } from './Base'
 
 // Export a constant with all icons in this directory
 export const CHAINS_ICONS_MAP = {
   Avalanche,
-  Base,
   Bitcoin,
   Ethereum,
   Mantle,
@@ -25,4 +24,5 @@ export const CHAINS_ICONS_MAP = {
   Optimism,
   Plasma,
   Robinhood,
+  Base,
 }
