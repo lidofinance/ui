@@ -1,5 +1,6 @@
 export default {
   stories: [
+    './Overview.stories.tsx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
     // lido-shared-ui has no Storybook of its own; its components are rendered here
     '../../lido-shared-ui/src/**/*.stories.@(js|jsx|ts|tsx)',

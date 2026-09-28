@@ -2,6 +2,7 @@ import path from 'path'
 
 export default {
   stories: [
+    './Overview.stories.tsx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
     // lido-shared-ui has no Storybook of its own; it serves both libraries,
     // so its components are rendered here as well as in lido-landing-ui
