@@ -11,7 +11,7 @@
     "build-storybook": {
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"],
-      "inputs": ["src/**", ".storybook/**"]
+      "inputs": ["src/**", ".storybook/**", "$TURBO_ROOT$/storybook-shared/**"]
     },
     "test": {
       "dependsOn": ["^build"]
