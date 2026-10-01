@@ -16,6 +16,8 @@
     "storybook:ui": "yarn workspace @lidofinance/lido-ui dev",
     "storybook:landing": "yarn workspace @lidofinance/lido-landing-ui dev",
     "storybook:app": "yarn workspace @lidofinance/lido-app-ui dev",
+    "yalc:app": "yarn workspace @lidofinance/lido-shared-ui build && yarn workspace @lidofinance/lido-app-ui build && yalc push ./packages/lido-shared-ui && yalc push ./packages/lido-app-ui",
+    "yalc:landing": "yarn workspace @lidofinance/lido-shared-ui build && yarn workspace @lidofinance/lido-landing-ui build && yalc push ./packages/lido-shared-ui && yalc push ./packages/lido-landing-ui",
     "release": "multi-semantic-release",
     "prepare": "git config core.hooksPath .git-hooks || echo 'Not in a git repo'"
   },
