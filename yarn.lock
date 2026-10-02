@@ -2828,6 +2828,7 @@ __metadata:
     "@babel/preset-react": "npm:7.26.3"
     "@babel/preset-typescript": "npm:7.27.0"
     "@csstools/postcss-global-data": "npm:3.0.0"
+    "@inline-svg-unique-id/react": "npm:1.2.3"
     "@lidofinance/lido-shared-ui": "npm:*"
     "@rollup/plugin-babel": "npm:6.0.4"
     "@rollup/plugin-commonjs": "npm:28.0.3"
@@ -2867,6 +2868,7 @@ __metadata:
     tslib: "npm:2.3.1"
     vitest: "npm:^3.0.0"
   peerDependencies:
+    "@inline-svg-unique-id/react": ^1.2.3
     react: ^18
     react-dom: ^18
   languageName: unknown
