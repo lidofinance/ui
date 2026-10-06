@@ -4,14 +4,17 @@ import { IconAdd } from './IconAdd'
 import { IconAdjust } from './IconAdjust'
 import { IconArrowDown } from './IconArrowDown'
 import { IconArrowLeft } from './IconArrowLeft'
+import { IconArrowNarrowDownLeft } from './IconArrowNarrowDownLeft'
 import { IconArrowNarrowUpRight } from './IconArrowNarrowUpRight'
 import { IconArrowRight } from './IconArrowRight'
 import { IconArrowUp } from './IconArrowUp'
 import { IconBell } from './IconBell'
 import { IconBolt } from './IconBolt'
 import { IconBox } from './IconBox'
+import { IconCalendar } from './IconCalendar'
 import { IconCheck } from './IconCheck'
 import { IconChevronDown } from './IconChevronDown'
+import { IconChevronLeft } from './IconChevronLeft'
 import { IconChevronRight } from './IconChevronRight'
 import { IconChevronUp } from './IconChevronUp'
 import { IconChevronsUpDown } from './IconChevronsUpDown'
@@ -27,6 +30,7 @@ import { IconDay } from './IconDay'
 import { IconDownload } from './IconDownload'
 import { IconExclamation } from './IconExclamation'
 import { IconFilter } from './IconFilter'
+import { IconFreeze } from './IconFreeze'
 import { IconGem } from './IconGem'
 import { IconHourglass } from './IconHourglass'
 import { IconInfo } from './IconInfo'
@@ -40,6 +44,7 @@ import { IconLogout } from './IconLogout'
 import { IconMenu } from './IconMenu'
 import { IconMinus } from './IconMinus'
 import { IconNight } from './IconNight'
+import { IconPause } from './IconPause'
 import { IconPlus } from './IconPlus'
 import { IconPriceDown } from './IconPriceDown'
 import { IconPriceUp } from './IconPriceUp'
@@ -60,14 +65,17 @@ export const BASE_ICONS_MAP = {
   IconAdjust,
   IconArrowDown,
   IconArrowLeft,
+  IconArrowNarrowDownLeft,
   IconArrowNarrowUpRight,
   IconArrowRight,
   IconArrowUp,
   IconBell,
   IconBolt,
   IconBox,
+  IconCalendar,
   IconCheck,
   IconChevronDown,
+  IconChevronLeft,
   IconChevronRight,
   IconChevronUp,
   IconChevronsUpDown,
@@ -83,6 +91,7 @@ export const BASE_ICONS_MAP = {
   IconDownload,
   IconExclamation,
   IconFilter,
+  IconFreeze,
   IconGem,
   IconHourglass,
   IconInfo,
@@ -96,6 +105,7 @@ export const BASE_ICONS_MAP = {
   IconMenu,
   IconMinus,
   IconNight,
+  IconPause,
   IconPlus,
   IconPriceDown,
   IconPriceUp,
