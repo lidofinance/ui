@@ -1,6 +1,6 @@
 // THIS FILE IS AUTO GENERATED
 
-export { BitGet } from './Bitget'
+export { Bitget } from './Bitget'
 export { Browser } from './Browser'
 export { WalletsMetamask } from './WalletsMetamask'
 export { OKX } from './OKX'

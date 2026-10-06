@@ -2,7 +2,7 @@
 
 import React, { SVGProps } from 'react'
 
-export const KELP = (props: SVGProps<SVGSVGElement>) => {
+export const Kelp = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       preserveAspectRatio='none'

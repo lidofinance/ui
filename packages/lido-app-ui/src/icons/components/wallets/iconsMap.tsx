@@ -1,6 +1,6 @@
 // THIS FILE IS AUTO GENERATED
 
-import { BitGet } from './Bitget'
+import { Bitget } from './Bitget'
 import { Browser } from './Browser'
 import { WalletsMetamask } from './WalletsMetamask'
 import { OKX } from './OKX'
@@ -9,7 +9,7 @@ import { Ledger } from './Ledger'
 
 // Export a constant with all icons in this directory
 export const WALLETS_ICONS_MAP = {
-  BitGet,
+  Bitget,
   Browser,
   WalletsMetamask,
   OKX,
