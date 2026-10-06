@@ -17,7 +17,6 @@ export const IconChevronRight = (props: SVGProps<SVGSVGElement>) => {
       <path
         d='M12.904 9.605l.46.46-.46.46-5 5-.92-.92 4.54-4.54-4.54-4.54.92-.92 5 5z'
         fill='currentColor'
-        fillOpacity={0.7}
       />
     </svg>
   )
