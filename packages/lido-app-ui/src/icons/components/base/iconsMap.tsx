@@ -36,6 +36,8 @@ import { IconLink } from './IconLink'
 import { IconListCheck } from './IconListCheck'
 import { IconLoaderCircle } from './IconLoaderCircle'
 import { IconLockKeyhole } from './IconLockKeyhole'
+import { IconLogout } from './IconLogout'
+import { IconMenu } from './IconMenu'
 import { IconMinus } from './IconMinus'
 import { IconNight } from './IconNight'
 import { IconPlus } from './IconPlus'
@@ -48,6 +50,8 @@ import { IconShield } from './IconShield'
 import { IconSpinner } from './IconSpinner'
 import { IconStar } from './IconStar'
 import { IconTrash } from './IconTrash'
+import { IconUser } from './IconUser'
+import { IconWallet } from './IconWallet'
 import { IconWarning } from './IconWarning'
 
 // Export a constant with all icons in this directory
@@ -88,6 +92,8 @@ export const BASE_ICONS_MAP = {
   IconListCheck,
   IconLoaderCircle,
   IconLockKeyhole,
+  IconLogout,
+  IconMenu,
   IconMinus,
   IconNight,
   IconPlus,
@@ -100,5 +106,7 @@ export const BASE_ICONS_MAP = {
   IconSpinner,
   IconStar,
   IconTrash,
+  IconUser,
+  IconWallet,
   IconWarning,
 }
