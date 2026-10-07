@@ -133,11 +133,11 @@ export const TokenSelector = ({
                   )}
                   onClick={() => handleOptionClick(option)}
                 >
-                  {option.icon ? (
-                    <span className={styles.icon}>{option.icon}</span>
-                  ) : null}
                   <span className={styles.optionContent}>
                     <span className={styles.optionRow}>
+                      {option.icon ? (
+                        <span className={styles.icon}>{option.icon}</span>
+                      ) : null}
                       <span className={styles.label}>{option.label}</span>
                       {size === 'default' && option.secondaryLabel != null ? (
                         <span className={styles.secondaryLabel}>
