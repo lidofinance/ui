@@ -1,6 +1,11 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
-import { IconCheck, IconCross, IconExclamation, IconSpinner } from '../icons'
+import {
+  IconCheck,
+  IconCross,
+  IconExclamation,
+  IconLoaderCircle,
+} from '../icons'
 import cn from 'classnames'
 
 import styles from './TxStatus.module.css'
@@ -25,7 +30,7 @@ export type TxStatusProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
 }
 
 const graphicByStatus: Record<TxStatusVariant, ReactNode> = {
-  loading: <IconSpinner className={styles.spinner} />,
+  loading: <IconLoaderCircle className={styles.spinner} />,
   success: (
     <span className={cn(styles.circle, styles.circleSuccess)}>
       <IconCheck className={styles.circleIcon} />
