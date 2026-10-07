@@ -63,11 +63,11 @@
 
 .root.disabled {
   cursor: not-allowed;
-  background-color: var(--lido-app-ui-color-background-default);
+  background-color: var(--lido-app-ui-color-background-disabled);
 }
 
 .root.disabled:hover {
-  background-color: var(--lido-app-ui-color-background-default);
+  background-color: var(--lido-app-ui-color-background-disabled);
 }
 
 .default {
@@ -109,11 +109,13 @@
 }
 
 .input:disabled {
-  color: var(--lido-app-ui-color-text-disabled);
+  color: var(--lido-app-ui-color-text-secondary);
+  cursor: not-allowed;
 }
 
 .input:disabled::placeholder {
-  color: var(--lido-app-ui-color-text-disabled);
+  color: var(--lido-app-ui-color-text-secondary);
+  cursor: not-allowed;
 }
 
 .icon {
