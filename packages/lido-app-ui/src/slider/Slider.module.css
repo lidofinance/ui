@@ -1,7 +1,6 @@
 .root {
   display: flex;
   flex-direction: column;
-  gap: 4px;
   width: 100%;
 }
 
@@ -130,6 +129,13 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
+  /* Figma specs 4px between the bar and the labels, but `.track` is 32px
+     tall to fit the thumb, centering the 12px bar inside it — that leaves
+     10px of empty space below the bar before `.track` ends. Pull the
+     labels back up by that same amount so the gap is 4px from the bar,
+     not from `.track`'s bottom edge. */
+  margin-top: -6px;
 }
 
 .label {
