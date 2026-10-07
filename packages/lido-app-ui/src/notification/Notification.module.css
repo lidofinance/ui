@@ -12,10 +12,10 @@
   width: 320px;
   max-width: 100%;
   padding: 16px;
-  border: 1px solid rgb(255 255 255 / 10%);
+  border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: 20px;
   background-color: rgb(0 0 0 / 90%);
-  color: #fff;
+  color: var(--lido-app-ui-color-text-default);
 }
 
 .content {
@@ -52,6 +52,13 @@
   padding-left: 21px;
 }
 
+.subheader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
 .actions {
   display: flex;
   align-items: flex-start;
@@ -66,15 +73,4 @@
   border: none;
   border-radius: 100px;
   cursor: pointer;
-}
-
-.button.primary {
-  background-color: #fff;
-  color: #000;
-}
-
-.button.secondary {
-  border: 1px solid rgb(255 255 255 / 10%);
-  background: none;
-  color: #fff;
 }
