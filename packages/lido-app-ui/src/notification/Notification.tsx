@@ -1,7 +1,7 @@
 import { ThemeName, ThemeProvider } from '@lidofinance/lido-shared-ui'
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 import cn from 'classnames'
+import type { ReactNode } from 'react'
 
 import styles from './Notification.module.css'
 
@@ -35,10 +35,3 @@ export const Notification = ({
     </div>
   </ThemeProvider>
 )
-
-export type NotificationButtonVariant = 'primary' | 'secondary'
-
-export type NotificationButtonProps =
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: NotificationButtonVariant
-  }
