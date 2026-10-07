@@ -45,7 +45,6 @@ import { IconRemove } from './IconRemove'
 import { IconRotate } from './IconRotate'
 import { IconSearch } from './IconSearch'
 import { IconShield } from './IconShield'
-import { IconSpinner } from './IconSpinner'
 import { IconStar } from './IconStar'
 import { IconTrash } from './IconTrash'
 import { IconWarning } from './IconWarning'
@@ -97,7 +96,6 @@ export const BASE_ICONS_MAP = {
   IconRotate,
   IconSearch,
   IconShield,
-  IconSpinner,
   IconStar,
   IconTrash,
   IconWarning,
