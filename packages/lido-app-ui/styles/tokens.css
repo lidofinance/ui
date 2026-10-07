@@ -203,7 +203,7 @@
   --lido-app-ui-letter-spacing-h1: -1.5px;
   --lido-app-ui-font-size-h2: 28px;
   --lido-app-ui-line-height-h2: 40px;
-  --lido-app-ui-letter-spacing-h2: -3px;
+  --lido-app-ui-letter-spacing-h2: 0.84px;
   --lido-app-ui-font-size-h3: 24px;
   --lido-app-ui-line-height-h3: 36px;
   --lido-app-ui-letter-spacing-h3: -0.14px;
@@ -338,17 +338,4 @@
   --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-800);
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-900);
   --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-800);
-}
-
-/* Mobile heading scale. Only H1/H2 change; H3 stays identical. Headings using
-   the typography tokens/mixins pick this up automatically. */
-@media (--lido-app-ui-breakpoint-md-down) {
-  :root {
-    --lido-app-ui-font-size-h1: 34px;
-    --lido-app-ui-line-height-h1: 48px;
-    --lido-app-ui-letter-spacing-h1: -0.98px;
-    --lido-app-ui-font-size-h2: 28px;
-    --lido-app-ui-line-height-h2: 40px;
-    --lido-app-ui-letter-spacing-h2: -0.84px;
-  }
 }
