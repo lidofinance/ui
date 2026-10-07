@@ -12,8 +12,7 @@ const meta: Meta<typeof Notification> = {
     backgrounds: { default: 'light' },
     docs: {
       description: {
-        component:
-          'A dark toast that stays dark in both themes. Compose the action row with `NotificationButton` (`primary` = solid white, `secondary` = outlined).',
+        component: 'A dark toast that stays dark in both themes. ',
       },
     },
   },
