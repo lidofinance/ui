@@ -14,6 +14,7 @@
   background-color: transparent;
   color: var(--lido-app-ui-color-text-default);
   cursor: pointer;
+  border-radius: var(--lido-app-ui-border-radius-control);
   transition: background-color 150ms;
 }
 
@@ -33,9 +34,6 @@
 
 .trigger.default {
   padding: 12px 16px;
-  background-color: var(--lido-app-ui-color-background-default);
-
-  /* Figma "Radius/md" (16px) — no matching semantic token yet. */
   border-radius: 16px;
 }
 
@@ -69,6 +67,7 @@
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-body);
   font-weight: var(--lido-app-ui-font-weight-semibold);
+  color: var(--lido-app-ui-color-text-default);
 
   /* Figma "Body 1" — no matching size/line-height token pair. */
   line-height: 28px;
