@@ -6,6 +6,7 @@ import type {
 import { ThemeName, ThemeProvider } from '@lidofinance/lido-shared-ui'
 
 import cn from 'classnames'
+import type { ReactNode } from 'react'
 
 import styles from './Notification.module.css'
 
@@ -53,15 +54,3 @@ export const Notification = ({
     </div>
   </ThemeProvider>
 )
-
-export type NotificationButtonVariant = 'primary' | 'secondary'
-
-export type NotificationButtonDataTestId = {
-  root?: string
-}
-
-export type NotificationButtonProps =
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: NotificationButtonVariant
-    dataTestId?: NotificationButtonDataTestId
-  }
