@@ -6,6 +6,7 @@ import {
   FC,
   PropsWithChildren,
   ReactNode,
+  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -33,26 +34,75 @@ export type StoriesContext = {
 
 type StoriesModule = Parameters<typeof composeStories>[0]
 
+type StoryItem = { title: string; Story: ComposedStoryFn<ReactRenderer> }
+
 const PREFERRED_STORY = 'Basic'
 
-const collectStories = (contexts: StoriesContext[]) =>
-  contexts
-    .flatMap((context) =>
-      context.keys().map((key) => context(key) as StoriesModule),
+// Requiring + `composeStories`-ing every single story module is heavy (it's
+// every component's own file plus its full dependency tree) — doing that
+// for the whole library in one synchronous pass freezes the tab. Process a
+// few modules per idle tick instead, so the browser stays responsive and
+// the page fills in progressively.
+const BATCH_SIZE = 4
+
+const scheduleIdle = (callback: () => void) => {
+  if (typeof requestIdleCallback === 'function') {
+    requestIdleCallback(callback)
+  } else {
+    setTimeout(callback, 0)
+  }
+}
+
+const composeStoryItem = (module: StoriesModule): StoryItem | undefined => {
+  if (!module.default?.title) return undefined
+  const stories = composeStories(module) as Record<
+    string,
+    ComposedStoryFn<ReactRenderer>
+  >
+  const Story = stories[PREFERRED_STORY] ?? Object.values(stories)[0]
+  if (!Story) return undefined
+  return { title: module.default.title as string, Story }
+}
+
+const useStoriesCollection = (contexts: StoriesContext[]) => {
+  const [items, setItems] = useState<StoryItem[]>([])
+
+  useEffect(() => {
+    let cancelled = false
+    const keys = contexts.flatMap((context) =>
+      context.keys().map((key) => ({ context, key })),
     )
-    .filter((module) => module.default?.title)
-    .map((module) => {
-      const stories = composeStories(module) as Record<
-        string,
-        ComposedStoryFn<ReactRenderer>
-      >
-      return {
-        title: module.default.title as string,
-        Story: stories[PREFERRED_STORY] ?? Object.values(stories)[0],
+    let index = 0
+
+    const processBatch = () => {
+      if (cancelled) return
+      const batch = keys.slice(index, index + BATCH_SIZE)
+      index += BATCH_SIZE
+
+      const collected = batch
+        .map(({ context, key }) => context(key) as StoriesModule)
+        .map(composeStoryItem)
+        .filter((item): item is StoryItem => item != null)
+
+      if (collected.length) {
+        setItems((prev) =>
+          [...prev, ...collected].sort((a, b) =>
+            a.title.localeCompare(b.title),
+          ),
+        )
       }
-    })
-    .filter(({ Story }) => Story)
-    .sort((a, b) => a.title.localeCompare(b.title))
+
+      if (index < keys.length) scheduleIdle(processBatch)
+    }
+
+    scheduleIdle(processBatch)
+    return () => {
+      cancelled = true
+    }
+  }, [contexts])
+
+  return items
+}
 
 // One broken story shouldn't take down the whole overview page.
 class StoryErrorBoundary extends Component<
@@ -95,6 +145,25 @@ const boxStyle: React.CSSProperties = {
 const StoryBox: FC<PropsWithChildren> = ({ children }) => {
   const ref = useRef<HTMLDivElement>(null)
   const [minHeight, setMinHeight] = useState<number>()
+  // Mounting every story at once (dozens of components, each with its own
+  // effects/animations) is what makes the page lag on load — render a
+  // story's children only once its box scrolls near the viewport.
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const box = ref.current
+    if (!box) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        setInView(true)
+        observer.disconnect()
+      },
+      { rootMargin: '600px 0px' },
+    )
+    observer.observe(box)
+    return () => observer.disconnect()
+  }, [])
 
   useLayoutEffect(() => {
     const box = ref.current
@@ -103,11 +172,11 @@ const StoryBox: FC<PropsWithChildren> = ({ children }) => {
       .filter((el) => getComputedStyle(el).position === 'fixed')
       .map((el) => el.getBoundingClientRect().height)
     if (fixedHeights.length) setMinHeight(Math.max(...fixedHeights))
-  }, [])
+  }, [inView])
 
   return (
     <div ref={ref} style={{ ...boxStyle, minHeight }}>
-      {children}
+      {inView ? children : null}
     </div>
   )
 }
@@ -115,7 +184,7 @@ const StoryBox: FC<PropsWithChildren> = ({ children }) => {
 export const StoriesOverview: FC<{ contexts: StoriesContext[] }> = ({
   contexts,
 }) => {
-  const [items] = useState(() => collectStories(contexts))
+  const items = useStoriesCollection(contexts)
 
   return (
     <div>
