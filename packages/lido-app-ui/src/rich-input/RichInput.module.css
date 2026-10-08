@@ -39,9 +39,7 @@
 }
 
 .label {
-  @mixin font-body-large-semibold;
-
-  color: var(--lido-app-ui-color-text-secondary);
+  @mixin font-body color: var(--lido-app-ui-color-text-secondary);
 }
 
 .labelTooltipIcon {
@@ -105,7 +103,7 @@
 .balanceGroup {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   margin-left: auto;
 }
 
@@ -113,10 +111,6 @@
   @mixin font-body;
 
   color: var(--lido-app-ui-color-text-secondary);
-}
-
-.error .balance {
-  color: var(--lido-app-ui-color-text-error);
 }
 
 .errorMessage {

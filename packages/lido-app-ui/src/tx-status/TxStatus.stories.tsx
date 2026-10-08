@@ -69,13 +69,13 @@ export const AllStatuses: Story = {
         status='error'
         title='Transaction failed'
         message='The transaction was rejected in your wallet.'
-        footer={<Button>Try again</Button>}
+        footer={<Button variant='outline'>Try again</Button>}
       />
       <TxStatus
         status='warning'
         title='Network mismatch'
         message='Switch your wallet to Ethereum Mainnet to continue.'
-        footer={<Button>Switch network</Button>}
+        footer={<Button variant='outline'>Switch network</Button>}
       />
 
       <TxStatus

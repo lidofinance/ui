@@ -1,6 +1,2 @@
-export { Notification, NotificationButton } from './Notification'
-export type {
-  NotificationProps,
-  NotificationButtonProps,
-  NotificationButtonVariant,
-} from './Notification'
+export { Notification } from './Notification'
+export type { NotificationProps } from './Notification'

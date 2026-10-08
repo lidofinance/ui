@@ -4,14 +4,17 @@
   --lido-app-ui-palette-gray-200: #f2f2f6;
   --lido-app-ui-palette-gray-300: #e7e7ee;
   --lido-app-ui-palette-gray-400: #dbdbe6;
+  --lido-app-ui-palette-gray-500: #cfcfde;
   --lido-app-ui-palette-gray-600: #30304a;
   --lido-app-ui-palette-gray-700: #202031;
   --lido-app-ui-palette-gray-800: #181825;
+  --lido-app-ui-palette-gray-900: #08080c;
 
   /* Primitives - blue */
   --lido-app-ui-palette-blue-100: #e5f3ff;
   --lido-app-ui-palette-blue-200: #cce7ff;
   --lido-app-ui-palette-blue-300: #99ceff;
+  --lido-app-ui-palette-blue-400: #66b6ff;
   --lido-app-ui-palette-blue-500: #339dff;
   --lido-app-ui-palette-blue-600: #0085ff;
   --lido-app-ui-palette-blue-700: #006acc;
@@ -21,32 +24,44 @@
   /* Primitives - purple */
   --lido-app-ui-palette-purple-100: #edefff;
   --lido-app-ui-palette-purple-200: #dbdfff;
+  --lido-app-ui-palette-purple-300: #b7beff;
   --lido-app-ui-palette-purple-400: #939eff;
+  --lido-app-ui-palette-purple-500: #6f7dff;
   --lido-app-ui-palette-purple-600: #4b5dff;
+  --lido-app-ui-palette-purple-700: #3c4acc;
   --lido-app-ui-palette-purple-800: #2d3899;
   --lido-app-ui-palette-purple-900: #1e2566;
 
   /* Primitives - green */
   --lido-app-ui-palette-green-100: #e7f8f4;
   --lido-app-ui-palette-green-200: #cff0e9;
+  --lido-app-ui-palette-green-300: #a0e2d2;
   --lido-app-ui-palette-green-400: #70d3bc;
+  --lido-app-ui-palette-green-500: #40c5a6;
   --lido-app-ui-palette-green-600: #11b690;
+  --lido-app-ui-palette-green-700: #0d9273;
   --lido-app-ui-palette-green-800: #0a6d56;
   --lido-app-ui-palette-green-900: #074939;
 
   /* Primitives - orange */
   --lido-app-ui-palette-orange-100: #fef4e5;
   --lido-app-ui-palette-orange-200: #fee9cc;
+  --lido-app-ui-palette-orange-300: #fdd399;
   --lido-app-ui-palette-orange-400: #fcbe66;
+  --lido-app-ui-palette-orange-500: #fba833;
   --lido-app-ui-palette-orange-600: #fa9200;
+  --lido-app-ui-palette-orange-700: #c87500;
   --lido-app-ui-palette-orange-800: #965800;
   --lido-app-ui-palette-orange-900: #643a00;
 
   /* Primitives - red */
   --lido-app-ui-palette-red-100: #fde8ea;
   --lido-app-ui-palette-red-200: #fbd0d5;
+  --lido-app-ui-palette-red-300: #f6a1ab;
   --lido-app-ui-palette-red-400: #f27381;
+  --lido-app-ui-palette-red-500: #ed4457;
   --lido-app-ui-palette-red-600: #e9152d;
+  --lido-app-ui-palette-red-700: #ba1124;
   --lido-app-ui-palette-red-800: #8c0d1b;
   --lido-app-ui-palette-red-900: #5d0812;
 
@@ -58,6 +73,7 @@
   --lido-app-ui-palette-white-a500: rgb(255 255 255 / 60%);
   --lido-app-ui-palette-white-a600: rgb(255 255 255 / 75%);
   --lido-app-ui-palette-white-a700: rgb(255 255 255 / 85%);
+  --lido-app-ui-palette-white-a800: rgb(255 255 255 / 90%);
   --lido-app-ui-palette-white-a900: #fff;
 
   /* Primitives - black alpha (base #0c0c0d) */
@@ -66,6 +82,9 @@
   --lido-app-ui-palette-black-a300: rgb(12 12 13 / 25%);
   --lido-app-ui-palette-black-a400: rgb(12 12 13 / 40%);
   --lido-app-ui-palette-black-a500: rgb(12 12 13 / 70%);
+  --lido-app-ui-palette-black-a600: rgb(12 12 13 / 80%);
+  --lido-app-ui-palette-black-a700: rgb(12 12 13 / 85%);
+  --lido-app-ui-palette-black-a800: rgb(12 12 13 / 90%);
   --lido-app-ui-palette-black-a900: #0c0c0d;
 
   /* Semantic - Text */
@@ -203,7 +222,7 @@
   --lido-app-ui-letter-spacing-h1: -1.5px;
   --lido-app-ui-font-size-h2: 28px;
   --lido-app-ui-line-height-h2: 40px;
-  --lido-app-ui-letter-spacing-h2: -3px;
+  --lido-app-ui-letter-spacing-h2: 0.84px;
   --lido-app-ui-font-size-h3: 24px;
   --lido-app-ui-line-height-h3: 36px;
   --lido-app-ui-letter-spacing-h3: -0.14px;
@@ -338,17 +357,4 @@
   --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-800);
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-900);
   --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-800);
-}
-
-/* Mobile heading scale. Only H1/H2 change; H3 stays identical. Headings using
-   the typography tokens/mixins pick this up automatically. */
-@media (--lido-app-ui-breakpoint-md-down) {
-  :root {
-    --lido-app-ui-font-size-h1: 34px;
-    --lido-app-ui-line-height-h1: 48px;
-    --lido-app-ui-letter-spacing-h1: -0.98px;
-    --lido-app-ui-font-size-h2: 28px;
-    --lido-app-ui-line-height-h2: 40px;
-    --lido-app-ui-letter-spacing-h2: -0.84px;
-  }
 }

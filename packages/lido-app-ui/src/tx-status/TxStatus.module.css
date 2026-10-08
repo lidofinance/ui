@@ -24,6 +24,7 @@
 .spinner {
   width: 64px;
   height: 64px;
+  color: var(--lido-app-ui-color-icons-active);
   animation: spin 0.9s linear infinite;
 }
 
@@ -55,8 +56,8 @@
 }
 
 .circleIcon {
-  width: 32px;
-  height: 32px;
+  width: 52px;
+  height: 52px;
   color: var(--lido-app-ui-palette-white-a900);
 }
 
