@@ -14,11 +14,7 @@ export const IconMinus = (props: SVGProps<SVGSVGElement>) => {
       fill='none'
       {...props}
     >
-      <path
-        d='M15.898 9.35v1.3h-12v-1.3h12z'
-        fill='currentColor'
-        fillOpacity={0.7}
-      />
+      <path d='M15.898 9.35v1.3h-12v-1.3h12z' fill='currentColor' />
     </svg>
   )
 }

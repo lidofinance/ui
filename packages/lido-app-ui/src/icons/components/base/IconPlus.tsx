@@ -17,7 +17,6 @@ export const IconPlus = (props: SVGProps<SVGSVGElement>) => {
       <path
         d='M10.553 4.004V9.35h5.345v1.3h-5.345v5.354h-1.3V10.65H3.898v-1.3h5.355V4.004h1.3z'
         fill='currentColor'
-        fillOpacity={0.7}
       />
     </svg>
   )
