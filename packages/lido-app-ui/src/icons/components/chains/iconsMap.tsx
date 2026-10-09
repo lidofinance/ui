@@ -4,7 +4,7 @@ import { Avalanche } from './Avalanche'
 import { Bitcoin } from './Bitcoin'
 import { Ethereum } from './Ethereum'
 import { Mantle } from './Mantle'
-import { MegaETH } from './MegaETH'
+import { MegaEth } from './MegaEth'
 import { Metamask } from './Metamask'
 import { Monad } from './Monad'
 import { Optimism } from './Optimism'
@@ -18,7 +18,7 @@ export const CHAINS_ICONS_MAP = {
   Bitcoin,
   Ethereum,
   Mantle,
-  MegaETH,
+  MegaEth,
   Metamask,
   Monad,
   Optimism,

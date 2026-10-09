@@ -79,10 +79,18 @@ const upperFirst = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+// Collapses runs of 2+ consecutive uppercase letters/digits (acronyms) down
+// to a single capitalized word, e.g. "KELP" -> "Kelp", "ETH" in "abcETH" -> "Eth".
+// Everything else keeps its original casing (e.g. "BitGet" is untouched).
+const normalizeAcronyms = (word) => {
+  return word.replace(/[A-Z0-9]{2,}/g, (match) =>
+    upperFirst(match.toLowerCase()),
+  )
+}
+
 const convertToPascalCase = (name) => {
-  return name
-    .match(/([a-z0-9]+)/gi)
-    .map(upperFirst)
+  return (name.match(/([a-zA-Z0-9]+)/g) || [])
+    .map((word) => upperFirst(normalizeAcronyms(word)))
     .join('')
 }
 
