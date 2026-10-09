@@ -16,4 +16,5 @@ gh-pages
 # Generated type declarations
 **/.storybook/**/*.d.ts
 **/.storybook/**/*.d.ts.map
-.claude
+.claude/*
+!.claude/skills/**
