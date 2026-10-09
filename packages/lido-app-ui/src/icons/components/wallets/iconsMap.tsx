@@ -1,9 +1,9 @@
 // THIS FILE IS AUTO GENERATED
 
-import { BitGet } from './Bitget'
+import { BitGet } from './BitGet'
 import { Browser } from './Browser'
 import { WalletsMetamask } from './WalletsMetamask'
-import { OKX } from './OKX'
+import { Okx } from './Okx'
 import { WalletConnect } from './WalletConnect'
 import { Ledger } from './Ledger'
 
@@ -12,7 +12,7 @@ export const WALLETS_ICONS_MAP = {
   BitGet,
   Browser,
   WalletsMetamask,
-  OKX,
+  Okx,
   WalletConnect,
   Ledger,
 }

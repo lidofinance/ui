@@ -2,10 +2,10 @@
 
 export { Axis } from './Axis'
 export { Balancer } from './Balancer'
-export { CAP } from './CAP'
-export { ETHENA } from './Ethena'
+export { Cap } from './Cap'
+export { Ethena } from './Ethena'
 export { EtherFi } from './EtherFi'
-export { KELP } from './Kelp'
+export { Kelp } from './Kelp'
 export { Maple } from './Maple'
 export { Nethermind } from './Nethermind'
 export { PendleDark } from './PendleDark'

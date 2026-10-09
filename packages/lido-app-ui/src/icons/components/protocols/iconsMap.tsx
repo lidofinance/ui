@@ -2,10 +2,10 @@
 
 import { Axis } from './Axis'
 import { Balancer } from './Balancer'
-import { CAP } from './CAP'
-import { ETHENA } from './Ethena'
+import { Cap } from './Cap'
+import { Ethena } from './Ethena'
 import { EtherFi } from './EtherFi'
-import { KELP } from './Kelp'
+import { Kelp } from './Kelp'
 import { Maple } from './Maple'
 import { Nethermind } from './Nethermind'
 import { PendleDark } from './PendleDark'
@@ -28,10 +28,10 @@ import { Uniswap } from './Uniswap'
 export const PROTOCOLS_ICONS_MAP = {
   Axis,
   Balancer,
-  CAP,
-  ETHENA,
+  Cap,
+  Ethena,
   EtherFi,
-  KELP,
+  Kelp,
   Maple,
   Nethermind,
   PendleDark,
