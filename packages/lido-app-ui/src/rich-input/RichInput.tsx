@@ -108,69 +108,73 @@ export const RichInput = ({
   }
 
   return (
-    // Clicking the padding around the field focuses it — a pointer convenience
-    // on top of the real control. Keyboard users tab straight to the input.
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <div
-      className={cn(styles.root, hasError && styles.error, className)}
-      onClick={handleRootClick}
-    >
-      {label != null ? (
-        <span className={styles.labelRow}>
-          <label className={styles.label} htmlFor={inputId}>
-            {label}
-          </label>
-          {labelTooltip != null ? (
-            <Tooltip content={labelTooltip}>
-              <IconInfo
-                className={styles.labelTooltipIcon}
-                aria-hidden='true'
-              />
-            </Tooltip>
+    <div className={cn(styles.root, className)}>
+      {/*
+        Clicking the padding around the field focuses it — a pointer convenience
+        on top of the real control. Keyboard users tab straight to the input.
+      */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+      <div
+        className={cn(styles.card, hasError && styles.error)}
+        onClick={handleRootClick}
+      >
+        {label != null ? (
+          <span className={styles.labelRow}>
+            <label className={styles.label} htmlFor={inputId}>
+              {label}
+            </label>
+            {labelTooltip != null ? (
+              <Tooltip content={labelTooltip}>
+                <IconInfo
+                  className={styles.labelTooltipIcon}
+                  aria-hidden='true'
+                />
+              </Tooltip>
+            ) : null}
+          </span>
+        ) : null}
+        <div className={styles.amountRow}>
+          <input
+            ref={inputRef}
+            id={inputId}
+            className={styles.input}
+            inputMode='decimal'
+            disabled={disabled}
+            aria-invalid={hasError || undefined}
+            aria-describedby={showErrorMessage ? errorId : undefined}
+            onChange={handleChange}
+            {...inputProps}
+          />
+          {tokenSelector != null ? (
+            <div className={styles.token}>{tokenSelector}</div>
           ) : null}
-        </span>
-      ) : null}
-      <div className={styles.amountRow}>
-        <input
-          ref={inputRef}
-          id={inputId}
-          className={styles.input}
-          inputMode='decimal'
-          disabled={disabled}
-          aria-invalid={hasError || undefined}
-          aria-describedby={showErrorMessage ? errorId : undefined}
-          onChange={handleChange}
-          {...inputProps}
-        />
-        {tokenSelector != null ? (
-          <div className={styles.token}>{tokenSelector}</div>
+        </div>
+        {hasBottomRow ? (
+          <div className={styles.bottomRow}>
+            {secondaryValue != null ? (
+              <span className={styles.secondary}>{secondaryValue}</span>
+            ) : null}
+            <div className={styles.balanceGroup}>
+              {balance != null ? (
+                <span className={styles.balance}>{balance}</span>
+              ) : null}
+              {showMax ? (
+                maxTooltip != null ? (
+                  <Tooltip
+                    content={maxTooltip}
+                    position='bottom-left'
+                    width={240}
+                  >
+                    <MaxTag onClick={onMaxClick}>Max</MaxTag>
+                  </Tooltip>
+                ) : (
+                  <MaxTag onClick={onMaxClick}>Max</MaxTag>
+                )
+              ) : null}
+            </div>
+          </div>
         ) : null}
       </div>
-      {hasBottomRow ? (
-        <div className={styles.bottomRow}>
-          {secondaryValue != null ? (
-            <span className={styles.secondary}>{secondaryValue}</span>
-          ) : null}
-          <div className={styles.balanceGroup}>
-            {balance != null ? (
-              <span className={styles.balance}>{balance}</span>
-            ) : null}
-            {showMax ? (
-              maxTooltip != null ? (
-                <Tooltip
-                  content={maxTooltip}
-                  position='bottom-left'
-                  width={240}
-                >
-                  <MaxTag onClick={onMaxClick}>Max</MaxTag>
-                </Tooltip>
-              ) : (
-                <MaxTag onClick={onMaxClick}>Max</MaxTag>
-              )
-            ) : null}
-          </div>
-        </div>
-      ) : null}
       {showErrorMessage ? (
         <div id={errorId} className={styles.errorMessage}>
           {errorMessage}

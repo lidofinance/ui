@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Notification, NotificationButton } from '.'
+import { Notification } from '.'
+import { Button } from '../button'
+import { Tag } from '../tag'
 
 const meta: Meta<typeof Notification> = {
   title: 'Feedback & Overlays/Notification',
@@ -10,8 +12,7 @@ const meta: Meta<typeof Notification> = {
     backgrounds: { default: 'light' },
     docs: {
       description: {
-        component:
-          'A dark toast that stays dark in both themes. Compose the action row with `NotificationButton` (`primary` = solid white, `secondary` = outlined).',
+        component: 'A dark toast that stays dark in both themes. ',
       },
     },
   },
@@ -24,10 +25,13 @@ export const Basic: Story = {
   render: () => (
     <Notification
       title='Your key got a strike'
+      subheader={<Tag>Tag</Tag>}
       actions={
         <>
-          <NotificationButton>View strikes</NotificationButton>
-          <NotificationButton variant='secondary'>Dismiss</NotificationButton>
+          <Button size={'small'}>View strikes</Button>
+          <Button size={'small'} variant={'outline'}>
+            Dismiss
+          </Button>
         </>
       }
     >
@@ -41,8 +45,4 @@ export const Basic: Story = {
       </ul>
     </Notification>
   ),
-}
-
-export const TitleOnly: Story = {
-  render: () => <Notification title='Saved' />,
 }

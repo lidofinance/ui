@@ -1,0 +1,67 @@
+.root {
+  display: block;
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+
+  /* hide native scrollbars across browsers */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-color: transparent transparent;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.list.fadeLeft {
+  /* Fades the clipped edge to transparent instead of overlaying a solid
+     color, so it works regardless of whatever sits behind the component. */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    transparent 9px,
+    #000 32px
+  );
+}
+
+.listItem {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.item {
+  @mixin font-body-large-semibold;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.item:hover,
+.item:active {
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.item[aria-current='page'] {
+  color: var(--lido-app-ui-color-text-default);
+  cursor: default;
+}
+
+.separator {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--lido-app-ui-color-icons-tertiary);
+}

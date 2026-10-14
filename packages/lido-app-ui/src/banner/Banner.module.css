@@ -9,6 +9,7 @@
   border-radius: 12px;
   background-color: var(--lido-app-ui-color-background-default);
   font-family: var(--lido-app-ui-font-family);
+  height: 80px;
 }
 
 .content {
