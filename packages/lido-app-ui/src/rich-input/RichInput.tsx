@@ -120,95 +120,74 @@ export const RichInput = ({
   }
 
   return (
-    // Clicking the padding around the field focuses it — a pointer convenience
-    // on top of the real control. Keyboard users tab straight to the input.
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <div
-      className={cn(styles.root, hasError && styles.error, className)}
-      onClick={handleRootClick}
-      data-testid={dataTestId?.root}
-    >
-      {label != null ? (
-        <span className={styles.labelRow}>
-          <label
-            className={styles.label}
-            htmlFor={inputId}
-            data-testid={dataTestId?.label}
-          >
-            {label}
-          </label>
-          {labelTooltip != null ? (
-            <Tooltip content={labelTooltip}>
-              <IconInfo
-                className={styles.labelTooltipIcon}
-                aria-hidden='true'
-              />
-            </Tooltip>
+    <div className={cn(styles.root, className)}    data-testid={dataTestId?.root}>
+      {/*
+        Clicking the padding around the field focuses it — a pointer convenience
+        on top of the real control. Keyboard users tab straight to the input.
+      */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+      <div
+        className={cn(styles.card, hasError && styles.error)}
+        onClick={handleRootClick}
+      >
+        {label != null ? (
+          <span className={styles.labelRow}>
+            <label   data-testid={dataTestId?.label} className={styles.label} htmlFor={inputId}>
+              {label}
+            </label>
+            {labelTooltip != null ? (
+              <Tooltip content={labelTooltip}>
+                <IconInfo
+                  className={styles.labelTooltipIcon}
+                  aria-hidden='true'
+                />
+              </Tooltip>
+            ) : null}
+          </span>
+        ) : null}
+        <div className={styles.amountRow}>
+          <input
+            ref={inputRef}
+            id={inputId}
+            className={styles.input}
+            inputMode='decimal'
+            disabled={disabled}
+            aria-invalid={hasError || undefined}
+            aria-describedby={showErrorMessage ? errorId : undefined}
+            onChange={handleChange}
+            data-testid={dataTestId?.input}
+            {...inputProps}
+          />
+          {tokenSelector != null ? (
+            <div className={styles.token}>{tokenSelector}</div>
           ) : null}
-        </span>
-      ) : null}
-      <div className={styles.amountRow}>
-        <input
-          ref={inputRef}
-          id={inputId}
-          className={styles.input}
-          inputMode='decimal'
-          disabled={disabled}
-          aria-invalid={hasError || undefined}
-          aria-describedby={showErrorMessage ? errorId : undefined}
-          onChange={handleChange}
-          data-testid={dataTestId?.input}
-          {...inputProps}
-        />
-        {tokenSelector != null ? (
-          <div className={styles.token}>{tokenSelector}</div>
+        </div>
+        {hasBottomRow ? (
+          <div className={styles.bottomRow}>
+            {secondaryValue != null ? (
+              <span    data-testid={dataTestId?.secondaryValue} className={styles.secondary}>{secondaryValue}</span>
+            ) : null}
+            <div className={styles.balanceGroup}>
+              {balance != null ? (
+                <span className={styles.balance}    data-testid={dataTestId?.balance}>{balance}</span>
+              ) : null}
+              {showMax ? (
+                maxTooltip != null ? (
+                  <Tooltip
+                    content={maxTooltip}
+                    position='bottom-left'
+                    width={240}
+                  >
+                    <MaxTag onClick={onMaxClick}>Max</MaxTag>
+                  </Tooltip>
+                ) : (
+                  <MaxTag data-testid={dataTestId?.maxButton} onClick={onMaxClick}>Max</MaxTag>
+                )
+              ) : null}
+            </div>
+          </div>
         ) : null}
       </div>
-      {hasBottomRow ? (
-        <div className={styles.bottomRow}>
-          {secondaryValue != null ? (
-            <span
-              className={styles.secondary}
-              data-testid={dataTestId?.secondaryValue}
-            >
-              {secondaryValue}
-            </span>
-          ) : null}
-          <div className={styles.balanceGroup}>
-            {balance != null ? (
-              <span
-                className={styles.balance}
-                data-testid={dataTestId?.balance}
-              >
-                {balance}
-              </span>
-            ) : null}
-            {showMax ? (
-              maxTooltip != null ? (
-                <Tooltip
-                  content={maxTooltip}
-                  position='bottom-left'
-                  width={240}
-                >
-                  <MaxTag
-                    onClick={onMaxClick}
-                    data-testid={dataTestId?.maxButton}
-                  >
-                    Max
-                  </MaxTag>
-                </Tooltip>
-              ) : (
-                <MaxTag
-                  onClick={onMaxClick}
-                  data-testid={dataTestId?.maxButton}
-                >
-                  Max
-                </MaxTag>
-              )
-            ) : null}
-          </div>
-        </div>
-      ) : null}
       {showErrorMessage ? (
         <div
           id={errorId}
