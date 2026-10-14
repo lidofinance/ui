@@ -115,8 +115,6 @@
 
 .errorMessage {
   @mixin font-body;
-
-  color: var(--lido-app-ui-color-text-error);
 }
 
 .maxTag {

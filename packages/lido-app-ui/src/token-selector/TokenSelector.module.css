@@ -170,10 +170,12 @@
 
 .option.default {
   padding: 16px;
+  height: 88px;
 }
 
 .option.small {
   padding: 4px 12px 4px 8px;
+  height: 32px;
 }
 
 .option:not(:disabled):hover {
