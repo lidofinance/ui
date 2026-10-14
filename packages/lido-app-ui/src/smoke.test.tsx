@@ -5,6 +5,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { Accordion } from './accordion'
 import { Badge } from './badge'
 import { Banner } from './banner'
+import { Breadcrumbs } from './breadcrumbs'
 import { Button } from './button'
 import { Card } from './card'
 import { Checkbox } from './checkbox'
@@ -45,6 +46,14 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Accordion', () => <Accordion title='Section'>Content</Accordion>],
   ['Badge', () => <Badge>Badge text</Badge>],
   ['Banner', () => <Banner title='Heads up' />],
+  [
+    'Breadcrumbs',
+    () => (
+      <Breadcrumbs
+        items={[{ label: 'Dashboard', href: '#' }, { label: 'Operator' }]}
+      />
+    ),
+  ],
   ['Button', () => <Button>Connect</Button>],
   ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
