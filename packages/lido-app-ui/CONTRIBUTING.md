@@ -41,6 +41,43 @@ src/my-component/
 - Use `forwardRef` when the component wraps a focusable/interactive native
   element (input, button) that consumers may need a ref to.
 
+## Test IDs
+
+Every component accepts a `dataTestId` prop so consumers can target internal
+parts (not just the root) in e2e/UI tests without reaching for fragile
+selectors:
+
+```ts
+export type MyComponentDataTestId = {
+  root?: string
+  icon?: string
+  label?: string
+}
+
+export type MyComponentProps = ComponentPropsWithoutRef<'div'> & {
+  dataTestId?: MyComponentDataTestId
+}
+
+export const MyComponent = ({ dataTestId, ...rest }: MyComponentProps) => (
+  <div data-testid={dataTestId?.root} {...rest}>
+    <span className={styles.icon} data-testid={dataTestId?.icon}>...</span>
+    <span className={styles.label} data-testid={dataTestId?.label}>...</span>
+  </div>
+)
+```
+
+- One key per part worth targeting on its own (icon, label, error message,
+  action button, etc.) — not every wrapper `<span>`.
+- Always include `root`, even for single-element components.
+- Apply `data-testid={dataTestId?.part}` before any `{...rest}` spread so an
+  explicit `data-testid` passed through `rest` can still win if a consumer
+  needs to override it.
+- A component rendered from a list (e.g. `Tabs`, `SegmentedControl`) takes a
+  `dataTestId` per item in addition to the container's own, matching the
+  shape above.
+- Export the `<Component>DataTestId` type from the component's `index.ts`
+  alongside its props type.
+
 ## Styles
 
 - One `Component.module.css` per component, CSS Modules (not CSS-in-JS).
