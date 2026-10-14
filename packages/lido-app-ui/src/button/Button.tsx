@@ -9,12 +9,20 @@ export type ButtonVariant = 'primary' | 'outline' | 'subtle' | 'ghost' | 'error'
 
 export type ButtonSize = 'big' | 'small'
 
+export type ButtonDataTestId = {
+  root?: string
+  iconLeft?: string
+  iconRight?: string
+  content?: string
+}
+
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant
   size?: ButtonSize
   loading?: boolean
   iconLeft?: ReactNode
   iconRight?: ReactNode
+  dataTestId?: ButtonDataTestId
 }
 
 export const Button = ({
@@ -27,6 +35,7 @@ export const Button = ({
   disabled = false,
   iconLeft,
   iconRight,
+  dataTestId,
   ...rest
 }: ButtonProps) => (
   <button
@@ -40,20 +49,31 @@ export const Button = ({
       loading && styles.loading,
       className,
     )}
+    data-testid={dataTestId?.root}
     {...rest}
   >
     {loading ? (
       <IconLoaderCircle className={styles.spinner} aria-hidden='true' />
     ) : (
       iconLeft != null && (
-        <span className={styles.icon} aria-hidden='true'>
+        <span
+          className={styles.icon}
+          aria-hidden='true'
+          data-testid={dataTestId?.iconLeft}
+        >
           {iconLeft}
         </span>
       )
     )}
-    <span className={styles.content}>{children}</span>
+    <span className={styles.content} data-testid={dataTestId?.content}>
+      {children}
+    </span>
     {!loading && iconRight != null ? (
-      <span className={styles.icon} aria-hidden='true'>
+      <span
+        className={styles.icon}
+        aria-hidden='true'
+        data-testid={dataTestId?.iconRight}
+      >
         {iconRight}
       </span>
     ) : null}

@@ -2,8 +2,12 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
-import { SegmentCard } from './SegmentCard'
+import { SegmentCard, type SegmentCardDataTestId } from './SegmentCard'
 import styles from './SegmentedControlCard.module.css'
+
+export type SegmentedControlCardDataTestId = {
+  root?: string
+}
 
 export type SegmentCardItem = {
   value: string
@@ -12,6 +16,7 @@ export type SegmentCardItem = {
   icon?: ReactNode
   tag?: ReactNode
   disabled?: boolean
+  dataTestId?: SegmentCardDataTestId
 }
 
 export type SegmentedControlCardProps = {
@@ -19,6 +24,7 @@ export type SegmentedControlCardProps = {
   value: string
   onChange: (value: string) => void
   className?: string
+  dataTestId?: SegmentedControlCardDataTestId
 }
 
 export const SegmentedControlCard = ({
@@ -26,6 +32,7 @@ export const SegmentedControlCard = ({
   value,
   onChange,
   className,
+  dataTestId,
 }: SegmentedControlCardProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const activeButtonRef = useRef<HTMLButtonElement>(null)
@@ -67,6 +74,7 @@ export const SegmentedControlCard = ({
       ref={containerRef}
       role='tablist'
       className={cn(styles.segmentedControlCard, className)}
+      data-testid={dataTestId?.root}
     >
       <div
         ref={selectionRef}
@@ -85,6 +93,7 @@ export const SegmentedControlCard = ({
             title={item.title}
             tag={item.tag}
             description={item.description}
+            dataTestId={item.dataTestId}
             onClick={() => {
               if (item.value !== value) onChange(item.value)
             }}

@@ -4,10 +4,16 @@ import cn from 'classnames'
 
 import styles from './TextLink.module.css'
 
+export type TextLinkDataTestId = {
+  root?: string
+  icon?: string
+}
+
 export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   icon?: ReactNode
   external?: boolean
   disabled?: boolean
+  dataTestId?: TextLinkDataTestId
 }
 
 export const TextLink = ({
@@ -20,6 +26,7 @@ export const TextLink = ({
   rel,
   href,
   onClick,
+  dataTestId,
   ...rest
 }: TextLinkProps) => (
   <a
@@ -30,11 +37,16 @@ export const TextLink = ({
     aria-disabled={disabled || undefined}
     tabIndex={disabled ? -1 : undefined}
     onClick={disabled ? undefined : onClick}
+    data-testid={dataTestId?.root}
     {...rest}
   >
     {children}
     {icon != null ? (
-      <span className={styles.icon} aria-hidden='true'>
+      <span
+        className={styles.icon}
+        aria-hidden='true'
+        data-testid={dataTestId?.icon}
+      >
         {icon}
       </span>
     ) : null}

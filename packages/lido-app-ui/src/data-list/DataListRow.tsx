@@ -8,6 +8,14 @@ import styles from './DataList.module.css'
 
 export type DetailRowValue = ReactNode | { from: ReactNode; to: ReactNode }
 
+export type DataListRowDataTestId = {
+  root?: string
+  label?: string
+  value?: string
+  icon?: string
+  description?: string
+}
+
 export type DetailRowProps = {
   label: ReactNode
   value: DetailRowValue
@@ -17,6 +25,7 @@ export type DetailRowProps = {
   description?: ReactNode
   descriptionInfo?: ReactNode
   className?: string
+  dataTestId?: DataListRowDataTestId
 }
 
 const isChangeValue = (
@@ -36,12 +45,19 @@ export const DataListRow = ({
   description,
   descriptionInfo,
   className,
+  dataTestId,
 }: DetailRowProps) => (
-  <div className={cn(styles.row, className)}>
+  <div className={cn(styles.row, className)} data-testid={dataTestId?.root}>
     <span className={styles.mainRow}>
       <span className={styles.labelGroup}>
-        {icon ? <span className={styles.leadingIcon}>{icon}</span> : null}
-        <span className={styles.label}>{label}</span>
+        {icon ? (
+          <span className={styles.leadingIcon} data-testid={dataTestId?.icon}>
+            {icon}
+          </span>
+        ) : null}
+        <span className={styles.label} data-testid={dataTestId?.label}>
+          {label}
+        </span>
         {info ? (
           <Tooltip
             content={info}
@@ -52,7 +68,7 @@ export const DataListRow = ({
         ) : null}
       </span>
       {isChangeValue(value) ? (
-        <span className={styles.value}>
+        <span className={styles.value} data-testid={dataTestId?.value}>
           <span className={styles.valueOld}>{value.from}</span>
           <span className={styles.valueArrow} aria-hidden='true'>
             →
@@ -60,12 +76,19 @@ export const DataListRow = ({
           <span>{value.to}</span>
         </span>
       ) : (
-        <span className={styles.value}>{value}</span>
+        <span className={styles.value} data-testid={dataTestId?.value}>
+          {value}
+        </span>
       )}
     </span>
     {description ? (
       <span className={styles.descriptionRow}>
-        <span className={styles.description}>{description}</span>
+        <span
+          className={styles.description}
+          data-testid={dataTestId?.description}
+        >
+          {description}
+        </span>
         {descriptionInfo ? (
           <Tooltip content={descriptionInfo} className={styles.info}>
             <IconInfo className={styles.descriptionIcon} />

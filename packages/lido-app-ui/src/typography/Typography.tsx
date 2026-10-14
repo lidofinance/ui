@@ -17,10 +17,15 @@ export type TypographyVariant =
 // Weight only applies to bodyLarge/body/description; headings are single-weight by design.
 export type TypographyWeight = 'regular' | 'semibold'
 
+export type TypographyDataTestId = {
+  root?: string
+}
+
 export type TypographyProps = HTMLAttributes<HTMLElement> & {
   variant: TypographyVariant
   weight?: TypographyWeight
   as?: ElementType
+  dataTestId?: TypographyDataTestId
 }
 
 const variantTag: Record<TypographyVariant, ElementType> = {
@@ -43,6 +48,7 @@ export const Typography = ({
   as,
   className,
   children,
+  dataTestId,
   ...rest
 }: TypographyProps) => {
   const Component = as ?? variantTag[variant]
@@ -55,6 +61,7 @@ export const Typography = ({
         weight === 'semibold' && isBodyVariant(variant) && styles.semibold,
         className,
       )}
+      data-testid={dataTestId?.root}
       {...rest}
     >
       {children}

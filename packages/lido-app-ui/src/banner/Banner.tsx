@@ -4,11 +4,20 @@ import cn from 'classnames'
 
 import styles from './Banner.module.css'
 
+export type BannerDataTestId = {
+  root?: string
+  icon?: string
+  title?: string
+  description?: string
+  action?: string
+}
+
 export type BannerProps = ComponentPropsWithoutRef<'div'> & {
   icon?: ReactNode
   title: ReactNode
   description?: ReactNode
   action?: ReactNode
+  dataTestId?: BannerDataTestId
 }
 
 export const Banner = ({
@@ -17,19 +26,39 @@ export const Banner = ({
   description,
   action,
   className,
+  dataTestId,
   ...rest
 }: BannerProps) => (
-  <div className={cn(styles.banner, className)} {...rest}>
+  <div
+    className={cn(styles.banner, className)}
+    data-testid={dataTestId?.root}
+    {...rest}
+  >
     <div className={styles.content}>
-      {icon ? <span className={styles.icon}>{icon}</span> : null}
+      {icon ? (
+        <span className={styles.icon} data-testid={dataTestId?.icon}>
+          {icon}
+        </span>
+      ) : null}
       <div className={styles.text}>
-        <p className={styles.title}>{title}</p>
+        <p className={styles.title} data-testid={dataTestId?.title}>
+          {title}
+        </p>
         {description ? (
-          <p className={styles.description}>{description}</p>
+          <p
+            className={styles.description}
+            data-testid={dataTestId?.description}
+          >
+            {description}
+          </p>
         ) : null}
       </div>
     </div>
-    {action ? <div className={styles.action}>{action}</div> : null}
+    {action ? (
+      <div className={styles.action} data-testid={dataTestId?.action}>
+        {action}
+      </div>
+    ) : null}
   </div>
 )
 

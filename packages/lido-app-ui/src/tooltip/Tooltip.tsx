@@ -25,10 +25,16 @@ export type TooltipPosition =
   | 'bottom-left'
   | 'bottom-right'
 
+export type TooltipDataTestId = {
+  root?: string
+  content?: string
+}
+
 export type TooltipProps = Omit<ComponentPropsWithoutRef<'span'>, 'content'> & {
   content: ReactNode
   position?: TooltipPosition
   width?: number
+  dataTestId?: TooltipDataTestId
 }
 
 // Minimal distance between the tooltip and the viewport edge.
@@ -138,6 +144,7 @@ export const Tooltip = ({
   children,
   onMouseEnter,
   onFocus,
+  dataTestId,
   ...rest
 }: TooltipProps) => {
   const rootRef = useRef<HTMLSpanElement>(null)
@@ -193,6 +200,7 @@ export const Tooltip = ({
       className={cn(styles.wrapper, className)}
       onMouseEnter={handleMouseEnter}
       onFocus={handleFocus}
+      data-testid={dataTestId?.root}
       {...rest}
     >
       {children}
@@ -207,6 +215,7 @@ export const Tooltip = ({
           } as CSSProperties
         }
         role='tooltip'
+        data-testid={dataTestId?.content}
       >
         {content}
       </span>

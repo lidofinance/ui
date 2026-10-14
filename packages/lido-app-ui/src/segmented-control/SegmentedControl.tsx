@@ -2,13 +2,18 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
-import { Segment } from './Segment'
+import { Segment, type SegmentDataTestId } from './Segment'
 import styles from './SegmentedControl.module.css'
+
+export type SegmentedControlDataTestId = {
+  root?: string
+}
 
 export type SegmentItem = {
   value: string
   label: ReactNode
   disabled?: boolean
+  dataTestId?: SegmentDataTestId
 }
 
 export type SegmentedControlProps = {
@@ -16,6 +21,7 @@ export type SegmentedControlProps = {
   value: string
   onChange: (value: string) => void
   className?: string
+  dataTestId?: SegmentedControlDataTestId
 }
 
 export const SegmentedControl = ({
@@ -23,6 +29,7 @@ export const SegmentedControl = ({
   value,
   onChange,
   className,
+  dataTestId,
 }: SegmentedControlProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const activeButtonRef = useRef<HTMLButtonElement>(null)
@@ -68,6 +75,7 @@ export const SegmentedControl = ({
       ref={containerRef}
       role='tablist'
       className={cn(styles.segmentedControl, className)}
+      data-testid={dataTestId?.root}
     >
       <div
         ref={selectionRef}
@@ -82,6 +90,7 @@ export const SegmentedControl = ({
             ref={active ? activeButtonRef : undefined}
             active={active}
             disabled={item.disabled}
+            dataTestId={item.dataTestId}
             onClick={() => {
               if (item.value !== value) onChange(item.value)
             }}

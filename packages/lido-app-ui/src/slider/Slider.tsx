@@ -10,6 +10,11 @@ import cn from 'classnames'
 
 import styles from './Slider.module.css'
 
+export type SliderDataTestId = {
+  root?: string
+  input?: string
+}
+
 export type SliderProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'type' | 'value' | 'defaultValue'
@@ -23,6 +28,7 @@ export type SliderProps = Omit<
   maxLabel?: ReactNode
   /** Renders a mark at every intermediate step. */
   marks?: boolean
+  dataTestId?: SliderDataTestId
 }
 
 export const Slider = forwardRef<HTMLInputElement, SliderProps>(
@@ -39,6 +45,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
       className,
       disabled,
       onChange,
+      dataTestId,
       ...rest
     },
     ref,
@@ -62,7 +69,10 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
         : []
 
     return (
-      <div className={cn(styles.root, className)}>
+      <div
+        className={cn(styles.root, className)}
+        data-testid={dataTestId?.root}
+      >
         <div className={styles.track}>
           <div className={styles.bar}>
             <div
@@ -87,6 +97,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
             value={current}
             disabled={disabled}
             onChange={handleChange}
+            data-testid={dataTestId?.input}
             {...rest}
           />
         </div>

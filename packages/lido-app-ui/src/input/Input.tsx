@@ -13,6 +13,15 @@ import styles from './Input.module.css'
 
 export type InputSize = 'default' | 'small'
 
+export type InputDataTestId = {
+  root?: string
+  label?: string
+  icon?: string
+  input?: string
+  error?: string
+  description?: string
+}
+
 export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   size?: InputSize
   icon?: ReactNode
@@ -20,6 +29,7 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   tooltip?: ReactNode
   description?: ReactNode
   error?: ReactNode | boolean
+  dataTestId?: InputDataTestId
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -34,6 +44,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       className,
       id,
+      dataTestId,
       ...rest
     },
     ref,
@@ -47,10 +58,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const showErrorMessage = errorMessage != null
 
     return (
-      <div className={cn(styles.field, className)}>
+      <div
+        className={cn(styles.field, className)}
+        data-testid={dataTestId?.root}
+      >
         {label != null ? (
           <span className={styles.labelRow}>
-            <label className={styles.label} htmlFor={inputId}>
+            <label
+              className={styles.label}
+              htmlFor={inputId}
+              data-testid={dataTestId?.label}
+            >
               {label}
             </label>
             {tooltip != null ? (
@@ -67,7 +85,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           })}
         >
           {icon ? (
-            <span className={styles.icon} aria-hidden='true'>
+            <span
+              className={styles.icon}
+              aria-hidden='true'
+              data-testid={dataTestId?.icon}
+            >
               {icon}
             </span>
           ) : null}
@@ -78,16 +100,27 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             disabled={disabled}
             aria-invalid={hasError || undefined}
             aria-describedby={showErrorMessage ? errorId : undefined}
+            data-testid={dataTestId?.input}
             {...rest}
           />
         </label>
         {showErrorMessage ? (
-          <p id={errorId} className={styles.errorText} role='alert'>
+          <p
+            id={errorId}
+            className={styles.errorText}
+            role='alert'
+            data-testid={dataTestId?.error}
+          >
             {errorMessage}
           </p>
         ) : null}
         {description != null ? (
-          <p className={styles.description}>{description}</p>
+          <p
+            className={styles.description}
+            data-testid={dataTestId?.description}
+          >
+            {description}
+          </p>
         ) : null}
       </div>
     )
