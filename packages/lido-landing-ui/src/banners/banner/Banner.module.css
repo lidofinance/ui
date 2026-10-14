@@ -86,10 +86,65 @@
 .icon {
   display: flex;
   flex-shrink: 0;
+  align-items: center;
   width: 32px;
   height: 32px;
 
   svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* A group or a non-square image (e.g. several logos exported as one picture)
+     keeps its own width instead of being squeezed into the square */
+  &:has(> .iconGroup),
+  &:has(> img) {
+    width: auto;
+  }
+
+  > img {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+  }
+}
+
+.title {
+  min-width: 0;
+  text-align: left;
+}
+
+.titleTail {
+  white-space: nowrap;
+}
+
+.endIcon {
+  display: inline-flex;
+  align-items: center;
+  height: 1lh;
+  margin-left: 8px;
+  vertical-align: top;
+}
+
+.iconGroup {
+  display: flex;
+  align-items: center;
+}
+
+.iconGroupItem {
+  display: flex;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &:not(:last-child) {
+    margin-right: -8px;
+  }
+
+  svg,
+  img {
     width: 100%;
     height: 100%;
   }
