@@ -31,13 +31,27 @@ src/my-component/
 
 - Named function export, not `default`: `export const MyComponent = (...) => ...`.
 - Export the props type alongside it: `export type MyComponentProps = ...`.
-  Extend the matching HTML attributes type when the root is a plain element
-  (`HTMLAttributes<HTMLDivElement>`, etc.) instead of re-declaring `className`,
-  `children`, and native event handlers by hand.
+  Extend the matching HTML attributes type (`HTMLAttributes<HTMLDivElement>`,
+  `ButtonHTMLAttributes<HTMLButtonElement>`, `ComponentPropsWithoutRef<'div'>`,
+  etc.) instead of re-declaring `className`, `style`, `id`, `children`, and
+  native event handlers by hand — every component must accept these, not just
+  the ones that happen to need them today.
 - Merge incoming `className` with the component's own class via `classnames`
   (`cn(styles.root, className)`) — don't overwrite it.
-- Spread `...rest` onto the root element so consumers can pass through native
-  attributes and event handlers.
+- Spread `...rest` onto the root element, **after** any explicit attributes
+  the component itself sets (`role`, `aria-*`, `data-testid`, etc.), so
+  consumers can pass through native attributes and event handlers and still
+  override one of those when they need to.
+  - If the component already has a custom prop whose name collides with a
+    native HTML attribute (`title`, `onChange`, …) and the types differ,
+    `Omit` that key from the HTML attributes type:
+    `Omit<ComponentPropsWithoutRef<'div'>, 'title'> & { title?: ReactNode }`.
+  - If the component sets its own inline `style` (e.g. computed `width`), pull
+    `style` out of `rest` and merge instead of letting a consumer-supplied
+    `style` silently replace it: `style={{ width: size, ...style }}`.
+  - A component that renders from an `items`/`options` array (`Tabs`,
+    `SegmentedControl`, `TokenSelector`) still extends the native attributes
+    of its own root — only the per-item shape is custom.
 - Use `forwardRef` when the component wraps a focusable/interactive native
   element (input, button) that consumers may need a ref to.
 
