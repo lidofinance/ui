@@ -97,11 +97,13 @@
 .default .input {
   font-size: var(--lido-app-ui-font-size-body);
   line-height: 28px;
+  height: 52px;
 }
 
 .small .input {
   font-size: var(--lido-app-ui-font-size-label);
   line-height: 24px;
+  height: 36px;
 }
 
 .input::placeholder {
