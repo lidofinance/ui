@@ -2,32 +2,39 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   box-sizing: border-box;
   padding: calc(16px - 1px);
   border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-card);
   background-color: var(--lido-app-ui-color-background-default);
-  font-family: var(--lido-app-ui-font-family);
   cursor: text;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease;
+  height: 152px;
 }
 
-.root:hover {
+.card:hover {
   background-color: var(--lido-app-ui-color-background-default-hover);
 }
 
-.root.error {
+.card.error {
   border-color: var(--lido-app-ui-color-border-error);
 }
 
-.root:has(.input:focus) {
+.card:has(.input:focus) {
   border-color: var(--lido-app-ui-color-border-active);
   background-color: var(--lido-app-ui-color-background-default-active);
 }
 
-.root:has(.input:disabled) {
+.card:has(.input:disabled) {
   background-color: var(--lido-app-ui-color-background-disabled);
 }
 
@@ -77,7 +84,7 @@
   color: var(--lido-app-ui-color-text-disabled);
 }
 
-.error .input {
+.card.error .input {
   caret-color: var(--lido-app-ui-color-text-error);
   color: var(--lido-app-ui-color-text-error);
 }
@@ -115,6 +122,8 @@
 
 .errorMessage {
   @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-error);
 }
 
 .maxTag {
