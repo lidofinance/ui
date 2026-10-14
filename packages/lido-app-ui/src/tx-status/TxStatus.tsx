@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import { IconCheck, IconCross, IconExclamation, IconSpinner } from '../icons'
 import cn from 'classnames'
@@ -15,13 +15,12 @@ export type TxStatusDataTestId = {
   footer?: string
 }
 
-export type TxStatusProps = {
+export type TxStatusProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   status: TxStatusVariant
   title: ReactNode
   amount?: ReactNode
   message?: ReactNode
   footer?: ReactNode
-  className?: string
   dataTestId?: TxStatusDataTestId
 }
 
@@ -52,8 +51,13 @@ export const TxStatus = ({
   footer,
   className,
   dataTestId,
+  ...rest
 }: TxStatusProps) => (
-  <div className={cn(styles.root, className)} data-testid={dataTestId?.root}>
+  <div
+    className={cn(styles.root, className)}
+    data-testid={dataTestId?.root}
+    {...rest}
+  >
     <div className={styles.graphicGroup}>
       <span className={styles.graphic}>{graphicByStatus[status]}</span>
       <div className={styles.textGroup}>

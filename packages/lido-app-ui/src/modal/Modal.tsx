@@ -2,6 +2,7 @@ import {
   useEffect,
   useId,
   useRef,
+  type ComponentPropsWithoutRef,
   type MouseEvent,
   type ReactNode,
 } from 'react'
@@ -41,14 +42,16 @@ export type ModalDataTestId = {
   overlay?: string
 }
 
-export type ModalProps = {
+export type ModalProps = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  'title' | 'children'
+> & {
   title?: ReactNode
   subtitle?: ReactNode
   onClose?: () => void
   withOverlay?: boolean
   bodyFill?: boolean
   children: ReactNode
-  className?: string
   dataTestId?: ModalDataTestId
 }
 
@@ -61,6 +64,7 @@ export const Modal = ({
   children,
   className,
   dataTestId,
+  ...rest
 }: ModalProps) => {
   const titleId = useId()
   const backdropMouseDown = useRef(false)
@@ -88,6 +92,7 @@ export const Modal = ({
       aria-modal={withOverlay || undefined}
       aria-labelledby={title ? titleId : undefined}
       data-testid={dataTestId?.root}
+      {...rest}
     >
       <div className={styles.headerGroup}>
         <div className={styles.header}>

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import { IconInfo } from '../icons'
 import cn from 'classnames'
@@ -16,7 +16,7 @@ export type DataListRowDataTestId = {
   description?: string
 }
 
-export type DetailRowProps = {
+export type DetailRowProps = ComponentPropsWithoutRef<'div'> & {
   label: ReactNode
   value: DetailRowValue
   icon?: ReactNode
@@ -24,7 +24,6 @@ export type DetailRowProps = {
   infoFaint?: boolean
   description?: ReactNode
   descriptionInfo?: ReactNode
-  className?: string
   dataTestId?: DataListRowDataTestId
 }
 
@@ -46,8 +45,13 @@ export const DataListRow = ({
   descriptionInfo,
   className,
   dataTestId,
+  ...rest
 }: DetailRowProps) => (
-  <div className={cn(styles.row, className)} data-testid={dataTestId?.root}>
+  <div
+    className={cn(styles.row, className)}
+    data-testid={dataTestId?.root}
+    {...rest}
+  >
     <span className={styles.mainRow}>
       <span className={styles.labelGroup}>
         {icon ? (

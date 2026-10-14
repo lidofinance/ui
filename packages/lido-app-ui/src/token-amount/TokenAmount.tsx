@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import { TokenIcon, type TokenIconSymbol } from '../icons'
 import cn from 'classnames'
@@ -11,10 +11,12 @@ export type TokenAmountDataTestId = {
   amount?: string
 }
 
-export type TokenAmountProps = {
+export type TokenAmountProps = Omit<
+  ComponentPropsWithoutRef<'span'>,
+  'children'
+> & {
   symbol: TokenIconSymbol
   amount: ReactNode
-  className?: string
   dataTestId?: TokenAmountDataTestId
 }
 
@@ -23,8 +25,13 @@ export const TokenAmount = ({
   amount,
   className,
   dataTestId,
+  ...rest
 }: TokenAmountProps) => (
-  <span className={cn(styles.root, className)} data-testid={dataTestId?.root}>
+  <span
+    className={cn(styles.root, className)}
+    data-testid={dataTestId?.root}
+    {...rest}
+  >
     <TokenIcon
       token={symbol}
       className={styles.icon}

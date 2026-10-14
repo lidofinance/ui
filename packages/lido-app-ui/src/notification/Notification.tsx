@@ -1,4 +1,8 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type {
+  ButtonHTMLAttributes,
+  ComponentPropsWithoutRef,
+  ReactNode,
+} from 'react'
 
 import cn from 'classnames'
 
@@ -11,11 +15,12 @@ export type NotificationDataTestId = {
   actions?: string
 }
 
-export type NotificationProps = {
+export type NotificationProps = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  'title'
+> & {
   title: ReactNode
-  children?: ReactNode
   actions?: ReactNode
-  className?: string
   dataTestId?: NotificationDataTestId
 }
 
@@ -25,11 +30,13 @@ export const Notification = ({
   actions,
   className,
   dataTestId,
+  ...rest
 }: NotificationProps) => (
   <div
     className={cn(styles.notification, className)}
     role='alert'
     data-testid={dataTestId?.root}
+    {...rest}
   >
     <div className={styles.content}>
       <p className={styles.title} data-testid={dataTestId?.title}>

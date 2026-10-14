@@ -1,4 +1,10 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from 'react'
 
 import cn from 'classnames'
 
@@ -16,11 +22,10 @@ export type TabItem = {
   dataTestId?: TabDataTestId
 }
 
-export type TabsProps = {
+export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   items: TabItem[]
   value: string
   onChange: (value: string) => void
-  className?: string
   dataTestId?: TabsDataTestId
 }
 
@@ -30,6 +35,7 @@ export const Tabs = ({
   onChange,
   className,
   dataTestId,
+  ...rest
 }: TabsProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const activeButtonRef = useRef<HTMLButtonElement>(null)
@@ -67,6 +73,7 @@ export const Tabs = ({
       role='tablist'
       className={cn(styles.tabs, className)}
       data-testid={dataTestId?.root}
+      {...rest}
     >
       <div
         ref={selectionRef}

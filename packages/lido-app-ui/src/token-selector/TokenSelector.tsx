@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from 'react'
 import { useOutsideClick } from '../hooks/useOutsideClick'
 import { IconCheck, IconChevronDown, IconChevronUp } from '../icons'
 import cn from 'classnames'
@@ -32,14 +39,16 @@ export type TokenSelectorDataTestId = {
   panel?: string
 }
 
-export type TokenSelectorProps = {
+export type TokenSelectorProps = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  'onChange'
+> & {
   options: TokenSelectorOption[]
   value?: string
   onChange?: (value: string) => void
   single?: boolean
   size?: TokenSelectorSize
   placeholder?: ReactNode
-  className?: string
   dataTestId?: TokenSelectorDataTestId
 }
 
@@ -52,6 +61,7 @@ export const TokenSelector = ({
   placeholder = 'Select',
   className,
   dataTestId,
+  ...rest
 }: TokenSelectorProps) => {
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
@@ -80,6 +90,7 @@ export const TokenSelector = ({
       <span
         className={cn(styles.single, styles[size], className)}
         data-testid={dataTestId?.root}
+        {...rest}
       >
         {selectedOption?.icon ? (
           <span
@@ -121,6 +132,7 @@ export const TokenSelector = ({
       ref={rootRef}
       className={cn(styles.root, className)}
       data-testid={dataTestId?.root}
+      {...rest}
     >
       <button
         ref={triggerRef}

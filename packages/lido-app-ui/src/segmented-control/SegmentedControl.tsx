@@ -1,4 +1,10 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from 'react'
 
 import cn from 'classnames'
 
@@ -16,11 +22,13 @@ export type SegmentItem = {
   dataTestId?: SegmentDataTestId
 }
 
-export type SegmentedControlProps = {
+export type SegmentedControlProps = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  'onChange'
+> & {
   items: SegmentItem[]
   value: string
   onChange: (value: string) => void
-  className?: string
   dataTestId?: SegmentedControlDataTestId
 }
 
@@ -30,6 +38,7 @@ export const SegmentedControl = ({
   onChange,
   className,
   dataTestId,
+  ...rest
 }: SegmentedControlProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const activeButtonRef = useRef<HTMLButtonElement>(null)
@@ -76,6 +85,7 @@ export const SegmentedControl = ({
       role='tablist'
       className={cn(styles.segmentedControl, className)}
       data-testid={dataTestId?.root}
+      {...rest}
     >
       <div
         ref={selectionRef}
