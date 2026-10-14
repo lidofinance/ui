@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { Banner, BannerProps } from '../index'
-import { Icon } from '../../icons'
+import { Banner, BannerIconGroup, BannerProps } from '../index'
+import { ETH, Icon, STETH, WETH, WSTETH } from '../../icons'
 
 export default {
   component: Banner,
@@ -21,6 +21,17 @@ export default {
 } satisfies Meta
 
 export const Basic: StoryFn<BannerProps> = (props) => <Banner {...props} />
+
+const iconGroup = (
+  <BannerIconGroup
+    icons={[
+      <ETH key='eth' />,
+      <STETH key='steth' />,
+      <WSTETH key='wsteth' />,
+      <WETH key='weth' />,
+    ]}
+  />
+)
 
 export const AllStates: StoryFn<BannerProps> = () => {
   return (
@@ -49,6 +60,25 @@ export const AllStates: StoryFn<BannerProps> = () => {
         variant='secondary'
         title='Secondary banner with an icon'
         icon={<Icon />}
+        href='https://example.com'
+      ></Banner>
+      <br />
+      <Banner
+        title='Banner with an icon after the title that wraps together with the last word'
+        endIcon={<Icon />}
+        href='https://example.com'
+      ></Banner>
+      <br />
+      <Banner
+        title='Now Lido Staking UI supports direct staking on four L2 chains'
+        endIcon={iconGroup}
+        href='https://example.com'
+      ></Banner>
+      <br />
+      <Banner
+        variant='secondary'
+        title='Banner with an icon group before the title'
+        icon={iconGroup}
         href='https://example.com'
       ></Banner>
     </>

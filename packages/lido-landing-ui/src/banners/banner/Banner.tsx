@@ -24,7 +24,10 @@ export type BannerProps = {
   className?: string
   href: string
   title: string
+  /** Rendered before the title */
   icon?: ReactNode
+  /** Rendered after the title; wraps onto the next line together with the last word */
+  endIcon?: ReactNode
   dataTestId?: BannerDataTestId
   onClose?: MouseEventHandler
   onLinkClick?: MouseEventHandler
@@ -38,6 +41,7 @@ export const Banner = forwardRef(
       href,
       title,
       icon,
+      endIcon,
       onClose,
       dataTestId,
       onLinkClick,
@@ -45,6 +49,12 @@ export const Banner = forwardRef(
     }: BannerProps,
     ref?: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
   ) => {
+    // The last word is kept on the same line as the end icon,
+    // so the icon never wraps onto a line of its own
+    const lastSpaceIndex = title.trimEnd().lastIndexOf(' ')
+    const titleHead = title.slice(0, lastSpaceIndex + 1)
+    const titleTail = title.slice(lastSpaceIndex + 1).trimEnd()
+
     const handleAnchorClick = (e: MouseEvent) => {
       onLinkClick && onLinkClick(e)
     }
@@ -69,7 +79,21 @@ export const Banner = forwardRef(
         >
           <div className={styles.buttonContent}>
             {icon && <span className={styles.icon}>{icon}</span>}
-            {title}
+            {endIcon ? (
+              <span className={styles.title}>
+                {titleHead}
+                <span className={styles.titleTail}>
+                  {titleTail}
+                  <span className={styles.endIcon}>
+                    <span className={styles.icon}>{endIcon}</span>
+                  </span>
+                </span>
+              </span>
+            ) : icon ? (
+              <span className={styles.title}>{title}</span>
+            ) : (
+              title
+            )}
           </div>
         </DynamicLink>
         <Button
