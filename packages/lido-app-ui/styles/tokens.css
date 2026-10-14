@@ -87,6 +87,62 @@
   --lido-app-ui-palette-black-a800: rgb(12 12 13 / 90%);
   --lido-app-ui-palette-black-a900: #0c0c0d;
 
+  /* Typography */
+  --lido-app-ui-font-family:
+    'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
+    'Helvetica Neue', sans-serif;
+  --lido-app-ui-font-weight-regular: 400;
+  --lido-app-ui-font-weight-medium: 500;
+  --lido-app-ui-font-weight-semibold: 600;
+  --lido-app-ui-font-weight-bold: 700;
+  --lido-app-ui-font-size-rich-input: 36px;
+  --lido-app-ui-line-height-rich-input: 50px;
+  --lido-app-ui-font-size-body: 16px;
+  --lido-app-ui-line-height-body: 28px;
+  --lido-app-ui-letter-spacing-body: -0.14px;
+  --lido-app-ui-letter-spacing-button: -0.14px;
+  --lido-app-ui-font-size-label: 14px;
+  --lido-app-ui-line-height-label: 24px;
+  --lido-app-ui-letter-spacing-label: -0.14px;
+  --lido-app-ui-font-size-tooltip: 12px;
+  --lido-app-ui-line-height-tooltip: 18px;
+  --lido-app-ui-letter-spacing-tooltip: -0.14px;
+  --lido-app-ui-line-height-description: 20px;
+
+  /* Heading scale */
+  --lido-app-ui-font-size-h1: 42px;
+  --lido-app-ui-line-height-h1: 58px;
+  --lido-app-ui-letter-spacing-h1: -1.5px;
+  --lido-app-ui-font-size-h2: 28px;
+  --lido-app-ui-line-height-h2: 40px;
+  --lido-app-ui-letter-spacing-h2: 0.84px;
+  --lido-app-ui-font-size-h3: 24px;
+  --lido-app-ui-line-height-h3: 36px;
+  --lido-app-ui-letter-spacing-h3: -0.14px;
+
+  /* Radii */
+  --lido-app-ui-border-radius-badge: 8px;
+  --lido-app-ui-border-radius-pill: 100px;
+  --lido-app-ui-border-radius-button-50: 50px;
+  --lido-app-ui-border-radius-control: 100px;
+  --lido-app-ui-border-radius-control-inactive: 110px;
+  --lido-app-ui-border-radius-card: 16px;
+  --lido-app-ui-border-radius-dropdown: 20px;
+  --lido-app-ui-border-radius-dropdown-item: 12px;
+  --lido-app-ui-border-radius-tooltip: 20px;
+  --lido-app-ui-border-radius-modal: 32px;
+
+  /* Shadows */
+  --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
+
+  /* Interaction-state opacities */
+  --lido-app-ui-opacity-pressed-content: 0.7;
+  --lido-app-ui-opacity-disabled-content: 0.3;
+  --lido-app-ui-opacity-disabled-content-compact: 0.2;
+}
+
+:root,
+[data-lido-theme='light'] {
   /* Semantic - Text */
   --lido-app-ui-color-text-default: var(--lido-app-ui-palette-black-a900);
   --lido-app-ui-color-text-secondary: var(--lido-app-ui-palette-black-a500);
@@ -193,59 +249,6 @@
   --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-200);
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-100);
   --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-200);
-
-  /* Typography */
-  --lido-app-ui-font-family:
-    'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
-    'Helvetica Neue', sans-serif;
-  --lido-app-ui-font-weight-regular: 400;
-  --lido-app-ui-font-weight-medium: 500;
-  --lido-app-ui-font-weight-semibold: 600;
-  --lido-app-ui-font-weight-bold: 700;
-  --lido-app-ui-font-size-rich-input: 36px;
-  --lido-app-ui-line-height-rich-input: 50px;
-  --lido-app-ui-font-size-body: 16px;
-  --lido-app-ui-line-height-body: 28px;
-  --lido-app-ui-letter-spacing-body: -0.14px;
-  --lido-app-ui-letter-spacing-button: -0.14px;
-  --lido-app-ui-font-size-label: 14px;
-  --lido-app-ui-line-height-label: 24px;
-  --lido-app-ui-letter-spacing-label: -0.14px;
-  --lido-app-ui-font-size-tooltip: 12px;
-  --lido-app-ui-line-height-tooltip: 18px;
-  --lido-app-ui-letter-spacing-tooltip: -0.14px;
-  --lido-app-ui-line-height-description: 20px;
-
-  /* Heading scale */
-  --lido-app-ui-font-size-h1: 42px;
-  --lido-app-ui-line-height-h1: 58px;
-  --lido-app-ui-letter-spacing-h1: -1.5px;
-  --lido-app-ui-font-size-h2: 28px;
-  --lido-app-ui-line-height-h2: 40px;
-  --lido-app-ui-letter-spacing-h2: 0.84px;
-  --lido-app-ui-font-size-h3: 24px;
-  --lido-app-ui-line-height-h3: 36px;
-  --lido-app-ui-letter-spacing-h3: -0.14px;
-
-  /* Radii */
-  --lido-app-ui-border-radius-badge: 8px;
-  --lido-app-ui-border-radius-pill: 100px;
-  --lido-app-ui-border-radius-button-50: 50px;
-  --lido-app-ui-border-radius-control: 100px;
-  --lido-app-ui-border-radius-control-inactive: 110px;
-  --lido-app-ui-border-radius-card: 16px;
-  --lido-app-ui-border-radius-dropdown: 20px;
-  --lido-app-ui-border-radius-dropdown-item: 12px;
-  --lido-app-ui-border-radius-tooltip: 20px;
-  --lido-app-ui-border-radius-modal: 32px;
-
-  /* Shadows */
-  --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
-
-  /* Interaction-state opacities */
-  --lido-app-ui-opacity-pressed-content: 0.7;
-  --lido-app-ui-opacity-disabled-content: 0.3;
-  --lido-app-ui-opacity-disabled-content-compact: 0.2;
 }
 
 /* Dark theme. Follows the `data-lido-theme` attribute set by ThemeProvider /
