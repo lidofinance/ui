@@ -32,20 +32,29 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   secondaryValue?: ReactNode
   balance?: ReactNode
   tokenSelector?: ReactNode
-  error?: ReactNode | boolean
+  error?: boolean
+  errorText?: ReactNode
   showMaxButton?: boolean
   onMaxClick?: MouseEventHandler<HTMLSpanElement>
+  maxDisabled?: boolean
   maxTooltip?: ReactNode
   dataTestId?: RichInputDataTestId
 }
 
-const MaxTag = ({ onClick, className, ...rest }: TagProps) => (
+const MaxTag = ({
+  onClick,
+  className,
+  disabled,
+  ...rest
+}: TagProps & { disabled?: boolean }) => (
   <Tag
     role='button'
-    tabIndex={0}
-    className={cn(styles.maxTag, className)}
-    onClick={onClick}
+    tabIndex={disabled ? -1 : 0}
+    aria-disabled={disabled || undefined}
+    className={cn(styles.maxTag, disabled && styles.maxTagDisabled, className)}
+    onClick={disabled ? undefined : onClick}
     onKeyDown={(event: KeyboardEvent<HTMLSpanElement>) => {
+      if (disabled) return
       if (event.key !== 'Enter' && event.key !== ' ') return
       event.preventDefault()
       onClick?.(event as unknown as MouseEvent<HTMLSpanElement>)
@@ -72,8 +81,10 @@ export const RichInput = ({
   balance,
   tokenSelector,
   error,
+  errorText,
   showMaxButton = true,
   onMaxClick,
+  maxDisabled,
   maxTooltip,
   onChange,
   className,
@@ -86,9 +97,8 @@ export const RichInput = ({
   const fallbackId = useId()
   const inputId = id ?? fallbackId
 
-  const hasError = Boolean(error)
-  const errorMessage = typeof error === 'boolean' ? null : error
-  const showErrorMessage = errorMessage != null && errorMessage !== ''
+  const hasError = !!error
+  const showErrorMessage = !!errorText
   const errorId = `${inputId}-error`
   const showMax = showMaxButton && !disabled
   const hasBottomRow = secondaryValue != null || balance != null || showMax
@@ -192,12 +202,19 @@ export const RichInput = ({
                     position='bottom-left'
                     width={240}
                   >
-                    <MaxTag onClick={onMaxClick}>Max</MaxTag>
+                    <MaxTag
+                      data-testid={dataTestId?.maxButton}
+                      onClick={onMaxClick}
+                      disabled={maxDisabled}
+                    >
+                      Max
+                    </MaxTag>
                   </Tooltip>
                 ) : (
                   <MaxTag
                     data-testid={dataTestId?.maxButton}
                     onClick={onMaxClick}
+                    disabled={maxDisabled}
                   >
                     Max
                   </MaxTag>
@@ -213,7 +230,7 @@ export const RichInput = ({
           className={styles.errorMessage}
           data-testid={dataTestId?.error}
         >
-          {errorMessage}
+          {errorText}
         </div>
       ) : null}
     </div>
