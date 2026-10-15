@@ -56,10 +56,10 @@ export const Banner = forwardRef(
     const titleTail = title.slice(lastSpaceIndex + 1).trimEnd()
 
     const handleAnchorClick = (e: MouseEvent) => {
-      onLinkClick && onLinkClick(e)
+      onLinkClick?.(e)
     }
     const handleCloseBanner = (e: MouseEvent) => {
-      onClose && onClose(e)
+      onClose?.(e)
     }
     return (
       <div

@@ -3,7 +3,6 @@ dist
 storybook-static
 gh-pages
 *.log
-.jest-cache
 
 # User-specific
 .idea/

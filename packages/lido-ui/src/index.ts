@@ -1,4 +1,3 @@
-/* eslint-disable import/export */
 export * from './accordion/index.js'
 export * from './address/index.js'
 export * from './addressBadge/index.js'

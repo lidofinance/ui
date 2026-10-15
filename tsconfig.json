@@ -8,15 +8,14 @@
   },
   "include": [
     "**/*.d.ts",
-    ".storybook/**/*.ts",
-    ".storybook/**/*.tsx",
     "packages/**/*.test.ts",
     "packages/**/*.test.tsx",
     "packages/**/*.stories.ts",
     "packages/**/*.stories.tsx",
     "packages/**/*.ts",
     "packages/**/*.tsx",
-    "global.d.ts"
+    "storybook-shared/**/*.ts",
+    "storybook-shared/**/*.tsx"
   ],
   "exclude": ["node_modules"]
 }

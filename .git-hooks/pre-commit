@@ -1,13 +1,19 @@
 #!/bin/sh
 STAGED_SVG_FILES=$(git diff --cached --name-only | grep '\.svg$' || true)
-if [ -n "$STAGED_SVG_FILES" ]; then
-  echo "SVG files changed, running yarn icons:convert..."
+
+if echo "$STAGED_SVG_FILES" | grep -q '^packages/lido-ui/src/icons/svg/'; then
+  echo "lido-ui SVG files changed, running yarn icons:convert..."
   yarn workspace @lidofinance/lido-ui icons:convert
-  git add packages/lido-ui/src/icons/components/ packages/lido-ui/src/icons/index.tsx
+  git add packages/lido-ui/src/icons/index.tsx
 fi
 
-STAGED_APP_UI_SVG_FILES=$(echo "$STAGED_SVG_FILES" | grep '^packages/lido-app-ui/src/icons/svg/' || true)
-if [ -n "$STAGED_APP_UI_SVG_FILES" ]; then
+if echo "$STAGED_SVG_FILES" | grep -q '^packages/lido-landing-ui/src/icons/svg/'; then
+  echo "lido-landing-ui SVG files changed, running yarn icons:convert..."
+  yarn workspace @lidofinance/lido-landing-ui icons:convert
+  git add packages/lido-landing-ui/src/icons/components/ packages/lido-landing-ui/src/icons/allIcons.tsx packages/lido-landing-ui/src/icons/iconMaps.tsx
+fi
+
+if echo "$STAGED_SVG_FILES" | grep -q '^packages/lido-app-ui/src/icons/svg/'; then
   echo "lido-app-ui SVG files changed, running yarn icons:convert..."
   yarn workspace @lidofinance/lido-app-ui icons:convert
   git add packages/lido-app-ui/src/icons/components/ packages/lido-app-ui/src/icons/allIcons.tsx packages/lido-app-ui/src/icons/iconMaps.tsx
