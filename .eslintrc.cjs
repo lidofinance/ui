@@ -1,6 +1,3 @@
-const { resolve } = require('node:path')
-const project = resolve(process.cwd(), 'tsconfig.json')
-
 module.exports = {
   env: {
     browser: true,
@@ -24,7 +21,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'node', 'import'],
+  plugins: ['@typescript-eslint', 'react'],
   rules: {
     'prettier/prettier': 'error',
     'react/prop-types': 'off',
@@ -36,18 +33,8 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
-    'node/no-missing-import': 'off',
   },
   overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-    },
-    {
-      files: ['*.stories.*', '.storybook/**'],
-      rules: {
-        'react/react-in-jsx-scope': 'off',
-      },
-    },
     {
       files: ['*.js', '*.jsx', '*.cjs'],
       rules: {
@@ -59,11 +46,6 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
-    },
-    'import/resolver': {
-      typescript: {
-        project,
-      },
     },
   },
   // Kept here rather than in .eslintignore: that file is only picked up from
