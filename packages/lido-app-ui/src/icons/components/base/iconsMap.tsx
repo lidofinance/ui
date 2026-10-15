@@ -58,6 +58,8 @@ import { IconTrash } from './IconTrash'
 import { IconUser } from './IconUser'
 import { IconWallet } from './IconWallet'
 import { IconWarning } from './IconWarning'
+import { IconEtherscan } from './IconEtherscan'
+import { IconNumber } from './IconNumber'
 
 // Export a constant with all icons in this directory
 export const BASE_ICONS_MAP = {
@@ -119,4 +121,6 @@ export const BASE_ICONS_MAP = {
   IconUser,
   IconWallet,
   IconWarning,
+  IconEtherscan,
+  IconNumber,
 }
