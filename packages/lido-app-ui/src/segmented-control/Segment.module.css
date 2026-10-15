@@ -10,11 +10,9 @@
   border-radius: var(--lido-app-ui-border-radius-control-inactive);
   background-color: transparent;
   color: var(--lido-app-ui-color-text-tertiary);
-  font-family: var(--lido-app-ui-font-family);
-  font-size: 14px;
-  font-weight: var(--lido-app-ui-font-weight-semibold);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+
+  @mixin font-body-semibold;
+
   cursor: pointer;
   transition:
     color 0.2s ease,

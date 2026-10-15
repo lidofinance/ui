@@ -5,7 +5,6 @@
 
   @mixin font-body;
 
-  line-height: 24px;
   color: var(--lido-app-ui-color-text-active);
   text-decoration: none;
   cursor: pointer;

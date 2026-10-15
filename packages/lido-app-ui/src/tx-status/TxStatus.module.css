@@ -68,11 +68,8 @@
 }
 
 .title {
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-h3);
-  font-weight: var(--lido-app-ui-font-weight-medium);
-  line-height: var(--lido-app-ui-line-height-h3);
-  letter-spacing: var(--lido-app-ui-letter-spacing-h3);
+  @mixin font-h3;
+
   color: var(--lido-app-ui-color-text-default);
   text-align: center;
 }
@@ -84,10 +81,9 @@
 
 .message {
   width: 100%;
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-label);
-  line-height: var(--lido-app-ui-line-height-label);
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+
+  @mixin font-body;
+
   color: var(--lido-app-ui-color-text-tertiary);
   text-align: center;
 }

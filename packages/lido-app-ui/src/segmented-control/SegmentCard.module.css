@@ -71,11 +71,9 @@
 .titleText {
   overflow: hidden;
   color: var(--lido-app-ui-color-text-default);
-  font-family: var(--lido-app-ui-font-family);
-  font-size: 16px;
-  font-weight: var(--lido-app-ui-font-weight-semibold);
-  line-height: 28px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+
+  @mixin font-body-large-semibold;
+
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -87,11 +85,8 @@
 .description {
   width: 100%;
   color: var(--lido-app-ui-color-text-tertiary);
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-tooltip);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: var(--lido-app-ui-line-height-description);
-  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+
+  @mixin font-description;
 }
 
 .card:disabled .description {

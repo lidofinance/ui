@@ -36,11 +36,9 @@
 .title {
   flex: 1 1 0%;
   min-width: 0;
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-body);
-  font-weight: var(--lido-app-ui-font-weight-semibold);
-  line-height: 28px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+
+  @mixin font-body-large-semibold;
+
   color: var(--lido-app-ui-color-text-default);
   word-break: break-word;
 }
@@ -70,11 +68,9 @@
 
 .contentInner {
   padding-bottom: 24px;
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+
+  @mixin font-body;
+
   color: var(--lido-app-ui-color-text-secondary);
   word-break: break-word;
 }

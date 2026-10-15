@@ -5,13 +5,9 @@
   border: none;
   background: none;
   color: var(--lido-app-ui-color-text-secondary);
-  font-family: var(--lido-app-ui-font-family);
-  font-weight: var(--lido-app-ui-font-weight-semibold);
 
-  /* Figma "Body 1" — no matching size/line-height token pair. */
-  font-size: 16px;
-  line-height: 28px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  @mixin font-body-large-semibold;
+
   white-space: nowrap;
   cursor: pointer;
 }

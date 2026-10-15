@@ -40,20 +40,18 @@
 
 .title {
   margin: 0;
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-semibold);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+
+  @mixin font-body-semibold;
+
   color: var(--lido-app-ui-color-text-default);
   word-break: break-word;
 }
 
 .description {
   margin: 0;
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+
+  @mixin font-body;
+
   color: var(--lido-app-ui-color-text-secondary);
   word-break: break-word;
 }

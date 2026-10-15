@@ -36,20 +36,14 @@
 }
 
 .headline {
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-semibold);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  @mixin font-body-semibold;
+
   color: var(--local-headline-color);
 }
 
 .description {
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  @mixin font-body;
+
   color: var(--local-description-color);
 }
 
