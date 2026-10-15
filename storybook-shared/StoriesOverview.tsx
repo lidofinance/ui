@@ -35,7 +35,9 @@ type StoriesModule = Parameters<typeof composeStories>[0]
 
 const PREFERRED_STORY = 'Basic'
 
-const collectStories = (contexts: StoriesContext[]) =>
+// Must run at module scope: JSX args created during render get a fiber
+// `_owner`, which makes argTypes inference walk the whole fiber graph.
+export const collectStories = (contexts: StoriesContext[]) =>
   contexts
     .flatMap((context) =>
       context.keys().map((key) => context(key) as StoriesModule),
@@ -112,11 +114,9 @@ const StoryBox: FC<PropsWithChildren> = ({ children }) => {
   )
 }
 
-export const StoriesOverview: FC<{ contexts: StoriesContext[] }> = ({
-  contexts,
-}) => {
-  const [items] = useState(() => collectStories(contexts))
-
+export const StoriesOverview: FC<{
+  items: ReturnType<typeof collectStories>
+}> = ({ items }) => {
   return (
     <div>
       {items.map(({ title, Story }) => (
