@@ -31,11 +31,8 @@
 }
 
 .label {
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-body);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: 28px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  @mixin font-body-large;
+
   color: var(--lido-app-ui-color-text-secondary);
   white-space: nowrap;
 }
@@ -58,11 +55,8 @@
 }
 
 .value {
-  font-family: var(--lido-app-ui-font-family);
-  font-size: 28px;
-  font-weight: var(--lido-app-ui-font-weight-medium);
-  line-height: 40px;
-  letter-spacing: -0.84px;
+  @mixin font-h2;
+
   color: var(--lido-app-ui-color-text-default);
   white-space: nowrap;
 }
@@ -80,20 +74,14 @@
 }
 
 .subValue {
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  @mixin font-body;
+
   color: var(--lido-app-ui-color-text-secondary);
   white-space: nowrap;
 }
 
 .description {
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-tooltip);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: var(--lido-app-ui-line-height-description);
-  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+  @mixin font-description;
+
   color: var(--lido-app-ui-color-text-tertiary);
 }

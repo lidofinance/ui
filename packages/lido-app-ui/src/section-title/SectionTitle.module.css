@@ -21,13 +21,9 @@
 
 .title {
   margin: 0;
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-body);
-  font-weight: var(--lido-app-ui-font-weight-semibold);
 
-  /* Figma "Body 1" — no matching size/line-height token pair. */
-  line-height: 28px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  @mixin font-body-large-semibold;
+
   color: var(--lido-app-ui-color-text-default);
 }
 
@@ -42,13 +38,9 @@
 .subtitle {
   margin: 0;
   width: 100%;
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-regular);
 
-  /* Figma "Body 2" — no matching size/line-height token pair. */
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+  @mixin font-body;
+
   color: var(--lido-app-ui-color-text-default);
   opacity: 0.5;
 }
