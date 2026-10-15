@@ -1,6 +1,8 @@
 import {
   useCallback,
   useEffect,
+  useId,
+  useLayoutEffect,
   useRef,
   useState,
   type ComponentPropsWithoutRef,
@@ -9,7 +11,7 @@ import {
   type MouseEvent,
   type ReactNode,
 } from 'react'
-import { flushSync } from 'react-dom'
+import { createPortal } from 'react-dom'
 
 import cn from 'classnames'
 
@@ -39,13 +41,17 @@ export type TooltipProps = Omit<ComponentPropsWithoutRef<'span'>, 'content'> & {
 
 // Minimal distance between the tooltip and the viewport edge.
 const VIEWPORT_MARGIN = 16
-// Distance between the anchor and the content for main (non-corner) positions.
-const POSITION_GAP = 15
+// Visual gap between the anchor and the content.
+const MAIN_GAP = 8
+const CORNER_GAP = 2
+// Extra buffer used only to decide whether a position still "fits" — bigger
+// than the visual gap so a flip triggers before the bubble visually crowds the edge.
+const FIT_BUFFER = 15
 
-type TooltipAdjustment = {
+type Adjustment = {
   position: TooltipPosition
-  shiftX: number
-  shiftY: number
+  left: number
+  top: number
 }
 
 const clampValue = (value: number, min: number, max: number) =>
@@ -54,14 +60,15 @@ const clampValue = (value: number, min: number, max: number) =>
 const getMaxWidth = (width: number) =>
   `min(${width}px, calc(100vw - ${VIEWPORT_MARGIN * 2}px))`
 
-// Measures the anchor and the (hidden but laid-out) content, then picks a
-// position/shift that keeps the bubble inside the viewport — flipping sides
-// when there isn't room, sliding along the cross axis otherwise.
+// Measures the anchor and the content, then picks a position that keeps the
+// bubble inside the viewport — flipping sides when there isn't room, sliding
+// along the cross axis otherwise — and resolves it to fixed-position coordinates.
 const getAdjustment = (
   position: TooltipPosition,
   anchor: DOMRect,
-  content: DOMRect,
-): TooltipAdjustment => {
+  contentWidth: number,
+  contentHeight: number,
+): Adjustment => {
   const viewportWidth = document.documentElement.clientWidth
   const viewportHeight = document.documentElement.clientHeight
 
@@ -70,13 +77,13 @@ const getAdjustment = (
   const spaceLeft = anchor.left - VIEWPORT_MARGIN
   const spaceRight = viewportWidth - anchor.right - VIEWPORT_MARGIN
 
-  let [main, corner] = position.split('-')
-  const gap = corner ? 0 : POSITION_GAP
+  let [main, corner] = position.split('-') as [string, string | undefined]
+  const fitGap = corner ? 0 : FIT_BUFFER
 
   // Side positions: flip to the other side, or fall back to a vertical
   // position when the content doesn't fit horizontally on either side.
   if (main === 'left' || main === 'right') {
-    const needed = content.width + gap
+    const needed = contentWidth + fitGap
     if (needed > spaceLeft && needed > spaceRight) {
       main = spaceBottom >= spaceTop ? 'bottom' : 'top'
     } else if (main === 'right' && needed > spaceRight) {
@@ -90,7 +97,7 @@ const getAdjustment = (
   if (main === 'top' || main === 'bottom') {
     const space = main === 'top' ? spaceTop : spaceBottom
     const opposite = main === 'top' ? spaceBottom : spaceTop
-    if (content.height + gap > space && opposite > space) {
+    if (contentHeight + fitGap > space && opposite > space) {
       main = main === 'top' ? 'bottom' : 'top'
     }
   }
@@ -100,42 +107,51 @@ const getAdjustment = (
   if (corner) {
     const space = corner === 'left' ? spaceLeft : spaceRight
     const opposite = corner === 'left' ? spaceRight : spaceLeft
-    if (content.width > space && opposite > space) {
+    if (contentWidth > space && opposite > space) {
       corner = corner === 'left' ? 'right' : 'left'
     }
   }
 
-  let shiftX = 0
-  let shiftY = 0
+  const resolvedPosition = (
+    corner ? `${main}-${corner}` : main
+  ) as TooltipPosition
+
+  let left: number
+  let top: number
+
   if (main === 'left' || main === 'right') {
-    const idealTop = anchor.top + anchor.height / 2 - content.height / 2
-    shiftY =
-      clampValue(
-        idealTop,
-        VIEWPORT_MARGIN,
-        viewportHeight - VIEWPORT_MARGIN - content.height,
-      ) - idealTop
+    const idealTop = anchor.top + anchor.height / 2 - contentHeight / 2
+    top = clampValue(
+      idealTop,
+      VIEWPORT_MARGIN,
+      viewportHeight - VIEWPORT_MARGIN - contentHeight,
+    )
+    left =
+      main === 'right'
+        ? anchor.right + MAIN_GAP
+        : anchor.left - MAIN_GAP - contentWidth
   } else {
     const idealLeft = !corner
-      ? anchor.left + anchor.width / 2 - content.width / 2
+      ? anchor.left + anchor.width / 2 - contentWidth / 2
       : corner === 'left'
-        ? anchor.left - content.width
-        : anchor.right
-    shiftX =
-      clampValue(
-        idealLeft,
-        VIEWPORT_MARGIN,
-        viewportWidth - VIEWPORT_MARGIN - content.width,
-      ) - idealLeft
+        ? anchor.left - contentWidth - CORNER_GAP
+        : anchor.right + CORNER_GAP
+    left = clampValue(
+      idealLeft,
+      VIEWPORT_MARGIN,
+      viewportWidth - VIEWPORT_MARGIN - contentWidth,
+    )
+    const gap = corner ? CORNER_GAP : MAIN_GAP
+    top =
+      main === 'top' ? anchor.top - gap - contentHeight : anchor.bottom + gap
   }
 
-  return {
-    position: (corner ? `${main}-${corner}` : main) as TooltipPosition,
-    shiftX,
-    shiftY,
-  }
+  return { position: resolvedPosition, left, top }
 }
 
+// Rendered into document.body so a clipping ancestor (overflow: clip/hidden, or a
+// transform/filter/backdrop-filter that would otherwise capture position: fixed)
+// can't cut the bubble off — it sits outside that ancestor's DOM subtree entirely.
 export const Tooltip = ({
   content,
   position = 'top',
@@ -143,82 +159,108 @@ export const Tooltip = ({
   className,
   children,
   onMouseEnter,
+  onMouseLeave,
   onFocus,
+  onBlur,
   dataTestId,
   ...rest
 }: TooltipProps) => {
-  const rootRef = useRef<HTMLSpanElement>(null)
+  const anchorRef = useRef<HTMLSpanElement>(null)
   const contentRef = useRef<HTMLSpanElement>(null)
-  const [adjustment, setAdjustment] = useState<TooltipAdjustment | null>(null)
+  const [open, setOpen] = useState(false)
+  const tooltipId = useId()
 
   const updatePosition = useCallback(() => {
-    const root = rootRef.current
+    const anchor = anchorRef.current
     const contentEl = contentRef.current
-    if (!root || !contentEl) return
-
-    // React treats mouseenter as a continuous-priority event and would defer
-    // the update past the next paint, flashing the tooltip at the old position.
-    flushSync(() => {
-      setAdjustment(
-        getAdjustment(
-          position,
-          root.getBoundingClientRect(),
-          contentEl.getBoundingClientRect(),
-        ),
-      )
-    })
+    if (!anchor || !contentEl) return
+    const {
+      left,
+      top,
+      position: resolved,
+    } = getAdjustment(
+      position,
+      anchor.getBoundingClientRect(),
+      contentEl.offsetWidth,
+      contentEl.offsetHeight,
+    )
+    contentEl.style.left = `${left}px`
+    contentEl.style.top = `${top}px`
+    contentEl.dataset.position = resolved
+    contentEl.dataset.placed = 'true'
   }, [position])
 
-  useEffect(() => {
-    setAdjustment(null)
-  }, [position])
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (rootRef.current?.matches(':hover')) updatePosition()
+  useLayoutEffect(() => {
+    if (!open) return
+    updatePosition()
+    window.addEventListener('scroll', updatePosition, true)
+    window.addEventListener('resize', updatePosition)
+    return () => {
+      window.removeEventListener('scroll', updatePosition, true)
+      window.removeEventListener('resize', updatePosition)
     }
+  }, [open, updatePosition])
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [updatePosition])
+  // A hover-opened tooltip has no focus to catch the key, so Escape is heard document-wide.
+  useEffect(() => {
+    if (!open) return
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [open])
 
   const handleMouseEnter = (event: MouseEvent<HTMLSpanElement>) => {
-    updatePosition()
     onMouseEnter?.(event)
+    setOpen(true)
+  }
+
+  const handleMouseLeave = (event: MouseEvent<HTMLSpanElement>) => {
+    onMouseLeave?.(event)
+    setOpen(false)
   }
 
   const handleFocus = (event: FocusEvent<HTMLSpanElement>) => {
-    updatePosition()
     onFocus?.(event)
+    setOpen(true)
   }
 
-  const effectivePosition = adjustment?.position ?? position
+  const handleBlur = (event: FocusEvent<HTMLSpanElement>) => {
+    onBlur?.(event)
+    setOpen(false)
+  }
 
   return (
     <span
-      ref={rootRef}
+      ref={anchorRef}
       className={cn(styles.wrapper, className)}
+      aria-describedby={open ? tooltipId : undefined}
       onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onFocus={handleFocus}
+      onBlur={handleBlur}
       data-testid={dataTestId?.root}
       {...rest}
     >
       {children}
-      <span
-        ref={contentRef}
-        className={cn(styles.content, styles[`position-${effectivePosition}`])}
-        style={
-          {
-            '--local-tooltip-width': getMaxWidth(width),
-            '--local-tooltip-shift-x': `${adjustment?.shiftX ?? 0}px`,
-            '--local-tooltip-shift-y': `${adjustment?.shiftY ?? 0}px`,
-          } as CSSProperties
-        }
-        role='tooltip'
-        data-testid={dataTestId?.content}
-      >
-        {content}
-      </span>
+      {open
+        ? createPortal(
+            <span
+              ref={contentRef}
+              id={tooltipId}
+              role='tooltip'
+              className={styles.content}
+              style={
+                { '--local-tooltip-width': getMaxWidth(width) } as CSSProperties
+              }
+              data-testid={dataTestId?.content}
+            >
+              {content}
+            </span>,
+            document.body,
+          )
+        : null}
     </span>
   )
 }
