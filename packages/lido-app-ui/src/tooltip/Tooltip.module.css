@@ -19,10 +19,9 @@
   border-radius: var(--lido-app-ui-border-radius-tooltip);
   background-color: rgb(0 0 0 / 90%);
   color: var(--lido-app-ui-palette-white-a900);
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+
+  @mixin font-body;
+
   word-break: break-word;
   pointer-events: none;
   transition: opacity 0.2s ease;

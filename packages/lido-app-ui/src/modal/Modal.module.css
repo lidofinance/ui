@@ -40,11 +40,9 @@
 .title {
   flex: 1 0 0;
   min-width: 0;
-  font-family: var(--lido-app-ui-font-family);
-  font-size: 24px;
-  font-weight: var(--lido-app-ui-font-weight-medium);
-  line-height: 36px;
-  letter-spacing: -0.14px;
+
+  @mixin font-h3;
+
   color: var(--lido-app-ui-color-text-default);
 }
 

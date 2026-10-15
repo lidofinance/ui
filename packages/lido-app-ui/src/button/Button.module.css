@@ -68,8 +68,8 @@
   --local-pad-v: 12px;
   --local-pad-h: 20px;
 
-  font-size: 16px;
-  line-height: 28px;
+  font-size: var(--lido-app-ui-font-size-body);
+  line-height: var(--lido-app-ui-line-height-body);
 }
 
 .big .icon,
@@ -82,8 +82,8 @@
   --local-pad-v: 6px;
   --local-pad-h: 16px;
 
-  font-size: 14px;
-  line-height: 24px;
+  font-size: var(--lido-app-ui-font-size-label);
+  line-height: var(--lido-app-ui-line-height-label);
 }
 
 .small .icon,

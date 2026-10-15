@@ -13,10 +13,8 @@
 }
 
 .label {
-  font-size: var(--lido-app-ui-font-size-body);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: 28px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  @mixin font-body-large;
+
   color: var(--lido-app-ui-color-text-secondary);
   white-space: nowrap;
 }
@@ -96,13 +94,13 @@
 
 .default .input {
   font-size: var(--lido-app-ui-font-size-body);
-  line-height: 28px;
+  line-height: var(--lido-app-ui-line-height-body);
   height: 52px;
 }
 
 .small .input {
   font-size: var(--lido-app-ui-font-size-label);
-  line-height: 24px;
+  line-height: var(--lido-app-ui-line-height-label);
   height: 36px;
 }
 
@@ -130,20 +128,18 @@
 
 .errorText {
   margin: 0;
-  font-size: var(--lido-app-ui-font-size-label);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: 24px;
-  letter-spacing: var(--lido-app-ui-letter-spacing-label);
+
+  @mixin font-body;
+
   color: var(--lido-app-ui-color-text-error);
   word-break: break-word;
 }
 
 .description {
   margin: 0;
-  font-size: var(--lido-app-ui-font-size-tooltip);
-  font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: var(--lido-app-ui-line-height-description);
-  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+
+  @mixin font-description;
+
   color: var(--lido-app-ui-color-text-tertiary);
   word-break: break-word;
 }
