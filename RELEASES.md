@@ -28,13 +28,13 @@ Current `multi-release.deps` settings (`package.json`):
 
 ```json
 "deps": {
-  "bump": "satisfy",
+  "bump": "override",
   "release": "patch",
   "prefix": "^"
 }
 ```
 
-With these settings, a package that depends on another released package gets a patch release cascaded to it whenever that dependency releases — e.g. when `lido-shared-ui` gets a new version, `lido-landing-ui` and `lido-app-ui` also get released.
+With these settings, a dependent's version range for another released package is overwritten with the new version (`bump: override`, prefixed with `^`), and the dependent gets a patch release cascaded to it whenever that dependency releases — e.g. when `lido-shared-ui` gets a new version, `lido-landing-ui` and `lido-app-ui` also get released.
 
 ### Slack notifications
 

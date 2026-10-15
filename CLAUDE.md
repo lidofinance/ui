@@ -32,12 +32,13 @@ yarn install           # install deps (immutable in CI: yarn install --immutable
 yarn build             # turbo run build — builds all packages (respects internal dep order)
 yarn test              # turbo run test — vitest across all packages
 yarn lint              # turbo run lint — eslint across all packages
+yarn lint:css          # turbo run lint:css — stylelint across all packages
 yarn types             # turbo run types — tsc --noEmit across all packages
 yarn build-storybook   # turbo run build-storybook
 
 yarn storybook:ui       # Storybook for lido-ui, port 5555
 yarn storybook:landing  # Storybook for lido-landing-ui, port 5556
-yarn storybook:widget   # Storybook for lido-app-ui, port 5557
+yarn storybook:app      # Storybook for lido-app-ui, port 5557
 ```
 
 Target a single package with `yarn workspace <name> <script>`, e.g.:
@@ -45,27 +46,35 @@ Target a single package with `yarn workspace <name> <script>`, e.g.:
 ```bash
 yarn workspace @lidofinance/lido-ui test
 yarn workspace @lidofinance/lido-ui test src/button/Button.test.tsx   # single test file (vitest)
-yarn workspace @lidofinance/lido-landing-ui lint
-yarn workspace @lidofinance/lido-ui types
 ```
 
-Icon and CSS-variable generation (in `lido-ui` and `lido-landing-ui`):
+Root-hoisted bins (`eslint`, `tsc`, `stylelint`) aren't on PATH under `yarn workspace`, so run `lint`/`types`/`lint:css` for one package via Turbo:
 
 ```bash
-yarn workspace @lidofinance/lido-ui icons:convert
+yarn turbo run lint types --filter=@lidofinance/lido-landing-ui
+```
+
+Icon conversion (`icons:convert`, all three UI packages) and CSS-variable generation (`css-variables:generate`, `lido-ui` and `lido-landing-ui`):
+
+```bash
+yarn workspace @lidofinance/lido-landing-ui icons:convert
 yarn workspace @lidofinance/lido-ui css-variables:generate
 ```
 
-To add a new icon: drop the SVG into the relevant category folder under `packages/lido-ui/src/icons/svg/` (`base/`, `defi/`, `general/`, `lido/`, `logo/`, `strategies/`, `token/`) and commit — a pre-commit conversion step regenerates the icon components automatically (or run `icons:convert` manually). Names convert to PascalCase; category folders add suffixes (e.g. `logo/` → `IconNameLogo`).
+To add an icon: drop the SVG under the package's `src/icons/svg/` and commit — the pre-commit hook runs that package's `icons:convert` and stages the output (or run it manually). Layout differs per package:
 
-Tests run on Vitest with `jsdom` + `@vitejs/plugin-react`. Linting is ESLint (`eslint:recommended`, TS, React, jsx-a11y, Prettier, Storybook plugin) plus Stylelint (`stylelint-config-standard`) for CSS — `yarn lint:css` per package.
+- `lido-ui`: flat `svg/*.svg`; names → PascalCase components in a single `icons/index.tsx`.
+- `lido-landing-ui`: category folders `base/ defi/ general/ lido/ logo/ strategies/ token/`; `logo/` icons get a `Logo` suffix (`AaveLogo`).
+- `lido-app-ui`: `base/ chains/ protocols/ token/ wallets/`; `base/` → `Icon` prefix (`IconArrowUp`), `token/` → `Token` prefix (`TokenAave`).
+
+Tests run on Vitest with `jsdom` + `@vitejs/plugin-react`. Linting is ESLint 9 flat config (root `eslint.config.js`: recommended, typescript-eslint, React, jsx-a11y, Prettier, Storybook plugin) plus Stylelint (`stylelint-config-standard`) for CSS (`yarn lint:css`).
 
 ## Architecture notes
 
-- **Build tool per package**: Rollup (`rollup.config.mjs`) compiles `src/index.ts` to `dist/cjs` and `dist/esm` (via `@rollup/plugin-babel`), then `tsc --project tsconfig.production.json` generates declaration files. Styles are extracted to a single `index.css` per package via `rollup-plugin-postcss` (CSS Modules enabled except for `styles/global.css`).
+- **Build tool per package**: Rollup (`rollup.config.mjs`) compiles `src/index.ts` to `dist/cjs` and `dist/esm` (via `@rollup/plugin-babel`), then `tsc --project tsconfig.production.json` generates declaration files. In `lido-landing-ui`, `lido-app-ui` and `lido-shared-ui`, styles are extracted to a single `index.css` per package via `rollup-plugin-postcss` (CSS Modules enabled except for `styles/global.css`); `lido-ui` styles with styled-components instead.
 - **Token prefixes are per-package, not shared**: `lido-ui` and `lido-landing-ui` both publish `--lido-ui-*` variables under the same names with different values, so a product importing both CSS bundles gets whichever loaded last. `lido-app-ui` therefore namespaces its own layer as `--lido-app-ui-*`. When adding tokens to a package, stay inside that package's prefix rather than reaching for a "shared" one.
-- **Theming**: CSS custom properties (`--lido-ui-*`) drive typography, colors, border radii, and light/dark visibility; consumers override them in their own CSS after importing `@lidofinance/lido-ui/index.css`. Two theme providers exist: `ThemeProvider` (static theme) and `CookieThemeProvider` (theme resolved from override → URL query → cookie → initial value → system preference → default), paired with `ThemeToggler` when a product supports switching themes. Shared theme logic (cookie handling, constants, theme provider primitives) lives in `lido-shared-ui/src/theme-css`.
-- **Typography** can be consumed either as a plain CSS import (`styles/typography.css`) or as PostCSS mixins via the `postcss-mixins` plugin pointed at `dist/styles`.
+- **Theming**: CSS custom properties (the package's prefix, see above) drive typography, colors, border radii, and light/dark visibility; consumers override them in their own CSS after importing the package's `index.css`. Two theme providers exist: `ThemeProvider` (static theme) and `CookieThemeProvider` (theme resolved from override → URL query → cookie → initial value → system preference → default), paired with `ThemeToggler` when a product supports switching themes. Shared theme logic (cookie handling, constants, theme provider primitives) lives in `lido-shared-ui/src/theme-css`.
+- **Typography** (`lido-landing-ui`, `lido-app-ui`) is consumed as PostCSS mixins via `postcss-mixins` pointed at `dist/styles`; `lido-landing-ui` also ships a plain `styles/typography.css`.
 - **Cross-package dependency direction**: `lido-shared-ui` is the only package with no internal dependencies; both `lido-landing-ui` and `lido-app-ui` build on top of it. `lido-ui` is independent of the others and not built on the shared foundation (consistent with it being legacy/deprecated). Keep this direction in mind when moving code between packages — shared primitives belong in `lido-shared-ui`, not the other way around.
 - **Releases**: all packages are versioned and published together by [multi-semantic-release](https://github.com/dhoulb/multi-semantic-release) (wraps `semantic-release`, using the Conventional Commits preset), which understands the dependency graph above — e.g. a breaking change in `lido-shared-ui` bumps the packages depending on it too. Publishing is triggered by CI on pushes to `main` (production channel) and `develop` (alpha channel, prerelease id `alpha`). Use `!` in a commit type (e.g. `feat!: ...`) to trigger a new major version. Full detail, known issues, and CI wiring are in `RELEASES.md`.
-- **CI** (`.github/workflows/test.yml`): security/docker/actions linters from `lidofinance/linters`, then dependency install, `yarn lint`, `yarn test`, and a `yarn build` smoke check, all gated behind a shared `cache-deps` job (node_modules keyed on `yarn.lock`, Turbo cache keyed on commit SHA).
+- **CI** (`.github/workflows/test.yml`): security/docker/actions linters from `lidofinance/linters`, then, in parallel jobs, `yarn lint` + `yarn lint:css`, `yarn types`, `yarn test` and a `yarn build` smoke check, all gated behind a shared `cache-deps` job (node_modules keyed on `yarn.lock`, Turbo cache keyed on commit SHA).
