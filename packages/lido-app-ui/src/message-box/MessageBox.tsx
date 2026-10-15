@@ -20,10 +20,18 @@ const variantIcons = {
   success: IconCheck,
 }
 
+export type MessageBoxDataTestId = {
+  root?: string
+  icon?: string
+  headline?: string
+  description?: string
+}
+
 export type MessageBoxProps = HTMLAttributes<HTMLDivElement> & {
   variant?: MessageBoxVariant
   icon?: boolean
   headline?: ReactNode
+  dataTestId?: MessageBoxDataTestId
 }
 
 export const MessageBox = ({
@@ -32,22 +40,38 @@ export const MessageBox = ({
   headline,
   className,
   children,
+  dataTestId,
   ...rest
 }: MessageBoxProps) => {
   const Icon = variantIcons[variant]
 
   return (
-    <div className={cn(styles.box, styles[variant], className)} {...rest}>
+    <div
+      className={cn(styles.box, styles[variant], className)}
+      data-testid={dataTestId?.root}
+      {...rest}
+    >
       {icon ? (
-        <span className={styles.icon} aria-hidden='true'>
+        <span
+          className={styles.icon}
+          aria-hidden='true'
+          data-testid={dataTestId?.icon}
+        >
           <Icon />
         </span>
       ) : null}
       <div className={styles.text}>
         {headline != null ? (
-          <div className={styles.headline}>{headline}</div>
+          <div className={styles.headline} data-testid={dataTestId?.headline}>
+            {headline}
+          </div>
         ) : null}
-        <div className={styles.description}>{children}</div>
+        <div
+          className={styles.description}
+          data-testid={dataTestId?.description}
+        >
+          {children}
+        </div>
       </div>
     </div>
   )

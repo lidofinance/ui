@@ -7,6 +7,11 @@ import styles from './IconButton.module.css'
 
 export type IconButtonVariant = 'outline' | 'ghost'
 
+export type IconButtonDataTestId = {
+  root?: string
+  icon?: string
+}
+
 export type IconButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'aria-label'
@@ -15,6 +20,7 @@ export type IconButtonProps = Omit<
   icon: ReactNode
   variant?: IconButtonVariant
   loading?: boolean
+  dataTestId?: IconButtonDataTestId
 }
 
 export const IconButton = ({
@@ -24,6 +30,7 @@ export const IconButton = ({
   loading = false,
   disabled = false,
   icon,
+  dataTestId,
   ...rest
 }: IconButtonProps) => (
   <button
@@ -36,12 +43,17 @@ export const IconButton = ({
       loading && styles.loading,
       className,
     )}
+    data-testid={dataTestId?.root}
     {...rest}
   >
     {loading ? (
       <IconLoaderCircle className={styles.spinner} aria-hidden='true' />
     ) : (
-      <span className={styles.icon} aria-hidden='true'>
+      <span
+        className={styles.icon}
+        aria-hidden='true'
+        data-testid={dataTestId?.icon}
+      >
         {icon}
       </span>
     )}

@@ -4,19 +4,27 @@ import cn from 'classnames'
 
 import styles from './RadioButton.module.css'
 
+export type RadioButtonDataTestId = {
+  root?: string
+  input?: string
+  label?: string
+}
+
 export type RadioButtonProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'type'
 > & {
   label?: ReactNode
+  dataTestId?: RadioButtonDataTestId
 }
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
-  ({ label, className, disabled, ...rest }, ref) => (
+  ({ label, className, disabled, dataTestId, ...rest }, ref) => (
     <label
       className={cn(styles.container, className, {
         [styles.containerDisabled]: disabled,
       })}
+      data-testid={dataTestId?.root}
     >
       <span className={styles.control}>
         <input
@@ -24,6 +32,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           type='radio'
           className={styles.input}
           disabled={disabled}
+          data-testid={dataTestId?.input}
           {...rest}
         />
         <span className={styles.dot} />
@@ -31,6 +40,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       {label ? (
         <span
           className={cn(styles.label, { [styles.labelDisabled]: disabled })}
+          data-testid={dataTestId?.label}
         >
           {label}
         </span>

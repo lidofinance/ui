@@ -2,6 +2,7 @@ import {
   useEffect,
   useId,
   useRef,
+  type ComponentPropsWithoutRef,
   type MouseEvent,
   type ReactNode,
 } from 'react'
@@ -32,14 +33,26 @@ const unlockBodyScroll = () => {
   }
 }
 
-export type ModalProps = {
+export type ModalDataTestId = {
+  root?: string
+  title?: string
+  subtitle?: string
+  closeButton?: string
+  body?: string
+  overlay?: string
+}
+
+export type ModalProps = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  'title' | 'children'
+> & {
   title?: ReactNode
   subtitle?: ReactNode
   onClose?: () => void
   withOverlay?: boolean
   bodyFill?: boolean
   children: ReactNode
-  className?: string
+  dataTestId?: ModalDataTestId
 }
 
 export const Modal = ({
@@ -50,6 +63,8 @@ export const Modal = ({
   bodyFill = false,
   children,
   className,
+  dataTestId,
+  ...rest
 }: ModalProps) => {
   const titleId = useId()
   const backdropMouseDown = useRef(false)
@@ -76,12 +91,15 @@ export const Modal = ({
       role='dialog'
       aria-modal={withOverlay || undefined}
       aria-labelledby={title ? titleId : undefined}
+      data-testid={dataTestId?.root}
+      {...rest}
     >
       <div className={styles.headerGroup}>
         <div className={styles.header}>
           <span
             id={titleId}
             className={cn(styles.title, !title && styles.titleHidden)}
+            data-testid={dataTestId?.title}
           >
             {title}
           </span>
@@ -91,14 +109,19 @@ export const Modal = ({
               aria-label='Close'
               icon={<IconCross />}
               onClick={onClose}
+              dataTestId={{ root: dataTestId?.closeButton }}
             />
           ) : null}
         </div>
         {subtitle != null ? (
-          <p className={styles.subtitle}>{subtitle}</p>
+          <p className={styles.subtitle} data-testid={dataTestId?.subtitle}>
+            {subtitle}
+          </p>
         ) : null}
       </div>
-      <div className={styles.body}>{children}</div>
+      <div className={styles.body} data-testid={dataTestId?.body}>
+        {children}
+      </div>
     </div>
   )
 
@@ -113,6 +136,7 @@ export const Modal = ({
       className={styles.overlay}
       onMouseDown={handleOverlayMouseDown}
       onClick={handleOverlayClick}
+      data-testid={dataTestId?.overlay}
     >
       {card}
     </div>

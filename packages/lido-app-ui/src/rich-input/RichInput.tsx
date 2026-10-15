@@ -16,6 +16,16 @@ import { Tooltip } from '../tooltip'
 
 import styles from './RichInput.module.css'
 
+export type RichInputDataTestId = {
+  root?: string
+  label?: string
+  input?: string
+  secondaryValue?: string
+  balance?: string
+  maxButton?: string
+  error?: string
+}
+
 export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: ReactNode
   labelTooltip?: ReactNode
@@ -26,6 +36,7 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   showMaxButton?: boolean
   onMaxClick?: MouseEventHandler<HTMLSpanElement>
   maxTooltip?: ReactNode
+  dataTestId?: RichInputDataTestId
 }
 
 const MaxTag = ({ onClick, className, ...rest }: TagProps) => (
@@ -68,6 +79,7 @@ export const RichInput = ({
   className,
   id,
   disabled,
+  dataTestId,
   ...inputProps
 }: RichInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -114,10 +126,15 @@ export const RichInput = ({
     <div
       className={cn(styles.root, hasError && styles.error, className)}
       onClick={handleRootClick}
+      data-testid={dataTestId?.root}
     >
       {label != null ? (
         <span className={styles.labelRow}>
-          <label className={styles.label} htmlFor={inputId}>
+          <label
+            className={styles.label}
+            htmlFor={inputId}
+            data-testid={dataTestId?.label}
+          >
             {label}
           </label>
           {labelTooltip != null ? (
@@ -140,6 +157,7 @@ export const RichInput = ({
           aria-invalid={hasError || undefined}
           aria-describedby={showErrorMessage ? errorId : undefined}
           onChange={handleChange}
+          data-testid={dataTestId?.input}
           {...inputProps}
         />
         {tokenSelector != null ? (
@@ -149,11 +167,21 @@ export const RichInput = ({
       {hasBottomRow ? (
         <div className={styles.bottomRow}>
           {secondaryValue != null ? (
-            <span className={styles.secondary}>{secondaryValue}</span>
+            <span
+              className={styles.secondary}
+              data-testid={dataTestId?.secondaryValue}
+            >
+              {secondaryValue}
+            </span>
           ) : null}
           <div className={styles.balanceGroup}>
             {balance != null ? (
-              <span className={styles.balance}>{balance}</span>
+              <span
+                className={styles.balance}
+                data-testid={dataTestId?.balance}
+              >
+                {balance}
+              </span>
             ) : null}
             {showMax ? (
               maxTooltip != null ? (
@@ -162,17 +190,31 @@ export const RichInput = ({
                   position='bottom-left'
                   width={240}
                 >
-                  <MaxTag onClick={onMaxClick}>Max</MaxTag>
+                  <MaxTag
+                    onClick={onMaxClick}
+                    data-testid={dataTestId?.maxButton}
+                  >
+                    Max
+                  </MaxTag>
                 </Tooltip>
               ) : (
-                <MaxTag onClick={onMaxClick}>Max</MaxTag>
+                <MaxTag
+                  onClick={onMaxClick}
+                  data-testid={dataTestId?.maxButton}
+                >
+                  Max
+                </MaxTag>
               )
             ) : null}
           </div>
         </div>
       ) : null}
       {showErrorMessage ? (
-        <div id={errorId} className={styles.errorMessage}>
+        <div
+          id={errorId}
+          className={styles.errorMessage}
+          data-testid={dataTestId?.error}
+        >
           {errorMessage}
         </div>
       ) : null}

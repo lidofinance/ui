@@ -15,10 +15,17 @@ export type TagVariant =
   | 'active'
   | 'action'
 
+export type TagDataTestId = {
+  root?: string
+  icon?: string
+  closeButton?: string
+}
+
 export type TagProps = HTMLAttributes<HTMLSpanElement> & {
   variant?: TagVariant
   icon?: ReactNode
   onClose?: () => void
+  dataTestId?: TagDataTestId
 }
 
 export const Tag = ({
@@ -27,11 +34,20 @@ export const Tag = ({
   onClose,
   className,
   children,
+  dataTestId,
   ...rest
 }: TagProps) => (
-  <span className={cn(styles.tag, styles[variant], className)} {...rest}>
+  <span
+    className={cn(styles.tag, styles[variant], className)}
+    data-testid={dataTestId?.root}
+    {...rest}
+  >
     {icon != null ? (
-      <span className={styles.icon} aria-hidden='true'>
+      <span
+        className={styles.icon}
+        aria-hidden='true'
+        data-testid={dataTestId?.icon}
+      >
         {icon}
       </span>
     ) : null}
@@ -42,6 +58,7 @@ export const Tag = ({
         className={styles.closeButton}
         aria-label='Remove'
         onClick={onClose}
+        data-testid={dataTestId?.closeButton}
       >
         <IconCross aria-hidden='true' />
       </button>

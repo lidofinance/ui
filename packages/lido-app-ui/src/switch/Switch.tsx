@@ -4,19 +4,27 @@ import cn from 'classnames'
 
 import styles from './Switch.module.css'
 
+export type SwitchDataTestId = {
+  root?: string
+  input?: string
+  label?: string
+}
+
 export type SwitchProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'type'
 > & {
   label?: ReactNode
+  dataTestId?: SwitchDataTestId
 }
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
-  ({ label, className, disabled, ...rest }, ref) => (
+  ({ label, className, disabled, dataTestId, ...rest }, ref) => (
     <label
       className={cn(styles.container, className, {
         [styles.containerDisabled]: disabled,
       })}
+      data-testid={dataTestId?.root}
     >
       <span className={styles.control}>
         <input
@@ -25,6 +33,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           role='switch'
           className={styles.input}
           disabled={disabled}
+          data-testid={dataTestId?.input}
           {...rest}
         />
         <span className={styles.knob} />
@@ -32,6 +41,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
       {label ? (
         <span
           className={cn(styles.label, { [styles.labelDisabled]: disabled })}
+          data-testid={dataTestId?.label}
         >
           {label}
         </span>

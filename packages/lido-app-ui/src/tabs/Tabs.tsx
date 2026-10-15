@@ -1,24 +1,42 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from 'react'
 
 import cn from 'classnames'
 
-import { Tab } from './Tab'
+import { Tab, type TabDataTestId } from './Tab'
 import styles from './Tabs.module.css'
+
+export type TabsDataTestId = {
+  root?: string
+}
 
 export type TabItem = {
   value: string
   label: ReactNode
   disabled?: boolean
+  dataTestId?: TabDataTestId
 }
 
-export type TabsProps = {
+export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   items: TabItem[]
   value: string
   onChange: (value: string) => void
-  className?: string
+  dataTestId?: TabsDataTestId
 }
 
-export const Tabs = ({ items, value, onChange, className }: TabsProps) => {
+export const Tabs = ({
+  items,
+  value,
+  onChange,
+  className,
+  dataTestId,
+  ...rest
+}: TabsProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const activeButtonRef = useRef<HTMLButtonElement>(null)
   const selectionRef = useRef<HTMLDivElement>(null)
@@ -54,6 +72,8 @@ export const Tabs = ({ items, value, onChange, className }: TabsProps) => {
       ref={containerRef}
       role='tablist'
       className={cn(styles.tabs, className)}
+      data-testid={dataTestId?.root}
+      {...rest}
     >
       <div
         ref={selectionRef}
@@ -68,6 +88,7 @@ export const Tabs = ({ items, value, onChange, className }: TabsProps) => {
             ref={active ? activeButtonRef : undefined}
             active={active}
             disabled={item.disabled}
+            dataTestId={item.dataTestId}
             onClick={() => {
               if (item.value !== value) onChange(item.value)
             }}

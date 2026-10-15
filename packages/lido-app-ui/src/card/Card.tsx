@@ -4,10 +4,25 @@ import cn from 'classnames'
 
 import styles from './Card.module.css'
 
-export type CardProps = HTMLAttributes<HTMLDivElement>
+export type CardDataTestId = {
+  root?: string
+}
 
-export const Card = ({ className, children, ...rest }: CardProps) => (
-  <div className={cn(styles.card, className)} {...rest}>
+export type CardProps = HTMLAttributes<HTMLDivElement> & {
+  dataTestId?: CardDataTestId
+}
+
+export const Card = ({
+  className,
+  children,
+  dataTestId,
+  ...rest
+}: CardProps) => (
+  <div
+    className={cn(styles.card, className)}
+    data-testid={dataTestId?.root}
+    {...rest}
+  >
     {children}
   </div>
 )

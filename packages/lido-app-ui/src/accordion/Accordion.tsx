@@ -10,12 +10,20 @@ import cn from 'classnames'
 
 import styles from './Accordion.module.css'
 
+export type AccordionDataTestId = {
+  root?: string
+  header?: string
+  title?: string
+  content?: string
+}
+
 export type AccordionProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   title: ReactNode
   border?: boolean
   defaultExpanded?: boolean
   expanded?: boolean
   onExpandedChange?: (expanded: boolean) => void
+  dataTestId?: AccordionDataTestId
 }
 
 export const Accordion = ({
@@ -26,6 +34,7 @@ export const Accordion = ({
   onExpandedChange,
   children,
   className,
+  dataTestId,
   ...rest
 }: AccordionProps) => {
   const [uncontrolledExpanded, setUncontrolledExpanded] =
@@ -44,6 +53,7 @@ export const Accordion = ({
       className={cn(styles.accordion, className, {
         [styles.borderless]: !border,
       })}
+      data-testid={dataTestId?.root}
       {...rest}
     >
       <button
@@ -52,8 +62,11 @@ export const Accordion = ({
         aria-expanded={isExpanded}
         aria-controls={contentId}
         onClick={handleToggle}
+        data-testid={dataTestId?.header}
       >
-        <span className={styles.title}>{title}</span>
+        <span className={styles.title} data-testid={dataTestId?.title}>
+          {title}
+        </span>
         <span className={styles.chevron} aria-hidden='true'>
           {isExpanded ? <IconChevronUp /> : <IconChevronDown />}
         </span>
@@ -65,7 +78,12 @@ export const Accordion = ({
         })}
       >
         <div className={styles.content}>
-          <div className={styles.contentInner}>{children}</div>
+          <div
+            className={styles.contentInner}
+            data-testid={dataTestId?.content}
+          >
+            {children}
+          </div>
         </div>
       </div>
     </div>

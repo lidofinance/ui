@@ -1,21 +1,34 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import cn from 'classnames'
 
 import styles from './DataList.module.css'
 
-export type DataListProps = {
+export type DataListDataTestId = {
+  root?: string
+}
+
+export type DataListProps = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  'children'
+> & {
   children: ReactNode
-  className?: string
   divided?: boolean
+  dataTestId?: DataListDataTestId
 }
 
 export const DataList = ({
   children,
   className,
   divided = false,
+  dataTestId,
+  ...rest
 }: DataListProps) => (
-  <div className={cn(styles.card, divided && styles.divided, className)}>
+  <div
+    className={cn(styles.card, divided && styles.divided, className)}
+    data-testid={dataTestId?.root}
+    {...rest}
+  >
     {children}
   </div>
 )

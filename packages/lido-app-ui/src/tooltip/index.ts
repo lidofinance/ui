@@ -1,2 +1,6 @@
 export { Tooltip } from './Tooltip'
-export type { TooltipProps, TooltipPosition } from './Tooltip'
+export type {
+  TooltipProps,
+  TooltipPosition,
+  TooltipDataTestId,
+} from './Tooltip'
