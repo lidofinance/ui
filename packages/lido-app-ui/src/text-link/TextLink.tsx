@@ -4,12 +4,15 @@ import cn from 'classnames'
 
 import styles from './TextLink.module.css'
 
+export type TextLinkVariant = 'primary' | 'secondary'
+
 export type TextLinkDataTestId = {
   root?: string
   icon?: string
 }
 
 export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  variant?: TextLinkVariant
   icon?: ReactNode
   external?: boolean
   disabled?: boolean
@@ -17,6 +20,7 @@ export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 }
 
 export const TextLink = ({
+  variant = 'primary',
   icon,
   external = false,
   disabled = false,
@@ -30,7 +34,7 @@ export const TextLink = ({
   ...rest
 }: TextLinkProps) => (
   <a
-    className={cn(styles.link, className)}
+    className={cn(styles.link, styles[variant], className)}
     target={target ?? (external ? '_blank' : undefined)}
     rel={rel ?? (external ? 'noopener noreferrer' : undefined)}
     href={disabled ? undefined : href}

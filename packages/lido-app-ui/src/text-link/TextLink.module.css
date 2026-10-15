@@ -5,13 +5,21 @@
 
   @mixin font-body;
 
-  color: var(--lido-app-ui-color-text-active);
+  --local-color: var(--lido-app-ui-color-text-active);
+  --local-color-hover: var(--lido-app-ui-color-text-active-hover);
+
+  color: var(--local-color);
   text-decoration: none;
   cursor: pointer;
 }
 
+.secondary {
+  --local-color: var(--lido-app-ui-color-text-secondary);
+  --local-color-hover: var(--lido-app-ui-color-text-active-hover);
+}
+
 .link:hover {
-  color: var(--lido-app-ui-color-text-active-hover);
+  color: var(--local-color-hover);
 }
 
 .link:active {
