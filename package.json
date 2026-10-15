@@ -11,6 +11,7 @@
     "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",
+    "lint:css": "turbo run lint:css",
     "types": "turbo run types",
     "build-storybook": "turbo run build-storybook",
     "storybook:ui": "yarn workspace @lidofinance/lido-ui dev",

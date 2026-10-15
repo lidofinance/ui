@@ -99,6 +99,9 @@ jobs:
       - name: Lint JS/TS
         run: yarn lint
 
+      - name: Lint CSS
+        run: yarn lint:css
+
   types:
     runs-on: ubuntu-latest
     needs: cache-deps

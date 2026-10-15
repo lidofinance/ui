@@ -35,8 +35,8 @@
     "test:coverage": "vitest run --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "lint:css": "stylelint '**/*.css'",
-    "lint:css:fix": "stylelint --fix '**/*.css'",
+    "lint:css": "stylelint --allow-empty-input '**/*.css'",
+    "lint:css:fix": "stylelint --allow-empty-input --fix '**/*.css'",
     "types": "tsc --noEmit",
     "icons:convert": "node ./src/icons/converter/index.cjs",
     "css-variables:generate": "node ./scripts/generate-css-variables.mjs"
