@@ -2,12 +2,14 @@
   --local-bg: var(--lido-app-ui-color-background-secondary);
   --local-bg-hover: var(--lido-app-ui-color-background-secondary-hover);
   --local-text: var(--lido-app-ui-color-text-secondary);
+  --local-border-active: var(--lido-app-ui-color-border-default);
 
   display: inline-flex;
   align-items: center;
   gap: 4px;
   box-sizing: border-box;
-  padding: 2px 8px;
+  padding: 1px 7px;
+  border: 1px solid transparent;
   border-radius: var(--lido-app-ui-border-radius-badge);
   background-color: var(--local-bg);
   color: var(--local-text);
@@ -23,11 +25,19 @@
   background-color: var(--local-bg-hover);
 }
 
+.isActive {
+  border-color: var(--local-border-active);
+}
+
 .icon {
   display: inline-flex;
   flex-shrink: 0;
   width: 16px;
   height: 16px;
+}
+
+.crossIcon {
+  color: var(--lido-app-ui-color-icons-secondary);
 }
 
 .icon svg {
@@ -54,40 +64,51 @@
   --local-bg: var(--lido-app-ui-color-tint-neutral);
   --local-bg-hover: var(--lido-app-ui-color-background-secondary-hover);
   --local-text: var(--lido-app-ui-color-text-tertiary);
+  --local-border-active: var(--lido-app-ui-color-border-tertiary);
 }
 
 .success {
   --local-bg: var(--lido-app-ui-color-tint-success);
   --local-bg-hover: var(--lido-app-ui-color-tint-success-hover);
   --local-text: var(--lido-app-ui-color-text-success);
+  --local-border-active: var(--lido-app-ui-color-border-success);
 }
 
 .warning {
   --local-bg: var(--lido-app-ui-color-tint-warning);
   --local-bg-hover: var(--lido-app-ui-color-tint-warning-hover);
   --local-text: var(--lido-app-ui-color-text-warning);
+  --local-border-active: var(--lido-app-ui-color-border-warning);
 }
 
 .error {
   --local-bg: var(--lido-app-ui-color-tint-error);
   --local-bg-hover: var(--lido-app-ui-color-tint-error-hover);
   --local-text: var(--lido-app-ui-color-text-error);
+  --local-border-active: var(--lido-app-ui-color-border-error);
 }
 
 .info {
   --local-bg: var(--lido-app-ui-color-tint-info);
   --local-bg-hover: var(--lido-app-ui-color-tint-info-hover);
   --local-text: var(--lido-app-ui-color-text-info);
+  --local-border-active: var(--lido-app-ui-color-border-info);
 }
 
 .active {
   --local-bg: var(--lido-app-ui-color-background-surface-active);
   --local-bg-hover: var(--lido-app-ui-color-background-surface-active-hover);
   --local-text: var(--lido-app-ui-color-text-active);
+  --local-border-active: var(--lido-app-ui-color-border-active);
 }
 
 .action {
   --local-bg: var(--lido-app-ui-color-background-action);
   --local-bg-hover: var(--lido-app-ui-color-background-action-hover);
   --local-text: var(--lido-app-ui-color-text-inverse);
+  --local-border-active: var(--lido-app-ui-color-icons-inverse);
+
+  .crossIcon {
+    color: var(--lido-app-ui-color-icons-inverse);
+  }
 }
