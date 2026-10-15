@@ -1,12 +1,7 @@
-import type {
-  ButtonHTMLAttributes,
-  ComponentPropsWithoutRef,
-  ReactNode,
-} from 'react'
 import { ThemeName, ThemeProvider } from '@lidofinance/lido-shared-ui'
 
 import cn from 'classnames'
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import styles from './Notification.module.css'
 
@@ -39,18 +34,32 @@ export const Notification = ({
   ...rest
 }: NotificationProps) => (
   <ThemeProvider themeName={ThemeName.dark}>
-    <div className={cn(styles.notification, className)} role='alert'  data-testid={dataTestId?.root}
-         {...rest}>
+    <div
+      className={cn(styles.notification, className)}
+      role='alert'
+      data-testid={dataTestId?.root}
+      {...rest}
+    >
       <div className={styles.content}>
         {subheader != null ? (
-          <div className={styles.subheader} data-testid={dataTestId?.subheader}>{subheader}</div>
+          <div className={styles.subheader} data-testid={dataTestId?.subheader}>
+            {subheader}
+          </div>
         ) : null}
-        <p className={styles.title}  data-testid={dataTestId?.title}>{title}</p>
+        <p className={styles.title} data-testid={dataTestId?.title}>
+          {title}
+        </p>
         {children != null ? (
-          <div className={styles.body} data-testid={dataTestId?.body}>{children}</div>
+          <div className={styles.body} data-testid={dataTestId?.body}>
+            {children}
+          </div>
         ) : null}
       </div>
-      {actions != null ? <div className={styles.actions} data-testid={dataTestId?.actions}>{actions}</div> : null}
+      {actions != null ? (
+        <div className={styles.actions} data-testid={dataTestId?.actions}>
+          {actions}
+        </div>
+      ) : null}
     </div>
   </ThemeProvider>
 )

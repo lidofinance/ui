@@ -120,7 +120,7 @@ export const RichInput = ({
   }
 
   return (
-    <div className={cn(styles.root, className)}    data-testid={dataTestId?.root}>
+    <div className={cn(styles.root, className)} data-testid={dataTestId?.root}>
       {/*
         Clicking the padding around the field focuses it — a pointer convenience
         on top of the real control. Keyboard users tab straight to the input.
@@ -132,7 +132,11 @@ export const RichInput = ({
       >
         {label != null ? (
           <span className={styles.labelRow}>
-            <label   data-testid={dataTestId?.label} className={styles.label} htmlFor={inputId}>
+            <label
+              data-testid={dataTestId?.label}
+              className={styles.label}
+              htmlFor={inputId}
+            >
               {label}
             </label>
             {labelTooltip != null ? (
@@ -165,11 +169,21 @@ export const RichInput = ({
         {hasBottomRow ? (
           <div className={styles.bottomRow}>
             {secondaryValue != null ? (
-              <span    data-testid={dataTestId?.secondaryValue} className={styles.secondary}>{secondaryValue}</span>
+              <span
+                data-testid={dataTestId?.secondaryValue}
+                className={styles.secondary}
+              >
+                {secondaryValue}
+              </span>
             ) : null}
             <div className={styles.balanceGroup}>
               {balance != null ? (
-                <span className={styles.balance}    data-testid={dataTestId?.balance}>{balance}</span>
+                <span
+                  className={styles.balance}
+                  data-testid={dataTestId?.balance}
+                >
+                  {balance}
+                </span>
               ) : null}
               {showMax ? (
                 maxTooltip != null ? (
@@ -181,7 +195,12 @@ export const RichInput = ({
                     <MaxTag onClick={onMaxClick}>Max</MaxTag>
                   </Tooltip>
                 ) : (
-                  <MaxTag data-testid={dataTestId?.maxButton} onClick={onMaxClick}>Max</MaxTag>
+                  <MaxTag
+                    data-testid={dataTestId?.maxButton}
+                    onClick={onMaxClick}
+                  >
+                    Max
+                  </MaxTag>
                 )
               ) : null}
             </div>
