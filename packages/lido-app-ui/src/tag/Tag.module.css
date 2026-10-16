@@ -62,7 +62,7 @@
 
 .neutral {
   --local-bg: var(--lido-app-ui-color-tint-neutral);
-  --local-bg-hover: var(--lido-app-ui-color-background-secondary-hover);
+  --local-bg-hover: var(--lido-app-ui-color-tint-neutral-hover);
   --local-text: var(--lido-app-ui-color-text-tertiary);
   --local-border-active: var(--lido-app-ui-color-border-tertiary);
 }
