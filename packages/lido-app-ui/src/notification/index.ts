@@ -1,8 +1,2 @@
-export { Notification, NotificationButton } from './Notification'
-export type {
-  NotificationProps,
-  NotificationDataTestId,
-  NotificationButtonProps,
-  NotificationButtonVariant,
-  NotificationButtonDataTestId,
-} from './Notification'
+export { Notification } from './Notification'
+export type { NotificationProps, NotificationDataTestId } from './Notification'

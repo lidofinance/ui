@@ -61,20 +61,32 @@
 
 .root.disabled {
   cursor: not-allowed;
-  background-color: var(--lido-app-ui-color-background-default);
+  background-color: var(--lido-app-ui-color-background-disabled);
 }
 
 .root.disabled:hover {
-  background-color: var(--lido-app-ui-color-background-default);
+  background-color: var(--lido-app-ui-color-background-disabled);
 }
 
 .default {
+  .input {
+    font-size: var(--lido-app-ui-font-size-body);
+    line-height: var(--lido-app-ui-line-height-body);
+  }
+
+  height: 52px;
   gap: 12px;
   padding: 12px 16px;
   border-radius: var(--lido-app-ui-border-radius-card);
 }
 
 .small {
+  .input {
+    font-size: var(--lido-app-ui-font-size-label);
+    line-height: var(--lido-app-ui-line-height-label);
+  }
+
+  height: 36px;
   gap: 8px;
   padding: 6px 16px;
   border-radius: 32px;
@@ -92,26 +104,18 @@
   letter-spacing: var(--lido-app-ui-letter-spacing-body);
 }
 
-.default .input {
-  font-size: var(--lido-app-ui-font-size-body);
-  line-height: var(--lido-app-ui-line-height-body);
-}
-
-.small .input {
-  font-size: var(--lido-app-ui-font-size-label);
-  line-height: var(--lido-app-ui-line-height-label);
-}
-
 .input::placeholder {
   color: var(--lido-app-ui-color-text-tertiary);
 }
 
 .input:disabled {
-  color: var(--lido-app-ui-color-text-disabled);
+  color: var(--lido-app-ui-color-text-secondary);
+  cursor: not-allowed;
 }
 
 .input:disabled::placeholder {
-  color: var(--lido-app-ui-color-text-disabled);
+  color: var(--lido-app-ui-color-text-secondary);
+  cursor: not-allowed;
 }
 
 .icon {

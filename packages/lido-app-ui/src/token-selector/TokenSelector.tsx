@@ -201,16 +201,16 @@ export const TokenSelector = ({
                   onClick={() => handleOptionClick(option)}
                   data-testid={option.dataTestId?.root}
                 >
-                  {option.icon ? (
-                    <span
-                      className={styles.icon}
-                      data-testid={option.dataTestId?.icon}
-                    >
-                      {option.icon}
-                    </span>
-                  ) : null}
                   <span className={styles.optionContent}>
                     <span className={styles.optionRow}>
+                      {option.icon ? (
+                        <span
+                          className={styles.icon}
+                          data-testid={option.dataTestId?.icon}
+                        >
+                          {option.icon}
+                        </span>
+                      ) : null}
                       <span
                         className={styles.label}
                         data-testid={option.dataTestId?.label}

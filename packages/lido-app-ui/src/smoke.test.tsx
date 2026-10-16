@@ -71,7 +71,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['Notification', () => <Notification title='Saved' />],
   ['RadioButton', () => <RadioButton label='Option' />],
-  ['RichInput', () => <RichInput label='Amount' error='Too much' />],
+  ['RichInput', () => <RichInput label='Amount' error errorText='Too much' />],
   ['SectionTitle', () => <SectionTitle title='Choose a token' />],
   ['Segment', () => <Segment active>Tab</Segment>],
   [

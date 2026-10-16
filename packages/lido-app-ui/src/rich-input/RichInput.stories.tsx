@@ -36,16 +36,20 @@ const meta: Meta<typeof RichInput> = {
     },
     tokenSelector: { description: 'Slot for a `TokenSelector`' },
     error: {
-      description: 'Message under the field; also recolours the values',
+      description: 'Marks the card as invalid and recolours the balance',
     },
+    errorText: { description: 'Message under the field' },
     maxTooltip: { description: 'Explains what Max actually fills in' },
+    maxDisabled: {
+      description: 'Disables the Max shortcut, leaving the field editable',
+    },
   },
   parameters: {
     layout: 'padded',
     docs: {
       description: {
         component:
-          'The amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card. Input is filtered to decimals as you type. `disabled` dims the card and hides the Max shortcut.',
+          'The amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card. Input is filtered to decimals as you type. `disabled` dims the card and hides the Max shortcut; `maxDisabled` only dims the Max shortcut.',
       },
     },
   },
@@ -99,7 +103,8 @@ export const States: Story = {
       <RichInput
         label='Error'
         defaultValue='99'
-        error='Amount exceeds your balance'
+        error
+        errorText='Amount exceeds your balance'
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}
       />
@@ -109,6 +114,13 @@ export const States: Story = {
         balance='Balance: 12.4218'
         maxTooltip='Leaves a small amount of ETH to cover gas.'
         tokenSelector={tokenSelector}
+      />
+      <RichInput
+        label='Max disabled'
+        defaultValue='4.2'
+        balance='Balance: 12.4218'
+        tokenSelector={tokenSelector}
+        maxDisabled
       />
       <RichInput
         label='With label tooltip'

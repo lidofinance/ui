@@ -38,7 +38,7 @@ const meta: Meta<typeof Tooltip> = {
     docs: {
       description: {
         component:
-          'The bubble is a sibling revealed on `:hover` and `:focus-within` — no portal. It measures itself on hover/focus and flips or slides to stay inside the viewport, so it never gets clipped near a screen edge; it can still be clipped by an ancestor with `overflow: clip` — inside `Modal`, open it downwards.',
+          'The bubble is rendered into a portal on `document.body`, so an ancestor with `overflow: clip` (a card, a `Modal`) can never cut it off. It measures itself on open and flips or slides to stay inside the viewport.',
       },
     },
   },
@@ -128,6 +128,41 @@ export const RichContent: Story = {
       description: {
         story:
           'The bubble stacks arbitrary content in a column with an 8px gap — pass a title plus a paragraph/list as `content` for richer bubbles like this one.',
+      },
+    },
+  },
+}
+
+export const ClippedAncestor: Story = {
+  render: () => (
+    <div
+      style={{
+        width: 160,
+        height: 80,
+        overflow: 'clip',
+        border: '1px dashed rgba(255, 255, 255, 0.3)',
+        borderRadius: 8,
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        padding: 12,
+      }}
+    >
+      <Tooltip
+        position='bottom-right'
+        content="Portaled to document.body, so this card's overflow: clip can't cut it off."
+      >
+        <IconInfo />
+      </Tooltip>
+    </div>
+  ),
+  parameters: {
+    layout: 'padded',
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          "The dashed box clips its own overflow, and the trigger sits right at its bottom-right corner — exactly where a non-portaled bubble would get cut off. Hover it: the bubble still renders in full outside the box, because it's portaled to `document.body` instead of being laid out inside the clipping ancestor.",
       },
     },
   },

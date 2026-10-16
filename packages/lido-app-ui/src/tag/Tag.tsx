@@ -21,28 +21,30 @@ export type TagDataTestId = {
   closeButton?: string
 }
 
+export type TagIconPosition = 'left' | 'right'
+
 export type TagProps = HTMLAttributes<HTMLSpanElement> & {
   variant?: TagVariant
+  active?: boolean
   icon?: ReactNode
+  iconPosition?: TagIconPosition
   onClose?: () => void
   dataTestId?: TagDataTestId
 }
 
 export const Tag = ({
   variant = 'default',
+  active = false,
   icon,
+  iconPosition = 'left',
   onClose,
   className,
   children,
   dataTestId,
   ...rest
-}: TagProps) => (
-  <span
-    className={cn(styles.tag, styles[variant], className)}
-    data-testid={dataTestId?.root}
-    {...rest}
-  >
-    {icon != null ? (
+}: TagProps) => {
+  const iconElement =
+    icon != null ? (
       <span
         className={styles.icon}
         aria-hidden='true'
@@ -50,18 +52,33 @@ export const Tag = ({
       >
         {icon}
       </span>
-    ) : null}
-    {children}
-    {onClose ? (
-      <button
-        type='button'
-        className={styles.closeButton}
-        aria-label='Remove'
-        onClick={onClose}
-        data-testid={dataTestId?.closeButton}
-      >
-        <IconCross aria-hidden='true' />
-      </button>
-    ) : null}
-  </span>
-)
+    ) : null
+
+  return (
+    <span
+      className={cn(
+        styles.tag,
+        styles[variant],
+        active && styles.isActive,
+        className,
+      )}
+      data-testid={dataTestId?.root}
+      {...rest}
+    >
+      {iconPosition === 'left' ? iconElement : null}
+      {children}
+      {iconPosition === 'right' ? iconElement : null}
+      {onClose ? (
+        <button
+          type='button'
+          className={styles.closeButton}
+          aria-label='Remove'
+          onClick={onClose}
+          data-testid={dataTestId?.closeButton}
+        >
+          <IconCross aria-hidden='true' className={styles.crossIcon} />
+        </button>
+      ) : null}
+    </span>
+  )
+}

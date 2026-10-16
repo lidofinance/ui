@@ -5,12 +5,11 @@
 }
 
 .content {
-  position: absolute;
-  z-index: 10;
+  position: fixed;
+  z-index: 1100;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  visibility: hidden;
   opacity: 0;
   width: max-content;
   max-width: var(--local-tooltip-width, 320px);
@@ -25,76 +24,11 @@
 
   word-break: break-word;
   pointer-events: none;
-  transition:
-    opacity 0.2s ease,
-    visibility 0s linear 0.2s;
+  transition: opacity 0.2s ease;
 }
 
-.wrapper:hover .content,
-.wrapper:focus-within .content {
-  visibility: visible;
+/* Set once the position is measured and applied, so the bubble never flashes
+   at its initial (0,0) spot before the layout effect places it. */
+.content[data-placed='true'] {
   opacity: 1;
-  transition:
-    opacity 0.2s ease,
-    visibility 0s linear 0s;
-}
-
-.position-top {
-  bottom: 100%;
-  left: 50%;
-  margin-bottom: 8px;
-  transform: translateX(calc(-50% + var(--local-tooltip-shift-x, 0)));
-}
-
-.position-bottom {
-  top: 100%;
-  left: 50%;
-  margin-top: 8px;
-  transform: translateX(calc(-50% + var(--local-tooltip-shift-x, 0)));
-}
-
-.position-left {
-  right: 100%;
-  top: 50%;
-  margin-right: 8px;
-  transform: translateY(calc(-50% + var(--local-tooltip-shift-y, 0px)));
-}
-
-.position-right {
-  left: 100%;
-  top: 50%;
-  margin-left: 8px;
-  transform: translateY(calc(-50% + var(--local-tooltip-shift-y, 0px)));
-}
-
-.position-top-left {
-  bottom: 100%;
-  right: 100%;
-  margin-bottom: 2px;
-  margin-right: 2px;
-  transform: translateX(var(--local-tooltip-shift-x, 0));
-}
-
-.position-top-right {
-  bottom: 100%;
-  left: 100%;
-  margin-bottom: 2px;
-  margin-left: 2px;
-  transform: translateX(var(--local-tooltip-shift-x, 0));
-}
-
-.position-bottom-left {
-  top: 100%;
-  right: 100%;
-  margin-top: 2px;
-  margin-right: 2px;
-  transform: translateX(var(--local-tooltip-shift-x, 0));
-}
-
-.position-bottom-right {
-  top: 100%;
-  left: 100%;
-  margin-top: 2px;
-  margin-left: 2px;
-  transform: translateX(var(--local-tooltip-shift-x, 0));
 }

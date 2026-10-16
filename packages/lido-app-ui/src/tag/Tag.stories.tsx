@@ -27,7 +27,16 @@ const meta: Meta<typeof Tag> = {
       control: { type: 'select' },
     },
     children: { description: 'Tag label', control: { type: 'text' } },
-    icon: { description: 'Optional glyph rendered before the label' },
+    active: {
+      description: 'Shows the variant-coloured active border',
+      control: { type: 'boolean' },
+    },
+    icon: { description: 'Optional glyph rendered next to the label' },
+    iconPosition: {
+      description: 'Side the icon renders on',
+      options: ['left', 'right'],
+      control: { type: 'inline-radio' },
+    },
     onClose: {
       description: 'Renders a trailing close button when provided',
     },
@@ -47,41 +56,95 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
 
+const VARIANTS = [
+  'default',
+  'neutral',
+  'success',
+  'warning',
+  'error',
+  'info',
+  'active',
+  'action',
+] as const
+
 export const Variants: Story = {
   render: () => (
-    <StorySection>
-      <Tag variant='default'>Tag</Tag>
-      <Tag variant='neutral'>Tag</Tag>
-      <Tag variant='success'>Tag</Tag>
-      <Tag variant='warning'>Tag</Tag>
-      <Tag variant='error'>Tag</Tag>
-      <Tag variant='info'>Tag</Tag>
-      <Tag variant='active'>Tag</Tag>
-      <Tag variant='action'>Tag</Tag>
-    </StorySection>
+    <>
+      <StorySection style={{ marginBottom: '1rem' }} title={'Regular'}>
+        {VARIANTS.map((variant) => (
+          <Tag key={variant} variant={variant}>
+            Tag
+          </Tag>
+        ))}
+      </StorySection>
+      <StorySection title={'Active '}>
+        {VARIANTS.map((variant) => (
+          <Tag key={`${variant}-active`} variant={variant} active>
+            Tag
+          </Tag>
+        ))}
+      </StorySection>
+    </>
   ),
-  parameters: { controls: { disable: true } },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Every variant, then the same variants with `active` — it adds a variant-coloured border for a selected/pressed tag, independent of `variant`.',
+      },
+    },
+  },
 }
 
 export const WithIcon: Story = {
-  args: {
-    icon: <IconInfo />,
-    children: 'Tag',
-  },
+  render: () => (
+    <StorySection>
+      <Tag icon={<IconInfo />}>Tag</Tag>
+      <Tag icon={<IconInfo />} iconPosition='right'>
+        Tag
+      </Tag>
+    </StorySection>
+  ),
   parameters: {
+    controls: { disable: true },
     docs: {
       description: {
-        story: 'The icon inherits the variant colour through `currentColor`.',
+        story:
+          'The icon inherits the variant colour through `currentColor`. `iconPosition` picks which side it renders on.',
       },
     },
   },
 }
 
 export const Removable: Story = {
-  args: {
-    children: 'Tag',
-    onClose: () => undefined,
-  },
+  render: () => (
+    <StorySection>
+      {VARIANTS.map((variant) => (
+        <StorySection
+          key={variant}
+          style={{ flexDirection: 'column', alignItems: 'flex-start' }}
+          title={variant}
+        >
+          <Tag variant={variant} onClose={() => undefined}>
+            Tag
+          </Tag>
+          <Tag variant={variant} icon={<IconInfo />} onClose={() => undefined}>
+            Tag
+          </Tag>
+          <Tag
+            variant={variant}
+            icon={<IconInfo />}
+            iconPosition='right'
+            onClose={() => undefined}
+          >
+            Tag
+          </Tag>
+        </StorySection>
+      ))}
+    </StorySection>
+  ),
+
   parameters: {
     docs: {
       description: {
