@@ -1,0 +1,40 @@
+.button {
+  --local-border-width: 1px;
+  --local-bg: var(--lido-app-ui-color-background-surface);
+  --local-border-color: var(--lido-app-ui-color-border-default);
+
+  @mixin font-body;
+
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 36px;
+  padding: calc(4px - var(--local-border-width));
+  padding-inline-end: calc(12px - var(--local-border-width));
+  border: var(--local-border-width) solid var(--local-border-color);
+  border-radius: var(--lido-app-ui-border-radius-button-50);
+  background-color: var(--local-bg);
+  color: var(--lido-app-ui-color-text-default);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-surface-hover);
+  --local-border-color: var(--lido-app-ui-color-border-active);
+}
+
+.button:disabled {
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-border-width: 0px;
+
+  cursor: not-allowed;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
