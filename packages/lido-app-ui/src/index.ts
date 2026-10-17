@@ -1,6 +1,7 @@
 export * from './icons'
 
 export * from './accordion'
+export * from './address'
 export * from './badge'
 export * from './banner'
 export * from './button'
