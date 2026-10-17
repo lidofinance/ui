@@ -1,2 +1,6 @@
 export { SectionTitle } from './SectionTitle'
-export type { SectionTitleProps, SectionTitleDataTestId } from './SectionTitle'
+export type {
+  SectionTitleProps,
+  SectionTitleDataTestId,
+  SectionTitleSize,
+} from './SectionTitle'

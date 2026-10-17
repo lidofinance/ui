@@ -15,6 +15,11 @@ const meta: Meta<typeof SectionTitle> = {
   argTypes: {
     title: { control: { type: 'text' } },
     subtitle: { control: { type: 'text' } },
+    size: { control: { type: 'inline-radio' }, options: ['default', 'large'] },
+    titleAs: {
+      control: { type: 'select' },
+      options: [undefined, 'p', 'h1', 'h2', 'h3'],
+    },
   },
   render: (args) => (
     <div style={{ width: 620 }}>
@@ -92,5 +97,14 @@ export const WithTooltipAndAction: Story = {
         story: '`tooltip` and `action` can be turned on at the same time.',
       },
     },
+  },
+}
+
+export const LargeSize: Story = {
+  args: {
+    size: 'large',
+    title: 'Tools',
+    subtitle: undefined,
+    action: <Button size='small'>All</Button>,
   },
 }
