@@ -3,6 +3,7 @@ import { ThemeToggler as SharedThemeToggler } from '@lidofinance/lido-shared-ui'
 export * from './icons'
 
 export * from './accordion'
+export * from './address'
 export * from './badge'
 export * from './banner'
 export * from './breadcrumbs'
