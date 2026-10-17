@@ -23,6 +23,12 @@
   --local-bg: var(--lido-app-ui-color-icons-tertiary);
 }
 
+.default,
+.error {
+  font-weight: var(--lido-app-ui-font-weight-bold);
+  line-height: 22px;
+}
+
 .error {
   --local-bg: var(--lido-app-ui-color-icons-error);
 }
