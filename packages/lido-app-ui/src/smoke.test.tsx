@@ -8,6 +8,7 @@ import { Banner } from './banner'
 import { Button } from './button'
 import { Card } from './card'
 import { Checkbox } from './checkbox'
+import { Copy } from './copy'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { IconButton } from './icon-button'
@@ -48,6 +49,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Button', () => <Button>Connect</Button>],
   ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
+  ['Copy', () => <Copy text='0x56f4a7b2c9d1e8f3a6b5c4d3e2f1a0b9c8d7c12e' />],
   ['Counter', () => <Counter>1</Counter>],
   [
     'DataList',
