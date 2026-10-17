@@ -10,6 +10,7 @@ import { Card } from './card'
 import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
+import { Divider } from './divider'
 import { Grid, GridItem } from './grid'
 import { Hidden } from './hidden'
 import { IconButton } from './icon-button'
@@ -61,6 +62,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       </DataList>
     ),
   ],
+  ['Divider', () => <Divider />],
   [
     'Grid',
     () => (

@@ -1,0 +1,13 @@
+.root {
+  flex-shrink: 0;
+  align-self: stretch;
+  background-color: var(--lido-app-ui-color-border-default);
+}
+
+.horizontal {
+  height: 1px;
+}
+
+.vertical {
+  width: 1px;
+}
