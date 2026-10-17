@@ -38,6 +38,7 @@ import {
   SegmentedControlCard,
 } from './segmented-control'
 import { Skeleton } from './skeleton'
+import { SkipLink } from './skip-link'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
 import { Stack } from './stack'
@@ -159,6 +160,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Skeleton', () => <Skeleton />],
+  ['SkipLink', () => <SkipLink />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
     'SmallCard',

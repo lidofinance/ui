@@ -137,6 +137,7 @@
 
   /* Shadows */
   --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
+  --lido-app-ui-shadow-popover: 0 0 10px rgb(0 0 0 / 10%);
 
   /* Horizontal page padding for page-level shells */
   --lido-app-ui-page-gutter: 52px;
