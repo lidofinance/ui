@@ -1,0 +1,88 @@
+.root {
+  box-sizing: border-box;
+  display: grid;
+
+  /* Each breakpoint falls back to the next wider one; redeclared per root so ancestors' values never leak. */
+  --local-columns: minmax(0, 1fr);
+  --local-columns-lg: var(--local-columns);
+  --local-columns-ml: var(--local-columns-lg);
+  --local-columns-md: var(--local-columns-ml);
+  --local-columns-sm: var(--local-columns-md);
+  --local-columns-xs: var(--local-columns-sm);
+  --local-columns-xxs: var(--local-columns-xs);
+  --local-row-gap: 0;
+  --local-row-gap-lg: var(--local-row-gap);
+  --local-row-gap-ml: var(--local-row-gap-lg);
+  --local-row-gap-md: var(--local-row-gap-ml);
+  --local-row-gap-sm: var(--local-row-gap-md);
+  --local-row-gap-xs: var(--local-row-gap-sm);
+  --local-row-gap-xxs: var(--local-row-gap-xs);
+  --local-column-gap: 0;
+  --local-column-gap-lg: var(--local-column-gap);
+  --local-column-gap-ml: var(--local-column-gap-lg);
+  --local-column-gap-md: var(--local-column-gap-ml);
+  --local-column-gap-sm: var(--local-column-gap-md);
+  --local-column-gap-xs: var(--local-column-gap-sm);
+  --local-column-gap-xxs: var(--local-column-gap-xs);
+
+  grid-template-columns: var(--local-columns);
+  gap: var(--local-row-gap) var(--local-column-gap);
+}
+
+.alignStart {
+  align-items: start;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.alignEnd {
+  align-items: end;
+}
+
+.alignStretch {
+  align-items: stretch;
+}
+
+@media (--lido-app-ui-breakpoint-lg-down) {
+  .root {
+    grid-template-columns: var(--local-columns-lg);
+    gap: var(--local-row-gap-lg) var(--local-column-gap-lg);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-ml-down) {
+  .root {
+    grid-template-columns: var(--local-columns-ml);
+    gap: var(--local-row-gap-ml) var(--local-column-gap-ml);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-md-down) {
+  .root {
+    grid-template-columns: var(--local-columns-md);
+    gap: var(--local-row-gap-md) var(--local-column-gap-md);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-sm-down) {
+  .root {
+    grid-template-columns: var(--local-columns-sm);
+    gap: var(--local-row-gap-sm) var(--local-column-gap-sm);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-xs-down) {
+  .root {
+    grid-template-columns: var(--local-columns-xs);
+    gap: var(--local-row-gap-xs) var(--local-column-gap-xs);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-xxs-down) {
+  .root {
+    grid-template-columns: var(--local-columns-xxs);
+    gap: var(--local-row-gap-xxs) var(--local-column-gap-xxs);
+  }
+}

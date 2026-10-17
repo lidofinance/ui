@@ -1,6 +1,8 @@
 export {
   capitalize,
   getResponsiveProps,
+  mergeResponsive,
+  responsiveVars,
   spaceToCss,
   spaces,
 } from './responsive'

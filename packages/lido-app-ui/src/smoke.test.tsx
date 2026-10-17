@@ -10,6 +10,7 @@ import { Card } from './card'
 import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
+import { Grid, GridItem } from './grid'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
@@ -57,6 +58,14 @@ const cases: Array<[string, () => JSX.Element]> = [
         <DataListRow label='Rate' value='1:1' info='tooltip' />
         <DataListRow label='Change' value={{ from: '1%', to: '2%' }} />
       </DataList>
+    ),
+  ],
+  [
+    'Grid',
+    () => (
+      <Grid columns={2}>
+        <GridItem span='full'>A</GridItem>
+      </Grid>
     ),
   ],
   [
