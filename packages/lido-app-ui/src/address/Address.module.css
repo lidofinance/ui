@@ -1,0 +1,14 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+}
+
+.identicon {
+  margin-inline-end: 2px;
+}
+
+.identiconLarge {
+  margin-inline-end: 4px;
+}

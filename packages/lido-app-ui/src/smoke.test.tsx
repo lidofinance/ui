@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 
 import { Accordion } from './accordion'
+import { Address } from './address'
 import { Badge } from './badge'
 import { Banner } from './banner'
 import { Breadcrumbs } from './breadcrumbs'
@@ -64,6 +65,17 @@ const RouterLink: LinkComponent = ({ children, ...props }) => (
 // crash — which type-checking alone does not.
 const cases: Array<[string, () => JSX.Element]> = [
   ['Accordion', () => <Accordion title='Section'>Content</Accordion>],
+  [
+    'Address',
+    () => (
+      <Address
+        address='0x56f4a7b2c9d1e8f3a6b5c4d3e2f1a0b9c8d7c12e'
+        identicon={16}
+        tooltip
+        copy
+      />
+    ),
+  ],
   ['Badge', () => <Badge>Badge text</Badge>],
   ['Banner', () => <Banner title='Heads up' />],
   ['Button', () => <Button>Connect</Button>],
