@@ -47,6 +47,17 @@ export default {
 
     const customConfig = { ...config }
 
+    const hmrClient = path.join(packageRoot, '.storybook/hmr-client.js')
+    const swapHmrClient = (entry: string) => {
+      const at = entry.indexOf('webpack-hot-middleware/client')
+      return at === -1 ? entry : hmrClient + entry.slice(entry.indexOf('?', at))
+    }
+    if (Array.isArray(customConfig.entry)) {
+      customConfig.entry = customConfig.entry.map((e: unknown) =>
+        typeof e === 'string' ? swapHmrClient(e) : e,
+      )
+    }
+
     if (process.env.PUBLIC_PATH) {
       customConfig.output = {
         ...customConfig.output,
