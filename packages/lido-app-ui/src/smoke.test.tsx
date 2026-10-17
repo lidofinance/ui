@@ -11,6 +11,7 @@ import { Checkbox } from './checkbox'
 import { Copy } from './copy'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
+import { Hex } from './hex'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
@@ -60,6 +61,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       </DataList>
     ),
   ],
+  ['Hex', () => <Hex value='0x56f4a7b2c9d1e8f3a6b5c4d3e2f1a0b9c8d7c12e' />],
   [
     'IconButton',
     () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,
