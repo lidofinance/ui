@@ -1,12 +1,11 @@
 import type { Decorator } from '@storybook/react'
 import { CookieThemeProvider, ThemeName } from '@lidofinance/lido-shared-ui'
-import { ThemeToggleButton } from './ThemeToggleButton'
+import { ThemeSwitcher } from '../../src/theme-switcher'
 
 // Drives the theme from the toolbar's `themeOverride` global (see
 // preview.tsx) instead of pinning to light, so stories can be checked in
-// both themes without leaving Storybook. Also renders a toggle button on
-// the story itself, same as lido-landing-ui's decorator, for a one-click
-// flip without touching the toolbar.
+// both themes without leaving Storybook. Also renders a ThemeSwitcher on
+// the story itself for a one-click flip without touching the toolbar.
 export const WithThemeProvider: Decorator = (
   Story,
   { globals, parameters },
@@ -34,7 +33,7 @@ export const WithThemeProvider: Decorator = (
           background: background,
         }}
       >
-        <ThemeToggleButton />
+        <ThemeSwitcher />
       </div>
 
       <div
