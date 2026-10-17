@@ -1,0 +1,91 @@
+import { forwardRef, type HTMLAttributes, type Ref } from 'react'
+
+import cn from 'classnames'
+
+import { ActionElement, type ActionElementProps } from '../utils'
+import styles from './Logo.module.css'
+
+export type LogoVariant = 'full' | 'compact' | 'auto'
+
+export type LogoProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
+  variant?: LogoVariant
+  product?: string
+  href?: string
+}
+
+const DROPLET = (
+  <svg
+    className={styles.droplet}
+    viewBox='38 26 23 32'
+    fill='currentColor'
+    aria-hidden='true'
+  >
+    <path
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M49.485 26L57.6 38.398l-8.116 4.613-8.117-4.613L49.485 26zM43.85 37.81l5.634-8.602 5.633 8.601-5.633 3.201-5.634-3.2z'
+    />
+    <path d='M49.478 45.736l-9.416-5.35-.255.39c-2.896 4.428-2.25 10.226 1.554 13.945 4.48 4.372 11.747 4.372 16.233 0 3.812-3.719 4.458-9.517 1.554-13.945l-.254-.39-9.416 5.35z' />
+  </svg>
+)
+
+const WORDMARK = (
+  <span className={styles.wordmark}>
+    <svg
+      className={styles.wordmarkSvg}
+      viewBox='61 26 101 32'
+      fill='currentColor'
+      aria-hidden='true'
+    >
+      <path d='M90.17 50.449H79.462V33.551h3.267v13.917h7.441v2.981zm16.422 0h-3.267V33.551h3.267V50.45zm13.242 0V33.551h5.597c.85 0 1.54.029 2.062.093 1.351.156 2.519.624 3.492 1.398.988.773 1.735 1.767 2.244 2.98.515 1.207.769 2.534.769 3.982 0 1.448-.254 2.775-.769 3.988-.516 1.207-1.264 2.193-2.244 2.967-.98.773-2.141 1.242-3.492 1.398-.53.064-1.219.092-2.062.092h-5.597zm5.597-3.002c.85 0 1.474-.043 1.873-.12a3.218 3.218 0 001.801-1.001 5.002 5.002 0 001.082-1.923 7.97 7.97 0 00.363-2.406 7.96 7.96 0 00-.371-2.442c-.239-.76-.602-1.398-1.096-1.916a3.123 3.123 0 00-1.779-.972c-.399-.078-1.023-.12-1.873-.12h-2.279V47.44h2.279v.007zm28.191 3.357c-1.707 0-3.188-.362-4.458-1.093a7.432 7.432 0 01-2.919-3.102c-.675-1.327-1.009-2.867-1.009-4.613 0-1.745.334-3.285 1.009-4.613.683-1.327 1.656-2.356 2.919-3.087 1.263-.738 2.751-1.1 4.458-1.1 1.706 0 3.187.37 4.457 1.1a7.27 7.27 0 012.904 3.087c.683 1.328 1.024 2.868 1.024 4.613 0 1.746-.341 3.286-1.024 4.613-.675 1.328-1.641 2.364-2.904 3.102-1.263.73-2.751 1.093-4.457 1.093zm.094-3.002c1.06 0 1.946-.242 2.664-.717.719-.476 1.264-1.15 1.619-2.016.363-.865.538-1.887.538-3.065 0-1.817-.422-3.237-1.271-4.259-.849-1.021-2.098-1.54-3.746-1.54-1.06 0-1.946.242-2.664.717-.719.476-1.264 1.15-1.619 2.016-.363.865-.538 1.887-.538 3.066 0 1.816.421 3.236 1.271 4.258.849 1.022 2.098 1.54 3.746 1.54z' />
+    </svg>
+  </span>
+)
+
+export const Logo = forwardRef<HTMLElement, LogoProps>(
+  ({ variant = 'full', product, href, onClick, className, ...rest }, ref) => {
+    const label = product ? `Lido ${product}` : 'Lido'
+    const content = (
+      <>
+        <span className={styles.mark}>
+          {DROPLET}
+          {variant === 'compact' ? null : WORDMARK}
+        </span>
+        {product ? (
+          <>
+            <span className={styles.divider} aria-hidden='true' />
+            <span className={styles.product}>{product}</span>
+          </>
+        ) : null}
+      </>
+    )
+    const classes = cn(styles.root, styles[variant], className)
+
+    if (href || onClick) {
+      return (
+        <ActionElement
+          ref={ref as Ref<HTMLAnchorElement | HTMLButtonElement>}
+          className={cn(classes, styles.interactive)}
+          aria-label={label}
+          {...({ href, onClick, ...rest } as ActionElementProps)}
+        >
+          {content}
+        </ActionElement>
+      )
+    }
+
+    return (
+      <span
+        ref={ref as Ref<HTMLSpanElement>}
+        role='img'
+        aria-label={label}
+        className={classes}
+        {...rest}
+      >
+        {content}
+      </span>
+    )
+  },
+)
+
+Logo.displayName = 'Logo'

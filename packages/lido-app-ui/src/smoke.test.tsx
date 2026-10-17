@@ -21,6 +21,7 @@ import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
 import { LinkProvider, type LinkComponent } from './link-provider'
+import { Logo } from './logo'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { NavLink } from './nav-link'
@@ -113,6 +114,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       </LinkProvider>
     ),
   ],
+  ['Logo', () => <Logo />],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['NavLink', () => <NavLink href='/a'>Link</NavLink>],
