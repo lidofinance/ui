@@ -20,6 +20,7 @@ export * from './section-title'
 export * from './segmented-control'
 export * from './slider'
 export * from './small-card'
+export * from './stack'
 export * from './stat-item'
 export * from './switch'
 export * from './tabs'
@@ -30,6 +31,7 @@ export * from './token-selector'
 export * from './tooltip'
 export * from './tx-status'
 export * from './typography'
+export type { Breakpoint, Responsive, Space } from './utils'
 
 // Everything lido-shared-ui exposes is re-exported, so app products get the
 // same non-production banner and theming primitives as the landing. Their
