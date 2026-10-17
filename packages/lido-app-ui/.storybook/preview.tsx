@@ -11,7 +11,7 @@ export default {
       source: { type: 'dynamic' },
     },
     viewport: {
-      viewports: {
+      options: {
         px1440: {
           name: '1440px — desktop',
           styles: { width: '1440px', height: '900px' },
