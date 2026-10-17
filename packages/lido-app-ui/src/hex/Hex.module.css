@@ -1,0 +1,24 @@
+.root {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Selecting the trimmed text copies the full value from this overlay. */
+.overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: transparent;
+}
+
+.text {
+  user-select: none;
+  pointer-events: none;
+}
+
+.full {
+  min-width: 0;
+  white-space: normal;
+  word-break: break-all;
+}
