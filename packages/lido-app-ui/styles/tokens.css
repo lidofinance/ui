@@ -194,6 +194,7 @@
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-gray-200);
   --lido-app-ui-color-background-overlay: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-background-toast: var(--lido-app-ui-palette-black-a800);
 
   /* Semantic - Background / Elements */
   --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-white-a900);
@@ -368,6 +369,7 @@
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-black-a900);
   --lido-app-ui-color-background-overlay: var(--lido-app-ui-palette-black-a500);
+  --lido-app-ui-color-background-toast: var(--lido-app-ui-palette-black-a800);
 
   /* Semantic - Background / Elements */
   --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-gray-800);
