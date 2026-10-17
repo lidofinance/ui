@@ -48,3 +48,12 @@
 .action {
   flex-shrink: 0;
 }
+
+.large {
+  align-items: center;
+  min-height: var(--lido-app-ui-line-height-h2);
+}
+
+.large .title {
+  @mixin font-h2;
+}
