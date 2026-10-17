@@ -11,6 +11,7 @@ import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { Disclaimer } from './disclaimer'
+import { Footer } from './footer'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
@@ -60,6 +61,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Disclaimer', () => <Disclaimer>Text</Disclaimer>],
+  ['Footer', () => <Footer aside={<span>A</span>}>Left</Footer>],
   [
     'IconButton',
     () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,
