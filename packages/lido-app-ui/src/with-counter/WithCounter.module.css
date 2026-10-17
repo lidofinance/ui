@@ -1,0 +1,11 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.counter {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  pointer-events: none; /* corner clicks must reach the wrapped control */
+}
