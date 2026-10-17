@@ -3,13 +3,17 @@ import { describe, expect, it } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 
 import { Accordion } from './accordion'
+import { Address } from './address'
+import { AddressButton } from './address-button'
 import { Badge } from './badge'
 import { Banner } from './banner'
 import { Button } from './button'
 import { Card } from './card'
 import { Checkbox } from './checkbox'
+import { Copy } from './copy'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
+import { Hex } from './hex'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
@@ -43,11 +47,29 @@ import { Typography } from './typography'
 // crash — which type-checking alone does not.
 const cases: Array<[string, () => JSX.Element]> = [
   ['Accordion', () => <Accordion title='Section'>Content</Accordion>],
+  [
+    'Address',
+    () => (
+      <Address
+        address='0x56f4a7b2c9d1e8f3a6b5c4d3e2f1a0b9c8d7c12e'
+        identicon={16}
+        tooltip
+        copy
+      />
+    ),
+  ],
+  [
+    'AddressButton',
+    () => (
+      <AddressButton address='0x56f4a7c1d2e3b4a5968778695a4b3c2d1e0fc12e' />
+    ),
+  ],
   ['Badge', () => <Badge>Badge text</Badge>],
   ['Banner', () => <Banner title='Heads up' />],
   ['Button', () => <Button>Connect</Button>],
   ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
+  ['Copy', () => <Copy text='0x56f4a7b2c9d1e8f3a6b5c4d3e2f1a0b9c8d7c12e' />],
   ['Counter', () => <Counter>1</Counter>],
   [
     'DataList',
@@ -58,6 +80,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       </DataList>
     ),
   ],
+  ['Hex', () => <Hex value='0x56f4a7b2c9d1e8f3a6b5c4d3e2f1a0b9c8d7c12e' />],
   [
     'IconButton',
     () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,
