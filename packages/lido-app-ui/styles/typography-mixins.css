@@ -6,6 +6,14 @@
   letter-spacing: var(--lido-app-ui-letter-spacing-h1);
 }
 
+@define-mixin font-display {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-display);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: var(--lido-app-ui-line-height-display);
+  letter-spacing: var(--lido-app-ui-letter-spacing-display);
+}
+
 @define-mixin font-h2 {
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-h2);
