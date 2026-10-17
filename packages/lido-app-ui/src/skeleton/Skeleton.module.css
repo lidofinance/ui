@@ -1,0 +1,44 @@
+.pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.shape {
+  background-color: var(--lido-app-ui-color-background-disabled);
+  border-radius: 4px;
+}
+
+.text {
+  height: 14px;
+}
+
+.block {
+  height: 24px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--lido-app-ui-border-radius-pill);
+}
+
+.textStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.textStack > :last-child {
+  width: 60%;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+  }
+}
