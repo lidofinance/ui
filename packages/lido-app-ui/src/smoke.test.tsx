@@ -27,6 +27,7 @@ import {
 } from './segmented-control'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
+import { Stack } from './stack'
 import { StatItem } from './stat-item'
 import { Switch } from './switch'
 import { Tabs } from './tabs'
@@ -100,6 +101,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     'SmallCard',
     () => <SmallCard title='CSM Sentinel' href='https://lido.fi' />,
   ],
+  ['Stack', () => <Stack>Content</Stack>],
   ['StatItem', () => <StatItem label='TVL' value='1M' />],
   ['Switch', () => <Switch label='Enable' />],
   [
