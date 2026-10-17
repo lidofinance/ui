@@ -2,6 +2,7 @@ import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { Anchor } from '../link-provider/Anchor'
 import styles from './TextLink.module.css'
 
 export type TextLinkVariant = 'primary' | 'secondary'
@@ -33,7 +34,7 @@ export const TextLink = ({
   dataTestId,
   ...rest
 }: TextLinkProps) => (
-  <a
+  <Anchor
     className={cn(styles.link, styles[variant], className)}
     target={target ?? (external ? '_blank' : undefined)}
     rel={rel ?? (external ? 'noopener noreferrer' : undefined)}
@@ -54,5 +55,5 @@ export const TextLink = ({
         {icon}
       </span>
     ) : null}
-  </a>
+  </Anchor>
 )
