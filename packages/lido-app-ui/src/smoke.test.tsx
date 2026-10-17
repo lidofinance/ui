@@ -4,6 +4,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 
 import { Accordion } from './accordion'
 import { Address } from './address'
+import { AddressButton } from './address-button'
 import { Badge } from './badge'
 import { Banner } from './banner'
 import { Breadcrumbs } from './breadcrumbs'
@@ -76,6 +77,12 @@ const cases: Array<[string, () => JSX.Element]> = [
         tooltip
         copy
       />
+    ),
+  ],
+  [
+    'AddressButton',
+    () => (
+      <AddressButton address='0x56f4a7c1d2e3b4a5968778695a4b3c2d1e0fc12e' />
     ),
   ],
   ['Badge', () => <Badge>Badge text</Badge>],
