@@ -13,6 +13,7 @@ import { DataList, DataListRow } from './data-list'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
+import { Logo } from './logo'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { Notification } from './notification'
@@ -67,6 +68,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
   ['Input', () => <Input label='Amount' />],
+  ['Logo', () => <Logo />],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['Notification', () => <Notification title='Saved' />],
