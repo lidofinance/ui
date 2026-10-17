@@ -2,6 +2,7 @@ import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { Anchor } from '../link-provider/Anchor'
 import styles from './SmallCard.module.css'
 
 export type SmallCardDataTestId = {
@@ -41,7 +42,7 @@ export const SmallCard = ({
   dataTestId,
   ...rest
 }: SmallCardProps) => (
-  <a
+  <Anchor
     className={cn(styles.card, className)}
     data-testid={dataTestId?.root}
     {...rest}
@@ -82,5 +83,5 @@ export const SmallCard = ({
         {footer}
       </div>
     ) : null}
-  </a>
+  </Anchor>
 )
