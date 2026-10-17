@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 
-export type Breakpoint = 'lg' | 'ml' | 'md' | 'sm' | 'xs' | 'xxs'
+export const breakpoints = ['lg', 'ml', 'md', 'sm', 'xs', 'xxs'] as const
+export type Breakpoint = (typeof breakpoints)[number]
 
 type ResponsiveObject<T> = { base?: T } & Partial<Record<Breakpoint, T>>
 
@@ -10,8 +11,6 @@ export type Responsive<T> = T | ResponsiveObject<T>
 /** Spacing scale in px. */
 export const spaces = [0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 52] as const
 export type Space = (typeof spaces)[number]
-
-const breakpoints: Breakpoint[] = ['lg', 'ml', 'md', 'sm', 'xs', 'xxs']
 
 export const capitalize = (value: string) =>
   value.charAt(0).toUpperCase() + value.slice(1)

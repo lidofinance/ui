@@ -11,6 +11,7 @@ import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { Grid, GridItem } from './grid'
+import { Hidden } from './hidden'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
@@ -68,6 +69,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       </Grid>
     ),
   ],
+  ['Hidden', () => <Hidden below='sm'>Content</Hidden>],
   [
     'IconButton',
     () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,
