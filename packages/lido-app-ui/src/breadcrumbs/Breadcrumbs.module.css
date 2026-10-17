@@ -1,0 +1,115 @@
+.nav {
+  min-width: 0;
+}
+
+@property --lido-app-ui-breadcrumbs-fade-start {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --lido-app-ui-breadcrumbs-fade-end {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.list {
+  --lido-app-ui-breadcrumbs-fade-start: 0;
+  --lido-app-ui-breadcrumbs-fade-end: 0;
+
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  align-items: center;
+  gap: 8px;
+  margin: -4px;
+  padding: 4px;
+  list-style: none;
+  mask-image: linear-gradient(
+    to right,
+    rgb(0 0 0 / calc(1 - var(--lido-app-ui-breadcrumbs-fade-start))) 13px,
+    rgb(0 0 0) 36px,
+    rgb(0 0 0) calc(100% - 36px),
+    rgb(0 0 0 / calc(1 - var(--lido-app-ui-breadcrumbs-fade-end)))
+      calc(100% - 13px)
+  );
+  /* stylelint-disable custom-property-no-missing-var-function -- transition property names */
+  transition-property:
+    --lido-app-ui-breadcrumbs-fade-start, --lido-app-ui-breadcrumbs-fade-end;
+  /* stylelint-enable custom-property-no-missing-var-function */
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.list[data-fade-start] {
+  --lido-app-ui-breadcrumbs-fade-start: 1;
+}
+
+.list[data-fade-end] {
+  --lido-app-ui-breadcrumbs-fade-end: 1;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.item:last-child {
+  max-width: 100%;
+}
+
+.item:last-child:not(:first-child) {
+  max-width: calc(100% - 32px);
+}
+
+.label {
+  @mixin font-body-large-semibold;
+
+  --local-color: var(--lido-app-ui-color-text-tertiary);
+
+  max-width: 22em;
+  overflow: hidden;
+  color: var(--local-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.link {
+  margin: -2px -4px;
+  padding: 2px 4px;
+  border: none;
+  background: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.link:hover,
+.link:active {
+  --local-color: var(--lido-app-ui-color-text-secondary);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: -2px;
+}
+
+.current {
+  --local-color: var(--lido-app-ui-color-text-default);
+
+  min-width: 0;
+}
+
+.separator {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--lido-app-ui-color-icons-tertiary);
+}

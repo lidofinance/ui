@@ -5,6 +5,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { Accordion } from './accordion'
 import { Badge } from './badge'
 import { Banner } from './banner'
+import { Breadcrumbs } from './breadcrumbs'
 import { Button } from './button'
 import { Card } from './card'
 import { Checkbox } from './checkbox'
@@ -188,6 +189,10 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Tooltip', () => <Tooltip content='Hint'>trigger</Tooltip>],
   ['TxStatus', () => <TxStatus status='loading' title='Pending' />],
   ['Typography', () => <Typography variant='h1'>Heading</Typography>],
+  [
+    'Breadcrumbs',
+    () => <Breadcrumbs items={[{ label: 'A', href: '/a' }, { label: 'B' }]} />,
+  ],
 ]
 
 describe('component smoke render', () => {
