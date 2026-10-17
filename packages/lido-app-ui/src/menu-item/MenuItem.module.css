@@ -1,0 +1,68 @@
+.root {
+  --local-bg: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 12px;
+  border: 0;
+  border-radius: var(--lido-app-ui-border-radius-badge);
+  background-color: var(--local-bg);
+  color: var(--lido-app-ui-color-text-default);
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.root:hover,
+.active {
+  --local-bg: var(--lido-app-ui-color-background-surface-hover);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.root[aria-disabled='true'],
+.root:disabled {
+  opacity: var(--lido-app-ui-opacity-disabled-content);
+  pointer-events: none;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.avatar {
+  display: inline-flex;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.label {
+  @mixin font-body-semibold;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trailing {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+}
