@@ -193,6 +193,7 @@
 
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-gray-200);
+  --lido-app-ui-color-background-overlay: var(--lido-app-ui-palette-black-a400);
 
   /* Semantic - Background / Elements */
   --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-white-a900);
@@ -307,6 +308,10 @@
   /* Shadows */
   --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
 
+  /* Consumer chrome must stay below the modal layer so it cannot cover modals. */
+  --lido-app-ui-z-index-modal: 1000;
+  --lido-app-ui-z-index-tooltip: 1100;
+
   /* Interaction-state opacities */
   --lido-app-ui-opacity-pressed-content: 0.7;
   --lido-app-ui-opacity-disabled-content: 0.3;
@@ -360,6 +365,7 @@
 
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-black-a900);
+  --lido-app-ui-color-background-overlay: var(--lido-app-ui-palette-black-a500);
 
   /* Semantic - Background / Elements */
   --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-gray-800);

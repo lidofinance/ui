@@ -6,7 +6,7 @@
 
 .content {
   position: fixed;
-  z-index: 1100;
+  z-index: var(--lido-app-ui-z-index-tooltip);
   display: flex;
   flex-direction: column;
   gap: 8px;
