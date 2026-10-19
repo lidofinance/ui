@@ -1,24 +1,24 @@
-import { useEffect, type RefObject } from 'react'
+import { useEffect, useRef } from 'react'
 
+import { createLayerStack } from './overlayStack'
+
+const listenOutsideLayer = createLayerStack('pointerdown', { capture: true })
+
+/** Calls `onOutside` on pointerdown outside `element` while `enabled`; with nested overlays only the newest one handles outside clicks. */
 export const useOutsideClick = (
-  ref: RefObject<HTMLElement | null>,
+  element: HTMLElement | null,
   onOutside: () => void,
   enabled: boolean,
 ) => {
+  const handlerRef = useRef(onOutside)
+  handlerRef.current = onOutside
+
   useEffect(() => {
-    if (!enabled) return
+    if (!enabled || !element) return
 
-    const handlePointerDown = (event: PointerEvent) => {
-      const element = ref.current
-      if (!element) return
-      if (event.target instanceof Node && element.contains(event.target)) {
-        return
-      }
-      onOutside()
-    }
-
-    document.addEventListener('pointerdown', handlePointerDown, true)
-    return () =>
-      document.removeEventListener('pointerdown', handlePointerDown, true)
-  }, [ref, onOutside, enabled])
+    return listenOutsideLayer((event) => {
+      if (event.target instanceof Node && element.contains(event.target)) return
+      handlerRef.current()
+    })
+  }, [element, enabled])
 }

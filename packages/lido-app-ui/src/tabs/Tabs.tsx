@@ -1,5 +1,4 @@
 import {
-  useLayoutEffect,
   useRef,
   useState,
   type ComponentPropsWithoutRef,
@@ -9,6 +8,7 @@ import {
 import cn from 'classnames'
 
 import { Tab, type TabDataTestId } from './Tab'
+import { useIsomorphicLayoutEffect } from '../hooks'
 import styles from './Tabs.module.css'
 
 export type TabsDataTestId = {
@@ -43,7 +43,7 @@ export const Tabs = ({
   // Skip the transition on the first measurement so the bar doesn't fly in from 0,0.
   const [animated, setAnimated] = useState(false)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const updateSelection = () => {
       const button = activeButtonRef.current
       const container = containerRef.current
