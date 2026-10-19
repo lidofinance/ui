@@ -8,16 +8,14 @@ export type SkeletonVariant = 'text' | 'block' | 'circle'
 
 export type SkeletonProps = HTMLAttributes<HTMLDivElement> & {
   variant?: SkeletonVariant
-  width?: number | string
-  height?: number | string
   lines?: number
+  fill?: boolean
 }
 
 export const Skeleton = ({
   variant = 'block',
-  width,
-  height,
   lines = 1,
+  fill = false,
   className,
   style,
   ...rest
@@ -25,17 +23,18 @@ export const Skeleton = ({
   if (variant === 'text' && lines > 1) {
     return (
       <div
-        className={cn(styles.pulse, styles.textStack, className)}
-        style={{ width, ...style }}
+        className={cn(
+          styles.pulse,
+          styles.textStack,
+          fill && styles.fill,
+          className,
+        )}
+        style={style}
         aria-hidden='true'
         {...rest}
       >
         {Array.from({ length: lines }, (_, index) => (
-          <div
-            key={index}
-            className={cn(styles.shape, styles.text)}
-            style={{ height }}
-          />
+          <div key={index} className={cn(styles.shape, styles.text)} />
         ))}
       </div>
     )
@@ -43,12 +42,14 @@ export const Skeleton = ({
 
   return (
     <div
-      className={cn(styles.pulse, styles.shape, styles[variant], className)}
-      style={{
-        width: width ?? (variant === 'circle' ? height : undefined),
-        height,
-        ...style,
-      }}
+      className={cn(
+        styles.pulse,
+        styles.shape,
+        styles[variant],
+        fill && styles.fill,
+        className,
+      )}
+      style={style}
       aria-hidden='true'
       {...rest}
     />

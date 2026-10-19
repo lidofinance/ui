@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { Skeleton } from './Skeleton'
+import styles from './Skeleton.module.css'
 
 const renderRoot = (ui: JSX.Element) =>
   render(ui).container.firstChild as HTMLElement
@@ -10,12 +11,6 @@ describe('Skeleton', () => {
   it('is hidden from assistive tech', () => {
     const root = renderRoot(<Skeleton />)
     expect(root.getAttribute('aria-hidden')).toBe('true')
-  })
-
-  it('makes a circle square when width is omitted', () => {
-    const root = renderRoot(<Skeleton variant='circle' height={16} />)
-    expect(root.style.width).toBe('16px')
-    expect(root.style.height).toBe('16px')
   })
 
   it('applies style to the multi-line text stack', () => {
@@ -35,9 +30,18 @@ describe('Skeleton', () => {
     expect(root.children.length).toBe(3)
   })
 
-  it('applies width to the text stack, not per line', () => {
-    const root = renderRoot(<Skeleton variant='text' lines={2} width={240} />)
-    expect(root.style.width).toBe('240px')
-    expect((root.children[0] as HTMLElement).style.width).toBe('')
+  it('adds the fill class to a single shape', () => {
+    const root = renderRoot(<Skeleton fill />)
+    expect(root.classList.contains(styles.fill)).toBe(true)
+  })
+
+  it('adds the fill class to the multi-line text stack', () => {
+    const root = renderRoot(<Skeleton variant='text' lines={2} fill />)
+    expect(root.classList.contains(styles.fill)).toBe(true)
+  })
+
+  it('does not add the fill class by default', () => {
+    const root = renderRoot(<Skeleton />)
+    expect(root.classList.contains(styles.fill)).toBe(false)
   })
 })

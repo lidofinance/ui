@@ -8,21 +8,29 @@
 }
 
 .text {
+  width: 100%;
   height: 14px;
 }
 
 .block {
+  width: 100%;
   height: 24px;
 }
 
 .circle {
   width: 40px;
-  height: 40px;
+  aspect-ratio: 1;
   border-radius: var(--lido-app-ui-border-radius-pill);
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
 }
 
 .textStack {
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 12px;
 }
