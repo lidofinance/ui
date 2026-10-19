@@ -4,24 +4,6 @@ import { Tag } from '../tag'
 import { TextLink } from '../text-link'
 import { Footer } from './Footer'
 
-const meta: Meta<typeof Footer> = {
-  title: 'Navigation/Footer',
-  component: Footer,
-  tags: ['autodocs'],
-  parameters: {
-    layout: 'fullscreen',
-    docs: {
-      description: {
-        component:
-          'App footer shell: page background, top border, page gutters. Content comes from the consumer: `children` is a wrapping row on the left, `aside` sits right.',
-      },
-    },
-  },
-}
-
-export default meta
-type Story = StoryObj<typeof meta>
-
 const links = (
   <>
     <TextLink href='https://lido.fi/terms-of-use' external variant='secondary'>
@@ -54,6 +36,39 @@ const version = (
   </a>
 )
 
-export const Basic: Story = { args: { children: links, aside: version } }
+const meta: Meta<typeof Footer> = {
+  title: 'Navigation/Footer',
+  component: Footer,
+  tags: ['autodocs'],
+  argTypes: {
+    children: {
+      description: 'Left row, wraps',
+      options: ['links', 'none'],
+      mapping: { links, none: undefined },
+      control: { type: 'select' },
+    },
+    aside: {
+      options: ['version', 'none'],
+      mapping: { version, none: undefined },
+      control: { type: 'select' },
+    },
+  },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'App footer shell: page background, top border, page gutters. Content comes from the consumer: `children` is a wrapping row on the left, `aside` sits right.',
+      },
+    },
+  },
+}
 
-export const WithoutAside: Story = { args: { children: links } }
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Basic: Story = { args: { children: 'links', aside: 'version' } }
+
+export const WithoutAside: Story = {
+  args: { children: 'links', aside: 'none' },
+}
