@@ -10,6 +10,7 @@ import { Card } from './card'
 import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
+import { Disclaimer } from './disclaimer'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
@@ -58,6 +59,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       </DataList>
     ),
   ],
+  ['Disclaimer', () => <Disclaimer>Text</Disclaimer>],
   [
     'IconButton',
     () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,

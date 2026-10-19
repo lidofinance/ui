@@ -1,0 +1,11 @@
+.root {
+  @mixin font-description;
+
+  margin: auto 0 0;
+  text-wrap: pretty;
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.root :any-link {
+  font: inherit;
+}
