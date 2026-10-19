@@ -15,6 +15,7 @@ import { Divider } from './divider'
 import { ErrorPage } from './error-page'
 import { Footer } from './footer'
 import { Grid, GridItem } from './grid'
+import { HeaderNav } from './header'
 import { Hidden } from './hidden'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
@@ -84,6 +85,14 @@ const cases: Array<[string, () => JSX.Element]> = [
       <Grid columns={2}>
         <GridItem span='full'>A</GridItem>
       </Grid>
+    ),
+  ],
+  [
+    'HeaderNav',
+    () => (
+      <HeaderNav>
+        <a href='/a'>A</a>
+      </HeaderNav>
     ),
   ],
   ['Hidden', () => <Hidden below='sm'>Content</Hidden>],
