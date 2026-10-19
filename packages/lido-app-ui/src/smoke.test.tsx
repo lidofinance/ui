@@ -27,6 +27,7 @@ import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { NavLink } from './nav-link'
 import { Notification } from './notification'
+import { Layout, PageContent } from './page-layout'
 import { Popover } from './popover'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
@@ -194,6 +195,8 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Breadcrumbs',
     () => <Breadcrumbs items={[{ label: 'A', href: '/a' }, { label: 'B' }]} />,
   ],
+  ['Layout', () => <Layout>Content</Layout>],
+  ['PageContent', () => <PageContent>Content</PageContent>],
 ]
 
 describe('component smoke render', () => {
