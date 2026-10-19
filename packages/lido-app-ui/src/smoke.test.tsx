@@ -34,6 +34,7 @@ import { MessageBox } from './message-box'
 import { Modal, ModalCard } from './modal'
 import { NavLink } from './nav-link'
 import { Notification } from './notification'
+import { Layout, PageContent } from './page-layout'
 import { Pagination } from './pagination'
 import { Popover } from './popover'
 import { RadioButton } from './radio-button'
@@ -282,6 +283,8 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Breadcrumbs',
     () => <Breadcrumbs items={[{ label: 'A', href: '/a' }, { label: 'B' }]} />,
   ],
+  ['Layout', () => <Layout>Content</Layout>],
+  ['PageContent', () => <PageContent>Content</PageContent>],
 ]
 
 const barrels = import.meta.glob(
