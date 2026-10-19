@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+
+  /* keeps the Footer at the bottom on short pages */
+  flex: 1;
+  flex-direction: column;
+}
+
+/* focused by SkipLink via tabindex=-1; the ring would outline the whole page */
+.root:focus {
+  outline: none;
+}

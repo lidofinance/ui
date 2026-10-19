@@ -2,7 +2,7 @@ import { forwardRef, type AnchorHTMLAttributes, type MouseEvent } from 'react'
 
 import cn from 'classnames'
 
-import { MAIN_CONTENT_ID } from './constants'
+import { MAIN_CONTENT_ID } from '../page-layout/Main'
 import styles from './SkipLink.module.css'
 
 export type SkipLinkProps = Omit<
