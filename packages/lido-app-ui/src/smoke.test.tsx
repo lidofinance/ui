@@ -27,6 +27,7 @@ import {
   SegmentedControl,
   SegmentedControlCard,
 } from './segmented-control'
+import { Skeleton } from './skeleton'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
 import { StatItem } from './stat-item'
@@ -99,6 +100,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       />
     ),
   ],
+  ['Skeleton', () => <Skeleton />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
     'SmallCard',
