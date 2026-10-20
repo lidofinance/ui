@@ -74,6 +74,25 @@ export const States: Story = {
           aria-label='Close'
         />
       </StorySection>
+      <StorySection title='surface'>
+        <IconButton
+          icon={<IconBell />}
+          variant='surface'
+          aria-label='Notifications'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='surface'
+          loading
+          aria-label='Notifications'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='surface'
+          disabled
+          aria-label='Notifications'
+        />
+      </StorySection>
       <StorySection title='ghost'>
         <IconButton
           icon={<IconBell />}
