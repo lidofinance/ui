@@ -12,6 +12,7 @@ import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { Disclaimer } from './disclaimer'
 import { Divider } from './divider'
+import { ErrorPage } from './error-page'
 import { Footer } from './footer'
 import { Grid, GridItem } from './grid'
 import { Hidden } from './hidden'
@@ -67,6 +68,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ],
   ['Disclaimer', () => <Disclaimer>Text</Disclaimer>],
   ['Divider', () => <Divider />],
+  ['ErrorPage', () => <ErrorPage code='404' action={<span>A</span>} />],
   ['Footer', () => <Footer aside={<span>A</span>}>Left</Footer>],
   [
     'Grid',

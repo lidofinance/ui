@@ -113,6 +113,9 @@
   --lido-app-ui-font-size-h1: 42px;
   --lido-app-ui-line-height-h1: 58px;
   --lido-app-ui-letter-spacing-h1: -1.5px;
+  --lido-app-ui-font-size-display: 112px;
+  --lido-app-ui-line-height-display: 136px;
+  --lido-app-ui-letter-spacing-display: -6px;
   --lido-app-ui-font-size-h2: 28px;
   --lido-app-ui-line-height-h2: 40px;
   --lido-app-ui-letter-spacing-h2: 0.84px;
@@ -279,6 +282,9 @@
   --lido-app-ui-font-size-h1: 42px;
   --lido-app-ui-line-height-h1: 58px;
   --lido-app-ui-letter-spacing-h1: -1.5px;
+  --lido-app-ui-font-size-display: 112px;
+  --lido-app-ui-line-height-display: 136px;
+  --lido-app-ui-letter-spacing-display: -6px;
   --lido-app-ui-font-size-h2: 28px;
   --lido-app-ui-line-height-h2: 40px;
   --lido-app-ui-letter-spacing-h2: -0.84px;
