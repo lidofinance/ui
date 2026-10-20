@@ -1,0 +1,15 @@
+.compactLogo {
+  display: none;
+}
+
+@media (--lido-app-ui-breakpoint-ml-down) {
+  .compactLogo {
+    display: inline-flex;
+  }
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

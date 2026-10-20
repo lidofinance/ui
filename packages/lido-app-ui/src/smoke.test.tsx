@@ -37,6 +37,14 @@ import {
   SegmentedControl,
   SegmentedControlCard,
 } from './segmented-control'
+import {
+  Sidebar,
+  SidebarGroup,
+  SidebarInset,
+  SidebarItem,
+  SidebarLayout,
+  SidebarToggle,
+} from './sidebar'
 import { Skeleton } from './skeleton'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
@@ -158,6 +166,26 @@ const cases: Array<[string, () => JSX.Element]> = [
       />
     ),
   ],
+  [
+    'Sidebar',
+    () => (
+      <Sidebar>
+        <SidebarGroup label='Group'>
+          <SidebarItem href='/a'>A</SidebarItem>
+        </SidebarGroup>
+      </Sidebar>
+    ),
+  ],
+  [
+    'SidebarLayout',
+    () => (
+      <SidebarLayout>
+        <Sidebar />
+        <SidebarInset>Content</SidebarInset>
+      </SidebarLayout>
+    ),
+  ],
+  ['SidebarToggle', () => <SidebarToggle />],
   ['Skeleton', () => <Skeleton />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
