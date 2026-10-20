@@ -113,6 +113,9 @@
   --lido-app-ui-font-size-h1: 42px;
   --lido-app-ui-line-height-h1: 58px;
   --lido-app-ui-letter-spacing-h1: -1.5px;
+  --lido-app-ui-font-size-display: 112px;
+  --lido-app-ui-line-height-display: 136px;
+  --lido-app-ui-letter-spacing-display: -6px;
   --lido-app-ui-font-size-h2: 28px;
   --lido-app-ui-line-height-h2: 40px;
   --lido-app-ui-letter-spacing-h2: 0.84px;
@@ -134,6 +137,9 @@
 
   /* Shadows */
   --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
+
+  /* Horizontal page padding for page-level shells */
+  --lido-app-ui-page-gutter: 52px;
 
   /* Interaction-state opacities */
   --lido-app-ui-opacity-pressed-content: 0.7;
@@ -276,6 +282,9 @@
   --lido-app-ui-font-size-h1: 42px;
   --lido-app-ui-line-height-h1: 58px;
   --lido-app-ui-letter-spacing-h1: -1.5px;
+  --lido-app-ui-font-size-display: 112px;
+  --lido-app-ui-line-height-display: 136px;
+  --lido-app-ui-letter-spacing-display: -6px;
   --lido-app-ui-font-size-h2: 28px;
   --lido-app-ui-line-height-h2: 40px;
   --lido-app-ui-letter-spacing-h2: -0.84px;
@@ -413,4 +422,16 @@
   --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-800);
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-900);
   --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-800);
+}
+
+@media (--lido-app-ui-breakpoint-md-down) {
+  :root {
+    --lido-app-ui-page-gutter: 32px;
+  }
+}
+
+@media (--lido-app-ui-breakpoint-sm-down) {
+  :root {
+    --lido-app-ui-page-gutter: 12px;
+  }
 }

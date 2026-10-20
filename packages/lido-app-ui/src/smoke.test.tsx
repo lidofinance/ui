@@ -11,6 +11,8 @@ import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { Disclaimer } from './disclaimer'
+import { ErrorPage } from './error-page'
+import { Footer } from './footer'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
@@ -26,6 +28,7 @@ import {
   SegmentedControl,
   SegmentedControlCard,
 } from './segmented-control'
+import { Skeleton } from './skeleton'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
 import { StatItem } from './stat-item'
@@ -60,6 +63,8 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Disclaimer', () => <Disclaimer>Text</Disclaimer>],
+  ['ErrorPage', () => <ErrorPage code='404' action={<span>A</span>} />],
+  ['Footer', () => <Footer aside={<span>A</span>}>Left</Footer>],
   [
     'IconButton',
     () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,
@@ -97,6 +102,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       />
     ),
   ],
+  ['Skeleton', () => <Skeleton />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
     'SmallCard',

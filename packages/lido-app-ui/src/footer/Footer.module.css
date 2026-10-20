@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 24px var(--lido-app-ui-page-gutter);
+  background: var(--lido-app-ui-color-background-page);
+  border-top: 1px solid var(--lido-app-ui-color-border-default);
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  min-width: 0;
+}
+
+.aside {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
