@@ -14,7 +14,7 @@ const TOKENS: TokenIconSymbol[] = [
 ]
 
 const meta: Meta<typeof TokenIcon> = {
-  title: 'Foundations/Icons/TokenIcon',
+  title: 'Foundations/TokenIcon',
   component: TokenIcon,
   tags: ['autodocs'],
   args: {
