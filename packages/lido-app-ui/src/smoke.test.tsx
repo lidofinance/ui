@@ -40,6 +40,7 @@ import { Switch } from './switch'
 import { Tabs } from './tabs'
 import { Tag } from './tag'
 import { TextLink } from './text-link'
+import { ThemeSwitcher } from './theme-switcher'
 import { TokenAmount } from './token-amount'
 import { TokenSelector } from './token-selector'
 import { Tooltip } from './tooltip'
@@ -137,6 +138,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ],
   ['Tag', () => <Tag variant='success'>Active</Tag>],
   ['TextLink', () => <TextLink href='https://lido.fi'>Link</TextLink>],
+  ['ThemeSwitcher', () => <ThemeSwitcher />],
   ['TokenAmount', () => <TokenAmount symbol='stETH' amount='1.0' />],
   [
     'TokenSelector',

@@ -1,5 +1,4 @@
 import {
-  useLayoutEffect,
   useRef,
   useState,
   type ComponentPropsWithoutRef,
@@ -9,6 +8,7 @@ import {
 import cn from 'classnames'
 
 import { SegmentCard, type SegmentCardDataTestId } from './SegmentCard'
+import { useIsomorphicLayoutEffect } from '../hooks'
 import styles from './SegmentedControlCard.module.css'
 
 export type SegmentedControlCardDataTestId = {
@@ -49,7 +49,7 @@ export const SegmentedControlCard = ({
   // Skip the transition on the first measurement so the highlight doesn't fly in from 0,0.
   const [animated, setAnimated] = useState(false)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const updateSelection = () => {
       const button = activeButtonRef.current
       const container = containerRef.current

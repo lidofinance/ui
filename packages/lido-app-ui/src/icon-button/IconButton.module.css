@@ -62,43 +62,41 @@
   --local-border-color: var(--lido-app-ui-color-border-default);
 }
 
-.outline:hover {
+.outline:not(:disabled):hover {
   --local-bg: var(--lido-app-ui-color-background-transparent-hover);
 }
 
-.outline:active {
+.outline:not(:disabled):active {
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
-.outline:disabled {
+.surface {
+  --local-border-width: 1px;
+  --local-bg: var(--lido-app-ui-color-background-surface);
+  --local-border-color: var(--lido-app-ui-color-border-default);
+}
+
+.surface:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-surface-hover);
+  --local-border-color: var(--lido-app-ui-color-border-active);
+
+  color: var(--lido-app-ui-color-icons-active);
+}
+
+.ghost:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.ghost:not(:disabled):active {
+  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
+}
+
+/* Loading is also :disabled but keeps the variant's default look. */
+.button:disabled:not(.loading) {
   --local-border-width: 0px;
   --local-bg: var(--lido-app-ui-color-background-disabled);
 }
 
-.ghost:hover {
-  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
-}
-
-.ghost:active {
-  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
-}
-
-.ghost:disabled {
-  --local-bg: var(--lido-app-ui-color-background-disabled);
-}
-
-/* Loading keeps the variant's default look (plus the spinner) instead of
-   the disabled treatment, even though the button is also :disabled. */
-
 .loading {
   cursor: wait;
-}
-
-.outline.loading:disabled {
-  --local-border-width: 1px;
-  --local-bg: transparent;
-}
-
-.ghost.loading:disabled {
-  --local-bg: transparent;
 }

@@ -2,7 +2,6 @@ import {
   useCallback,
   useEffect,
   useId,
-  useLayoutEffect,
   useRef,
   useState,
   type ComponentPropsWithoutRef,
@@ -15,6 +14,7 @@ import { createPortal } from 'react-dom'
 
 import cn from 'classnames'
 
+import { useIsomorphicLayoutEffect } from '../hooks'
 import styles from './Tooltip.module.css'
 
 export type TooltipPosition =
@@ -190,7 +190,7 @@ export const Tooltip = ({
     contentEl.dataset.placed = 'true'
   }, [position])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!open) return
     updatePosition()
     window.addEventListener('scroll', updatePosition, true)

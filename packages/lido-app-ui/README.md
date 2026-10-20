@@ -28,7 +28,36 @@ function Widget() {
 }
 ```
 
-Theme providers (`ThemeProvider`, `CookieThemeProvider`, `ThemeToggler`) are re-exported from `@lidofinance/lido-shared-ui`. The color tokens follow the `data-lido-theme` attribute they set, so switching to the dark theme restyles these components.
+Theme providers (`ThemeProvider`, `CookieThemeProvider`, `ThemeToggler`) are re-exported from `@lidofinance/lido-shared-ui`. The color tokens follow the `data-lido-theme` attribute they set, so switching to the dark theme restyles these components. `ThemeSwitcher` is the app-ui-styled theme toggle, since the shared `ThemeToggler` relies on `--lido-ui-*` tokens that app-ui doesn't define.
+
+## Router links
+
+Link components (`TextLink`, `SmallCard`) render a plain `<a>` by default. Wrap the app in `LinkProvider` to route in-app hrefs through your router's link component; `externalComponent` does the same for absolute URLs. Hash links, `download` links and links with a non-`_self` `target` always stay a plain `<a>`.
+
+Next.js 12 — `next/link` needs an `<a>` child, so wrap it once at module level:
+
+```tsx
+import { forwardRef } from 'react'
+import type { AppProps } from 'next/app'
+import NextLink from 'next/link'
+import { LinkProvider, type LinkComponentProps } from '@lidofinance/lido-app-ui'
+
+const AppLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
+  ({ href, ...rest }, ref) => (
+    <NextLink href={href}>
+      <a ref={ref} {...rest} />
+    </NextLink>
+  ),
+)
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <LinkProvider component={AppLink}>
+      <Component {...pageProps} />
+    </LinkProvider>
+  )
+}
+```
 
 ## Customization
 

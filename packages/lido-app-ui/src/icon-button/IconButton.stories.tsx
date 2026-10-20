@@ -16,7 +16,7 @@ const meta: Meta<typeof IconButton> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['outline', 'ghost'],
+      options: ['outline', 'ghost', 'surface'],
     },
     disabled: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
@@ -44,6 +44,11 @@ export const Variants: Story = {
       <IconButton icon={<IconCross />} variant='outline' aria-label='Close' />
       <IconButton
         icon={<IconBell />}
+        variant='surface'
+        aria-label='Notifications'
+      />
+      <IconButton
+        icon={<IconBell />}
         variant='ghost'
         aria-label='Notifications'
       />
@@ -68,6 +73,25 @@ export const States: Story = {
           variant='outline'
           disabled
           aria-label='Close'
+        />
+      </StorySection>
+      <StorySection title='surface'>
+        <IconButton
+          icon={<IconBell />}
+          variant='surface'
+          aria-label='Notifications'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='surface'
+          loading
+          aria-label='Notifications'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='surface'
+          disabled
+          aria-label='Notifications'
         />
       </StorySection>
       <StorySection title='ghost'>
