@@ -5,7 +5,7 @@ import { ErrorPage } from './ErrorPage'
 
 describe('ErrorPage', () => {
   it('renders the 404 preset', () => {
-    render(<ErrorPage variant='404' />)
+    render(<ErrorPage code='404' />)
     expect(screen.getByText('404')).toBeTruthy()
     expect(
       screen.getByRole('heading', { level: 1, name: 'Page not found' }),
@@ -14,7 +14,7 @@ describe('ErrorPage', () => {
   })
 
   it('renders the 500 preset', () => {
-    render(<ErrorPage variant='500' />)
+    render(<ErrorPage code='500' />)
     expect(screen.getByText('500')).toBeTruthy()
     expect(
       screen.getByRole('heading', { level: 1, name: 'Something went wrong' }),
@@ -24,22 +24,32 @@ describe('ErrorPage', () => {
 
   it('lets props override the preset', () => {
     render(
-      <ErrorPage
-        variant='404'
-        code='403'
-        title='Access denied'
-        description='No access.'
-      />,
+      <ErrorPage code='404' title='Access denied' description='No access.' />,
     )
-    expect(screen.getByText('403')).toBeTruthy()
+    expect(screen.getByText('404')).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Access denied' })).toBeTruthy()
     expect(screen.getByText('No access.')).toBeTruthy()
-    expect(screen.queryByText('404')).toBeNull()
     expect(screen.queryByText('Page not found')).toBeNull()
   })
 
+  it('renders only the code for an unknown code', () => {
+    render(<ErrorPage data-testid='e' code='403' />)
+    const el = screen.getByTestId('e')
+    expect(screen.getByText('403')).toBeTruthy()
+    expect(el.querySelector('h1')).toBeNull()
+    expect(el.querySelector('p')).toBeNull()
+  })
+
+  it('ignores prototype keys as codes', () => {
+    render(<ErrorPage data-testid='e' code='toString' />)
+    const el = screen.getByTestId('e')
+    expect(el.textContent).toBe('toString')
+    expect(el.querySelector('h1')).toBeNull()
+    expect(el.querySelector('p')).toBeNull()
+  })
+
   it('renders the action slot', () => {
-    render(<ErrorPage variant='500' action={<button>Try again</button>} />)
+    render(<ErrorPage code='500' action={<button>Try again</button>} />)
     expect(screen.getByRole('button', { name: 'Try again' })).toBeTruthy()
   })
 
@@ -58,7 +68,7 @@ describe('ErrorPage', () => {
   it('applies dataTestId to each part', () => {
     render(
       <ErrorPage
-        variant='404'
+        code='404'
         action={<span>A</span>}
         dataTestId={{
           root: 'root',

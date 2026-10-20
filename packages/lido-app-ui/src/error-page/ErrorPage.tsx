@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 import styles from './ErrorPage.module.css'
 
-export type ErrorPageVariant = '404' | '500'
+export type ErrorPageCode = '404' | '500'
 
 export type ErrorPageDataTestId = {
   root?: string
@@ -15,9 +15,8 @@ export type ErrorPageDataTestId = {
 }
 
 export type ErrorPageProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
-  /** Preset for code, title and description. */
-  variant?: ErrorPageVariant
-  code?: ReactNode
+  /** `'404'` / `'500'` fill default title and description. */
+  code?: ErrorPageCode | (string & {})
   title?: ReactNode
   description?: ReactNode
   /** Slot below the text, usually a `Button`. */
@@ -25,10 +24,7 @@ export type ErrorPageProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   dataTestId?: ErrorPageDataTestId
 }
 
-const presets: Record<
-  ErrorPageVariant,
-  { title: string; description: string }
-> = {
+const presets: Record<ErrorPageCode, { title: string; description: string }> = {
   '404': {
     title: 'Page not found',
     description:
@@ -41,8 +37,10 @@ const presets: Record<
   },
 }
 
+const isPresetCode = (code?: string): code is ErrorPageCode =>
+  code === '404' || code === '500'
+
 export const ErrorPage = ({
-  variant,
   code,
   title,
   description,
@@ -51,8 +49,7 @@ export const ErrorPage = ({
   dataTestId,
   ...rest
 }: ErrorPageProps) => {
-  const preset = variant ? presets[variant] : undefined
-  const resolvedCode = code !== undefined ? code : variant
+  const preset = isPresetCode(code) ? presets[code] : undefined
   const resolvedTitle = title !== undefined ? title : preset?.title
   const resolvedDescription =
     description !== undefined ? description : preset?.description
@@ -64,9 +61,9 @@ export const ErrorPage = ({
       {...rest}
     >
       <div className={styles.inner}>
-        {resolvedCode != null ? (
+        {code != null ? (
           <div className={styles.code} data-testid={dataTestId?.code}>
-            {resolvedCode}
+            {code}
           </div>
         ) : null}
         <div className={styles.text}>

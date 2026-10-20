@@ -1,6 +1,6 @@
 export { ErrorPage } from './ErrorPage'
 export type {
   ErrorPageDataTestId,
+  ErrorPageCode,
   ErrorPageProps,
-  ErrorPageVariant,
 } from './ErrorPage'

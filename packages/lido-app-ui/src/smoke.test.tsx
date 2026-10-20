@@ -63,7 +63,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Disclaimer', () => <Disclaimer>Text</Disclaimer>],
-  ['ErrorPage', () => <ErrorPage variant='404' action={<span>A</span>} />],
+  ['ErrorPage', () => <ErrorPage code='404' action={<span>A</span>} />],
   ['Footer', () => <Footer aside={<span>A</span>}>Left</Footer>],
   [
     'IconButton',
