@@ -1,5 +1,6 @@
 .button {
   --local-border-width: 0px;
+  --local-counter-offset: 4px;
   --local-bg: transparent;
   --local-color: var(--lido-app-ui-color-text-default);
   --local-border-color: transparent;
@@ -223,11 +224,4 @@
   --local-border-width: 1px;
   --local-bg: transparent;
   --local-color: var(--lido-app-ui-color-text-error);
-}
-
-.counter {
-  /* absolute offsets start inside the border; keep the visual gap constant */
-  position: absolute;
-  top: calc(-4px - var(--local-border-width));
-  right: calc(-4px - var(--local-border-width));
 }

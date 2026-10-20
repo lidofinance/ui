@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Button, type ButtonVariant } from '.'
 
 import { StoryContainer, StorySection } from '../../.storybook/components'
+import { Counter, type CounterVariant } from '../counter'
 import { IconInfo } from '../icons'
 
 const meta: Meta<typeof Button> = {
@@ -132,18 +133,62 @@ export const WithIcons: Story = {
   },
 }
 
+const counterVariants: CounterVariant[] = [
+  'default',
+  'neutral',
+  'error',
+  'warning',
+  'action',
+  'active',
+]
+
 export const WithCounter: Story = {
   render: () => (
-    <Button counter='9+' counterVariant='error' aria-label='Inbox, 9+ unread'>
-      Inbox
-    </Button>
+    <StoryContainer>
+      {variants.map((variant) => (
+        <StorySection key={variant} title={variant}>
+          {(['big', 'small'] as const).map((size) =>
+            (
+              [
+                ['Default', {}],
+                ['Loading', { loading: true }],
+                ['Disabled', { disabled: true }],
+              ] as const
+            ).map(([label, state]) => (
+              <Button
+                key={`${size}-${label}`}
+                variant={variant}
+                size={size}
+                counter={<Counter variant='error'>3</Counter>}
+                aria-label={`${label}, 3 unread`}
+                {...state}
+              >
+                {label}
+              </Button>
+            )),
+          )}
+        </StorySection>
+      ))}
+      <StorySection title='counter variants'>
+        {counterVariants.map((counterVariant) => (
+          <Button
+            key={counterVariant}
+            variant='outline'
+            counter={<Counter variant={counterVariant}>3</Counter>}
+            aria-label={`${counterVariant}, 3 unread`}
+          >
+            {counterVariant}
+          </Button>
+        ))}
+      </StorySection>
+    </StoryContainer>
   ),
   parameters: {
     controls: { disable: true },
     docs: {
       description: {
         story:
-          'Corner counter via `counter` and `counterVariant`. It is aria-hidden, so include the count in `aria-label`.',
+          'Corner `counter` slot, typically a `Counter`. It is aria-hidden, so include the count in `aria-label`.',
       },
     },
   },
