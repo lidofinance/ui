@@ -16,7 +16,7 @@ import { Divider } from './divider'
 import { ErrorPage } from './error-page'
 import { Footer } from './footer'
 import { Grid, GridItem } from './grid'
-import { HeaderNav } from './header'
+import { Header, HeaderNav } from './header'
 import { Hidden } from './hidden'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
@@ -89,6 +89,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       </Grid>
     ),
   ],
+  ['Header', () => <Header actions={<span>A</span>}>Left</Header>],
   [
     'HeaderNav',
     () => (

@@ -1,0 +1,37 @@
+.header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 64px;
+  padding: 0 var(--lido-app-ui-page-gutter);
+  background: var(--lido-app-ui-color-background-page);
+  border-bottom: 1px solid var(--lido-app-ui-color-border-default);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: var(--lido-app-ui-z-index-header);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+
+.content > :not(:last-child) {
+  flex-shrink: 0;
+}
+
+/* Keeps controls above overflowing content that forms a stacking context
+   (e.g. Breadcrumbs' mask-image). */
+.actions {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+}
