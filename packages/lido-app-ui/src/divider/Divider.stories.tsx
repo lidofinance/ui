@@ -20,7 +20,7 @@ const meta: Meta<typeof Divider> = {
     docs: {
       description: {
         component:
-          'A 1px separator line. It stretches along the cross axis of a flex parent, so a vertical divider takes its height from a row container. Set `decorative` when it carries no meaning for assistive tech.',
+          "A 1px separator line. It stretches along the cross axis of a flex parent, so a vertical divider takes its height from a row container. Visual-only; pass `role='separator'` when it should be announced.",
       },
     },
   },
