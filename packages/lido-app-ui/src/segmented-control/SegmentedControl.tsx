@@ -1,5 +1,4 @@
 import {
-  useLayoutEffect,
   useRef,
   useState,
   type ComponentPropsWithoutRef,
@@ -9,6 +8,7 @@ import {
 import cn from 'classnames'
 
 import { Segment, type SegmentDataTestId } from './Segment'
+import { useIsomorphicLayoutEffect } from '../hooks'
 import styles from './SegmentedControl.module.css'
 
 export type SegmentedControlDataTestId = {
@@ -46,7 +46,7 @@ export const SegmentedControl = ({
   // Skip the transition on the first measurement so the pill doesn't fly in from 0,0.
   const [animated, setAnimated] = useState(false)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const updateSelection = () => {
       const button = activeButtonRef.current
       const container = containerRef.current

@@ -64,11 +64,11 @@ export const TokenSelector = ({
   ...rest
 }: TokenSelectorProps) => {
   const [open, setOpen] = useState(false)
-  const rootRef = useRef<HTMLDivElement>(null)
+  const [root, setRoot] = useState<HTMLDivElement | null>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
 
   const handleClose = useCallback(() => setOpen(false), [])
-  useOutsideClick(rootRef, handleClose, open)
+  useOutsideClick(root, handleClose, open)
 
   useEffect(() => {
     if (!open) return
@@ -129,7 +129,7 @@ export const TokenSelector = ({
 
   return (
     <div
-      ref={rootRef}
+      ref={setRoot}
       className={cn(styles.root, className)}
       data-testid={dataTestId?.root}
       {...rest}
