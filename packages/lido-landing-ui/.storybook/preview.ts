@@ -56,6 +56,10 @@ export default {
     },
   },
 
+  argTypes: {
+    dataTestId: { control: false },
+  },
+
   initialGlobals: {
     themeOverride: 'light',
   },
