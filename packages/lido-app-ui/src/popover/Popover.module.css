@@ -1,0 +1,21 @@
+.panel {
+  position: fixed;
+  z-index: var(--lido-app-ui-z-index-popover);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  max-width: calc(100vw - 16px);
+  max-height: calc(100dvh - 16px);
+  padding: 12px;
+  overflow-y: auto;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-card);
+  background-color: var(--lido-app-ui-color-background-surface);
+  box-shadow: var(--lido-app-ui-shadow-popover);
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.panel:focus {
+  outline: none;
+}

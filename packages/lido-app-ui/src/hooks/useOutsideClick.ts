@@ -7,7 +7,7 @@ const listenOutsideLayer = createLayerStack('pointerdown', { capture: true })
 /** Calls `onOutside` on pointerdown outside `element` while `enabled`; with nested overlays only the newest one handles outside clicks. */
 export const useOutsideClick = (
   element: HTMLElement | null,
-  onOutside: () => void,
+  onOutside: (event: PointerEvent) => void,
   enabled: boolean,
 ) => {
   const handlerRef = useRef(onOutside)
@@ -18,7 +18,7 @@ export const useOutsideClick = (
 
     return listenOutsideLayer((event) => {
       if (event.target instanceof Node && element.contains(event.target)) return
-      handlerRef.current()
+      handlerRef.current(event)
     })
   }, [element, enabled])
 }
