@@ -11,6 +11,7 @@ import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { Disclaimer } from './disclaimer'
+import { ErrorPage } from './error-page'
 import { Footer } from './footer'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
@@ -62,6 +63,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Disclaimer', () => <Disclaimer>Text</Disclaimer>],
+  ['ErrorPage', () => <ErrorPage code='404' action={<span>A</span>} />],
   ['Footer', () => <Footer aside={<span>A</span>}>Left</Footer>],
   [
     'IconButton',

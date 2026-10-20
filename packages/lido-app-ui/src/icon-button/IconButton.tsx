@@ -2,6 +2,7 @@ import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { CounterSlot } from '../counter/CounterSlot'
 import { IconLoaderCircle } from '../icons'
 import styles from './IconButton.module.css'
 
@@ -10,6 +11,7 @@ export type IconButtonVariant = 'outline' | 'ghost' | 'surface'
 export type IconButtonDataTestId = {
   root?: string
   icon?: string
+  counter?: string
 }
 
 export type IconButtonProps = Omit<
@@ -20,6 +22,8 @@ export type IconButtonProps = Omit<
   icon: ReactNode
   variant?: IconButtonVariant
   loading?: boolean
+  /** Corner slot, aria-hidden: put the count into `aria-label`. */
+  counter?: ReactNode
   dataTestId?: IconButtonDataTestId
 }
 
@@ -32,6 +36,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       loading = false,
       disabled = false,
       icon,
+      counter,
       dataTestId,
       ...rest
     },
@@ -62,6 +67,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
           {icon}
         </span>
       )}
+      <CounterSlot dataTestId={dataTestId?.counter}>{counter}</CounterSlot>
     </button>
   ),
 )

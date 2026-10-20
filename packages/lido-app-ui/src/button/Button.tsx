@@ -2,6 +2,7 @@ import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { CounterSlot } from '../counter/CounterSlot'
 import { IconLoaderCircle } from '../icons'
 import styles from './Button.module.css'
 
@@ -14,6 +15,7 @@ export type ButtonDataTestId = {
   iconLeft?: string
   iconRight?: string
   content?: string
+  counter?: string
 }
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -22,6 +24,8 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   loading?: boolean
   iconLeft?: ReactNode
   iconRight?: ReactNode
+  /** Corner slot, aria-hidden: put the count into `aria-label`. */
+  counter?: ReactNode
   dataTestId?: ButtonDataTestId
 }
 
@@ -37,6 +41,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled = false,
       iconLeft,
       iconRight,
+      counter,
       dataTestId,
       ...rest
     },
@@ -82,6 +87,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {iconRight}
         </span>
       ) : null}
+      <CounterSlot dataTestId={dataTestId?.counter}>{counter}</CounterSlot>
     </button>
   ),
 )
