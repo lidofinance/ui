@@ -1,5 +1,6 @@
 .button {
   --local-border-width: 0px;
+  --local-counter-offset: 5px;
   --local-bg: transparent;
   --local-border-color: transparent;
 

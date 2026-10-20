@@ -1,0 +1,9 @@
+.slot {
+  /* absolute offsets start inside the border; keep the visual gap constant */
+  display: flex;
+  position: absolute;
+  top: calc(-1 * var(--local-counter-offset) - var(--local-border-width, 0px));
+  inset-inline-end: calc(
+    -1 * var(--local-counter-offset) - var(--local-border-width, 0px)
+  );
+}
