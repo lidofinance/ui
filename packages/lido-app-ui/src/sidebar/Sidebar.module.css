@@ -1,0 +1,140 @@
+.sidebar {
+  /* height of content above the sidebar that scrolls away, e.g. a banner; explicit var wins over the measured one */
+  --local-offset: var(
+    --lido-app-ui-sidebar-offset,
+    var(--local-measured-offset, 0px)
+  );
+
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 24px;
+  width: 296px;
+  height: calc(100dvh - var(--local-offset));
+  padding: 16px 16px 0;
+  box-shadow: inset -1px 0 0 var(--lido-app-ui-color-border-subtle);
+  background-color: var(--lido-app-ui-color-background-surface);
+}
+
+/* shrinks by the still-visible part of the offset, grows to full height as it scrolls away */
+@supports (animation-timeline: scroll()) {
+  .sidebar {
+    animation: grow-to-full-height linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 var(--local-offset);
+  }
+}
+
+@keyframes grow-to-full-height {
+  to {
+    height: 100dvh;
+  }
+}
+
+.scrim {
+  display: none;
+}
+
+.logoRow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+}
+
+.logoRowCloseOnly {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  height: 100%;
+  padding-left: 16px;
+}
+
+/* doubled class beats IconButton's own display regardless of CSS order */
+.closeButton.closeButton {
+  display: none;
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--lido-app-ui-color-border-subtle);
+}
+
+@media (--lido-app-ui-breakpoint-ml-down) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    animation: none;
+    z-index: var(--lido-app-ui-z-index-sidebar);
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition:
+      transform 0.2s ease,
+      visibility 0s linear 0.2s;
+  }
+
+  .sidebar[data-open='true'] {
+    transform: none;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .scrim {
+    position: fixed;
+    inset: 0;
+    display: block;
+    z-index: var(--lido-app-ui-z-index-overlay);
+    background-color: var(--lido-app-ui-color-background-overlay);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s ease,
+      visibility 0s linear 0.2s;
+  }
+
+  .scrimOpen {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .logoRowCloseOnly {
+    display: flex;
+  }
+
+  .closeButton.closeButton {
+    display: inline-flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .scrim {
+    transition: none;
+  }
+}
