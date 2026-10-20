@@ -153,3 +153,16 @@ export const Removable: Story = {
     },
   },
 }
+
+export const Interactive: Story = {
+  args: {
+    onClick: () => undefined,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tags only react to hover when they have an `onClick`.',
+      },
+    },
+  },
+}

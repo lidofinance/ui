@@ -59,6 +59,7 @@ export const Tag = ({
       className={cn(
         styles.tag,
         styles[variant],
+        rest.onClick && styles.interactive,
         active && styles.isActive,
         className,
       )}
