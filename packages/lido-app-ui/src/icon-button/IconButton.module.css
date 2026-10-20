@@ -101,3 +101,10 @@
 .ghost.loading:disabled {
   --local-bg: transparent;
 }
+
+.counter {
+  /* absolute offsets start inside the border; keep the visual gap constant */
+  position: absolute;
+  top: calc(-5px - var(--local-border-width));
+  right: calc(-5px - var(--local-border-width));
+}

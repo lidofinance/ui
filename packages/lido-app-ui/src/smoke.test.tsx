@@ -40,7 +40,6 @@ import { TokenSelector } from './token-selector'
 import { Tooltip } from './tooltip'
 import { TxStatus } from './tx-status'
 import { Typography } from './typography'
-import { WithCounter } from './with-counter'
 
 // Mounts every exported component once. Catches the class of breakage a
 // migration introduces — a missing module, a bad import path, a render-time
@@ -131,14 +130,6 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Tooltip', () => <Tooltip content='Hint'>trigger</Tooltip>],
   ['TxStatus', () => <TxStatus status='loading' title='Pending' />],
   ['Typography', () => <Typography variant='h1'>Heading</Typography>],
-  [
-    'WithCounter',
-    () => (
-      <WithCounter count={1}>
-        <button type='button'>Bell</button>
-      </WithCounter>
-    ),
-  ],
 ]
 
 describe('component smoke render', () => {

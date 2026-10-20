@@ -131,3 +131,20 @@ export const WithIcons: Story = {
     controls: { disable: true },
   },
 }
+
+export const WithCounter: Story = {
+  render: () => (
+    <Button counter='9+' counterVariant='error' aria-label='Inbox, 9+ unread'>
+      Inbox
+    </Button>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Corner counter via `counter` and `counterVariant`. It is aria-hidden, so include the count in `aria-label`.',
+      },
+    },
+  },
+}

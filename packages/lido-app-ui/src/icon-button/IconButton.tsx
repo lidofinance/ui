@@ -2,6 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { Counter, type CounterVariant } from '../counter'
 import { IconLoaderCircle } from '../icons'
 import styles from './IconButton.module.css'
 
@@ -10,6 +11,7 @@ export type IconButtonVariant = 'outline' | 'ghost'
 export type IconButtonDataTestId = {
   root?: string
   icon?: string
+  counter?: string
 }
 
 export type IconButtonProps = Omit<
@@ -20,6 +22,9 @@ export type IconButtonProps = Omit<
   icon: ReactNode
   variant?: IconButtonVariant
   loading?: boolean
+  // aria-hidden, so put the count into aria-label
+  counter?: number | string | null
+  counterVariant?: CounterVariant
   dataTestId?: IconButtonDataTestId
 }
 
@@ -30,6 +35,8 @@ export const IconButton = ({
   loading = false,
   disabled = false,
   icon,
+  counter,
+  counterVariant = 'action',
   dataTestId,
   ...rest
 }: IconButtonProps) => (
@@ -56,6 +63,16 @@ export const IconButton = ({
       >
         {icon}
       </span>
+    )}
+    {counter != null && (
+      <Counter
+        variant={counterVariant}
+        className={styles.counter}
+        aria-hidden='true'
+        dataTestId={{ root: dataTestId?.counter }}
+      >
+        {counter}
+      </Counter>
     )}
   </button>
 )

@@ -33,7 +33,6 @@ export * from './token-selector'
 export * from './tooltip'
 export * from './tx-status'
 export * from './typography'
-export * from './with-counter'
 
 // Everything lido-shared-ui exposes is re-exported, so app products get the
 // same non-production banner and theming primitives as the landing. Their

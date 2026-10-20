@@ -99,3 +99,40 @@ export const States: Story = {
     },
   },
 }
+
+export const WithCounter: Story = {
+  render: () => (
+    <StorySection>
+      <IconButton
+        icon={<IconBell />}
+        counter={1}
+        aria-label='Notifications, 1 unread'
+      />
+      <IconButton
+        icon={<IconBell />}
+        counter={12}
+        aria-label='Notifications, 12 unread'
+      />
+      <IconButton
+        icon={<IconBell />}
+        counter='99+'
+        aria-label='Notifications, 99+ unread'
+      />
+      <IconButton
+        icon={<IconBell />}
+        counter={3}
+        counterVariant='error'
+        aria-label='Notifications, 3 errors'
+      />
+    </StorySection>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Corner counter via `counter` and `counterVariant`. It is aria-hidden, so include the count in `aria-label`.',
+      },
+    },
+  },
+}

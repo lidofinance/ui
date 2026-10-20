@@ -224,3 +224,10 @@
   --local-bg: transparent;
   --local-color: var(--lido-app-ui-color-text-error);
 }
+
+.counter {
+  /* absolute offsets start inside the border; keep the visual gap constant */
+  position: absolute;
+  top: calc(-4px - var(--local-border-width));
+  right: calc(-4px - var(--local-border-width));
+}
