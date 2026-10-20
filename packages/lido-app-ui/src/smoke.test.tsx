@@ -10,7 +10,9 @@ import { Card } from './card'
 import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
+import { Disclaimer } from './disclaimer'
 import { Divider } from './divider'
+import { Footer } from './footer'
 import { Grid, GridItem } from './grid'
 import { Hidden } from './hidden'
 import { IconButton } from './icon-button'
@@ -28,6 +30,7 @@ import {
   SegmentedControl,
   SegmentedControlCard,
 } from './segmented-control'
+import { Skeleton } from './skeleton'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
 import { Stack } from './stack'
@@ -62,7 +65,9 @@ const cases: Array<[string, () => JSX.Element]> = [
       </DataList>
     ),
   ],
+  ['Disclaimer', () => <Disclaimer>Text</Disclaimer>],
   ['Divider', () => <Divider />],
+  ['Footer', () => <Footer aside={<span>A</span>}>Left</Footer>],
   [
     'Grid',
     () => (
@@ -109,6 +114,7 @@ const cases: Array<[string, () => JSX.Element]> = [
       />
     ),
   ],
+  ['Skeleton', () => <Skeleton />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
     'SmallCard',
