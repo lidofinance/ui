@@ -1,20 +1,17 @@
-/*
- * A toast-style notification — always dark regardless of the host theme
- * (matches Figma exactly), so colors below are literal, not `--lido-app-ui-*`
- * tokens.
- */
-
 .notification {
+  --local-border: var(--lido-app-ui-color-border-default);
+
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 320px;
   max-width: 100%;
-  padding: 16px;
-  border: 1px solid var(--lido-app-ui-color-border-default);
-  border-radius: 20px;
-  background-color: rgb(0 0 0 / 90%);
+  padding: calc(16px - 1px);
+  border: 1px solid var(--local-border);
+  border-radius: var(--lido-app-ui-border-radius-dropdown);
+  background-color: var(--lido-app-ui-color-background-toast);
   color: var(--lido-app-ui-color-text-default);
 }
 
@@ -24,25 +21,6 @@
   gap: 8px;
 }
 
-.title {
-  margin: 0;
-
-  @mixin font-body-large-semibold;
-}
-
-.body {
-  @mixin font-body;
-}
-
-.body p {
-  margin: 0 0 8px;
-}
-
-.body ul {
-  margin: 0;
-  padding-left: 21px;
-}
-
 .subheader {
   display: flex;
   flex-wrap: wrap;
@@ -50,18 +28,45 @@
   gap: 4px;
 }
 
-.actions {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
+.title {
+  margin: 0;
+
+  @mixin font-body-large-semibold;
 }
 
-.button {
-  @mixin font-body-semibold;
+.closable {
+  padding-inline-end: 32px;
+}
 
-  box-sizing: border-box;
-  padding: 6px 16px;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
+.close {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-end: 8px;
+}
+
+.body {
+  @mixin font-body;
+}
+
+/* stylelint-disable selector-max-type -- body is consumer markup */
+.body p {
+  margin: 0 0 8px;
+}
+
+.body p:last-child {
+  margin-bottom: 0;
+}
+
+.body ul {
+  margin: 0;
+  padding-inline-start: 21px;
+  list-style: disc;
+}
+/* stylelint-enable selector-max-type */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
 }
