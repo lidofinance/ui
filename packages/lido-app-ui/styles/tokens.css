@@ -307,8 +307,10 @@
 
   /* Shadows */
   --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
+  --lido-app-ui-shadow-popover: 0 0 10px rgb(0 0 0 / 10%);
 
-  /* Consumer chrome must stay below the modal layer so it cannot cover modals. */
+  /* Stacking. Consumer chrome must stay below the modal layer so it cannot cover modals. */
+  --lido-app-ui-z-index-popover: 1000;
   --lido-app-ui-z-index-modal: 1000;
   --lido-app-ui-z-index-tooltip: 1100;
 

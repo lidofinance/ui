@@ -22,6 +22,7 @@ import { Input } from './input'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { Notification } from './notification'
+import { Popover } from './popover'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
 import { SectionTitle } from './section-title'
@@ -92,6 +93,18 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['Notification', () => <Notification title='Saved' />],
+  [
+    'Popover',
+    () => (
+      <Popover
+        open
+        onClose={() => undefined}
+        anchorRef={{ current: document.body }}
+      >
+        Content
+      </Popover>
+    ),
+  ],
   ['RadioButton', () => <RadioButton label='Option' />],
   ['RichInput', () => <RichInput label='Amount' error errorText='Too much' />],
   ['SectionTitle', () => <SectionTitle title='Choose a token' />],
