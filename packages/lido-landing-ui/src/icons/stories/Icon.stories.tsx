@@ -25,7 +25,7 @@ export default {
   },
 } as Meta
 
-export const Icon: StoryFn<GenericIconProps> = (args) => (
+export const Icon: StoryFn<GenericIconProps> = (args: GenericIconProps) => (
   <>
     <h3 style={{ marginBottom: '20px' }}>
       These are generic icon properties. For list of all icons please refer to
