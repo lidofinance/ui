@@ -15,12 +15,16 @@ import { Divider } from './divider'
 import { ErrorPage } from './error-page'
 import { Footer } from './footer'
 import { Grid, GridItem } from './grid'
+import { HeaderNav } from './header'
 import { Hidden } from './hidden'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
+import { LinkProvider, type LinkComponent } from './link-provider'
+import { Logo } from './logo'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
+import { NavLink } from './nav-link'
 import { Notification } from './notification'
 import { Popover } from './popover'
 import { RadioButton } from './radio-button'
@@ -47,6 +51,10 @@ import { TokenSelector } from './token-selector'
 import { Tooltip } from './tooltip'
 import { TxStatus } from './tx-status'
 import { Typography } from './typography'
+
+const RouterLink: LinkComponent = ({ children, ...props }) => (
+  <a {...props}>{children}</a>
+)
 
 // Mounts every exported component once. Catches the class of breakage a
 // migration introduces — a missing module, a bad import path, a render-time
@@ -80,6 +88,14 @@ const cases: Array<[string, () => JSX.Element]> = [
       </Grid>
     ),
   ],
+  [
+    'HeaderNav',
+    () => (
+      <HeaderNav>
+        <a href='/a'>A</a>
+      </HeaderNav>
+    ),
+  ],
   ['Hidden', () => <Hidden below='sm'>Content</Hidden>],
   [
     'IconButton',
@@ -90,8 +106,18 @@ const cases: Array<[string, () => JSX.Element]> = [
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
   ['Input', () => <Input label='Amount' />],
+  [
+    'LinkProvider',
+    () => (
+      <LinkProvider component={RouterLink}>
+        <NavLink href='/a'>Link</NavLink>
+      </LinkProvider>
+    ),
+  ],
+  ['Logo', () => <Logo />],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
+  ['NavLink', () => <NavLink href='/a'>Link</NavLink>],
   ['Notification', () => <Notification title='Saved' />],
   [
     'Popover',

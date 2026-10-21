@@ -1,0 +1,80 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--lido-app-ui-color-icons-default);
+  text-decoration: none;
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+  border-radius: var(--lido-app-ui-border-radius-badge);
+}
+
+.mark {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 20px;
+}
+
+.droplet {
+  flex-shrink: 0;
+  width: 14.35px;
+  height: 20px;
+}
+
+.wordmark {
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.wordmarkSvg {
+  flex-shrink: 0;
+  width: 63.125px;
+  height: 20px;
+}
+
+/* CSS vars are invalid in @media; the huge multiplier makes clamp() act as a breakpoint switch */
+.auto .wordmark {
+  width: clamp(
+    0px,
+    calc((100vw - var(--lido-app-ui-logo-breakpoint, 1024px)) * 1000),
+    63.125px
+  );
+  transition: width 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auto .wordmark {
+    transition: none;
+  }
+}
+
+.divider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 24px;
+  background-color: var(--lido-app-ui-color-border-tertiary);
+}
+
+.product {
+  @mixin font-body-large;
+
+  min-width: 0;
+  overflow: hidden;
+  line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
