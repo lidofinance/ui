@@ -314,6 +314,9 @@
   --lido-app-ui-z-index-modal: 1000;
   --lido-app-ui-z-index-tooltip: 1100;
 
+  /* Stacking: sticky header stays below Modal (1000) and Tooltip (1100). */
+  --lido-app-ui-z-index-header: 250;
+
   /* Interaction-state opacities */
   --lido-app-ui-opacity-pressed-content: 0.7;
   --lido-app-ui-opacity-disabled-content: 0.3;
