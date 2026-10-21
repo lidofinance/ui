@@ -11,8 +11,11 @@ import { Checkbox } from './checkbox'
 import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { Disclaimer } from './disclaimer'
+import { Divider } from './divider'
 import { ErrorPage } from './error-page'
 import { Footer } from './footer'
+import { Grid, GridItem } from './grid'
+import { Hidden } from './hidden'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
@@ -31,6 +34,7 @@ import {
 import { Skeleton } from './skeleton'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
+import { Stack } from './stack'
 import { StatItem } from './stat-item'
 import { Switch } from './switch'
 import { Tabs } from './tabs'
@@ -64,8 +68,18 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Disclaimer', () => <Disclaimer>Text</Disclaimer>],
+  ['Divider', () => <Divider />],
   ['ErrorPage', () => <ErrorPage code='404' action={<span>A</span>} />],
   ['Footer', () => <Footer aside={<span>A</span>}>Left</Footer>],
+  [
+    'Grid',
+    () => (
+      <Grid columns={2}>
+        <GridItem span='full'>A</GridItem>
+      </Grid>
+    ),
+  ],
+  ['Hidden', () => <Hidden below='sm'>Content</Hidden>],
   [
     'IconButton',
     () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,
@@ -109,6 +123,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     'SmallCard',
     () => <SmallCard title='CSM Sentinel' href='https://lido.fi' />,
   ],
+  ['Stack', () => <Stack>Content</Stack>],
   ['StatItem', () => <StatItem label='TVL' value='1M' />],
   ['Switch', () => <Switch label='Enable' />],
   [

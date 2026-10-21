@@ -1,6 +1,8 @@
 import path from 'path'
 
 export default {
+  features: { viewportStoryGlobals: true },
+
   stories: [
     './Overview.stories.tsx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',

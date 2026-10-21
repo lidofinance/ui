@@ -1,0 +1,123 @@
+.root {
+  box-sizing: border-box;
+  display: flex;
+
+  --local-direction: column;
+  --local-gap: 0;
+
+  flex-direction: var(--local-direction);
+  gap: var(--local-gap);
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.alignStart {
+  align-items: flex-start;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.alignEnd {
+  align-items: flex-end;
+}
+
+.alignStretch {
+  align-items: stretch;
+}
+
+.alignBaseline {
+  align-items: baseline;
+}
+
+.justifyStart {
+  justify-content: flex-start;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+}
+
+.justifyBetween {
+  justify-content: space-between;
+}
+
+.justifyAround {
+  justify-content: space-around;
+}
+
+.justifyEvenly {
+  justify-content: space-evenly;
+}
+
+/* Breakpoint vars inherit from an ancestor Stack; the classes make a Stack read only its own. */
+@media (--lido-app-ui-breakpoint-lg-down) {
+  .directionLg {
+    flex-direction: var(--local-direction-lg);
+  }
+
+  .gapLg {
+    gap: var(--local-gap-lg);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-ml-down) {
+  .directionMl {
+    flex-direction: var(--local-direction-ml);
+  }
+
+  .gapMl {
+    gap: var(--local-gap-ml);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-md-down) {
+  .directionMd {
+    flex-direction: var(--local-direction-md);
+  }
+
+  .gapMd {
+    gap: var(--local-gap-md);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-sm-down) {
+  .directionSm {
+    flex-direction: var(--local-direction-sm);
+  }
+
+  .gapSm {
+    gap: var(--local-gap-sm);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-xs-down) {
+  .directionXs {
+    flex-direction: var(--local-direction-xs);
+  }
+
+  .gapXs {
+    gap: var(--local-gap-xs);
+  }
+}
+
+@media (--lido-app-ui-breakpoint-xxs-down) {
+  .directionXxs {
+    flex-direction: var(--local-direction-xxs);
+  }
+
+  .gapXxs {
+    gap: var(--local-gap-xxs);
+  }
+}
