@@ -1,11 +1,11 @@
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: var(--lido-app-ui-z-index-modal);
   display: flex;
   overflow-y: auto;
   padding: 16px;
-  background-color: rgb(0 0 0 / 40%);
+  background-color: var(--lido-app-ui-color-background-overlay);
 }
 
 .card {
@@ -54,6 +54,7 @@
   @mixin font-body;
 
   width: 100%;
+  margin: 0;
   color: var(--lido-app-ui-color-text-secondary);
 }
 

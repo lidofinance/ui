@@ -104,6 +104,7 @@ export const BACKGROUND_ELEMENTS: ColorToken[] = [
   },
   { name: 'disabled', cssVar: '--lido-app-ui-color-background-disabled' },
   { name: 'page', cssVar: '--lido-app-ui-color-background-page' },
+  { name: 'overlay', cssVar: '--lido-app-ui-color-background-overlay' },
 ]
 
 export const BACKGROUND_COLOR: ColorToken[] = [
