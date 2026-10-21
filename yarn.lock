@@ -2857,7 +2857,7 @@ __metadata:
     rollup: "npm:3.30.0"
     rollup-plugin-copy: "npm:3.5.0"
     rollup-plugin-postcss: "npm:4.0.2"
-    storybook: "npm:7.6.21"
+    storybook: "npm:8.6.12"
     tslib: "npm:2.3.1"
     vitest: "npm:^3.0.0"
   peerDependencies:
@@ -2916,7 +2916,7 @@ __metadata:
     rollup: "npm:3.30.0"
     rollup-plugin-copy: "npm:3.5.0"
     rollup-plugin-postcss: "npm:4.0.2"
-    storybook: "npm:7.6.21"
+    storybook: "npm:8.6.12"
     tslib: "npm:2.3.1"
     ua-parser-js: "npm:2.0.3"
     use-callback-ref: "npm:1.2.5"

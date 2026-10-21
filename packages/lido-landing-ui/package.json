@@ -96,7 +96,7 @@
     "rollup": "3.30.0",
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
-    "storybook": "7.6.21",
+    "storybook": "8.6.12",
     "tslib": "2.3.1",
     "vitest": "^3.0.0"
   },
