@@ -12,7 +12,7 @@ import {
 import cn from 'classnames'
 import { IconInfo } from '../icons'
 import { Tag, type TagProps } from '../tag'
-import { Tooltip } from '../tooltip'
+import { Tooltip, type TooltipPosition } from '../tooltip'
 
 import styles from './RichInput.module.css'
 
@@ -38,6 +38,7 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   onMaxClick?: MouseEventHandler<HTMLSpanElement>
   maxDisabled?: boolean
   maxTooltip?: ReactNode
+  maxTooltipPosition?: TooltipPosition
   dataTestId?: RichInputDataTestId
 }
 
@@ -86,6 +87,7 @@ export const RichInput = ({
   onMaxClick,
   maxDisabled,
   maxTooltip,
+  maxTooltipPosition = 'bottom-left',
   onChange,
   className,
   id,
@@ -199,7 +201,7 @@ export const RichInput = ({
                 maxTooltip != null ? (
                   <Tooltip
                     content={maxTooltip}
-                    position='bottom-left'
+                    position={maxTooltipPosition}
                     width={240}
                   >
                     <MaxTag
