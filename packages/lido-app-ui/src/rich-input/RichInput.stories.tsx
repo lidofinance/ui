@@ -24,6 +24,7 @@ const meta: Meta<typeof RichInput> = {
     secondaryValue: '$0.00',
     balance: 'Balance: 12.4218',
     showMaxButton: true,
+    maxTooltip: 'Leaves a small amount of ETH to cover gas.',
     tokenSelector,
   },
   argTypes: {
@@ -34,7 +35,11 @@ const meta: Meta<typeof RichInput> = {
       description: 'Toggles the Max pill',
       control: { type: 'boolean' },
     },
-    tokenSelector: { description: 'Slot for a `TokenSelector`' },
+    tokenSelector: {
+      description: 'Slot for a `TokenSelector`',
+      control: false,
+      table: { defaultValue: { summary: 'TokenSelector' } },
+    },
     error: {
       description: 'Marks the card as invalid and recolours the balance',
     },
