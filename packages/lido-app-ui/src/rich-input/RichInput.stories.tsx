@@ -40,6 +40,20 @@ const meta: Meta<typeof RichInput> = {
     },
     errorText: { description: 'Message under the field' },
     maxTooltip: { description: 'Explains what Max actually fills in' },
+    maxTooltipPosition: {
+      description: 'Placement of the Max tooltip',
+      control: { type: 'select' },
+      options: [
+        'top',
+        'right',
+        'bottom',
+        'left',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+      ],
+    },
     maxDisabled: {
       description: 'Disables the Max shortcut, leaving the field editable',
     },
