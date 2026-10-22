@@ -52,8 +52,9 @@
         {
           "notifyOnSuccess": false,
           "notifyOnFail": false,
+          "markdownReleaseNotes": true,
           "onSuccessTemplate": {
-            "text": "📦 *$package_name* released version *$npm_package_version* → $repo_url"
+            "text": "📦 *$package_name* released version *$npm_package_version* → $repo_url\n\n$release_notes"
           },
           "branchesConfig": [
             {
