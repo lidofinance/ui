@@ -19,13 +19,16 @@ RUN npm install -g serve@14.2.6
 # the output survives the deployment docker-compose.yml bind-mounting the
 # host checkout over /app at container start. Note this means the served
 # storybook reflects the source at image-build time, not the live mount.
+# cleanUrls only at depth ≤1 (it also resolves dir → index.html): deeper, it
+# redirects `iframe.html?id=...` to `/iframe` dropping the query → "No Preview".
 RUN yarn turbo run build-storybook && \
     rm -rf /srv/storybooks && \
     mkdir -p /srv/storybooks/lido-ui /srv/storybooks/lido-landing-ui /srv/storybooks/lido-app-ui && \
     cp -r packages/lido-ui/storybook-static/. /srv/storybooks/lido-ui/ && \
     cp -r packages/lido-landing-ui/storybook-static/. /srv/storybooks/lido-landing-ui/ && \
     cp -r packages/lido-app-ui/storybook-static/. /srv/storybooks/lido-app-ui/ && \
-    cp .github/pages/index.html /srv/storybooks/index.html
+    cp .github/pages/index.html /srv/storybooks/index.html && \
+    echo '{"cleanUrls": ["/", "/*"]}' > /srv/storybooks/serve.json
 
 EXPOSE 5555
 
