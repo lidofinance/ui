@@ -4,6 +4,7 @@
   --local-bg: transparent;
   --local-color: var(--lido-app-ui-color-text-default);
   --local-border-color: transparent;
+  --local-spinner-color: currentcolor;
 
   position: relative;
   display: inline-flex;
@@ -27,8 +28,15 @@
     color 0.2s ease;
 }
 
-.button:disabled {
+.button:disabled:not(.loading) {
+  --local-color: var(--lido-app-ui-color-text-disabled);
+  --local-spinner-color: var(--lido-app-ui-color-icons-disabled);
+
   cursor: not-allowed;
+}
+
+.button.loading {
+  cursor: wait;
 }
 
 .button:focus-visible {
@@ -54,6 +62,7 @@
 
 .spinner {
   flex-shrink: 0;
+  color: var(--local-spinner-color);
   animation: spin 0.9s linear infinite;
 }
 
@@ -98,6 +107,7 @@
 .primary {
   --local-bg: var(--lido-app-ui-color-background-action);
   --local-color: var(--lido-app-ui-color-text-inverse);
+  --local-spinner-color: var(--lido-app-ui-color-icons-inverse);
 }
 
 .primary:not(:disabled):hover {
@@ -108,15 +118,11 @@
   --local-bg: var(--lido-app-ui-color-background-action-pressed);
 }
 
-.primary:disabled {
-  --local-bg: var(--lido-app-ui-color-background-disabled);
-  --local-color: var(--lido-app-ui-color-text-disabled);
-}
-
 .outline {
   --local-border-width: 1px;
   --local-border-color: var(--lido-app-ui-color-border-default);
   --local-color: var(--lido-app-ui-color-text-default);
+  --local-spinner-color: var(--lido-app-ui-color-icons-secondary);
 }
 
 .outline:not(:disabled):hover {
@@ -127,16 +133,11 @@
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
-.outline:disabled {
-  --local-border-width: 0px;
-  --local-bg: var(--lido-app-ui-color-background-disabled);
-  --local-color: var(--lido-app-ui-color-text-disabled);
-}
-
 .subtle {
   --local-border-width: 1px;
   --local-border-color: var(--lido-app-ui-color-border-default);
   --local-color: var(--lido-app-ui-color-text-tertiary);
+  --local-spinner-color: var(--lido-app-ui-color-icons-tertiary);
 }
 
 .subtle:not(:disabled):hover {
@@ -149,14 +150,9 @@
   --local-color: var(--lido-app-ui-color-text-default);
 }
 
-.subtle:disabled {
-  --local-border-width: 0px;
-  --local-bg: var(--lido-app-ui-color-background-disabled);
-  --local-color: var(--lido-app-ui-color-text-disabled);
-}
-
 .ghost {
   --local-color: var(--lido-app-ui-color-text-default);
+  --local-spinner-color: var(--lido-app-ui-color-icons-secondary);
 }
 
 .ghost:not(:disabled):hover {
@@ -167,14 +163,11 @@
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
-.ghost:disabled {
-  --local-color: var(--lido-app-ui-color-text-disabled);
-}
-
 .error {
   --local-border-width: 1px;
   --local-border-color: var(--lido-app-ui-color-border-error);
   --local-color: var(--lido-app-ui-color-text-error);
+  --local-spinner-color: var(--lido-app-ui-color-icons-error);
 }
 
 .error:not(:disabled):hover {
@@ -185,43 +178,15 @@
   --local-bg: var(--lido-app-ui-color-tint-error);
 }
 
-.error:disabled {
-  --local-border-width: 0px;
+/* Disabled look; plain loading keeps the variant's default look. */
+
+.primary:disabled:not(.loading) {
   --local-bg: var(--lido-app-ui-color-background-disabled);
-  --local-color: var(--lido-app-ui-color-text-disabled);
 }
 
-/* Loading keeps the variant's default look (plus the spinner) instead of
-   the disabled treatment, even though the button is also :disabled. */
-
-.loading {
-  cursor: wait;
-}
-
-.primary.loading:disabled {
-  --local-bg: var(--lido-app-ui-color-background-action);
-  --local-color: var(--lido-app-ui-color-text-inverse);
-}
-
-.outline.loading:disabled {
-  --local-border-width: 1px;
+.outline:disabled:not(.loading),
+.subtle:disabled:not(.loading),
+.error:disabled:not(.loading) {
   --local-bg: transparent;
-  --local-color: var(--lido-app-ui-color-text-default);
-}
-
-.subtle.loading:disabled {
-  --local-border-width: 1px;
-  --local-bg: transparent;
-  --local-color: var(--lido-app-ui-color-text-tertiary);
-}
-
-.ghost.loading:disabled {
-  --local-bg: transparent;
-  --local-color: var(--lido-app-ui-color-text-default);
-}
-
-.error.loading:disabled {
-  --local-border-width: 1px;
-  --local-bg: transparent;
-  --local-color: var(--lido-app-ui-color-text-error);
+  --local-border-color: var(--lido-app-ui-color-border-default);
 }

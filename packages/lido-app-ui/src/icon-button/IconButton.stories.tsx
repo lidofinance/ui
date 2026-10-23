@@ -74,6 +74,13 @@ export const States: Story = {
           disabled
           aria-label='Close'
         />
+        <IconButton
+          icon={<IconCross />}
+          variant='outline'
+          disabled
+          loading
+          aria-label='Close'
+        />
       </StorySection>
       <StorySection title='surface'>
         <IconButton
@@ -91,6 +98,13 @@ export const States: Story = {
           icon={<IconBell />}
           variant='surface'
           disabled
+          aria-label='Notifications'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='surface'
+          disabled
+          loading
           aria-label='Notifications'
         />
       </StorySection>
@@ -112,6 +126,13 @@ export const States: Story = {
           disabled
           aria-label='Notifications'
         />
+        <IconButton
+          icon={<IconBell />}
+          variant='ghost'
+          disabled
+          loading
+          aria-label='Notifications'
+        />
       </StorySection>
     </StoryContainer>
   ),
@@ -119,7 +140,8 @@ export const States: Story = {
     controls: { disable: true },
     docs: {
       description: {
-        story: 'Each row is default, loading, then disabled.',
+        story:
+          'Each row is default, loading, disabled, then disabled with loading.',
       },
     },
   },
