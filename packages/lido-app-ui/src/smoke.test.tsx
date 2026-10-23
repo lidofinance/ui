@@ -27,6 +27,7 @@ import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { NavLink } from './nav-link'
 import { Notification } from './notification'
+import { Main } from './page-layout'
 import { Popover } from './popover'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
@@ -38,6 +39,7 @@ import {
   SegmentedControlCard,
 } from './segmented-control'
 import { Skeleton } from './skeleton'
+import { SkipLink } from './skip-link'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
 import { Stack } from './stack'
@@ -117,6 +119,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Logo', () => <Logo />],
+  ['Main', () => <Main>Content</Main>],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['NavLink', () => <NavLink href='/a'>Link</NavLink>],
@@ -159,6 +162,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Skeleton', () => <Skeleton />],
+  ['SkipLink', () => <SkipLink />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
     'SmallCard',
