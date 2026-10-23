@@ -54,7 +54,7 @@
           "notifyOnFail": false,
           "markdownReleaseNotes": true,
           "onSuccessTemplate": {
-            "text": "📦 *$package_name* released version *$npm_package_version* → $repo_url\n\n$release_notes"
+            "text": "📦$release_notes"
           },
           "branchesConfig": [
             {

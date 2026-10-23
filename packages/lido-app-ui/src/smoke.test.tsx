@@ -27,6 +27,7 @@ import { MessageBox } from './message-box'
 import { Modal } from './modal'
 import { NavLink } from './nav-link'
 import { Notification } from './notification'
+import { Pagination } from './pagination'
 import { Popover } from './popover'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
@@ -121,6 +122,17 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['NavLink', () => <NavLink href='/a'>Link</NavLink>],
   ['Notification', () => <Notification title='Saved' />],
+  [
+    'Pagination',
+    () => (
+      <Pagination
+        page={1}
+        pageCount={10}
+        pageSize={10}
+        onPageChange={() => undefined}
+      />
+    ),
+  ],
   [
     'Popover',
     () => (
