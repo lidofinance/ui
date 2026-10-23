@@ -1,4 +1,6 @@
 import { WithThemeProvider } from './components/WithThemeProvider'
+import { iconArgs } from './iconControl'
+import { slotControls } from './slotControls'
 
 import '../styles/global.css'
 import './styles/storybook.css'
@@ -36,8 +38,10 @@ export default {
       },
     },
   },
+  argTypesEnhancers: [slotControls],
+  argsEnhancers: [iconArgs],
   argTypes: {
-    dataTestId: { control: false },
+    dataTestId: { table: { disable: true } },
   },
   initialGlobals: {
     themeOverride: 'light',

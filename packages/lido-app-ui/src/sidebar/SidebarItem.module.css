@@ -1,0 +1,74 @@
+.item {
+  --local-bg: transparent;
+  --local-color: var(--lido-app-ui-color-text-secondary);
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--lido-app-ui-border-radius-badge);
+  background-color: var(--local-bg);
+  color: var(--local-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.item:not(.disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-surface-active);
+  --local-color: var(--lido-app-ui-color-text-active);
+}
+
+.active {
+  --local-bg: var(--lido-app-ui-color-background-surface-active);
+  --local-color: var(--lido-app-ui-color-text-active);
+}
+
+.active:not(.disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-surface-active-hover);
+  --local-color: var(--lido-app-ui-color-text-active);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.item.disabled {
+  opacity: var(--lido-app-ui-opacity-disabled-content);
+  cursor: not-allowed;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.icon > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  @mixin font-body-large;
+
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trailing {
+  display: inline-flex;
+  flex-shrink: 0;
+}

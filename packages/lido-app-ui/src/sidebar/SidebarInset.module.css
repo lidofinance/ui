@@ -1,0 +1,8 @@
+.root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  /* lets Header and Breadcrumbs shrink instead of overflowing */
+  min-width: 0;
+}

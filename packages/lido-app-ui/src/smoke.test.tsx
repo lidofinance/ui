@@ -18,7 +18,7 @@ import { Footer } from './footer'
 import { Grid, GridItem } from './grid'
 import { Header, HeaderNav } from './header'
 import { Hidden } from './hidden'
-import { IconButton } from './icon-button'
+import { CloseButton, IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { Input } from './input'
 import { LinkProvider, type LinkComponent } from './link-provider'
@@ -38,6 +38,14 @@ import {
   SegmentedControl,
   SegmentedControlCard,
 } from './segmented-control'
+import {
+  Sidebar,
+  SidebarGroup,
+  SidebarInset,
+  SidebarItem,
+  SidebarLayout,
+  SidebarToggle,
+} from './sidebar'
 import { Skeleton } from './skeleton'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
@@ -68,6 +76,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Button', () => <Button>Connect</Button>],
   ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
+  ['CloseButton', () => <CloseButton />],
   ['Counter', () => <Counter>1</Counter>],
   [
     'DataList',
@@ -170,6 +179,26 @@ const cases: Array<[string, () => JSX.Element]> = [
       />
     ),
   ],
+  [
+    'Sidebar',
+    () => (
+      <Sidebar>
+        <SidebarGroup label='Group'>
+          <SidebarItem href='/a'>A</SidebarItem>
+        </SidebarGroup>
+      </Sidebar>
+    ),
+  ],
+  [
+    'SidebarLayout',
+    () => (
+      <SidebarLayout>
+        <Sidebar />
+        <SidebarInset>Content</SidebarInset>
+      </SidebarLayout>
+    ),
+  ],
+  ['SidebarToggle', () => <SidebarToggle />],
   ['Skeleton', () => <Skeleton />],
   ['Slider', () => <Slider defaultValue={40} />],
   [

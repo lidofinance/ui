@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { StoryContainer, StorySection } from '../../.storybook/components'
 
 import { Button } from '../button'
-import { TokenIcon } from '../icons'
+import { TokenSteth } from '../icons'
 import { Banner } from '.'
 
 const meta: Meta<typeof Banner> = {
@@ -10,7 +10,7 @@ const meta: Meta<typeof Banner> = {
   component: Banner,
   tags: ['autodocs'],
   args: {
-    icon: <TokenIcon token='stETH' />,
+    icon: <TokenSteth />,
     title: 'Add stETH to your wallet',
     description: 'to track your supply balance',
     action: (
@@ -56,7 +56,7 @@ export const Minimal: Story = {
       <StorySection title='No button'>
         <Banner
           {...args}
-          icon={<TokenIcon token='stETH' />}
+          icon={<TokenSteth />}
           title={args.title ?? 'Add stETH to your wallet'}
         />
       </StorySection>

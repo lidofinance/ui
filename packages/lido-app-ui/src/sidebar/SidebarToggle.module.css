@@ -1,0 +1,10 @@
+/* doubled class beats IconButton's own display regardless of CSS order */
+.toggle.toggle {
+  display: none;
+}
+
+@media (--lido-app-ui-breakpoint-ml-down) {
+  .toggle.toggle {
+    display: inline-flex;
+  }
+}

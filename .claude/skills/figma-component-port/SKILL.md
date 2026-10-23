@@ -61,6 +61,11 @@ optional.
    - `Component.stories.tsx` using the existing `.storybook/components`
      helpers (`StorySection`, `StoryContainer`, `PageSurface`,
      `DarkSurface`) — don't hand-roll layout.
+     ReactNode slot props (`children`, ...) need no `control: false`: the
+     global enhancer handles them. Icon-named slots (`icon`, `iconLeft`, ...)
+     get an automatic icon select (pass `<IconX />` or `'IconX'` in args);
+     `dataTestId` is hidden globally. For other switches, use
+     `options` + `mapping` (see CLAUDE.md "Storybook conventions").
    - `index.ts` barrel (named export + type export).
    - Add the export line to `src/index.ts` **alphabetically** — check
      neighbors, this repo keeps that list sorted and CI-clean diffs

@@ -180,6 +180,7 @@
 
   /* Semantic - Border */
   --lido-app-ui-color-border-default: var(--lido-app-ui-palette-black-a200);
+  --lido-app-ui-color-border-subtle: var(--lido-app-ui-palette-black-a100);
   --lido-app-ui-color-border-tertiary: var(--lido-app-ui-palette-black-a400);
   --lido-app-ui-color-border-hover: var(--lido-app-ui-palette-black-a400);
   --lido-app-ui-color-border-black: var(--lido-app-ui-palette-black-a900);
@@ -310,13 +311,14 @@
   --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
   --lido-app-ui-shadow-popover: 0 0 10px rgb(0 0 0 / 10%);
 
-  /* Stacking. Consumer chrome must stay below the modal layer so it cannot cover modals. */
+  /* Stacking: header < drawer scrim < drawer < popover/modal < tooltip.
+     Consumer chrome must stay below the modal layer so it cannot cover modals. */
+  --lido-app-ui-z-index-header: 250;
+  --lido-app-ui-z-index-overlay: 290;
+  --lido-app-ui-z-index-sidebar: 300;
   --lido-app-ui-z-index-popover: 1000;
   --lido-app-ui-z-index-modal: 1000;
   --lido-app-ui-z-index-tooltip: 1100;
-
-  /* Stacking: sticky header stays below Modal (1000) and Tooltip (1100). */
-  --lido-app-ui-z-index-header: 250;
 
   /* Interaction-state opacities */
   --lido-app-ui-opacity-pressed-content: 0.7;
@@ -358,6 +360,7 @@
 
   /* Semantic - Border */
   --lido-app-ui-color-border-default: var(--lido-app-ui-palette-white-a200);
+  --lido-app-ui-color-border-subtle: var(--lido-app-ui-palette-white-a100);
   --lido-app-ui-color-border-tertiary: var(--lido-app-ui-palette-white-a400);
   --lido-app-ui-color-border-hover: var(--lido-app-ui-palette-white-a400);
   --lido-app-ui-color-border-black: var(--lido-app-ui-palette-white-a900);

@@ -33,6 +33,7 @@ export const ICONS: ColorToken[] = [
 
 export const BORDER: ColorToken[] = [
   { name: 'default', cssVar: '--lido-app-ui-color-border-default' },
+  { name: 'subtle', cssVar: '--lido-app-ui-color-border-subtle' },
   { name: 'tertiary', cssVar: '--lido-app-ui-color-border-tertiary' },
   { name: 'hover', cssVar: '--lido-app-ui-color-border-hover' },
   { name: 'black', cssVar: '--lido-app-ui-color-border-black' },

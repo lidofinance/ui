@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { IconButton } from '.'
+import { CloseButton, IconButton } from '.'
 
 import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Counter, type CounterVariant } from '../counter'
@@ -189,6 +189,24 @@ export const WithCounter: Story = {
       description: {
         story:
           'Corner `counter` slot, typically a `Counter`. It is aria-hidden, so include the count in `aria-label`.',
+      },
+    },
+  },
+}
+
+export const Close: Story = {
+  render: () => (
+    <StorySection>
+      <CloseButton />
+      <CloseButton aria-label='Close menu' />
+    </StorySection>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`CloseButton`: ghost `IconButton` with a cross icon. `aria-label` defaults to "Close".',
       },
     },
   },
