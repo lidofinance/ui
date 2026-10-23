@@ -6,6 +6,7 @@ import './styles/storybook.css'
 export default {
   tags: ['autodocs'],
   parameters: {
+    actions: { disable: true },
     controls: { hideNoControlsWarning: true },
     docs: {
       source: { type: 'dynamic' },
