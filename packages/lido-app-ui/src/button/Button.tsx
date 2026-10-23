@@ -56,7 +56,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         styles.button,
         styles[variant],
         styles[size],
-        loading && styles.loading,
+        loading && !disabled && styles.loading,
         className,
       )}
       data-testid={dataTestId?.root}

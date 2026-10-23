@@ -12,6 +12,37 @@ describe('Button', () => {
     expect(ref.current).toBeInstanceOf(HTMLButtonElement)
     expect(ref.current).toBe(screen.getByRole('button'))
   })
+
+  it('disables and marks busy while loading', () => {
+    render(<Button loading>A</Button>)
+    const button = screen.getByRole('button')
+    expect(button).toHaveProperty('disabled', true)
+    expect(button.getAttribute('aria-busy')).toBe('true')
+    expect(button.querySelector('svg')).not.toBeNull()
+  })
+
+  it('keeps disabled and busy when loading and disabled together', () => {
+    render(
+      <Button loading disabled>
+        A
+      </Button>,
+    )
+    const button = screen.getByRole('button')
+    expect(button).toHaveProperty('disabled', true)
+    expect(button.getAttribute('aria-busy')).toBe('true')
+    expect(button.querySelector('svg')).not.toBeNull()
+  })
+
+  it('applies the loading class only when not disabled', () => {
+    const { rerender } = render(<Button loading>A</Button>)
+    expect(screen.getByRole('button').className).toMatch(/loading/)
+    rerender(
+      <Button loading disabled>
+        A
+      </Button>,
+    )
+    expect(screen.getByRole('button').className).not.toMatch(/loading/)
+  })
 })
 
 describe('Button counter', () => {

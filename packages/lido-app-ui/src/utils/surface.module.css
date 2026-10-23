@@ -1,0 +1,15 @@
+.surface {
+  --local-bg: var(--lido-app-ui-color-background-surface);
+  --local-border-width: 1px;
+  --local-border-color: var(--lido-app-ui-color-border-default);
+}
+
+.surface:not(:disabled):hover {
+  --local-bg: var(--lido-app-ui-color-background-surface-hover);
+  --local-border-color: var(--lido-app-ui-color-border-active);
+}
+
+.surface:not(:disabled):active {
+  --local-bg: var(--lido-app-ui-color-background-surface-active-hover);
+  --local-border-color: var(--lido-app-ui-color-border-active);
+}

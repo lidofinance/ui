@@ -19,6 +19,23 @@ describe('IconButton', () => {
     expect(button).toHaveProperty('disabled', true)
     expect(button.getAttribute('aria-busy')).toBe('true')
   })
+
+  it('keeps disabled and busy when loading and disabled together', () => {
+    render(<IconButton icon='x' aria-label='Close' loading disabled />)
+    const button = screen.getByRole('button')
+    expect(button).toHaveProperty('disabled', true)
+    expect(button.getAttribute('aria-busy')).toBe('true')
+    expect(button.querySelector('svg')).not.toBeNull()
+  })
+
+  it('applies the loading class only when not disabled', () => {
+    const { rerender } = render(
+      <IconButton icon='x' aria-label='Close' loading />,
+    )
+    expect(screen.getByRole('button').className).toMatch(/loading/)
+    rerender(<IconButton icon='x' aria-label='Close' loading disabled />)
+    expect(screen.getByRole('button').className).not.toMatch(/loading/)
+  })
 })
 
 describe('IconButton counter', () => {
