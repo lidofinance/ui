@@ -16,8 +16,7 @@ import {
   useFocusTrap,
   useIsomorphicLayoutEffect,
 } from '../hooks'
-import { IconButton } from '../icon-button'
-import { IconCross } from '../icons'
+import { CloseButton } from '../icon-button'
 import styles from './Sidebar.module.css'
 import { SidebarContext } from './SidebarContext'
 
@@ -155,9 +154,8 @@ export const Sidebar = ({
           >
             <div className={styles.logo}>{logo}</div>
             {onClose ? (
-              <IconButton
+              <CloseButton
                 aria-label='Close menu'
-                icon={<IconCross />}
                 onClick={onClose}
                 className={styles.closeButton}
               />

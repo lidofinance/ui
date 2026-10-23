@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 
 import { Button } from '../button'
+import { CloseButton } from '../icon-button'
 import { Input } from '../input'
 import {
   Portal,
@@ -67,12 +68,18 @@ const Panel = ({ title, onClose, children }: PanelProps) => {
   return (
     <Portal>
       <div ref={setEl} role='dialog' aria-label={title} style={panelStyle}>
-        <strong>{title}</strong>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <strong>{title}</strong>
+          <CloseButton onClick={onClose} />
+        </div>
         <Input label='Sample input' placeholder='Tab stays in here' />
         {children}
-        <Button size='small' variant='outline' onClick={onClose}>
-          Close
-        </Button>
       </div>
     </Portal>
   )
