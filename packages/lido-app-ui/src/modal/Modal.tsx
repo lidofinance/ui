@@ -10,8 +10,7 @@ import {
 } from 'react'
 
 import { Portal, useBodyScrollLock, useEscape, useFocusTrap } from '../hooks'
-import { IconButton } from '../icon-button'
-import { IconCross } from '../icons'
+import { CloseButton } from '../icon-button'
 import cn from 'classnames'
 
 import styles from './Modal.module.css'
@@ -109,10 +108,7 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
               {title}
             </span>
             {onClose ? (
-              <IconButton
-                variant='outline'
-                aria-label='Close'
-                icon={<IconCross />}
+              <CloseButton
                 onClick={onClose}
                 dataTestId={{ root: dataTestId?.closeButton }}
               />
