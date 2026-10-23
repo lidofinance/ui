@@ -49,4 +49,34 @@ describe('AddressButton', () => {
     render(<AddressButton address={ADDRESS} />)
     expect(screen.getByRole('button').getAttribute('type')).toBe('button')
   })
+
+  it('shows loading state instead of the address', () => {
+    render(<AddressButton address={ADDRESS} loading />)
+    const button = screen.getByRole('button', { name: 'Loading' })
+    expect(screen.queryByTitle(ADDRESS)).toBeNull()
+    expect((button as HTMLButtonElement).disabled).toBe(true)
+    expect(button.getAttribute('aria-busy')).toBe('true')
+  })
+
+  it('keeps disabled and busy when loading and disabled together', () => {
+    render(<AddressButton address={ADDRESS} loading disabled />)
+    const button = screen.getByRole('button', { name: 'Loading' })
+    expect((button as HTMLButtonElement).disabled).toBe(true)
+    expect(button.getAttribute('aria-busy')).toBe('true')
+    expect(button.querySelector('svg')).not.toBeNull()
+  })
+
+  it('applies the loading class only when not disabled', () => {
+    const { rerender } = render(<AddressButton address={ADDRESS} loading />)
+    expect(screen.getByRole('button').className).toMatch(/loading/)
+    rerender(<AddressButton address={ADDRESS} loading disabled />)
+    expect(screen.getByRole('button').className).not.toMatch(/loading/)
+  })
+
+  it('blocks click when loading', () => {
+    const onClick = vi.fn()
+    render(<AddressButton address={ADDRESS} onClick={onClick} loading />)
+    fireEvent.click(screen.getByRole('button'))
+    expect(onClick).not.toHaveBeenCalled()
+  })
 })

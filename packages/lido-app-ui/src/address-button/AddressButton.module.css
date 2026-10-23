@@ -1,19 +1,17 @@
 .button {
-  --local-border-width: 1px;
-  --local-bg: var(--lido-app-ui-color-background-surface);
-  --local-border-color: var(--lido-app-ui-color-border-default);
-
   @mixin font-body;
 
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   box-sizing: border-box;
   height: 36px;
-  padding: calc(4px - var(--local-border-width));
-  padding-inline-end: calc(12px - var(--local-border-width));
-  border: var(--local-border-width) solid var(--local-border-color);
+  padding: calc(4px - var(--local-border-width, 0px));
+  padding-inline-end: calc(12px - var(--local-border-width, 0px));
+  border: var(--local-border-width, 0) solid
+    var(--local-border-color, transparent);
   border-radius: var(--lido-app-ui-border-radius-button-50);
-  background-color: var(--local-bg);
+  background-color: var(--local-bg, transparent);
   color: var(--lido-app-ui-color-text-default);
   white-space: nowrap;
   cursor: pointer;
@@ -22,16 +20,45 @@
     border-color 0.2s ease;
 }
 
-.button:not(:disabled):hover {
-  --local-bg: var(--lido-app-ui-color-background-surface-hover);
-  --local-border-color: var(--lido-app-ui-color-border-active);
-}
-
-.button:disabled {
-  --local-bg: var(--lido-app-ui-color-background-disabled);
+.button:disabled:not(.loading) {
   --local-border-width: 0px;
 
+  background-image: linear-gradient(
+    var(--lido-app-ui-color-background-disabled),
+    var(--lido-app-ui-color-background-disabled)
+  );
+  color: var(--lido-app-ui-color-text-disabled);
   cursor: not-allowed;
+}
+
+.button.loading {
+  cursor: wait;
+}
+
+.button:disabled:not(.loading) .slot {
+  color: var(--lido-app-ui-color-icons-disabled);
+}
+
+.slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--lido-app-ui-color-icons-secondary);
+}
+
+.spinner {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .button:focus-visible {

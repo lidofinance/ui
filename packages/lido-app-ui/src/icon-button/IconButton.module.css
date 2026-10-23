@@ -1,8 +1,5 @@
 .button {
-  --local-border-width: 0px;
   --local-counter-offset: 5px;
-  --local-bg: transparent;
-  --local-border-color: transparent;
 
   position: relative;
   display: inline-flex;
@@ -11,10 +8,11 @@
   box-sizing: border-box;
   width: 36px;
   height: 36px;
-  padding: calc(8px - var(--local-border-width));
-  border: var(--local-border-width) solid var(--local-border-color);
+  padding: calc(8px - var(--local-border-width, 0px));
+  border: var(--local-border-width, 0) solid
+    var(--local-border-color, transparent);
   border-radius: var(--lido-app-ui-border-radius-button-50);
-  background-color: var(--local-bg);
+  background-color: var(--local-bg, transparent);
   color: var(--lido-app-ui-color-icons-secondary);
   cursor: pointer;
   transition:
@@ -23,8 +21,13 @@
     color 0.2s ease;
 }
 
-.button:disabled {
+.button:disabled:not(.loading) {
+  color: var(--lido-app-ui-color-icons-disabled);
   cursor: not-allowed;
+}
+
+.button.loading {
+  cursor: wait;
 }
 
 .button:focus-visible {
@@ -70,16 +73,8 @@
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
-.surface {
-  --local-border-width: 1px;
-  --local-bg: var(--lido-app-ui-color-background-surface);
-  --local-border-color: var(--lido-app-ui-color-border-default);
-}
-
-.surface:not(:disabled):hover {
-  --local-bg: var(--lido-app-ui-color-background-surface-hover);
-  --local-border-color: var(--lido-app-ui-color-border-active);
-
+.surface:not(:disabled):hover,
+.surface:not(:disabled):active {
   color: var(--lido-app-ui-color-icons-active);
 }
 
@@ -91,12 +86,7 @@
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
-/* Loading is also :disabled but keeps the variant's default look. */
-.button:disabled:not(.loading) {
+.outline:disabled:not(.loading) {
   --local-border-width: 0px;
   --local-bg: var(--lido-app-ui-color-background-disabled);
-}
-
-.loading {
-  cursor: wait;
 }
