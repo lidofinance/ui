@@ -1,0 +1,46 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text {
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-secondary);
+  white-space: nowrap;
+}
+
+/* TokenSelector stretches to 100% of its parent; shrink-wrap it. */
+.pageSize {
+  display: inline-flex;
+}
+
+/*
+ * Figma "Selector/small" here is Body 2 regular, not the token chip's
+ * semibold. Block + 1px padding gives the chip a 36px height (24px text +
+ * 4px padding + 1px border per side) to line up with the buttons and input.
+ */
+.pageSizeLabel {
+  @mixin font-body;
+
+  display: block;
+  padding: 1px 0;
+  color: var(--lido-app-ui-color-text-default);
+}
+
+/* 16px padding each side + 1px borders + room for the widest page number. */
+.pageField {
+  @mixin font-body;
+
+  display: inline-flex;
+  width: calc(34px + var(--local-digits) * 1ch);
+}
