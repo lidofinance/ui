@@ -92,11 +92,6 @@ const meta: Meta<typeof Sidebar> = {
     closeOnNavigate: true,
     navLabel: 'Primary',
   },
-  argTypes: {
-    children: { control: false },
-    logo: { control: false },
-    footer: { control: false },
-  },
 }
 
 export default meta
