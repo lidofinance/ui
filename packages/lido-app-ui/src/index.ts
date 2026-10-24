@@ -1,3 +1,5 @@
+import { ThemeToggler as SharedThemeToggler } from '@lidofinance/lido-shared-ui'
+
 export * from './icons'
 
 export * from './accordion'
@@ -52,3 +54,6 @@ export type { Breakpoint, Responsive, Space } from './utils'
 // same non-production banner and theming primitives as the landing. Their
 // styles come in through src/styles/global.css.
 export * from '@lidofinance/lido-shared-ui'
+
+/** Unstyled in app-ui (relies on `--lido-ui-*` tokens); prefer `ThemeSwitcher`. */
+export const ThemeToggler = SharedThemeToggler

@@ -1,3 +1,14 @@
+:root,
+[data-lido-theme='light'] {
+  --lido-ui-light-display: initial;
+  --lido-ui-dark-display: none;
+}
+
+[data-lido-theme='dark'] {
+  --lido-ui-light-display: none;
+  --lido-ui-dark-display: initial;
+}
+
 @layer contentTheme {
   .dark {
     display: var(--lido-ui-dark-display, contents);
