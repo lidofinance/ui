@@ -16,23 +16,13 @@ const TOKENS: TokenIconSymbol[] = [
 const meta: Meta<typeof TokenIcon> = {
   title: 'Foundations/TokenIcon',
   component: TokenIcon,
-  tags: ['autodocs'],
   args: {
     token: 'stETH',
   },
   argTypes: {
     token: {
-      description: 'Picks the glyph',
       options: TOKENS,
       control: { type: 'inline-radio' },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Resolves a token symbol to its glyph. Symbols without a glyph in the kit render nothing — guard with `isTokenIcon` first.',
-      },
     },
   },
 }

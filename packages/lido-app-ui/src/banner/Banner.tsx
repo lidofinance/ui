@@ -20,6 +20,7 @@ export type BannerProps = ComponentPropsWithoutRef<'div'> & {
   dataTestId?: BannerDataTestId
 }
 
+/** Compact card row: icon, title and description, with an optional `action` slot on the right (usually a `Button`). */
 export const Banner = ({
   icon,
   title,

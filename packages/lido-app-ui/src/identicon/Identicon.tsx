@@ -9,7 +9,9 @@ export type IdenticonDataTestId = {
 }
 
 export type IdenticonProps = ComponentPropsWithoutRef<'span'> & {
+  /** Full address including `0x`; it seeds the pattern, so a trimmed one collapses distinct accounts onto the same picture. */
   address?: string
+  /** Diameter in px. */
   size?: number
   dataTestId?: IdenticonDataTestId
 }
@@ -33,6 +35,7 @@ const Jazzicon =
       ).default
 const { jsNumberForAddress } = ReactJazzicon
 
+/** Jazzicon avatar for a wallet address. */
 export const Identicon = forwardRef<HTMLSpanElement, IdenticonProps>(
   ({ address, size = 40, className, style, dataTestId, ...rest }, ref) => (
     <span

@@ -35,6 +35,7 @@ const iconBySymbol = {
 export const isTokenIcon = (symbol: string): symbol is TokenIconSymbol =>
   symbol in iconBySymbol
 
+/** Resolves a token symbol to its glyph; symbols without art render nothing, so guard with `isTokenIcon` first. */
 export const TokenIcon = ({ token, ...props }: TokenIconProps) => {
   const Icon = iconBySymbol[token]
   if (!Icon) return null

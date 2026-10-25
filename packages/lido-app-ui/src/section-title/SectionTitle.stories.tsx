@@ -6,7 +6,6 @@ import { SectionTitle } from '.'
 const meta: Meta<typeof SectionTitle> = {
   title: 'Content & Data/SectionTitle',
   component: SectionTitle,
-  tags: ['autodocs'],
   args: {
     title: 'Choose a token to claim',
     subtitle:
@@ -28,12 +27,6 @@ const meta: Meta<typeof SectionTitle> = {
   ),
   parameters: {
     layout: 'padded',
-    docs: {
-      description: {
-        component:
-          'A title row for a `Card` or any content section: title, optional subtitle, an optional info glyph that shows a `tooltip` on hover, and an optional `action` slot on the right (typically a `Button`). `tooltip` and `action` are independent — toggle either one on its own, or both together. Stories below are wrapped in a fixed-width container to match how it sits inside a real `Card` — otherwise `action` ends up far from the title.',
-      },
-    },
   },
 }
 

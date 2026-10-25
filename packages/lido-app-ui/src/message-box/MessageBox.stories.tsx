@@ -6,7 +6,6 @@ import { MessageBox } from '.'
 const meta: Meta<typeof MessageBox> = {
   title: 'Feedback & Overlays/MessageBox',
   component: MessageBox,
-  tags: ['autodocs'],
   args: {
     variant: 'default',
     icon: true,
@@ -15,23 +14,11 @@ const meta: Meta<typeof MessageBox> = {
   },
   argTypes: {
     variant: {
-      description:
-        'default (neutral), info (blue), warning (orange), error (red), success (green)',
       options: ['default', 'info', 'warning', 'error', 'success'],
       control: { type: 'inline-radio' },
     },
     icon: {
-      description: 'Leading glyph; picked from the variant',
       control: { type: 'boolean' },
-    },
-    headline: { description: 'Optional bold first line' },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Inline note inside a form or a card — the thing you reach for to explain a delay, a fee or a risk. The icon follows the variant, so you only toggle it on or off.',
-      },
     },
   },
 }

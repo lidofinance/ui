@@ -9,7 +9,6 @@ import * as wallets from './components/wallets'
 
 const meta: Meta = {
   title: 'Foundations/Icons',
-  tags: ['autodocs'],
   parameters: {
     layout: 'padded',
     docs: {

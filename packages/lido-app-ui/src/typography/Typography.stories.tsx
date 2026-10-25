@@ -15,14 +15,12 @@ import {
 const meta: Meta<typeof Typography> = {
   title: 'Foundations/Typography',
   component: Typography,
-  tags: ['autodocs'],
   args: {
     variant: 'body',
     children: 'The quick brown fox jumps over the lazy dog',
   },
   argTypes: {
     variant: {
-      description: 'Type style; also decides the default tag',
       options: [
         'h1',
         'h2',
@@ -36,20 +34,10 @@ const meta: Meta<typeof Typography> = {
       control: { type: 'select' },
     },
     weight: {
-      description: 'Only bodyLarge, body, and description have two weights',
       options: ['regular', 'semibold'],
       control: { type: 'inline-radio' },
     },
-    as: { description: 'Override the rendered tag without changing the style' },
     children: { control: { type: 'text' } },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Typed text in Manrope. Use the named shortcuts (`H1`, `Body`, `Description`…) in app code and the generic `Typography` when the variant is dynamic. The same styles are available as PostCSS mixins from `@lidofinance/lido-app-ui/styles`.',
-      },
-    },
   },
 }
 
@@ -62,6 +50,21 @@ export const Scale: Story = {
   render: () => (
     <StoryContainer gap={20}>
       <H1>H1 — 42/58</H1>
+      <div>
+        <div
+          style={{
+            fontFamily: 'var(--lido-app-ui-font-family)',
+            fontSize: 'var(--lido-app-ui-font-size-display)',
+            fontWeight: 'var(--lido-app-ui-font-weight-semibold)',
+            lineHeight: 'var(--lido-app-ui-line-height-display)',
+            letterSpacing: 'var(--lido-app-ui-letter-spacing-display)',
+            color: 'var(--lido-app-ui-color-text-default)',
+          }}
+        >
+          Display — 112/136
+        </div>
+        <Description>mixin only: @mixin font-display</Description>
+      </div>
       <H2>H2 — 28/40</H2>
       <H3>H3 — 24/36</H3>
       <BodyLarge>BodyLarge regular — 16/28</BodyLarge>

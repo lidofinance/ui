@@ -32,6 +32,7 @@ export type SegmentedControlProps = Omit<
   dataTestId?: SegmentedControlDataTestId
 }
 
+/** Controlled segmented control (e.g. Supply / Withdraw / Borrow); the pill is measured from the active segment, so labels of any length fit. */
 export const SegmentedControl = ({
   items,
   value,

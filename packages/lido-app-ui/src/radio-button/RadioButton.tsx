@@ -14,10 +14,12 @@ export type RadioButtonProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'type'
 > & {
+  /** Text next to the circle; omit for a bare radio. */
   label?: ReactNode
   dataTestId?: RadioButtonDataTestId
 }
 
+/** 24px radio wrapped in a `<label>` so the text is clickable; forwards every native input prop, group radios with a shared `name`. */
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   ({ label, className, disabled, dataTestId, ...rest }, ref) => (
     <label

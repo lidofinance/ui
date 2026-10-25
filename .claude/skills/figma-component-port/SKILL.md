@@ -16,6 +16,10 @@ Figma file used throughout: `Interface Design System`
 (`fileKey=1SFw8VIyvedXmg9s4vCinh` in past sessions — always take the
 fileKey from the URL the user pastes, don't hardcode it).
 
+When porting or aligning a component, record its node on the story meta as
+`parameters: { design: { type: 'figma', url: '<pasted URL>' } }` and read that
+URL back on later alignment passes instead of asking again.
+
 ## 0. Load the Figma skill first
 
 Before any `get_design_context` call, load the `figma-design-to-code`

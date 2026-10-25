@@ -6,7 +6,6 @@ import { TokenSteth } from '../icons'
 const meta: Meta<typeof DataList> = {
   title: 'Content & Data/DataList',
   component: DataList,
-  tags: ['autodocs'],
   args: {
     divided: true,
   },
@@ -16,12 +15,6 @@ const meta: Meta<typeof DataList> = {
   parameters: {
     layout: 'padded',
     controls: { exclude: ['className'] },
-    docs: {
-      description: {
-        component:
-          'Label-on-the-left, value-on-the-right list for transaction details. `DataList` is the spacing wrapper; every row is a `DetailRow`, which handles the optional info tooltip, a leading icon and the from → to change format.',
-      },
-    },
   },
 }
 

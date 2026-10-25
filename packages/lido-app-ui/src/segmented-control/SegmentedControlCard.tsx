@@ -35,6 +35,7 @@ export type SegmentedControlCardProps = Omit<
   dataTestId?: SegmentedControlCardDataTestId
 }
 
+/** Card variant of `SegmentedControl`: each option is a card with an icon, title, tag and description instead of a compact pill. */
 export const SegmentedControlCard = ({
   items,
   value,

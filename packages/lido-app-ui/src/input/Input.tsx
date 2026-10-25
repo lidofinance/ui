@@ -31,6 +31,7 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   dataTestId?: InputDataTestId
 }
 
+/** Bordered text field; `icon` adds a leading icon, `label`/`description`/`error` add the field chrome, `tooltip` puts an info icon next to the label. */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {

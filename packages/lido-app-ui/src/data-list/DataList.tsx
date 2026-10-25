@@ -17,6 +17,7 @@ export type DataListProps = Omit<
   dataTestId?: DataListDataTestId
 }
 
+/** Spacing wrapper for label-left, value-right transaction details; put `DataListRow`s inside. */
 export const DataList = ({
   children,
   className,

@@ -14,10 +14,12 @@ export type SwitchProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'type'
 > & {
+  /** Text next to the control; omit for a bare switch. */
   label?: ReactNode
   dataTestId?: SwitchDataTestId
 }
 
+/** 40×24 toggle wrapped in a `<label>` so the text is clickable; forwards every native input prop. */
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   ({ label, className, disabled, dataTestId, ...rest }, ref) => (
     <label

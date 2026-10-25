@@ -12,7 +12,6 @@ import { TxStatus } from '.'
 const meta: Meta<typeof TxStatus> = {
   title: 'Feedback & Overlays/TxStatus',
   component: TxStatus,
-  tags: ['autodocs'],
   args: {
     status: 'loading',
     title: 'Awaiting confirmation',
@@ -21,23 +20,12 @@ const meta: Meta<typeof TxStatus> = {
   },
   argTypes: {
     status: {
-      description: 'Picks the top glyph: spinner, check, cross or exclamation',
       options: ['loading', 'success', 'error', 'warning'],
       control: { type: 'inline-radio' },
     },
-    title: { description: 'Headline under the glyph' },
-    amount: { description: 'Optional `TokenAmount` under the title' },
-    message: { description: 'Explanatory line' },
-    footer: { description: 'Slot for an Explorer link or a retry button' },
   },
   parameters: {
     layout: 'padded',
-    docs: {
-      description: {
-        component:
-          'The body of a transaction modal — one glyph, a headline and whatever the user needs to do next. Put it inside `Modal` and swap `status` as the transaction moves along.',
-      },
-    },
   },
 }
 

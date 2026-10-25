@@ -7,7 +7,6 @@ import { Input } from '.'
 const meta: Meta<typeof Input> = {
   title: 'Inputs & Controls/Input',
   component: Input,
-  tags: ['autodocs'],
   args: {
     placeholder: 'Placeholder',
     size: 'default',
@@ -24,12 +23,6 @@ const meta: Meta<typeof Input> = {
   },
   parameters: {
     layout: 'padded',
-    docs: {
-      description: {
-        component:
-          'A bordered text field. `icon` adds a leading icon. `label`/`description`/`error` add the field chrome around it; `tooltip` puts an info icon next to the label wired up to the `Tooltip` component.',
-      },
-    },
   },
 }
 

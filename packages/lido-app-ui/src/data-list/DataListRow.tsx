@@ -34,6 +34,7 @@ const isChangeValue = (
   'from' in value &&
   'to' in value
 
+/** Label and value row with an optional info tooltip, leading icon and from → to change format. */
 export const DataListRow = ({
   label,
   value,

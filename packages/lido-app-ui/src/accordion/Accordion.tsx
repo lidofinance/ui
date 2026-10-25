@@ -19,13 +19,16 @@ export type AccordionDataTestId = {
 
 export type AccordionProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   title: ReactNode
+  /** Bottom divider; turn it off on the last item of a list. */
   border?: boolean
   defaultExpanded?: boolean
+  /** Controlled mode, pair with `onExpandedChange`. */
   expanded?: boolean
   onExpandedChange?: (expanded: boolean) => void
   dataTestId?: AccordionDataTestId
 }
 
+/** Collapsible section, uncontrolled by default; pass `expanded` + `onExpandedChange` to drive it from your own state. */
 export const Accordion = ({
   title,
   border = true,

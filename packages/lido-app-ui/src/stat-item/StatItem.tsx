@@ -20,15 +20,21 @@ export type StatItemDataTestId = {
 export type StatItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   label: ReactNode
   value: ReactNode
+  /** 24×24 glyph before the label. */
   titleIcon?: ReactNode
+  /** Tooltip content, shown as an info icon after the label. */
   info?: ReactNode
+  /** Token glyph next to the value. */
   icon?: ReactNode
+  /** Small secondary line, inline for `align='left'`, below the value for `align='center'`. */
   subValue?: ReactNode
+  /** Muted caption at the bottom. */
   description?: ReactNode
   align?: StatItemAlign
   dataTestId?: StatItemDataTestId
 }
 
+/** Label-over-value metric; use it alone or pass a list to `StatsRow` for the four-up dashboard block. */
 export const StatItem = ({
   label,
   value,

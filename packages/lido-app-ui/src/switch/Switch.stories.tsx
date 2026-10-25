@@ -6,21 +6,11 @@ import { StoryContainer } from '../../.storybook/components'
 const meta: Meta<typeof Switch> = {
   title: 'Inputs & Controls/Switch',
   component: Switch,
-  tags: ['autodocs'],
   args: {
     label: 'Enable notifications',
   },
   argTypes: {
-    label: { description: 'Text next to the control; omit for a bare switch' },
     disabled: { control: { type: 'boolean' } },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A 40×24 toggle track with a label, wrapped in a `<label>` so the text is clickable. It forwards every native input prop, so use it controlled or uncontrolled as you like.',
-      },
-    },
   },
 }
 
