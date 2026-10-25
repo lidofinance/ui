@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { fireEvent, render, renderHook, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { Portal } from './Portal'
@@ -16,12 +17,13 @@ const Trap = ({
   restoreFocus?: boolean
 }) => {
   const [el, setEl] = useState<HTMLDivElement | null>(null)
-  useFocusTrap(el, active, { restoreFocus })
+  useFocusTrap(el, { enabled: active, restoreFocus })
   return (
     <div>
       <button>outside</button>
       <div ref={setEl} data-testid='trap'>
         <button>first</button>
+        <button>middle</button>
         <button disabled>skipped</button>
         <button>last</button>
       </div>
@@ -29,21 +31,25 @@ const Trap = ({
   )
 }
 
-const tab = (shiftKey = false) =>
-  fireEvent.keyDown(document.activeElement ?? document.body, {
-    key: 'Tab',
-    shiftKey,
-  })
+const tab = (shift = false) => userEvent.tab({ shift })
 
 describe('useFocusTrap', () => {
-  it('focuses first tabbable on activate and cycles with Tab / Shift+Tab', () => {
+  it('focuses first tabbable on activate and cycles with Tab / Shift+Tab', async () => {
     render(<Trap active />)
     expect(document.activeElement).toBe(screen.getByText('first'))
     screen.getByText('last').focus()
-    tab()
+    await tab()
     expect(document.activeElement).toBe(screen.getByText('first'))
-    tab(true)
+    await tab(true)
     expect(document.activeElement).toBe(screen.getByText('last'))
+  })
+
+  it('leaves Tab between middle items to the browser', async () => {
+    render(<Trap active />)
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('middle'))
+    await tab(true)
+    expect(document.activeElement).toBe(screen.getByText('first'))
   })
 
   it('restores focus to the previously focused element on deactivate', () => {
@@ -71,10 +77,114 @@ describe('useFocusTrap', () => {
   })
 })
 
+describe('useFocusTrap tab order', () => {
+  const Custom = ({ children }: { children: ReactNode }) => {
+    const [el, setEl] = useState<HTMLDivElement | null>(null)
+    useFocusTrap(el)
+    return <div ref={setEl}>{children}</div>
+  }
+
+  it('wraps past a trailing button with tabindex -1', async () => {
+    render(
+      <Custom>
+        <button>first</button>
+        <button>last</button>
+        <button tabIndex={-1}>skipped</button>
+      </Custom>,
+    )
+    screen.getByText('last').focus()
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('first'))
+  })
+
+  it('wraps past a trailing button under a display:none wrapper', async () => {
+    render(
+      <Custom>
+        <button>first</button>
+        <button>last</button>
+        <div style={{ display: 'none' }}>
+          <button>hidden</button>
+        </div>
+      </Custom>,
+    )
+    screen.getByText('last').focus()
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('first'))
+  })
+
+  it('skips inert subtrees', async () => {
+    render(
+      <Custom>
+        <button>first</button>
+        <button>last</button>
+        <div {...{ inert: '' }}>
+          <button>inert</button>
+        </div>
+      </Custom>,
+    )
+    screen.getByText('last').focus()
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('first'))
+  })
+
+  it('treats a trailing radio group as one tab stop', async () => {
+    render(
+      <Custom>
+        <button>first</button>
+        <input type='radio' name='g' aria-label='r1' defaultChecked />
+        <input type='radio' name='g' aria-label='r2' />
+        <input type='radio' name='g' aria-label='r3' />
+      </Custom>,
+    )
+    screen.getByRole('radio', { name: 'r1' }).focus()
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('first'))
+  })
+
+  it('wraps Shift+Tab from a leading unchecked radio group to the last stop', async () => {
+    render(
+      <Custom>
+        <input type='radio' name='g' aria-label='r1' />
+        <input type='radio' name='g' aria-label='r2' />
+        <button>last</button>
+      </Custom>,
+    )
+    screen.getByRole('radio', { name: 'r2' }).focus()
+    await tab(true)
+    expect(document.activeElement).toBe(screen.getByText('last'))
+  })
+
+  it('enters a radio group at its checked radio', () => {
+    render(
+      <Custom>
+        <input type='radio' name='g' aria-label='r1' />
+        <input type='radio' name='g' aria-label='r2' defaultChecked />
+      </Custom>,
+    )
+    expect(document.activeElement).toBe(
+      screen.getByRole('radio', { name: 'r2' }),
+    )
+  })
+
+  it('treats bare contenteditable as a tab stop', async () => {
+    render(
+      <Custom>
+        <button>first</button>
+        <div contentEditable suppressContentEditableWarning>
+          edit
+        </div>
+      </Custom>,
+    )
+    screen.getByText('edit').focus()
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('first'))
+  })
+})
+
 describe('useFocusTrap with Portal', () => {
   const PortalTrap = () => {
     const [el, setEl] = useState<HTMLDivElement | null>(null)
-    useFocusTrap(el, true)
+    useFocusTrap(el)
     return (
       <Portal>
         <div ref={setEl}>
@@ -92,26 +202,43 @@ describe('useFocusTrap with Portal', () => {
 })
 
 describe('useEscape', () => {
-  it('fires on Escape only while active', () => {
+  it('fires on Escape only while active', async () => {
     const handler = vi.fn()
     const { rerender } = renderHook(
-      ({ active }) => useEscape(active, handler),
+      ({ active }) => useEscape(handler, { enabled: active }),
       { initialProps: { active: false } },
     )
-    fireEvent.keyDown(document, { key: 'Escape' })
+    await userEvent.keyboard('{Escape}')
     expect(handler).not.toHaveBeenCalled()
 
     rerender({ active: true })
-    fireEvent.keyDown(document, { key: 'Enter' })
-    fireEvent.keyDown(document, { key: 'Escape' })
+    await userEvent.keyboard('{Enter}')
+    await userEvent.keyboard('{Escape}')
+    expect(handler).toHaveBeenCalledTimes(1)
+  })
+
+  it('ignores Escape that cancels IME composition', async () => {
+    const handler = vi.fn()
+    renderHook(() => useEscape(handler))
+    fireEvent.keyDown(document, { key: 'Escape', isComposing: true })
+    fireEvent.keyDown(document, { key: 'Escape', keyCode: 229 })
+    expect(handler).not.toHaveBeenCalled()
+    await userEvent.keyboard('{Escape}')
     expect(handler).toHaveBeenCalledTimes(1)
   })
 })
 
+// jsdom's PointerEvent ignores pointerType, so tag a plain event.
+const touch = (type: string, target: Element) => {
+  const event = new Event(type, { bubbles: true })
+  Object.defineProperty(event, 'pointerType', { value: 'touch' })
+  fireEvent(target, event)
+}
+
 describe('useOutsideClick', () => {
   const Outside = ({ onOutside }: { onOutside: () => void }) => {
     const [el, setEl] = useState<HTMLDivElement | null>(null)
-    useOutsideClick(el, onOutside, true)
+    useOutsideClick(el, onOutside)
     return (
       <div>
         <button>outside</button>
@@ -124,7 +251,7 @@ describe('useOutsideClick', () => {
 
   const PortalOutside = ({ onOutside }: { onOutside: () => void }) => {
     const [el, setEl] = useState<HTMLDivElement | null>(null)
-    useOutsideClick(el, onOutside, true)
+    useOutsideClick(el, onOutside)
     return (
       <Portal>
         <div ref={setEl}>
@@ -152,6 +279,29 @@ describe('useOutsideClick', () => {
     expect(onOutside).toHaveBeenCalledTimes(1)
   })
 
+  it('defers touch dismissal to pointerup and ignores cancelled scroll gestures', () => {
+    const onOutside = vi.fn()
+    render(<Outside onOutside={onOutside} />)
+    const outside = screen.getByText('outside')
+    touch('pointerdown', outside)
+    expect(onOutside).not.toHaveBeenCalled()
+    touch('pointercancel', outside)
+    touch('pointerup', outside)
+    expect(onOutside).not.toHaveBeenCalled()
+    touch('pointerdown', outside)
+    touch('pointerup', outside)
+    expect(onOutside).toHaveBeenCalledTimes(1)
+  })
+
+  it('drops a pending touch dismissal on unmount', () => {
+    const onOutside = vi.fn()
+    const { unmount } = render(<Outside onOutside={onOutside} />)
+    touch('pointerdown', screen.getByText('outside'))
+    unmount()
+    touch('pointerup', document.body)
+    expect(onOutside).not.toHaveBeenCalled()
+  })
+
   it('calls the latest handler after it changes', () => {
     const first = vi.fn()
     const second = vi.fn()
@@ -166,23 +316,66 @@ describe('useOutsideClick', () => {
 describe('useBodyScrollLock', () => {
   afterEach(() => {
     document.body.removeAttribute('style')
+    document.documentElement.removeAttribute('style')
+    vi.restoreAllMocks()
   })
 
-  it('locks and restores overflow', () => {
+  it('locks and restores overflow on body by default', () => {
     document.body.style.overflow = 'auto'
-    const { unmount } = renderHook(() => useBodyScrollLock(true))
+    const { unmount } = renderHook(() => useBodyScrollLock())
     expect(document.body.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.overflow).toBe('')
     unmount()
     expect(document.body.style.overflow).toBe('auto')
   })
 
+  it('locks and restores html when html is the scroller', () => {
+    document.documentElement.style.overflowY = 'scroll'
+    const { unmount } = renderHook(() => useBodyScrollLock())
+    expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.body.style.overflow).toBe('')
+    unmount()
+    expect(document.documentElement.style.overflow).toBe('')
+    expect(document.documentElement.style.overflowY).toBe('scroll')
+  })
+
   it('stays locked until the last nested lock releases', () => {
-    const a = renderHook(() => useBodyScrollLock(true))
-    const b = renderHook(() => useBodyScrollLock(true))
+    const a = renderHook(() => useBodyScrollLock())
+    const b = renderHook(() => useBodyScrollLock())
     a.unmount()
     expect(document.body.style.overflow).toBe('hidden')
     b.unmount()
     expect(document.body.style.overflow).toBe('')
+  })
+
+  it('compensates the width gained by hiding the scrollbar and restores on unlock', () => {
+    const widths = [1265, 1280]
+    vi.spyOn(document.body, 'getBoundingClientRect').mockImplementation(
+      () => ({ width: widths.shift() }) as DOMRect,
+    )
+    const html = document.documentElement
+    document.body.style.paddingRight = '4px'
+    const { unmount } = renderHook(() => useBodyScrollLock())
+    expect(document.body.style.paddingRight).toBe('19px')
+    expect(html.style.getPropertyValue('--lido-app-ui-scrollbar-width')).toBe(
+      '15px',
+    )
+    unmount()
+    expect(document.body.style.paddingRight).toBe('4px')
+    expect(html.style.getPropertyValue('--lido-app-ui-scrollbar-width')).toBe(
+      '',
+    )
+  })
+
+  it('adds no compensation when no scrollbar width is gained', () => {
+    const { unmount } = renderHook(() => useBodyScrollLock())
+    expect(document.body.style.paddingRight).toBe('')
+    expect(
+      document.documentElement.style.getPropertyValue(
+        '--lido-app-ui-scrollbar-width',
+      ),
+    ).toBe('')
+    unmount()
   })
 })
 
@@ -193,8 +386,39 @@ describe('Portal', () => {
         <span>portaled</span>
       </Portal>,
     )
-    expect(container.querySelector('span:not([hidden])')).toBeNull()
+    expect(
+      container.querySelector('span:not([hidden])'),
+    ).not.toBeInTheDocument()
     expect(screen.getByText('portaled').parentElement).toBe(document.body)
+  })
+
+  it('renders no marker element when container is passed', () => {
+    const container = document.createElement('div')
+    document.body.appendChild(container)
+    const error = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+    const { container: host } = render(
+      <table>
+        <tbody>
+          <Portal container={container}>
+            <span>row</span>
+          </Portal>
+        </tbody>
+      </table>,
+    )
+    expect(host.querySelector('span')).not.toBeInTheDocument()
+    expect(container).toHaveTextContent('row')
+    expect(error).not.toHaveBeenCalled()
+    error.mockRestore()
+    container.remove()
+  })
+
+  it('removes the marker once the target resolves', () => {
+    const { container } = render(
+      <div>
+        <Portal>x</Portal>
+      </div>,
+    )
+    expect(container.querySelector('span')).not.toBeInTheDocument()
   })
 
   it('renders no content on the server', async () => {
@@ -212,7 +436,7 @@ describe('Portal', () => {
     )
     const root = screen.getByText('themed').parentElement as HTMLElement
     expect(root).not.toBe(document.body)
-    expect(root.getAttribute('data-lido-theme')).toBe('dark')
+    expect(root).toHaveAttribute('data-lido-theme', 'dark')
   })
 })
 
@@ -225,8 +449,8 @@ describe('nested overlays', () => {
     label: string
   }) => {
     const [el, setEl] = useState<HTMLDivElement | null>(null)
-    useFocusTrap(el, true, { restoreFocus: false })
-    useEscape(true, onEscape)
+    useFocusTrap(el, { restoreFocus: false })
+    useEscape(onEscape)
     return (
       <div ref={setEl} data-testid={label}>
         <button type='button'>{label}-a</button>
@@ -236,7 +460,7 @@ describe('nested overlays', () => {
     )
   }
 
-  it('only the newest layer handles Escape', () => {
+  it('only the newest layer handles Escape', async () => {
     const outer = vi.fn()
     const inner = vi.fn()
     render(
@@ -245,7 +469,7 @@ describe('nested overlays', () => {
         <Layer label='inner' onEscape={inner} />
       </>,
     )
-    fireEvent.keyDown(document, { key: 'Escape' })
+    await userEvent.keyboard('{Escape}')
     expect(inner).toHaveBeenCalledTimes(1)
     expect(outer).not.toHaveBeenCalled()
   })
@@ -261,7 +485,7 @@ describe('nested overlays', () => {
       onOutside: () => void
     }) => {
       const [el, setEl] = useState<HTMLDivElement | null>(null)
-      useOutsideClick(el, onOutside, true)
+      useOutsideClick(el, onOutside)
       return <div ref={setEl}>{label}</div>
     }
     render(
@@ -279,7 +503,7 @@ describe('nested overlays', () => {
     expect(outer).not.toHaveBeenCalled()
   })
 
-  it('only the newest layer handles Tab', () => {
+  it('only the newest layer handles Tab', async () => {
     render(
       <>
         <Layer label='outer' onEscape={vi.fn()} />
@@ -287,10 +511,7 @@ describe('nested overlays', () => {
       </>,
     )
     screen.getByText('inner-b').focus()
-    const notPrevented = fireEvent.keyDown(document.activeElement as Element, {
-      key: 'Tab',
-    })
-    expect(notPrevented).toBe(true)
-    expect(document.activeElement).toBe(screen.getByText('inner-b'))
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('inner-c'))
   })
 })

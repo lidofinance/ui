@@ -1,4 +1,5 @@
 import {
+  useRef,
   useState,
   type ChangeEvent,
   type ComponentPropsWithoutRef,
@@ -21,6 +22,7 @@ export type PaginationLabels = {
   records?: ReactNode
   of?: ReactNode
   page?: string
+  pageSize?: string
   previous?: string
   next?: string
 }
@@ -45,6 +47,7 @@ export type PaginationProps = Omit<
   pageSize?: number
   pageSizeOptions?: number[]
   onPageSizeChange?: (pageSize: number) => void
+  /** Visible texts and `aria-label`s, for i18n. */
   labels?: PaginationLabels
   dataTestId?: PaginationDataTestId
 }
@@ -56,6 +59,7 @@ const DEFAULT_LABELS: Required<PaginationLabels> = {
   records: 'Records',
   of: 'of',
   page: 'Page number',
+  pageSize: 'Records per page',
   previous: 'Previous page',
   next: 'Next page',
 }
@@ -63,6 +67,7 @@ const DEFAULT_LABELS: Required<PaginationLabels> = {
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max)
 
+/** Page-size selector on the left, page input with previous/next controls on the right; Enter or blur jumps to the typed page and out-of-range values are clamped. */
 export const Pagination = ({
   page,
   pageCount,
@@ -79,6 +84,7 @@ export const Pagination = ({
   const lastPage = Math.max(pageCount, 1)
   // `null` while the input is not being edited — it then mirrors `page`.
   const [draft, setDraft] = useState<string | null>(null)
+  const cancelledRef = useRef(false)
 
   const goTo = (next: number) => {
     const target = clamp(next, 1, lastPage)
@@ -86,7 +92,10 @@ export const Pagination = ({
   }
 
   const commitDraft = () => {
-    if (draft !== null && draft !== '') goTo(Number(draft))
+    if (!cancelledRef.current && draft !== null && draft !== '') {
+      goTo(Number(draft))
+    }
+    cancelledRef.current = false
     setDraft(null)
   }
 
@@ -95,11 +104,8 @@ export const Pagination = ({
   }
 
   const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      commitDraft()
-      event.currentTarget.blur()
-    } else if (event.key === 'Escape') {
-      setDraft(null)
+    if (event.key === 'Escape') cancelledRef.current = true
+    if (event.key === 'Enter' || event.key === 'Escape') {
       event.currentTarget.blur()
     }
   }
@@ -136,6 +142,7 @@ export const Pagination = ({
               size='small'
               options={sizeOptions}
               value={String(pageSize)}
+              listLabel={text.pageSize}
               onChange={(value) => onPageSizeChange?.(Number(value))}
               dataTestId={{ trigger: dataTestId?.pageSize }}
             />

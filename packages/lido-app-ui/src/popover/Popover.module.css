@@ -3,16 +3,17 @@
   z-index: var(--lido-app-ui-z-index-popover);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--lido-app-ui-space-24);
   box-sizing: border-box;
   max-width: calc(100vw - 16px);
   max-height: calc(100dvh - 16px);
-  padding: 12px;
+  padding: var(--lido-app-ui-space-12);
   overflow-y: auto;
   border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-card);
   background-color: var(--lido-app-ui-color-background-surface);
   box-shadow: var(--lido-app-ui-shadow-popover);
+  font-family: var(--lido-app-ui-font-family);
   color: var(--lido-app-ui-color-text-default);
 }
 

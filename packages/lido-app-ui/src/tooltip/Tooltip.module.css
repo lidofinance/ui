@@ -17,8 +17,9 @@
   padding: 16px;
   border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-tooltip);
-  background-color: rgb(0 0 0 / 90%);
-  color: var(--lido-app-ui-palette-white-a900);
+  background-color: var(--lido-app-ui-color-background-page);
+  box-shadow: var(--lido-app-ui-shadow-popover);
+  color: var(--lido-app-ui-color-text-default);
 
   @mixin font-body;
 

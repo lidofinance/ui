@@ -115,9 +115,9 @@ export const Sidebar = ({
     wasDrawerViewport.current = isDrawerViewport
   }, [isDrawerViewport, open, onClose])
 
-  useBodyScrollLock(drawerActive)
-  useFocusTrap(root, drawerActive)
-  useEscape(drawerActive && !!onClose, () => onClose?.())
+  useBodyScrollLock({ enabled: drawerActive })
+  useFocusTrap(root, { enabled: drawerActive })
+  useEscape(() => onClose?.(), { enabled: drawerActive && !!onClose })
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     onClick?.(event)

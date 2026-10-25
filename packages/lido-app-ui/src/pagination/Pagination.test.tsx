@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { Pagination } from './Pagination'
 
@@ -11,29 +12,27 @@ describe('Pagination', () => {
     )
     const prev = screen.getByRole('button', { name: 'Previous page' })
     const next = screen.getByRole('button', { name: 'Next page' })
-    expect(prev).toHaveProperty('disabled', true)
-    expect(next).toHaveProperty('disabled', false)
+    expect(prev).toBeDisabled()
+    expect(next).toBeEnabled()
 
     fireEvent.click(next)
     expect(onPageChange).toHaveBeenCalledWith(2)
 
     rerender(<Pagination page={5} pageCount={5} onPageChange={onPageChange} />)
-    expect(screen.getByRole('button', { name: 'Next page' })).toHaveProperty(
-      'disabled',
-      true,
-    )
+    expect(screen.getByRole('button', { name: 'Next page' })).toBeDisabled()
     fireEvent.click(screen.getByRole('button', { name: 'Previous page' }))
     expect(onPageChange).toHaveBeenLastCalledWith(4)
   })
 
-  it('commits a typed page on Enter and clamps it to the range', () => {
+  it('commits a typed page on Enter and clamps it to the range', async () => {
     const onPageChange = vi.fn()
     render(<Pagination page={5} pageCount={10} onPageChange={onPageChange} />)
     const input = screen.getByLabelText('Page number') as HTMLInputElement
 
-    fireEvent.focus(input)
+    await userEvent.click(input)
     fireEvent.change(input, { target: { value: '7' } })
-    fireEvent.keyDown(input, { key: 'Enter' })
+    await userEvent.keyboard('{Enter}')
+    expect(onPageChange).toHaveBeenCalledTimes(1)
     expect(onPageChange).toHaveBeenLastCalledWith(7)
 
     fireEvent.focus(input)
@@ -47,7 +46,7 @@ describe('Pagination', () => {
     expect(onPageChange).toHaveBeenLastCalledWith(1)
   })
 
-  it('strips non-digits and reverts an empty or escaped draft', () => {
+  it('strips non-digits and reverts an empty or escaped draft', async () => {
     const onPageChange = vi.fn()
     render(<Pagination page={3} pageCount={10} onPageChange={onPageChange} />)
     const input = screen.getByLabelText('Page number') as HTMLInputElement
@@ -61,9 +60,9 @@ describe('Pagination', () => {
     expect(onPageChange).not.toHaveBeenCalled()
     expect(input.value).toBe('3')
 
-    fireEvent.focus(input)
+    await userEvent.click(input)
     fireEvent.change(input, { target: { value: '9' } })
-    fireEvent.keyDown(input, { key: 'Escape' })
+    await userEvent.keyboard('{Escape}')
     expect(onPageChange).not.toHaveBeenCalled()
     expect(input.value).toBe('3')
   })
@@ -82,8 +81,8 @@ describe('Pagination', () => {
     const { rerender } = render(
       <Pagination page={1} pageCount={10} onPageChange={() => undefined} />,
     )
-    expect(screen.queryByText('Show')).toBeNull()
-    expect(screen.getByText('of 10')).toBeTruthy()
+    expect(screen.queryByText('Show')).not.toBeInTheDocument()
+    expect(screen.getByText('of 10')).toBeInTheDocument()
 
     rerender(
       <Pagination
@@ -93,9 +92,9 @@ describe('Pagination', () => {
         onPageChange={() => undefined}
       />,
     )
-    expect(screen.getByText('Show')).toBeTruthy()
-    expect(screen.getByText('Records')).toBeTruthy()
-    expect(screen.getByText('25')).toBeTruthy()
+    expect(screen.getByText('Show')).toBeInTheDocument()
+    expect(screen.getByText('Records')).toBeInTheDocument()
+    expect(screen.getByText('25')).toBeInTheDocument()
   })
 
   it('emits a numeric page size from the selector', () => {
@@ -125,9 +124,38 @@ describe('Pagination', () => {
         labels={{ show: 'Per page', records: 'keys', of: '/', next: 'Next' }}
       />,
     )
-    expect(screen.getByText('Per page')).toBeTruthy()
-    expect(screen.getByText('keys')).toBeTruthy()
-    expect(screen.getByText('/ 4')).toBeTruthy()
-    expect(screen.getByRole('button', { name: 'Next' })).toBeTruthy()
+    expect(screen.getByText('Per page')).toBeInTheDocument()
+    expect(screen.getByText('keys')).toBeInTheDocument()
+    expect(screen.getByText('/ 4')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument()
+  })
+
+  it('names the page-size dialog and honours a custom label', () => {
+    const { unmount } = render(
+      <Pagination
+        page={1}
+        pageCount={4}
+        pageSize={10}
+        onPageChange={() => undefined}
+      />,
+    )
+    fireEvent.click(screen.getByRole('button', { expanded: false }))
+    expect(
+      screen.getByRole('dialog', { name: 'Records per page' }),
+    ).toBeInTheDocument()
+    unmount()
+    render(
+      <Pagination
+        page={1}
+        pageCount={4}
+        pageSize={10}
+        onPageChange={() => undefined}
+        labels={{ pageSize: 'Zeilen pro Seite' }}
+      />,
+    )
+    fireEvent.click(screen.getByRole('button', { expanded: false }))
+    expect(
+      screen.getByRole('dialog', { name: 'Zeilen pro Seite' }),
+    ).toBeInTheDocument()
   })
 })

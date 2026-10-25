@@ -7,7 +7,6 @@ import { Tooltip } from '.'
 const meta: Meta<typeof Tooltip> = {
   title: 'Feedback & Overlays/Tooltip',
   component: Tooltip,
-  tags: ['autodocs'],
   args: {
     content: 'Annual percentage yield, net of protocol fees.',
     position: 'top',
@@ -15,9 +14,7 @@ const meta: Meta<typeof Tooltip> = {
     children: <IconInfo />,
   },
   argTypes: {
-    content: { description: 'Bubble content — required' },
     position: {
-      description: 'Where the bubble opens relative to the trigger',
       options: [
         'top',
         'right',
@@ -30,17 +27,10 @@ const meta: Meta<typeof Tooltip> = {
       ],
       control: { type: 'select' },
     },
-    width: { description: 'Bubble width in px', control: { type: 'number' } },
-    children: { description: 'The trigger — usually an info icon' },
+    width: { control: { type: 'number' } },
   },
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'The bubble is rendered into a portal on `document.body`, so an ancestor with `overflow: clip` (a card, a `Modal`) can never cut it off. It measures itself on open and flips or slides to stay inside the viewport.',
-      },
-    },
   },
 }
 

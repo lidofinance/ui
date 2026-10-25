@@ -1,14 +1,12 @@
 import {
-  useCallback,
-  useEffect,
   useRef,
   useState,
   type ComponentPropsWithoutRef,
   type ReactNode,
 } from 'react'
-import { useOutsideClick } from '../hooks/useOutsideClick'
 import { IconCheck, IconChevronDown, IconChevronUp } from '../icons'
 import cn from 'classnames'
+import { Popover } from '../popover'
 import styles from './TokenSelector.module.css'
 
 export type TokenSelectorOptionDataTestId = {
@@ -46,12 +44,43 @@ export type TokenSelectorProps = Omit<
   options: TokenSelectorOption[]
   value?: string
   onChange?: (value: string) => void
+  /** Renders a static chip with no dropdown. */
   single?: boolean
   size?: TokenSelectorSize
   placeholder?: ReactNode
+  /** Accessible name of the dropdown and its list. */
+  listLabel?: string
   dataTestId?: TokenSelectorDataTestId
 }
 
+const OptionLabel = ({
+  option,
+  size,
+}: {
+  option: TokenSelectorOption
+  size: TokenSelectorSize
+}) => (
+  <>
+    {option.icon ? (
+      <span className={styles.icon} data-testid={option.dataTestId?.icon}>
+        {option.icon}
+      </span>
+    ) : null}
+    <span className={styles.label} data-testid={option.dataTestId?.label}>
+      {option.label}
+    </span>
+    {size === 'default' && option.secondaryLabel != null ? (
+      <span
+        className={styles.secondaryLabel}
+        data-testid={option.dataTestId?.secondaryLabel}
+      >
+        {option.secondaryLabel}
+      </span>
+    ) : null}
+  </>
+)
+
+/** Token chip inside `RichInput`; click opens a dropdown that closes on outside click and Escape. `secondaryLabel` and `description` render only at `size="default"`. */
 export const TokenSelector = ({
   options,
   value,
@@ -59,29 +88,13 @@ export const TokenSelector = ({
   single = false,
   size = 'default',
   placeholder = 'Select',
+  listLabel = 'Select token',
   className,
   dataTestId,
   ...rest
 }: TokenSelectorProps) => {
   const [open, setOpen] = useState(false)
-  const [root, setRoot] = useState<HTMLDivElement | null>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
-
-  const handleClose = useCallback(() => setOpen(false), [])
-  useOutsideClick(root, handleClose, open)
-
-  useEffect(() => {
-    if (!open) return
-
-    const handleDocumentKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') return
-      setOpen(false)
-      triggerRef.current?.focus()
-    }
-
-    document.addEventListener('keydown', handleDocumentKeyDown)
-    return () => document.removeEventListener('keydown', handleDocumentKeyDown)
-  }, [open])
 
   const selectedOption = options.find((option) => option.value === value)
 
@@ -92,28 +105,11 @@ export const TokenSelector = ({
         data-testid={dataTestId?.root}
         {...rest}
       >
-        {selectedOption?.icon ? (
-          <span
-            className={styles.icon}
-            data-testid={selectedOption.dataTestId?.icon}
-          >
-            {selectedOption.icon}
-          </span>
-        ) : null}
-        <span
-          className={styles.label}
-          data-testid={selectedOption?.dataTestId?.label}
-        >
-          {selectedOption?.label}
-        </span>
-        {size === 'default' && selectedOption?.secondaryLabel != null ? (
-          <span
-            className={styles.secondaryLabel}
-            data-testid={selectedOption.dataTestId?.secondaryLabel}
-          >
-            {selectedOption.secondaryLabel}
-          </span>
-        ) : null}
+        {selectedOption ? (
+          <OptionLabel option={selectedOption} size={size} />
+        ) : (
+          <span className={styles.label} />
+        )}
       </span>
     )
   }
@@ -129,7 +125,6 @@ export const TokenSelector = ({
 
   return (
     <div
-      ref={setRoot}
       className={cn(styles.root, className)}
       data-testid={dataTestId?.root}
       {...rest}
@@ -137,7 +132,7 @@ export const TokenSelector = ({
       <button
         ref={triggerRef}
         type='button'
-        aria-haspopup='listbox'
+        aria-haspopup='dialog'
         aria-expanded={open}
         className={cn(styles.trigger, styles[size], open && styles.open)}
         onClick={handleTriggerClick}
@@ -145,30 +140,7 @@ export const TokenSelector = ({
       >
         <span className={styles.content}>
           {selectedOption ? (
-            <>
-              {selectedOption.icon ? (
-                <span
-                  className={styles.icon}
-                  data-testid={selectedOption.dataTestId?.icon}
-                >
-                  {selectedOption.icon}
-                </span>
-              ) : null}
-              <span
-                className={styles.label}
-                data-testid={selectedOption.dataTestId?.label}
-              >
-                {selectedOption.label}
-              </span>
-              {size === 'default' && selectedOption.secondaryLabel != null ? (
-                <span
-                  className={styles.secondaryLabel}
-                  data-testid={selectedOption.dataTestId?.secondaryLabel}
-                >
-                  {selectedOption.secondaryLabel}
-                </span>
-              ) : null}
-            </>
+            <OptionLabel option={selectedOption} size={size} />
           ) : (
             <span className={styles.placeholder}>{placeholder}</span>
           )}
@@ -177,75 +149,57 @@ export const TokenSelector = ({
           {open ? <IconChevronUp /> : <IconChevronDown />}
         </span>
       </button>
-      {open ? (
-        <div
-          role='listbox'
-          className={styles.panel}
-          data-testid={dataTestId?.panel}
-        >
-          <div className={styles.list}>
-            {options.map((option) => {
-              const selected = option.value === value
-              return (
-                <button
-                  key={option.value}
-                  type='button'
-                  role='option'
-                  aria-selected={selected}
-                  disabled={option.disabled}
-                  className={cn(
-                    styles.option,
-                    styles[size],
-                    selected && styles.selected,
-                  )}
-                  onClick={() => handleOptionClick(option)}
-                  data-testid={option.dataTestId?.root}
-                >
-                  <span className={styles.optionContent}>
-                    <span className={styles.optionRow}>
-                      {option.icon ? (
-                        <span
-                          className={styles.icon}
-                          data-testid={option.dataTestId?.icon}
-                        >
-                          {option.icon}
-                        </span>
-                      ) : null}
-                      <span
-                        className={styles.label}
-                        data-testid={option.dataTestId?.label}
-                      >
-                        {option.label}
-                      </span>
-                      {size === 'default' && option.secondaryLabel != null ? (
-                        <span
-                          className={styles.secondaryLabel}
-                          data-testid={option.dataTestId?.secondaryLabel}
-                        >
-                          {option.secondaryLabel}
-                        </span>
-                      ) : null}
-                    </span>
-                    {size === 'default' && option.description != null ? (
-                      <span
-                        className={styles.description}
-                        data-testid={option.dataTestId?.description}
-                      >
-                        {option.description}
-                      </span>
-                    ) : null}
+      <Popover
+        open={open}
+        onClose={() => setOpen(false)}
+        anchorRef={triggerRef}
+        width='anchor'
+        offset={4}
+        aria-label={listLabel}
+        className={styles.panel}
+        dataTestId={{ root: dataTestId?.panel }}
+      >
+        <div role='listbox' aria-label={listLabel} className={styles.list}>
+          {options.map((option) => {
+            const selected = option.value === value
+            return (
+              <button
+                key={option.value}
+                type='button'
+                role='option'
+                aria-selected={selected}
+                disabled={option.disabled}
+                className={cn(
+                  styles.option,
+                  styles[size],
+                  selected && styles.selected,
+                )}
+                onClick={() => handleOptionClick(option)}
+                data-testid={option.dataTestId?.root}
+              >
+                <span className={styles.optionContent}>
+                  <span className={styles.optionRow}>
+                    <OptionLabel option={option} size={size} />
                   </span>
-                  {size === 'default' && selected ? (
-                    <span className={styles.indicator} aria-hidden='true'>
-                      <IconCheck className={styles.checkmark} />
+                  {size === 'default' && option.description != null ? (
+                    <span
+                      className={styles.description}
+                      data-testid={option.dataTestId?.description}
+                    >
+                      {option.description}
                     </span>
                   ) : null}
-                </button>
-              )
-            })}
-          </div>
+                </span>
+                {size === 'default' && selected ? (
+                  <span className={styles.indicator} aria-hidden='true'>
+                    <IconCheck className={styles.checkmark} />
+                  </span>
+                ) : null}
+              </button>
+            )
+          })}
         </div>
-      ) : null}
+      </Popover>
     </div>
   )
 }

@@ -1,2 +1,2 @@
-export { Modal } from './Modal'
-export type { ModalProps, ModalDataTestId } from './Modal'
+export { Modal, ModalCard } from './Modal'
+export type { ModalProps, ModalCardProps, ModalDataTestId } from './Modal'

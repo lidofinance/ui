@@ -1,17 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ComponentProps,
+  type ReactNode,
+} from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 
 import { Button } from '../button'
+import { Card } from '../card'
 import { Identicon } from '../identicon'
 import { IconPlus } from '../icons'
 import { Input } from '../input'
 import { Tag } from '../tag'
-import { Popover } from '.'
+import { spaces } from '../utils'
+import { Popover, type PopoverProps } from '.'
 
 const meta: Meta<typeof Popover> = {
   title: 'Feedback & Overlays/Popover',
   component: Popover,
-  tags: ['autodocs'],
   args: { placement: 'bottom', align: 'start', offset: 8, modal: true },
   argTypes: {
     placement: { options: ['top', 'bottom'], control: { type: 'select' } },
@@ -20,7 +28,7 @@ const meta: Meta<typeof Popover> = {
       control: { type: 'select' },
     },
     offset: {
-      options: [0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 52],
+      options: spaces,
       control: { type: 'select' },
     },
     width: {
@@ -29,68 +37,84 @@ const meta: Meta<typeof Popover> = {
       control: { type: 'select' },
     },
     modal: { control: { type: 'boolean' } },
-    open: { table: { disable: true } },
-    onClose: { table: { disable: true } },
-    anchorRef: { table: { disable: true } },
-    alignRef: { table: { disable: true } },
+    open: { control: false },
+    onClose: { control: false },
+    anchorRef: { control: false },
+    alignRef: { control: false },
   },
   parameters: {
     layout: 'padded',
-    docs: {
-      description: {
-        component:
-          'A floating panel rendered in a portal and positioned against `anchorRef`. `alignRef` pins its edge to a different element, `placement` picks the side and flips when the panel does not fit, `align` takes `start`, `center` or `end`. Modal by default: focus moves in and is trapped; set `modal={false}` to leave focus alone. Escape and outside clicks call `onClose`; clicks on the anchor are ignored so it can toggle.',
-      },
-    },
   },
 }
 
 export default meta
-type Story = StoryObj<typeof Popover>
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  render: function Render(args) {
-    const [open, setOpen] = useState(false)
-    const triggerRef = useRef<HTMLButtonElement>(null)
+type PopoverArgs = Omit<
+  PopoverProps,
+  'open' | 'onClose' | 'anchorRef' | 'alignRef' | 'children'
+>
 
-    return (
-      <div
-        style={{
-          minHeight: 300,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
+type DemoProps = PopoverArgs & {
+  label?: string
+  variant?: ComponentProps<typeof Button>['variant']
+  defaultOpen?: boolean
+  children: (close: () => void) => ReactNode
+}
+
+const stage = {
+  minHeight: 300,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+} as const
+
+const Demo = ({
+  label = 'Open popover',
+  variant,
+  defaultOpen = false,
+  children,
+  ...args
+}: DemoProps) => {
+  const [open, setOpen] = useState(defaultOpen)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const close = () => setOpen(false)
+
+  return (
+    <div style={stage}>
+      <Button
+        ref={triggerRef}
+        variant={variant}
+        onClick={() => setOpen((value) => !value)}
       >
-        <Button
-          ref={triggerRef}
-          aria-haspopup='dialog'
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-        >
-          Open popover
-        </Button>
-        <Popover
-          open={open}
-          onClose={() => setOpen(false)}
-          anchorRef={triggerRef}
-          placement={args.placement}
-          align={args.align}
-          offset={args.offset}
-          width={args.width}
-          modal={args.modal}
-          aria-label='Details'
-        >
-          <div>
-            <strong>Details</strong>
-            <p style={{ margin: '4px 0 0' }}>
-              Anchored to the button and rendered in a portal.
-            </p>
-          </div>
-        </Popover>
-      </div>
-    )
-  },
+        {label}
+      </Button>
+      <Popover
+        aria-label='Details'
+        {...args}
+        open={open}
+        onClose={close}
+        anchorRef={triggerRef}
+      >
+        {children(close)}
+      </Popover>
+    </div>
+  )
+}
+
+export const Basic: Story = {
+  render: (args) => (
+    <Demo {...args}>
+      {() => (
+        <div>
+          <strong>Details</strong>
+          <p style={{ margin: '4px 0 0' }}>
+            Anchored to the button and rendered in a portal.
+          </p>
+        </div>
+      )}
+    </Demo>
+  ),
   parameters: {
     docs: {
       description: {
@@ -103,48 +127,18 @@ export const Default: Story = {
 
 export const OpenByDefault: Story = {
   tags: ['!autodocs'],
-  render: function Render(args) {
-    const [open, setOpen] = useState(true)
-    const triggerRef = useRef<HTMLButtonElement>(null)
-
-    return (
-      <div
-        style={{
-          minHeight: 300,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Button
-          ref={triggerRef}
-          aria-haspopup='dialog'
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-        >
-          Open popover
-        </Button>
-        <Popover
-          open={open}
-          onClose={() => setOpen(false)}
-          anchorRef={triggerRef}
-          placement={args.placement}
-          align={args.align}
-          offset={args.offset}
-          width={args.width}
-          modal={args.modal}
-          aria-label='Details'
-        >
-          <div>
-            <strong>Details</strong>
-            <p style={{ margin: '4px 0 0' }}>
-              Open on mount; focus moves into the panel.
-            </p>
-          </div>
-        </Popover>
-      </div>
-    )
-  },
+  render: (args) => (
+    <Demo {...args} defaultOpen>
+      {() => (
+        <div>
+          <strong>Details</strong>
+          <p style={{ margin: '4px 0 0' }}>
+            Open on mount; focus moves into the panel.
+          </p>
+        </div>
+      )}
+    </Demo>
+  ),
   parameters: {
     docs: {
       description: {
@@ -158,6 +152,7 @@ export const OpenByDefault: Story = {
 export const OnHover: Story = {
   render: function Render(args) {
     const [open, setOpen] = useState(false)
+    const [pinned, setPinned] = useState(false)
     const triggerRef = useRef<HTMLButtonElement>(null)
     const closeTimeout = useRef<ReturnType<typeof setTimeout>>()
 
@@ -167,43 +162,47 @@ export const OnHover: Story = {
       setOpen(true)
     }
     const scheduleClose = () => {
+      if (pinned) return
       cancelClose()
       closeTimeout.current = setTimeout(() => setOpen(false), 150)
+    }
+    const close = () => {
+      triggerRef.current?.focus()
+      cancelClose()
+      setOpen(false)
+      setPinned(false)
     }
 
     useEffect(() => cancelClose, [])
 
     return (
-      <div
-        style={{
-          minHeight: 300,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <div style={stage}>
         <Button
           ref={triggerRef}
           variant='outline'
           onMouseEnter={show}
           onMouseLeave={scheduleClose}
+          onFocus={show}
+          onBlur={scheduleClose}
+          onClick={() => {
+            show()
+            setPinned(true)
+          }}
         >
-          Hover me
+          Hover or focus me
         </Button>
         <Popover
-          open={open}
-          onClose={() => setOpen(false)}
-          anchorRef={triggerRef}
-          placement={args.placement}
-          align={args.align}
-          offset={args.offset}
-          width={args.width}
-          modal={false}
           aria-label='More info'
+          {...args}
+          open={open}
+          onClose={close}
+          anchorRef={triggerRef}
+          modal={pinned}
           onMouseEnter={cancelClose}
           onMouseLeave={scheduleClose}
         >
-          Hover the trigger or the panel to keep it open.
+          Hover or focus the trigger to preview. Click or press Enter to pin the
+          panel and move focus into it.
         </Popover>
       </div>
     )
@@ -212,7 +211,7 @@ export const OnHover: Story = {
     docs: {
       description: {
         story:
-          'Opens on trigger hover and closes after a short delay so the pointer can reach the panel. The popover is non-modal, so focus stays on the trigger. For plain hover hints prefer `Tooltip`.',
+          'Hover and focus only preview the panel, non-modal. Click or Enter pins it as modal, so keyboard users can reach the content; Escape closes it and returns focus to the trigger. Hover content always needs this click or keyboard path. For plain text hints use `Tooltip`, which opens on focus too.',
       },
     },
   },
@@ -236,28 +235,19 @@ export const Width: Story = {
             background: 'var(--lido-app-ui-color-background-secondary)',
           }}
         >
-          <Button
-            ref={triggerRef}
-            aria-haspopup='dialog'
-            aria-expanded={open}
-            onClick={() => setOpen((value) => !value)}
-          >
+          <Button ref={triggerRef} onClick={() => setOpen((value) => !value)}>
             Open popover
           </Button>
         </div>
         <Popover
+          aria-label='Details'
+          {...args}
           open={open}
           onClose={() => setOpen(false)}
           anchorRef={triggerRef}
           alignRef={containerRef}
-          placement={args.placement}
-          align={args.align}
-          offset={args.offset}
-          width={args.width}
-          modal={args.modal}
-          aria-label='Details'
         >
-          Sized by the `width` control.
+          Sized by the width control.
         </Popover>
       </div>
     )
@@ -273,59 +263,25 @@ export const Width: Story = {
 }
 
 export const WithMenu: Story = {
-  render: function Render(args) {
-    const [open, setOpen] = useState(false)
-    const triggerRef = useRef<HTMLButtonElement>(null)
-    const close = () => setOpen(false)
-
-    return (
-      <div
-        style={{
-          minHeight: 300,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Button
-          ref={triggerRef}
-          variant='outline'
-          aria-haspopup='dialog'
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-        >
-          Account
-        </Button>
-        <Popover
-          open={open}
-          onClose={close}
-          anchorRef={triggerRef}
-          placement={args.placement}
-          align={args.align}
-          offset={args.offset}
-          modal={args.modal}
-          width={args.width ?? 240}
-          aria-label='Account actions'
-        >
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {['Copy address', 'View on Etherscan', 'Disconnect'].map(
-              (label) => (
-                <Button
-                  key={label}
-                  variant='ghost'
-                  size='small'
-                  style={{ width: '100%', justifyContent: 'flex-start' }}
-                  onClick={close}
-                >
-                  {label}
-                </Button>
-              ),
-            )}
-          </div>
-        </Popover>
-      </div>
-    )
-  },
+  render: (args) => (
+    <Demo {...args} width={args.width ?? 240} label='Account' variant='outline'>
+      {(close) => (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {['Copy address', 'View on Etherscan', 'Disconnect'].map((label) => (
+            <Button
+              key={label}
+              variant='ghost'
+              size='small'
+              style={{ width: '100%', justifyContent: 'flex-start' }}
+              onClick={close}
+            >
+              {label}
+            </Button>
+          ))}
+        </div>
+      )}
+    </Demo>
+  ),
   parameters: {
     docs: {
       description: {
@@ -336,53 +292,106 @@ export const WithMenu: Story = {
   },
 }
 
-export const WithForm: Story = {
-  render: function Render(args) {
-    const [open, setOpen] = useState(false)
-    const triggerRef = useRef<HTMLButtonElement>(null)
+export const TallContent: Story = {
+  render: (args) => (
+    <Demo
+      {...args}
+      width={args.width ?? 240}
+      label='Open long list'
+      variant='outline'
+      aria-label='Long list'
+    >
+      {(close) =>
+        Array.from({ length: 30 }, (_, index) => (
+          <Button key={index} variant='ghost' size='small' onClick={close}>
+            {`Item ${index + 1}`}
+          </Button>
+        ))
+      }
+    </Demo>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Content taller than the room on either side. The panel is capped to the room on the chosen side and scrolls inside, so nothing ends up off-screen. Try a short viewport.',
+      },
+    },
+  },
+}
 
-    return (
+export const InDarkScope: Story = {
+  tags: ['!autodocs'],
+  render: (args) => (
+    <DarkThemeProvider>
       <div
         style={{
-          minHeight: 300,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          padding: 24,
+          borderRadius: 'var(--lido-app-ui-border-radius-modal)',
+          background: 'var(--lido-app-ui-color-background-surface)',
         }}
       >
-        <Button
-          ref={triggerRef}
-          aria-haspopup='dialog'
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-        >
-          Change address
-        </Button>
-        <Popover
-          open={open}
-          onClose={() => setOpen(false)}
-          anchorRef={triggerRef}
-          placement={args.placement}
-          align={args.align}
-          offset={args.offset}
-          modal={args.modal}
-          width={args.width ?? 320}
-          aria-label='Change reward address'
-        >
-          <form
-            onSubmit={(event) => {
-              event.preventDefault()
-              setOpen(false)
-            }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
-          >
-            <Input label='Reward address' placeholder='0x...' />
-            <Button type='submit'>Save</Button>
-          </form>
-        </Popover>
+        <Demo {...args} defaultOpen>
+          {() => 'Plain text keeps the scope text color and font.'}
+        </Demo>
       </div>
-    )
+    </DarkThemeProvider>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A nested `DarkThemeProvider` on a light page. The portaled panel mirrors the scope and sets its own text color and font.',
+      },
+    },
   },
+}
+
+export const DarkOverCard: Story = {
+  tags: ['!autodocs'],
+  render: (args) => (
+    <DarkThemeProvider>
+      <div style={{ padding: 24 }}>
+        <Card>
+          <Demo {...args} defaultOpen>
+            {() => 'Only the shadow separates the panel from the card.'}
+          </Demo>
+        </Card>
+      </div>
+    </DarkThemeProvider>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A dark popover over a dark `Card`. The two-layer shadow is the only separation from the card surface.',
+      },
+    },
+  },
+}
+
+export const WithForm: Story = {
+  render: (args) => (
+    <Demo
+      {...args}
+      width={args.width ?? 320}
+      label='Change address'
+      aria-label='Change reward address'
+    >
+      {(close) => (
+        <form
+          onSubmit={(event) => {
+            event.preventDefault()
+            close()
+          }}
+          style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+        >
+          <Input label='Reward address' placeholder='0x...' />
+          <Button type='submit'>Save</Button>
+        </form>
+      )}
+    </Demo>
+  ),
   parameters: {
     docs: {
       description: {
@@ -495,8 +504,6 @@ export const OperatorSwitcher: Story = {
             ref={triggerRef}
             variant='outline'
             iconLeft={<Identicon address='0x419' size={24} />}
-            aria-haspopup='dialog'
-            aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
             style={{ width: '100%' }}
           >

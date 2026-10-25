@@ -9,10 +9,7 @@ export type PortalProps = {
 
 const THEME_ATTR = 'data-lido-theme'
 
-/**
- * Renders `null` until mounted so SSR and first client render match.
- * Without `container`, mirrors the nearest `data-lido-theme` scope onto the portal root so tokens still resolve.
- */
+/** SSR-safe portal into `container` or `document.body`; without `container` a marker span (dropped once resolved) finds the nearest `data-lido-theme` scope to mirror onto the portal root. */
 export const Portal = ({ children, container }: PortalProps) => {
   const markerRef = useRef<HTMLSpanElement>(null)
   const [target, setTarget] = useState<Element | null>(null)
@@ -43,10 +40,6 @@ export const Portal = ({ children, container }: PortalProps) => {
     }
   }, [container])
 
-  return (
-    <>
-      <span ref={markerRef} hidden />
-      {target ? createPortal(children, target) : null}
-    </>
-  )
+  if (target) return createPortal(children, target)
+  return container ? null : <span ref={markerRef} hidden />
 }
