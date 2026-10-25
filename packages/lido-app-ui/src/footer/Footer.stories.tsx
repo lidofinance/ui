@@ -27,22 +27,20 @@ const links = (
 )
 
 const version = (
-  <a
+  <Tag
+    variant='neutral'
     href='https://github.com/lidofinance'
     title='Commit: abc1234'
-    style={{ textDecoration: 'none' }}
   >
-    <Tag variant='neutral'>v2.4.1</Tag>
-  </a>
+    v2.4.1
+  </Tag>
 )
 
 const meta: Meta<typeof Footer> = {
   title: 'Navigation/Footer',
   component: Footer,
-  tags: ['autodocs'],
   argTypes: {
     children: {
-      description: 'Left row, wraps',
       options: ['links', 'none'],
       mapping: { links, none: undefined },
       control: { type: 'select' },
@@ -55,12 +53,7 @@ const meta: Meta<typeof Footer> = {
   },
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component:
-          'App footer shell: page background, top border, page gutters. Content comes from the consumer: `children` is a wrapping row on the left, `aside` sits right.',
-      },
-    },
+    storyBackground: 'page',
   },
 }
 
@@ -71,4 +64,9 @@ export const Basic: Story = { args: { children: 'links', aside: 'version' } }
 
 export const WithoutAside: Story = {
   args: { children: 'links', aside: 'none' },
+}
+
+export const Mobile: Story = {
+  args: { children: 'links', aside: 'version' },
+  globals: { viewport: { value: 'px375' } },
 }

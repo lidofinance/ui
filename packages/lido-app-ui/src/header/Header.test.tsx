@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { Header } from './Header'
+import styles from './Header.module.css'
 
 describe('Header', () => {
   it('renders children and actions in a banner', () => {
@@ -10,9 +11,9 @@ describe('Header', () => {
         <span>Left</span>
       </Header>,
     )
-    expect(screen.getByRole('banner')).toBeTruthy()
-    expect(screen.getByText('Left')).toBeTruthy()
-    expect(screen.getByRole('button', { name: 'Act' })).toBeTruthy()
+    expect(screen.getByRole('banner')).toBeInTheDocument()
+    expect(screen.getByText('Left')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Act' })).toBeInTheDocument()
   })
 
   it('omits the actions wrapper when actions are not passed', () => {
@@ -23,15 +24,29 @@ describe('Header', () => {
   it('spreads className and rest props', () => {
     render(<Header data-testid='h' className='x' />)
     const el = screen.getByTestId('h')
-    expect(el.className).toMatch(/x$/)
+    expect(el).toHaveClass('x')
   })
 
   it('applies the sticky class only with sticky and does not forward it to the DOM', () => {
     const { rerender } = render(<Header data-testid='h' />)
-    expect(screen.getByTestId('h').className).not.toMatch(/sticky/)
+    expect(screen.getByTestId('h')).not.toHaveClass(styles.sticky)
     rerender(<Header data-testid='h' sticky />)
     const el = screen.getByTestId('h')
-    expect(el.className).toMatch(/sticky/)
-    expect(el.hasAttribute('sticky')).toBe(false)
+    expect(el).toHaveClass(styles.sticky)
+    expect(el).not.toHaveAttribute('sticky')
+  })
+
+  it('applies dataTestId to each part', () => {
+    render(
+      <Header
+        actions='A'
+        dataTestId={{ root: 'r', content: 'c', actions: 'a' }}
+      >
+        L
+      </Header>,
+    )
+    expect(screen.getByTestId('r')).toBe(screen.getByRole('banner'))
+    expect(screen.getByTestId('c')).toHaveTextContent('L')
+    expect(screen.getByTestId('a')).toHaveTextContent('A')
   })
 })

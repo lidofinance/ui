@@ -1,15 +1,17 @@
-import { createRef, forwardRef } from 'react'
+import { createRef } from 'react'
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { LinkProvider, type LinkComponentProps } from '../link-provider'
+import { LinkProvider } from '../link-provider'
+import { ExternalLink, RouterLink } from '../link-provider/linkStubs.test-utils'
 import { NavLink } from './NavLink'
+import styles from './NavLink.module.css'
 
 describe('NavLink', () => {
   it('is not current by default', () => {
     render(<NavLink href='/a'>A</NavLink>)
-    expect(screen.getByText('A').getAttribute('aria-current')).toBeNull()
+    expect(screen.getByText('A')).not.toHaveAttribute('aria-current')
   })
 
   it('sets aria-current and active class when active', () => {
@@ -19,8 +21,8 @@ describe('NavLink', () => {
       </NavLink>,
     )
     const el = screen.getByText('A')
-    expect(el.getAttribute('aria-current')).toBe('page')
-    expect(el.className).toMatch(/active/)
+    expect(el).toHaveAttribute('aria-current', 'page')
+    expect(el).toHaveClass(styles.active)
   })
 
   it('sets target, rel and trailing icon when external', () => {
@@ -30,9 +32,21 @@ describe('NavLink', () => {
       </NavLink>,
     )
     const el = screen.getByRole('link', { name: 'A' })
-    expect(el.getAttribute('target')).toBe('_blank')
-    expect(el.getAttribute('rel')).toBe('noopener noreferrer')
-    expect(el.querySelector('svg')).not.toBeNull()
+    expect(el).toHaveAttribute('target', '_blank')
+    expect(el).toHaveAttribute('rel', 'noopener noreferrer')
+    expect(el.querySelector('svg')).toBeInTheDocument()
+  })
+
+  it('lets an explicit rel win when external', () => {
+    render(
+      <NavLink href='/a' external rel='noopener'>
+        A
+      </NavLink>,
+    )
+    expect(screen.getByRole('link', { name: 'A' })).toHaveAttribute(
+      'rel',
+      'noopener',
+    )
   })
 
   it('renders the leading icon', () => {
@@ -41,7 +55,7 @@ describe('NavLink', () => {
         A
       </NavLink>,
     )
-    expect(screen.getByTestId('icon')).toBeTruthy()
+    expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 
   it('spreads rest props and forwards ref', () => {
@@ -52,33 +66,15 @@ describe('NavLink', () => {
       </NavLink>,
     )
     const el = screen.getByText('A')
-    expect(el.getAttribute('data-foo')).toBe('bar')
-    expect(el.className).toMatch(/extra/)
+    expect(el).toHaveAttribute('data-foo', 'bar')
+    expect(el).toHaveClass('extra')
     expect(ref.current).toBe(el)
   })
 })
 
-const RouterLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-  ({ children, ...props }, ref) => (
-    <a ref={ref} data-router='' {...props}>
-      {children}
-    </a>
-  ),
-)
-RouterLink.displayName = 'RouterLink'
-
-const ExternalLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-  ({ children, ...props }, ref) => (
-    <a ref={ref} data-external='' {...props}>
-      {children}
-    </a>
-  ),
-)
-ExternalLink.displayName = 'ExternalLink'
-
 describe('NavLink with LinkProvider', () => {
   it('routes internal links and keeps consumer onClick', () => {
-    const onClick = vi.fn()
+    const onClick = vi.fn((e: React.MouseEvent) => e.preventDefault())
     render(
       <LinkProvider component={RouterLink}>
         <NavLink href='/stake' active onClick={onClick}>
@@ -87,8 +83,8 @@ describe('NavLink with LinkProvider', () => {
       </LinkProvider>,
     )
     const link = screen.getByRole('link', { name: 'Stake' })
-    expect(link.hasAttribute('data-router')).toBe(true)
-    expect(link.getAttribute('aria-current')).toBe('page')
+    expect(link).toHaveAttribute('data-router')
+    expect(link).toHaveAttribute('aria-current', 'page')
     fireEvent.click(link)
     expect(onClick).toHaveBeenCalledTimes(1)
   })
@@ -101,13 +97,13 @@ describe('NavLink with LinkProvider', () => {
         </NavLink>
       </LinkProvider>,
     )
-    expect(
-      screen.getByRole('link', { name: 'Earn' }).hasAttribute('data-router'),
-    ).toBe(false)
+    expect(screen.getByRole('link', { name: 'Earn' })).not.toHaveAttribute(
+      'data-router',
+    )
   })
 
   it('renders external links with externalComponent and keeps onClick', () => {
-    const onClick = vi.fn()
+    const onClick = vi.fn((e: React.MouseEvent) => e.preventDefault())
     render(
       <LinkProvider externalComponent={ExternalLink}>
         <NavLink href='https://lido.fi' external onClick={onClick}>
@@ -116,10 +112,26 @@ describe('NavLink with LinkProvider', () => {
       </LinkProvider>,
     )
     const link = screen.getByRole('link', { name: 'Lido' })
-    expect(link.hasAttribute('data-external')).toBe(true)
-    expect(link.getAttribute('target')).toBe('_blank')
-    expect(link.getAttribute('rel')).toBe('noopener noreferrer')
+    expect(link).toHaveAttribute('data-external')
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
     fireEvent.click(link)
     expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('applies dataTestId to root and icons', () => {
+    render(
+      <NavLink
+        href='/a'
+        icon={<svg />}
+        external
+        dataTestId={{ root: 'r', icon: 'i', externalIcon: 'e' }}
+      >
+        A
+      </NavLink>,
+    )
+    expect(screen.getByTestId('r')).toBe(screen.getByRole('link'))
+    expect(screen.getByTestId('i')).toBeInTheDocument()
+    expect(screen.getByTestId('e')).toBeInTheDocument()
   })
 })

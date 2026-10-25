@@ -1,28 +1,34 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from '../button'
+import { Button, LinkButton } from '../button'
 import { ErrorPage } from './ErrorPage'
 
 const goBack = <Button>Go back</Button>
 const tryAgain = <Button>Try again</Button>
-const toDashboard = <Button>Go to dashboard</Button>
+const toDashboard = (
+  <LinkButton href='/' onClick={(event) => event.preventDefault()}>
+    Go to dashboard
+  </LinkButton>
+)
+
+const both = (
+  <>
+    {goBack}
+    {toDashboard}
+  </>
+)
 
 const meta: Meta<typeof ErrorPage> = {
   title: 'Feedback & Overlays/ErrorPage',
   component: ErrorPage,
-  tags: ['autodocs'],
   argTypes: {
     code: {
-      description:
-        'Error code; `404` / `500` fill default title and description',
       control: { type: 'text' },
     },
-    title: { description: 'Overrides the code preset title' },
-    description: { description: 'Overrides the code preset description' },
     action: {
-      description: 'Slot below the text, no built-in behaviour',
-      options: ['goBack', 'tryAgain', 'toDashboard', 'none'],
+      options: ['goBack', 'tryAgain', 'toDashboard', 'both', 'none'],
       mapping: {
+        both,
         goBack,
         tryAgain,
         toDashboard,
@@ -33,12 +39,7 @@ const meta: Meta<typeof ErrorPage> = {
   },
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component:
-          'Centered content block for 404 / 500 pages. `code` (`404` / `500`) fills default title and description; both can be overridden. `action` is a free slot.',
-      },
-    },
+    storyBackground: 'page',
   },
 }
 
@@ -57,6 +58,22 @@ export const ServerError: Story = {
     code: '500',
     action: 'tryAgain',
   },
+}
+
+export const Mobile: Story = {
+  args: {
+    code: '404',
+    action: 'goBack',
+  },
+  globals: { viewport: { value: 'px375' } },
+}
+
+export const MultipleActions: Story = {
+  args: {
+    code: '404',
+    action: 'both',
+  },
+  globals: { viewport: { value: 'px375' } },
 }
 
 export const Custom: Story = {

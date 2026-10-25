@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  useId,
   type ComponentPropsWithoutRef,
   type MouseEventHandler,
   type ReactNode,
@@ -30,11 +31,14 @@ export type NotificationProps = Omit<
   /** Slot above the title, usually a `Tag`. */
   subheader?: ReactNode
   actions?: ReactNode
-  /** Renders a dismiss button when set. */
+  /** Renders a dismiss button when set. A plain `() => void` handler is fine; the click event is rarely needed. */
   onClose?: MouseEventHandler<HTMLButtonElement>
   dataTestId?: NotificationDataTestId
+  /** Defaults to `alert`, which is assertive (`undefined` also gives `alert`). Pass `none` inside a toast container that announces for you. */
+  role?: ComponentPropsWithoutRef<'div'>['role']
 }
 
+/** Dark toast that stays dark in both themes; `subheader` slots a `Tag`, `actions` takes small `Button`s, `onClose` adds a dismiss button. */
 export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
   (
     {
@@ -43,60 +47,66 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
       subheader,
       actions,
       onClose,
-      className,
       role = 'alert',
+      className,
       dataTestId,
       ...rest
     },
     ref,
-  ) => (
-    <ThemeProvider themeName={ThemeName.dark}>
-      <div
-        ref={ref}
-        role={role}
-        className={cn(styles.notification, className)}
-        data-testid={dataTestId?.root}
-        {...rest}
-      >
-        <div className={styles.content}>
-          {subheader != null ? (
-            <div
-              className={styles.subheader}
-              data-testid={dataTestId?.subheader}
+  ) => {
+    const titleId = useId()
+
+    return (
+      <ThemeProvider themeName={ThemeName.dark}>
+        <div
+          ref={ref}
+          role={role}
+          className={cn(styles.notification, className)}
+          data-testid={dataTestId?.root}
+          {...rest}
+        >
+          <div className={cn(styles.content, onClose && styles.closable)}>
+            {subheader != null ? (
+              <div
+                className={styles.subheader}
+                data-testid={dataTestId?.subheader}
+              >
+                {subheader}
+              </div>
+            ) : null}
+            <p
+              id={titleId}
+              className={styles.title}
+              data-testid={dataTestId?.title}
             >
-              {subheader}
+              {title}
+            </p>
+            {children != null ? (
+              <div className={styles.body} data-testid={dataTestId?.body}>
+                {children}
+              </div>
+            ) : null}
+          </div>
+          {actions != null ? (
+            <div className={styles.actions} data-testid={dataTestId?.actions}>
+              {actions}
             </div>
           ) : null}
-          <p
-            className={cn(styles.title, onClose && styles.closable)}
-            data-testid={dataTestId?.title}
-          >
-            {title}
-          </p>
-          {children != null ? (
-            <div className={styles.body} data-testid={dataTestId?.body}>
-              {children}
-            </div>
+          {onClose ? (
+            <IconButton
+              variant='ghost'
+              aria-label='Dismiss'
+              aria-describedby={titleId}
+              icon={<IconCross />}
+              className={styles.close}
+              onClick={onClose}
+              dataTestId={{ root: dataTestId?.closeButton }}
+            />
           ) : null}
         </div>
-        {actions != null ? (
-          <div className={styles.actions} data-testid={dataTestId?.actions}>
-            {actions}
-          </div>
-        ) : null}
-        {onClose ? (
-          <IconButton
-            variant='ghost'
-            aria-label='Dismiss'
-            icon={<IconCross />}
-            className={styles.close}
-            onClick={onClose}
-            dataTestId={{ root: dataTestId?.closeButton }}
-          />
-        ) : null}
-      </div>
-    </ThemeProvider>
-  ),
+      </ThemeProvider>
+    )
+  },
 )
 
 Notification.displayName = 'Notification'

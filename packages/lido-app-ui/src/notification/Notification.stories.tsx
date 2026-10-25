@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '../button'
@@ -8,16 +9,6 @@ import { Notification } from '.'
 const meta: Meta<typeof Notification> = {
   title: 'Feedback & Overlays/Notification',
   component: Notification,
-  tags: ['autodocs'],
-  parameters: {
-    backgrounds: { default: 'light' },
-    docs: {
-      description: {
-        component:
-          'A dark toast that stays dark in both themes. `subheader` slots a `Tag`, `actions` takes small `Button`s, `onClose` adds a dismiss button.',
-      },
-    },
-  },
 }
 
 export default meta
@@ -50,11 +41,27 @@ const avatar = (
 )
 
 export const Basic: Story = {
+  argTypes: {
+    subheader: {
+      control: 'select',
+      options: ['tag', 'operator', 'none'],
+      mapping: {
+        tag: <Tag>Tag</Tag>,
+        operator: <Tag icon={avatar}>CM#419</Tag>,
+        none: undefined,
+      },
+    },
+    actions: {
+      control: 'select',
+      options: ['two', 'none'],
+      mapping: { two: actions, none: undefined },
+    },
+  },
   args: {
     title: 'Your key got a strike',
-    subheader: <Tag>Tag</Tag>,
+    subheader: 'tag',
     children: body,
-    actions,
+    actions: 'two',
   },
 }
 
@@ -100,14 +107,62 @@ export const OtherOperator: Story = {
 }
 
 export const Dismissible: Story = {
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Pass a plain `onClose={() => setOpen(false)}` and ignore the click event. The dismiss button is described by the title, so several toasts stay distinguishable.',
+      },
+    },
+  },
+  render: function Render() {
+    const [open, setOpen] = useState(true)
+    return open ? (
+      <Notification
+        title='Unsupported chain'
+        onClose={() => setOpen(false)}
+        actions={<Button size='small'>Switch network</Button>}
+      >
+        Connect to a supported network to continue.
+      </Notification>
+    ) : (
+      <Button size='small' onClick={() => setOpen(true)}>
+        Show again
+      </Button>
+    )
+  },
+}
+
+export const SubheaderDismissible: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
     <Notification
-      title='Unsupported chain'
+      subheader={
+        <>
+          <Tag>CM#419</Tag>
+          <Tag>CM#420</Tag>
+          <Tag>CM#421</Tag>
+          <Tag>CM#422</Tag>
+          <Tag>CM#423</Tag>
+        </>
+      }
+      title='Your key got a strike'
       onClose={() => undefined}
-      actions={<Button size='small'>Switch network</Button>}
+    />
+  ),
+}
+
+export const LongHash: Story = {
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <Notification
+      title='0x3a9f1c0b7e5d4a8c92f6b1d03e7a45c8d9f2b6a1e0c4d7385f9a2b6c1d0e8f47'
+      onClose={() => undefined}
     >
-      Connect to a supported network to continue.
+      Transaction
+      0x3a9f1c0b7e5d4a8c92f6b1d03e7a45c8d9f2b6a1e0c4d7385f9a2b6c1d0e8f47
+      reverted.
     </Notification>
   ),
 }

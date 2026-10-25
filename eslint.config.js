@@ -38,6 +38,24 @@ export default tseslint.config(
     },
   },
   {
+    files: ['packages/lido-app-ui/src/**/*.{ts,tsx}'],
+    ignores: ['packages/lido-app-ui/src/hooks/useIsomorphicLayoutEffect.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: 'react',
+              importNames: ['useLayoutEffect'],
+              message: 'Use useIsomorphicLayoutEffect from ../hooks',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     files: ['**/*.js', '**/*.jsx', '**/*.cjs'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',

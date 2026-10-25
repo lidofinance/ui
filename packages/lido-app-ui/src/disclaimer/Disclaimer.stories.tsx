@@ -6,21 +6,33 @@ import { Disclaimer } from '.'
 const meta: Meta<typeof Disclaimer> = {
   title: 'Content & Data/Disclaimer',
   component: Disclaimer,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Page-level legal or privacy note. Defaults to the privacy text with a Privacy Notice link; children replace it. Place it as the last child of `PageContent`: `margin-top: auto` pins it to the bottom.',
-      },
-    },
-  },
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
+
+export const PinnedToBottom: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 320 }}>
+      <p>Page content</p>
+      <Disclaimer {...args} />
+    </div>
+  ),
+}
+
+export const BlockContent: Story = {
+  args: {
+    as: 'div',
+    children: (
+      <>
+        <p>Staking involves risks, including smart contract risks.</p>
+        <p>Rewards are variable and not guaranteed.</p>
+      </>
+    ),
+  },
+}
 
 export const CustomText: Story = {
   args: {

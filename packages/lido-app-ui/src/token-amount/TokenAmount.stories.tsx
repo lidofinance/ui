@@ -6,28 +6,17 @@ import { TokenAmount } from '.'
 const meta: Meta<typeof TokenAmount> = {
   title: 'Content & Data/TokenAmount',
   component: TokenAmount,
-  tags: ['autodocs'],
   args: {
     symbol: 'stETH',
     amount: '12.4218',
   },
   argTypes: {
     symbol: {
-      description: 'Picks the glyph',
       options: ['ETH', 'stETH', 'wstETH'],
       control: { type: 'inline-radio' },
     },
     amount: {
-      description: 'Pre-formatted number — the component does not round',
       control: { type: 'text' },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Token glyph plus an amount on one line. Formatting is yours: whatever string you pass is what shows up.',
-      },
     },
   },
 }

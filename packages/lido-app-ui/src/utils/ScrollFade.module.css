@@ -1,0 +1,44 @@
+@property --lido-app-ui-fade-start {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --lido-app-ui-fade-end {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.scrollFade {
+  --lido-app-ui-fade-start: 0;
+  --lido-app-ui-fade-end: 0;
+
+  overflow-x: auto;
+  scroll-padding-inline: 36px;
+  scrollbar-width: none;
+  mask-image: linear-gradient(
+    to right,
+    rgb(0 0 0 / calc(1 - var(--lido-app-ui-fade-start))) 13px,
+    rgb(0 0 0) 36px,
+    rgb(0 0 0) calc(100% - 36px),
+    rgb(0 0 0 / calc(1 - var(--lido-app-ui-fade-end))) calc(100% - 13px)
+  );
+  /* stylelint-disable custom-property-no-missing-var-function -- transition property names */
+  transition:
+    --lido-app-ui-fade-start 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    --lido-app-ui-fade-end 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  /* stylelint-enable custom-property-no-missing-var-function */
+}
+
+.scrollFade[data-fade-start] {
+  --lido-app-ui-fade-start: 1;
+}
+
+.scrollFade[data-fade-end] {
+  --lido-app-ui-fade-end: 1;
+}
+
+.scrollFade::-webkit-scrollbar {
+  display: none;
+}

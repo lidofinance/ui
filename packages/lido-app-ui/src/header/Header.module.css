@@ -2,11 +2,17 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 24px;
-  height: 64px;
+  gap: var(--lido-app-ui-space-24);
+  height: var(--lido-app-ui-header-height);
   padding: 0 var(--lido-app-ui-page-gutter);
   background: var(--lido-app-ui-color-background-page);
-  border-bottom: 1px solid var(--lido-app-ui-color-border-default);
+  box-shadow: inset 0 -1px 0 var(--lido-app-ui-color-border-default);
+}
+
+@media (forced-colors: active) {
+  .header {
+    border-bottom: 1px solid CanvasText;
+  }
 }
 
 .sticky {
@@ -15,10 +21,17 @@
   z-index: var(--lido-app-ui-z-index-header);
 }
 
+/* Zero specificity, so an app's own `html { scroll-padding-top }` wins. */
+/* stylelint-disable-next-line selector-max-type, selector-pseudo-class-no-unknown */
+:where(:global(html):has(.sticky)) {
+  scroll-padding-top: var(--lido-app-ui-header-height);
+}
+
 .content {
   display: flex;
   flex: 1;
   align-items: center;
+  gap: var(--lido-app-ui-page-gutter);
   min-width: 0;
 }
 
@@ -33,5 +46,5 @@
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  gap: 8px;
+  gap: var(--lido-app-ui-space-8);
 }

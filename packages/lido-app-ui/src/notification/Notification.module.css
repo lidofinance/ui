@@ -5,7 +5,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--lido-app-ui-space-24);
   width: 320px;
   max-width: 100%;
   padding: calc(16px - 1px);
@@ -18,39 +18,42 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--lido-app-ui-space-8);
 }
 
 .subheader {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px;
+  gap: var(--lido-app-ui-space-4);
 }
 
 .title {
   margin: 0;
+  overflow-wrap: anywhere;
 
   @mixin font-body-large-semibold;
 }
 
-.closable {
-  padding-inline-end: 32px;
+.closable > :first-child {
+  padding-inline-end: var(--lido-app-ui-space-32);
 }
 
 .close {
   position: absolute;
-  inset-block-start: 8px;
-  inset-inline-end: 8px;
+  inset-block-start: var(--lido-app-ui-space-8);
+  inset-inline-end: var(--lido-app-ui-space-8);
 }
 
 .body {
+  overflow-wrap: anywhere;
+
   @mixin font-body;
 }
 
 /* stylelint-disable selector-max-type -- body is consumer markup */
 .body p {
-  margin: 0 0 8px;
+  margin: 0 0 var(--lido-app-ui-space-8);
 }
 
 .body p:last-child {
@@ -67,6 +70,6 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--lido-app-ui-space-12);
   align-items: flex-start;
 }

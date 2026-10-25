@@ -6,13 +6,17 @@ import { NavLink } from './NavLink'
 const meta: Meta<typeof NavLink> = {
   title: 'Navigation/NavLink',
   component: NavLink,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Top-navigation link for a Header without a Sidebar. 64px tall so the active underline sits on the Header border. Renders an anchor; wrap the app in `LinkProvider` to route in-app hrefs through your router.',
-      },
+  argTypes: {
+    active: {
+      control: 'boolean',
+    },
+    external: {
+      control: 'boolean',
+    },
+    icon: {
+      options: ['none', 'lightning'],
+      mapping: { none: undefined, lightning: <IconLightning /> },
+      control: 'select',
     },
   },
 }
@@ -23,6 +27,11 @@ type Story = StoryObj<typeof meta>
 const nav = { display: 'flex', gap: 24 }
 
 export const Basic: Story = {
+  args: { href: '#', children: 'Stake', active: true },
+}
+
+export const InNavigation: Story = {
+  parameters: { controls: { disable: true } },
   render: () => (
     <nav style={nav}>
       <NavLink href='#' active>
@@ -38,6 +47,7 @@ export const Basic: Story = {
 }
 
 export const WithIcons: Story = {
+  parameters: { controls: { disable: true } },
   render: () => (
     <nav style={nav}>
       <NavLink href='#' active icon={<IconLightning />}>

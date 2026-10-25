@@ -7,18 +7,9 @@ import { Logo } from './Logo'
 const meta: Meta<typeof Logo> = {
   title: 'Navigation/Logo',
   component: Logo,
-  tags: ['autodocs'],
   argTypes: {
     variant: { control: 'select', options: ['full', 'compact', 'auto'] },
     product: { control: 'text' },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Lido droplet with wordmark and an optional product name (shown after a divider). `full` shows the wordmark, `compact` drops it, `auto` drops it when the viewport is at or below `--lido-app-ui-logo-breakpoint` (default 1024px). Renders a link with `href`, a button with `onClick`, otherwise a plain element.',
-      },
-    },
   },
 }
 
@@ -53,6 +44,43 @@ export const Variants: Story = {
       },
     },
   },
+}
+
+export const AutoForced: Story = {
+  render: () => (
+    <>
+      <StorySection title='breakpoint 0px: always full'>
+        <Logo
+          variant='auto'
+          product='Operators'
+          style={{ '--lido-app-ui-logo-breakpoint': '0px' } as CSSProperties}
+        />
+      </StorySection>
+      <StorySection title='breakpoint 99999px: always compact'>
+        <Logo
+          variant='auto'
+          product='Operators'
+          style={
+            { '--lido-app-ui-logo-breakpoint': '99999px' } as CSSProperties
+          }
+        />
+      </StorySection>
+    </>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Pin `--lido-app-ui-logo-breakpoint` to force `auto` into either state regardless of the canvas width.',
+      },
+    },
+  },
+}
+
+export const Mobile: Story = {
+  args: { variant: 'auto', product: 'Operators' },
+  globals: { viewport: { value: 'px375' } },
 }
 
 export const AutoCustomBreakpoint: Story = {

@@ -1,7 +1,7 @@
 .root {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--lido-app-ui-space-6);
 }
 
 .icon {

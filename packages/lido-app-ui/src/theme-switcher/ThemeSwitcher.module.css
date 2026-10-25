@@ -1,0 +1,7 @@
+.toDark {
+  display: var(--lido-app-ui-light-only-display);
+}
+
+.toLight {
+  display: var(--lido-app-ui-dark-only-display);
+}
