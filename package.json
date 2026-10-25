@@ -115,5 +115,8 @@
     "typescript": "5.8.3",
     "typescript-eslint": "8.71.2"
   },
+  "resolutions": {
+    "@testing-library/dom@^10.0.0": "10.4.0"
+  },
   "packageManager": "yarn@4.9.0"
 }

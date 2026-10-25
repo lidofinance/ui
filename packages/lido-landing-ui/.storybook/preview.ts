@@ -1,4 +1,5 @@
 import { WithThemeProvider } from './components/WithThemeProvider.js'
+import { testIdControl } from './testIdControl.js'
 
 import './styles/storybook.css'
 import '../styles/global.css'
@@ -56,9 +57,7 @@ export default {
     },
   },
 
-  argTypes: {
-    dataTestId: { control: false },
-  },
+  argTypesEnhancers: [testIdControl],
 
   initialGlobals: {
     themeOverride: 'light',

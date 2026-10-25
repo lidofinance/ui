@@ -19,6 +19,9 @@
     "src/**/*.stories.tsx",
     "src/**/storyFixtures.tsx",
     "src/**/*.test.ts",
-    "src/**/*.test.tsx"
+    "src/**/*.test.tsx",
+    "src/**/*.test-utils.tsx",
+    "src/vitest.setup.ts",
+    "src/foundations/**"
   ]
 }

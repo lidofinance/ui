@@ -104,9 +104,9 @@ export const BACKGROUND_ELEMENTS: ColorToken[] = [
     cssVar: '--lido-app-ui-color-background-transparent-pressed',
   },
   { name: 'disabled', cssVar: '--lido-app-ui-color-background-disabled' },
+  { name: 'skeleton', cssVar: '--lido-app-ui-color-background-skeleton' },
   { name: 'page', cssVar: '--lido-app-ui-color-background-page' },
   { name: 'overlay', cssVar: '--lido-app-ui-color-background-overlay' },
-  { name: 'toast', cssVar: '--lido-app-ui-color-background-toast' },
 ]
 
 export const BACKGROUND_COLOR: ColorToken[] = [
@@ -132,4 +132,8 @@ export const ALL_COLOR_TOKENS: ColorToken[] = [
   ...BACKGROUND_COLOR,
 ]
 
-export const EXCLUDED_FROM_STORY: string[] = []
+export const EXCLUDED_FROM_STORY: string[] = [
+  '--lido-app-ui-color-background-toast',
+  '--lido-app-ui-color-shadow-primary',
+  '--lido-app-ui-color-shadow-secondary',
+]
