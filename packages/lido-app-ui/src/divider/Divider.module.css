@@ -4,6 +4,12 @@
   background-color: var(--lido-app-ui-color-border-default);
 }
 
+@media (forced-colors: active) {
+  .root {
+    background-color: CanvasText;
+  }
+}
+
 .horizontal {
   height: 1px;
 }

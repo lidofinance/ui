@@ -1,12 +1,13 @@
 export { ActionElement } from './ActionElement'
 export type { ActionElementProps } from './ActionElement'
+export { breakpoints, breakpointWidths } from './breakpoints'
+export type { Breakpoint } from './breakpoints'
+export type { PolymorphicComponent, PolymorphicProps } from './polymorphic'
 export {
-  breakpoints,
   capitalize,
-  getResponsiveProps,
   mergeResponsive,
   responsiveVars,
   spaceToCss,
   spaces,
 } from './responsive'
-export type { Breakpoint, Responsive, Space } from './responsive'
+export type { Responsive, Space } from './responsive'
