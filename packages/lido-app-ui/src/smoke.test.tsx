@@ -10,7 +10,7 @@ import { AddressButton } from './address-button'
 import { Badge } from './badge'
 import { Banner } from './banner'
 import { Breadcrumbs } from './breadcrumbs'
-import { Button } from './button'
+import { Button, LinkButton } from './button'
 import { Card } from './card'
 import { Checkbox } from './checkbox'
 import { Copy } from './copy'
@@ -107,6 +107,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Badge', () => <Badge>Badge text</Badge>],
   ['Banner', () => <Banner title='Heads up' />],
   ['Button', () => <Button>Connect</Button>],
+  ['LinkButton', () => <LinkButton href='/keys'>Keys</LinkButton>],
   ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
   ['CloseButton', () => <CloseButton />],

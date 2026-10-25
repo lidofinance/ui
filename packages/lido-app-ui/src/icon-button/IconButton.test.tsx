@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import { Counter } from '../counter'
+import counterStyles from '../counter/Counter.module.css'
 import { IconButton } from './IconButton'
 
 describe('IconButton', () => {
@@ -16,8 +17,8 @@ describe('IconButton', () => {
   it('disables and marks busy while loading', () => {
     render(<IconButton icon='x' aria-label='Close' loading />)
     const button = screen.getByRole('button')
-    expect(button).toHaveProperty('disabled', true)
-    expect(button.getAttribute('aria-busy')).toBe('true')
+    expect(button).toBeDisabled()
+    expect(button).toHaveAttribute('aria-busy', 'true')
   })
 
   it('keeps disabled and busy when loading and disabled together', () => {
@@ -49,7 +50,7 @@ describe('IconButton counter', () => {
       />,
     )
     const wrapper = screen.getByTestId('counter')
-    expect(wrapper.getAttribute('aria-hidden')).toBe('true')
+    expect(wrapper).toHaveAttribute('aria-hidden', 'true')
     expect(wrapper.textContent).toBe('5')
   })
 
@@ -61,7 +62,7 @@ describe('IconButton counter', () => {
         dataTestId={{ counter: 'counter' }}
       />,
     )
-    expect(screen.queryByTestId('counter')).toBeNull()
+    expect(screen.queryByTestId('counter')).not.toBeInTheDocument()
   })
 
   it('renders no wrapper for counter={false}', () => {
@@ -73,6 +74,34 @@ describe('IconButton counter', () => {
         dataTestId={{ counter: 'counter' }}
       />,
     )
-    expect(screen.queryByTestId('counter')).toBeNull()
+    expect(screen.queryByTestId('counter')).not.toBeInTheDocument()
+  })
+
+  it('wraps a numeric counter in a default Counter', () => {
+    render(
+      <IconButton
+        aria-label='Bell'
+        icon={null}
+        counter={3}
+        dataTestId={{ counter: 'counter' }}
+      />,
+    )
+    const pill = screen.getByTestId('counter').firstElementChild
+    expect(pill).toHaveClass(counterStyles.counter)
+    expect(pill).toHaveTextContent('3')
+  })
+
+  it('appends counterLabel to aria-label', () => {
+    render(
+      <IconButton
+        aria-label='Bell'
+        icon={null}
+        counter={3}
+        counterLabel='3 unread'
+      />,
+    )
+    expect(
+      screen.getByRole('button', { name: 'Bell, 3 unread' }),
+    ).toBeInTheDocument()
   })
 })

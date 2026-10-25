@@ -3,7 +3,6 @@ import {
   useRef,
   type ChangeEvent,
   type InputHTMLAttributes,
-  type KeyboardEvent,
   type MouseEvent,
   type MouseEventHandler,
   type ReactNode,
@@ -11,7 +10,7 @@ import {
 
 import cn from 'classnames'
 import { InfoTooltip } from '../info-tooltip'
-import { Tag, type TagProps } from '../tag'
+import { Tag } from '../tag'
 import { Tooltip, type TooltipPosition } from '../tooltip'
 
 import styles from './RichInput.module.css'
@@ -29,40 +28,24 @@ export type RichInputDataTestId = {
 export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: ReactNode
   labelTooltip?: ReactNode
+  /** Fiat equivalent, bottom left. */
   secondaryValue?: ReactNode
+  /** Wallet balance, bottom right. */
   balance?: ReactNode
+  /** Slot for a `TokenSelector`. */
   tokenSelector?: ReactNode
+  /** Marks the card invalid. */
   error?: boolean
   errorText?: ReactNode
   showMaxButton?: boolean
-  onMaxClick?: MouseEventHandler<HTMLSpanElement>
+  onMaxClick?: MouseEventHandler<HTMLButtonElement>
+  /** Dims the Max shortcut, leaving the field editable. */
   maxDisabled?: boolean
+  /** Explains what Max actually fills in. */
   maxTooltip?: ReactNode
   maxTooltipPosition?: TooltipPosition
   dataTestId?: RichInputDataTestId
 }
-
-const MaxTag = ({
-  onClick,
-  className,
-  disabled,
-  ...rest
-}: TagProps & { disabled?: boolean }) => (
-  <Tag
-    role='button'
-    tabIndex={disabled ? -1 : 0}
-    aria-disabled={disabled || undefined}
-    className={cn(styles.maxTag, disabled && styles.maxTagDisabled, className)}
-    onClick={disabled ? undefined : onClick}
-    onKeyDown={(event: KeyboardEvent<HTMLSpanElement>) => {
-      if (disabled) return
-      if (event.key !== 'Enter' && event.key !== ' ') return
-      event.preventDefault()
-      onClick?.(event as unknown as MouseEvent<HTMLSpanElement>)
-    }}
-    {...rest}
-  />
-)
 
 // Keep only digits and a single decimal point; comma is treated as the
 // decimal separator and normalized to a dot (en-US canonical form).
@@ -75,6 +58,7 @@ const sanitizeDecimal = (raw: string): string => {
   return head + tail
 }
 
+/** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max. */
 export const RichInput = ({
   label,
   labelTooltip,
@@ -104,6 +88,17 @@ export const RichInput = ({
   const errorId = `${inputId}-error`
   const showMax = showMaxButton && !disabled
   const hasBottomRow = secondaryValue != null || balance != null || showMax
+
+  const maxTag = (
+    <Tag
+      as='button'
+      dataTestId={{ root: dataTestId?.maxButton }}
+      onClick={onMaxClick}
+      disabled={maxDisabled}
+    >
+      Max
+    </Tag>
+  )
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value: rawValue, selectionStart } = event.target
@@ -194,30 +189,16 @@ export const RichInput = ({
                   {balance}
                 </span>
               ) : null}
-              {showMax ? (
-                maxTooltip != null ? (
-                  <Tooltip
-                    content={maxTooltip}
-                    position={maxTooltipPosition}
-                    width={240}
-                  >
-                    <MaxTag
-                      data-testid={dataTestId?.maxButton}
-                      onClick={onMaxClick}
-                      disabled={maxDisabled}
-                    >
-                      Max
-                    </MaxTag>
-                  </Tooltip>
-                ) : (
-                  <MaxTag
-                    data-testid={dataTestId?.maxButton}
-                    onClick={onMaxClick}
-                    disabled={maxDisabled}
-                  >
-                    Max
-                  </MaxTag>
-                )
+              {showMax && maxTooltip != null ? (
+                <Tooltip
+                  content={maxTooltip}
+                  position={maxTooltipPosition}
+                  width={240}
+                >
+                  {maxTag}
+                </Tooltip>
+              ) : showMax ? (
+                maxTag
               ) : null}
             </div>
           </div>

@@ -36,7 +36,6 @@ const privateTokens = [
   /^--lido-app-ui-fade-(start|end)$/,
   /^--lido-app-ui-logo-breakpoint$/,
   /^--lido-app-ui-(breadcrumbs|header-nav)-fade-(start|end)$/,
-  /^--lido-app-ui-color-text$/,
 ]
 
 const customMediaPattern = /(?<!var)\((--lido-app-ui-breakpoint-[a-z-]+)\)/g

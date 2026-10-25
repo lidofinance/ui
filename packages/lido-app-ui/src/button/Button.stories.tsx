@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, type ButtonVariant } from '.'
+import { Button, LinkButton, type ButtonVariant } from '.'
 
 import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Counter, type CounterVariant } from '../counter'
@@ -8,12 +8,11 @@ import { IconInfo } from '../icons'
 const meta: Meta<typeof Button> = {
   title: 'Buttons/Button',
   component: Button,
-  tags: ['autodocs'],
   args: {
     children: 'Button',
   },
   argTypes: {
-    children: { description: 'Button label', control: { type: 'text' } },
+    children: { control: { type: 'text' } },
     variant: {
       control: { type: 'select' },
       options: ['primary', 'outline', 'subtle', 'ghost', 'error'],
@@ -25,15 +24,6 @@ const meta: Meta<typeof Button> = {
     disabled: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
     type: { table: { disable: true } },
-  },
-  parameters: {
-    controls: { exclude: ['type'] },
-    docs: {
-      description: {
-        component:
-          'Fully rounded call to action. `variant` picks the fill/border treatment, `size` picks big (52px) or small (36px), `loading` swaps the icon slot for a spinner and disables the button.',
-      },
-    },
   },
 }
 
@@ -166,7 +156,7 @@ export const WithCounter: Story = {
                 variant={variant}
                 size={size}
                 counter={<Counter variant='error'>3</Counter>}
-                aria-label={`${label}, 3 unread`}
+                counterLabel='3 unread'
                 {...state}
               >
                 {label}
@@ -181,7 +171,7 @@ export const WithCounter: Story = {
             key={counterVariant}
             variant='outline'
             counter={<Counter variant={counterVariant}>3</Counter>}
-            aria-label={`${counterVariant}, 3 unread`}
+            counterLabel='3 unread'
           >
             {counterVariant}
           </Button>
@@ -194,7 +184,37 @@ export const WithCounter: Story = {
     docs: {
       description: {
         story:
-          'Corner `counter` slot, typically a `Counter`. It is aria-hidden, so include the count in `aria-label`.',
+          'Corner `counter` slot, typically a `Counter`. It is aria-hidden; `counterLabel` adds the count to the accessible name.',
+      },
+    },
+  },
+}
+
+export const AsLink: Story = {
+  render: () => (
+    <StoryContainer>
+      <StorySection title='LinkButton'>
+        {variants.map((variant) => (
+          <LinkButton key={variant} variant={variant} href='#section'>
+            {variant}
+          </LinkButton>
+        ))}
+      </StorySection>
+      <StorySection title='disabled'>
+        {variants.map((variant) => (
+          <LinkButton key={variant} variant={variant} href='#section' disabled>
+            {variant}
+          </LinkButton>
+        ))}
+      </StorySection>
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`LinkButton` is the same button as an `<a>`, for navigation: it keeps link semantics and routes through `LinkProvider`. `disabled` drops the `href` and sets `aria-disabled`. It takes `external` and the anchor attributes instead of `type` and `loading`.',
       },
     },
   },

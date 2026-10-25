@@ -3,6 +3,7 @@ import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { Counter } from '../counter'
+import counterStyles from '../counter/Counter.module.css'
 import { Button } from './Button'
 
 describe('Button', () => {
@@ -45,6 +46,38 @@ describe('Button', () => {
   })
 })
 
+describe('Button loading', () => {
+  it('disables, marks busy and hides icons while loading', () => {
+    render(
+      <Button
+        loading
+        iconLeft={<i data-testid='left' />}
+        iconRight={<i data-testid='right' />}
+      >
+        A
+      </Button>,
+    )
+    const button = screen.getByRole('button')
+    expect(button).toBeDisabled()
+    expect(button).toHaveAttribute('aria-busy', 'true')
+    expect(screen.queryByTestId('left')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('right')).not.toBeInTheDocument()
+  })
+
+  it('shows icons when not loading', () => {
+    render(
+      <Button
+        iconLeft={<i data-testid='left' />}
+        iconRight={<i data-testid='right' />}
+      >
+        A
+      </Button>,
+    )
+    expect(screen.getByTestId('left')).toBeInTheDocument()
+    expect(screen.getByTestId('right')).toBeInTheDocument()
+  })
+})
+
 describe('Button counter', () => {
   it('renders the counter inside an aria-hidden wrapper', () => {
     render(
@@ -56,13 +89,13 @@ describe('Button counter', () => {
       </Button>,
     )
     const wrapper = screen.getByTestId('counter')
-    expect(wrapper.getAttribute('aria-hidden')).toBe('true')
+    expect(wrapper).toHaveAttribute('aria-hidden', 'true')
     expect(wrapper.textContent).toBe('5')
   })
 
   it('renders no counter by default', () => {
     render(<Button dataTestId={{ counter: 'counter' }}>Inbox</Button>)
-    expect(screen.queryByTestId('counter')).toBeNull()
+    expect(screen.queryByTestId('counter')).not.toBeInTheDocument()
   })
 
   it('renders no wrapper for counter={false}', () => {
@@ -71,6 +104,50 @@ describe('Button counter', () => {
         Inbox
       </Button>,
     )
-    expect(screen.queryByTestId('counter')).toBeNull()
+    expect(screen.queryByTestId('counter')).not.toBeInTheDocument()
+  })
+
+  it('wraps a numeric counter in a default Counter', () => {
+    render(
+      <Button counter={3} dataTestId={{ counter: 'counter' }}>
+        Inbox
+      </Button>,
+    )
+    const pill = screen.getByTestId('counter').firstElementChild
+    expect(pill).toHaveTextContent('3')
+    expect(pill).toHaveClass(counterStyles.counter)
+  })
+
+  it('renders a zero counter as a pill', () => {
+    render(
+      <Button counter={0} dataTestId={{ counter: 'counter' }}>
+        Inbox
+      </Button>,
+    )
+    const pill = screen.getByTestId('counter').firstElementChild
+    expect(pill).toHaveClass(counterStyles.counter)
+    expect(pill).toHaveTextContent('0')
+  })
+
+  it('appends counterLabel to the accessible name', () => {
+    render(
+      <Button counter={3} counterLabel='3 unread'>
+        Inbox
+      </Button>,
+    )
+    expect(
+      screen.getByRole('button', { name: 'Inbox 3 unread' }),
+    ).toBeInTheDocument()
+  })
+
+  it('joins aria-label and counterLabel', () => {
+    render(
+      <Button aria-label='Inbox' counterLabel='3 unread'>
+        X
+      </Button>,
+    )
+    expect(
+      screen.getByRole('button', { name: 'Inbox, 3 unread' }),
+    ).toBeInTheDocument()
   })
 })

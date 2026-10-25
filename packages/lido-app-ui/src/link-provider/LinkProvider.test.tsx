@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { Anchor } from './Anchor'
-import { LinkProvider } from './LinkProvider'
+import { LinkProvider, type LinkComponent } from './LinkProvider'
 
 // Mirrors next/link's public shape: forwardRef, href accepts a UrlObject, extra props.
 type NextLikeProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
@@ -31,6 +31,15 @@ describe('LinkProvider', () => {
         <Anchor href='/keys'>Keys</Anchor>
       </LinkProvider>,
     )
-    expect(screen.getByRole('link').hasAttribute('data-next')).toBe(true)
+    expect(screen.getByRole('link')).toHaveAttribute('data-next')
+  })
+
+  it('types ref as an optional prop for adapters that read it', () => {
+    const Adapter: LinkComponent = ({ ref, ...props }) => (
+      <a ref={ref} {...props}>
+        x
+      </a>
+    )
+    expect(Adapter).toBeTypeOf('function')
   })
 })

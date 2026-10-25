@@ -7,17 +7,20 @@ import { SmallCard } from '.'
 const meta: Meta<typeof SmallCard> = {
   title: 'Cards/SmallCard',
   component: SmallCard,
-  tags: ['autodocs'],
   args: {
     logo: <IconBell />,
     icon: <IconArrowNarrowUpRight />,
     title: 'CSM Sentinel',
     description: 'Provides your CSM Node Operator events to the telegram chats',
     href: 'https://lido.fi',
+    external: true,
   },
   argTypes: {
     title: { control: { type: 'text' } },
     description: { control: { type: 'text' } },
+    external: {
+      control: { type: 'boolean' },
+    },
   },
   // SmallCard sizes to its content/container, so the canvas needs a width —
   // kept out of each story's own code so the example stays just
@@ -32,12 +35,6 @@ const meta: Meta<typeof SmallCard> = {
   parameters: {
     storyBackground: 'page',
     layout: 'padded',
-    docs: {
-      description: {
-        component:
-          'A clickable card that always renders as a link: an optional `image` (fixed 120px height), an optional `logo` + title + an optional trailing `icon`, a `description`, and an optional `footer` slot that wraps arbitrary content (e.g. a row of `Tag`s). Title and description wrap to multiple lines rather than truncating. Background lightens from the default surface to white on hover.',
-      },
-    },
   },
 }
 

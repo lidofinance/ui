@@ -9,7 +9,9 @@ import {
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StorySection } from '../../.storybook/components'
+import { Breadcrumbs } from '../breadcrumbs'
 import { IconArrowNarrowUpRight, IconBell } from '../icons'
+import { NavLink } from '../nav-link'
 import { SmallCard } from '../small-card'
 import { TextLink } from '../text-link'
 import { LinkProvider, type LinkComponentProps } from './LinkProvider'
@@ -74,6 +76,16 @@ const DemoLinks = ({ withProvider }: { withProvider: boolean }) => {
           target=_blank: /keys
         </TextLink>
       </StorySection>
+      <StorySection style={{ gap: 8 }}>
+        <NavLink href='/keys'>NavLink: /keys</NavLink>
+        <Breadcrumbs
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Keys', href: '/keys' },
+            { label: 'Details' },
+          ]}
+        />
+      </StorySection>
       <div style={{ width: 248 }}>
         <SmallCard
           logo={<IconBell />}
@@ -86,7 +98,6 @@ const DemoLinks = ({ withProvider }: { withProvider: boolean }) => {
       <p
         style={{
           margin: 0,
-          fontFamily: 'var(--lido-app-ui-font-family)',
           fontSize: 14,
           color: 'var(--lido-app-ui-color-text-secondary)',
         }}
@@ -112,15 +123,8 @@ const DemoLinks = ({ withProvider }: { withProvider: boolean }) => {
 const meta: Meta<typeof LinkProvider> = {
   title: 'Navigation/LinkProvider',
   component: LinkProvider,
-  tags: ['autodocs'],
   parameters: {
     controls: { disable: true },
-    docs: {
-      description: {
-        component:
-          'Routes app-ui links through your own components. `component` handles in-app hrefs (e.g. Next.js `Link`), `externalComponent` handles absolute URLs; both must forward `ref` to an `<a>`. Without a provider links render a plain `<a>`. Hash links, `download` links and links with a non-`_self` `target` always stay a plain `<a>`. `TextLink` and `SmallCard` use it. Pass stable, module-level components: inline ones remount every link on each render.',
-      },
-    },
   },
 }
 

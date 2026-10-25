@@ -3,4 +3,5 @@ export type {
   LinkComponent,
   LinkComponentProps,
   LinkProviderProps,
+  LinkRouterProps,
 } from './LinkProvider'

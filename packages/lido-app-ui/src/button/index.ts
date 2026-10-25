@@ -5,3 +5,5 @@ export type {
   ButtonVariant,
   ButtonDataTestId,
 } from './Button'
+export { LinkButton } from './LinkButton'
+export type { LinkButtonProps } from './LinkButton'
