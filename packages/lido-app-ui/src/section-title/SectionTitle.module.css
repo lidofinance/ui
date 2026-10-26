@@ -32,7 +32,7 @@
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  color: var(--lido-app-ui-color-icons-tertiary);
+  color: var(--lido-app-ui-color-icons-secondary);
 }
 
 .subtitle {
@@ -47,4 +47,8 @@
 
 .action {
   flex-shrink: 0;
+}
+
+.large .title {
+  @mixin font-h2;
 }
