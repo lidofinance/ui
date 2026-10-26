@@ -22,7 +22,10 @@
 /* shrinks by the still-visible part of the offset, grows to full height as it scrolls away */
 @supports (animation-timeline: scroll()) {
   .sidebar {
-    animation: grow-to-full-height linear both;
+    /* longhands: the minifier reorders the shorthand after animation-timeline, resetting it */
+    animation-name: grow-to-full-height;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
     animation-timeline: scroll(root);
     animation-range: 0 var(--local-offset);
   }
