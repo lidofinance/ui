@@ -49,14 +49,6 @@
   @mixin font-body color: var(--lido-app-ui-color-text-secondary);
 }
 
-.labelTooltipIcon {
-  display: flex;
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  color: var(--lido-app-ui-color-icons-secondary);
-}
-
 .amountRow {
   display: flex;
   align-items: center;

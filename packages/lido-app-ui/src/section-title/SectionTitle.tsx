@@ -2,8 +2,7 @@ import type { ElementType, HTMLAttributes, ReactNode } from 'react'
 
 import cn from 'classnames'
 
-import { IconInfo } from '../icons'
-import { Tooltip } from '../tooltip'
+import { InfoTooltip } from '../info-tooltip'
 import styles from './SectionTitle.module.css'
 
 export type SectionTitleDataTestId = {
@@ -53,11 +52,7 @@ export const SectionTitle = ({
           <Title className={styles.title} data-testid={dataTestId?.title}>
             {title}
           </Title>
-          {tooltip != null ? (
-            <Tooltip content={tooltip}>
-              <IconInfo className={styles.icon} aria-hidden='true' />
-            </Tooltip>
-          ) : null}
+          {tooltip != null ? <InfoTooltip content={tooltip} /> : null}
         </div>
         {subtitle != null ? (
           <p className={styles.subtitle} data-testid={dataTestId?.subtitle}>

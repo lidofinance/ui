@@ -60,17 +60,6 @@
   color: var(--lido-app-ui-color-text-secondary);
 }
 
-.info {
-  display: inline-flex;
-  align-items: center;
-}
-
-.infoIcon {
-  width: 16px;
-  height: 16px;
-  color: var(--lido-app-ui-color-icons-secondary);
-}
-
 .infoFaint {
   opacity: 0.6;
 }
@@ -102,10 +91,4 @@
   @mixin font-description;
 
   color: var(--lido-app-ui-color-text-tertiary);
-}
-
-.descriptionIcon {
-  width: 16px;
-  height: 16px;
-  color: var(--lido-app-ui-color-icons-tertiary);
 }

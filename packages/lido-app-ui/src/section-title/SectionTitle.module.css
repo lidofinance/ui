@@ -27,14 +27,6 @@
   color: var(--lido-app-ui-color-text-default);
 }
 
-.icon {
-  display: flex;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  color: var(--lido-app-ui-color-icons-secondary);
-}
-
 .subtitle {
   margin: 0;
   width: 100%;

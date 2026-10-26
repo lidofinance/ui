@@ -12,6 +12,7 @@ import { Counter } from './counter'
 import { DataList, DataListRow } from './data-list'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
+import { InfoTooltip } from './info-tooltip'
 import { Input } from './input'
 import { MessageBox } from './message-box'
 import { Modal } from './modal'
@@ -66,6 +67,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Identicon',
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
+  ['InfoTooltip', () => <InfoTooltip content='Help' />],
   ['Input', () => <Input label='Amount' />],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],

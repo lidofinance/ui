@@ -10,7 +10,7 @@ import {
 } from 'react'
 
 import cn from 'classnames'
-import { IconInfo } from '../icons'
+import { InfoTooltip } from '../info-tooltip'
 import { Tag, type TagProps } from '../tag'
 import { Tooltip } from '../tooltip'
 
@@ -150,12 +150,7 @@ export const RichInput = ({
               {label}
             </label>
             {labelTooltip != null ? (
-              <Tooltip content={labelTooltip}>
-                <IconInfo
-                  className={styles.labelTooltipIcon}
-                  aria-hidden='true'
-                />
-              </Tooltip>
+              <InfoTooltip content={labelTooltip} size={20} />
             ) : null}
           </span>
         ) : null}

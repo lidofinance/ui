@@ -1,8 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
-import { IconInfo } from '../icons'
 import cn from 'classnames'
-import { Tooltip } from '../tooltip'
+import { InfoTooltip } from '../info-tooltip'
 
 import styles from './DataList.module.css'
 
@@ -63,12 +62,10 @@ export const DataListRow = ({
           {label}
         </span>
         {info ? (
-          <Tooltip
+          <InfoTooltip
             content={info}
-            className={cn(styles.info, infoFaint && styles.infoFaint)}
-          >
-            <IconInfo className={styles.infoIcon} />
-          </Tooltip>
+            className={cn(infoFaint && styles.infoFaint)}
+          />
         ) : null}
       </span>
       {isChangeValue(value) ? (
@@ -94,9 +91,7 @@ export const DataListRow = ({
           {description}
         </span>
         {descriptionInfo ? (
-          <Tooltip content={descriptionInfo} className={styles.info}>
-            <IconInfo className={styles.descriptionIcon} />
-          </Tooltip>
+          <InfoTooltip content={descriptionInfo} tone='tertiary' />
         ) : null}
       </span>
     ) : null}

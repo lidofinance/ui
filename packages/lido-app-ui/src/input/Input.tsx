@@ -7,8 +7,7 @@ import {
 
 import cn from 'classnames'
 
-import { IconInfo } from '../icons'
-import { Tooltip } from '../tooltip'
+import { InfoTooltip } from '../info-tooltip'
 import styles from './Input.module.css'
 
 export type InputSize = 'default' | 'small'
@@ -71,11 +70,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             >
               {label}
             </label>
-            {tooltip != null ? (
-              <Tooltip content={tooltip}>
-                <IconInfo className={styles.tooltipIcon} aria-hidden='true' />
-              </Tooltip>
-            ) : null}
+            {tooltip != null ? <InfoTooltip content={tooltip} /> : null}
           </span>
         ) : null}
         <label
