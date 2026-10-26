@@ -33,8 +33,7 @@
 
   @mixin font-body;
 
-  color: var(--lido-app-ui-color-text-default);
-  opacity: 0.5;
+  color: var(--lido-app-ui-color-text-secondary);
 }
 
 .action {
