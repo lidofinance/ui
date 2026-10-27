@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "classnames": "2.5.1",
-    "ua-parser-js": "2.0.3"
+    "ua-parser-js": "2.0.0"
   },
   "devDependencies": {
     "@babel/preset-env": "7.26.9",
