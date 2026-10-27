@@ -28,7 +28,7 @@ function Widget() {
 }
 ```
 
-Theme providers (`ThemeProvider`, `CookieThemeProvider`, `ThemeToggler`) are re-exported from `@lidofinance/lido-shared-ui`. The color tokens follow the `data-lido-theme` attribute they set, so switching to the dark theme restyles these components. `ThemeSwitcher` is the app-ui-styled theme toggle, since the shared `ThemeToggler` relies on `--lido-ui-*` tokens that app-ui doesn't define.
+Theme providers (`ThemeProvider`, `CookieThemeProvider`) are re-exported from `@lidofinance/lido-shared-ui`. The color tokens follow the `data-lido-theme` attribute they set, so switching to the dark theme restyles these components. `ThemeSwitcher` is the app-ui-styled theme toggle, since the shared `ThemeToggler` relies on `--lido-ui-*` tokens that app-ui doesn't define.
 
 ## Router links
 
