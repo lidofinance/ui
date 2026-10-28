@@ -42,6 +42,8 @@ export const SkipLink = forwardRef<HTMLAnchorElement, SkipLinkProps>(
       if (!target) return
       // Safari skips focus on non-focusable targets; hash change can trigger SPA routers.
       event.preventDefault()
+      target.focus()
+      if (document.activeElement === target) return
       if (!target.hasAttribute('tabindex'))
         target.setAttribute('tabindex', '-1')
       target.focus()
