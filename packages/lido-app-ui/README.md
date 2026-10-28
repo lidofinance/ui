@@ -138,16 +138,16 @@ export default {
 
 ## Layout
 
-Breakpoints are desktop-first. `-down` matches below the width (it ends at N − 0.02px), `-up` from N:
+Breakpoints are desktop-first: `-down` is `(width < N)`, `-up` is `(width >= N)`. The queries use range syntax (Safari 16.4+, Chrome 104+, Firefox 63+).
 
-| Name  | `-down` (max-width) | `-up` (min-width) |
-| ----- | ------------------- | ----------------- |
-| `lg`  | 1439.98px           | 1440px            |
-| `ml`  | 1063.98px           | 1064px            |
-| `md`  | 899.98px            | 900px             |
-| `sm`  | 599.98px            | 600px             |
-| `xs`  | 439.98px            | 440px             |
-| `xxs` | 399.98px            | 400px             |
+| Name  | N      |
+| ----- | ------ |
+| `lg`  | 1440px |
+| `ml`  | 1064px |
+| `md`  | 900px  |
+| `sm`  | 600px  |
+| `xs`  | 440px  |
+| `xxs` | 400px  |
 
 In CSS use `@media (--lido-app-ui-breakpoint-md-down)`. Responsive props such as `Stack` `gap` take `{ base, mdDown, smDown, … }` (bare `md`/`sm` are aliases), where a key applies below that width:
 
