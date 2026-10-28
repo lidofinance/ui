@@ -77,7 +77,7 @@ export const Overflow: Story = {
       },
     },
   },
-  globals: { viewport: { value: 'px599', isRotated: false } },
+  globals: { viewport: { value: 'sm-down', isRotated: false } },
   render: () => (
     <DemoHeader>
       <strong>Lido</strong>

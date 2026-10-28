@@ -58,7 +58,7 @@ export const InCard: Story = {
     </Card>
   ),
   parameters: {
-    storyBackground: 'var(--storybook-background-intence)',
+    storyBackground: 'page',
     controls: { disable: true },
   },
 }

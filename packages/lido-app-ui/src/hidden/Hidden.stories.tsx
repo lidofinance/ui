@@ -12,7 +12,7 @@ const meta: Meta<typeof Hidden> = {
   title: 'Layout/Hidden',
   component: Hidden,
   tags: ['autodocs'],
-  globals: { viewport: { value: 'px1440' } },
+  globals: { viewport: { value: 'lg-up' } },
   argTypes: {
     below: {
       control: 'select',

@@ -30,7 +30,7 @@ const meta: Meta<typeof SmallCard> = {
     ),
   ],
   parameters: {
-    storyBackground: 'var(--storybook-background-intence)',
+    storyBackground: 'page',
     layout: 'padded',
     docs: {
       description: {
