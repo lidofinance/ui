@@ -50,4 +50,12 @@ describe('RichInput Max', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Max' }))
     expect(screen.getByRole('textbox')).not.toHaveFocus()
   })
+
+  it('keeps Max a native button without onMaxClick', async () => {
+    render(<RichInput />)
+    const max = screen.getByRole('button', { name: 'Max' })
+    expect(max.tagName).toBe('BUTTON')
+    await userEvent.click(max)
+    expect(screen.getByRole('textbox')).not.toHaveFocus()
+  })
 })

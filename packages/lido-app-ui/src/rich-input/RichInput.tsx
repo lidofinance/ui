@@ -58,6 +58,8 @@ const sanitizeDecimal = (raw: string): string => {
   return head + tail
 }
 
+const noop = () => undefined
+
 /** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max. */
 export const RichInput = ({
   label,
@@ -93,7 +95,7 @@ export const RichInput = ({
     <Tag
       as='button'
       dataTestId={{ root: dataTestId?.maxButton }}
-      onClick={onMaxClick}
+      onClick={onMaxClick ?? noop}
       disabled={maxDisabled}
     >
       Max
