@@ -62,7 +62,9 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
     useIsomorphicLayoutEffect(() => {
       const list = listRef.current
       if (!list) return
-      const trail = `${items.length}|${list.textContent}`
+      const trail = Array.from(list.children, (li) => li.textContent).join(
+        '\u0000',
+      )
       if (trail !== trailRef.current) {
         trailRef.current = trail
         list.scrollLeft = list.scrollWidth

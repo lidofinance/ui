@@ -214,6 +214,14 @@ describe('Breadcrumbs', () => {
       rerender(<Host labels={['A', 'Z']} />)
       expect(list.scrollLeft).toBe(500)
     })
+
+    it('scrolls to the end when item boundaries move but text is the same', () => {
+      const { rerender } = render(<Host labels={['Home', 'AB', 'C']} />)
+      const list = screen.getByRole('list')
+      list.scrollLeft = 10
+      rerender(<Host labels={['Home', 'A', 'BC']} />)
+      expect(list.scrollLeft).toBe(500)
+    })
   })
 
   it('does not pass external to plain text items', () => {

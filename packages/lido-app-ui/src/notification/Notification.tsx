@@ -38,6 +38,9 @@ export type NotificationProps = Omit<
   role?: ComponentPropsWithoutRef<'div'>['role']
 }
 
+const isEmpty = (node: ReactNode) =>
+  node == null || node === false || node === ''
+
 /** Dark toast that stays dark in both themes; `subheader` slots a `Tag`, `actions` takes small `Button`s, `onClose` adds a dismiss button. */
 export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
   (
@@ -66,7 +69,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
           {...rest}
         >
           <div className={cn(styles.content, onClose && styles.closable)}>
-            {subheader != null ? (
+            {!isEmpty(subheader) ? (
               <div
                 className={styles.subheader}
                 data-testid={dataTestId?.subheader}
@@ -81,13 +84,13 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             >
               {title}
             </p>
-            {children != null ? (
+            {!isEmpty(children) ? (
               <div className={styles.body} data-testid={dataTestId?.body}>
                 {children}
               </div>
             ) : null}
           </div>
-          {actions != null ? (
+          {!isEmpty(actions) ? (
             <div className={styles.actions} data-testid={dataTestId?.actions}>
               {actions}
             </div>

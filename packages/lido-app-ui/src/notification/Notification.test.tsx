@@ -53,6 +53,38 @@ describe('Notification', () => {
     expect(wrapper.firstElementChild).toBe(subheader)
   })
 
+  it.each([false, '', null])(
+    'renders no subheader wrapper for empty subheader %j',
+    (subheader) => {
+      render(
+        <Notification
+          title='T'
+          subheader={subheader}
+          onClose={vi.fn()}
+          dataTestId={{ subheader: 'sub' }}
+        />,
+      )
+      expect(screen.queryByTestId('sub')).not.toBeInTheDocument()
+      const wrapper = screen.getByText('T').parentElement!
+      expect(wrapper).toHaveClass(styles.closable)
+      expect(wrapper.firstElementChild).toBe(screen.getByText('T'))
+    },
+  )
+
+  it('renders no body or actions wrapper for false children and actions', () => {
+    render(
+      <Notification
+        title='T'
+        actions={false}
+        dataTestId={{ body: 'body', actions: 'actions' }}
+      >
+        {false}
+      </Notification>,
+    )
+    expect(screen.queryByTestId('body')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('actions')).not.toBeInTheDocument()
+  })
+
   it('has no dismiss button without onClose', () => {
     render(<Notification title='T' />)
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
