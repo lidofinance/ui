@@ -49,6 +49,16 @@ describe('Address', () => {
     expect(container.querySelector('[title]')).toBeNull()
   })
 
+  it('makes the tooltip trigger focusable and opens it on focus', () => {
+    render(<Address address={address} tooltip />)
+    const trigger = screen
+      .getByText('0x56f4...c12e')
+      .closest('[tabindex]') as HTMLElement
+    expect(trigger.tabIndex).toBe(0)
+    fireEvent.focus(trigger)
+    expect(screen.getByRole('tooltip').textContent).toBe(address)
+  })
+
   it('uses the native title without tooltip', () => {
     const { container } = render(<Address address={address} />)
     expect(container.querySelector('[title]')?.getAttribute('title')).toBe(

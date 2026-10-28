@@ -63,6 +63,7 @@
 .outline {
   --local-border-width: 1px;
   --local-border-color: var(--lido-app-ui-color-border-default);
+  --local-bg: transparent;
 }
 
 .outline:not(:disabled):hover {
@@ -76,6 +77,12 @@
 .surface:not(:disabled):hover,
 .surface:not(:disabled):active {
   color: var(--lido-app-ui-color-icons-active);
+}
+
+.ghost {
+  --local-border-width: 0px;
+  --local-border-color: transparent;
+  --local-bg: transparent;
 }
 
 .ghost:not(:disabled):hover {

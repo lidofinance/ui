@@ -46,7 +46,13 @@ export const Address = forwardRef<HTMLSpanElement, AddressProps>(
             )}
           />
         ) : null}
-        {tooltip ? <Tooltip content={address}>{hex}</Tooltip> : hex}
+        {tooltip ? (
+          <Tooltip content={address} tabIndex={0}>
+            {hex}
+          </Tooltip>
+        ) : (
+          hex
+        )}
         {copy ? <Copy text={address} /> : null}
         {children}
       </span>
