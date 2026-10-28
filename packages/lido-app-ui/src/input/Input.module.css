@@ -19,14 +19,6 @@
   white-space: nowrap;
 }
 
-.tooltipIcon {
-  display: flex;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  color: var(--lido-app-ui-color-icons-secondary);
-}
-
 .root {
   display: inline-flex;
   align-items: center;

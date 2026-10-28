@@ -1,0 +1,37 @@
+.root {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.secondary {
+  color: var(--lido-app-ui-color-icons-secondary);
+}
+
+.tertiary {
+  color: var(--lido-app-ui-color-icons-tertiary);
+}
+
+.icon {
+  display: block;
+}
+
+.size16 .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.size20 .icon {
+  width: 20px;
+  height: 20px;
+}

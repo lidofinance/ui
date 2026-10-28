@@ -27,24 +27,23 @@
   color: var(--lido-app-ui-color-text-default);
 }
 
-.icon {
-  display: flex;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  color: var(--lido-app-ui-color-icons-tertiary);
-}
-
 .subtitle {
   margin: 0;
   width: 100%;
 
   @mixin font-body;
 
-  color: var(--lido-app-ui-color-text-default);
-  opacity: 0.5;
+  color: var(--lido-app-ui-color-text-secondary);
 }
 
 .action {
   flex-shrink: 0;
+}
+
+.large .title {
+  @mixin font-h2;
+}
+
+.large {
+  align-items: center;
 }

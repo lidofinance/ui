@@ -20,6 +20,7 @@ import { Header, HeaderNav } from './header'
 import { Hidden } from './hidden'
 import { IconButton } from './icon-button'
 import { Identicon } from './identicon'
+import { InfoTooltip } from './info-tooltip'
 import { Input } from './input'
 import { LinkProvider, type LinkComponent } from './link-provider'
 import { Logo } from './logo'
@@ -108,6 +109,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Identicon',
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
+  ['InfoTooltip', () => <InfoTooltip content='Help' />],
   ['Input', () => <Input label='Amount' />],
   [
     'LinkProvider',

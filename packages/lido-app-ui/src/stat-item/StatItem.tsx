@@ -2,8 +2,7 @@ import type { HTMLAttributes, ReactNode } from 'react'
 
 import cn from 'classnames'
 
-import { IconInfo } from '../icons'
-import { Tooltip } from '../tooltip'
+import { InfoTooltip } from '../info-tooltip'
 
 import styles from './StatItem.module.css'
 
@@ -57,11 +56,7 @@ export const StatItem = ({
       <div className={styles.label} data-testid={dataTestId?.label}>
         {label}
       </div>
-      {info ? (
-        <Tooltip content={info} className={styles.info}>
-          <IconInfo className={styles.infoIcon} />
-        </Tooltip>
-      ) : null}
+      {info ? <InfoTooltip content={info} /> : null}
     </div>
     <div className={styles.valueRow}>
       <div className={styles.value} data-testid={dataTestId?.value}>

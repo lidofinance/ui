@@ -37,17 +37,6 @@
   white-space: nowrap;
 }
 
-.info {
-  display: inline-flex;
-  align-items: center;
-}
-
-.infoIcon {
-  width: 16px;
-  height: 16px;
-  color: var(--lido-app-ui-color-icons-secondary);
-}
-
 .valueRow {
   display: flex;
   gap: 8px;
