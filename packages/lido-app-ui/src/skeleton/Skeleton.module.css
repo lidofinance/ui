@@ -32,6 +32,10 @@
   height: 100%;
 }
 
+.text.fill {
+  margin-block: 0;
+}
+
 .circle.fill {
   width: auto;
   height: auto;

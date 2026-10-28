@@ -96,15 +96,17 @@ export const InRegion: Story = {
   render: function Render() {
     const [loading, setLoading] = useState(true)
     return (
-      <section aria-busy={loading} style={{ width: 240 }}>
+      <section style={{ width: 240 }}>
         <span role='status' style={srOnly}>
           {loading ? 'Loading rewards…' : ''}
         </span>
-        {loading ? (
-          <Skeleton variant='text' lines={3} />
-        ) : (
-          <Typography variant='body'>Rewards loaded.</Typography>
-        )}
+        <div aria-busy={loading}>
+          {loading ? (
+            <Skeleton variant='text' lines={3} />
+          ) : (
+            <Typography variant='body'>Rewards loaded.</Typography>
+          )}
+        </div>
         <Button onClick={() => setLoading((v) => !v)}>Toggle loading</Button>
       </section>
     )
@@ -114,7 +116,7 @@ export const InRegion: Story = {
     docs: {
       description: {
         story:
-          '`aria-busy` alone is not announced. Keep a `role="status"` element mounted and change only its text; a region inserted already filled is not reliably announced.',
+          '`aria-busy` alone is not announced. Keep a `role="status"` element mounted outside the busy subtree and change only its text; a region inserted already filled is not reliably announced, and announcements inside a busy subtree may be deferred.',
       },
     },
   },
