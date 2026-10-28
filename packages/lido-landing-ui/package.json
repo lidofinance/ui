@@ -53,7 +53,7 @@
     "react-jazzicon": "1.0.4",
     "react-toastify": "11.0.5",
     "react-transition-group": "4",
-    "ua-parser-js": "2.0.0",
+    "ua-parser-js": "2.0.3",
     "use-callback-ref": "1.2.5"
   },
   "devDependencies": {

@@ -2918,7 +2918,7 @@ __metadata:
     rollup-plugin-postcss: "npm:4.0.2"
     storybook: "npm:8.6.19"
     tslib: "npm:2.3.1"
-    ua-parser-js: "npm:2.0.0"
+    ua-parser-js: "npm:2.0.3"
     use-callback-ref: "npm:1.2.5"
     vitest: "npm:^3.0.0"
   peerDependencies:
@@ -2946,7 +2946,7 @@ __metadata:
     rollup: "npm:3.30.0"
     rollup-plugin-postcss: "npm:4.0.2"
     tslib: "npm:2.3.1"
-    ua-parser-js: "npm:2.0.0"
+    ua-parser-js: "npm:2.0.3"
     vitest: "npm:^3.0.0"
   peerDependencies:
     react: ^18
@@ -7428,7 +7428,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node-fetch@npm:^2.6.4":
+"@types/node-fetch@npm:^2.6.12, @types/node-fetch@npm:^2.6.4":
   version: 2.6.13
   resolution: "@types/node-fetch@npm:2.6.13"
   dependencies:
@@ -16293,7 +16293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.0.0, node-fetch@npm:^2.3.0":
+"node-fetch@npm:^2.0.0, node-fetch@npm:^2.3.0, node-fetch@npm:^2.7.0":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
   dependencies:
@@ -21658,16 +21658,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ua-parser-js@npm:2.0.0":
-  version: 2.0.0
-  resolution: "ua-parser-js@npm:2.0.0"
+"ua-parser-js@npm:2.0.3":
+  version: 2.0.3
+  resolution: "ua-parser-js@npm:2.0.3"
   dependencies:
+    "@types/node-fetch": "npm:^2.6.12"
     detect-europe-js: "npm:^0.1.2"
     is-standalone-pwa: "npm:^0.1.1"
+    node-fetch: "npm:^2.7.0"
     ua-is-frozen: "npm:^0.1.2"
   bin:
     ua-parser-js: script/cli.js
-  checksum: 10c0/f82ef8d493f079f1fea885ae25733d02788125f1a75210936610c804d5c22bd2368282070471931ae8b9ad1a5fb31165f1188c4c27887f33aceffb97d629aa9f
+  checksum: 10c0/0fd098a19c11ecddf35f65a9a86a44e4d6147fbed4ad1813d0142c55d305ba2220f41b48c5a60f082552ff4a93bbb5edb1b24de0af45271d1735b63794fef1e0
   languageName: node
   linkType: hard
 
