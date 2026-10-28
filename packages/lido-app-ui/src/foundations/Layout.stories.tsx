@@ -13,7 +13,7 @@ const meta: Meta = {
     docs: {
       description: {
         component:
-          'Layout is desktop-first: `base` applies everywhere and a `<bp>Down` key (alias `<bp>`) applies below that width; `Hidden` `below`/`above` take the bare name. `Stack`, `Grid`, `GridItem` and `Hidden` share this scale. `var()` is invalid inside `@media`, so queries come from `styles/breakpoints.css` (`-down` ends at `N - 0.02px`, `-up` starts at `N`) and the same widths are exposed as `--lido-app-ui-breakpoint-*` tokens for `calc()` and `clamp()`. Spacing is a px scale (`Space`) used by `gap` props, each step backed by a `--lido-app-ui-space-N` token.',
+          'Layout is desktop-first: `base` applies everywhere and a `<bp>Down` key (alias `<bp>`) applies below that width; `Hidden` `below`/`above` take the bare name. `Stack`, `Grid`, `GridItem` and `Hidden` share this scale. `var()` is invalid inside `@media`, so queries come from `styles/breakpoints.css` (`-down` is `width < N`, `-up` is `width >= N`) and the same widths are exposed as `--lido-app-ui-breakpoint-*` tokens for `calc()` and `clamp()`. Spacing is a px scale (`Space`) used by `gap` props, each step backed by a `--lido-app-ui-space-N` token.',
       },
     },
   },
@@ -137,12 +137,12 @@ export const Spacing: Story = {
 
 const BreakpointRow = ({ name }: { name: (typeof breakpoints)[number] }) => {
   const width = breakpointWidths[name]
-  const down = useMatches(`(max-width: ${width - 0.02}px)`)
+  const down = useMatches(`(width < ${width}px)`)
   return (
     <tr>
       <td style={{ ...cell, ...code }}>{name}</td>
-      <td style={cell}>{width - 0.02}px</td>
-      <td style={cell}>{width}px</td>
+      <td style={{ ...cell, ...code }}>{`width < ${width}px`}</td>
+      <td style={{ ...cell, ...code }}>{`width >= ${width}px`}</td>
       <td style={{ ...cell, ...code }}>
         --lido-app-ui-breakpoint-{name}-down / -up
       </td>
@@ -160,19 +160,12 @@ export const Breakpoints: Story = {
       <Note>
         Desktop-first: <code>base</code> covers everything, a{' '}
         <code>&lt;bp&gt;Down</code> key (alias <code>&lt;bp&gt;</code>) applies
-        below that width (see the -down max column). In CSS use the{' '}
-        <code>@custom-media</code> names with <code>-down</code> (max-width) or{' '}
-        <code>-up</code> (min-width).
+        below that width. In CSS use the <code>@custom-media</code> names with{' '}
+        <code>-down</code> (<code>width &lt; N</code>) or <code>-up</code> (
+        <code>width &gt;= N</code>).
       </Note>
       <Table
-        head={[
-          'Key',
-          '-down max',
-          '-up min',
-          'Custom media',
-          'Token',
-          'Viewport',
-        ]}
+        head={['Key', '-down', '-up', 'Custom media', 'Token', 'Viewport']}
       >
         <tr>
           <td style={{ ...cell, ...code }}>base</td>
@@ -212,8 +205,8 @@ export const PageGutter: Story = {
         ErrorPage. Do not add your own gutters around them.
       </Note>
       <GutterBar label='base' width='52px' />
-      <GutterBar label='md and below (899px)' width='32px' />
-      <GutterBar label='sm and below (599px)' width='12px' />
+      <GutterBar label='md and below (width < 900px)' width='32px' />
+      <GutterBar label='sm and below (width < 600px)' width='12px' />
       <GutterBar label='current viewport' width={`var(${PAGE_GUTTER})`} />
     </StoryContainer>
   ),
