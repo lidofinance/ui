@@ -4,6 +4,7 @@ import { StoryContainer } from '../../.storybook/components'
 import { Banner } from '../banner'
 import { Button } from '../button'
 import { TokenIcon } from '../icons'
+import { Stack } from '../stack'
 import { TextLink } from '../text-link'
 import { TokenAmount } from '../token-amount'
 import { Description } from '../typography'
@@ -72,9 +73,7 @@ export const AllStatuses: Story = {
         message='Confirm the transaction in your wallet. This can take a few minutes depending on network congestion — keep this window open and avoid refreshing the page until the transaction is fully processed.'
         amount={<TokenAmount symbol='stETH' amount='12.4218' />}
         footer={
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
-          >
+          <Stack gap={16}>
             <Banner
               icon={<TokenIcon token='stETH' />}
               title='Add stETH to your wallet'
@@ -83,7 +82,7 @@ export const AllStatuses: Story = {
             <Description style={{ textAlign: 'center' }}>
               Proceed in your wallet
             </Description>
-          </div>
+          </Stack>
         }
       ></TxStatus>
     </StoryContainer>

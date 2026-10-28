@@ -1,0 +1,44 @@
+.region {
+  --region-outline: var(--lido-app-ui-color-border-active);
+  --region-label: var(--lido-app-ui-color-background-action);
+
+  outline: 2px dashed var(--region-outline);
+  outline-offset: -2px;
+}
+
+.component {
+  --region-outline: var(--lido-app-ui-color-border-success);
+  --region-label: var(--lido-app-ui-color-text-success);
+}
+
+/* exploded view: padding opens a strip for the label and insets the children */
+.container {
+  box-sizing: border-box;
+  padding: 24px 6px 6px;
+}
+
+/* the Sidebar is already sticky or fixed and anchors the label itself */
+.region:not([data-label='Sidebar']) {
+  position: relative;
+}
+
+.region::before {
+  content: attr(data-label);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+  padding: 0 6px;
+  font-family: var(--lido-app-ui-font-family);
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--lido-app-ui-color-text-inverse);
+  pointer-events: none;
+  background: var(--region-label);
+  border-radius: 4px;
+}
+
+.container::before {
+  top: 3px;
+  left: 6px;
+}

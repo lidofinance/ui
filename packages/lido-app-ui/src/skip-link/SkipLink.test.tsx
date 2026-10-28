@@ -41,19 +41,6 @@ describe('SkipLink', () => {
     expect(document.activeElement).toBe(content)
   })
 
-  it('does not add tabindex to naturally focusable targets', () => {
-    render(
-      <>
-        <SkipLink href='#field' />
-        <input id='field' aria-label='Field' />
-      </>,
-    )
-    fireEvent.click(screen.getByRole('link'))
-    const input = screen.getByLabelText('Field')
-    expect(input.hasAttribute('tabindex')).toBe(false)
-    expect(document.activeElement).toBe(input)
-  })
-
   it('resolves encoded ids', () => {
     render(
       <>

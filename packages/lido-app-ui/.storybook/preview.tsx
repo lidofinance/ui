@@ -3,6 +3,7 @@ import { iconArgs } from './iconControl'
 import { slotControls } from './slotControls'
 import { viewports } from './viewports'
 
+import '@lidofinance/lido-shared-ui/index.css'
 import '../styles/global.css'
 import './styles/storybook.css'
 

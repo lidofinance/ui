@@ -13,6 +13,7 @@ import { Card } from '../card'
 import { Identicon } from '../identicon'
 import { IconPlus } from '../icons'
 import { Input } from '../input'
+import { Stack } from '../stack'
 import { Tag } from '../tag'
 import { spaces } from '../utils'
 import { Popover, type PopoverProps } from '.'
@@ -266,7 +267,7 @@ export const WithMenu: Story = {
   render: (args) => (
     <Demo {...args} width={args.width ?? 240} label='Account' variant='outline'>
       {(close) => (
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Stack>
           {['Copy address', 'View on Etherscan', 'Disconnect'].map((label) => (
             <Button
               key={label}
@@ -278,7 +279,7 @@ export const WithMenu: Story = {
               {label}
             </Button>
           ))}
-        </div>
+        </Stack>
       )}
     </Demo>
   ),
@@ -379,16 +380,17 @@ export const WithForm: Story = {
       aria-label='Change reward address'
     >
       {(close) => (
-        <form
+        <Stack
+          as='form'
+          gap={12}
           onSubmit={(event) => {
             event.preventDefault()
             close()
           }}
-          style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
         >
           <Input label='Reward address' placeholder='0x...' />
           <Button type='submit'>Save</Button>
-        </form>
+        </Stack>
       )}
     </Demo>
   ),
@@ -429,10 +431,10 @@ const OperatorSwitcherContent = () => (
       >
         CSM#419
       </div>
-      <div style={{ display: 'flex', gap: 4 }}>
+      <Stack direction='row' gap={4}>
         <Tag variant='action'>ICS</Tag>
         <Tag>RM</Tag>
-      </div>
+      </Stack>
     </div>
     <div
       style={{
