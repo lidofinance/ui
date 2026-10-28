@@ -13,9 +13,9 @@ const tokensCss = read('tokens.css')
 const queries = (css: string) =>
   Array.from(
     css.matchAll(
-      /@custom-media --lido-app-ui-breakpoint-([a-z]+)-(down|up) \((max|min)-width: ([\d.]+)px\);/g,
+      /@custom-media --lido-app-ui-breakpoint-([a-z]+)-(down|up) \(width (<|>=) ([\d.]+)px\);/g,
     ),
-  ).map(([, key, dir, kind, px]) => ({ key, dir, kind, px: Number(px) }))
+  ).map(([, key, dir, op, px]) => ({ key, dir, op, px: Number(px) }))
 
 describe('breakpoints', () => {
   it('lists the keys of breakpointWidths from widest to narrowest', () => {
@@ -33,14 +33,10 @@ describe('breakpoints', () => {
     expect(found).toEqual(expected)
   })
 
-  it('keeps -up at the width and -down just below it, with no gap', () => {
-    for (const { key, dir, kind, px } of queries(breakpointsCss)) {
+  it('puts -down (width < N) and -up (width >= N) at the same width', () => {
+    for (const { key, dir, op, px } of queries(breakpointsCss)) {
       const width = breakpointWidths[key as keyof typeof breakpointWidths]
-      if (dir === 'up') expect([kind, px]).toEqual(['min', width])
-      else {
-        expect(kind).toBe('max')
-        expect(px).toBeCloseTo(width - 0.02, 5)
-      }
+      expect([op, px]).toEqual([dir === 'down' ? '<' : '>=', width])
     }
   })
 
