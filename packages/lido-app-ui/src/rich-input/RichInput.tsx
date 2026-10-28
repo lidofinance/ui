@@ -123,7 +123,9 @@ export const RichInput = ({
 
   const handleRootClick = (event: MouseEvent<HTMLDivElement>) => {
     if (!(event.target instanceof Element)) return
-    if (event.target.closest('button, input, label, [role="listbox"]')) {
+    if (
+      event.target.closest('button, input, label, [role="listbox"], [tabindex]')
+    ) {
       return
     }
     inputRef.current?.focus()

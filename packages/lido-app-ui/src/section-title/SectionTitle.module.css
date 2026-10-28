@@ -43,3 +43,7 @@
 .large .title {
   @mixin font-h2;
 }
+
+.large {
+  align-items: center;
+}
