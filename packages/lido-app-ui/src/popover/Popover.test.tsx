@@ -180,6 +180,17 @@ describe('Popover', () => {
     expect(dialog.style.maxWidth).toBe('984px')
   })
 
+  it('never floors the panel height above the room on a short viewport', async () => {
+    mockLayout(
+      { left: 400, right: 500, top: 100, bottom: 140, width: 100, height: 40 },
+      { width: 200, height: 100 },
+      { width: 1000, height: 240 },
+    )
+    render(<Single />)
+    const dialog = await screen.findByRole('dialog')
+    expect(dialog.style.maxHeight).toBe('84px')
+  })
+
   it('flips on the natural height of a capped panel', async () => {
     mockLayout(
       { left: 400, right: 500, top: 340, bottom: 380, width: 100, height: 40 },

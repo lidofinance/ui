@@ -41,9 +41,20 @@ const sameStop = (a: Element | null, b: HTMLElement) =>
     a.name === b.name &&
     a.form === b.form)
 
+const isChecked = (el: Element) => isGroupedRadio(el) && el.checked
+
 // Browsers enter a radio group at its checked radio.
 const entryPoint = (items: HTMLElement[], el: HTMLElement) =>
   items.find((o) => sameStop(o, el) && (o as HTMLInputElement).checked) ?? el
+
+// One tab stop per radio group: unchecked radios are skipped when a sibling is checked.
+const getStops = (items: HTMLElement[]) =>
+  items.filter(
+    (el) =>
+      !isGroupedRadio(el) ||
+      el.checked ||
+      !items.some((o) => o !== el && sameStop(o, el) && isChecked(o)),
+  )
 
 export type FocusTrapOptions = {
   /** Default true. */
@@ -95,19 +106,25 @@ export const useFocusTrap = (
         container.focus()
         return
       }
-      const first = items[0]
-      const last = items[items.length - 1]
+      const stops = getStops(items)
+      const first = stops[0]
+      const last = stops[stops.length - 1]
       const current = document.activeElement
+      const currentIndex = items.indexOf(current as HTMLElement)
+      const atEnd =
+        sameStop(current, last) ||
+        (currentIndex >= 0 && currentIndex >= items.indexOf(last))
+      const atStart =
+        current === container ||
+        sameStop(current, first) ||
+        (currentIndex >= 0 && currentIndex <= items.indexOf(first))
       if (!container.contains(current)) {
         event.preventDefault()
         entryPoint(items, event.shiftKey ? last : first).focus()
-      } else if (
-        event.shiftKey &&
-        (current === container || sameStop(current, first))
-      ) {
+      } else if (event.shiftKey && atStart) {
         event.preventDefault()
         entryPoint(items, last).focus()
-      } else if (!event.shiftKey && sameStop(current, last)) {
+      } else if (!event.shiftKey && atEnd) {
         event.preventDefault()
         entryPoint(items, first).focus()
       }

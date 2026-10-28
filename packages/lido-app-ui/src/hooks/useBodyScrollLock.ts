@@ -4,9 +4,13 @@ const SCROLLBAR_VAR = '--lido-app-ui-scrollbar-width'
 
 // Ref-counted so stacked overlays only restore on the last unlock.
 let lockCount = 0
+const AXES = ['overflow-x', 'overflow-y'] as const
+
+type SavedAxis = { name: string; value: string; priority: string }
+
 let saved = {
   scroller: null as HTMLElement | null,
-  overflow: '',
+  axes: [] as SavedAxis[],
   paddingRight: '',
 }
 
@@ -21,7 +25,11 @@ const lock = () => {
       : body
     saved = {
       scroller,
-      overflow: scroller.style.overflow,
+      axes: AXES.map((name) => ({
+        name,
+        value: scroller.style.getPropertyValue(name),
+        priority: scroller.style.getPropertyPriority(name),
+      })),
       paddingRight: body.style.paddingRight,
     }
     const before = body.getBoundingClientRect().width
@@ -41,7 +49,14 @@ const unlock = () => {
   lockCount -= 1
   if (lockCount === 0) {
     const { body, documentElement: html } = document
-    if (saved.scroller) saved.scroller.style.overflow = saved.overflow
+    const { scroller, axes } = saved
+    if (scroller) {
+      scroller.style.removeProperty('overflow')
+      axes.forEach(({ name, value, priority }) => {
+        if (value) scroller.style.setProperty(name, value, priority)
+        else scroller.style.removeProperty(name)
+      })
+    }
     body.style.paddingRight = saved.paddingRight
     html.style.removeProperty(SCROLLBAR_VAR)
   }

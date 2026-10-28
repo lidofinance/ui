@@ -65,7 +65,6 @@ const samePosition = (a: Position | null, b: Position) =>
   POSITION_KEYS.every((key) => a.coordinates[key] === b.coordinates[key])
 
 const VIEWPORT_MARGIN = 8
-const MIN_PANEL_HEIGHT = 120
 
 const clamp = (value: number, max: number) =>
   Math.max(VIEWPORT_MARGIN, Math.min(value, max))
@@ -120,7 +119,7 @@ const computePosition = (
   coordinates.maxWidth = viewportWidth - 2 * VIEWPORT_MARGIN
   coordinates.maxHeight = Math.max(
     resolved === 'top' ? roomAbove : roomBelow,
-    MIN_PANEL_HEIGHT,
+    0,
   )
   if (resolved === 'top') {
     coordinates.bottom = viewportHeight - anchorRect.top + offset

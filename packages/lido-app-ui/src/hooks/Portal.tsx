@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useReducer, useRef, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 
 export type PortalProps = {
@@ -13,13 +13,20 @@ const THEME_ATTR = 'data-lido-theme'
 export const Portal = ({ children, container }: PortalProps) => {
   const markerRef = useRef<HTMLSpanElement>(null)
   const [target, setTarget] = useState<Element | null>(null)
+  const [tick, retry] = useReducer((n: number) => n + 1, 0)
 
   useEffect(() => {
     if (container) {
       setTarget(container)
       return
     }
-    const scope = markerRef.current?.closest(`[${THEME_ATTR}]`)
+    // Marker is gone after a container -> undefined switch; clear target so it re-renders, then retry.
+    if (!markerRef.current) {
+      setTarget(null)
+      retry()
+      return
+    }
+    const scope = markerRef.current.closest(`[${THEME_ATTR}]`)
     if (!scope || scope === document.documentElement) {
       setTarget(document.body)
       return
@@ -38,7 +45,7 @@ export const Portal = ({ children, container }: PortalProps) => {
       observer.disconnect()
       root.remove()
     }
-  }, [container])
+  }, [container, tick])
 
   if (target) return createPortal(children, target)
   return container ? null : <span ref={markerRef} hidden />

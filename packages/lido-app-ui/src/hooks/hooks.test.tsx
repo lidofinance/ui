@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { StrictMode, useState, type ReactNode } from 'react'
 import { fireEvent, render, renderHook, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
@@ -166,6 +166,40 @@ describe('useFocusTrap tab order', () => {
     )
   })
 
+  describe('radio group split by a link', () => {
+    const renderSplit = () =>
+      render(
+        <Custom>
+          <button>first</button>
+          <input type='radio' name='g' aria-label='r1' defaultChecked />
+          <a href='#x'>link</a>
+          <input type='radio' name='g' aria-label='r2' />
+        </Custom>,
+      )
+
+    it('does not wrap from the checked radio', () => {
+      renderSplit()
+      const radio = screen.getByRole('radio', { name: 'r1' })
+      radio.focus()
+      expect(fireEvent.keyDown(radio, { key: 'Tab' })).toBe(true)
+      expect(document.activeElement).toBe(radio)
+    })
+
+    it('wraps forward from the link to the first stop', async () => {
+      renderSplit()
+      screen.getByText('link').focus()
+      await tab()
+      expect(document.activeElement).toBe(screen.getByText('first'))
+    })
+
+    it('wraps Shift+Tab from the first stop to the last', async () => {
+      renderSplit()
+      screen.getByText('first').focus()
+      await tab(true)
+      expect(document.activeElement).toBe(screen.getByText('link'))
+    })
+  })
+
   it('treats bare contenteditable as a tab stop', async () => {
     render(
       <Custom>
@@ -321,12 +355,14 @@ describe('useBodyScrollLock', () => {
   })
 
   it('locks and restores overflow on body by default', () => {
-    document.body.style.overflow = 'auto'
+    document.body.style.overflowX = 'auto'
+    document.body.style.overflowY = 'auto'
     const { unmount } = renderHook(() => useBodyScrollLock())
     expect(document.body.style.overflow).toBe('hidden')
     expect(document.documentElement.style.overflow).toBe('')
     unmount()
-    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.overflowX).toBe('auto')
+    expect(document.body.style.overflowY).toBe('auto')
   })
 
   it('locks and restores html when html is the scroller', () => {
@@ -337,6 +373,15 @@ describe('useBodyScrollLock', () => {
     unmount()
     expect(document.documentElement.style.overflow).toBe('')
     expect(document.documentElement.style.overflowY).toBe('scroll')
+  })
+
+  it('restores only the overflow axis that was set inline', () => {
+    const html = document.documentElement
+    html.style.overflowY = 'scroll'
+    const { unmount } = renderHook(() => useBodyScrollLock())
+    unmount()
+    expect(html.style.overflowY).toBe('scroll')
+    expect(html.style.overflowX).toBe('')
   })
 
   it('stays locked until the last nested lock releases', () => {
@@ -420,6 +465,31 @@ describe('Portal', () => {
     )
     expect(container.querySelector('span')).not.toBeInTheDocument()
   })
+
+  it.each([false, true])(
+    'keeps the theme scope when container switches back to undefined (StrictMode: %s)',
+    (strict) => {
+      const el = document.createElement('div')
+      document.body.appendChild(el)
+      const ui = (container?: Element) => (
+        <div data-lido-theme='dark'>
+          <Portal container={container}>
+            <span>themed</span>
+          </Portal>
+        </div>
+      )
+      const wrap = (node: ReactNode) =>
+        strict ? <StrictMode>{node}</StrictMode> : node
+      const { rerender } = render(wrap(ui(el)))
+      expect(el).toHaveTextContent('themed')
+      rerender(wrap(ui(undefined)))
+      const root = screen.getByText('themed').parentElement as HTMLElement
+      expect(root).not.toBe(el)
+      expect(root.parentElement).toBe(document.body)
+      expect(root).toHaveAttribute('data-lido-theme', 'dark')
+      el.remove()
+    },
+  )
 
   it('renders no content on the server', async () => {
     const { renderToString } = await import('react-dom/server')

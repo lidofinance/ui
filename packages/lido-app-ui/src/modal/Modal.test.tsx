@@ -199,6 +199,59 @@ describe('Modal', () => {
     host.remove()
   })
 
+  it('inerts body-level inputs and iframes but not empty hosts', () => {
+    const input = document.createElement('input')
+    const frame = document.createElement('iframe')
+    const host = document.createElement('div')
+    document.body.append(input, frame, host)
+    const { unmount } = render(
+      modal({ onClose: () => undefined, inertOthers: true }),
+    )
+    expect(input).toHaveAttribute('inert')
+    expect(frame).toHaveAttribute('inert')
+    expect(host).not.toHaveAttribute('inert')
+    unmount()
+    expect(input).not.toHaveAttribute('inert')
+    input.remove()
+    frame.remove()
+    host.remove()
+  })
+
+  it('keeps the top of two sibling inertOthers modals live', () => {
+    render(
+      <>
+        {modal({ title: 'A', inertOthers: true })}
+        {modal({ title: 'B', inertOthers: true })}
+      </>,
+    )
+    expect(
+      screen.getByRole('dialog', { name: 'B' }).closest('[inert]'),
+    ).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('dialog', { name: 'A' }).closest('[inert]'),
+    ).toBeInTheDocument()
+  })
+
+  it('keeps the background inert when a lower modal closes under a higher one', () => {
+    const bg = document.createElement('button')
+    document.body.appendChild(bg)
+    const both = (a: boolean) => (
+      <>
+        {a && modal({ title: 'A', inertOthers: true })}
+        {modal({ title: 'B', inertOthers: true })}
+      </>
+    )
+    const { rerender } = render(<>{modal({ title: 'A', inertOthers: true })}</>)
+    rerender(both(true))
+    const b = screen.getByRole('dialog', { name: 'B' })
+    rerender(both(false))
+    expect(bg).toHaveAttribute('inert')
+    expect(b.closest('[inert]')).not.toBeInTheDocument()
+    rerender(<></>)
+    expect(bg).not.toHaveAttribute('inert')
+    bg.remove()
+  })
+
   it('keeps an outer modal inert until the inner one closes', () => {
     const outerBody = <button type='button'>outer</button>
     const { rerender } = render(
