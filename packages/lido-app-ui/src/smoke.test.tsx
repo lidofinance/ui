@@ -22,7 +22,7 @@ import { Grid, GridItem } from './grid'
 import { Header, HeaderNav } from './header'
 import { Hex } from './hex'
 import { Hidden } from './hidden'
-import { IconButton } from './icon-button'
+import { CloseButton, IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { InfoTooltip } from './info-tooltip'
 import { Input } from './input'
@@ -43,6 +43,14 @@ import {
   SegmentedControl,
   SegmentedControlCard,
 } from './segmented-control'
+import {
+  Sidebar,
+  SidebarGroup,
+  SidebarInset,
+  SidebarItem,
+  SidebarLayout,
+  SidebarToggle,
+} from './sidebar'
 import { Skeleton } from './skeleton'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
@@ -90,6 +98,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Button', () => <Button>Connect</Button>],
   ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
+  ['CloseButton', () => <CloseButton />],
   ['Copy', () => <Copy text='0x56f4a7b2c9d1e8f3a6b5c4d3e2f1a0b9c8d7c12e' />],
   ['Counter', () => <Counter>1</Counter>],
   [
@@ -195,6 +204,26 @@ const cases: Array<[string, () => JSX.Element]> = [
       />
     ),
   ],
+  [
+    'Sidebar',
+    () => (
+      <Sidebar>
+        <SidebarGroup label='Group'>
+          <SidebarItem href='/a'>A</SidebarItem>
+        </SidebarGroup>
+      </Sidebar>
+    ),
+  ],
+  [
+    'SidebarLayout',
+    () => (
+      <SidebarLayout>
+        <Sidebar />
+        <SidebarInset>Content</SidebarInset>
+      </SidebarLayout>
+    ),
+  ],
+  ['SidebarToggle', () => <SidebarToggle />],
   ['Skeleton', () => <Skeleton />],
   ['Slider', () => <Slider defaultValue={40} />],
   [

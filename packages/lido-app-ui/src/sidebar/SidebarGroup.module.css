@@ -1,0 +1,22 @@
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  @mixin font-group-name;
+
+  box-sizing: border-box;
+  height: 36px;
+  margin: 0;
+  padding: 8px 12px;
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

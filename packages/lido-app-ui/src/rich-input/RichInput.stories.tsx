@@ -37,7 +37,6 @@ const meta: Meta<typeof RichInput> = {
     },
     tokenSelector: {
       description: 'Slot for a `TokenSelector`',
-      control: false,
       table: { defaultValue: { summary: 'TokenSelector' } },
     },
     error: {
