@@ -4,6 +4,7 @@ import cn from 'classnames'
 
 import { CounterSlot } from '../counter/CounterSlot'
 import { IconLoaderCircle } from '../icons'
+import surfaceStyles from '../utils/surface.module.css'
 import styles from './IconButton.module.css'
 
 export type IconButtonVariant = 'outline' | 'ghost' | 'surface'
@@ -50,7 +51,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       className={cn(
         styles.button,
         styles[variant],
-        loading && styles.loading,
+        variant === 'surface' && surfaceStyles.surface,
+        loading && !disabled && styles.loading,
         className,
       )}
       data-testid={dataTestId?.root}

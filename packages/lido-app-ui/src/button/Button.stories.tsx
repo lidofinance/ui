@@ -91,6 +91,9 @@ export const States: Story = {
           <Button variant={variant} disabled>
             Disabled
           </Button>
+          <Button variant={variant} disabled loading>
+            Disabled loading
+          </Button>
           <Button variant={variant} size='small'>
             Default
           </Button>
@@ -99,6 +102,9 @@ export const States: Story = {
           </Button>
           <Button variant={variant} size='small' disabled>
             Disabled
+          </Button>
+          <Button variant={variant} size='small' disabled loading>
+            Disabled loading
           </Button>
         </StorySection>
       ))}
@@ -109,7 +115,7 @@ export const States: Story = {
     docs: {
       description: {
         story:
-          'Loading swaps the leading icon slot for a spinner and disables the button; disabled flattens the background and dims the label.',
+          'Loading keeps the default look and swaps the leading icon slot for a spinner; the button is inert. Disabled dims the label and drops the fill, and disabled with loading shows that look with a dimmed spinner.',
       },
     },
   },
