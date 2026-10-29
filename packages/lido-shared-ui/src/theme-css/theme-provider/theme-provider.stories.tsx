@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import type { HTMLAttributes } from 'react'
 import { DarkThemeProvider, LightThemeProvider, ThemeProvider } from '.'
 import { Block } from '../block'
 import { ThemeName } from '../constants'
@@ -7,7 +8,7 @@ export default {
   title: 'Theme/Providers',
 } satisfies Meta
 
-export const Providers: StoryFn = (props) => (
+export const Providers: StoryFn = (props: HTMLAttributes<HTMLDivElement>) => (
   <>
     <Block>Component inherits global theme</Block>
     <p style={{ borderBottom: '1px solid black' }}></p>

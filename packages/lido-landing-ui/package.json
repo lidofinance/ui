@@ -86,7 +86,7 @@
     "@types/ua-parser-js": "0.7.39",
     "@vitejs/plugin-react": "^4.0.0",
     "babel-plugin-react-inline-svg-unique-id": "1.5.0",
-    "browserslist": "4.24.5",
+    "browserslist": "4.28.7",
     "jsdom": "^25.0.0",
     "postcss-loader": "8.1.1",
     "postcss-mixins": "11.0.3",
@@ -96,7 +96,7 @@
     "rollup": "3.30.0",
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
-    "storybook": "8.6.12",
+    "storybook": "8.6.19",
     "tslib": "2.3.1",
     "vitest": "^3.0.0"
   },
