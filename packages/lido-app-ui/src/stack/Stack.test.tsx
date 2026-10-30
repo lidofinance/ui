@@ -62,8 +62,10 @@ describe('Stack', () => {
     expect(el.style.getPropertyValue('--local-wrap-sm')).toBe('wrap')
   })
 
-  it('maps inline to a class', () => {
+  it('maps inline and grow to classes', () => {
     expect(renderStack({ inline: true })).toHaveClass(styles.inline)
+    expect(renderStack({ grow: true })).toHaveClass(styles.grow)
+    expect(renderStack()).not.toHaveClass(styles.grow)
   })
 
   it('renders the given element', () => {
