@@ -137,6 +137,36 @@ export const Responsive: Story = {
   },
 }
 
+export const Grow: Story = {
+  render: () => (
+    <Stack direction='row' gap={8} align='center'>
+      <StoryBox>Avatar</StoryBox>
+      <Stack grow>
+        <StoryBox
+          style={{
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          A very long title that fills the remaining row space and truncates
+          instead of pushing the action out of view
+        </StoryBox>
+      </Stack>
+      <StoryBox>Action</StoryBox>
+    </Stack>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`grow` fills the remaining space in a parent flex row and lets content shrink so it can truncate.',
+      },
+    },
+  },
+}
+
 export const Wrap: Story = {
   render: () => (
     <Stack direction='row' gap={8} wrap style={{ maxWidth: 360 }}>

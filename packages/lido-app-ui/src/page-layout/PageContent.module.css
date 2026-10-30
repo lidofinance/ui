@@ -1,0 +1,17 @@
+.root {
+  --local-max: 1200px;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  width: 100%;
+  max-width: calc(var(--local-max) + 2 * var(--lido-app-ui-page-gutter));
+  flex: 1 0 auto;
+  margin: 0 auto;
+  padding: 24px var(--lido-app-ui-page-gutter) 32px;
+}
+
+.narrow {
+  --local-max: 600px;
+}

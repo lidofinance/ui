@@ -34,6 +34,7 @@ import { MessageBox } from './message-box'
 import { Modal, ModalCard } from './modal'
 import { NavLink } from './nav-link'
 import { Notification } from './notification'
+import { Layout, Main, PageContent } from './page-layout'
 import { Pagination } from './pagination'
 import { Popover } from './popover'
 import { RadioButton } from './radio-button'
@@ -54,6 +55,7 @@ import {
   SidebarToggle,
 } from './sidebar'
 import { Skeleton } from './skeleton'
+import { SkipLink } from './skip-link'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
 import { Stack } from './stack'
@@ -164,6 +166,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['Logo', () => <Logo />],
+  ['Main', () => <Main>Content</Main>],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
   ['ModalCard', () => <ModalCard title='Supply'>body</ModalCard>],
@@ -239,6 +242,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ],
   ['SidebarToggle', () => <SidebarToggle />],
   ['Skeleton', () => <Skeleton />],
+  ['SkipLink', () => <SkipLink />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
     'SmallCard',
@@ -282,6 +286,8 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Breadcrumbs',
     () => <Breadcrumbs items={[{ label: 'A', href: '/a' }, { label: 'B' }]} />,
   ],
+  ['Layout', () => <Layout>Content</Layout>],
+  ['PageContent', () => <PageContent>Content</PageContent>],
 ]
 
 const barrels = import.meta.glob(

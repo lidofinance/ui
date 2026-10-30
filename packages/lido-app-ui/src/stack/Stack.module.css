@@ -16,3 +16,8 @@
 .inline {
   display: inline-flex;
 }
+
+.grow {
+  flex: 1;
+  min-width: 0;
+}

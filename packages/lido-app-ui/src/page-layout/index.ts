@@ -1,0 +1,6 @@
+export { Layout } from './Layout'
+export type { LayoutProps } from './Layout'
+export { Main } from './Main'
+export type { MainProps } from './Main'
+export { PageContent } from './PageContent'
+export type { PageContentProps, PageContentVariant } from './PageContent'

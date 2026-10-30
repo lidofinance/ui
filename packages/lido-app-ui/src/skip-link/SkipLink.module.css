@@ -1,0 +1,31 @@
+.root {
+  @mixin font-body-semibold;
+
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1200;
+  padding: 8px 16px;
+  border-radius: var(--lido-app-ui-border-radius-badge);
+  background-color: var(--lido-app-ui-color-background-surface);
+  box-shadow: var(--lido-app-ui-shadow-popover);
+  color: var(--lido-app-ui-color-text-default);
+  text-decoration: none;
+  transform: translateY(calc(-100% - 24px));
+  transition: transform 0.2s ease;
+}
+
+.root:focus {
+  transform: none;
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
+}

@@ -1,4 +1,4 @@
-import { forwardRef, useRef } from 'react'
+import { forwardRef, useEffect, useRef } from 'react'
 import type { HTMLAttributes, PointerEvent, ReactNode } from 'react'
 
 import cn from 'classnames'
@@ -71,6 +71,22 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
       }
       sync()
     })
+
+    // A list mounted hidden (display: none) can't scroll on mount, so scroll once it gets a width.
+    useEffect(() => {
+      const list = listRef.current
+      if (!list || typeof ResizeObserver === 'undefined') return
+      let hidden = list.clientWidth === 0
+      const observer = new ResizeObserver(() => {
+        const wasHidden = hidden
+        hidden = list.clientWidth === 0
+        if (!wasHidden || hidden) return
+        list.scrollLeft = list.scrollWidth
+        sync()
+      })
+      observer.observe(list)
+      return () => observer.disconnect()
+    }, [sync])
 
     return (
       <nav

@@ -16,6 +16,7 @@ import {
   IconKeyRound,
   IconListCheck,
 } from '../icons'
+import { Stack } from '../stack'
 import { DRAWER_QUERY, Sidebar } from './Sidebar'
 import { SidebarGroup } from './SidebarGroup'
 import { SidebarInset } from './SidebarInset'
@@ -296,12 +297,12 @@ export const GroupWithoutLabel: Story = {
 const SidebarStatus = () => {
   const sidebar = useSidebar()
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+    <Stack direction='row' align='center' gap={12}>
       <span>Drawer: {sidebar?.open ? 'open' : 'closed'}</span>
       <Button size='small' onClick={() => sidebar?.setOpen(true)}>
         Open drawer
       </Button>
-    </div>
+    </Stack>
   )
 }
 

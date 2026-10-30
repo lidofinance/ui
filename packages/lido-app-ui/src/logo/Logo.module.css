@@ -2,7 +2,8 @@
   display: inline-flex;
   align-items: center;
   gap: var(--lido-app-ui-space-12);
-  height: 36px;
+  position: relative;
+  height: 20px;
   min-width: 0;
   padding: 0;
   border: none;
@@ -13,6 +14,13 @@
 
 .interactive {
   cursor: pointer;
+}
+
+/* keeps a 36px hit area without affecting layout */
+.interactive::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
 }
 
 .interactive:focus-visible {
@@ -70,7 +78,7 @@
 .divider {
   flex-shrink: 0;
   width: 1px;
-  height: 24px;
+  height: 20px;
   background-color: var(--lido-app-ui-color-border-tertiary);
 }
 
@@ -85,7 +93,7 @@
 
   min-width: 0;
   overflow: hidden;
-  line-height: 24px;
+  line-height: 20px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

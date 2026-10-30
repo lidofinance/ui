@@ -1,5 +1,8 @@
 import path from 'path'
 
+const GLOBAL_CSS =
+  /(styles[\\/][^\\/]+|lido-shared-ui[\\/]dist[\\/]index)\.css$/
+
 export default {
   features: { viewportStoryGlobals: true },
 
@@ -92,8 +95,9 @@ export default {
       }
 
       // Everything under a `styles/` folder is a global layer (tokens, fonts,
-      // the Storybook surface) and must not be turned into CSS Modules.
-      cssRule.exclude = [...(cssRule.exclude || []), /styles[\\/][^\\/]+\.css$/]
+      // the Storybook surface), as is lido-shared-ui's prebuilt bundle whose
+      // class names are already hashed; neither may become CSS Modules.
+      cssRule.exclude = [...(cssRule.exclude || []), GLOBAL_CSS]
 
       cssRule.use.push({
         loader: 'postcss-loader',
@@ -102,7 +106,7 @@ export default {
     }
 
     customConfig.module.rules.push({
-      test: /styles[\\/][^\\/]+\.css$/,
+      test: GLOBAL_CSS,
       use: [
         'style-loader',
         { loader: 'css-loader', options: { modules: false } },

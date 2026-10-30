@@ -56,6 +56,8 @@ type StackOwnProps = {
   wrap?: Responsive<boolean>
   /** Renders `inline-flex` instead of `flex`. */
   inline?: boolean
+  /** Fills the remaining space in a parent flex row and lets content shrink. */
+  grow?: boolean
   dataTestId?: StackDataTestId
 }
 
@@ -77,6 +79,7 @@ export const Stack = forwardRef<HTMLElement, StackImplProps>(
       justify,
       wrap,
       inline = false,
+      grow = false,
       className,
       style,
       dataTestId,
@@ -86,7 +89,12 @@ export const Stack = forwardRef<HTMLElement, StackImplProps>(
   ) => (
     <Component
       ref={ref}
-      className={cn(styles.root, inline && styles.inline, className)}
+      className={cn(
+        styles.root,
+        inline && styles.inline,
+        grow && styles.grow,
+        className,
+      )}
       style={{
         ...responsiveVars('direction', direction, String),
         ...responsiveVars('gap', gap, spaceToCss),

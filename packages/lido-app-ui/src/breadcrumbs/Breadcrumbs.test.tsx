@@ -282,4 +282,59 @@ describe('Breadcrumbs', () => {
       'page',
     )
   })
+
+  describe('reveal scroll', () => {
+    afterEach(() => vi.unstubAllGlobals())
+
+    const setup = () => {
+      const callbacks: (() => void)[] = []
+      vi.stubGlobal(
+        'ResizeObserver',
+        class {
+          constructor(cb: () => void) {
+            callbacks.push(cb)
+          }
+          observe() {}
+          disconnect() {}
+        },
+      )
+      render(
+        <Breadcrumbs
+          items={[{ label: 'Home', href: '/' }, { label: 'Page' }]}
+        />,
+      )
+      const list = screen.getByRole('list')
+      stubWidths(list, 500, 0)
+      return { list, fire: () => callbacks.forEach((cb) => cb()) }
+    }
+
+    it('scrolls to the end when revealed from hidden', () => {
+      const { list, fire } = setup()
+      stubWidths(list, 500, 200)
+      fire()
+      expect(list.scrollLeft).toBe(500)
+    })
+
+    it('keeps scroll position on resize of a visible list', () => {
+      const { list, fire } = setup()
+      stubWidths(list, 500, 200)
+      fire()
+      list.scrollLeft = 50
+      stubWidths(list, 500, 180)
+      fire()
+      expect(list.scrollLeft).toBe(50)
+    })
+
+    it('scrolls again when revealed after being hidden twice', () => {
+      const { list, fire } = setup()
+      stubWidths(list, 500, 200)
+      fire()
+      stubWidths(list, 500, 0)
+      fire()
+      list.scrollLeft = 0
+      stubWidths(list, 500, 200)
+      fire()
+      expect(list.scrollLeft).toBe(500)
+    })
+  })
 })

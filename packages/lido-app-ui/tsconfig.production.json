@@ -15,6 +15,7 @@
   "exclude": [
     "node_modules",
     "dist",
+    "src/recipes",
     "src/**/*.stories.ts",
     "src/**/*.stories.tsx",
     "src/**/storyFixtures.tsx",
