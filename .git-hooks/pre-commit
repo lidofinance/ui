@@ -1,5 +1,6 @@
 #!/bin/sh
-STAGED_SVG_FILES=$(git diff --cached --name-only | grep '\.svg$' || true)
+STAGED_FILES=$(git diff --cached --name-only)
+STAGED_SVG_FILES=$(echo "$STAGED_FILES" | grep '\.svg$' || true)
 
 if echo "$STAGED_SVG_FILES" | grep -q '^packages/lido-ui/src/icons/svg/'; then
   echo "lido-ui SVG files changed, running yarn icons:convert..."
@@ -17,6 +18,16 @@ if echo "$STAGED_SVG_FILES" | grep -q '^packages/lido-app-ui/src/icons/svg/'; th
   echo "lido-app-ui SVG files changed, running yarn icons:convert..."
   yarn workspace @lidofinance/lido-app-ui icons:convert
   git add packages/lido-app-ui/src/icons/components/ packages/lido-app-ui/src/icons/allIcons.tsx packages/lido-app-ui/src/icons/iconMaps.tsx
+fi
+
+if echo "$STAGED_FILES" | grep -q '^packages/lido-app-ui/src/utils/breakpoints\.ts$'; then
+  if ! git diff --quiet -- packages/lido-app-ui/src/utils/breakpoints.ts; then
+    echo "stage all of packages/lido-app-ui/src/utils/breakpoints.ts: generated CSS is built from the working tree"
+    exit 1
+  fi
+  echo "lido-app-ui breakpoints changed, running yarn breakpoints:generate..."
+  yarn workspace @lidofinance/lido-app-ui breakpoints:generate || exit 1
+  git add packages/lido-app-ui/styles/breakpoints.css packages/lido-app-ui/styles/breakpoint-tokens.css
 fi
 
 npx lint-staged

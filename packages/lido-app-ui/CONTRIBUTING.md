@@ -109,6 +109,10 @@ Reuse an existing icon from `../icons` rather than inlining SVG markup. If the
 icon doesn't exist yet, drop the SVG into `src/icons/svg/<category>/` and run
 `yarn icons:convert` (see root `CLAUDE.md`) — don't hand-write icon components.
 
+## Breakpoints
+
+Edit `src/utils/breakpoints.ts` and commit: the pre-commit hook regenerates and stages `styles/breakpoints.css` and `styles/breakpoint-tokens.css` (or run `yarn breakpoints:generate`). Don't hand-edit them; a test fails when they drift.
+
 ## Storybook
 
 - `title` follows `'Category/ComponentName'`, grouped with sibling components

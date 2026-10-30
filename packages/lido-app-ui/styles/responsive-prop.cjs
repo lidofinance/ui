@@ -1,4 +1,4 @@
-const breakpoints = ['lg', 'ml', 'md', 'sm', 'xs', 'xxs']
+const { breakpoints } = require('../src/utils/breakpoints.ts')
 
 // Declares a per-root fallback chain (each breakpoint falls back to the next wider one) so ancestors' vars never leak.
 module.exports = (_rule, name, property, initial) => {

@@ -18,9 +18,11 @@ const sources = [
 ].filter((file) => /\.(css|tsx)$/.test(file) && !/\.test\.tsx$/.test(file))
 
 const declaredTokens = new Set(
-  Array.from(
-    read('styles/tokens.css').matchAll(/^\s*(--lido-app-ui-[a-z0-9-]+):/gm),
-  ).map((match) => match[1]),
+  ['styles/tokens.css', 'styles/breakpoint-tokens.css'].flatMap((file) =>
+    Array.from(read(file).matchAll(/^\s*(--lido-app-ui-[a-z0-9-]+):/gm)).map(
+      (match) => match[1],
+    ),
+  ),
 )
 
 const declaredBreakpoints = new Set(
