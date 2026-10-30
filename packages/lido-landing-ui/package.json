@@ -54,7 +54,7 @@
     "react-jazzicon": "1.0.4",
     "react-toastify": "11.0.5",
     "react-transition-group": "4",
-    "ua-parser-js": "2.0.3",
+    "ua-parser-js": "2.0.10",
     "use-callback-ref": "1.2.5"
   },
   "devDependencies": {
@@ -87,7 +87,7 @@
     "@types/ua-parser-js": "0.7.39",
     "@vitejs/plugin-react": "^4.0.0",
     "babel-plugin-react-inline-svg-unique-id": "1.5.0",
-    "browserslist": "4.28.7",
+    "browserslist": "4.28.8",
     "jsdom": "^25.0.0",
     "postcss-loader": "8.1.1",
     "postcss-mixins": "11.0.3",
