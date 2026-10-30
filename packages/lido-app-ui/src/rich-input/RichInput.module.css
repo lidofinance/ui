@@ -46,7 +46,9 @@
 }
 
 .label {
-  @mixin font-body color: var(--lido-app-ui-color-text-secondary);
+  @mixin font-body-large;
+
+  color: var(--lido-app-ui-color-text-secondary);
 }
 
 .amountRow {
