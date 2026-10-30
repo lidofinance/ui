@@ -15,7 +15,7 @@ export type SidebarToggleProps = Omit<
 }
 
 /**
- * Burger that opens the Sidebar drawer; visible only at `ml-down` widths.
+ * Burger that opens the Sidebar drawer; visible only at `sidebar-down` widths.
  * Inside a SidebarLayout it wires `aria-*` (explicit props win) and toggles after your
  * `onClick`, unless that calls `event.preventDefault()`.
  */

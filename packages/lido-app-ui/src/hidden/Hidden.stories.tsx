@@ -73,7 +73,7 @@ export const AtSmDown: Story = {
     ...BelowAndAbove.parameters,
     docs: {
       description: {
-        story: 'The same blocks pinned at 599px: only "Mobile only" shows.',
+        story: 'The same blocks pinned at 767px: only "Mobile only" shows.',
       },
     },
   },

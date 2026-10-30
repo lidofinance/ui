@@ -2,7 +2,12 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StoryContainer } from '../../.storybook/components'
-import { breakpoints, breakpointWidths, spaces } from '../utils'
+import {
+  breakpoints,
+  breakpointWidths,
+  sidebarBreakpointWidth,
+  spaces,
+} from '../utils'
 import { PAGE_GUTTER, RADII, SHADOWS, Z_INDEX } from './layoutTokens'
 
 const meta: Meta = {
@@ -135,8 +140,7 @@ export const Spacing: Story = {
   ),
 }
 
-const BreakpointRow = ({ name }: { name: (typeof breakpoints)[number] }) => {
-  const width = breakpointWidths[name]
+const BreakpointRow = ({ name, width }: { name: string; width: number }) => {
   const down = useMatches(`(width < ${width}px)`)
   return (
     <tr>
@@ -176,8 +180,13 @@ export const Breakpoints: Story = {
           <td style={cell} />
         </tr>
         {breakpoints.map((name) => (
-          <BreakpointRow key={name} name={name} />
+          <BreakpointRow
+            key={name}
+            name={name}
+            width={breakpointWidths[name]}
+          />
         ))}
+        <BreakpointRow name='sidebar' width={sidebarBreakpointWidth} />
       </Table>
     </StoryContainer>
   ),

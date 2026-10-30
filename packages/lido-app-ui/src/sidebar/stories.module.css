@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media (--lido-app-ui-breakpoint-ml-down) {
+@media (--lido-app-ui-breakpoint-sidebar-down) {
   .compactLogo {
     display: inline-flex;
   }

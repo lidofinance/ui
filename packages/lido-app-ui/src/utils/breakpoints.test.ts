@@ -2,7 +2,12 @@ import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import { describe, expect, it } from 'vitest'
 
-import { breakpoints, breakpointWidths } from './breakpoints'
+import { DRAWER_QUERY } from '../sidebar/Sidebar'
+import {
+  breakpoints,
+  breakpointWidths,
+  sidebarBreakpointWidth,
+} from './breakpoints'
 
 const read = (file: string) =>
   readFileSync(resolve(__dirname, '../../styles', file), 'utf-8')
@@ -25,6 +30,7 @@ describe('breakpoints', () => {
 
   it('defines one -down and one -up query per breakpoint in breakpoints.css', () => {
     const found = queries(breakpointsCss)
+      .filter(({ key }) => key !== 'sidebar')
       .map(({ key, dir }) => `${key}-${dir}`)
       .sort()
     const expected = breakpoints
@@ -35,6 +41,7 @@ describe('breakpoints', () => {
 
   it('puts -down (width < N) and -up (width >= N) at the same width', () => {
     for (const { key, dir, op, px } of queries(breakpointsCss)) {
+      if (key === 'sidebar') continue
       const width = breakpointWidths[key as keyof typeof breakpointWidths]
       expect([op, px]).toEqual([dir === 'down' ? '<' : '>=', width])
     }
@@ -46,5 +53,19 @@ describe('breakpoints', () => {
         `--lido-app-ui-breakpoint-${key}: ${breakpointWidths[key]}px;`,
       )
     }
+  })
+
+  it('keeps the sidebar breakpoint in sync across CSS, tokens and DRAWER_QUERY', () => {
+    const sidebar = queries(breakpointsCss).filter(
+      ({ key }) => key === 'sidebar',
+    )
+    expect(sidebar).toEqual([
+      { key: 'sidebar', dir: 'down', op: '<', px: sidebarBreakpointWidth },
+      { key: 'sidebar', dir: 'up', op: '>=', px: sidebarBreakpointWidth },
+    ])
+    expect(tokensCss).toContain(
+      `--lido-app-ui-breakpoint-sidebar: ${sidebarBreakpointWidth}px;`,
+    )
+    expect(DRAWER_QUERY).toBe(`(width < ${sidebarBreakpointWidth}px)`)
   })
 })
