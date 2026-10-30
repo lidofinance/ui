@@ -24,7 +24,7 @@ const meta: Meta<typeof PageContent> = {
     docs: {
       description: {
         component:
-          'Page body wrapper: side gutters 52 / 32 (≤md) / 12 (≤sm), centered max width, children stacked with a 52px gap. Gutters come from `--lido-app-ui-page-gutter`. PageContent grows (`flex: 1 0 auto`) inside a flex column, so a trailing `Disclaimer` sticks to the bottom of short pages.',
+          'Page body wrapper: side gutters 52 / 32 (below md) / 12 (below sm), centered max width, children stacked with a 52px gap. Gutters come from `--lido-app-ui-page-gutter`. PageContent grows (`flex: 1 0 auto`) inside a flex column, so a trailing `Disclaimer` sticks to the bottom of short pages.',
       },
     },
   },

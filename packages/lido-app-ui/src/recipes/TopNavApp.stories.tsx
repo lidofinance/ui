@@ -87,6 +87,6 @@ export const Narrow: Story = {
   parameters: storyParams(
     'At narrow widths `HeaderNav` scrolls horizontally with an edge fade and keeps the active link in view.',
   ),
-  globals: { viewport: { value: 'px599', isRotated: false } },
+  globals: { viewport: { value: 'xs-down', isRotated: false } },
   render: () => topNavShell(topNavItems),
 }
