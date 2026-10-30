@@ -7,7 +7,6 @@ import { TextLink } from '.'
 const meta: Meta<typeof TextLink> = {
   title: 'Buttons/TextLink',
   component: TextLink,
-  tags: ['autodocs'],
   args: {
     children: 'View on Explorer',
     href: 'https://etherscan.io',
@@ -15,31 +14,20 @@ const meta: Meta<typeof TextLink> = {
     variant: 'primary',
   },
   argTypes: {
-    children: { description: 'Link text', control: { type: 'text' } },
+    children: { control: { type: 'text' } },
     external: {
-      description: 'Adds target="_blank" and rel="noreferrer"',
       control: { type: 'boolean' },
     },
     variant: {
-      description:
-        'primary is blue; secondary is muted gray, blue on hover — footers, meta links',
       control: { type: 'select' },
       options: ['primary', 'secondary'],
     },
-    icon: {
-      description: 'Optional trailing glyph, sized to 20×20 by the component',
+    size: {
+      control: { type: 'select' },
+      options: ['body', 'inherit'],
     },
     disabled: {
-      description: 'Drops the href and blocks clicks/keyboard focus',
       control: { type: 'boolean' },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Inline link — blue by default, muted `secondary` variant for footers and meta links. `external` handles the target and rel attributes for you.',
-      },
     },
   },
 }
@@ -52,7 +40,7 @@ export const Basic: Story = {}
 export const Variants: Story = {
   render: () => (
     <StorySection>
-      <TextLink href='https://lido.fi'>Internal link</TextLink>
+      <TextLink href='https://lido.fi'>Same-tab link</TextLink>
       <TextLink href='https://lido.fi' variant='secondary'>
         Secondary link
       </TextLink>
@@ -72,7 +60,34 @@ export const Variants: Story = {
     docs: {
       description: {
         story:
-          'Internal, secondary, external, with a trailing icon, and disabled. The icon takes the link colour through `currentColor`.',
+          'Same-tab, secondary, external (new tab), with a trailing icon, and disabled. The icon takes the link colour through `currentColor`.',
+      },
+    },
+  },
+}
+
+export const InText: Story = {
+  render: () => (
+    <p
+      style={{
+        width: 200,
+        margin: 0,
+        font: '12px/20px sans-serif',
+      }}
+    >
+      Read the{' '}
+      <TextLink href='https://lido.fi/terms-of-use' size='inherit'>
+        Terms of Use and the long Privacy Notice
+      </TextLink>{' '}
+      before you continue.
+    </p>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`size="inherit"` lets the link take the paragraph font and wrap with the text.',
       },
     },
   },

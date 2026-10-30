@@ -10,15 +10,8 @@ import { StatItem } from '../stat-item'
 const meta: Meta<typeof Card> = {
   title: 'Cards/Card',
   component: Card,
-  tags: ['autodocs'],
   parameters: {
     storyBackground: 'page',
-    docs: {
-      description: {
-        component:
-          'A typical action card: a `SectionTitle` header (with its own tooltip and action button), an `Input`, and a submit `Button` — the shape you get for a "do a thing" panel like claiming or supplying.',
-      },
-    },
   },
 }
 
@@ -29,6 +22,14 @@ type Story = StoryObj<typeof meta>
 // point being shown: Card always fills whatever width its parent gives it.
 
 export const Basic: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A typical action card: a `SectionTitle` header (with its own tooltip and action button), an `Input`, and a submit `Button`, the shape of a "do a thing" panel like claiming or supplying.',
+      },
+    },
+  },
   render: (args) => (
     <div style={{ width: 750 }}>
       <Card {...args}>

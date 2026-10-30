@@ -12,6 +12,7 @@ export type CardProps = HTMLAttributes<HTMLDivElement> & {
   dataTestId?: CardDataTestId
 }
 
+/** Rounded, bordered surface that fills the width its parent gives it. */
 export const Card = ({
   className,
   children,

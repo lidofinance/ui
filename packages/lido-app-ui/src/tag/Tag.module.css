@@ -4,6 +4,8 @@
   --local-text: var(--lido-app-ui-color-text-secondary);
   --local-border-active: var(--lido-app-ui-color-border-default);
 
+  @mixin font-description-semibold;
+
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -13,16 +15,28 @@
   border-radius: var(--lido-app-ui-border-radius-badge);
   background-color: var(--local-bg);
   color: var(--local-text);
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-tooltip);
-  font-weight: var(--lido-app-ui-font-weight-semibold);
-  line-height: var(--lido-app-ui-line-height-description);
-  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
   white-space: nowrap;
 }
 
-.interactive:hover {
+.interactive {
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.interactive:not(:disabled, [aria-disabled='true']):hover {
   background-color: var(--local-bg-hover);
+}
+
+.interactive:focus-visible,
+.closeButton:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 0;
+}
+
+.interactive:is(:disabled, [aria-disabled='true']) {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .isActive {
@@ -51,6 +65,7 @@
   flex-shrink: 0;
   width: 16px;
   height: 16px;
+  border-radius: 50%;
   color: inherit;
   cursor: pointer;
 }

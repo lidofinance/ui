@@ -1,7 +1,7 @@
 .root {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--lido-app-ui-space-12);
   height: 36px;
   min-width: 0;
   padding: 0;
@@ -46,11 +46,16 @@
   height: 20px;
 }
 
-/* CSS vars are invalid in @media; the huge multiplier makes clamp() act as a breakpoint switch */
+/* CSS vars are invalid in @media; the huge multiplier makes clamp() a switch: hidden below N, shown from N */
 .auto .wordmark {
+  --local-breakpoint: var(
+    --lido-app-ui-logo-breakpoint,
+    var(--lido-app-ui-breakpoint-logo)
+  );
+
   width: clamp(
     0px,
-    calc((100vw - var(--lido-app-ui-logo-breakpoint, 1024px)) * 1000),
+    calc((100vw - var(--local-breakpoint) + 1px) * 10000),
     63.125px
   );
   transition: width 0.2s ease;
@@ -67,6 +72,12 @@
   width: 1px;
   height: 24px;
   background-color: var(--lido-app-ui-color-border-tertiary);
+}
+
+@media (forced-colors: active) {
+  .divider {
+    background-color: CanvasText;
+  }
 }
 
 .product {

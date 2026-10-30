@@ -13,22 +13,9 @@ const items: TabItem[] = [
 const meta: Meta<typeof Tabs> = {
   title: 'Navigation/Tabs',
   component: Tabs,
-  tags: ['autodocs'],
   args: {
     items,
     value: 'overview',
-  },
-  argTypes: {
-    items: { description: 'Value, label and an optional `disabled` flag' },
-    value: { description: 'Active tab value — the component is controlled' },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A row of text tabs with an underline on the active item; hover only darkens the text.',
-      },
-    },
   },
 }
 

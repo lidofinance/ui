@@ -1,51 +1,12 @@
-@property --lido-app-ui-header-nav-fade-start {
-  syntax: '<number>';
-  inherits: false;
-  initial-value: 0;
-}
-
-@property --lido-app-ui-header-nav-fade-end {
-  syntax: '<number>';
-  inherits: false;
-  initial-value: 0;
-}
-
 .nav {
-  --lido-app-ui-header-nav-fade-start: 0;
-  --lido-app-ui-header-nav-fade-end: 0;
-
+  /* stylelint-disable-next-line value-keyword-case */
+  composes: scrollFade from '../utils/ScrollFade.module.css';
   display: flex;
-  overflow-x: auto;
   min-width: 0;
-  scrollbar-width: none;
   align-items: center;
-  gap: 24px;
-  margin-inline-start: var(--lido-app-ui-page-gutter, 52px);
-  mask-image: linear-gradient(
-    to right,
-    rgb(0 0 0 / calc(1 - var(--lido-app-ui-header-nav-fade-start))) 13px,
-    #000 36px,
-    #000 calc(100% - 36px),
-    rgb(0 0 0 / calc(1 - var(--lido-app-ui-header-nav-fade-end)))
-      calc(100% - 13px)
-  );
-  /* stylelint-disable custom-property-no-missing-var-function -- transition property names */
-  transition:
-    --lido-app-ui-header-nav-fade-start 0.2s cubic-bezier(0.23, 1, 0.32, 1),
-    --lido-app-ui-header-nav-fade-end 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-  /* stylelint-enable custom-property-no-missing-var-function */
-}
-
-.nav[data-fade-start] {
-  --lido-app-ui-header-nav-fade-start: 1;
-}
-
-.nav[data-fade-end] {
-  --lido-app-ui-header-nav-fade-end: 1;
-}
-
-.nav::-webkit-scrollbar {
-  display: none;
+  gap: var(--lido-app-ui-space-24);
+  margin-inline: -8px;
+  padding-inline: 8px;
 }
 
 .nav > * {

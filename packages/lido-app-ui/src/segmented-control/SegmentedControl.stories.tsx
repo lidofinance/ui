@@ -13,24 +13,9 @@ const items: SegmentItem[] = [
 const meta: Meta<typeof SegmentedControl> = {
   title: 'Navigation/SegmentedControl',
   component: SegmentedControl,
-  tags: ['autodocs'],
   args: {
     items,
     value: 'supply',
-  },
-  argTypes: {
-    items: { description: 'Value, label and an optional `disabled` flag' },
-    value: {
-      description: 'Active segment value — the component is controlled',
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Segmented control for switching between Supply / Withdraw / Borrow. The white pill is measured from the active segment, so it follows labels of any length.',
-      },
-    },
   },
 }
 

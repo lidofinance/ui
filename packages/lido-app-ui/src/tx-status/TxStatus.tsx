@@ -21,10 +21,12 @@ export type TxStatusDataTestId = {
 }
 
 export type TxStatusProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
+  /** Picks the top glyph: spinner, check, cross or exclamation. */
   status: TxStatusVariant
   title: ReactNode
   amount?: ReactNode
   message?: ReactNode
+  /** Slot for an Explorer link or a retry button. */
   footer?: ReactNode
   dataTestId?: TxStatusDataTestId
 }
@@ -48,6 +50,7 @@ const graphicByStatus: Record<TxStatusVariant, ReactNode> = {
   ),
 }
 
+/** Body of a transaction modal: one glyph, a headline and the next step for the user; put it inside `Modal` and swap `status` as the transaction progresses; it renders no live region, so pass `role="status"` or announce the change yourself. */
 export const TxStatus = ({
   status,
   title,

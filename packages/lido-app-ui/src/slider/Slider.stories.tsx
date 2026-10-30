@@ -6,7 +6,6 @@ import { StoryContainer } from '../../.storybook/components'
 const meta: Meta<typeof Slider> = {
   title: 'Inputs & Controls/Slider',
   component: Slider,
-  tags: ['autodocs'],
   args: {
     defaultValue: 40,
     minLabel: 'min label',
@@ -17,14 +16,6 @@ const meta: Meta<typeof Slider> = {
   argTypes: {
     disabled: { control: { type: 'boolean' } },
     marks: { control: { type: 'boolean' } },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A native `<input type="range">` with a styled 12px track and a 32px thumb. Use it controlled (`value` + `onChange`) or uncontrolled (`defaultValue`); the fill bar tracks either way.',
-      },
-    },
   },
 }
 

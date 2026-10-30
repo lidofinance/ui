@@ -3,9 +3,21 @@
 
   margin: auto 0 0;
   text-wrap: pretty;
-  color: var(--lido-app-ui-color-text-tertiary);
+  color: var(--lido-app-ui-color-text-secondary);
 }
 
 .root :any-link {
   font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
+
+/* stylelint-disable selector-max-type -- children are consumer markup */
+.root > p {
+  margin: 0;
+}
+
+.root > p + p {
+  margin-top: var(--lido-app-ui-space-8);
+}
+/* stylelint-enable selector-max-type */

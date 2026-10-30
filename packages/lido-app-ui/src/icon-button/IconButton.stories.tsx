@@ -8,7 +8,6 @@ import { IconBell, IconCross } from '../icons'
 const meta: Meta<typeof IconButton> = {
   title: 'Buttons/IconButton',
   component: IconButton,
-  tags: ['autodocs'],
   args: {
     icon: <IconCross />,
     'aria-label': 'Close',
@@ -21,15 +20,6 @@ const meta: Meta<typeof IconButton> = {
     disabled: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
     type: { table: { disable: true } },
-  },
-  parameters: {
-    controls: { exclude: ['type'] },
-    docs: {
-      description: {
-        component:
-          '36px square, fully rounded. Icon-only, so `aria-label` is required. `loading` swaps the icon for a spinner and disables the button.',
-      },
-    },
   },
 }
 
@@ -141,7 +131,7 @@ export const States: Story = {
     docs: {
       description: {
         story:
-          'Each row is default, loading, disabled, then disabled with loading.',
+          'Each row is default, loading, disabled, then disabled with loading. Hover and press a button to see its hover and pressed states.',
       },
     },
   },
@@ -166,11 +156,12 @@ export const WithCounter: Story = {
             icon={<IconBell />}
             variant='outline'
             counter={<Counter>{count}</Counter>}
-            aria-label={`Notifications, ${count} unread`}
+            aria-label='Notifications'
+            counterLabel={`${count} unread`}
           />
         ))}
       </StorySection>
-      {(['outline', 'ghost'] as const).map((variant) => (
+      {(['outline', 'surface', 'ghost'] as const).map((variant) => (
         <StorySection key={variant} title={variant}>
           {(['default', 'error'] as const).map((counterVariant) =>
             (
@@ -185,7 +176,8 @@ export const WithCounter: Story = {
                 icon={<IconBell />}
                 variant={variant}
                 counter={<Counter variant={counterVariant}>3</Counter>}
-                aria-label='Notifications, 3 unread'
+                aria-label='Notifications'
+                counterLabel='3 unread'
                 {...state}
               />
             )),
@@ -199,7 +191,8 @@ export const WithCounter: Story = {
             icon={<IconBell />}
             variant='outline'
             counter={<Counter variant={counterVariant}>3</Counter>}
-            aria-label='Notifications, 3 unread'
+            aria-label='Notifications'
+            counterLabel='3 unread'
           />
         ))}
       </StorySection>
@@ -210,7 +203,7 @@ export const WithCounter: Story = {
     docs: {
       description: {
         story:
-          'Corner `counter` slot, typically a `Counter`. It is aria-hidden, so include the count in `aria-label`.',
+          'Corner `counter` slot, typically a `Counter`. It is aria-hidden; `counterLabel` adds the count to the accessible name.',
       },
     },
   },

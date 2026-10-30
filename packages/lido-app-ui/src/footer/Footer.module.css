@@ -2,8 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px 24px;
-  padding: 24px var(--lido-app-ui-page-gutter);
+  gap: var(--lido-app-ui-space-12) var(--lido-app-ui-space-24);
+  padding: var(--lido-app-ui-space-24) var(--lido-app-ui-page-gutter);
   background: var(--lido-app-ui-color-background-page);
   border-top: 1px solid var(--lido-app-ui-color-border-default);
 }
@@ -12,7 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 24px;
+  gap: var(--lido-app-ui-space-8) var(--lido-app-ui-space-24);
   min-width: 0;
 }
 
@@ -20,6 +20,6 @@
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  gap: 8px;
-  margin-left: auto;
+  gap: var(--lido-app-ui-space-8);
+  margin-inline-start: auto;
 }

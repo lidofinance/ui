@@ -7,7 +7,6 @@ import { Tag } from '.'
 const meta: Meta<typeof Tag> = {
   title: 'Tags & Badges/Tag',
   component: Tag,
-  tags: ['autodocs'],
   args: {
     variant: 'default',
     children: 'Tag',
@@ -26,27 +25,13 @@ const meta: Meta<typeof Tag> = {
       ],
       control: { type: 'select' },
     },
-    children: { description: 'Tag label', control: { type: 'text' } },
+    children: { control: { type: 'text' } },
     active: {
-      description: 'Shows the variant-coloured active border',
       control: { type: 'boolean' },
     },
-    icon: { description: 'Optional glyph rendered next to the label' },
     iconPosition: {
-      description: 'Side the icon renders on',
       options: ['left', 'right'],
       control: { type: 'inline-radio' },
-    },
-    onClose: {
-      description: 'Renders a trailing close button when provided',
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Compact pill for filters, labels, and removable selections. Text only by default, with room for a leading icon and a trailing close button.',
-      },
     },
   },
 }
@@ -161,7 +146,8 @@ export const Interactive: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tags only react to hover when they have an `onClick`.',
+        story:
+          '`onClick` makes the span a keyboard-operable `role="button"`; `as="button"` renders a native `<button>`, `href` a link.',
       },
     },
   },

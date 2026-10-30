@@ -22,8 +22,11 @@ export type TypographyDataTestId = {
 }
 
 export type TypographyProps = HTMLAttributes<HTMLElement> & {
+  /** Type style; also decides the default tag. */
   variant: TypographyVariant
+  /** Only `bodyLarge`, `body` and `description` have two weights. */
   weight?: TypographyWeight
+  /** Overrides the rendered tag without changing the style. */
   as?: ElementType
   dataTestId?: TypographyDataTestId
 }
@@ -42,6 +45,7 @@ const variantTag: Record<TypographyVariant, ElementType> = {
 const isBodyVariant = (variant: TypographyVariant): boolean =>
   variant === 'bodyLarge' || variant === 'body' || variant === 'description'
 
+/** Typed text in Manrope; use the shortcuts (`H1`, `Body`, ...) in app code and `Typography` when the variant is dynamic. The same styles ship as PostCSS mixins from `@lidofinance/lido-app-ui/styles`. */
 export const Typography = ({
   variant,
   weight,

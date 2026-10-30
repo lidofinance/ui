@@ -1,6 +1,8 @@
 .counter {
   --local-bg: var(--lido-app-ui-color-icons-secondary);
 
+  @mixin font-description-semibold;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11,11 +13,6 @@
   border-radius: var(--lido-app-ui-border-radius-pill);
   background-color: var(--local-bg);
   color: var(--lido-app-ui-color-text-inverse);
-  font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-tooltip);
-  font-weight: var(--lido-app-ui-font-weight-semibold);
-  line-height: var(--lido-app-ui-line-height-description);
-  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
   white-space: nowrap;
 }
 
@@ -26,7 +23,6 @@
 .default,
 .error {
   font-weight: var(--lido-app-ui-font-weight-bold);
-  line-height: 22px;
 }
 
 .error {

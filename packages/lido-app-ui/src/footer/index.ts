@@ -1,2 +1,2 @@
 export { Footer } from './Footer'
-export type { FooterProps } from './Footer'
+export type { FooterDataTestId, FooterProps } from './Footer'

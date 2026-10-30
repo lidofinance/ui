@@ -1,2 +1,2 @@
 export { Logo } from './Logo'
-export type { LogoProps, LogoVariant } from './Logo'
+export type { LogoDataTestId, LogoProps, LogoVariant } from './Logo'

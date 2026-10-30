@@ -69,10 +69,10 @@
   flex-direction: column;
 }
 
-/* Below ~600 the modal goes full-screen (no scrim, square corners) when it
+/* Below 600 the modal goes full-screen (no scrim, square corners) when it
    owns the overlay — matches the mobile macet, which is full-screen, not a
    bottom-sheet. The bare card (no overlay) just fills its container's width. */
-@media (--lido-app-ui-breakpoint-sm-down) {
+@media (--lido-app-ui-breakpoint-xs-down) {
   .card {
     width: 100%;
   }

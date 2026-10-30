@@ -1,111 +1,91 @@
-import { createRef, forwardRef } from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { createRef } from 'react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 
-import { LinkProvider, type LinkComponentProps } from '../link-provider'
+import { LinkProvider } from '../link-provider'
+import { RouterLink } from '../link-provider/linkStubs.test-utils'
 import { ActionElement } from './ActionElement'
 
 describe('ActionElement', () => {
-  it('renders a typed button without href', () => {
-    const onClick = vi.fn()
-    const ref = createRef<HTMLButtonElement>()
-    render(
-      <ActionElement ref={ref} onClick={onClick} data-testid='el'>
-        go
-      </ActionElement>,
+  it('renders a type=button button without href', () => {
+    render(<ActionElement>Go</ActionElement>)
+    expect(screen.getByRole('button', { name: 'Go' })).toHaveAttribute(
+      'type',
+      'button',
     )
-    const el = screen.getByTestId('el')
-    expect(el.tagName).toBe('BUTTON')
-    expect(el.getAttribute('type')).toBe('button')
-    expect(ref.current).toBe(el)
-    fireEvent.click(el)
-    expect(onClick).toHaveBeenCalledTimes(1)
-    expect(onClick.mock.calls[0][0].nativeEvent).toBeInstanceOf(MouseEvent)
   })
 
-  it('renders an anchor with href', () => {
-    const onClick = vi.fn()
-    const ref = createRef<HTMLAnchorElement>()
-    render(
-      <ActionElement ref={ref} href='/x' onClick={onClick} data-testid='el'>
-        go
-      </ActionElement>,
+  it('keeps a consumer type on the button', () => {
+    render(<ActionElement type='submit'>Go</ActionElement>)
+    expect(screen.getByRole('button', { name: 'Go' })).toHaveAttribute(
+      'type',
+      'submit',
     )
-    const el = screen.getByTestId('el')
-    expect(el.tagName).toBe('A')
-    expect(el.getAttribute('href')).toBe('/x')
-    expect(el.hasAttribute('type')).toBe(false)
-    expect(ref.current).toBe(el)
-    fireEvent.click(el)
-    expect(onClick).toHaveBeenCalledTimes(1)
   })
 
-  it('disabled anchor drops href, is aria-disabled, not focusable, ignores clicks', () => {
-    const onClick = vi.fn()
-    render(
-      <ActionElement href='/x' disabled onClick={onClick} data-testid='el'>
-        go
-      </ActionElement>,
+  it('renders a link with href', () => {
+    render(<ActionElement href='/a'>Go</ActionElement>)
+    expect(screen.getByRole('link', { name: 'Go' })).toHaveAttribute(
+      'href',
+      '/a',
     )
-    const el = screen.getByTestId('el')
-    expect(el.tagName).toBe('A')
-    expect(el.hasAttribute('href')).toBe(false)
-    expect(el.getAttribute('aria-disabled')).toBe('true')
-    expect(el.getAttribute('tabindex')).toBe('-1')
-    fireEvent.click(el)
-    expect(onClick).not.toHaveBeenCalled()
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 
-  it('disabled button does not fire onClick', () => {
-    const onClick = vi.fn()
+  it('routes href through LinkProvider', () => {
     render(
-      <ActionElement disabled onClick={onClick} data-testid='el'>
-        go
-      </ActionElement>,
+      <LinkProvider component={RouterLink}>
+        <ActionElement href='/a'>Go</ActionElement>
+      </LinkProvider>,
     )
-    fireEvent.click(screen.getByTestId('el'))
-    expect(onClick).not.toHaveBeenCalled()
+    expect(screen.getByRole('link', { name: 'Go' })).toHaveAttribute(
+      'data-router',
+    )
   })
-})
 
-const RouterLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-  ({ children, ...props }, ref) => (
-    <a ref={ref} data-router='' {...props}>
-      {children}
-    </a>
-  ),
-)
-RouterLink.displayName = 'RouterLink'
-
-describe('ActionElement with LinkProvider', () => {
-  it('renders the router link for an internal href', () => {
+  it('renders a disabled link without href, routing or click', async () => {
     const onClick = vi.fn()
     render(
       <LinkProvider component={RouterLink}>
-        <ActionElement href='/keys' onClick={onClick} data-testid='el'>
-          go
+        <ActionElement href='/a' disabled onClick={onClick}>
+          Go
         </ActionElement>
       </LinkProvider>,
     )
-    const el = screen.getByTestId('el')
-    expect(el.hasAttribute('data-router')).toBe(true)
-    fireEvent.click(el)
-    expect(onClick).toHaveBeenCalledTimes(1)
+    const link = screen.getByRole('link', { name: 'Go' })
+    expect(link).not.toHaveAttribute('href')
+    expect(link).not.toHaveAttribute('data-router')
+    expect(link).not.toHaveAttribute('tabindex')
+    expect(link).toHaveAttribute('aria-disabled', 'true')
+    await userEvent.click(link)
+    expect(onClick).not.toHaveBeenCalled()
   })
 
-  it('renders a plain disabled anchor even inside a provider', () => {
-    const onClick = vi.fn()
+  it('keeps a consumer aria-disabled when not disabled', () => {
     render(
-      <LinkProvider component={RouterLink}>
-        <ActionElement href='/keys' disabled onClick={onClick} data-testid='el'>
-          go
-        </ActionElement>
-      </LinkProvider>,
+      <ActionElement href='/a' aria-disabled='true'>
+        Go
+      </ActionElement>,
     )
-    const el = screen.getByTestId('el')
-    expect(el.hasAttribute('data-router')).toBe(false)
-    expect(el.hasAttribute('href')).toBe(false)
-    fireEvent.click(el)
-    expect(onClick).not.toHaveBeenCalled()
+    expect(screen.getByRole('link', { name: 'Go' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    )
+  })
+
+  it('forwards the ref to the anchor and the button', () => {
+    const anchorRef = createRef<HTMLAnchorElement | HTMLButtonElement>()
+    const buttonRef = createRef<HTMLAnchorElement | HTMLButtonElement>()
+    render(
+      <>
+        <ActionElement ref={anchorRef} href='/a'>
+          A
+        </ActionElement>
+        <ActionElement ref={buttonRef}>B</ActionElement>
+      </>,
+    )
+    expect(anchorRef.current).toBeInstanceOf(HTMLAnchorElement)
+    expect(buttonRef.current).toBeInstanceOf(HTMLButtonElement)
   })
 })

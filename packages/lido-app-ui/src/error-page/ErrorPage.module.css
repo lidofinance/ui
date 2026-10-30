@@ -1,13 +1,13 @@
 .root {
   box-sizing: border-box;
-  padding: 32px;
+  padding: var(--lido-app-ui-space-32) var(--lido-app-ui-page-gutter);
 }
 
 .inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: var(--lido-app-ui-space-24);
   width: 100%;
   max-width: 560px;
   margin-inline: auto;
@@ -17,13 +17,13 @@
 .code {
   @mixin font-display;
 
-  color: var(--lido-app-ui-color-text-neutral);
+  color: var(--lido-app-ui-color-text-secondary);
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--lido-app-ui-space-12);
   width: 100%;
 }
 
@@ -31,6 +31,7 @@
   @mixin font-h2;
 
   margin: 0;
+  overflow-wrap: anywhere;
   color: var(--lido-app-ui-color-text-default);
   text-wrap: balance;
 }
@@ -39,12 +40,15 @@
   @mixin font-body-large;
 
   margin: 0;
+  overflow-wrap: anywhere;
   color: var(--lido-app-ui-color-text-secondary);
   text-wrap: pretty;
 }
 
 .action {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: var(--lido-app-ui-space-12);
 }

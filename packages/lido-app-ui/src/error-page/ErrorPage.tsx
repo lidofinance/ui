@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
@@ -16,10 +16,12 @@ export type ErrorPageDataTestId = {
 
 export type ErrorPageProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   /** `'404'` / `'500'` fill default title and description. */
-  code?: ErrorPageCode | (string & {})
+  code?: ErrorPageCode | number | (string & {})
+  /** Overrides the preset title; `null` suppresses it. */
   title?: ReactNode
+  /** Overrides the preset description; `null` suppresses it. */
   description?: ReactNode
-  /** Slot below the text, usually a `Button`. */
+  /** Slot below the text: one or more `Button`s, which wrap on narrow screens. */
   action?: ReactNode
   dataTestId?: ErrorPageDataTestId
 }
@@ -40,53 +42,58 @@ const presets: Record<ErrorPageCode, { title: string; description: string }> = {
 const isPresetCode = (code?: string): code is ErrorPageCode =>
   code === '404' || code === '500'
 
-export const ErrorPage = ({
-  code,
-  title,
-  description,
-  action,
-  className,
-  dataTestId,
-  ...rest
-}: ErrorPageProps) => {
-  const preset = isPresetCode(code) ? presets[code] : undefined
-  const resolvedTitle = title !== undefined ? title : preset?.title
-  const resolvedDescription =
-    description !== undefined ? description : preset?.description
+const isEmpty = (node: ReactNode) =>
+  node == null || node === '' || typeof node === 'boolean'
 
-  return (
-    <div
-      className={cn(styles.root, className)}
-      data-testid={dataTestId?.root}
-      {...rest}
-    >
-      <div className={styles.inner}>
-        {code != null ? (
-          <div className={styles.code} data-testid={dataTestId?.code}>
-            {code}
-          </div>
-        ) : null}
-        <div className={styles.text}>
-          {resolvedTitle != null ? (
-            <h1 className={styles.title} data-testid={dataTestId?.title}>
-              {resolvedTitle}
-            </h1>
+/** Centered 404 / 500 block with its own page gutters; render it directly in the page, not inside a container that already adds them. */
+export const ErrorPage = forwardRef<HTMLDivElement, ErrorPageProps>(
+  (
+    { code, title, description, action, className, dataTestId, ...rest },
+    ref,
+  ) => {
+    const codeStr = code == null ? undefined : String(code)
+    const preset = isPresetCode(codeStr) ? presets[codeStr] : undefined
+    const resolvedTitle = title !== undefined ? title : preset?.title
+    const resolvedDescription =
+      description !== undefined ? description : preset?.description
+
+    return (
+      <div
+        ref={ref}
+        className={cn(styles.root, className)}
+        data-testid={dataTestId?.root}
+        {...rest}
+      >
+        <div className={styles.inner}>
+          {codeStr != null ? (
+            <div className={styles.code} data-testid={dataTestId?.code}>
+              {codeStr}
+            </div>
           ) : null}
-          {resolvedDescription != null ? (
-            <p
-              className={styles.description}
-              data-testid={dataTestId?.description}
-            >
-              {resolvedDescription}
-            </p>
+          <div className={styles.text}>
+            {!isEmpty(resolvedTitle) ? (
+              <h1 className={styles.title} data-testid={dataTestId?.title}>
+                {resolvedTitle}
+              </h1>
+            ) : null}
+            {!isEmpty(resolvedDescription) ? (
+              <p
+                className={styles.description}
+                data-testid={dataTestId?.description}
+              >
+                {resolvedDescription}
+              </p>
+            ) : null}
+          </div>
+          {action != null ? (
+            <div className={styles.action} data-testid={dataTestId?.action}>
+              {action}
+            </div>
           ) : null}
         </div>
-        {action != null ? (
-          <div className={styles.action} data-testid={dataTestId?.action}>
-            {action}
-          </div>
-        ) : null}
       </div>
-    </div>
-  )
-}
+    )
+  },
+)
+
+ErrorPage.displayName = 'ErrorPage'

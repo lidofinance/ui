@@ -13,6 +13,7 @@ export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
   dataTestId?: BadgeDataTestId
 }
 
+/** Bordered pill for a single trust/verification marker (audited, verified). */
 export const Badge = ({
   icon,
   className,

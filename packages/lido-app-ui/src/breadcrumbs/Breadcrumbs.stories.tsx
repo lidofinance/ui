@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { expect, waitFor, within } from '@storybook/test'
 
 import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Breadcrumbs } from './Breadcrumbs'
@@ -6,15 +7,6 @@ import { Breadcrumbs } from './Breadcrumbs'
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Navigation/Breadcrumbs',
   component: Breadcrumbs,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Trail of ancestors followed by the current page. Items with `href` render links, others render buttons; the last item is plain text with `aria-current="page"`.',
-      },
-    },
-  },
 }
 
 export default meta
@@ -49,10 +41,21 @@ export const Depth: Story = {
 }
 
 export const Overflow: Story = {
+  play: async ({ canvasElement }) => {
+    const lists = within(canvasElement).getAllByRole('list')
+    await waitFor(() => {
+      for (const list of lists) {
+        expect(list.scrollLeft + list.clientWidth).toBeGreaterThanOrEqual(
+          list.scrollWidth - 1,
+        )
+      }
+    })
+    expect(lists[0].scrollLeft).toBeGreaterThan(0)
+  },
   render: () => (
     <StoryContainer>
       <StorySection title='Constrained width (320px)'>
-        <div style={{ width: 320 }}>
+        <div style={{ maxWidth: 320, width: '100%' }}>
           <Breadcrumbs
             items={[
               { label: 'Node Operator Dashboard', href: '#dashboard' },
@@ -62,7 +65,7 @@ export const Overflow: Story = {
         </div>
       </StorySection>
       <StorySection title='Long ancestor label (480px)'>
-        <div style={{ width: 480 }}>
+        <div style={{ maxWidth: 480, width: '100%' }}>
           <Breadcrumbs
             items={[
               {
@@ -75,7 +78,7 @@ export const Overflow: Story = {
         </div>
       </StorySection>
       <StorySection title='Long ancestor trail (320px)'>
-        <div style={{ width: 320 }}>
+        <div style={{ maxWidth: 320, width: '100%' }}>
           <Breadcrumbs
             items={[
               { label: 'Home', href: '#home' },

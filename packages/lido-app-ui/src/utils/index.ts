@@ -1,6 +1,11 @@
 export { ActionElement } from './ActionElement'
 export type { ActionElementProps } from './ActionElement'
-export { breakpoints, breakpointWidths } from './breakpoints'
+export {
+  breakpoints,
+  breakpointWidths,
+  logoBreakpointWidth,
+  sidebarBreakpointWidth,
+} from './breakpoints'
 export type { Breakpoint } from './breakpoints'
 export type { PolymorphicComponent, PolymorphicProps } from './polymorphic'
 export {

@@ -1,27 +1,46 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { forwardRef, useRef } from 'react'
 import type { HTMLAttributes, PointerEvent, ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { useEdgeFade, useIsomorphicLayoutEffect } from '../hooks'
 import { IconChevronRight } from '../icons'
 import { ActionElement, type ActionElementProps } from '../utils'
 import styles from './Breadcrumbs.module.css'
 
+export type BreadcrumbItemDataTestId = { root?: string }
+
 export type BreadcrumbItem = ActionElementProps & {
   label: ReactNode
   children?: never
+  /** Test id of the item's label element, for link, plain and current items alike. */
+  dataTestId?: BreadcrumbItemDataTestId
 }
+
+export type BreadcrumbsDataTestId = { root?: string; list?: string }
 
 export type BreadcrumbsProps = HTMLAttributes<HTMLElement> & {
+  /** `href` renders a link, only `onClick` a button, anything else (and `disabled`) plain text; the last item is the current page. */
   items: BreadcrumbItem[]
+  dataTestId?: BreadcrumbsDataTestId
 }
 
-const syncFade = (list: HTMLElement) => {
-  list.toggleAttribute('data-fade-start', list.scrollLeft > 0)
-  list.toggleAttribute(
-    'data-fade-end',
-    list.scrollLeft < list.scrollWidth - list.clientWidth - 1,
-  )
+const ANCHOR_ONLY = [
+  'href',
+  'onClick',
+  'disabled',
+  'external',
+  'linkProps',
+  'type',
+  'target',
+  'rel',
+  'download',
+] as const
+
+const spanAttrs = (props: Omit<BreadcrumbItem, 'label'>) => {
+  const attrs: Record<string, unknown> = { ...props }
+  for (const key of ANCHOR_ONLY) delete attrs[key]
+  return attrs as HTMLAttributes<HTMLSpanElement>
 }
 
 const syncTitle = (e: PointerEvent<HTMLElement>) => {
@@ -32,81 +51,97 @@ const syncTitle = (e: PointerEvent<HTMLElement>) => {
   else el.removeAttribute('title')
 }
 
-export const Breadcrumbs = ({
-  items,
-  className,
-  ...rest
-}: BreadcrumbsProps) => {
-  const listRef = useRef<HTMLOListElement>(null)
+/** Trail of ancestors ending in the current page (`aria-current="page"`); scrolls horizontally with an edge fade when it overflows. */
+export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
+  ({ items, className, dataTestId, ...rest }, ref) => {
+    const listRef = useRef<HTMLOListElement>(null)
 
-  useLayoutEffect(() => {
-    const list = listRef.current
-    if (!list) return
-    list.scrollLeft = list.scrollWidth
-    syncFade(list)
-  }, [items])
+    const { sync, onFocus } = useEdgeFade(listRef)
+    const trailRef = useRef<string>()
 
-  useEffect(() => {
-    const list = listRef.current
-    if (!list || typeof ResizeObserver === 'undefined') return
-    const observer = new ResizeObserver(() => syncFade(list))
-    observer.observe(list)
-    return () => observer.disconnect()
-  }, [])
+    useIsomorphicLayoutEffect(() => {
+      const list = listRef.current
+      if (!list) return
+      const trail = Array.from(list.children, (li) => li.textContent).join(
+        '\u0000',
+      )
+      if (trail !== trailRef.current) {
+        trailRef.current = trail
+        list.scrollLeft = list.scrollWidth
+      }
+      sync()
+    })
 
-  return (
-    <nav
-      aria-label='Breadcrumb'
-      className={cn(styles.nav, className)}
-      {...rest}
-    >
-      <ol
-        ref={listRef}
-        className={styles.list}
-        onScroll={(e) => syncFade(e.currentTarget)}
-        onPointerOver={syncTitle}
+    return (
+      <nav
+        ref={ref}
+        aria-label='Breadcrumb'
+        className={cn(styles.nav, className)}
+        data-testid={dataTestId?.root}
+        {...rest}
       >
-        {items.map(({ label, ...itemProps }, index) => {
-          const labelAttrs =
-            itemProps.title === undefined ? { 'data-label': '' } : {}
-          if (index === items.length - 1) {
-            return (
-              <li key={index} className={styles.item}>
-                <span
-                  aria-current='page'
-                  className={cn(styles.label, styles.current)}
-                  {...labelAttrs}
-                >
-                  {label}
-                </span>
-              </li>
-            )
-          }
-          const interactive =
-            itemProps.href !== undefined || itemProps.onClick !== undefined
-          return (
-            <li key={index} className={styles.item}>
-              {interactive ? (
-                <ActionElement
-                  {...itemProps}
-                  {...labelAttrs}
-                  className={cn(styles.label, styles.link, itemProps.className)}
-                >
-                  {label}
-                </ActionElement>
-              ) : (
-                <span className={styles.label} {...labelAttrs}>
-                  {label}
-                </span>
-              )}
-              <IconChevronRight
-                className={styles.separator}
-                aria-hidden='true'
-              />
-            </li>
-          )
-        })}
-      </ol>
-    </nav>
-  )
-}
+        <ol
+          ref={listRef}
+          className={styles.list}
+          data-testid={dataTestId?.list}
+          onScroll={sync}
+          onFocus={onFocus}
+          onPointerOver={syncTitle}
+        >
+          {items.map(
+            ({ label, dataTestId: itemTestId, ...itemProps }, index) => {
+              const current = index === items.length - 1
+              const labelAttrs =
+                itemProps.title === undefined ? { 'data-label': '' } : {}
+              const interactive =
+                !current &&
+                (itemProps.href !== undefined ||
+                  itemProps.onClick !== undefined) &&
+                !itemProps.disabled
+              return (
+                <li key={index} className={styles.item}>
+                  {interactive ? (
+                    <ActionElement
+                      data-testid={itemTestId?.root}
+                      {...itemProps}
+                      {...labelAttrs}
+                      className={cn(
+                        styles.label,
+                        styles.link,
+                        itemProps.className,
+                      )}
+                    >
+                      {label}
+                    </ActionElement>
+                  ) : (
+                    <span
+                      data-testid={itemTestId?.root}
+                      {...spanAttrs(itemProps)}
+                      {...labelAttrs}
+                      {...(current && { 'aria-current': 'page' as const })}
+                      className={cn(
+                        styles.label,
+                        current && styles.current,
+                        itemProps.className,
+                      )}
+                    >
+                      {label}
+                    </span>
+                  )}
+                  {!current && (
+                    <IconChevronRight
+                      className={styles.separator}
+                      aria-hidden='true'
+                    />
+                  )}
+                </li>
+              )
+            },
+          )}
+        </ol>
+      </nav>
+    )
+  },
+)
+
+Breadcrumbs.displayName = 'Breadcrumbs'

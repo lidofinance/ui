@@ -17,11 +17,11 @@ import {
   useIsomorphicLayoutEffect,
 } from '../hooks'
 import { CloseButton } from '../icon-button'
+import { sidebarBreakpointWidth } from '../utils'
 import styles from './Sidebar.module.css'
 import { SidebarContext } from './SidebarContext'
 
-// mirrors --lido-app-ui-breakpoint-ml-down (styles/breakpoints.css)
-export const DRAWER_QUERY = '(max-width: 1063px)'
+export const DRAWER_QUERY = `(width < ${sidebarBreakpointWidth}px)`
 
 const OFFSET_VAR = '--local-measured-offset'
 
@@ -54,7 +54,7 @@ export type SidebarProps = Omit<ComponentPropsWithoutRef<'div'>, 'children'> & {
   logo?: ReactNode
   footer?: ReactNode
   children?: ReactNode
-  /** Drawer state; only has an effect at `ml-down` widths. Defaults to the SidebarLayout's. */
+  /** Drawer state; only has an effect at `sidebar-down` widths. Defaults to the SidebarLayout's. */
   open?: boolean
   onClose?: () => void
   navLabel?: string

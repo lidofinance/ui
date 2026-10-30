@@ -6,24 +6,14 @@ import { Identicon } from '.'
 const meta: Meta<typeof Identicon> = {
   title: 'Content & Data/Identicon',
   component: Identicon,
-  tags: ['autodocs'],
   args: {
     address: '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984',
     size: 40,
   },
   argTypes: {
-    size: { description: 'Diameter in px', control: { type: 'number' } },
+    size: { control: { type: 'number' } },
     address: {
-      description: 'Full address including 0x — it seeds the pattern',
       control: { type: 'text' },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Jazzicon avatar for a wallet address. Pass the full address including `0x` — the seed is derived from it, so a trimmed address collapses distinct accounts onto the same picture.',
-      },
     },
   },
 }

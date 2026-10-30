@@ -28,12 +28,15 @@ export type MessageBoxDataTestId = {
 }
 
 export type MessageBoxProps = HTMLAttributes<HTMLDivElement> & {
+  /** `default` neutral, `info` blue, `warning` orange, `error` red, `success` green. */
   variant?: MessageBoxVariant
+  /** Toggles the leading glyph, which is picked from the variant. */
   icon?: boolean
   headline?: ReactNode
   dataTestId?: MessageBoxDataTestId
 }
 
+/** Inline note in a form or card, e.g. to explain a delay, a fee or a risk. */
 export const MessageBox = ({
   variant = 'default',
   icon = true,

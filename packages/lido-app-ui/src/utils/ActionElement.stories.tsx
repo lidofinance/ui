@@ -15,7 +15,6 @@ type DemoProps = {
 const meta: Meta<DemoProps> = {
   title: 'Internal/ActionElement',
   component: ActionElement as ComponentType<DemoProps>,
-  tags: ['autodocs'],
   args: {
     children: 'Action',
     onClick: fn(),
@@ -24,27 +23,6 @@ const meta: Meta<DemoProps> = {
     children: { control: { type: 'text' } },
     href: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
-  },
-  // ActionElement is unstyled; this only makes the demo elements visible.
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          fontFamily: 'var(--lido-app-ui-font-family)',
-          color: 'var(--lido-app-ui-color-text)',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Internal primitive (not exported from the package yet) for upcoming components. Renders an `<a>` through `Anchor`, so `LinkProvider` applies, when `href` is set, otherwise a `<button type='button'>`. `disabled` on a link drops the `href`, sets `aria-disabled`, `tabIndex={-1}` and blocks `onClick`. It has no styles of its own.",
-      },
-    },
   },
 }
 

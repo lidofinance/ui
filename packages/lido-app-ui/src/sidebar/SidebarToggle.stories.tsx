@@ -17,7 +17,7 @@ const meta: Meta<typeof SidebarToggle> = {
       story: { inline: false, iframeHeight: 240 },
       description: {
         component:
-          'Burger button that opens the Sidebar drawer. Hidden above `ml-down`, so these stories use a narrow viewport. Inside `SidebarLayout` it wires itself; your `onClick` runs first and `preventDefault()` skips the toggle.',
+          'Burger button that opens the Sidebar drawer. Hidden above `sidebar-down`, so these stories use a narrow viewport. Inside `SidebarLayout` it wires itself; your `onClick` runs first and `preventDefault()` skips the toggle.',
       },
     },
   },

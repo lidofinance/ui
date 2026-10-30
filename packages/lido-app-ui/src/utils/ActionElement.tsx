@@ -1,36 +1,18 @@
-import {
-  forwardRef,
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
-  type ForwardedRef,
-} from 'react'
+import { forwardRef, type ButtonHTMLAttributes, type ForwardedRef } from 'react'
 
-import { Anchor } from '../link-provider/Anchor'
+import { Anchor, type AnchorProps } from '../link-provider/Anchor'
 
 export type ActionElementProps =
-  | (AnchorHTMLAttributes<HTMLAnchorElement> & {
-      href: string
-      disabled?: boolean
-    })
+  | (AnchorProps & { href: string })
   | (ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined })
 
-/** Renders `<a>` when `href` is set, otherwise `<button type='button'>`. */
+/** Internal, not exported from the package. Renders `Anchor` when `href` is set (see `AnchorProps` for `disabled` and `external`), otherwise `<button type='button'>`. */
 export const ActionElement = forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   ActionElementProps
 >((props, ref) => {
   if (props.href !== undefined) {
-    const { href, disabled, onClick, tabIndex, ...rest } = props
-    return (
-      <Anchor
-        ref={ref as ForwardedRef<HTMLAnchorElement>}
-        {...rest}
-        href={disabled ? undefined : href}
-        aria-disabled={disabled ? 'true' : rest['aria-disabled']}
-        tabIndex={disabled ? -1 : tabIndex}
-        onClick={disabled ? undefined : onClick}
-      />
-    )
+    return <Anchor ref={ref as ForwardedRef<HTMLAnchorElement>} {...props} />
   }
 
   const { type = 'button', ...rest } = props

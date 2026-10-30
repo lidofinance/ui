@@ -6,7 +6,6 @@ import { StoryContainer } from '../../.storybook/components'
 const meta: Meta<typeof Accordion> = {
   title: 'Content & Data/Accordion',
   component: Accordion,
-  tags: ['autodocs'],
   args: {
     title: 'What is Lido?',
     border: true,
@@ -19,16 +18,7 @@ const meta: Meta<typeof Accordion> = {
     border: { control: { type: 'boolean' } },
     defaultExpanded: { control: { type: 'boolean' } },
     expanded: {
-      description: 'Controlled mode — pair with `onExpandedChange`',
       control: { type: 'boolean' },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Uncontrolled by default (`defaultExpanded`); pass `expanded` + `onExpandedChange` to drive it from your own state. `border` toggles the bottom divider — turn it off on the last item of a list.',
-      },
     },
   },
 }

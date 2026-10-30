@@ -4,20 +4,24 @@ import { ThemeName, useThemeToggle } from '@lidofinance/lido-shared-ui'
 
 import { IconButton, type IconButtonProps } from '../icon-button'
 import { IconDay, IconNight } from '../icons'
+import styles from './ThemeSwitcher.module.css'
 
 export type ThemeSwitcherProps = Omit<
   IconButtonProps,
   'icon' | 'variant' | 'aria-label'
->
+> & {
+  /** Overrides the default English label, e.g. for localization. */
+  'aria-label'?: string
+}
 
-/** Round icon button that toggles the light/dark theme from the theme context. */
+/** Round icon button that toggles the light/dark theme; needs `CookieThemeProvider`, without it the click does nothing. The icon follows the theme in CSS, the label follows the provider state, so pass `initialThemeName` from the request cookie in SSR apps. */
 export const ThemeSwitcher = forwardRef<HTMLButtonElement, ThemeSwitcherProps>(
-  ({ onClick, ...rest }, ref) => {
+  ({ onClick, 'aria-label': ariaLabel, ...rest }, ref) => {
     const { themeName, toggleTheme } = useThemeToggle()
-    const isLight = themeName === ThemeName.light
+    const isDark = themeName === ThemeName.dark
 
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-      toggleTheme()
+      toggleTheme?.()
       onClick?.(event)
     }
 
@@ -26,8 +30,16 @@ export const ThemeSwitcher = forwardRef<HTMLButtonElement, ThemeSwitcherProps>(
         {...rest}
         ref={ref}
         variant='surface'
-        aria-label={isLight ? 'Switch to dark theme' : 'Switch to light theme'}
-        icon={isLight ? <IconNight /> : <IconDay />}
+        aria-label={
+          ariaLabel ??
+          (isDark ? 'Switch to light theme' : 'Switch to dark theme')
+        }
+        icon={
+          <>
+            <IconNight className={styles.toDark} />
+            <IconDay className={styles.toLight} />
+          </>
+        }
         onClick={handleClick}
       />
     )

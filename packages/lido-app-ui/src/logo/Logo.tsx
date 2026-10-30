@@ -1,17 +1,31 @@
-import { forwardRef, type HTMLAttributes, type Ref } from 'react'
+import {
+  forwardRef,
+  type AnchorHTMLAttributes,
+  type HTMLAttributes,
+  type Ref,
+} from 'react'
 
 import cn from 'classnames'
 
-import { ActionElement, type ActionElementProps } from '../utils'
+import { ActionElement } from '../utils'
 import styles from './Logo.module.css'
 
 export type LogoVariant = 'full' | 'compact' | 'auto'
 
-export type LogoProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
-  variant?: LogoVariant
-  product?: string
-  href?: string
-}
+export type LogoDataTestId = { root?: string; product?: string }
+
+export type LogoProps = Omit<HTMLAttributes<HTMLElement>, 'children'> &
+  Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'> & {
+    /** `full` shows the wordmark, `compact` drops it, `auto` drops it below `--lido-app-ui-breakpoint-logo` (1024px), overridable per instance with `--lido-app-ui-logo-breakpoint`. */
+    variant?: LogoVariant
+    /** Product name shown after a divider and added to the accessible name. */
+    product?: string
+    /** Renders a link; with only `onClick` it renders a button, otherwise a plain `role="img"` element. */
+    href?: string
+    /** Opens the link in a new tab; needs `href`. */
+    external?: boolean
+    dataTestId?: LogoDataTestId
+  }
 
 const DROPLET = (
   <svg
@@ -42,8 +56,21 @@ const WORDMARK = (
   </span>
 )
 
+/** Lido droplet with wordmark and an optional product name. */
 export const Logo = forwardRef<HTMLElement, LogoProps>(
-  ({ variant = 'full', product, href, onClick, className, ...rest }, ref) => {
+  (
+    {
+      variant = 'full',
+      product,
+      href,
+      external,
+      onClick,
+      className,
+      dataTestId,
+      ...rest
+    },
+    ref,
+  ) => {
     const label = product ? `Lido ${product}` : 'Lido'
     const content = (
       <>
@@ -54,7 +81,9 @@ export const Logo = forwardRef<HTMLElement, LogoProps>(
         {product ? (
           <>
             <span className={styles.divider} aria-hidden='true' />
-            <span className={styles.product}>{product}</span>
+            <span className={styles.product} data-testid={dataTestId?.product}>
+              {product}
+            </span>
           </>
         ) : null}
       </>
@@ -67,7 +96,13 @@ export const Logo = forwardRef<HTMLElement, LogoProps>(
           ref={ref as Ref<HTMLAnchorElement | HTMLButtonElement>}
           className={cn(classes, styles.interactive)}
           aria-label={label}
-          {...({ href, onClick, ...rest } as ActionElementProps)}
+          data-testid={dataTestId?.root}
+          {...{
+            href,
+            external: href ? external : undefined,
+            onClick,
+            ...rest,
+          }}
         >
           {content}
         </ActionElement>
@@ -80,6 +115,7 @@ export const Logo = forwardRef<HTMLElement, LogoProps>(
         role='img'
         aria-label={label}
         className={classes}
+        data-testid={dataTestId?.root}
         {...rest}
       >
         {content}

@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import userEvent from '@testing-library/user-event'
+import { describe, expect, it, vi } from 'vitest'
 
 import { RichInput } from './RichInput'
 
@@ -24,5 +25,37 @@ describe('RichInput', () => {
     trigger.focus()
     fireEvent.click(trigger)
     expect(document.activeElement).not.toBe(screen.getByTestId('input'))
+  })
+})
+
+describe('RichInput Max', () => {
+  it('calls onMaxClick when Max is clicked', async () => {
+    const onMaxClick = vi.fn()
+    render(<RichInput onMaxClick={onMaxClick} />)
+    await userEvent.click(screen.getByRole('button', { name: 'Max' }))
+    expect(onMaxClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('disables Max natively with maxDisabled', async () => {
+    const onMaxClick = vi.fn()
+    render(<RichInput onMaxClick={onMaxClick} maxDisabled />)
+    const max = screen.getByRole('button', { name: 'Max' })
+    expect(max).toBeDisabled()
+    await userEvent.click(max)
+    expect(onMaxClick).not.toHaveBeenCalled()
+  })
+
+  it('does not focus the input when Max is clicked', async () => {
+    render(<RichInput onMaxClick={() => undefined} />)
+    await userEvent.click(screen.getByRole('button', { name: 'Max' }))
+    expect(screen.getByRole('textbox')).not.toHaveFocus()
+  })
+
+  it('keeps Max a native button without onMaxClick', async () => {
+    render(<RichInput />)
+    const max = screen.getByRole('button', { name: 'Max' })
+    expect(max.tagName).toBe('BUTTON')
+    await userEvent.click(max)
+    expect(screen.getByRole('textbox')).not.toHaveFocus()
   })
 })

@@ -24,14 +24,14 @@ describe('ThemeSwitcher', () => {
     setup(ThemeName.light)
     expect(
       screen.getByRole('button', { name: 'Switch to dark theme' }),
-    ).toBeTruthy()
+    ).toBeInTheDocument()
   })
 
   it('offers light theme when dark is active', () => {
     setup(ThemeName.dark)
     expect(
       screen.getByRole('button', { name: 'Switch to light theme' }),
-    ).toBeTruthy()
+    ).toBeInTheDocument()
   })
 
   it('toggles theme and calls onClick', () => {
@@ -42,10 +42,28 @@ describe('ThemeSwitcher', () => {
     expect(onClick).toHaveBeenCalledTimes(1)
   })
 
+  it('lets aria-label override the default label', () => {
+    setup(ThemeName.light, { 'aria-label': 'Tema' })
+    expect(screen.getByRole('button', { name: 'Tema' })).toBeInTheDocument()
+  })
+
+  it('offers dark theme and ignores clicks outside a theme provider', () => {
+    const onClick = vi.fn()
+    render(<ThemeSwitcher onClick={onClick} />)
+    const button = screen.getByRole('button', { name: 'Switch to dark theme' })
+    fireEvent.click(button)
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('renders both icons so CSS picks one', () => {
+    setup(ThemeName.dark)
+    expect(screen.getByRole('button').querySelectorAll('svg')).toHaveLength(2)
+  })
+
   it('forwards ref and className', () => {
     const ref = createRef<HTMLButtonElement>()
     setup(ThemeName.light, { ref, className: 'custom' })
     expect(ref.current).toBe(screen.getByRole('button'))
-    expect(ref.current?.classList.contains('custom')).toBe(true)
+    expect(ref.current).toHaveClass('custom')
   })
 })

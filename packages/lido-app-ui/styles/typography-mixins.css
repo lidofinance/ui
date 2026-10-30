@@ -70,6 +70,14 @@
   letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
 }
 
+@define-mixin font-description-semibold {
+  font-family: var(--lido-app-ui-font-family);
+  font-size: var(--lido-app-ui-font-size-tooltip);
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  line-height: var(--lido-app-ui-line-height-description);
+  letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
+}
+
 @define-mixin font-group-name {
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-tooltip);

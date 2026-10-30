@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 
 import cn from 'classnames'
 
@@ -21,18 +21,18 @@ export type CounterProps = HTMLAttributes<HTMLSpanElement> & {
   dataTestId?: CounterDataTestId
 }
 
-export const Counter = ({
-  variant = 'default',
-  className,
-  children,
-  dataTestId,
-  ...rest
-}: CounterProps) => (
-  <span
-    className={cn(styles.counter, styles[variant], className)}
-    data-testid={dataTestId?.root}
-    {...rest}
-  >
-    {children}
-  </span>
+/** 20px pill for notification/unread counts; grows horizontally for multi-digit values. */
+export const Counter = forwardRef<HTMLSpanElement, CounterProps>(
+  ({ variant = 'default', className, children, dataTestId, ...rest }, ref) => (
+    <span
+      ref={ref}
+      className={cn(styles.counter, styles[variant], className)}
+      data-testid={dataTestId?.root}
+      {...rest}
+    >
+      {children}
+    </span>
+  ),
 )
+
+Counter.displayName = 'Counter'

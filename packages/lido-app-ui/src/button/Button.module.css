@@ -20,6 +20,7 @@
   font-family: var(--lido-app-ui-font-family);
   font-weight: var(--lido-app-ui-font-weight-semibold);
   letter-spacing: var(--lido-app-ui-letter-spacing-button);
+  text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
   transition:
@@ -28,7 +29,7 @@
     color 0.2s ease;
 }
 
-.button:disabled:not(.loading) {
+.button:is(:disabled, [aria-disabled='true']):not(.loading) {
   --local-color: var(--lido-app-ui-color-text-disabled);
   --local-spinner-color: var(--lido-app-ui-color-icons-disabled);
 
@@ -110,11 +111,11 @@
   --local-spinner-color: var(--lido-app-ui-color-icons-inverse);
 }
 
-.primary:not(:disabled):hover {
+.primary:not(:disabled, [aria-disabled='true']):hover {
   --local-bg: var(--lido-app-ui-color-background-action-hover);
 }
 
-.primary:not(:disabled):active {
+.primary:not(:disabled, [aria-disabled='true']):active {
   --local-bg: var(--lido-app-ui-color-background-action-pressed);
 }
 
@@ -125,11 +126,11 @@
   --local-spinner-color: var(--lido-app-ui-color-icons-secondary);
 }
 
-.outline:not(:disabled):hover {
+.outline:not(:disabled, [aria-disabled='true']):hover {
   --local-bg: var(--lido-app-ui-color-background-transparent-hover);
 }
 
-.outline:not(:disabled):active {
+.outline:not(:disabled, [aria-disabled='true']):active {
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
@@ -140,12 +141,12 @@
   --local-spinner-color: var(--lido-app-ui-color-icons-tertiary);
 }
 
-.subtle:not(:disabled):hover {
+.subtle:not(:disabled, [aria-disabled='true']):hover {
   --local-bg: var(--lido-app-ui-color-background-transparent-hover);
   --local-color: var(--lido-app-ui-color-text-default);
 }
 
-.subtle:not(:disabled):active {
+.subtle:not(:disabled, [aria-disabled='true']):active {
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
   --local-color: var(--lido-app-ui-color-text-default);
 }
@@ -155,11 +156,11 @@
   --local-spinner-color: var(--lido-app-ui-color-icons-secondary);
 }
 
-.ghost:not(:disabled):hover {
+.ghost:not(:disabled, [aria-disabled='true']):hover {
   --local-bg: var(--lido-app-ui-color-background-transparent-hover);
 }
 
-.ghost:not(:disabled):active {
+.ghost:not(:disabled, [aria-disabled='true']):active {
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 
@@ -170,23 +171,23 @@
   --local-spinner-color: var(--lido-app-ui-color-icons-error);
 }
 
-.error:not(:disabled):hover {
+.error:not(:disabled, [aria-disabled='true']):hover {
   --local-bg: var(--lido-app-ui-color-tint-error-hover);
 }
 
-.error:not(:disabled):active {
+.error:not(:disabled, [aria-disabled='true']):active {
   --local-bg: var(--lido-app-ui-color-tint-error);
 }
 
 /* Disabled look; plain loading keeps the variant's default look. */
 
-.primary:disabled:not(.loading) {
+.primary:is(:disabled, [aria-disabled='true']):not(.loading) {
   --local-bg: var(--lido-app-ui-color-background-disabled);
 }
 
-.outline:disabled:not(.loading),
-.subtle:disabled:not(.loading),
-.error:disabled:not(.loading) {
+.outline:is(:disabled, [aria-disabled='true']):not(.loading),
+.subtle:is(:disabled, [aria-disabled='true']):not(.loading),
+.error:is(:disabled, [aria-disabled='true']):not(.loading) {
   --local-bg: transparent;
   --local-border-color: var(--lido-app-ui-color-border-default);
 }

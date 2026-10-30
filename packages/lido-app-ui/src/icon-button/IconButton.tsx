@@ -23,11 +23,18 @@ export type IconButtonProps = Omit<
   icon: ReactNode
   variant?: IconButtonVariant
   loading?: boolean
-  /** Corner slot, aria-hidden: put the count into `aria-label`. */
+  /**
+   * Corner slot, aria-hidden. A number or string renders a default `Counter`
+   * (`0` shows a "0" pill; use `counter={count || null}` to hide it), or pass a
+   * `<Counter variant=...>` element. Announce the count with `counterLabel`.
+   */
   counter?: ReactNode
+  /** Spoken with the name, e.g. "3 unread". */
+  counterLabel?: string
   dataTestId?: IconButtonDataTestId
 }
 
+/** 36px fully rounded icon-only button; `loading` swaps the icon for a spinner and disables it. */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     {
@@ -38,6 +45,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       disabled = false,
       icon,
       counter,
+      counterLabel,
+      'aria-label': ariaLabel,
       dataTestId,
       ...rest
     },
@@ -56,6 +65,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         className,
       )}
       data-testid={dataTestId?.root}
+      aria-label={counterLabel ? `${ariaLabel}, ${counterLabel}` : ariaLabel}
       {...rest}
     >
       {loading ? (

@@ -20,6 +20,7 @@ export type TokenAmountProps = Omit<
   dataTestId?: TokenAmountDataTestId
 }
 
+/** Token glyph plus an amount on one line; the amount is shown as passed, with no rounding or formatting. */
 export const TokenAmount = ({
   symbol,
   amount,

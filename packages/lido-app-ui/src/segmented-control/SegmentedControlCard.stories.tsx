@@ -34,27 +34,9 @@ const items: SegmentCardItem[] = [
 const meta: Meta<typeof SegmentedControlCard> = {
   title: 'Navigation/SegmentedControlCard',
   component: SegmentedControlCard,
-  tags: ['autodocs'],
   args: {
     items,
     value: 'eject',
-  },
-  argTypes: {
-    items: {
-      description:
-        'Value, title, and optional icon / tag / description / disabled flag',
-    },
-    value: {
-      description: 'Active segment value — the component is controlled',
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Card variant of the segmented control — each option is a self-contained card with an icon, title, tag, and description instead of a compact pill.',
-      },
-    },
   },
 }
 

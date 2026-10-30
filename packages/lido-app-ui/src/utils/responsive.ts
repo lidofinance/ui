@@ -7,27 +7,27 @@ type DownKey = `${Breakpoint}Down`
 type ResponsiveObject<T> = {
   /** Applies at every width unless a breakpoint key overrides it. */
   base?: T
-  /** Applies at 1439px and below. */
+  /** Applies at 1279px and below. */
   lgDown?: T
-  /** Applies at 1063px and below. */
+  /** Applies at 1023px and below. */
   mlDown?: T
   /** Applies at 899px and below. */
   mdDown?: T
-  /** Applies at 599px and below. */
+  /** Applies at 767px and below. */
   smDown?: T
-  /** Applies at 439px and below. */
+  /** Applies at 599px and below. */
   xsDown?: T
   /** Applies at 399px and below. */
   xxsDown?: T
-  /** Alias of `lgDown`: applies at 1439px and below. */
+  /** Alias of `lgDown`: applies at 1279px and below. */
   lg?: T
-  /** Alias of `mlDown`: applies at 1063px and below. */
+  /** Alias of `mlDown`: applies at 1023px and below. */
   ml?: T
   /** Alias of `mdDown`: applies at 899px and below. */
   md?: T
-  /** Alias of `smDown`: applies at 599px and below. */
+  /** Alias of `smDown`: applies at 767px and below. */
   sm?: T
-  /** Alias of `xsDown`: applies at 439px and below. */
+  /** Alias of `xsDown`: applies at 599px and below. */
   xs?: T
   /** Alias of `xxsDown`: applies at 399px and below. */
   xxs?: T

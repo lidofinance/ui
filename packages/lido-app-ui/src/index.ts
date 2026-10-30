@@ -62,7 +62,13 @@ export * from './token-selector'
 export * from './tooltip'
 export * from './tx-status'
 export * from './typography'
-export { breakpoints, breakpointWidths, spaces } from './utils'
+export {
+  breakpoints,
+  breakpointWidths,
+  logoBreakpointWidth,
+  sidebarBreakpointWidth,
+  spaces,
+} from './utils'
 export type { Breakpoint, Responsive, Space } from './utils'
 
 // Everything lido-shared-ui exposes is re-exported, so app products get the

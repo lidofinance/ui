@@ -1,18 +1,9 @@
-import { forwardRef } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { LinkProvider, type LinkComponentProps } from '../link-provider'
+import { LinkProvider } from '../link-provider'
+import { RouterLink } from '../link-provider/linkStubs.test-utils'
 import { SmallCard } from './SmallCard'
-
-const RouterLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-  ({ children, ...props }, ref) => (
-    <a ref={ref} data-router='' {...props}>
-      {children}
-    </a>
-  ),
-)
-RouterLink.displayName = 'RouterLink'
 
 describe('SmallCard with LinkProvider', () => {
   it('routes internal links', () => {
@@ -21,6 +12,16 @@ describe('SmallCard with LinkProvider', () => {
         <SmallCard href='/vaults' title='Vaults' />
       </LinkProvider>,
     )
-    expect(screen.getByRole('link').hasAttribute('data-router')).toBe(true)
+    expect(screen.getByRole('link')).toHaveAttribute('data-router')
+  })
+})
+
+describe('SmallCard external', () => {
+  it('sets target and rel', () => {
+    render(<SmallCard href='/vaults' title='Vaults' external />)
+    const link = screen.getByRole('link')
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+    expect(link).not.toHaveAttribute('external')
   })
 })

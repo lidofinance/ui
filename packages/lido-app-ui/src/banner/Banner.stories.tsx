@@ -8,7 +8,6 @@ import { Banner } from '.'
 const meta: Meta<typeof Banner> = {
   title: 'Banners/Banner',
   component: Banner,
-  tags: ['autodocs'],
   args: {
     icon: <TokenSteth />,
     title: 'Add stETH to your wallet',
@@ -32,12 +31,6 @@ const meta: Meta<typeof Banner> = {
   ],
   parameters: {
     layout: 'padded',
-    docs: {
-      description: {
-        component:
-          'A compact card row: icon + title/description, with an optional `action` slot on the right — pass any element, usually a `Button`.',
-      },
-    },
   },
 }
 

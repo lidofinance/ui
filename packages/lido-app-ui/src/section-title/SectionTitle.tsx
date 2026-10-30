@@ -28,6 +28,7 @@ export type SectionTitleProps = HTMLAttributes<HTMLDivElement> & {
   dataTestId?: SectionTitleDataTestId
 }
 
+/** Title row for a `Card` or content section: title, optional subtitle, optional info `tooltip` and a right-hand `action`; `tooltip` and `action` are independent. */
 export const SectionTitle = ({
   title,
   subtitle,

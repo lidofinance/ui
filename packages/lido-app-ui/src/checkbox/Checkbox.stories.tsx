@@ -6,21 +6,11 @@ import { StoryContainer } from '../../.storybook/components'
 const meta: Meta<typeof Checkbox> = {
   title: 'Inputs & Controls/Checkbox',
   component: Checkbox,
-  tags: ['autodocs'],
   args: {
     label: 'I have read and agree to the Terms of Use',
   },
   argTypes: {
-    label: { description: 'Text next to the box; omit for a bare checkbox' },
     disabled: { control: { type: 'boolean' } },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A 24px box with a label, wrapped in a `<label>` so the text is clickable. It forwards every native input prop, so use it controlled or uncontrolled as you like.',
-      },
-    },
   },
 }
 

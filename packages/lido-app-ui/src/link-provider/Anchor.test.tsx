@@ -1,27 +1,10 @@
-import { createRef, forwardRef } from 'react'
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { createRef } from 'react'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 
-import { LinkProvider, type LinkComponentProps } from './LinkProvider'
+import { LinkProvider } from './LinkProvider'
+import { ExternalLink, RouterLink } from './linkStubs.test-utils'
 import { Anchor } from './Anchor'
-
-const RouterLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-  ({ children, ...props }, ref) => (
-    <a ref={ref} data-router='' {...props}>
-      {children}
-    </a>
-  ),
-)
-RouterLink.displayName = 'RouterLink'
-
-const ExternalLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-  ({ children, ...props }, ref) => (
-    <a ref={ref} data-external='' {...props}>
-      {children}
-    </a>
-  ),
-)
-ExternalLink.displayName = 'ExternalLink'
 
 const renderInProvider = (ui: JSX.Element) =>
   render(<LinkProvider component={RouterLink}>{ui}</LinkProvider>)
@@ -40,7 +23,7 @@ describe('Anchor', () => {
   it('renders a plain anchor without a provider', () => {
     render(<Anchor href='/keys'>Keys</Anchor>)
     expect(isRouted()).toBe(false)
-    expect(screen.getByRole('link').getAttribute('href')).toBe('/keys')
+    expect(screen.getByRole('link')).toHaveAttribute('href', '/keys')
   })
 
   it('routes internal hrefs through the provider component and forwards ref', () => {
@@ -52,7 +35,7 @@ describe('Anchor', () => {
     )
     const link = screen.getByRole('link')
     expect(isRouted()).toBe(true)
-    expect(link.getAttribute('href')).toBe('/keys')
+    expect(link).toHaveAttribute('href', '/keys')
     expect(link.className).toBe('x')
     expect(ref.current).toBe(link)
   })
@@ -94,6 +77,56 @@ describe('Anchor', () => {
     expect(isRouted()).toBe(true)
   })
 
+  it('routes download={false}', () => {
+    renderInProvider(
+      <Anchor href='/keys' download={false}>
+        Keys
+      </Anchor>,
+    )
+    expect(isRouted()).toBe(true)
+  })
+
+  describe('external', () => {
+    it('sets target and rel and keeps relative links off the router', () => {
+      renderInProvider(
+        <Anchor href='/x' external>
+          X
+        </Anchor>,
+      )
+      const a = screen.getByRole('link', { name: 'X' })
+      expect(a).toHaveAttribute('target', '_blank')
+      expect(a).toHaveAttribute('rel', 'noopener noreferrer')
+      expect(isRouted()).toBe(false)
+    })
+
+    it('lets an explicit rel win', () => {
+      render(
+        <Anchor href='/x' external rel='noopener'>
+          X
+        </Anchor>,
+      )
+      expect(screen.getByRole('link')).toHaveAttribute('rel', 'noopener')
+    })
+  })
+
+  describe('disabled', () => {
+    it('renders an href-less link that ignores clicks, tabIndex and routing', () => {
+      const onClick = vi.fn()
+      renderInProvider(
+        <Anchor href='/x' disabled onClick={onClick} tabIndex={0}>
+          X
+        </Anchor>,
+      )
+      const a = screen.getByRole('link', { name: 'X' })
+      expect(a).not.toHaveAttribute('href')
+      expect(a).toHaveAttribute('aria-disabled', 'true')
+      expect(a).not.toHaveAttribute('tabindex')
+      expect(isRouted()).toBe(false)
+      fireEvent.click(a)
+      expect(onClick).not.toHaveBeenCalled()
+    })
+  })
+
   describe('externalComponent', () => {
     const renderWithBoth = (ui: JSX.Element) =>
       render(
@@ -116,8 +149,8 @@ describe('Anchor', () => {
       )
       const link = screen.getByRole('link')
       expect(isExternal()).toBe(true)
-      expect(link.getAttribute('target')).toBe('_blank')
-      expect(link.getAttribute('rel')).toBe('noopener')
+      expect(link).toHaveAttribute('target', '_blank')
+      expect(link).toHaveAttribute('rel', 'noopener')
     })
 
     it('routes internal hrefs with component, not externalComponent', () => {
@@ -135,9 +168,9 @@ describe('Anchor', () => {
     it('renders a plain anchor without href', () => {
       const { container } = renderWithBoth(<Anchor>Disabled</Anchor>)
       const a = container.querySelector('a')
-      expect(a?.hasAttribute('data-router')).toBe(false)
-      expect(a?.hasAttribute('data-external')).toBe(false)
-      expect(a?.hasAttribute('href')).toBe(false)
+      expect(a).not.toHaveAttribute('data-router')
+      expect(a).not.toHaveAttribute('data-external')
+      expect(a).not.toHaveAttribute('href')
     })
 
     it('renders internal hrefs plain when only externalComponent is given', () => {
@@ -159,5 +192,36 @@ describe('Anchor', () => {
       )
       expect(ref.current).toBe(screen.getByRole('link'))
     })
+  })
+})
+
+describe('Anchor linkProps', () => {
+  const linkProps = { 'data-prefetch': 'false' }
+
+  it('reaches the provider component', () => {
+    renderInProvider(
+      <Anchor href='/keys' linkProps={linkProps}>
+        Keys
+      </Anchor>,
+    )
+    expect(screen.getByRole('link')).toHaveAttribute('data-prefetch', 'false')
+  })
+
+  it('never reaches a plain anchor', () => {
+    render(
+      <Anchor href='/keys' linkProps={linkProps}>
+        Keys
+      </Anchor>,
+    )
+    expect(screen.getByRole('link')).not.toHaveAttribute('data-prefetch')
+  })
+
+  it('stays off the anchor when the link bypasses the provider', () => {
+    renderInProvider(
+      <Anchor href='#top' linkProps={linkProps}>
+        Top
+      </Anchor>,
+    )
+    expect(screen.getByRole('link')).not.toHaveAttribute('data-prefetch')
   })
 })

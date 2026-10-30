@@ -7,21 +7,11 @@ import { RadioButton } from '.'
 const meta: Meta<typeof RadioButton> = {
   title: 'Inputs & Controls/RadioButton',
   component: RadioButton,
-  tags: ['autodocs'],
   args: {
     label: 'Option',
   },
   argTypes: {
-    label: { description: 'Text next to the circle; omit for a bare radio' },
     disabled: { control: { type: 'boolean' } },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A 24px circle with a label, wrapped in a `<label>` so the text is clickable. It forwards every native input prop — group multiple radios with a shared `name`.',
-      },
-    },
   },
 }
 

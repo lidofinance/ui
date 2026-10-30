@@ -3,14 +3,26 @@
   align-items: center;
   gap: 4px;
 
-  @mixin font-body;
-
   --local-color: var(--lido-app-ui-color-text-active);
   --local-color-hover: var(--lido-app-ui-color-text-active-hover);
 
   color: var(--local-color);
   text-decoration: none;
   cursor: pointer;
+}
+
+.body {
+  @mixin font-body;
+}
+
+.inherit {
+  display: inline;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.inherit.withIcon {
+  display: inline-flex;
 }
 
 .secondary {
@@ -35,7 +47,6 @@
 .link[aria-disabled='true'] {
   color: var(--lido-app-ui-color-text-disabled);
   pointer-events: none;
-  cursor: not-allowed;
 }
 
 .icon {

@@ -1,34 +1,24 @@
-import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type ButtonHTMLAttributes } from 'react'
 
 import cn from 'classnames'
 
-import { CounterSlot } from '../counter/CounterSlot'
-import { IconLoaderCircle } from '../icons'
 import styles from './Button.module.css'
+import { ButtonContent, joinAriaLabel } from './ButtonContent'
+import type {
+  ButtonDataTestId,
+  ButtonOwnProps,
+  ButtonSize,
+  ButtonVariant,
+} from './types'
 
-export type ButtonVariant = 'primary' | 'outline' | 'subtle' | 'ghost' | 'error'
+export type { ButtonDataTestId, ButtonSize, ButtonVariant }
 
-export type ButtonSize = 'big' | 'small'
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonOwnProps & {
+    loading?: boolean
+  }
 
-export type ButtonDataTestId = {
-  root?: string
-  iconLeft?: string
-  iconRight?: string
-  content?: string
-  counter?: string
-}
-
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: ButtonVariant
-  size?: ButtonSize
-  loading?: boolean
-  iconLeft?: ReactNode
-  iconRight?: ReactNode
-  /** Corner slot, aria-hidden: put the count into `aria-label`. */
-  counter?: ReactNode
-  dataTestId?: ButtonDataTestId
-}
-
+/** Fully rounded call to action; `size` is big (52px) or small (36px), `loading` swaps the icon slot for a spinner and disables the button. */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -42,7 +32,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       iconLeft,
       iconRight,
       counter,
+      counterLabel,
       dataTestId,
+      'aria-label': ariaLabel,
       ...rest
     },
     ref,
@@ -60,34 +52,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className,
       )}
       data-testid={dataTestId?.root}
+      aria-label={joinAriaLabel(ariaLabel, counterLabel)}
       {...rest}
     >
-      {loading ? (
-        <IconLoaderCircle className={styles.spinner} aria-hidden='true' />
-      ) : (
-        iconLeft != null && (
-          <span
-            className={styles.icon}
-            aria-hidden='true'
-            data-testid={dataTestId?.iconLeft}
-          >
-            {iconLeft}
-          </span>
-        )
-      )}
-      <span className={styles.content} data-testid={dataTestId?.content}>
+      <ButtonContent
+        loading={loading}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        counter={counter}
+        counterLabel={counterLabel}
+        dataTestId={dataTestId}
+      >
         {children}
-      </span>
-      {!loading && iconRight != null ? (
-        <span
-          className={styles.icon}
-          aria-hidden='true'
-          data-testid={dataTestId?.iconRight}
-        >
-          {iconRight}
-        </span>
-      ) : null}
-      <CounterSlot dataTestId={dataTestId?.counter}>{counter}</CounterSlot>
+      </ButtonContent>
     </button>
   ),
 )

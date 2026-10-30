@@ -29,6 +29,7 @@ export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   dataTestId?: TabsDataTestId
 }
 
+/** Row of text tabs with an underline on the active item; controlled via `value`. */
 export const Tabs = ({
   items,
   value,

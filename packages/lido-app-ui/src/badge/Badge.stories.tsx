@@ -6,22 +6,12 @@ import { Badge } from '.'
 const meta: Meta<typeof Badge> = {
   title: 'Tags & Badges/Badge',
   component: Badge,
-  tags: ['autodocs'],
   args: {
     children: 'Badge text',
     icon: <IconCheck />,
   },
   argTypes: {
-    children: { description: 'Badge label', control: { type: 'text' } },
-    icon: { description: 'Optional glyph before the label' },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A bordered pill for a single trust/verification marker (audited, verified). Pass `icon` for a leading glyph, e.g. a green `IconCheck`.',
-      },
-    },
+    children: { control: { type: 'text' } },
   },
 }
 

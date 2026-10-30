@@ -31,6 +31,7 @@ export type SliderProps = Omit<
   dataTestId?: SliderDataTestId
 }
 
+/** Native `<input type="range">` with a styled 12px track and 32px thumb; controlled (`value` + `onChange`) or uncontrolled (`defaultValue`). */
 export const Slider = forwardRef<HTMLInputElement, SliderProps>(
   (
     {

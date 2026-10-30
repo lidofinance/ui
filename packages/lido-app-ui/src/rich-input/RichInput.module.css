@@ -112,27 +112,8 @@
   color: var(--lido-app-ui-color-text-secondary);
 }
 
-.balanceError {
-  color: var(--lido-app-ui-color-text-error);
-}
-
 .errorMessage {
   @mixin font-body;
 
   color: var(--lido-app-ui-color-text-error);
-}
-
-.maxTag {
-  cursor: pointer;
-}
-
-.maxTag:focus-visible {
-  outline: 2px solid var(--lido-app-ui-color-border-active);
-  outline-offset: 2px;
-}
-
-.maxTagDisabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  pointer-events: none;
 }

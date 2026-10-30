@@ -17,7 +17,6 @@ const tokenSelector = (
 const meta: Meta<typeof RichInput> = {
   title: 'Inputs & Controls/RichInput',
   component: RichInput,
-  tags: ['autodocs'],
   args: {
     label: 'Amount',
     placeholder: '0',
@@ -28,24 +27,14 @@ const meta: Meta<typeof RichInput> = {
     tokenSelector,
   },
   argTypes: {
-    label: { description: 'Caption above the field' },
-    secondaryValue: { description: 'Fiat equivalent, bottom left' },
-    balance: { description: 'Wallet balance, bottom right' },
     showMaxButton: {
-      description: 'Toggles the Max pill',
       control: { type: 'boolean' },
     },
     tokenSelector: {
-      description: 'Slot for a `TokenSelector`',
+      control: false,
       table: { defaultValue: { summary: 'TokenSelector' } },
     },
-    error: {
-      description: 'Marks the card as invalid and recolours the balance',
-    },
-    errorText: { description: 'Message under the field' },
-    maxTooltip: { description: 'Explains what Max actually fills in' },
     maxTooltipPosition: {
-      description: 'Placement of the Max tooltip',
       control: { type: 'select' },
       options: [
         'top',
@@ -58,18 +47,9 @@ const meta: Meta<typeof RichInput> = {
         'bottom-right',
       ],
     },
-    maxDisabled: {
-      description: 'Disables the Max shortcut, leaving the field editable',
-    },
   },
   parameters: {
     layout: 'padded',
-    docs: {
-      description: {
-        component:
-          'The amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card. Input is filtered to decimals as you type. `disabled` dims the card and hides the Max shortcut; `maxDisabled` only dims the Max shortcut.',
-      },
-    },
   },
 }
 
