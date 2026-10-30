@@ -34,6 +34,7 @@ export const Basic: Story = {
     <div style={{ width: 750 }}>
       <Card {...args}>
         <SectionTitle
+          size='large'
           title='Choose a token to claim'
           subtitle='Splitter addresses receive stETH. Choose the token for your Rewards Address.'
           tooltip='Splitter addresses receive stETH.'
