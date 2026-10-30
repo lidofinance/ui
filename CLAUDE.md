@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository overview
 
-Yarn workspaces monorepo (managed with [Turborepo](https://turbo.build/repo)) providing React component libraries for Lido Finance products, published to npm. Package manager is Yarn 4.9 (via Corepack) with PnP disabled; Node `>=20 <25` (see `.nvmrc`).
+Yarn workspaces monorepo (managed with [Turborepo](https://turbo.build/repo)) providing React component libraries for Lido Finance products, published to npm. Package manager is Yarn 4.9 (via Corepack) with PnP disabled; Node `>=24 <25` (see `.nvmrc`).
 
 ### Packages (`packages/*`)
 
@@ -66,6 +66,8 @@ To add an icon: drop the SVG under the package's `src/icons/svg/` and commit —
 - `lido-ui`: flat `svg/*.svg`; names → PascalCase components in a single `icons/index.tsx`.
 - `lido-landing-ui`: category folders `base/ defi/ general/ lido/ logo/ strategies/ token/`; `logo/` icons get a `Logo` suffix (`AaveLogo`).
 - `lido-app-ui`: `base/ chains/ protocols/ token/ wallets/`; `base/` → `Icon` prefix (`IconArrowUp`), `token/` → `Token` prefix (`TokenAave`).
+
+Breakpoints (`lido-app-ui`): `src/utils/breakpoints.ts` is the source; the pre-commit hook runs `breakpoints:generate` to write `styles/breakpoints.css` and `styles/breakpoint-tokens.css` (or run `yarn workspace @lidofinance/lido-app-ui breakpoints:generate`).
 
 Tests run on Vitest with `jsdom` + `@vitejs/plugin-react`. Linting is ESLint 9 flat config (root `eslint.config.js`: recommended, typescript-eslint, React, jsx-a11y, Prettier, Storybook plugin) plus Stylelint (`stylelint-config-standard`) for CSS (`yarn lint:css`).
 

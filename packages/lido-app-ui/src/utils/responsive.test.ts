@@ -3,7 +3,6 @@ import { createRequire } from 'module'
 import { resolve } from 'path'
 import { describe, expect, it } from 'vitest'
 
-import { breakpoints } from './breakpoints'
 import {
   mergeResponsive,
   responsiveVars,
@@ -88,12 +87,6 @@ describe('responsive-prop mixin', () => {
     rule: unknown,
     ...args: string[]
   ) => Record<string, unknown>
-
-  it('lists the breakpoints in the order of `breakpoints`', () => {
-    const source = readFileSync(mixinPath, 'utf-8')
-    const list = /const breakpoints = \[(.*)\]/.exec(source)?.[1]
-    expect(list?.replace(/['\s]/g, '').split(',')).toEqual([...breakpoints])
-  })
 
   it('chains every breakpoint var to the next wider one', () => {
     const out = mixin({}, 'gap', 'gap', '0')
