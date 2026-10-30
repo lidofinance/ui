@@ -40,7 +40,8 @@
     "lint:fix": "eslint --fix .",
     "lint:css": "stylelint '**/*.css'",
     "types": "tsc --noEmit",
-    "icons:convert": "node ./src/icons/converter/index.cjs"
+    "icons:convert": "node ./src/icons/converter/index.cjs",
+    "breakpoints:generate": "node ./scripts/generate-breakpoints.mjs"
   },
   "peerDependencies": {
     "@inline-svg-unique-id/react": "^1.2.3",
