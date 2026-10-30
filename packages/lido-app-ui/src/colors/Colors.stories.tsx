@@ -16,7 +16,6 @@ import type { ColorToken } from './colorTokens'
 
 const meta: Meta = {
   title: 'Foundations/Colors',
-  tags: ['autodocs'],
   parameters: {
     layout: 'padded',
     controls: { disable: true },

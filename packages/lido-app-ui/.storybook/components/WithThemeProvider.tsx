@@ -1,52 +1,87 @@
 import type { Decorator } from '@storybook/react'
-import { CookieThemeProvider, ThemeName } from '@lidofinance/lido-shared-ui'
+import { useGlobals } from 'storybook/internal/preview-api'
+import {
+  CookieThemeProvider,
+  ThemeName,
+  ThemeToggleContext,
+} from '@lidofinance/lido-shared-ui'
 import { ThemeSwitcher } from '../../src/theme-switcher'
 
+const backgrounds = {
+  surface: 'var(--lido-app-ui-color-background-surface)',
+  page: 'var(--lido-app-ui-color-background-page)',
+}
+
+type StoryBackground = keyof typeof backgrounds
+
 // Drives the theme from the toolbar's `themeOverride` global (see
-// preview.tsx) instead of pinning to light, so stories can be checked in
-// both themes without leaving Storybook. Also renders a ThemeSwitcher on
-// the story itself for a one-click flip without touching the toolbar.
+// preview.tsx). The in-canvas ThemeSwitcher flips that global instead of the
+// theme cookie, so it never drifts from the toolbar.
 export const WithThemeProvider: Decorator = (
   Story,
-  { globals, parameters },
+  { parameters, viewMode },
 ) => {
-  const themeOverride = globals.themeOverride as
-    | ThemeName
-    | 'follow cookie and system'
-    | undefined
-  console.log(parameters.storyBackground)
+  const [{ themeOverride }, updateGlobals] = useGlobals()
+  const pinned =
+    themeOverride === ThemeName.light || themeOverride === ThemeName.dark
+  const fullscreen = parameters.layout === 'fullscreen'
+  const showSwitcher =
+    !fullscreen && viewMode !== 'docs' && parameters.themeSwitcher !== false
   const background =
-    parameters.storyBackground ?? 'var(--storybook-background-default)'
+    backgrounds[parameters.storyBackground as StoryBackground] ??
+    backgrounds.surface
 
-  return (
-    <CookieThemeProvider
-      overrideThemeName={
-        themeOverride === 'follow cookie and system' ? undefined : themeOverride
-      }
-    >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          padding: '16px 16px 0',
-          boxSizing: 'border-box',
-          background: background,
-        }}
-      >
-        <ThemeSwitcher />
-      </div>
+  const content = (
+    <>
+      {showSwitcher ? (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            padding: '16px 16px 0',
+            boxSizing: 'border-box',
+            background,
+          }}
+        >
+          <ThemeSwitcher />
+        </div>
+      ) : null}
 
       <div
         style={{
           fontFamily: 'var(--lido-app-ui-font-family)',
           color: 'var(--lido-app-ui-color-text-default)',
-          background: background,
-          padding: 20,
+          background,
+          padding: fullscreen ? 0 : 20,
+          minHeight: fullscreen ? '100vh' : undefined,
           boxSizing: 'border-box',
         }}
       >
         <Story />
       </div>
+    </>
+  )
+
+  return (
+    <CookieThemeProvider overrideThemeName={pinned ? themeOverride : undefined}>
+      {pinned ? (
+        <ThemeToggleContext.Provider
+          value={{
+            themeName: themeOverride,
+            toggleTheme: () =>
+              updateGlobals({
+                themeOverride:
+                  themeOverride === ThemeName.light
+                    ? ThemeName.dark
+                    : ThemeName.light,
+              }),
+          }}
+        >
+          {content}
+        </ThemeToggleContext.Provider>
+      ) : (
+        content
+      )}
     </CookieThemeProvider>
   )
 }

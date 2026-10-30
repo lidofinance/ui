@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import { useState } from 'react'
 import { describe, expect, it } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
@@ -57,7 +59,7 @@ import { SmallCard } from './small-card'
 import { Stack } from './stack'
 import { StatItem } from './stat-item'
 import { Switch } from './switch'
-import { Tabs } from './tabs'
+import { Tab, Tabs } from './tabs'
 import { Tag } from './tag'
 import { TextLink } from './text-link'
 import { ThemeSwitcher } from './theme-switcher'
@@ -65,7 +67,16 @@ import { TokenAmount } from './token-amount'
 import { TokenSelector } from './token-selector'
 import { Tooltip } from './tooltip'
 import { TxStatus } from './tx-status'
-import { Typography } from './typography'
+import {
+  Body,
+  BodyLarge,
+  Description,
+  GroupName,
+  H1,
+  H2,
+  H3,
+  Typography,
+} from './typography'
 
 const RouterLink: LinkComponent = ({ children, ...props }) => (
   <a {...props}>{children}</a>
@@ -256,16 +267,63 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Tooltip', () => <Tooltip content='Hint'>trigger</Tooltip>],
   ['TxStatus', () => <TxStatus status='loading' title='Pending' />],
   ['Typography', () => <Typography variant='h1'>Heading</Typography>],
+  ['H1', () => <H1>Heading</H1>],
+  ['H2', () => <H2>Heading</H2>],
+  ['H3', () => <H3>Heading</H3>],
+  ['BodyLarge', () => <BodyLarge>Text</BodyLarge>],
+  ['Body', () => <Body>Text</Body>],
+  ['Description', () => <Description>Text</Description>],
+  ['GroupName', () => <GroupName>Group</GroupName>],
+  ['Tab', () => <Tab>Tab</Tab>],
   [
     'Breadcrumbs',
     () => <Breadcrumbs items={[{ label: 'A', href: '/a' }, { label: 'B' }]} />,
   ],
 ]
 
+const barrels = import.meta.glob(
+  ['./*/index.ts', '!./icons/**', '!./utils/**', '!./hooks/**'],
+  { eager: true },
+) as Record<string, Record<string, unknown>>
+
+const exportedComponents = Object.values(barrels).flatMap((module) =>
+  Object.entries(module)
+    .filter(
+      ([name, value]) =>
+        /^[A-Z]/.test(name) &&
+        (typeof value === 'function' ||
+          (typeof value === 'object' && value !== null && '$$typeof' in value)),
+    )
+    .map(([name]) => name),
+)
+
+// Components that only mount inside a case above and have no case of their own.
+const coveredByParent = [
+  'DataListRow',
+  'GridItem',
+  'SidebarGroup',
+  'SidebarInset',
+  'SidebarItem',
+]
+
+const portaled = new Set(['Popover'])
+
 describe('component smoke render', () => {
-  it.each(cases)('%s mounts', (_name, renderCase) => {
+  it('has a case for every exported component', () => {
+    const covered = new Set([
+      ...cases.map(([name]) => name),
+      ...coveredByParent,
+    ])
+    expect(exportedComponents.filter((name) => !covered.has(name))).toEqual([])
+  })
+
+  it.each(cases)('%s mounts', (name, renderCase) => {
     const { container } = render(renderCase())
-    expect(container.firstChild).not.toBeNull()
+    if (portaled.has(name)) {
+      expect(screen.getByRole('dialog')).toBeInTheDocument()
+    } else {
+      expect(container.firstChild).toBeInTheDocument()
+    }
     cleanup()
   })
 })
@@ -296,9 +354,10 @@ describe('behaviour that survived the migration', () => {
 
     fireEvent.click(screen.getByText('B'))
 
-    expect(
-      screen.getByText('B').closest('button')?.getAttribute('aria-selected'),
-    ).toBe('true')
+    expect(screen.getByText('B').closest('button')).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
   })
 
   it('TokenSelector renders the selected option in single mode', () => {
@@ -313,7 +372,7 @@ describe('behaviour that survived the migration', () => {
       />,
     )
 
-    expect(screen.getByText('stETH')).toBeDefined()
-    expect(screen.queryByText('ETH')).toBeNull()
+    expect(screen.getByText('stETH')).toBeInTheDocument()
+    expect(screen.queryByText('ETH')).not.toBeInTheDocument()
   })
 })

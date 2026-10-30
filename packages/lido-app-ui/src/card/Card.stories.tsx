@@ -12,7 +12,7 @@ const meta: Meta<typeof Card> = {
   component: Card,
   tags: ['autodocs'],
   parameters: {
-    storyBackground: 'var(--storybook-background-intence)',
+    storyBackground: 'page',
     docs: {
       description: {
         component:

@@ -134,12 +134,50 @@
   --lido-app-ui-border-radius-dropdown-item: 12px;
   --lido-app-ui-border-radius-tooltip: 20px;
   --lido-app-ui-border-radius-modal: 32px;
+  --lido-app-ui-border-radius-skeleton: 4px;
 
   /* Shadows */
   --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
 
+  /* Stacking: header < drawer scrim (overlay) < drawer < popover/modal < toast < tooltip.
+     Popover and modal share a layer on purpose: both portal to <body>, so the later-mounted overlay wins and nested overlays stack correctly. Consumer chrome must stay below it. */
+  --lido-app-ui-z-index-header: 250;
+  --lido-app-ui-z-index-overlay: 290;
+  --lido-app-ui-z-index-sidebar: 300;
+  --lido-app-ui-z-index-modal: 1000;
+  --lido-app-ui-z-index-popover: 1000;
+  --lido-app-ui-z-index-toast: 1050;
+  --lido-app-ui-z-index-tooltip: 1100;
+
+  /* Fixed header height; use it for scroll-padding-top and offsets under a sticky Header */
+  --lido-app-ui-header-height: 64px;
+
+  /* Spacing scale, mirrors `spaces` in src/utils/responsive.ts */
+  --lido-app-ui-space-2: 2px;
+  --lido-app-ui-space-4: 4px;
+  --lido-app-ui-space-6: 6px;
+  --lido-app-ui-space-8: 8px;
+  --lido-app-ui-space-12: 12px;
+  --lido-app-ui-space-16: 16px;
+  --lido-app-ui-space-20: 20px;
+  --lido-app-ui-space-24: 24px;
+  --lido-app-ui-space-32: 32px;
+  --lido-app-ui-space-40: 40px;
+  --lido-app-ui-space-52: 52px;
+
+  /* Breakpoint widths for calc() and clamp(); media queries live in breakpoints.css */
+  --lido-app-ui-breakpoint-lg: 1440px;
+  --lido-app-ui-breakpoint-ml: 1064px;
+  --lido-app-ui-breakpoint-md: 900px;
+  --lido-app-ui-breakpoint-sm: 600px;
+  --lido-app-ui-breakpoint-xs: 440px;
+  --lido-app-ui-breakpoint-xxs: 400px;
+
   /* Horizontal page padding for page-level shells */
   --lido-app-ui-page-gutter: 52px;
+
+  /* Set on <html> to the scrollbar width removed by a modal's scroll lock; fixed elements can pad with it to avoid shifting */
+  --lido-app-ui-scrollbar-width: 0px;
 
   /* Interaction-state opacities */
   --lido-app-ui-opacity-pressed-content: 0.7;
@@ -149,6 +187,10 @@
 
 :root,
 [data-lido-theme='light'] {
+  /* Display toggles so a component can show one of two icons from CSS alone, before JS knows the theme */
+  --lido-app-ui-light-only-display: inline-flex;
+  --lido-app-ui-dark-only-display: none;
+
   /* Semantic - Text */
   --lido-app-ui-color-text-default: var(--lido-app-ui-palette-black-a900);
   --lido-app-ui-color-text-secondary: var(--lido-app-ui-palette-black-a500);
@@ -192,10 +234,14 @@
   --lido-app-ui-color-border-card: var(--lido-app-ui-palette-white-a900);
   --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-white-a200);
 
+  /* Semantic - Shadow */
+  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a100);
+  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a200);
+
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-gray-200);
   --lido-app-ui-color-background-overlay: var(--lido-app-ui-palette-black-a400);
-  --lido-app-ui-color-background-toast: var(--lido-app-ui-palette-black-a800);
+  --lido-app-ui-color-background-toast: var(--lido-app-ui-palette-black-a900);
 
   /* Semantic - Background / Elements */
   --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-white-a900);
@@ -238,6 +284,9 @@
   --lido-app-ui-color-background-disabled: var(
     --lido-app-ui-palette-black-a200
   );
+  --lido-app-ui-color-background-skeleton: var(
+    --lido-app-ui-palette-black-a200
+  );
   --lido-app-ui-color-background-surface-selected: var(
     --lido-app-ui-palette-blue-600
   );
@@ -258,77 +307,15 @@
   --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-200);
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-100);
   --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-200);
-
-  /* Typography */
-  --lido-app-ui-font-family:
-    'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
-    'Helvetica Neue', sans-serif;
-  --lido-app-ui-font-weight-regular: 400;
-  --lido-app-ui-font-weight-medium: 500;
-  --lido-app-ui-font-weight-semibold: 600;
-  --lido-app-ui-font-weight-bold: 700;
-  --lido-app-ui-font-size-rich-input: 36px;
-  --lido-app-ui-line-height-rich-input: 50px;
-  --lido-app-ui-font-size-body: 16px;
-  --lido-app-ui-line-height-body: 28px;
-  --lido-app-ui-letter-spacing-body: -0.14px;
-  --lido-app-ui-letter-spacing-button: -0.14px;
-  --lido-app-ui-font-size-label: 14px;
-  --lido-app-ui-line-height-label: 24px;
-  --lido-app-ui-letter-spacing-label: -0.14px;
-  --lido-app-ui-font-size-tooltip: 12px;
-  --lido-app-ui-line-height-tooltip: 18px;
-  --lido-app-ui-letter-spacing-tooltip: -0.14px;
-  --lido-app-ui-line-height-description: 20px;
-
-  /* Heading scale */
-  --lido-app-ui-font-size-h1: 42px;
-  --lido-app-ui-line-height-h1: 58px;
-  --lido-app-ui-letter-spacing-h1: -1.5px;
-  --lido-app-ui-font-size-display: 112px;
-  --lido-app-ui-line-height-display: 136px;
-  --lido-app-ui-letter-spacing-display: -6px;
-  --lido-app-ui-font-size-h2: 28px;
-  --lido-app-ui-line-height-h2: 40px;
-  --lido-app-ui-letter-spacing-h2: -0.84px;
-  --lido-app-ui-font-size-h3: 24px;
-  --lido-app-ui-line-height-h3: 36px;
-  --lido-app-ui-letter-spacing-h3: -0.14px;
-
-  /* Radii */
-  --lido-app-ui-border-radius-badge: 8px;
-  --lido-app-ui-border-radius-pill: 100px;
-  --lido-app-ui-border-radius-button-50: 50px;
-  --lido-app-ui-border-radius-control: 100px;
-  --lido-app-ui-border-radius-control-inactive: 110px;
-  --lido-app-ui-border-radius-card: 16px;
-  --lido-app-ui-border-radius-dropdown: 20px;
-  --lido-app-ui-border-radius-dropdown-item: 12px;
-  --lido-app-ui-border-radius-tooltip: 20px;
-  --lido-app-ui-border-radius-modal: 32px;
-
-  /* Shadows */
-  --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
-  --lido-app-ui-shadow-popover: 0 0 10px rgb(0 0 0 / 10%);
-
-  /* Stacking: header < drawer scrim < drawer < popover/modal < tooltip.
-     Consumer chrome must stay below the modal layer so it cannot cover modals. */
-  --lido-app-ui-z-index-header: 250;
-  --lido-app-ui-z-index-overlay: 290;
-  --lido-app-ui-z-index-sidebar: 300;
-  --lido-app-ui-z-index-popover: 1000;
-  --lido-app-ui-z-index-modal: 1000;
-  --lido-app-ui-z-index-tooltip: 1100;
-
-  /* Interaction-state opacities */
-  --lido-app-ui-opacity-pressed-content: 0.7;
-  --lido-app-ui-opacity-disabled-content: 0.3;
-  --lido-app-ui-opacity-disabled-content-compact: 0.2;
 }
 
 /* Dark theme. Follows the `data-lido-theme` attribute set by ThemeProvider /
    CookieThemeProvider from @lidofinance/lido-shared-ui. */
 [data-lido-theme='dark'] {
+  /* Display toggles so a component can show one of two icons from CSS alone, before JS knows the theme */
+  --lido-app-ui-light-only-display: none;
+  --lido-app-ui-dark-only-display: inline-flex;
+
   /* Semantic - Text */
   --lido-app-ui-color-text-default: var(--lido-app-ui-palette-white-a900);
   --lido-app-ui-color-text-secondary: var(--lido-app-ui-palette-white-a500);
@@ -372,10 +359,16 @@
   --lido-app-ui-color-border-card: var(--lido-app-ui-palette-gray-800);
   --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-black-a200);
 
+  /* Semantic - Shadow */
+  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a300);
+  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a400);
+
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-black-a900);
   --lido-app-ui-color-background-overlay: var(--lido-app-ui-palette-black-a500);
-  --lido-app-ui-color-background-toast: var(--lido-app-ui-palette-black-a800);
+  --lido-app-ui-color-background-toast: var(
+    --lido-app-ui-color-background-page
+  );
 
   /* Semantic - Background / Elements */
   --lido-app-ui-color-background-surface: var(--lido-app-ui-palette-gray-800);
@@ -418,6 +411,9 @@
   --lido-app-ui-color-background-disabled: var(
     --lido-app-ui-palette-white-a200
   );
+  --lido-app-ui-color-background-skeleton: var(
+    --lido-app-ui-palette-white-a200
+  );
   --lido-app-ui-color-background-surface-selected: var(
     --lido-app-ui-palette-blue-600
   );
@@ -438,6 +434,14 @@
   --lido-app-ui-color-tint-warning-hover: var(--lido-app-ui-palette-orange-800);
   --lido-app-ui-color-tint-error: var(--lido-app-ui-palette-red-900);
   --lido-app-ui-color-tint-error-hover: var(--lido-app-ui-palette-red-800);
+}
+
+/* var() in a custom property resolves where declared, so redeclare on every theme root */
+:root,
+[data-lido-theme] {
+  --lido-app-ui-shadow-popover:
+    0 0 32px var(--lido-app-ui-color-shadow-secondary),
+    0 0 8px var(--lido-app-ui-color-shadow-primary);
 }
 
 @media (--lido-app-ui-breakpoint-md-down) {

@@ -13,6 +13,7 @@ export default {
 
   addons: [
     '@storybook/addon-docs',
+    '@storybook/addon-a11y',
     {
       name: '@storybook/addon-essentials',
       options: {
