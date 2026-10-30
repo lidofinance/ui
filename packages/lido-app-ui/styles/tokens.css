@@ -173,6 +173,7 @@
   --lido-app-ui-breakpoint-xs: 600px;
   --lido-app-ui-breakpoint-xxs: 400px;
   --lido-app-ui-breakpoint-sidebar: 1280px;
+  --lido-app-ui-breakpoint-logo: 1024px;
 
   /* Horizontal page padding for page-level shells */
   --lido-app-ui-page-gutter: 52px;

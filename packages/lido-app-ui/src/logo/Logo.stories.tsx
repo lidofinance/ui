@@ -40,7 +40,7 @@ export const Variants: Story = {
     docs: {
       description: {
         story:
-          'Full, compact and auto variants, with and without product. Auto hides the wordmark at or below the breakpoint.',
+          'Full, compact and auto variants, with and without product. Auto hides the wordmark below `--lido-app-ui-breakpoint-logo` (or a per-instance `--lido-app-ui-logo-breakpoint`).',
       },
     },
   },

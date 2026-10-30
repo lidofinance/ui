@@ -16,3 +16,6 @@ export const breakpoints = Object.keys(
 
 /** Width below which the Sidebar becomes a drawer; separate from the scale. */
 export const sidebarBreakpointWidth = 1280
+
+/** Width below which Logo `auto` drops the wordmark; separate from the scale. */
+export const logoBreakpointWidth = 1024

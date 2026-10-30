@@ -6,6 +6,7 @@ import { DRAWER_QUERY } from '../sidebar/Sidebar'
 import {
   breakpoints,
   breakpointWidths,
+  logoBreakpointWidth,
   sidebarBreakpointWidth,
 } from './breakpoints'
 
@@ -14,6 +15,12 @@ const read = (file: string) =>
 
 const breakpointsCss = read('breakpoints.css')
 const tokensCss = read('tokens.css')
+
+const componentBreakpoints = [
+  { key: 'sidebar', width: sidebarBreakpointWidth },
+  { key: 'logo', width: logoBreakpointWidth },
+]
+const componentKeys = componentBreakpoints.map(({ key }) => key)
 
 const queries = (css: string) =>
   Array.from(
@@ -30,7 +37,7 @@ describe('breakpoints', () => {
 
   it('defines one -down and one -up query per breakpoint in breakpoints.css', () => {
     const found = queries(breakpointsCss)
-      .filter(({ key }) => key !== 'sidebar')
+      .filter(({ key }) => !componentKeys.includes(key))
       .map(({ key, dir }) => `${key}-${dir}`)
       .sort()
     const expected = breakpoints
@@ -41,7 +48,7 @@ describe('breakpoints', () => {
 
   it('puts -down (width < N) and -up (width >= N) at the same width', () => {
     for (const { key, dir, op, px } of queries(breakpointsCss)) {
-      if (key === 'sidebar') continue
+      if (componentKeys.includes(key)) continue
       const width = breakpointWidths[key as keyof typeof breakpointWidths]
       expect([op, px]).toEqual([dir === 'down' ? '<' : '>=', width])
     }
@@ -55,17 +62,28 @@ describe('breakpoints', () => {
     }
   })
 
-  it('keeps the sidebar breakpoint in sync across CSS, tokens and DRAWER_QUERY', () => {
-    const sidebar = queries(breakpointsCss).filter(
-      ({ key }) => key === 'sidebar',
-    )
-    expect(sidebar).toEqual([
-      { key: 'sidebar', dir: 'down', op: '<', px: sidebarBreakpointWidth },
-      { key: 'sidebar', dir: 'up', op: '>=', px: sidebarBreakpointWidth },
-    ])
-    expect(tokensCss).toContain(
-      `--lido-app-ui-breakpoint-sidebar: ${sidebarBreakpointWidth}px;`,
-    )
+  it.each(componentBreakpoints)(
+    'keeps the $key breakpoint in sync across CSS and tokens',
+    ({ key, width }) => {
+      expect(queries(breakpointsCss).filter((q) => q.key === key)).toEqual([
+        { key, dir: 'down', op: '<', px: width },
+        { key, dir: 'up', op: '>=', px: width },
+      ])
+      expect(tokensCss).toContain(
+        `--lido-app-ui-breakpoint-${key}: ${width}px;`,
+      )
+    },
+  )
+
+  it('keeps DRAWER_QUERY on the sidebar breakpoint', () => {
     expect(DRAWER_QUERY).toBe(`(width < ${sidebarBreakpointWidth}px)`)
+  })
+
+  it('reads the logo token in Logo.module.css', () => {
+    const logoCss = readFileSync(
+      resolve(__dirname, '../logo/Logo.module.css'),
+      'utf-8',
+    )
+    expect(logoCss).toContain('var(--lido-app-ui-breakpoint-logo)')
   })
 })

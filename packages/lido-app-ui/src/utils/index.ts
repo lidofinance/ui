@@ -3,6 +3,7 @@ export type { ActionElementProps } from './ActionElement'
 export {
   breakpoints,
   breakpointWidths,
+  logoBreakpointWidth,
   sidebarBreakpointWidth,
 } from './breakpoints'
 export type { Breakpoint } from './breakpoints'

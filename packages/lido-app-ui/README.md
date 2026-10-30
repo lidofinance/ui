@@ -149,7 +149,7 @@ Breakpoints are desktop-first: `-down` is `(width < N)`, `-up` is `(width >= N)`
 | `xs`  | 600px  |
 | `xxs` | 400px  |
 
-The Sidebar drawer switches at a separate `--lido-app-ui-breakpoint-sidebar-down` / `-up` (1280px), also exported as `sidebarBreakpointWidth`.
+Two component breakpoints sit outside the scale: the Sidebar drawer at `--lido-app-ui-breakpoint-sidebar-down` / `-up` (1280px, `sidebarBreakpointWidth`) and Logo `auto` dropping its wordmark at `--lido-app-ui-breakpoint-logo-down` / `-up` (1024px, `logoBreakpointWidth`).
 
 In CSS use `@media (--lido-app-ui-breakpoint-md-down)`. Responsive props such as `Stack` `gap` take `{ base, mdDown, smDown, … }` (bare `md`/`sm` are aliases), where a key applies below that width:
 

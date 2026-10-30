@@ -46,11 +46,16 @@
   height: 20px;
 }
 
-/* CSS vars are invalid in @media; the huge multiplier makes clamp() act as a breakpoint switch */
+/* CSS vars are invalid in @media; the huge multiplier makes clamp() a switch: hidden below N, shown from N */
 .auto .wordmark {
+  --local-breakpoint: var(
+    --lido-app-ui-logo-breakpoint,
+    var(--lido-app-ui-breakpoint-logo)
+  );
+
   width: clamp(
     0px,
-    calc((100vw - var(--lido-app-ui-logo-breakpoint, 1024px)) * 10000),
+    calc((100vw - var(--local-breakpoint) + 1px) * 10000),
     63.125px
   );
   transition: width 0.2s ease;

@@ -12,3 +12,5 @@
 @custom-media --lido-app-ui-breakpoint-xxs-up (width >= 400px);
 @custom-media --lido-app-ui-breakpoint-sidebar-down (width < 1280px);
 @custom-media --lido-app-ui-breakpoint-sidebar-up (width >= 1280px);
+@custom-media --lido-app-ui-breakpoint-logo-down (width < 1024px);
+@custom-media --lido-app-ui-breakpoint-logo-up (width >= 1024px);
