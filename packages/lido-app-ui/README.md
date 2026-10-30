@@ -157,6 +157,14 @@ In CSS use `@media (--lido-app-ui-breakpoint-md-down)`. Responsive props such as
 <Stack gap={{ base: 24, smDown: 12 }}>{children}</Stack>
 ```
 
+Responsive props measure the page column, not the viewport: inside `SidebarInset` with the sidebar shown, content keys see the viewport minus 296px (so `lgDown` fires at a 1280px viewport); outside it they see the viewport. `Hidden`, `Modal` and the shell components (Sidebar, Logo, page gutter) stay viewport-based. Apps without `SidebarInset` can opt in on their main column:
+
+```tsx
+import { pageContainerName } from '@lidofinance/lido-app-ui'
+
+<main style={{ container: `${pageContainerName} / inline-size` }}>{children}</main>
+```
+
 Page shells align to the page gutter, which shrinks on narrow screens: `padding-inline: var(--lido-app-ui-page-gutter)`.
 
 Popovers, tooltips and modals with `withOverlay` portal to `<body>` and stack by `--lido-app-ui-z-index-*`: header 250, popover and modal 1000, toast 1050, tooltip 1100. Keep your own app chrome below 1000. `Modal` `inertOthers` makes the rest of `<body>` inert; mark body-level toast or live-region roots with `data-lido-overlay-keep` to keep them live.

@@ -19,7 +19,7 @@ export type GridAlign = Exclude<StackAlign, 'baseline'>
 export type GridDataTestId = { root?: string }
 
 type GridOwnProps = {
-  /** Per-breakpoint, desktop-first (see breakpointWidths); breakpoint keys follow the viewport width. A number makes equal columns; a string is used as raw `grid-template-columns`. */
+  /** Per-breakpoint, desktop-first (see breakpointWidths); keys follow the page column inside SidebarInset, otherwise the viewport. A number makes equal columns; a string is used as raw `grid-template-columns`. */
   columns?: Responsive<number | string>
   /** Auto-fit columns of at least this width (number = px). Responds to the Grid's own width, not the viewport; prefer it inside cards, panels and modals. Takes precedence over `columns`. */
   minItemWidth?: number | string

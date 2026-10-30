@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 import {
@@ -5,7 +7,12 @@ import {
   StoryContainer,
   StorySection,
 } from '../../.storybook/components'
-import { spaces } from '../utils'
+import { Sidebar } from '../sidebar/Sidebar'
+import { SidebarInset } from '../sidebar/SidebarInset'
+import { SidebarLayout } from '../sidebar/SidebarLayout'
+import { SidebarToggle } from '../sidebar/SidebarToggle'
+import { LOGO, TopBar } from '../sidebar/storyFixtures'
+import { breakpoints, breakpointWidths, spaces } from '../utils'
 import { Grid } from './Grid'
 import { GridItem } from './GridItem'
 
@@ -104,7 +111,7 @@ export const ResponsiveColumns: Story = {
     docs: {
       description: {
         story:
-          '4 columns, 2 below `md` (900px), 1 below `sm` (600px). Edit `columns` and `gap` in Controls or use the viewport toolbar to resize.',
+          '4 columns, 2 below `md` (900px), 1 below `sm` (768px). Edit `columns` and `gap` in Controls or use the viewport toolbar to resize.',
       },
     },
   },
@@ -244,4 +251,82 @@ export const Areas: Story = {
       },
     },
   },
+}
+
+const activeKey = (width: number) =>
+  [...breakpoints].reverse().find((bp) => width < breakpointWidths[bp]) ??
+  'base'
+
+const ShellReadout = () => {
+  const columnRef = useRef<HTMLDivElement>(null)
+  const [viewport, setViewport] = useState(() => window.innerWidth)
+  const [column, setColumn] = useState(0)
+
+  useEffect(() => {
+    const onResize = () => setViewport(window.innerWidth)
+    window.addEventListener('resize', onResize)
+    const el = columnRef.current
+    const observer = new ResizeObserver(([entry]) =>
+      setColumn(Math.round(entry.contentRect.width)),
+    )
+    if (el) observer.observe(el)
+    return () => {
+      window.removeEventListener('resize', onResize)
+      observer.disconnect()
+    }
+  }, [])
+
+  return (
+    <div ref={columnRef}>
+      <div style={{ padding: '24px var(--lido-app-ui-page-gutter)' }}>
+        <StoryBox style={{ fontFamily: 'monospace', fontSize: 13 }}>
+          <div>viewport: {viewport}px</div>
+          <div>page column: {column}px</div>
+          <div>active key: {activeKey(column)}</div>
+        </StoryBox>
+        <div style={{ marginTop: 24 }}>
+          <Grid columns={{ base: 4, lgDown: 3, mdDown: 2, smDown: 1 }} gap={16}>
+            {cells(8)}
+          </Grid>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export const InSidebarShell: Story = {
+  render: () => (
+    <SidebarLayout style={{ minHeight: '100dvh' }}>
+      <Sidebar logo={LOGO}>{null}</Sidebar>
+      <SidebarInset>
+        <TopBar>
+          <SidebarToggle />
+        </TopBar>
+        <ShellReadout />
+      </SidebarInset>
+    </SidebarLayout>
+  ),
+  parameters: {
+    layout: 'fullscreen',
+    controls: { disable: true },
+    docs: {
+      story: { inline: false, iframeHeight: 900 },
+      description: {
+        story:
+          'Keys are measured on the page column (SidebarInset), not the viewport. At viewport 1280 the column is 984px, so `lgDown` and `mlDown` fire and the grid has 3 columns; at 1279 the column is 1279px and it still has 3. There is no column jump across the sidebar breakpoint, which viewport keys would cause (4 columns at 1280, 3 at 1279).',
+      },
+    },
+  },
+}
+
+export const AtSidebarUp: Story = {
+  ...InSidebarShell,
+  tags: ['!autodocs'],
+  globals: { viewport: { value: 'sidebar-up', isRotated: false } },
+}
+
+export const AtSidebarDown: Story = {
+  ...InSidebarShell,
+  tags: ['!autodocs'],
+  globals: { viewport: { value: 'sidebar-down', isRotated: false } },
 }

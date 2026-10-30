@@ -182,37 +182,41 @@ const scaleRows: Record<
   base: {
     range: `width >= ${breakpointWidths.lg}px`,
     use: 'Wide desktop',
-    components: 'Stack, Grid, GridItem, Hidden',
+    components: 'Stack, Grid, GridItem (page column), Hidden',
   },
   lg: {
     range: `width < ${breakpointWidths.lg}px`,
     use: 'Desktop without room for a persistent sidebar',
-    components: 'Stack, Grid, GridItem, Hidden',
+    components: 'Stack, Grid, GridItem (page column), Hidden (viewport)',
   },
   ml: {
     range: `width < ${breakpointWidths.ml}px`,
     use: 'Tablet landscape',
-    components: 'Stack, Grid, GridItem, Hidden',
+    components: 'Stack, Grid, GridItem (page column), Hidden (viewport)',
   },
   md: {
     range: `width < ${breakpointWidths.md}px`,
     use: 'Tablet; page gutter 52 to 32, two-column hero rows stack',
-    components: 'Page gutter token, Stack, Grid, GridItem, Hidden',
+    components:
+      'Page gutter token (viewport), Stack, Grid, GridItem (page column), Hidden (viewport)',
   },
   sm: {
     range: `width < ${breakpointWidths.sm}px`,
     use: 'Large phone or tablet portrait; page gutter 32 to 12, stat and module grids go single-column',
-    components: 'Page gutter token, Stack, Grid, GridItem, Hidden',
+    components:
+      'Page gutter token (viewport), Stack, Grid, GridItem (page column), Hidden (viewport)',
   },
   xs: {
     range: `width < ${breakpointWidths.xs}px`,
     use: 'Phone; Modal goes full-screen',
-    components: 'Modal, Stack, Grid, GridItem, Hidden',
+    components:
+      'Modal (viewport), Stack, Grid, GridItem (page column), Hidden (viewport)',
   },
   xxs: {
     range: `width < ${breakpointWidths.xxs}px`,
     use: 'Small phone; Modal padding 32 to 20',
-    components: 'Modal, Stack, Grid, GridItem, Hidden',
+    components:
+      'Modal (viewport), Stack, Grid, GridItem (page column), Hidden (viewport)',
   },
 }
 
@@ -322,6 +326,10 @@ export default {
 const propsSnippet = `<Stack direction={{ base: 'row', smDown: 'column' }} />
 <Hidden below='sm'>{children}</Hidden>`
 
+const pageColumnSnippet = `import { pageContainerName } from '@lidofinance/lido-app-ui'
+
+<main style={{ container: \`\${pageContainerName} / inline-size\` }}>{children}</main>`
+
 const jsSnippet = `import {
   breakpointWidths,
   logoBreakpointWidth,
@@ -405,6 +413,15 @@ export const Breakpoints: Story = {
         <Snippet>{postcssSnippet}</Snippet>
         <Note>Responsive props and Hidden:</Note>
         <Snippet>{propsSnippet}</Snippet>
+        <Note>
+          Stack, Grid and GridItem keys are measured on the page column inside{' '}
+          <code>SidebarInset</code>: with the sidebar shown they see the
+          viewport minus 296px, so <code>lgDown</code> already fires at a 1280px
+          viewport. Outside it they see the viewport. Hidden and the shell
+          components (Sidebar, Logo, Modal, page gutter) stay viewport-based.
+          Apps without SidebarInset can mark their main column:
+        </Note>
+        <Snippet>{pageColumnSnippet}</Snippet>
         <Note>JS:</Note>
         <Snippet>{jsSnippet}</Snippet>
         <Note>

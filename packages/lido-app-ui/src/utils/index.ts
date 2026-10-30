@@ -4,6 +4,7 @@ export {
   breakpoints,
   breakpointWidths,
   logoBreakpointWidth,
+  pageContainerName,
   sidebarBreakpointWidth,
 } from './breakpoints'
 export type { Breakpoint } from './breakpoints'

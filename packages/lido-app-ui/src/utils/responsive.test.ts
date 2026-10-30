@@ -3,7 +3,7 @@ import { createRequire } from 'module'
 import { resolve } from 'path'
 import { describe, expect, it } from 'vitest'
 
-import { breakpoints } from './breakpoints'
+import { breakpoints, breakpointWidths, pageContainerName } from './breakpoints'
 import {
   mergeResponsive,
   responsiveVars,
@@ -105,5 +105,35 @@ describe('responsive-prop mixin', () => {
     expect(out['@media (--lido-app-ui-breakpoint-sm-down)']).toEqual({
       gap: 'var(--local-gap-sm)',
     })
+  })
+
+  it('emits a container rule per breakpoint at the same width as its media key', () => {
+    const out = mixin({}, 'gap', 'gap', '0')
+    for (const bp of breakpoints) {
+      expect(
+        out[
+          `@container ${pageContainerName} (width < ${breakpointWidths[bp]}px)`
+        ],
+      ).toEqual({ gap: `var(--local-gap-${bp})` })
+    }
+  })
+
+  it('orders every container rule after every media rule', () => {
+    const keys = Object.keys(mixin({}, 'gap', 'gap', '0'))
+    const lastMedia = keys.map((k) => k.startsWith('@media')).lastIndexOf(true)
+    const firstContainer = keys.findIndex((k) => k.startsWith('@container'))
+    expect(lastMedia).toBeGreaterThanOrEqual(0)
+    expect(firstContainer).toBeGreaterThan(lastMedia)
+  })
+
+  it('uses the page container name set by SidebarInset', () => {
+    const inset = readFileSync(
+      resolve(__dirname, '../sidebar/SidebarInset.module.css'),
+      'utf-8',
+    )
+    expect(inset).toContain(`container: ${pageContainerName} / inline-size`)
+    expect(readFileSync(mixinPath, 'utf-8')).toContain(
+      `const containerName = '${pageContainerName}'`,
+    )
   })
 })

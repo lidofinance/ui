@@ -66,7 +66,7 @@ export type StackProps<E extends ElementType = never> = [E] extends [never]
   ? StackImplProps
   : PolymorphicProps<E, StackOwnProps>
 
-/** Flex container; `direction`, `gap`, `align`, `justify` and `wrap` take a value or a desktop-first per-breakpoint object like `{ base: 'row', smDown: 'column' }`, where `smDown` applies below `breakpointWidths.sm` (768px). */
+/** Flex container; `direction`, `gap`, `align`, `justify` and `wrap` take a value or a desktop-first per-breakpoint object like `{ base: 'row', smDown: 'column' }`, where `smDown` applies below `breakpointWidths.sm` (768px). Keys follow the page column inside SidebarInset, otherwise the viewport. */
 export const Stack = forwardRef<HTMLElement, StackImplProps>(
   (
     {

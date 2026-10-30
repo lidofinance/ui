@@ -19,3 +19,6 @@ export const sidebarBreakpointWidth = 1280
 
 /** Width below which Logo `auto` drops the wordmark; separate from the scale. */
 export const logoBreakpointWidth = 1024
+
+/** Container name of the page column; set `container: lido-app-ui-page / inline-size` on your main column outside SidebarInset. */
+export const pageContainerName = 'lido-app-ui-page'

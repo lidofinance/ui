@@ -131,7 +131,7 @@ export const Responsive: Story = {
     docs: {
       description: {
         story:
-          'Row on wide screens, column with a smaller gap below the `sm` breakpoint (600px). `align` is responsive too, so the cross axis can switch from centered to stretched together with the direction. Edit the objects in Controls or use the viewport toolbar to resize.',
+          'Row on wide screens, column with a smaller gap below the `sm` breakpoint (768px). `align` is responsive too, so the cross axis can switch from centered to stretched together with the direction. Edit the objects in Controls or use the viewport toolbar to resize.',
       },
     },
   },

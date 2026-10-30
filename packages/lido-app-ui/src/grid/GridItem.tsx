@@ -13,7 +13,7 @@ import styles from './GridItem.module.css'
 export type GridItemDataTestId = { root?: string }
 
 type GridItemOwnProps = {
-  /** Per-breakpoint, desktop-first (see breakpointWidths). Number of columns to span; `'full'` spans every column. When Grid `columns` shrinks, make `span` responsive too: a span wider than the current column count adds an empty implicit track, and its gap shortens every other cell. */
+  /** Per-breakpoint, desktop-first (see breakpointWidths; page column inside SidebarInset, otherwise viewport). Number of columns to span; `'full'` spans every column. When Grid `columns` shrinks, make `span` responsive too: a span wider than the current column count adds an empty implicit track, and its gap shortens every other cell. */
   span?: Responsive<number | 'full'>
   /** Places the item in a named `grid-template-areas` area. */
   area?: string

@@ -7,17 +7,17 @@ type DownKey = `${Breakpoint}Down`
 type ResponsiveObject<T> = {
   /** Applies at every width unless a breakpoint key overrides it. */
   base?: T
-  /** Applies at 1279px and below. */
+  /** 1279px and below. */
   lgDown?: T
-  /** Applies at 1023px and below. */
+  /** 1023px and below. */
   mlDown?: T
-  /** Applies at 899px and below. */
+  /** 899px and below. */
   mdDown?: T
-  /** Applies at 767px and below. */
+  /** 767px and below. */
   smDown?: T
-  /** Applies at 599px and below. */
+  /** 599px and below. */
   xsDown?: T
-  /** Applies at 399px and below. */
+  /** 399px and below. */
   xxsDown?: T
   /** Alias of `lgDown`: applies at 1279px and below. */
   lg?: T
@@ -33,7 +33,7 @@ type ResponsiveObject<T> = {
   xxs?: T
 }
 
-/** Desktop-first: `base` applies everywhere, `<bp>Down` (alias `<bp>`) applies at that breakpoint's width and below, see `breakpointWidths`. */
+/** Desktop-first: `base` applies everywhere, `<bp>Down` (alias `<bp>`) applies at that breakpoint's width and below, see `breakpointWidths`. Measured on the page column (SidebarInset, or any `pageContainerName` container) when inside one, otherwise the viewport. */
 export type Responsive<T> = T | ResponsiveObject<T>
 
 /** Spacing scale in px. */

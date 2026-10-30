@@ -66,6 +66,7 @@ export {
   breakpoints,
   breakpointWidths,
   logoBreakpointWidth,
+  pageContainerName,
   sidebarBreakpointWidth,
   spaces,
 } from './utils'

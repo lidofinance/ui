@@ -5,4 +5,7 @@
 
   /* lets Header and Breadcrumbs shrink instead of overflowing */
   min-width: 0;
+
+  /* page column for container-based responsive props, see pageContainerName */
+  container: lido-app-ui-page / inline-size;
 }
