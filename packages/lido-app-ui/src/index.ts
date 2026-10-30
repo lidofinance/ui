@@ -22,6 +22,14 @@ export * from './grid'
 export * from './header'
 export * from './hex'
 export * from './hidden'
+export {
+  Portal,
+  useBodyScrollLock,
+  useEscape,
+  useFocusTrap,
+  useOutsideClick,
+} from './hooks'
+export type { FocusTrapOptions, PortalProps } from './hooks'
 export * from './icon-button'
 export * from './identicon'
 export * from './info-tooltip'

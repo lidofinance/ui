@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 
@@ -10,21 +10,19 @@ import {
   useBodyScrollLock,
   useEscape,
   useFocusTrap,
-  useIsomorphicLayoutEffect,
   useOutsideClick,
 } from '.'
 
 const meta: Meta<typeof Portal> = {
-  title: 'Internal/Overlay hooks',
+  title: 'Feedback & Overlays/Overlay hooks',
   component: Portal,
-  tags: ['autodocs'],
   parameters: {
     layout: 'padded',
     controls: { disable: true },
     docs: {
       description: {
         component:
-          'Internal building blocks for overlays (modal, drawer, popover). Not exported from the package: import from `../hooks` inside `lido-app-ui`. Combine `Portal`, `useFocusTrap`, `useEscape`, `useBodyScrollLock` and `useOutsideClick` as needed.',
+          'Building blocks for custom overlays (drawer, sheet, dropdown). Exported from the package, so overlays you build join the same Escape, outside-click, focus and scroll-lock stacks as Modal and Popover. Combine `Portal`, `useFocusTrap`, `useEscape`, `useBodyScrollLock` and `useOutsideClick` as needed.',
       },
     },
   },
@@ -38,18 +36,18 @@ const panelStyle = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  zIndex: 1000,
+  zIndex: 'var(--lido-app-ui-z-index-modal)',
   display: 'flex',
   flexDirection: 'column',
   gap: 12,
   padding: 24,
   width: 320,
   boxSizing: 'border-box',
-  borderRadius: 12,
+  borderRadius: 'var(--lido-app-ui-border-radius-card)',
   border: '1px solid var(--lido-app-ui-color-border-default)',
   background: 'var(--lido-app-ui-color-background-surface)',
   color: 'var(--lido-app-ui-color-text-default)',
-  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+  boxShadow: 'var(--lido-app-ui-shadow-popover)',
 } as const
 
 type PanelProps = {
@@ -60,10 +58,10 @@ type PanelProps = {
 
 const Panel = ({ title, onClose, children }: PanelProps) => {
   const [el, setEl] = useState<HTMLDivElement | null>(null)
-  useFocusTrap(el, true)
-  useEscape(true, onClose)
-  useBodyScrollLock(true)
-  useOutsideClick(el, onClose, true)
+  useFocusTrap(el)
+  useEscape(onClose)
+  useBodyScrollLock()
+  useOutsideClick(el, onClose)
 
   return (
     <Portal>
@@ -110,7 +108,7 @@ export const NestedLayers: Story = {
     docs: {
       description: {
         story:
-          '`useEscape(active, handler)`, `useFocusTrap(element, active, { initialFocus?, restoreFocus? })` and `useOutsideClick(element, handler, enabled)` are all layered: with several active overlays only the newest handles Escape, Tab and outside clicks. Open the second panel and press Escape or click outside: only the top one closes.',
+          '`useEscape(handler, { enabled? })`, `useFocusTrap(element, { enabled?, initialFocus?, returnFocus?, restoreFocus? })` and `useOutsideClick(element, handler, { enabled? })` are all layered: with several active overlays only the newest handles Escape, Tab and outside clicks. Open the second panel and press Escape or click outside: only the top one closes.',
       },
     },
   },
@@ -140,7 +138,7 @@ export const PortalThemeScope: Story = {
     docs: {
       description: {
         story:
-          '`<Portal container?>` renders `null` until mounted (SSR-safe). Without `container` it mounts into `document.body`, and inside a `[data-lido-theme]` scope it mirrors that attribute onto its root, so tokens keep resolving to the same theme. Below, the portaled card lives in `body` but stays dark.',
+          '`<Portal container?>` renders `null` until mounted with `container`; without it a hidden marker `<span>` renders until the theme scope resolves (SSR-safe, but mind table and paragraph contexts). It mounts into `document.body`, and inside a `[data-lido-theme]` scope it mirrors that attribute onto its root, so tokens keep resolving to the same theme. Below, the portaled card lives in `body` but stays dark.',
       },
     },
   },
@@ -151,7 +149,7 @@ export const PortalThemeScope: Story = {
         <div
           style={{
             padding: 24,
-            borderRadius: 12,
+            borderRadius: 'var(--lido-app-ui-border-radius-dropdown-item)',
             background: 'var(--lido-app-ui-color-background-surface)',
             color: 'var(--lido-app-ui-color-text-default)',
           }}
@@ -167,24 +165,5 @@ export const PortalThemeScope: Story = {
         </div>
       </DarkThemeProvider>
     )
-  },
-}
-
-export const UseIsomorphicLayoutEffect: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story:
-          '`useLayoutEffect` in the browser, `useEffect` on the server, so SSR does not warn. Use it for measurements that must happen before paint.',
-      },
-    },
-  },
-  render: function Render() {
-    const ref = useRef<HTMLDivElement>(null)
-    const [width, setWidth] = useState(0)
-    useIsomorphicLayoutEffect(() => {
-      setWidth(ref.current?.offsetWidth ?? 0)
-    }, [])
-    return <div ref={ref}>Measured width: {width}px</div>
   },
 }

@@ -31,7 +31,7 @@ import { Input } from './input'
 import { LinkProvider, type LinkComponent } from './link-provider'
 import { Logo } from './logo'
 import { MessageBox } from './message-box'
-import { Modal } from './modal'
+import { Modal, ModalCard } from './modal'
 import { NavLink } from './nav-link'
 import { Notification } from './notification'
 import { Pagination } from './pagination'
@@ -165,6 +165,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Logo', () => <Logo />],
   ['MessageBox', () => <MessageBox variant='warning'>Careful</MessageBox>],
   ['Modal', () => <Modal title='Supply'>body</Modal>],
+  ['ModalCard', () => <ModalCard title='Supply'>body</ModalCard>],
   ['NavLink', () => <NavLink href='/a'>Link</NavLink>],
   ['Notification', () => <Notification title='Saved' />],
   [
@@ -183,6 +184,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     () => (
       <Popover
         open
+        aria-label='Panel'
         onClose={() => undefined}
         anchorRef={{ current: document.body }}
       >
@@ -325,6 +327,18 @@ describe('component smoke render', () => {
       expect(container.firstChild).toBeInTheDocument()
     }
     cleanup()
+  })
+})
+
+describe('package entry', () => {
+  it('exports the overlay hooks and Portal', async () => {
+    const entry = await import('./index')
+    expect(entry.Portal).toBeTypeOf('function')
+    expect(entry.useEscape).toBeTypeOf('function')
+    expect(entry.useOutsideClick).toBeTypeOf('function')
+    expect(entry.useFocusTrap).toBeTypeOf('function')
+    expect(entry.useBodyScrollLock).toBeTypeOf('function')
+    expect(entry.ModalCard).toBeTypeOf('object')
   })
 })
 

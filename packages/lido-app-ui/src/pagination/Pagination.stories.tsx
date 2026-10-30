@@ -7,30 +7,10 @@ import { Pagination } from '.'
 const meta: Meta<typeof Pagination> = {
   title: 'Navigation/Pagination',
   component: Pagination,
-  tags: ['autodocs'],
   args: {
     page: 1,
     pageCount: 879,
     pageSize: 10,
-  },
-  argTypes: {
-    page: {
-      description: 'Current page, 1-based — the component is controlled',
-    },
-    pageCount: { description: 'Total number of pages' },
-    pageSize: {
-      description: 'Current page size; omit to hide the "Show N Records" block',
-    },
-    pageSizeOptions: { description: 'Choices in the page-size selector' },
-    labels: { description: 'Visible texts and `aria-label`s, for i18n' },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Page-size selector on the left, page number input with previous/next controls on the right. Type a page and press Enter (or blur) to jump; out-of-range values are clamped.',
-      },
-    },
   },
 }
 

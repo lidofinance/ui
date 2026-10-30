@@ -5,51 +5,98 @@ import { createLayerStack } from './overlayStack'
 const listenTrapLayer = createLayerStack('keydown')
 
 const TABBABLE =
-  'a[href],button,input:not([type="hidden"]),select,textarea,[tabindex]:not([tabindex="-1"]),[contenteditable="true"]'
+  'a[href],area[href],button,input:not([type="hidden"]),select,textarea,summary,iframe,audio[controls],video[controls],[tabindex],[contenteditable]:not([contenteditable="false"])'
 
-const isRendered = (el: HTMLElement) => {
-  const style = getComputedStyle(el)
-  return style.visibility !== 'hidden' && style.display !== 'none'
+// jsdom has no checkVisibility, and `display` isn't inherited, so walk up to the container.
+const isRendered = (el: HTMLElement, container: HTMLElement) => {
+  if (getComputedStyle(el).visibility === 'hidden') return false
+  for (
+    let node: HTMLElement | null = el;
+    node && node !== container;
+    node = node.parentElement
+  ) {
+    if (getComputedStyle(node).display === 'none') return false
+  }
+  return true
 }
 
 const getTabbable = (container: HTMLElement) =>
   Array.from(container.querySelectorAll<HTMLElement>(TABBABLE)).filter(
     (el) =>
       !el.matches(':disabled') &&
+      !el.getAttribute('tabindex')?.trim().startsWith('-') &&
       el.getAttribute('aria-hidden') !== 'true' &&
-      isRendered(el),
+      !el.closest('[inert]') &&
+      isRendered(el, container),
+  )
+
+const isGroupedRadio = (el: Element | null): el is HTMLInputElement =>
+  el instanceof HTMLInputElement && el.type === 'radio' && el.name !== ''
+
+// A named radio group is one tab stop; the browser may enter or leave it at any of its radios.
+const sameStop = (a: Element | null, b: HTMLElement) =>
+  a === b ||
+  (isGroupedRadio(a) &&
+    isGroupedRadio(b) &&
+    a.name === b.name &&
+    a.form === b.form)
+
+const isChecked = (el: Element) => isGroupedRadio(el) && el.checked
+
+// Browsers enter a radio group at its checked radio.
+const entryPoint = (items: HTMLElement[], el: HTMLElement) =>
+  items.find((o) => sameStop(o, el) && (o as HTMLInputElement).checked) ?? el
+
+// One tab stop per radio group: unchecked radios are skipped when a sibling is checked.
+const getStops = (items: HTMLElement[]) =>
+  items.filter(
+    (el) =>
+      !isGroupedRadio(el) ||
+      el.checked ||
+      !items.some((o) => o !== el && sameStop(o, el) && isChecked(o)),
   )
 
 export type FocusTrapOptions = {
-  /** Element to focus on activate; defaults to first tabbable, then the container. */
+  /** Default true. */
+  enabled?: boolean
+  /** Element to focus on activate; defaults to focus already inside, then first tabbable, then the container. */
   initialFocus?: RefObject<HTMLElement | null>
+  /** Element to restore focus to; defaults to the active element at activation. */
+  returnFocus?: HTMLElement | null
   /** Return focus to the previously focused element on deactivate. Default true. */
   restoreFocus?: boolean
 }
 
-/** Keeps Tab / Shift+Tab inside `element` while `active`; with nested traps only the newest one handles Tab. */
+/** Keeps Tab / Shift+Tab inside `element` while `enabled`; with nested traps only the newest one handles Tab. */
 export const useFocusTrap = (
   element: HTMLElement | null,
-  active: boolean,
   options: FocusTrapOptions = {},
 ) => {
+  const { enabled = true } = options
   const optionsRef = useRef(options)
   optionsRef.current = options
 
   useEffect(() => {
     const container = element
-    if (!active || !container) return
+    if (!enabled || !container) return
 
-    const previous = document.activeElement as HTMLElement | null
+    const previous =
+      optionsRef.current.returnFocus ??
+      (document.activeElement as HTMLElement | null)
 
-    const target =
-      optionsRef.current.initialFocus?.current ??
-      getTabbable(container)[0] ??
-      container
-    if (target === container && !container.hasAttribute('tabindex')) {
-      container.setAttribute('tabindex', '-1')
+    const explicit = optionsRef.current.initialFocus?.current
+    if (explicit) {
+      explicit.focus({ preventScroll: true })
+      explicit.scrollIntoView?.({ block: 'nearest' })
+    } else if (!container.contains(document.activeElement)) {
+      const items = getTabbable(container)
+      const target = items[0] ? entryPoint(items, items[0]) : container
+      if (target === container && !container.hasAttribute('tabindex')) {
+        container.setAttribute('tabindex', '-1')
+      }
+      target.focus({ preventScroll: true })
+      target.scrollIntoView?.({ block: 'nearest' })
     }
-    target.focus({ preventScroll: true })
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== 'Tab') return
@@ -59,21 +106,27 @@ export const useFocusTrap = (
         container.focus()
         return
       }
-      const first = items[0]
-      const last = items[items.length - 1]
+      const stops = getStops(items)
+      const first = stops[0]
+      const last = stops[stops.length - 1]
       const current = document.activeElement
+      const currentIndex = items.indexOf(current as HTMLElement)
+      const atEnd =
+        sameStop(current, last) ||
+        (currentIndex >= 0 && currentIndex >= items.indexOf(last))
+      const atStart =
+        current === container ||
+        sameStop(current, first) ||
+        (currentIndex >= 0 && currentIndex <= items.indexOf(first))
       if (!container.contains(current)) {
         event.preventDefault()
-        ;(event.shiftKey ? last : first).focus()
-      } else if (
-        event.shiftKey &&
-        (current === first || current === container)
-      ) {
+        entryPoint(items, event.shiftKey ? last : first).focus()
+      } else if (event.shiftKey && atStart) {
         event.preventDefault()
-        last.focus()
-      } else if (!event.shiftKey && current === last) {
+        entryPoint(items, last).focus()
+      } else if (!event.shiftKey && atEnd) {
         event.preventDefault()
-        first.focus()
+        entryPoint(items, first).focus()
       }
     }
 
@@ -88,5 +141,5 @@ export const useFocusTrap = (
         previous.focus({ preventScroll: true })
       }
     }
-  }, [element, active])
+  }, [element, enabled])
 }

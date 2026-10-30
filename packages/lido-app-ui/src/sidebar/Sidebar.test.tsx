@@ -299,8 +299,8 @@ const NestedOverlay = ({
   children: ReactNode
 }) => {
   const [panel, setPanel] = useState<HTMLDivElement | null>(null)
-  useFocusTrap(panel, true, { restoreFocus: false })
-  useEscape(panel != null, onClose)
+  useFocusTrap(panel, { restoreFocus: false })
+  useEscape(onClose, { enabled: panel != null })
   return (
     <Portal>
       <div ref={setPanel} role='dialog'>

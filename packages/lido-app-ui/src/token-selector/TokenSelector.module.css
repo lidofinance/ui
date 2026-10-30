@@ -1,5 +1,4 @@
 .root {
-  position: relative;
   display: inline-flex;
   width: 100%;
 }
@@ -8,7 +7,7 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--lido-app-ui-space-6);
   width: 100%;
   border: 1px solid var(--lido-app-ui-color-border-default);
   background-color: transparent;
@@ -46,7 +45,7 @@
   display: flex;
   flex: 1 1 0%;
   align-items: center;
-  gap: 6px;
+  gap: var(--lido-app-ui-space-6);
   min-width: 0;
 }
 
@@ -106,7 +105,7 @@
 .single {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--lido-app-ui-space-6);
   box-sizing: border-box;
   color: var(--lido-app-ui-color-text-default);
 }
@@ -120,15 +119,10 @@
 }
 
 .panel {
-  position: absolute;
-  z-index: 1;
-  top: calc(100% + 4px);
-  right: 0;
-  left: 0;
-  box-sizing: border-box;
+  gap: 0;
+  padding: 0;
   border: 0.5px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-dropdown);
-  background-color: var(--lido-app-ui-color-background-surface);
   box-shadow: 0 4px 8px rgb(0 0 0 / 5%);
 }
 

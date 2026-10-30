@@ -1,40 +1,51 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import type { Meta, StoryObj } from '@storybook/react'
+import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 
 import { Button } from '../button'
 import { DataList, DataListRow } from '../data-list'
-import { Modal } from '.'
+import { Popover } from '../popover'
+import { Modal, ModalCard, type ModalProps } from '.'
 
 const meta: Meta<typeof Modal> = {
   title: 'Feedback & Overlays/Modal',
   component: Modal,
-  tags: ['autodocs'],
   args: {
     title: 'Supply stETH',
-    withOverlay: false,
     bodyFill: false,
+    lockScroll: true,
+    closeOnEscape: true,
+    closeOnOverlayClick: true,
     subtitle: 'Review the details before you confirm',
   },
   argTypes: {
-    title: { description: 'Header text; omit for a bare card' },
-    subtitle: { description: 'Optional line under the title' },
+    open: {
+      control: false,
+      table: { defaultValue: { summary: 'true' } },
+    },
     withOverlay: {
-      description: 'Wraps the card in the scrim and locks body scroll',
+      control: false,
+      table: { defaultValue: { summary: 'false' } },
+    },
+    lockScroll: {
       control: { type: 'boolean' },
+      table: { defaultValue: { summary: 'true' } },
+    },
+    closeOnEscape: {
+      control: { type: 'boolean' },
+      table: { defaultValue: { summary: 'true' } },
+    },
+    closeOnOverlayClick: {
+      control: { type: 'boolean' },
+      table: { defaultValue: { summary: 'true' } },
     },
     bodyFill: {
-      description: 'Stretches the body — only matters full-screen on mobile',
       control: { type: 'boolean' },
     },
   },
   parameters: {
     layout: 'padded',
-    docs: {
-      description: {
-        component:
-          'The dialog card used for supply, borrow and repay flows. With `withOverlay` it is portaled, closes on Escape and scrim click, traps focus and locks body scroll (opt out with `closeOnEscape`, `closeOnOverlayClick`, `lockScroll`).',
-      },
-    },
   },
 }
 
@@ -49,43 +60,91 @@ const body = (
   </DataList>
 )
 
+type OverlayDemoProps = Omit<ModalProps, 'open' | 'onClose'> & {
+  label?: string
+}
+
+const OverlayDemo = ({ label = 'Open modal', ...props }: OverlayDemoProps) => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>{label}</Button>
+      <Modal
+        {...props}
+        withOverlay
+        open={open}
+        onClose={() => setOpen(false)}
+      />
+    </>
+  )
+}
+
 export const Card: Story = {
-  render: (args) => (
-    <Modal {...args} onClose={() => undefined}>
+  argTypes: {
+    lockScroll: { control: false },
+    closeOnEscape: { control: false },
+    closeOnOverlayClick: { control: false },
+  },
+  render: ({ title, subtitle, bodyFill }) => (
+    <ModalCard
+      title={title}
+      subtitle={subtitle}
+      bodyFill={bodyFill}
+      onClose={() => undefined}
+    >
       {body}
-    </Modal>
+    </ModalCard>
+  ),
+  parameters: {
+    storyBackground: 'page',
+    docs: {
+      description: {
+        story:
+          '`ModalCard` renders the bare card with no overlay behavior: you own the portal and the positioning. Shown here on a muted surface so the white card reads.',
+      },
+    },
+  },
+}
+
+export const InDarkScope: Story = {
+  tags: ['!autodocs'],
+  render: () => (
+    <DarkThemeProvider>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 16,
+          padding: 24,
+          borderRadius: 'var(--lido-app-ui-border-radius-modal)',
+          background: 'var(--lido-app-ui-color-background-surface)',
+        }}
+      >
+        <OverlayDemo title='Dark scope overlay'>
+          <p style={{ margin: 0 }}>
+            The portaled card keeps the dark scope text color and font.
+          </p>
+        </OverlayDemo>
+        <ModalCard title='Dark scope' onClose={() => undefined}>
+          <p style={{ margin: 0 }}>Plain text keeps the scope text color.</p>
+        </ModalCard>
+      </div>
+    </DarkThemeProvider>
   ),
   parameters: {
     docs: {
       description: {
         story:
-          'By default the card renders bare — you own the portal and the positioning. Shown here on a muted surface so the white card reads.',
+          'A nested `DarkThemeProvider` on a light page. The card sets its own text color and font, so unstyled body text stays readable.',
       },
     },
   },
 }
 
 export const WithOverlay: Story = {
-  render: function Render() {
-    const [open, setOpen] = useState(false)
-
-    return (
-      <>
-        <Button onClick={() => setOpen(true)}>Open modal</Button>
-        {open ? (
-          <Modal
-            title='Supply stETH'
-            withOverlay
-            onClose={() => setOpen(false)}
-          >
-            {body}
-          </Modal>
-        ) : null}
-      </>
-    )
-  },
+  render: (args) => <OverlayDemo {...args}>{body}</OverlayDemo>,
   parameters: {
-    controls: { disable: true },
     docs: {
       description: {
         story:
@@ -125,28 +184,18 @@ const operatorRow = (name: string, note: string) => (
 )
 
 export const ChooseNodeOperator: Story = {
-  render: function Render() {
-    const [open, setOpen] = useState(false)
-
-    return (
-      <>
-        <Button onClick={() => setOpen(true)}>Choose operator</Button>
-        {open ? (
-          <Modal
-            withOverlay
-            title='Choose a Node Operator'
-            subtitle='Select the operator you want to manage'
-            onClose={() => setOpen(false)}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {operatorRow('Chorus One', 'Available types: PTO, IODC')}
-              {operatorRow('Operator #182', 'CSM')}
-            </div>
-          </Modal>
-        ) : null}
-      </>
-    )
-  },
+  render: () => (
+    <OverlayDemo
+      label='Choose operator'
+      title='Choose a Node Operator'
+      subtitle='Select the operator you want to manage'
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {operatorRow('Chorus One', 'Available types: PTO, IODC')}
+        {operatorRow('Operator #182', 'CSM')}
+      </div>
+    </OverlayDemo>
+  ),
   parameters: {
     controls: { disable: true },
     docs: {
@@ -155,5 +204,109 @@ export const ChooseNodeOperator: Story = {
           'Composition from the operator picker: 500px card, header with close, rows in the body.',
       },
     },
+  },
+}
+
+export const LongContentMobile: Story = {
+  tags: ['!autodocs'],
+  globals: { viewport: { value: 'px375' } },
+  render: () => (
+    <OverlayDemo title='Supply stETH'>
+      <div style={{ height: 1500 }}>{body}</div>
+    </OverlayDemo>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Full-screen on phones: scroll the content and the header with Close stays pinned.',
+      },
+    },
+  },
+}
+
+const PopoverToggle = () => {
+  const [open, setOpen] = useState(false)
+  const anchorRef = useRef<HTMLButtonElement>(null)
+
+  return (
+    <>
+      <Button ref={anchorRef} onClick={() => setOpen((v) => !v)}>
+        Toggle popover
+      </Button>
+      <Popover
+        open={open}
+        anchorRef={anchorRef}
+        aria-label='Details'
+        onClose={() => setOpen(false)}
+      >
+        Escape or an outside press closes only this popover.
+      </Popover>
+    </>
+  )
+}
+
+export const PopoverInModal: Story = {
+  tags: ['!autodocs'],
+  render: () => (
+    <OverlayDemo title='Popover in modal'>
+      <PopoverToggle />
+    </OverlayDemo>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Overlays stack: the newest layer handles Escape and outside presses, then focus returns inside the modal.',
+      },
+    },
+  },
+}
+
+export const InertOthers: Story = {
+  tags: ['!autodocs'],
+  render: () => (
+    <>
+      <OverlayDemo inertOthers title='Inert others'>
+        Everything outside the modal is inert, except body-level roots marked
+        with <code>data-lido-overlay-keep</code>.
+      </OverlayDemo>
+      {createPortal(
+        <div
+          data-lido-overlay-keep
+          role='status'
+          style={{ position: 'fixed', bottom: 16, left: 16 }}
+        >
+          Toast host stays live
+        </div>,
+        document.body,
+      )}
+    </>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      source: { type: 'code' },
+      description: {
+        story:
+          '`inertOthers` makes every other body child inert, including the app root. Mark body-level toast or live-region roots with `data-lido-overlay-keep` so they stay live.',
+      },
+    },
+  },
+}
+
+export const NestedModals: Story = {
+  tags: ['!autodocs'],
+  render: () => (
+    <OverlayDemo label='Open outer modal' title='Outer'>
+      <OverlayDemo label='Open inner modal' title='Inner'>
+        Escape closes only this one; scroll stays locked until the last closes.
+      </OverlayDemo>
+    </OverlayDemo>
+  ),
+  parameters: {
+    controls: { disable: true },
   },
 }

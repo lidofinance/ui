@@ -33,7 +33,6 @@ const options: TokenSelectorOption[] = [
 const meta: Meta<typeof TokenSelector> = {
   title: 'Inputs & Controls/TokenSelector',
   component: TokenSelector,
-  tags: ['autodocs'],
   args: {
     options,
     value: 'stETH',
@@ -41,25 +40,16 @@ const meta: Meta<typeof TokenSelector> = {
     size: 'default',
   },
   argTypes: {
-    options: { description: 'Value, label and glyph per token' },
-    value: { description: 'Selected token value' },
     size: {
       options: ['default', 'small'],
       control: { type: 'select' },
     },
     single: {
-      description: 'Renders a static chip with no dropdown',
       control: { type: 'boolean' },
     },
   },
   parameters: {
     controls: { disable: true },
-    docs: {
-      description: {
-        component:
-          'The token chip inside `RichInput`. Click it for the dropdown; it closes on outside click and on Escape. `secondaryLabel` and `description` only render at `size="default"`.',
-      },
-    },
   },
 }
 
