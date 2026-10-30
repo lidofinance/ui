@@ -78,7 +78,7 @@ const meta: Meta<PlaygroundArgs> = {
       source: { type: 'code' },
       description: {
         component:
-          'App shell with a grouped Sidebar, Header and Footer: `Layout` > `SidebarLayout` > `Sidebar` + `SidebarInset` (`Header` > `Stack` + `Main` > `PageContent` > `Breadcrumbs` + `Footer`); see "Show code" and the anatomy in `Layout/Helpers`. At ≤ ml widths the Sidebar becomes a drawer opened from the Header. There Breadcrumbs center between the logo and the actions; at ≤ md they move from the Header into `PageContent` (`Hidden` around each copy). `Sidebar` must be a direct child of `SidebarLayout`: it measures the content above it (e.g. a banner) on its own. Render `SkipLink` first: it targets `Main` (`id=\'main-content\'`) by default. Use `useSidebar()` to close the drawer on programmatic navigation, or `useSidebarDrawer` to wire the parts by hand.',
+          'App shell with a grouped Sidebar, Header and Footer: `Layout` > `SidebarLayout` > `Sidebar` + `SidebarInset` (`Header` > `Stack` + `Main` > `PageContent` > `Breadcrumbs` + `Footer`); see "Show code" and the anatomy in `Layout/Helpers`. Below `lg` (1280, the sidebar breakpoint) the Sidebar becomes a drawer opened from the Header. There Breadcrumbs center between the logo and the actions; below md they move from the Header into `PageContent` (`Hidden` around each copy). `Sidebar` must be a direct child of `SidebarLayout`: it measures the content above it (e.g. a banner) on its own. Render `SkipLink` first: it targets `Main` (`id=\'main-content\'`) by default. Use `useSidebar()` to close the drawer on programmatic navigation, or `useSidebarDrawer` to wire the parts by hand.',
       },
     },
   },
@@ -126,11 +126,11 @@ export const Playground: Story = {
             >
               <Stack direction='row' align='center' gap={12} grow>
                 <SidebarToggle />
-                <Hidden above='ml'>
+                <Hidden above='lg'>
                   <Logo variant='compact' product='Operators' href='#' />
                 </Hidden>
                 <Hidden below='md'>
-                  <Stack direction='row' justify={{ ml: 'center' }} grow>
+                  <Stack direction='row' justify={{ lg: 'center' }} grow>
                     <Breadcrumbs items={breadcrumbs} />
                   </Stack>
                 </Hidden>
@@ -162,9 +162,9 @@ export const Default: Story = {
 
 export const Drawer: Story = {
   parameters: storyParams(
-    'At ≤ ml the Sidebar is a drawer: the burger in the Header opens it with a scrim; it closes via the close button, scrim, Escape or a link click.',
+    'Below `lg` (1280, the sidebar breakpoint) the Sidebar is a drawer: the burger in the Header opens it with a scrim; it closes via the close button, scrim, Escape or a link click.',
   ),
-  globals: { viewport: { value: 'px899', isRotated: false } },
+  globals: { viewport: { value: 'sidebar-down', isRotated: false } },
   render: () => <SidebarShell />,
   play: async ({ canvasElement }) => {
     // Toggle is display:none until the viewport addon resizes the frame.
@@ -200,9 +200,9 @@ export const WithTestEnvBanner: Story = {
 
 export const Tablet: Story = {
   parameters: storyParams(
-    'At drawer widths (≤ ml) Breadcrumbs sit centered between the logo and the actions; at ≤ md they move from the Header into `PageContent`.',
+    'Below `lg` (1280, the sidebar breakpoint) Breadcrumbs sit centered between the logo and the actions; below md they move from the Header into `PageContent`.',
   ),
-  globals: { viewport: { value: 'px900', isRotated: false } },
+  globals: { viewport: { value: 'md-up', isRotated: false } },
   render: () => (
     <SidebarShell
       breadcrumbs={[{ label: 'Protocol' }, { label: 'Overview' }]}
@@ -214,7 +214,7 @@ export const LongBreadcrumbs: Story = {
   parameters: storyParams(
     'At drawer widths a deep trail fills the space between the logo and the actions and fades at the edge instead of pushing the actions out.',
   ),
-  globals: { viewport: { value: 'px900', isRotated: false } },
+  globals: { viewport: { value: 'md-up', isRotated: false } },
   render: () => (
     <SidebarShell
       breadcrumbs={[
