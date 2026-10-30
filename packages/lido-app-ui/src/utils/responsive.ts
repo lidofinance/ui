@@ -1,60 +1,68 @@
 import type { CSSProperties } from 'react'
 
-export const breakpoints = ['lg', 'ml', 'md', 'sm', 'xs', 'xxs'] as const
-export type Breakpoint = (typeof breakpoints)[number]
+import { breakpoints, type Breakpoint } from './breakpoints'
 
-type ResponsiveObject<T> = { base?: T } & Partial<Record<Breakpoint, T>>
+type DownKey = `${Breakpoint}Down`
 
-/** Desktop-first: `base` applies everywhere, breakpoint keys apply at that width and below. */
+type ResponsiveObject<T> = {
+  /** Applies at every width unless a breakpoint key overrides it. */
+  base?: T
+  /** Applies at 1439px and below. */
+  lgDown?: T
+  /** Applies at 1063px and below. */
+  mlDown?: T
+  /** Applies at 899px and below. */
+  mdDown?: T
+  /** Applies at 599px and below. */
+  smDown?: T
+  /** Applies at 439px and below. */
+  xsDown?: T
+  /** Applies at 399px and below. */
+  xxsDown?: T
+  /** Alias of `lgDown`: applies at 1439px and below. */
+  lg?: T
+  /** Alias of `mlDown`: applies at 1063px and below. */
+  ml?: T
+  /** Alias of `mdDown`: applies at 899px and below. */
+  md?: T
+  /** Alias of `smDown`: applies at 599px and below. */
+  sm?: T
+  /** Alias of `xsDown`: applies at 439px and below. */
+  xs?: T
+  /** Alias of `xxsDown`: applies at 399px and below. */
+  xxs?: T
+}
+
+/** Desktop-first: `base` applies everywhere, `<bp>Down` (alias `<bp>`) applies at that breakpoint's width and below, see `breakpointWidths`. */
 export type Responsive<T> = T | ResponsiveObject<T>
 
 /** Spacing scale in px. */
-export const spaces = [0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 52] as const
+export const spaces = [0, 2, 4, 6, 8, 12, 16, 20, 24, 32, 40, 52] as const
 export type Space = (typeof spaces)[number]
 
 export const capitalize = (value: string) =>
   value.charAt(0).toUpperCase() + value.slice(1)
 
-export const spaceToCss = (space: Space) => `${space}px`
+export const spaceToCss = (space: Space) =>
+  space === 0 ? '0' : `var(--lido-app-ui-space-${space}, ${space}px)`
 
 const toKebab = (value: string) =>
   value.replace(/[A-Z]/g, (char) => `-${char.toLowerCase()}`)
 
-/**
- * Turns a responsive prop into inline `--local-<prop>[-<bp>]` vars plus the
- * `<prop><Bp>` module classes that gate them; the base var is read by the root class.
- */
-export const getResponsiveProps = <T>(
-  prop: string,
-  value: Responsive<T> | undefined,
-  toCss: (value: T) => string,
-  styles: Record<string, string>,
-) => {
-  const style: Record<string, string> = {}
-  const className: string[] = []
+type NormalizedResponsive<T> = { base?: T } & Partial<Record<Breakpoint, T>>
 
-  const values = (
-    typeof value === 'object' && value !== null ? value : { base: value }
-  ) as ResponsiveObject<T>
-  const varName = `--local-${toKebab(prop)}`
+const toObject = <T>(value: Responsive<T>): NormalizedResponsive<T> => {
+  if (typeof value !== 'object' || value === null) return { base: value }
 
-  if (values.base !== undefined) style[varName] = toCss(values.base)
-
+  const object = value as ResponsiveObject<T>
+  const result: NormalizedResponsive<T> = {}
+  if (object.base !== undefined) result.base = object.base
   for (const bp of breakpoints) {
-    const item = values[bp]
-    if (item === undefined) continue
-    style[`${varName}-${bp}`] = toCss(item)
-    const cls = styles[`${prop}${capitalize(bp)}`]
-    if (cls) className.push(cls)
+    const item = object[`${bp}Down` as DownKey] ?? object[bp]
+    if (item !== undefined) result[bp] = item
   }
-
-  return { style: style as CSSProperties, className }
+  return result
 }
-
-const toObject = <T>(value: Responsive<T>) =>
-  (typeof value === 'object' && value !== null
-    ? value
-    : { base: value }) as ResponsiveObject<T>
 
 /** Merges per key; `b` wins over `a`. */
 export const mergeResponsive = <T>(
@@ -68,7 +76,7 @@ export const mergeResponsive = <T>(
   }
 }
 
-/** Turns a responsive prop into inline `--local-<prop>[-<bp>]` vars, for roots that declare a per-breakpoint fallback chain. */
+/** Turns a responsive prop into inline `--local-<prop>[-<bp>]` vars, for roots that declare the fallback chain with the `responsive-prop` mixin. */
 export const responsiveVars = <T>(
   prop: string,
   value: Responsive<T> | undefined,

@@ -376,3 +376,11 @@ describe('behaviour that survived the migration', () => {
     expect(screen.queryByText('ETH')).not.toBeInTheDocument()
   })
 })
+
+describe('public scale exports', () => {
+  it('exposes breakpoints, breakpointWidths and spaces', async () => {
+    const lib = await import('./index')
+    expect(lib.breakpoints).toEqual(Object.keys(lib.breakpointWidths))
+    expect(lib.spaces).toContain(6)
+  })
+})

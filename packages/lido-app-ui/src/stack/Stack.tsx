@@ -3,9 +3,10 @@ import { forwardRef, type ElementType, type HTMLAttributes } from 'react'
 import cn from 'classnames'
 
 import {
-  capitalize,
-  getResponsiveProps,
+  responsiveVars,
   spaceToCss,
+  type PolymorphicComponent,
+  type PolymorphicProps,
   type Responsive,
   type Space,
 } from '../utils'
@@ -21,18 +22,52 @@ export type StackJustify =
   | 'around'
   | 'evenly'
 
-export type StackProps = HTMLAttributes<HTMLElement> & {
-  as?: ElementType
+export const alignToCss = (align: StackAlign) =>
+  ({
+    start: 'flex-start',
+    center: 'center',
+    end: 'flex-end',
+    stretch: 'stretch',
+    baseline: 'baseline',
+  })[align]
+
+const justifyToCss = (justify: StackJustify) =>
+  ({
+    start: 'flex-start',
+    center: 'center',
+    end: 'flex-end',
+    between: 'space-between',
+    around: 'space-around',
+    evenly: 'space-evenly',
+  })[justify]
+
+export type StackDataTestId = { root?: string }
+
+type StackOwnProps = {
+  /** Flex direction (`column` when omitted). Per-breakpoint, desktop-first (see breakpointWidths). */
   direction?: Responsive<StackDirection>
+  /** Gap from the spacing scale in px. Per-breakpoint, desktop-first (see breakpointWidths). */
   gap?: Responsive<Space>
-  align?: StackAlign
-  justify?: StackJustify
-  wrap?: boolean
+  /** Cross-axis alignment, per-breakpoint, desktop-first (see breakpointWidths). */
+  align?: Responsive<StackAlign>
+  /** Main-axis distribution, per-breakpoint, desktop-first (see breakpointWidths). */
+  justify?: Responsive<StackJustify>
+  /** Allows items to wrap onto new lines. Per-breakpoint, desktop-first (see breakpointWidths). */
+  wrap?: Responsive<boolean>
+  /** Renders `inline-flex` instead of `flex`. */
   inline?: boolean
+  dataTestId?: StackDataTestId
 }
 
-/** Flexbox container with a spacing scale and breakpoint-aware direction and gap. */
-export const Stack = forwardRef<HTMLElement, StackProps>(
+type StackImplProps = HTMLAttributes<HTMLElement> &
+  StackOwnProps & { as?: ElementType }
+
+export type StackProps<E extends ElementType = never> = [E] extends [never]
+  ? StackImplProps
+  : PolymorphicProps<E, StackOwnProps>
+
+/** Flex container; `direction`, `gap`, `align`, `justify` and `wrap` take a value or a desktop-first per-breakpoint object like `{ base: 'row', smDown: 'column' }`, where `smDown` applies below `breakpointWidths.sm` (600px). */
+export const Stack = forwardRef<HTMLElement, StackImplProps>(
   (
     {
       as: Component = 'div',
@@ -40,40 +75,30 @@ export const Stack = forwardRef<HTMLElement, StackProps>(
       gap,
       align,
       justify,
-      wrap = false,
+      wrap,
       inline = false,
       className,
       style,
+      dataTestId,
       ...rest
     },
     ref,
-  ) => {
-    const directionProps = getResponsiveProps(
-      'direction',
-      direction,
-      String,
-      styles,
-    )
-    const gapProps = getResponsiveProps('gap', gap, spaceToCss, styles)
-
-    return (
-      <Component
-        ref={ref}
-        className={cn(
-          styles.root,
-          inline && styles.inline,
-          wrap && styles.wrap,
-          align && styles[`align${capitalize(align)}`],
-          justify && styles[`justify${capitalize(justify)}`],
-          directionProps.className,
-          gapProps.className,
-          className,
-        )}
-        style={{ ...directionProps.style, ...gapProps.style, ...style }}
-        {...rest}
-      />
-    )
-  },
-)
+  ) => (
+    <Component
+      ref={ref}
+      className={cn(styles.root, inline && styles.inline, className)}
+      style={{
+        ...responsiveVars('direction', direction, String),
+        ...responsiveVars('gap', gap, spaceToCss),
+        ...responsiveVars('align', align, alignToCss),
+        ...responsiveVars('justify', justify, justifyToCss),
+        ...responsiveVars('wrap', wrap, (value) => (value ? 'wrap' : 'nowrap')),
+        ...style,
+      }}
+      data-testid={dataTestId?.root}
+      {...rest}
+    />
+  ),
+) as PolymorphicComponent<'div', StackOwnProps>
 
 Stack.displayName = 'Stack'

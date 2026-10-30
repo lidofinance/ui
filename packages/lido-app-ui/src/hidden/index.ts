@@ -1,2 +1,2 @@
 export { Hidden } from './Hidden'
-export type { HiddenProps } from './Hidden'
+export type { HiddenDataTestId, HiddenProps } from './Hidden'

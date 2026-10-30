@@ -1,28 +1,13 @@
-import type { CSSProperties } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Stack } from '../stack'
 import { Divider } from './Divider'
 
-const text: CSSProperties = {
-  color: 'var(--lido-app-ui-color-text-default)',
-  fontFamily: 'var(--lido-app-ui-font-family)',
-}
-
 const meta: Meta<typeof Divider> = {
   title: 'Content & Data/Divider',
   component: Divider,
-  tags: ['autodocs'],
   argTypes: {
     orientation: { control: 'select', options: ['horizontal', 'vertical'] },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "A 1px separator line. It stretches along the cross axis of a flex parent, so a vertical divider takes its height from a row container. Visual-only; pass `role='separator'` when it should be announced.",
-      },
-    },
   },
 }
 
@@ -47,7 +32,7 @@ export const Basic: Story = {
 
 export const Vertical: Story = {
   render: () => (
-    <Stack direction='row' gap={16} align='stretch' style={text}>
+    <Stack direction='row' gap={16} align='stretch'>
       <span>Left</span>
       <Divider orientation='vertical' />
       <span>Middle</span>
@@ -63,7 +48,7 @@ export const Vertical: Story = {
 
 export const InsideList: Story = {
   render: () => (
-    <Stack gap={12} style={{ ...text, width: 240 }}>
+    <Stack gap={12} style={{ width: 240 }}>
       <span>First</span>
       <Divider />
       <span>Second</span>
@@ -75,6 +60,29 @@ export const InsideList: Story = {
     controls: { disable: true },
     docs: {
       description: { story: 'Dividers between items of a column Stack.' },
+    },
+  },
+}
+
+export const Semantic: Story = {
+  render: () => (
+    <Stack gap={12} style={{ width: 240 }}>
+      <span>Profile</span>
+      <Divider role='separator' />
+      <Stack direction='row' gap={16} align='stretch'>
+        <span>Left</span>
+        <Divider role='separator' orientation='vertical' />
+        <span>Right</span>
+      </Stack>
+    </Stack>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          "Use `role='separator'` to separate groups of content, as opposed to decoration. A vertical separator exposes `aria-orientation='vertical'` automatically.",
+      },
     },
   },
 }

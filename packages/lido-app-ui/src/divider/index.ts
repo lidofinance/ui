@@ -1,2 +1,6 @@
 export { Divider } from './Divider'
-export type { DividerOrientation, DividerProps } from './Divider'
+export type {
+  DividerDataTestId,
+  DividerOrientation,
+  DividerProps,
+} from './Divider'
