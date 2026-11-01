@@ -7,6 +7,7 @@ import {
   GroupName,
   Typography,
   typographyColors,
+  typographyWeights,
   type TypographyVariant,
 } from './Typography'
 import styles from './Typography.module.css'
@@ -48,29 +49,19 @@ describe('Typography', () => {
     expect(el).toHaveClass(styles.h2)
   })
 
-  it.each(['bodyLarge', 'body', 'description'] as const)(
-    'applies semibold to %s',
-    (variant) => {
-      const el = renderTypography(
-        <Typography variant={variant} weight='semibold'>
-          T
-        </Typography>,
-      )
-      expect(el).toHaveClass(styles.semibold)
-    },
-  )
+  it.each(typographyWeights)('applies weight %s', (weight) => {
+    const el = renderTypography(
+      <Typography variant='h2' weight={weight}>
+        T
+      </Typography>,
+    )
+    expect(el).toHaveClass(styles[`weight-${weight}`])
+  })
 
-  it.each(['h1', 'h2', 'h3', 'amount', 'caption'] as const)(
-    'ignores semibold on %s',
-    (variant) => {
-      const el = renderTypography(
-        <Typography variant={variant} weight='semibold'>
-          T
-        </Typography>,
-      )
-      expect(el).not.toHaveClass(styles.semibold)
-    },
-  )
+  it('has no weight class without weight', () => {
+    const el = renderTypography(<Typography variant='h2'>T</Typography>)
+    expect(el.className).not.toMatch(/weight-/)
+  })
 
   it('adds the color class', () => {
     const el = renderTypography(<Typography color='error'>T</Typography>)

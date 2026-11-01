@@ -20,6 +20,16 @@ export const typographyColors = [
 
 export type TypographyColor = (typeof typographyColors)[number]
 
+export const typographyWeights = [
+  'thin',
+  'regular',
+  'medium',
+  'semibold',
+  'bold',
+] as const
+
+export type TypographyWeight = (typeof typographyWeights)[number]
+
 export type TypographyVariant =
   | 'h1'
   | 'h2'
@@ -33,8 +43,6 @@ export type TypographyVariant =
 /** @deprecated `richInput` → `amount`, `groupName` → `caption` */
 type DeprecatedTypographyVariant = 'richInput' | 'groupName'
 
-export type TypographyWeight = 'regular' | 'semibold'
-
 export type TypographyDataTestId = {
   root?: string
 }
@@ -42,7 +50,7 @@ export type TypographyDataTestId = {
 export type TypographyProps = Omit<HTMLAttributes<HTMLElement>, 'color'> & {
   /** Type style; also decides the default tag. */
   variant?: TypographyVariant | DeprecatedTypographyVariant
-  /** Only `bodyLarge`, `body` and `description` have two weights. */
+  /** Overrides the variant's font weight. */
   weight?: TypographyWeight
   /** Text color token; omit to inherit. */
   color?: TypographyColor
@@ -71,9 +79,6 @@ const variantTag: Record<TypographyVariant, ElementType> = {
   caption: 'p',
 }
 
-const isBodyVariant = (variant: TypographyVariant): boolean =>
-  variant === 'bodyLarge' || variant === 'body' || variant === 'description'
-
 /** Typed text in Manrope; use the shortcuts (`H1`, `Body`, ...) in app code and `Typography` when the variant is dynamic. The same styles ship as PostCSS mixins from `@lidofinance/lido-app-ui/styles`. */
 export const Typography = ({
   variant = 'body',
@@ -94,7 +99,7 @@ export const Typography = ({
         styles.root,
         styles[resolved],
         color && styles[`color-${color}`],
-        weight === 'semibold' && isBodyVariant(resolved) && styles.semibold,
+        weight && styles[`weight-${weight}`],
         className,
       )}
       data-testid={dataTestId?.root}

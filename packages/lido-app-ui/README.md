@@ -99,7 +99,7 @@ declare module '@lidofinance/lido-app-ui' {
 `Typography` renders the type scale; it sets no color unless asked.
 
 - `variant`: `h1`, `h2`, `h3`, `amount`, `bodyLarge`, `body` (default), `description`, `caption`. Also decides the tag; override with `as`.
-- `weight`: `regular` | `semibold`, only for `bodyLarge`, `body`, `description`.
+- `weight`: `thin` | `regular` | `medium` | `semibold` | `bold`; overrides the variant's weight on any variant. `thin` is Manrope ExtraLight (200).
 - `color`: `default`, `secondary`, `tertiary`, `neutral`, `active`, `success`, `warning`, `error`, `info`, `inverse`, `disabled`. Omit to inherit.
 - Shortcuts: `H1`, `H2`, `H3`, `BodyLarge`, `Body`, `Description`, `Caption`.
 

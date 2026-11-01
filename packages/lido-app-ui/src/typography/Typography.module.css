@@ -34,8 +34,24 @@
   @mixin font-caption;
 }
 
-.semibold {
+.weight-thin {
+  font-weight: var(--lido-app-ui-font-weight-thin);
+}
+
+.weight-regular {
+  font-weight: var(--lido-app-ui-font-weight-regular);
+}
+
+.weight-medium {
+  font-weight: var(--lido-app-ui-font-weight-medium);
+}
+
+.weight-semibold {
   font-weight: var(--lido-app-ui-font-weight-semibold);
+}
+
+.weight-bold {
+  font-weight: var(--lido-app-ui-font-weight-bold);
 }
 
 .color-default {

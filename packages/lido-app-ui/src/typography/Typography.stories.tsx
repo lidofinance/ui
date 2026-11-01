@@ -2,16 +2,26 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { StoryContainer } from '../../.storybook/components'
 import {
+  Body,
   Description,
+  H2,
   Typography,
   typographyColors,
+  typographyWeights,
   type TypographyVariant,
+  type TypographyWeight,
 } from '.'
 import styles from './Typography.stories.module.css'
 
 const meta: Meta<typeof Typography> = {
   title: 'Foundations/Typography',
   component: Typography,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=4442-3006&m=dev',
+    },
+  },
   args: {
     variant: 'body',
     children: 'The quick brown fox jumps over the lazy dog',
@@ -31,8 +41,12 @@ const meta: Meta<typeof Typography> = {
       control: { type: 'select' },
     },
     weight: {
-      options: ['regular', 'semibold'],
-      control: { type: 'inline-radio' },
+      options: typographyWeights,
+      control: { type: 'select' },
+      type: { name: 'enum', value: [...typographyWeights] },
+      table: {
+        type: { summary: typographyWeights.map((w) => `'${w}'`).join(' | ') },
+      },
     },
     color: {
       options: typographyColors,
@@ -55,7 +69,7 @@ export const Basic: Story = {}
 type ScaleRow = {
   label: string
   variant?: TypographyVariant
-  weight?: 'semibold'
+  weight?: TypographyWeight
   shortcut?: string
   mixin: string
   size: string
@@ -182,6 +196,31 @@ export const Scale: Story = {
       description: {
         story:
           'The whole scale: variant, shortcut, PostCSS mixin, size/line-height.',
+      },
+    },
+  },
+}
+
+export const Weights: Story = {
+  render: () => (
+    <StoryContainer gap={16}>
+      {typographyWeights.map((weight) => (
+        <div key={weight}>
+          <Body weight={weight}>{weight}</Body>
+          <H2 weight={weight}>{weight}</H2>
+          <Description color='tertiary'>
+            {`weight='${weight}' · --lido-app-ui-font-weight-${weight}`}
+          </Description>
+        </div>
+      ))}
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          "`weight` overrides the variant's default on any variant or shortcut; `thin` is Manrope ExtraLight (200).",
       },
     },
   },
