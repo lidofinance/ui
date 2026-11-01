@@ -2,6 +2,9 @@ import { readdirSync, readFileSync } from 'fs'
 import { join, resolve } from 'path'
 import { describe, expect, it } from 'vitest'
 
+import { renderCustomMedia } from '../../scripts/breakpoints-css.cjs'
+import breakpointTokens from '../../styles/breakpoint-tokens.cjs'
+
 const root = resolve(__dirname, '../..')
 const read = (file: string) => readFileSync(join(root, file), 'utf-8')
 
@@ -17,20 +20,21 @@ const sources = [
   ...walk('styles'),
 ].filter((file) => /\.(css|tsx)$/.test(file) && !/\.test\.tsx$/.test(file))
 
-const declaredTokens = new Set(
-  ['styles/tokens.css', 'styles/breakpoint-tokens.css'].flatMap((file) =>
-    Array.from(read(file).matchAll(/^\s*(--lido-app-ui-[a-z0-9-]+):/gm)).map(
-      (match) => match[1],
-    ),
+const declaredTokens = new Set([
+  ...Array.from(
+    read('styles/tokens.css').matchAll(/^\s*(--lido-app-ui-[a-z0-9-]+):/gm),
+    (match) => match[1],
   ),
-)
+  ...Object.keys(breakpointTokens()),
+])
 
 const declaredBreakpoints = new Set(
   Array.from(
-    read('styles/breakpoints.css').matchAll(
+    renderCustomMedia().matchAll(
       /@custom-media (--lido-app-ui-breakpoint-[a-z-]+)/g,
     ),
-  ).map((match) => match[1]),
+    (match) => match[1],
+  ),
 )
 
 // Component-private custom properties, registered via @property or always used with a fallback.
@@ -49,7 +53,7 @@ const referencesIn = (pattern: RegExp) =>
   )
 
 describe('token references', () => {
-  it('only reference tokens declared in tokens.css', () => {
+  it('only reference tokens declared in tokens.css or the breakpoint-tokens mixin', () => {
     const unknown = referencesIn(/var\((--lido-app-ui-[a-z0-9-]+)/g)
       .filter(
         ([, name]) =>
@@ -60,7 +64,7 @@ describe('token references', () => {
     expect(unknown).toEqual([])
   })
 
-  it('only use custom media defined in breakpoints.css', () => {
+  it('only use custom media generated from breakpoints.ts', () => {
     const unknown = referencesIn(customMediaPattern)
       .filter(([, name]) => !declaredBreakpoints.has(name))
       .map(([file, name]) => `${file}: ${name}`)

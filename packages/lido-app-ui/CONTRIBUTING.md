@@ -111,7 +111,7 @@ icon doesn't exist yet, drop the SVG into `src/icons/svg/<category>/` and run
 
 ## Breakpoints
 
-Edit `src/utils/breakpoints.ts` and commit: the pre-commit hook regenerates and stages `styles/breakpoints.css` and `styles/breakpoint-tokens.css` (or run `yarn breakpoints:generate`). Don't hand-edit them; a test fails when they drift.
+Edit `src/utils/breakpoints.ts`. PostCSS reads it at build (`scripts/breakpoints-css.cjs` for `@custom-media`, `styles/breakpoint-tokens.cjs` mixin for width tokens) and the build writes `dist/styles/breakpoints.css`; nothing to regenerate.
 
 ## Storybook
 

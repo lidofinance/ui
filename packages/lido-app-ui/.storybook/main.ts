@@ -1,5 +1,7 @@
 import path from 'path'
 
+import { breakpointMedia } from '../scripts/breakpoints-css.cjs'
+
 const GLOBAL_CSS =
   /(styles[\\/][^\\/]+|lido-shared-ui[\\/]dist[\\/]index)\.css$/
 
@@ -35,18 +37,14 @@ export default {
     const packageRoot = process.cwd()
 
     const postcssOptions = {
-      plugins: {
-        '@csstools/postcss-global-data': {
-          files: [path.join(packageRoot, 'styles/breakpoints.css')],
-        },
-        'postcss-mixins': {
-          mixinsDir: path.join(packageRoot, 'styles'),
-        },
-        autoprefixer: {},
-        'postcss-import': {},
-        'postcss-nested': {},
-        'postcss-custom-media': { preserve: false },
-      },
+      plugins: [
+        breakpointMedia(),
+        ['postcss-mixins', { mixinsDir: path.join(packageRoot, 'styles') }],
+        'autoprefixer',
+        'postcss-import',
+        'postcss-nested',
+        ['postcss-custom-media', { preserve: false }],
+      ],
     }
 
     const customConfig = { ...config }

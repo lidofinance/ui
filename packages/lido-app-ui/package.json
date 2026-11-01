@@ -40,8 +40,7 @@
     "lint:fix": "eslint --fix .",
     "lint:css": "stylelint '**/*.css'",
     "types": "tsc --noEmit",
-    "icons:convert": "node ./src/icons/converter/index.cjs",
-    "breakpoints:generate": "node ./scripts/generate-breakpoints.mjs"
+    "icons:convert": "node ./src/icons/converter/index.cjs"
   },
   "peerDependencies": {
     "@inline-svg-unique-id/react": "^1.2.3",
@@ -57,7 +56,6 @@
     "@babel/preset-env": "7.26.9",
     "@babel/preset-react": "7.26.3",
     "@babel/preset-typescript": "7.27.0",
-    "@csstools/postcss-global-data": "3.0.0",
     "@inline-svg-unique-id/react": "1.2.3",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "28.0.3",

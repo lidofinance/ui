@@ -2820,7 +2820,6 @@ __metadata:
     "@babel/preset-env": "npm:7.26.9"
     "@babel/preset-react": "npm:7.26.3"
     "@babel/preset-typescript": "npm:7.27.0"
-    "@csstools/postcss-global-data": "npm:3.0.0"
     "@inline-svg-unique-id/react": "npm:1.2.3"
     "@lidofinance/lido-shared-ui": "npm:*"
     "@rollup/plugin-babel": "npm:6.0.4"

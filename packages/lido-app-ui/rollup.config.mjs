@@ -4,8 +4,20 @@ import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
 import copy from 'rollup-plugin-copy'
+import breakpointsCss from './scripts/breakpoints-css.cjs'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
+
+const emitBreakpointsCss = () => ({
+  name: 'emit-breakpoints-css',
+  closeBundle() {
+    fs.mkdirSync('dist/styles', { recursive: true })
+    fs.writeFileSync(
+      'dist/styles/breakpoints.css',
+      breakpointsCss.renderCustomMedia(),
+    )
+  },
+})
 
 const { dependencies = {}, peerDependencies = {} } = JSON.parse(
   fs.readFileSync('package.json', 'utf-8'),
@@ -71,10 +83,10 @@ export default [
         extract: 'index.css',
         minimize: true,
       }),
+      emitBreakpointsCss(),
       copy({
         targets: [
           { src: 'styles/typography-mixins.css', dest: 'dist/styles' },
-          { src: 'styles/breakpoints.css', dest: 'dist/styles' },
           { src: './assets/fonts/*', dest: 'dist/assets/fonts' },
         ],
       }),

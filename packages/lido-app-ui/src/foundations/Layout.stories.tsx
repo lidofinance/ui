@@ -20,7 +20,7 @@ const meta: Meta = {
     docs: {
       description: {
         component:
-          'Layout is desktop-first: `base` applies everywhere and a `<bp>Down` key (alias `<bp>`) applies below that width; `Hidden` `below`/`above` take the bare name. `Stack`, `Grid`, `GridItem` and `Hidden` share this scale. `var()` is invalid inside `@media`, so queries come from `styles/breakpoints.css` (`-down` is `width < N`, `-up` is `width >= N`) and the same widths are exposed as `--lido-app-ui-breakpoint-*` tokens for `calc()` and `clamp()`. Sidebar and Logo have their own breakpoints outside the scale. Spacing is a px scale (`Space`) used by `gap` props, each step backed by a `--lido-app-ui-space-N` token.',
+          'Layout is desktop-first: `base` applies everywhere and a `<bp>Down` key (alias `<bp>`) applies below that width; `Hidden` `below`/`above` take the bare name. `Stack`, `Grid`, `GridItem` and `Hidden` share this scale. `var()` is invalid inside `@media`, so queries come from `@custom-media` generated from `src/utils/breakpoints.ts` and published as `dist/styles/breakpoints.css` (`-down` is `width < N`, `-up` is `width >= N`) and the same widths are exposed as `--lido-app-ui-breakpoint-*` tokens for `calc()` and `clamp()`. Sidebar and Logo have their own breakpoints outside the scale. Spacing is a px scale (`Space`) used by `gap` props, each step backed by a `--lido-app-ui-space-N` token.',
       },
     },
   },

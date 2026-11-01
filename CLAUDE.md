@@ -67,7 +67,7 @@ To add an icon: drop the SVG under the package's `src/icons/svg/` and commit —
 - `lido-landing-ui`: category folders `base/ defi/ general/ lido/ logo/ strategies/ token/`; `logo/` icons get a `Logo` suffix (`AaveLogo`).
 - `lido-app-ui`: `base/ chains/ protocols/ token/ wallets/`; `base/` → `Icon` prefix (`IconArrowUp`), `token/` → `Token` prefix (`TokenAave`).
 
-Breakpoints (`lido-app-ui`): `src/utils/breakpoints.ts` is the source; the pre-commit hook runs `breakpoints:generate` to write `styles/breakpoints.css` and `styles/breakpoint-tokens.css` (or run `yarn workspace @lidofinance/lido-app-ui breakpoints:generate`).
+Breakpoints (`lido-app-ui`): `src/utils/breakpoints.ts` is the source; PostCSS reads it at build (`scripts/breakpoints-css.cjs` for `@custom-media`, `styles/breakpoint-tokens.cjs` mixin for width tokens) and the build writes `dist/styles/breakpoints.css`; nothing to regenerate.
 
 Tests run on Vitest with `jsdom` + `@vitejs/plugin-react`. Linting is ESLint 9 flat config (root `eslint.config.js`: recommended, typescript-eslint, React, jsx-a11y, Prettier, Storybook plugin) plus Stylelint (`stylelint-config-standard`) for CSS (`yarn lint:css`).
 
