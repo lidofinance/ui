@@ -123,7 +123,6 @@ export const OperatorCardRow: Story = {
       Rewards:
       <Address address={address} identicon={16} tooltip>
         <TextLink
-          external
           href={`https://etherscan.io/address/${address}`}
           icon={<IconLink />}
           aria-label='Open in explorer'

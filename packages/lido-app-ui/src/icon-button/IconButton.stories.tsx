@@ -1,9 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { CloseButton, IconButton } from '.'
+import { CloseButton, IconButton, type IconButtonProps } from '.'
 
-import { StoryContainer, StorySection } from '../../.storybook/components'
+import {
+  DemoRouter,
+  StoryContainer,
+  StorySection,
+} from '../../.storybook/components'
 import { Counter, type CounterVariant } from '../counter'
-import { IconBell, IconCross } from '../icons'
+import { IconBell, IconCross, IconEtherscan } from '../icons'
 
 const meta: Meta<typeof IconButton> = {
   title: 'Buttons/IconButton',
@@ -19,12 +23,16 @@ const meta: Meta<typeof IconButton> = {
     },
     disabled: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
+    counter: { control: { type: 'text' } },
+    href: { control: { type: 'text' } },
     type: { table: { disable: true } },
+    linkProps: { table: { disable: true } },
   },
 }
 
 export default meta
-type Story = StoryObj<typeof meta>
+// A union of props breaks `StoryObj<typeof meta>` (args collapse to never).
+type Story = StoryObj<IconButtonProps>
 
 export const Basic: Story = {}
 
@@ -222,6 +230,113 @@ export const Close: Story = {
       description: {
         story:
           '`CloseButton`: ghost `IconButton` with a cross icon. `aria-label` defaults to "Close".',
+      },
+    },
+  },
+}
+
+const linkVariants = ['outline', 'surface', 'ghost'] as const
+
+export const AsLink: Story = {
+  render: () => (
+    <StoryContainer>
+      <StorySection title='variants'>
+        {linkVariants.map((variant) => (
+          <IconButton
+            key={variant}
+            icon={<IconBell />}
+            variant={variant}
+            href='#notifications'
+            aria-label={`Notifications (${variant})`}
+          />
+        ))}
+      </StorySection>
+      <StorySection title='disabled'>
+        {linkVariants.map((variant) => (
+          <IconButton
+            key={variant}
+            icon={<IconBell />}
+            variant={variant}
+            href='#notifications'
+            aria-label={`Notifications (${variant})`}
+            disabled
+          />
+        ))}
+      </StorySection>
+      <StorySection title='with counter'>
+        {['1', '12', '99+'].map((count) => (
+          <IconButton
+            key={count}
+            icon={<IconBell />}
+            href='#notifications'
+            aria-label='Notifications'
+            counter={count}
+            counterLabel={`${count} unread`}
+          />
+        ))}
+      </StorySection>
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'With `href`, `IconButton` renders an `<a>` for navigation: it keeps link semantics and routes through `LinkProvider`. It takes the anchor attributes instead of `type` and `loading`. `disabled` drops the `href` and `onClick` and sets `aria-disabled`, so the link is neither clickable nor focusable.',
+      },
+    },
+  },
+}
+
+export const External: Story = {
+  render: () => (
+    <IconButton
+      icon={<IconEtherscan />}
+      href='https://etherscan.io'
+      aria-label='View on Etherscan'
+    />
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Absolute `http(s)` URLs open in a new tab with `rel="noopener noreferrer"`; pass `target` to override.',
+      },
+    },
+  },
+}
+
+export const WithRouter: Story = {
+  render: () => (
+    <DemoRouter>
+      <StorySection>
+        <IconButton
+          icon={<IconBell />}
+          href='/notifications'
+          aria-label='In-app: /notifications'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='surface'
+          href='/settings'
+          aria-label='In-app: /settings'
+        />
+        <IconButton
+          icon={<IconBell />}
+          variant='ghost'
+          href='https://lido.fi'
+          aria-label='External: lido.fi'
+        />
+      </StorySection>
+    </DemoRouter>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Inside `LinkProvider`, in-app hrefs go to `component` and absolute URLs to `externalComponent`. Click a button to see which handled it; navigation is prevented in the demo.',
       },
     },
   },

@@ -40,10 +40,7 @@ export const CustomText: Story = {
       <>
         Staking involves risks, including smart contract and slashing risks.
         Read the{' '}
-        <TextLink href='https://lido.fi/terms-of-use' external>
-          Terms of Use
-        </TextLink>
-        .
+        <TextLink href='https://lido.fi/terms-of-use'>Terms of Use</TextLink>.
       </>
     ),
   },

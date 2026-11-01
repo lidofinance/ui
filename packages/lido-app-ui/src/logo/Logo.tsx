@@ -22,7 +22,7 @@ export type LogoProps = Omit<HTMLAttributes<HTMLElement>, 'children'> &
     product?: string
     /** Renders a link; with only `onClick` it renders a button, otherwise a plain `role="img"` element. */
     href?: string
-    /** Opens the link in a new tab; needs `href`. */
+    /** @deprecated Absolute http(s) URLs open in a new tab automatically; pass `target` to override. */
     external?: boolean
     dataTestId?: LogoDataTestId
   }

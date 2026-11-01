@@ -10,14 +10,10 @@ const meta: Meta<typeof TextLink> = {
   args: {
     children: 'View on Explorer',
     href: 'https://etherscan.io',
-    external: true,
     variant: 'primary',
   },
   argTypes: {
     children: { control: { type: 'text' } },
-    external: {
-      control: { type: 'boolean' },
-    },
     variant: {
       control: { type: 'select' },
       options: ['primary', 'secondary'],
@@ -44,10 +40,8 @@ export const Variants: Story = {
       <TextLink href='https://lido.fi' variant='secondary'>
         Secondary link
       </TextLink>
-      <TextLink href='https://etherscan.io' external>
-        External link
-      </TextLink>
-      <TextLink href='https://etherscan.io' external icon={<IconArrowRight />}>
+      <TextLink href='https://etherscan.io'>External link</TextLink>
+      <TextLink href='https://etherscan.io' icon={<IconArrowRight />}>
         With icon
       </TextLink>
       <TextLink href='https://etherscan.io' icon={<IconArrowRight />} disabled>
@@ -60,7 +54,7 @@ export const Variants: Story = {
     docs: {
       description: {
         story:
-          'Same-tab, secondary, external (new tab), with a trailing icon, and disabled. The icon takes the link colour through `currentColor`.',
+          'Same-tab, secondary, absolute URL (new tab), with a trailing icon, and disabled. The icon takes the link colour through `currentColor`.',
       },
     },
   },

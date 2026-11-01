@@ -6,21 +6,13 @@ import { Footer } from './Footer'
 
 const links = (
   <>
-    <TextLink href='https://lido.fi/terms-of-use' external variant='secondary'>
+    <TextLink href='https://lido.fi/terms-of-use' variant='secondary'>
       Terms of Use
     </TextLink>
-    <TextLink
-      href='https://lido.fi/privacy-notice'
-      external
-      variant='secondary'
-    >
+    <TextLink href='https://lido.fi/privacy-notice' variant='secondary'>
       Privacy Notice
     </TextLink>
-    <TextLink
-      href='https://discord.com/invite/lido'
-      external
-      variant='secondary'
-    >
+    <TextLink href='https://discord.com/invite/lido' variant='secondary'>
       Discord
     </TextLink>
   </>

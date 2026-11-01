@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button, LinkButton } from '../button'
+import { Button } from '../button'
 import { ErrorPage } from './ErrorPage'
 
 const goBack = <Button>Go back</Button>
 const tryAgain = <Button>Try again</Button>
 const toDashboard = (
-  <LinkButton href='/' onClick={(event) => event.preventDefault()}>
+  <Button href='/' onClick={(event) => event.preventDefault()}>
     Go to dashboard
-  </LinkButton>
+  </Button>
 )
 
 const both = (

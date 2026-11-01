@@ -32,7 +32,7 @@ Theme providers (`ThemeProvider`, `CookieThemeProvider`) are re-exported from `@
 
 ## Router links
 
-Every app-ui link (`TextLink`, `NavLink`, `LinkButton`, `SmallCard`, `Tag` with `href`, `Breadcrumbs` items with `href`, `Logo` with `href`) renders a plain `<a>` by default. Wrap the app in `LinkProvider` to route in-app hrefs through your router's link component; `externalComponent` does the same for absolute URLs. In-app hash links, `download` links and links with a non-`_self` `target` stay a plain `<a>`; absolute URLs always go to `externalComponent` when one is set. Adapters must be `forwardRef` components: under React 18 `ref` is never passed as a prop.
+Every app-ui link (`TextLink`, `NavLink`, `Button` and `IconButton` with `href`, `SmallCard`, `Tag` with `href`, `Breadcrumbs` items with `href`, `Logo` with `href`) renders a plain `<a>` by default. Wrap the app in `LinkProvider` to route in-app hrefs through your router's link component; `externalComponent` does the same for absolute URLs. In-app hash links, `download` links and links with a non-`_self` `target` stay a plain `<a>`; absolute URLs always go to `externalComponent` when one is set. Absolute `http(s)` URLs open in a new tab (`target="_blank"`, `rel="noopener noreferrer"`) unless `target` is passed. Adapters must be `forwardRef` components: under React 18 `ref` is never passed as a prop.
 
 Next.js 13+ — `next/link` renders its own `<a>` and forwards its ref, so pass it directly:
 

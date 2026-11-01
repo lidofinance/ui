@@ -1,11 +1,12 @@
 import { forwardRef } from 'react'
 
 import { IconCross } from '../icons'
-import { IconButton, type IconButtonProps } from './IconButton'
+import { IconButton } from './IconButton'
+import type { IconButtonAsButtonProps, IconButtonOwnProps } from './types'
 
 export type CloseButtonProps = Omit<
-  IconButtonProps,
-  'icon' | 'variant' | 'aria-label'
+  IconButtonOwnProps & IconButtonAsButtonProps,
+  'icon' | 'variant'
 > & { 'aria-label'?: string }
 
 /** Ghost `IconButton` with a cross icon; `aria-label` defaults to "Close". */

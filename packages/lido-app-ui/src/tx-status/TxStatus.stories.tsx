@@ -49,9 +49,7 @@ export const AllStatuses: Story = {
         title='Deposit successful'
         amount={<TokenAmount symbol='stETH' amount='12.4218' />}
         footer={
-          <TextLink href='https://etherscan.io' external>
-            View on Explorer
-          </TextLink>
+          <TextLink href='https://etherscan.io'>View on Explorer</TextLink>
         }
       />
       <TxStatus

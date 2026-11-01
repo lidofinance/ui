@@ -99,7 +99,7 @@ export const ExternalLinks: Story = {
   parameters: {
     docs: {
       description: {
-        story: '`external` links open in a new tab with a link icon.',
+        story: 'Absolute `http(s)` links open in a new tab with a link icon.',
       },
     },
   },
@@ -109,12 +109,8 @@ export const ExternalLinks: Story = {
         <NavLink href='#' active>
           Dashboard
         </NavLink>
-        <NavLink href='https://docs.lido.fi' external>
-          Docs
-        </NavLink>
-        <NavLink href='https://research.lido.fi' external>
-          Research
-        </NavLink>
+        <NavLink href='https://docs.lido.fi'>Docs</NavLink>
+        <NavLink href='https://research.lido.fi'>Research</NavLink>
       </HeaderNav>
     </DemoHeader>
   ),

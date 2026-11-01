@@ -21,7 +21,7 @@ export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   size?: TextLinkSize
   /** Trailing icon (e.g. arrow). */
   icon?: ReactNode
-  /** Opens in a new tab (target/rel); adds no icon, pass `icon` for an arrow. */
+  /** @deprecated Absolute http(s) URLs open in a new tab automatically; pass `target` to override. */
   external?: boolean
   /** Drops the href and blocks clicks and keyboard focus. */
   disabled?: boolean
@@ -29,14 +29,14 @@ export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   dataTestId?: TextLinkDataTestId
 }
 
-/** Inline link, blue by default. `external` opens a new tab, so an in-app href with it stays a plain `<a>`; otherwise `LinkProvider` sends relative hrefs to `component` and absolute ones to `externalComponent`. */
+/** Inline link, blue by default. Absolute `http(s)` URLs open in a new tab; `LinkProvider` sends relative hrefs to `component` and absolute ones to `externalComponent`. */
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
   (
     {
       variant = 'primary',
       size = 'body',
       icon,
-      external = false,
+      external,
       disabled = false,
       className,
       children,

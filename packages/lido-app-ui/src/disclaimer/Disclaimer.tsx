@@ -20,7 +20,7 @@ const defaultContent = (
     Your privacy matters. We use cookieless analytics and collect only
     anonymized data for improvements. Cookies are used for functionality only.
     For more info read{' '}
-    <TextLink href='https://lido.fi/privacy-notice' external size='inherit'>
+    <TextLink href='https://lido.fi/privacy-notice' size='inherit'>
       Privacy Notice
     </TextLink>
     .

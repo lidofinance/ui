@@ -3,7 +3,11 @@ import { forwardRef, type AnchorHTMLAttributes, type ReactNode } from 'react'
 import cn from 'classnames'
 
 import { IconLink } from '../icons'
-import { Anchor, type AnchorProps } from '../link-provider/Anchor'
+import {
+  Anchor,
+  opensInNewTab,
+  type AnchorProps,
+} from '../link-provider/Anchor'
 import styles from './NavLink.module.css'
 
 export type NavLinkDataTestId = {
@@ -17,7 +21,7 @@ export type NavLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   active?: boolean
   /** Leading icon. */
   icon?: ReactNode
-  /** Opens in a new tab and appends the external-link arrow. */
+  /** @deprecated Absolute http(s) URLs open in a new tab with the arrow automatically; pass `target` to override. */
   external?: boolean
   linkProps?: AnchorProps['linkProps']
   dataTestId?: NavLinkDataTestId
@@ -29,7 +33,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
     {
       active = false,
       icon,
-      external = false,
+      external,
       className,
       children,
       dataTestId,
@@ -55,7 +59,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
         </span>
       ) : null}
       {children}
-      {external ? (
+      {opensInNewTab({ href: rest.href, target: rest.target, external }) ? (
         <span
           className={styles.icon}
           aria-hidden='true'

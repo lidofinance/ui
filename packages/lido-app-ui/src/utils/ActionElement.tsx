@@ -6,7 +6,7 @@ export type ActionElementProps =
   | (AnchorProps & { href: string })
   | (ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined })
 
-/** Internal, not exported from the package. Renders `Anchor` when `href` is set (see `AnchorProps` for `disabled` and `external`), otherwise `<button type='button'>`. */
+/** Internal, not exported from the package. Renders `Anchor` when `href` is set (see `AnchorProps` for `disabled`), otherwise `<button type='button'>`. */
 export const ActionElement = forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   ActionElementProps

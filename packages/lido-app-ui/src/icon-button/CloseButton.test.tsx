@@ -27,4 +27,10 @@ describe('CloseButton', () => {
     render(<CloseButton />)
     expect(screen.getByRole('button').className).toContain('ghost')
   })
+
+  it('rejects href', () => {
+    // @ts-expect-error a close action is never navigation
+    const element = <CloseButton href='/keys' />
+    expect(element).toBeTruthy()
+  })
 })

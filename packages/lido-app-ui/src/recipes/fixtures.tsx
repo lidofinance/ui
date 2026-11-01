@@ -135,14 +135,10 @@ export const SimpleCard = ({ title }: { title: string }) => (
 
 export const footerLinks = (
   <>
-    <TextLink href='https://lido.fi/terms-of-use' external variant='secondary'>
+    <TextLink href='https://lido.fi/terms-of-use' variant='secondary'>
       Terms of Use
     </TextLink>
-    <TextLink
-      href='https://lido.fi/privacy-notice'
-      external
-      variant='secondary'
-    >
+    <TextLink href='https://lido.fi/privacy-notice' variant='secondary'>
       Privacy Notice
     </TextLink>
   </>

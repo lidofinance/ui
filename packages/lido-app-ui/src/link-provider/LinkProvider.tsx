@@ -33,7 +33,7 @@ export type LinkProviderProps = LinkComponents & {
   children?: ReactNode
 }
 
-/** Renders app-ui links with your components: `component` for in-app hrefs (e.g. Next.js `Link`), `externalComponent` for absolute URLs; both must be `forwardRef` components that forward `ref` to an `<a>`. Pass stable references (module-level, not inline functions): inline ones remount every link on each render. In-app hash links, `download` links and non-`_self` `target` links stay a plain `<a>`; absolute URLs always go to `externalComponent` when set. `TextLink`, `NavLink`, `SmallCard`, `LinkButton`, `Tag`, `Breadcrumbs` items and `Logo` with `href` use it. */
+/** Renders app-ui links with your components: `component` for in-app hrefs (e.g. Next.js `Link`), `externalComponent` for absolute URLs; both must be `forwardRef` components that forward `ref` to an `<a>`. Pass stable references (module-level, not inline functions): inline ones remount every link on each render. In-app hash links, `download` links and non-`_self` `target` links stay a plain `<a>`; absolute URLs always go to `externalComponent` when set. Absolute `http(s)` URLs open in a new tab (`target="_blank"`, `rel="noopener noreferrer"`) unless `target` is passed. `TextLink`, `NavLink`, `SmallCard`, `Button` and `IconButton`, `Tag`, `Breadcrumbs` items and `Logo` with `href` use it. */
 export const LinkProvider = ({
   component,
   externalComponent,

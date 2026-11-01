@@ -25,7 +25,7 @@ export type SmallCardProps = Omit<
   /** Trailing glyph next to the title — an external-link arrow, a badge, etc. */
   icon?: ReactNode
   title: ReactNode
-  /** Opens in a new tab: sets `target="_blank"` and `rel="noopener noreferrer"` unless given. */
+  /** @deprecated Absolute http(s) URLs open in a new tab automatically; pass `target` to override. */
   external?: boolean
   linkProps?: AnchorProps['linkProps']
   description?: ReactNode

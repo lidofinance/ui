@@ -1,45 +1,36 @@
-import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react'
+import { forwardRef } from 'react'
 
 import cn from 'classnames'
 
-import { CounterSlot } from '../counter/CounterSlot'
-import { IconLoaderCircle } from '../icons'
+import { joinAriaLabel } from '../button/ButtonContent'
+import { ActionElement, type ActionElementProps } from '../utils'
 import surfaceStyles from '../utils/surface.module.css'
 import styles from './IconButton.module.css'
+import { IconButtonContent } from './IconButtonContent'
+import type {
+  IconButtonAsButtonProps,
+  IconButtonAsLinkProps,
+  IconButtonDataTestId,
+  IconButtonProps,
+  IconButtonVariant,
+} from './types'
 
-export type IconButtonVariant = 'outline' | 'ghost' | 'surface'
-
-export type IconButtonDataTestId = {
-  root?: string
-  icon?: string
-  counter?: string
+export type {
+  IconButtonAsButtonProps,
+  IconButtonAsLinkProps,
+  IconButtonDataTestId,
+  IconButtonProps,
+  IconButtonVariant,
 }
 
-export type IconButtonProps = Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  'aria-label'
-> & {
-  'aria-label': string
-  icon: ReactNode
-  variant?: IconButtonVariant
-  loading?: boolean
-  /**
-   * Corner slot, aria-hidden. A number or string renders a default `Counter`
-   * (`0` shows a "0" pill; use `counter={count || null}` to hide it), or pass a
-   * `<Counter variant=...>` element. Announce the count with `counterLabel`.
-   */
-  counter?: ReactNode
-  /** Spoken with the name, e.g. "3 unread". */
-  counterLabel?: string
-  dataTestId?: IconButtonDataTestId
-}
-
-/** 36px fully rounded icon-only button; `loading` swaps the icon for a spinner and disables it. */
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+/** 36px fully rounded icon-only button; `loading` swaps the icon for a spinner and disables it. With `href` it renders a link that routes through `LinkProvider`. */
+export const IconButton = forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  IconButtonProps
+>(
   (
     {
       className,
-      type = 'button',
       variant = 'outline',
       loading = false,
       disabled = false,
@@ -52,11 +43,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     },
     ref,
   ) => (
-    <button
+    <ActionElement
       ref={ref}
-      type={type}
-      disabled={disabled || loading}
-      aria-busy={loading || undefined}
       className={cn(
         styles.button,
         styles[variant],
@@ -65,22 +53,18 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         className,
       )}
       data-testid={dataTestId?.root}
-      aria-label={counterLabel ? `${ariaLabel}, ${counterLabel}` : ariaLabel}
-      {...rest}
+      aria-label={joinAriaLabel(ariaLabel, counterLabel)}
+      aria-busy={loading || undefined}
+      disabled={disabled || loading}
+      {...(rest as ActionElementProps)}
     >
-      {loading ? (
-        <IconLoaderCircle className={styles.spinner} aria-hidden='true' />
-      ) : (
-        <span
-          className={styles.icon}
-          aria-hidden='true'
-          data-testid={dataTestId?.icon}
-        >
-          {icon}
-        </span>
-      )}
-      <CounterSlot dataTestId={dataTestId?.counter}>{counter}</CounterSlot>
-    </button>
+      <IconButtonContent
+        loading={loading}
+        icon={icon}
+        counter={counter}
+        dataTestId={dataTestId}
+      />
+    </ActionElement>
   ),
 )
 

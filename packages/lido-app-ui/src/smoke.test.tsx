@@ -109,6 +109,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['Badge', () => <Badge>Badge text</Badge>],
   ['Banner', () => <Banner title='Heads up' />],
   ['Button', () => <Button>Connect</Button>],
+  ['Button with href', () => <Button href='/keys'>Keys</Button>],
   ['LinkButton', () => <LinkButton href='/keys'>Keys</LinkButton>],
   ['Card', () => <Card>Card</Card>],
   ['Checkbox', () => <Checkbox label='Accept' />],
@@ -150,6 +151,16 @@ const cases: Array<[string, () => JSX.Element]> = [
   [
     'IconButton',
     () => <IconButton aria-label='Close' icon={<span aria-hidden>x</span>} />,
+  ],
+  [
+    'IconButton with href',
+    () => (
+      <IconButton
+        href='/notifications'
+        aria-label='Notifications'
+        icon={<span aria-hidden>x</span>}
+      />
+    ),
   ],
   [
     'Identicon',

@@ -13,14 +13,10 @@ const meta: Meta<typeof SmallCard> = {
     title: 'CSM Sentinel',
     description: 'Provides your CSM Node Operator events to the telegram chats',
     href: 'https://lido.fi',
-    external: true,
   },
   argTypes: {
     title: { control: { type: 'text' } },
     description: { control: { type: 'text' } },
-    external: {
-      control: { type: 'boolean' },
-    },
   },
   // SmallCard sizes to its content/container, so the canvas needs a width —
   // kept out of each story's own code so the example stays just
