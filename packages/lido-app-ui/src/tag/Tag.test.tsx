@@ -117,4 +117,20 @@ describe('Tag', () => {
       screen.getByRole('button', { name: 'Remove' }),
     ).toHaveAccessibleDescription('Lido')
   })
+
+  it('applies the custom variant class', () => {
+    render(<Tag variant='custom'>R</Tag>)
+    expect(screen.getByText('R')).toHaveClass(styles.custom)
+  })
+
+  it('keeps a role=button span for custom with onClick', () => {
+    render(
+      <Tag variant='custom' onClick={() => undefined}>
+        R
+      </Tag>,
+    )
+    const tag = screen.getByRole('button', { name: 'R' })
+    expect(tag.tagName).toBe('SPAN')
+    expect(tag).toHaveClass(styles.custom, styles.interactive)
+  })
 })
