@@ -8,4 +8,3 @@ export type {
   IconButtonVariant,
   IconButtonDataTestId,
 } from './IconButton'
-export type { IconButtonOwnProps } from './types'

@@ -67,14 +67,6 @@
   --local-bg: transparent;
 }
 
-.outline:not(:disabled, [aria-disabled='true']):hover {
-  --local-bg: var(--lido-app-ui-color-background-transparent-hover);
-}
-
-.outline:not(:disabled, [aria-disabled='true']):active {
-  --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
-}
-
 .surface:not(:disabled, [aria-disabled='true']):hover,
 .surface:not(:disabled, [aria-disabled='true']):active {
   color: var(--lido-app-ui-color-icons-active);
@@ -86,11 +78,11 @@
   --local-bg: transparent;
 }
 
-.ghost:not(:disabled, [aria-disabled='true']):hover {
+:is(.outline, .ghost):not(:disabled, [aria-disabled='true']):hover {
   --local-bg: var(--lido-app-ui-color-background-transparent-hover);
 }
 
-.ghost:not(:disabled, [aria-disabled='true']):active {
+:is(.outline, .ghost):not(:disabled, [aria-disabled='true']):active {
   --local-bg: var(--lido-app-ui-color-background-transparent-pressed);
 }
 

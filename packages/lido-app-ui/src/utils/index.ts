@@ -1,5 +1,10 @@
 export { ActionElement } from './ActionElement'
-export type { ActionElementProps } from './ActionElement'
+export type {
+  ActionAsButtonProps,
+  ActionAsLinkProps,
+  ActionElementProps,
+} from './ActionElement'
+export { joinAriaLabel } from './joinAriaLabel'
 export {
   breakpoints,
   breakpointWidths,

@@ -2,11 +2,11 @@ import { forwardRef } from 'react'
 
 import cn from 'classnames'
 
-import { joinAriaLabel } from '../button/ButtonContent'
-import { ActionElement, type ActionElementProps } from '../utils'
+import { CounterSlot } from '../counter/CounterSlot'
+import { IconLoaderCircle } from '../icons'
+import { ActionElement, joinAriaLabel } from '../utils'
 import surfaceStyles from '../utils/surface.module.css'
 import styles from './IconButton.module.css'
-import { IconButtonContent } from './IconButtonContent'
 import type {
   IconButtonAsButtonProps,
   IconButtonAsLinkProps,
@@ -56,14 +56,20 @@ export const IconButton = forwardRef<
       aria-label={joinAriaLabel(ariaLabel, counterLabel)}
       aria-busy={loading || undefined}
       disabled={disabled || loading}
-      {...(rest as ActionElementProps)}
+      {...rest}
     >
-      <IconButtonContent
-        loading={loading}
-        icon={icon}
-        counter={counter}
-        dataTestId={dataTestId}
-      />
+      {loading ? (
+        <IconLoaderCircle className={styles.spinner} aria-hidden='true' />
+      ) : (
+        <span
+          className={styles.icon}
+          aria-hidden='true'
+          data-testid={dataTestId?.icon}
+        >
+          {icon}
+        </span>
+      )}
+      <CounterSlot dataTestId={dataTestId?.counter}>{counter}</CounterSlot>
     </ActionElement>
   ),
 )

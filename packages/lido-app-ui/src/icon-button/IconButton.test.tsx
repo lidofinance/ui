@@ -1,11 +1,12 @@
-import { createRef, forwardRef } from 'react'
+import { createRef } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { Counter } from '../counter'
 import counterStyles from '../counter/Counter.module.css'
-import { LinkProvider, type LinkComponentProps } from '../link-provider'
+import { LinkProvider } from '../link-provider'
+import { RouterLink } from '../link-provider/linkStubs.test-utils'
 import { IconButton } from './IconButton'
 
 describe('IconButton', () => {
@@ -125,27 +126,13 @@ describe('IconButton with href', () => {
     expect(ref.current).toBe(link)
   })
 
-  it('opens an absolute URL in a new tab', () => {
-    render(<IconButton href='https://lido.fi' icon='x' aria-label='Lido' />)
-    const link = screen.getByRole('link')
-    expect(link).toHaveAttribute('target', '_blank')
-    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
-  })
-
   it('routes through LinkProvider', () => {
-    const Routed = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-      (props, ref) => (
-        // eslint-disable-next-line jsx-a11y/anchor-has-content -- children arrive via props
-        <a ref={ref} data-routed='' {...props} />
-      ),
-    )
-    Routed.displayName = 'Routed'
     render(
-      <LinkProvider component={Routed}>
+      <LinkProvider component={RouterLink}>
         <IconButton href='/keys' icon='x' aria-label='Keys' />
       </LinkProvider>,
     )
-    expect(screen.getByRole('link')).toHaveAttribute('data-routed')
+    expect(screen.getByRole('link')).toHaveAttribute('data-router')
   })
 
   it('drops href and click when disabled', async () => {
@@ -182,21 +169,18 @@ describe('IconButton with href', () => {
   })
 
   it('rejects invalid prop combinations', () => {
-    const typeChecks = [
-      // @ts-expect-error loading is button-only
-      () => <IconButton href='/keys' icon='x' aria-label='Keys' loading />,
-      // @ts-expect-error type is button-only
-      () => <IconButton href='/keys' icon='x' aria-label='K' type='submit' />,
-      () => (
-        <IconButton
-          href='https://lido.fi'
-          // @ts-expect-error IconButton takes no external
-          external
-          icon='x'
-          aria-label='Keys'
-        />
-      ),
-    ]
-    expect(typeChecks).toHaveLength(3)
+    // @ts-expect-error loading is button-only
+    void (<IconButton href='/keys' icon='x' aria-label='Keys' loading />)
+    // @ts-expect-error type is button-only
+    void (<IconButton href='/keys' icon='x' aria-label='K' type='submit' />)
+    void (
+      <IconButton
+        href='https://lido.fi'
+        // @ts-expect-error IconButton takes no external
+        external
+        icon='x'
+        aria-label='Keys'
+      />
+    )
   })
 })

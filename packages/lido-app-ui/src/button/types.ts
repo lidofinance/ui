@@ -1,6 +1,6 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import type { AnchorProps } from '../link-provider/Anchor'
+import type { ActionAsButtonProps, ActionAsLinkProps } from '../utils'
 
 export type ButtonVariant = 'primary' | 'outline' | 'subtle' | 'ghost' | 'error'
 
@@ -30,17 +30,8 @@ export type ButtonOwnProps = {
   dataTestId?: ButtonDataTestId
 }
 
-export type ButtonAsButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  href?: never
-  linkProps?: never
-  loading?: boolean
-}
+export type ButtonAsButtonProps = ButtonOwnProps & ActionAsButtonProps
 
-export type ButtonAsLinkProps = Omit<AnchorProps, 'href' | 'external'> & {
-  href: string
-  loading?: never
-  type?: never
-}
+export type ButtonAsLinkProps = ButtonOwnProps & ActionAsLinkProps
 
-export type ButtonProps = ButtonOwnProps &
-  (ButtonAsButtonProps | ButtonAsLinkProps)
+export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps

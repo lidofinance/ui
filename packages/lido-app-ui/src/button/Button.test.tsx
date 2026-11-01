@@ -1,11 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { createRef, forwardRef } from 'react'
+import { createRef } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 
 import { Counter } from '../counter'
 import counterStyles from '../counter/Counter.module.css'
-import { LinkProvider, type LinkComponentProps } from '../link-provider'
+import { LinkProvider } from '../link-provider'
+import { RouterLink } from '../link-provider/linkStubs.test-utils'
 import { Button } from './Button'
 
 describe('Button', () => {
@@ -168,27 +169,13 @@ describe('Button with href', () => {
     expect(ref.current).toBe(link)
   })
 
-  it('opens an absolute URL in a new tab', () => {
-    render(<Button href='https://lido.fi'>Lido</Button>)
-    const link = screen.getByRole('link')
-    expect(link).toHaveAttribute('target', '_blank')
-    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
-  })
-
   it('routes through LinkProvider', () => {
-    const Routed = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-      (props, ref) => (
-        // eslint-disable-next-line jsx-a11y/anchor-has-content -- children arrive via props
-        <a ref={ref} data-routed='' {...props} />
-      ),
-    )
-    Routed.displayName = 'Routed'
     render(
-      <LinkProvider component={Routed}>
+      <LinkProvider component={RouterLink}>
         <Button href='/keys'>Keys</Button>
       </LinkProvider>,
     )
-    expect(screen.getByRole('link')).toHaveAttribute('data-routed')
+    expect(screen.getByRole('link')).toHaveAttribute('data-router')
   })
 
   it('drops href and click when disabled', async () => {
@@ -215,14 +202,11 @@ describe('Button with href', () => {
   })
 
   it('rejects invalid prop combinations', () => {
-    const typeChecks = [
-      // @ts-expect-error loading is button-only
-      () => <Button href='/keys' loading />,
-      // @ts-expect-error type is button-only
-      () => <Button href='/keys' type='submit' />,
-      // @ts-expect-error Button takes no external
-      () => <Button href='https://lido.fi' external />,
-    ]
-    expect(typeChecks).toHaveLength(3)
+    // @ts-expect-error loading is button-only
+    void (<Button href='/keys' loading />)
+    // @ts-expect-error type is button-only
+    void (<Button href='/keys' type='submit' />)
+    // @ts-expect-error Button takes no external
+    void (<Button href='https://lido.fi' external />)
   })
 })

@@ -2,9 +2,9 @@ import { forwardRef } from 'react'
 
 import cn from 'classnames'
 
-import { ActionElement, type ActionElementProps } from '../utils'
+import { ActionElement, joinAriaLabel } from '../utils'
 import styles from './Button.module.css'
-import { ButtonContent, joinAriaLabel } from './ButtonContent'
+import { ButtonContent } from './ButtonContent'
 import type {
   ButtonAsButtonProps,
   ButtonAsLinkProps,
@@ -59,7 +59,7 @@ export const Button = forwardRef<
       aria-label={joinAriaLabel(ariaLabel, counterLabel)}
       aria-busy={loading || undefined}
       disabled={disabled || loading}
-      {...(rest as ActionElementProps)}
+      {...rest}
     >
       <ButtonContent
         loading={loading}

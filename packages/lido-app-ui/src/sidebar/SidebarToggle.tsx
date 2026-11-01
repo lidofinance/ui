@@ -2,17 +2,13 @@ import { forwardRef, useContext, type MouseEvent } from 'react'
 
 import cn from 'classnames'
 
-import { IconButton } from '../icon-button'
-import type {
-  IconButtonAsButtonProps,
-  IconButtonOwnProps,
-} from '../icon-button/types'
+import { IconButton, type IconButtonAsButtonProps } from '../icon-button'
 import { IconMenu } from '../icons'
 import { SidebarContext } from './SidebarContext'
 import styles from './SidebarToggle.module.css'
 
 export type SidebarToggleProps = Omit<
-  IconButtonOwnProps & IconButtonAsButtonProps,
+  IconButtonAsButtonProps,
   'icon' | 'aria-label'
 > & {
   'aria-label'?: string

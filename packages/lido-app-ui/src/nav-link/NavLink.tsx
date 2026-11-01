@@ -40,36 +40,39 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
       ...rest
     },
     ref,
-  ) => (
-    <Anchor
-      ref={ref}
-      className={cn(styles.link, active && styles.active, className)}
-      aria-current={active ? 'page' : undefined}
-      external={external}
-      data-testid={dataTestId?.root}
-      {...rest}
-    >
-      {icon != null ? (
-        <span
-          className={styles.icon}
-          aria-hidden='true'
-          data-testid={dataTestId?.icon}
-        >
-          {icon}
-        </span>
-      ) : null}
-      {children}
-      {opensInNewTab({ href: rest.href, target: rest.target, external }) ? (
-        <span
-          className={styles.icon}
-          aria-hidden='true'
-          data-testid={dataTestId?.externalIcon}
-        >
-          <IconLink />
-        </span>
-      ) : null}
-    </Anchor>
-  ),
+  ) => {
+    const newTab = opensInNewTab({ ...rest, external })
+    return (
+      <Anchor
+        ref={ref}
+        className={cn(styles.link, active && styles.active, className)}
+        aria-current={active ? 'page' : undefined}
+        external={newTab}
+        data-testid={dataTestId?.root}
+        {...rest}
+      >
+        {icon != null ? (
+          <span
+            className={styles.icon}
+            aria-hidden='true'
+            data-testid={dataTestId?.icon}
+          >
+            {icon}
+          </span>
+        ) : null}
+        {children}
+        {newTab ? (
+          <span
+            className={styles.icon}
+            aria-hidden='true'
+            data-testid={dataTestId?.externalIcon}
+          >
+            <IconLink />
+          </span>
+        ) : null}
+      </Anchor>
+    )
+  },
 )
 
 NavLink.displayName = 'NavLink'

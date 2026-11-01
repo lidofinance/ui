@@ -30,7 +30,6 @@ describe('CloseButton', () => {
 
   it('rejects href', () => {
     // @ts-expect-error a close action is never navigation
-    const element = <CloseButton href='/keys' />
-    expect(element).toBeTruthy()
+    void (<CloseButton href='/keys' />)
   })
 })

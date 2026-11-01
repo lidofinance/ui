@@ -47,7 +47,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
     const props: AnchorHTMLAttributes<HTMLAnchorElement> = {
       ...rest,
       ...(!disabled &&
-        opensInNewTab({ href: rest.href, target: rest.target, external }) && {
+        opensInNewTab({ ...rest, external }) && {
           target: rest.target ?? '_blank',
           rel: rest.rel ?? 'noopener noreferrer',
         }),

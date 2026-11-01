@@ -9,4 +9,3 @@ export type {
 } from './Button'
 export { LinkButton } from './LinkButton'
 export type { LinkButtonProps } from './LinkButton'
-export type { ButtonOwnProps } from './types'

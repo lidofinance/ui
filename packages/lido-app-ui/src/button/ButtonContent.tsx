@@ -5,11 +5,6 @@ import { IconLoaderCircle } from '../icons'
 import styles from './Button.module.css'
 import type { ButtonOwnProps } from './types'
 
-export const joinAriaLabel = (
-  ariaLabel: string | undefined,
-  counterLabel: string | undefined,
-) => (ariaLabel && counterLabel ? `${ariaLabel}, ${counterLabel}` : ariaLabel)
-
 type ButtonContentProps = Pick<
   ButtonOwnProps,
   'iconLeft' | 'iconRight' | 'counter' | 'counterLabel' | 'dataTestId'

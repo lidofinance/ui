@@ -13,9 +13,7 @@ import {
   type LinkComponentProps,
 } from '../../src/link-provider/LinkProvider'
 
-type Report = (via: string, href: string) => void
-
-const ReportContext = createContext<Report>(() => {})
+const ReportContext = createContext<(text: string) => void>(() => {})
 
 const createDemoLink = (via: string) => {
   const DemoLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
@@ -29,7 +27,7 @@ const createDemoLink = (via: string) => {
           onClick={(event) => {
             onClick?.(event)
             event.preventDefault()
-            report(via, props.href)
+            report(`${via} → ${props.href}`)
           }}
         />
       )
@@ -81,7 +79,7 @@ export const DemoRouter = ({
   )
 
   return (
-    <ReportContext.Provider value={(via, href) => setLast(`${via} → ${href}`)}>
+    <ReportContext.Provider value={setLast}>
       {withProvider ? (
         <LinkProvider component={RouterLink} externalComponent={ExternalLink}>
           {content}

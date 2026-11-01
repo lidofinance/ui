@@ -1,18 +1,15 @@
 import { forwardRef } from 'react'
 
+import type { AnchorProps } from '../link-provider/Anchor'
 import { Button } from './Button'
-import type { ButtonAsLinkProps, ButtonOwnProps } from './types'
+import type { ButtonAsLinkProps } from './types'
 
 /** @deprecated Use `Button` with `href`. */
-export type LinkButtonProps = ButtonOwnProps &
-  ButtonAsLinkProps & {
-    /** @deprecated Absolute http(s) URLs open in a new tab automatically; pass `target` to override. */
-    external?: boolean
-  }
+export type LinkButtonProps = ButtonAsLinkProps & Pick<AnchorProps, 'external'>
 
 /** @deprecated Use `Button` with `href`. */
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
-  (props, ref) => <Button ref={ref} {...(props as ButtonAsLinkProps)} />,
+  (props, ref) => <Button ref={ref} {...props} />,
 )
 
 LinkButton.displayName = 'LinkButton'

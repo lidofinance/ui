@@ -1,6 +1,6 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import type { AnchorProps } from '../link-provider/Anchor'
+import type { ActionAsButtonProps, ActionAsLinkProps } from '../utils'
 
 export type IconButtonVariant = 'outline' | 'ghost' | 'surface'
 
@@ -12,6 +12,7 @@ export type IconButtonDataTestId = {
 
 export type IconButtonOwnProps = {
   icon: ReactNode
+  'aria-label': string
   variant?: IconButtonVariant
   /**
    * Corner slot, aria-hidden. A number or string renders a default `Counter`
@@ -24,24 +25,8 @@ export type IconButtonOwnProps = {
   dataTestId?: IconButtonDataTestId
 }
 
-export type IconButtonAsButtonProps = Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  'aria-label'
-> & {
-  href?: never
-  linkProps?: never
-  loading?: boolean
-}
+export type IconButtonAsButtonProps = IconButtonOwnProps & ActionAsButtonProps
 
-export type IconButtonAsLinkProps = Omit<
-  AnchorProps,
-  'href' | 'external' | 'aria-label'
-> & {
-  href: string
-  loading?: never
-  type?: never
-}
+export type IconButtonAsLinkProps = IconButtonOwnProps & ActionAsLinkProps
 
-export type IconButtonProps = IconButtonOwnProps & {
-  'aria-label': string
-} & (IconButtonAsButtonProps | IconButtonAsLinkProps)
+export type IconButtonProps = IconButtonAsButtonProps | IconButtonAsLinkProps
