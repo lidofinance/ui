@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { IconLockKeyhole } from '../icons'
 import { InfoTooltip } from '.'
 
 const meta: Meta<typeof InfoTooltip> = {
@@ -34,7 +35,7 @@ const meta: Meta<typeof InfoTooltip> = {
     docs: {
       description: {
         component:
-          'An info glyph that reveals a `Tooltip` on hover or keyboard focus. Focusable, with an `aria-label` of "More info" unless overridden.',
+          'An icon (info by default) that reveals a `Tooltip` on hover or keyboard focus. Focusable, with an `aria-label` of "More info" unless overridden.',
       },
     },
   },
@@ -63,5 +64,14 @@ export const RichContent: Story = {
         Address.
       </>
     ),
+  },
+}
+
+export const CustomIcon: Story = {
+  args: {
+    icon: <IconLockKeyhole />,
+    size: 20,
+    'aria-label': 'Locked',
+    content: 'Amount is fixed by the bond curve.',
   },
 }

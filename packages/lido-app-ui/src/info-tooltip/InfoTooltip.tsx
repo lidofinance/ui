@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 import cn from 'classnames'
 
 import { IconInfo } from '../icons'
@@ -8,11 +10,14 @@ export type InfoTooltipSize = 16 | 20
 export type InfoTooltipTone = 'secondary' | 'tertiary'
 
 export type InfoTooltipProps = Omit<TooltipProps, 'children'> & {
+  /** Glyph; defaults to the info icon. */
+  icon?: ReactNode
   size?: InfoTooltipSize
   tone?: InfoTooltipTone
 }
 
 export const InfoTooltip = ({
+  icon = <IconInfo aria-hidden='true' />,
   size = 16,
   tone = 'secondary',
   className,
@@ -26,7 +31,7 @@ export const InfoTooltip = ({
     className={cn(styles.root, styles[`size${size}`], styles[tone], className)}
     {...rest}
   >
-    <IconInfo className={styles.icon} aria-hidden='true' />
+    {icon}
   </Tooltip>
 )
 
