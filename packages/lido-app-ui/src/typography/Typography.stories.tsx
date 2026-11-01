@@ -5,11 +5,12 @@ import {
   Body,
   BodyLarge,
   Description,
-  GroupName,
+  Caption,
   H1,
   H2,
   H3,
   Typography,
+  typographyColors,
 } from '.'
 
 const meta: Meta<typeof Typography> = {
@@ -25,17 +26,26 @@ const meta: Meta<typeof Typography> = {
         'h1',
         'h2',
         'h3',
-        'richInput',
+        'amount',
         'bodyLarge',
         'body',
         'description',
-        'groupName',
+        'caption',
       ],
       control: { type: 'select' },
     },
     weight: {
       options: ['regular', 'semibold'],
       control: { type: 'inline-radio' },
+    },
+    color: {
+      options: typographyColors,
+      control: { type: 'select' },
+      // docgen can't resolve `(typeof typographyColors)[number]`; without this, URL args drop it and the table shows `unknown`
+      type: { name: 'enum', value: [...typographyColors] },
+      table: {
+        type: { summary: typographyColors.map((c) => `'${c}'`).join(' | ') },
+      },
     },
     children: { control: { type: 'text' } },
   },
@@ -67,13 +77,14 @@ export const Scale: Story = {
       </div>
       <H2>H2 — 28/40</H2>
       <H3>H3 — 24/36</H3>
+      <Typography variant='amount'>Amount — 36/50</Typography>
       <BodyLarge>BodyLarge regular — 16/28</BodyLarge>
       <BodyLarge weight='semibold'>BodyLarge semibold — 16/28</BodyLarge>
       <Body>Body regular — 14/24</Body>
       <Body weight='semibold'>Body semibold — 14/24</Body>
       <Description>Description regular — 12/20</Description>
       <Description weight='semibold'>Description semibold — 12/20</Description>
-      <GroupName>Group name — 12/20 uppercase</GroupName>
+      <Caption>Caption — 12/20 uppercase</Caption>
     </StoryContainer>
   ),
   parameters: {
@@ -81,6 +92,39 @@ export const Scale: Story = {
     docs: {
       description: {
         story: 'The whole scale, labelled size/line-height.',
+      },
+    },
+  },
+}
+
+export const Colors: Story = {
+  render: () => (
+    <StoryContainer gap={8}>
+      {typographyColors.map((color) => (
+        <div
+          key={color}
+          style={
+            color === 'inverse'
+              ? {
+                  width: 'fit-content',
+                  background: 'var(--lido-app-ui-color-background-action)',
+                  padding: '4px 8px',
+                  borderRadius: 8,
+                }
+              : undefined
+          }
+        >
+          <Typography color={color}>{color}</Typography>
+        </div>
+      ))}
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Without `color` the text inherits. `inverse` is for filled action surfaces like Button and Tag.',
       },
     },
   },

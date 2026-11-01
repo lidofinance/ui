@@ -78,7 +78,7 @@
   letter-spacing: var(--lido-app-ui-letter-spacing-tooltip);
 }
 
-@define-mixin font-group-name {
+@define-mixin font-caption {
   font-family: var(--lido-app-ui-font-family);
   font-size: var(--lido-app-ui-font-size-tooltip);
   font-weight: var(--lido-app-ui-font-weight-semibold);
@@ -87,9 +87,19 @@
   text-transform: uppercase;
 }
 
-@define-mixin font-rich-input {
+/* Deprecated: use font-caption */
+@define-mixin font-group-name {
+  @mixin font-caption;
+}
+
+@define-mixin font-amount {
   font-family: var(--lido-app-ui-font-family);
-  font-size: var(--lido-app-ui-font-size-rich-input);
+  font-size: var(--lido-app-ui-font-size-amount);
   font-weight: var(--lido-app-ui-font-weight-regular);
-  line-height: var(--lido-app-ui-line-height-rich-input);
+  line-height: var(--lido-app-ui-line-height-amount);
+}
+
+/* Deprecated: use font-amount */
+@define-mixin font-rich-input {
+  @mixin font-amount;
 }
