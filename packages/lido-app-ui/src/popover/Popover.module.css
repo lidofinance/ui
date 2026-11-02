@@ -10,7 +10,7 @@
   padding: var(--lido-app-ui-space-12);
   overflow-y: auto;
   border: 1px solid var(--lido-app-ui-color-border-default);
-  border-radius: var(--lido-app-ui-border-radius-card);
+  border-radius: var(--lido-app-ui-border-radius-dropdown);
   background-color: var(--lido-app-ui-color-background-surface);
   box-shadow: var(--lido-app-ui-shadow-popover);
   font-family: var(--lido-app-ui-font-family);

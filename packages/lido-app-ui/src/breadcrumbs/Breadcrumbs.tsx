@@ -20,7 +20,7 @@ export type BreadcrumbItem = ActionElementProps & {
 export type BreadcrumbsDataTestId = { root?: string; list?: string }
 
 export type BreadcrumbsProps = HTMLAttributes<HTMLElement> & {
-  /** `href` renders a link, only `onClick` a button, anything else (and `disabled`) plain text; the last item is the current page. */
+  /** `href` renders a link, only `onClick` a button, anything else (and `disabled`) plain text; the last item is the current page; an empty array renders nothing. */
   items: BreadcrumbItem[]
   dataTestId?: BreadcrumbsDataTestId
 }
@@ -51,8 +51,7 @@ const syncTitle = (e: PointerEvent<HTMLElement>) => {
   else el.removeAttribute('title')
 }
 
-/** Trail of ancestors ending in the current page (`aria-current="page"`); scrolls horizontally with an edge fade when it overflows. */
-export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
+const BreadcrumbsTrail = forwardRef<HTMLElement, BreadcrumbsProps>(
   ({ items, className, dataTestId, ...rest }, ref) => {
     const listRef = useRef<HTMLOListElement>(null)
 
@@ -158,6 +157,15 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
       </nav>
     )
   },
+)
+
+BreadcrumbsTrail.displayName = 'BreadcrumbsTrail'
+
+/** Trail of ancestors ending in the current page (`aria-current="page"`); scrolls horizontally with an edge fade when it overflows. */
+export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
+  (props, ref) =>
+    // Separate component so its mount effects attach once the list exists.
+    props.items.length === 0 ? null : <BreadcrumbsTrail ref={ref} {...props} />,
 )
 
 Breadcrumbs.displayName = 'Breadcrumbs'

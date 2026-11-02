@@ -21,8 +21,14 @@
   height: 152px;
 }
 
-.card:hover {
+.card:not(.locked):hover {
   background-color: var(--lido-app-ui-color-background-default-hover);
+}
+
+.card.locked {
+  /* No Max, so usually no bottom row: hug content. */
+  height: auto;
+  cursor: default;
 }
 
 .card.error {
@@ -38,6 +44,17 @@
   background-color: var(--lido-app-ui-color-background-disabled);
 }
 
+.lock {
+  margin-left: 4px;
+}
+
+.lockIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--lido-app-ui-color-icons-secondary);
+}
+
 .labelRow {
   display: flex;
   align-items: center;
@@ -46,7 +63,9 @@
 }
 
 .label {
-  @mixin font-body color: var(--lido-app-ui-color-text-secondary);
+  @mixin font-body-large;
+
+  color: var(--lido-app-ui-color-text-secondary);
 }
 
 .amountRow {

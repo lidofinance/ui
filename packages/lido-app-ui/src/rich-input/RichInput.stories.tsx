@@ -6,12 +6,14 @@ import { TokenSteth } from '../icons'
 import { TokenSelector } from '../token-selector'
 import { RichInput } from '.'
 
+const stethOptions = [{ value: 'stETH', label: 'stETH', icon: <TokenSteth /> }]
+
 const tokenSelector = (
-  <TokenSelector
-    single
-    value='stETH'
-    options={[{ value: 'stETH', label: 'stETH', icon: <TokenSteth /> }]}
-  />
+  <TokenSelector single value='stETH' options={stethOptions} />
+)
+
+const smallTokenSelector = (
+  <TokenSelector single size='small' value='stETH' options={stethOptions} />
 )
 
 const meta: Meta<typeof RichInput> = {
@@ -28,6 +30,9 @@ const meta: Meta<typeof RichInput> = {
   },
   argTypes: {
     showMaxButton: {
+      control: { type: 'boolean' },
+    },
+    locked: {
       control: { type: 'boolean' },
     },
     tokenSelector: {
@@ -135,9 +140,26 @@ export const States: Story = {
         tokenSelector={tokenSelector}
         disabled
       />
+      <RichInput
+        label='Locked'
+        defaultValue='12'
+        locked
+        tokenSelector={smallTokenSelector}
+      />
+      <RichInput
+        label='Locked with tooltip'
+        defaultValue='12'
+        locked
+        lockedTooltip='Amount is fixed by the bond curve.'
+        tokenSelector={smallTokenSelector}
+      />
     </StoryContainer>
   ),
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/9q8Bp7XHM2XGipfpLI63s1/Operators?node-id=75-89524&m=dev',
+    },
     controls: { disable: true },
     docs: {
       description: {

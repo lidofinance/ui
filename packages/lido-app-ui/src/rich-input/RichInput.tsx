@@ -9,6 +9,7 @@ import {
 } from 'react'
 
 import cn from 'classnames'
+import { IconLockKeyhole } from '../icons'
 import { InfoTooltip } from '../info-tooltip'
 import { Tag } from '../tag'
 import { Tooltip, type TooltipPosition } from '../tooltip'
@@ -23,6 +24,7 @@ export type RichInputDataTestId = {
   balance?: string
   maxButton?: string
   error?: string
+  lock?: string
 }
 
 export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
@@ -44,6 +46,10 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   /** Explains what Max actually fills in. */
   maxTooltip?: ReactNode
   maxTooltipPosition?: TooltipPosition
+  /** Value can't be edited. */
+  locked?: boolean
+  /** Tooltip on the lock icon. */
+  lockedTooltip?: ReactNode
   dataTestId?: RichInputDataTestId
 }
 
@@ -60,7 +66,7 @@ const sanitizeDecimal = (raw: string): string => {
 
 const noop = () => undefined
 
-/** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max. */
+/** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max; `locked` makes it read-only without Max. */
 export const RichInput = ({
   label,
   labelTooltip,
@@ -78,6 +84,9 @@ export const RichInput = ({
   className,
   id,
   disabled,
+  locked,
+  lockedTooltip,
+  readOnly,
   dataTestId,
   ...inputProps
 }: RichInputProps) => {
@@ -88,7 +97,7 @@ export const RichInput = ({
   const hasError = !!error
   const showErrorMessage = !!errorText
   const errorId = `${inputId}-error`
-  const showMax = showMaxButton && !disabled
+  const showMax = showMaxButton && !disabled && !locked
   const hasBottomRow = secondaryValue != null || balance != null || showMax
 
   const maxTag = (
@@ -138,7 +147,11 @@ export const RichInput = ({
       */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={cn(styles.card, hasError && styles.error)}
+        className={cn(
+          styles.card,
+          hasError && styles.error,
+          locked && styles.locked,
+        )}
         onClick={handleRootClick}
       >
         {label != null ? (
@@ -153,6 +166,24 @@ export const RichInput = ({
             {labelTooltip != null ? (
               <InfoTooltip content={labelTooltip} size={20} />
             ) : null}
+            {locked ? (
+              lockedTooltip != null ? (
+                <InfoTooltip
+                  icon={<IconLockKeyhole aria-hidden='true' />}
+                  size={20}
+                  aria-label='Locked'
+                  content={lockedTooltip}
+                  className={styles.lock}
+                  dataTestId={{ root: dataTestId?.lock }}
+                />
+              ) : (
+                <IconLockKeyhole
+                  aria-hidden='true'
+                  className={cn(styles.lock, styles.lockIcon)}
+                  data-testid={dataTestId?.lock}
+                />
+              )
+            ) : null}
           </span>
         ) : null}
         <div className={styles.amountRow}>
@@ -162,6 +193,7 @@ export const RichInput = ({
             className={styles.input}
             inputMode='decimal'
             disabled={disabled}
+            readOnly={locked || readOnly}
             aria-invalid={hasError || undefined}
             aria-describedby={showErrorMessage ? errorId : undefined}
             onChange={handleChange}

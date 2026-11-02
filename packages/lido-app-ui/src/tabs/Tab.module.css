@@ -24,3 +24,8 @@
   color: var(--lido-app-ui-color-text-disabled);
   cursor: not-allowed;
 }
+
+.tab:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}

@@ -3,6 +3,7 @@
   --local-bg-hover: var(--lido-app-ui-color-background-secondary-hover);
   --local-text: var(--lido-app-ui-color-text-secondary);
   --local-border-active: var(--lido-app-ui-color-border-default);
+  --local-surface: var(--local-bg);
 
   @mixin font-description-semibold;
 
@@ -13,7 +14,7 @@
   padding: 1px 7px;
   border: 1px solid transparent;
   border-radius: var(--lido-app-ui-border-radius-badge);
-  background-color: var(--local-bg);
+  background: var(--local-surface);
   color: var(--local-text);
   white-space: nowrap;
 }
@@ -25,7 +26,7 @@
 }
 
 .interactive:not(:disabled, [aria-disabled='true']):hover {
-  background-color: var(--local-bg-hover);
+  --local-surface: var(--local-bg-hover);
 }
 
 .interactive:focus-visible,
@@ -126,4 +127,52 @@
   .crossIcon {
     color: var(--lido-app-ui-color-icons-inverse);
   }
+}
+
+/* Fill and border paint on ::after so the glow on ::before stays under them. */
+.custom {
+  --local-bg: var(
+    --lido-app-ui-tag-background,
+    var(--lido-app-ui-color-background-action)
+  );
+  --local-bg-hover: var(
+    --lido-app-ui-tag-background-hover,
+    linear-gradient(color-mix(in srgb, currentcolor 10%, transparent) 0 0),
+    var(--local-bg)
+  );
+  --local-text: var(
+    --lido-app-ui-tag-color,
+    var(--lido-app-ui-color-text-inverse)
+  );
+  --local-border-active: var(--lido-app-ui-tag-border-color, currentcolor);
+
+  position: relative;
+  isolation: isolate;
+  background: none;
+}
+
+.custom::before,
+.custom::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.custom::before {
+  background: var(--lido-app-ui-tag-glow, none);
+  filter: blur(8px);
+  opacity: 0.5;
+}
+
+.custom::after {
+  border: inherit;
+  background: var(--local-surface);
+  background-origin: border-box;
+}
+
+.custom .crossIcon {
+  color: inherit;
 }

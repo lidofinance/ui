@@ -22,6 +22,12 @@ describe('Breadcrumbs', () => {
     expect(screen.getAllByRole('link')).toHaveLength(1)
   })
 
+  it('renders nothing without items', () => {
+    const { container } = render(<Breadcrumbs items={[]} />)
+    expect(container).toBeEmptyDOMElement()
+    expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
+  })
+
   it.each([
     ['href', { href: '/home' }],
     ['onClick', { onClick: vi.fn() }],
@@ -221,6 +227,15 @@ describe('Breadcrumbs', () => {
       list.scrollLeft = 10
       rerender(<Host labels={['Home', 'A', 'BC']} />)
       expect(list.scrollLeft).toBe(500)
+    })
+
+    it('wires the wheel handler when items arrive after an empty mount', () => {
+      const { rerender } = render(<Breadcrumbs items={[]} />)
+      rerender(<Breadcrumbs items={[{ label: 'A' }, { label: 'B' }]} />)
+      const list = screen.getByRole('list')
+      list.scrollLeft = 0
+      fireEvent.wheel(list, { deltaY: 40 })
+      expect(list.scrollLeft).toBeGreaterThan(0)
     })
   })
 

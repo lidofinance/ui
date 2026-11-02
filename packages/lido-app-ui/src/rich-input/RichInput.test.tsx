@@ -59,3 +59,35 @@ describe('RichInput Max', () => {
     expect(screen.getByRole('textbox')).not.toHaveFocus()
   })
 })
+
+describe('RichInput locked', () => {
+  it('is read-only but not disabled', () => {
+    render(<RichInput locked defaultValue='12' />)
+    const input = screen.getByRole('textbox')
+    expect(input).toHaveAttribute('readonly')
+    expect(input).not.toBeDisabled()
+  })
+
+  it('stays read-only when inputProps.readOnly is false', () => {
+    render(<RichInput locked readOnly={false} />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('readonly')
+  })
+
+  it('hides Max', () => {
+    render(<RichInput locked />)
+    expect(screen.queryByRole('button', { name: 'Max' })).toBeNull()
+  })
+
+  it('shows a focusable lock with tooltip', () => {
+    render(<RichInput label='Amount' locked lockedTooltip='Fixed amount' />)
+    const lock = screen.getByRole('img', { name: 'Locked' })
+    expect(screen.queryByRole('tooltip')).toBeNull()
+    fireEvent.focus(lock)
+    expect(screen.getByRole('tooltip').textContent).toBe('Fixed amount')
+  })
+
+  it('shows no lock role without lockedTooltip', () => {
+    render(<RichInput label='Amount' locked />)
+    expect(screen.queryByRole('img', { name: 'Locked' })).toBeNull()
+  })
+})

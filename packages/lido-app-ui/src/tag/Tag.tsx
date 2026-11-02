@@ -23,6 +23,7 @@ export type TagVariant =
   | 'info'
   | 'active'
   | 'action'
+  | 'custom'
 
 export type TagDataTestId = {
   root?: string
@@ -33,6 +34,7 @@ export type TagDataTestId = {
 export type TagIconPosition = 'left' | 'right'
 
 export type TagProps = Omit<HTMLAttributes<HTMLSpanElement>, 'onClick'> & {
+  /** `custom` takes colors from the `--lido-app-ui-tag-*` CSS vars. */
   variant?: TagVariant
   /** Shows the variant-coloured active border. */
   active?: boolean

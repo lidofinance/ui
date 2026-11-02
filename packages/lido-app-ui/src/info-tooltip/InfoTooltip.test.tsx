@@ -9,6 +9,12 @@ describe('InfoTooltip', () => {
     expect(screen.getByRole('img').querySelector('svg')).not.toBeNull()
   })
 
+  it('replaces the info glyph with a custom icon', () => {
+    render(<InfoTooltip content='Help' icon={<svg data-testid='custom' />} />)
+    expect(screen.getByTestId('custom')).toBeTruthy()
+    expect(screen.getByRole('img').querySelectorAll('svg')).toHaveLength(1)
+  })
+
   it('is focusable', () => {
     render(<InfoTooltip content='Help' />)
     expect(screen.getByRole('img').getAttribute('tabindex')).toBe('0')
