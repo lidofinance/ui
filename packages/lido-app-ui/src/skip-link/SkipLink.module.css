@@ -11,7 +11,9 @@
   box-shadow: var(--lido-app-ui-shadow-popover);
   color: var(--lido-app-ui-color-text-default);
   text-decoration: none;
-  transform: translateY(calc(-100% - 24px));
+
+  /* clears the top offset and the popover shadow's 32px blur */
+  transform: translateY(calc(-100% - 12px - 32px));
   transition: transform 0.2s ease;
 }
 

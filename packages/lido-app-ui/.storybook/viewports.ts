@@ -24,5 +24,6 @@ export const viewports = {
     `${sidebarBreakpointWidth}px — sidebar persistent`,
     sidebarBreakpointWidth,
   ),
+  px1440: viewport('1440px — desktop', 1440),
   px375: viewport('375px — mobile', 375, 800),
 }
