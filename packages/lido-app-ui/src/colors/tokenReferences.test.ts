@@ -35,6 +35,7 @@ const declaredBreakpoints = new Set(
 const privateTokens = [
   /^--lido-app-ui-fade-(start|end)$/,
   /^--lido-app-ui-logo-breakpoint$/,
+  /^--lido-app-ui-tag-[a-z-]+$/,
 ]
 
 const customMediaPattern = /(?<!var)\((--lido-app-ui-breakpoint-[a-z-]+)\)/g
