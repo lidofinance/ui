@@ -37,6 +37,21 @@ describe('NavLink', () => {
     expect(el.querySelector('svg')).toBeInTheDocument()
   })
 
+  it('opens an absolute href in a new tab with the arrow', () => {
+    render(<NavLink href='https://lido.fi'>A</NavLink>)
+    const el = screen.getByRole('link', { name: 'A' })
+    expect(el).toHaveAttribute('target', '_blank')
+    expect(el).toHaveAttribute('rel', 'noopener noreferrer')
+    expect(el.querySelector('svg')).toBeInTheDocument()
+  })
+
+  it('keeps a relative href in the tab without the arrow', () => {
+    render(<NavLink href='/a'>A</NavLink>)
+    const el = screen.getByRole('link', { name: 'A' })
+    expect(el).not.toHaveAttribute('target')
+    expect(el.querySelector('svg')).not.toBeInTheDocument()
+  })
+
   it('lets an explicit rel win when external', () => {
     render(
       <NavLink href='/a' external rel='noopener'>

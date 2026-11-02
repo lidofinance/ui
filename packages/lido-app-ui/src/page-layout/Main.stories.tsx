@@ -28,7 +28,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const FooterLinks = () => (
-  <TextLink href='https://lido.fi/terms-of-use' external variant='secondary'>
+  <TextLink href='https://lido.fi/terms-of-use' variant='secondary'>
     Terms of Use
   </TextLink>
 )

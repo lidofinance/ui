@@ -7,15 +7,23 @@ import {
 } from './LinkProvider'
 
 const ABSOLUTE_URL = /^([a-z][a-z\d+.-]*:|\/\/)/i
+const WEB_URL = /^(https?:)?\/\//i
 
 export type AnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  /** Opens in a new tab: defaults `target` to `_blank` and `rel` to `noopener noreferrer`; an explicit `rel` wins. */
+  /** @deprecated Absolute http(s) URLs open in a new tab automatically; pass `target` to override. */
   external?: boolean
   /** Renders an href-less `role='link'` with `aria-disabled`, and drops `onClick`. */
   disabled?: boolean
   /** Router-only props (e.g. `prefetch`), passed to `LinkProvider` components and never to a plain `<a>`. */
   linkProps?: LinkRouterProps
 }
+
+export const opensInNewTab = ({
+  href,
+  target,
+  external,
+}: Pick<AnchorProps, 'href' | 'target' | 'external'>) =>
+  external ?? (target === undefined && href !== undefined && WEB_URL.test(href))
 
 const pickLink = (
   { component, externalComponent }: LinkComponents,
@@ -38,10 +46,11 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
     const links = useLinkComponents()
     const props: AnchorHTMLAttributes<HTMLAnchorElement> = {
       ...rest,
-      ...(external && {
-        target: rest.target ?? '_blank',
-        rel: rest.rel ?? 'noopener noreferrer',
-      }),
+      ...(!disabled &&
+        opensInNewTab({ ...rest, external }) && {
+          target: rest.target ?? '_blank',
+          rel: rest.rel ?? 'noopener noreferrer',
+        }),
       ...(disabled && {
         href: undefined,
         onClick: undefined,

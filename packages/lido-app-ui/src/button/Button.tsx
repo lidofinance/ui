@@ -1,30 +1,37 @@
-import { forwardRef, type ButtonHTMLAttributes } from 'react'
+import { forwardRef } from 'react'
 
 import cn from 'classnames'
 
+import { ActionElement, joinAriaLabel } from '../utils'
 import styles from './Button.module.css'
-import { ButtonContent, joinAriaLabel } from './ButtonContent'
+import { ButtonContent } from './ButtonContent'
 import type {
+  ButtonAsButtonProps,
+  ButtonAsLinkProps,
   ButtonDataTestId,
-  ButtonOwnProps,
+  ButtonProps,
   ButtonSize,
   ButtonVariant,
 } from './types'
 
-export type { ButtonDataTestId, ButtonSize, ButtonVariant }
+export type {
+  ButtonAsButtonProps,
+  ButtonAsLinkProps,
+  ButtonDataTestId,
+  ButtonProps,
+  ButtonSize,
+  ButtonVariant,
+}
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  ButtonOwnProps & {
-    loading?: boolean
-  }
-
-/** Fully rounded call to action; `size` is big (52px) or small (36px), `loading` swaps the icon slot for a spinner and disables the button. */
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+/** Fully rounded call to action; `size` is big (52px) or small (36px), `loading` swaps the icon slot for a spinner and disables it. With `href` it renders a link that routes through `LinkProvider`. */
+export const Button = forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  ButtonProps
+>(
   (
     {
       className,
       children,
-      type = 'button',
       variant = 'primary',
       size = 'big',
       loading = false,
@@ -39,11 +46,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => (
-    <button
+    <ActionElement
       ref={ref}
-      type={type}
-      disabled={disabled || loading}
-      aria-busy={loading || undefined}
       className={cn(
         styles.button,
         styles[variant],
@@ -53,6 +57,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       )}
       data-testid={dataTestId?.root}
       aria-label={joinAriaLabel(ariaLabel, counterLabel)}
+      aria-busy={loading || undefined}
+      disabled={disabled || loading}
       {...rest}
     >
       <ButtonContent
@@ -65,7 +71,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {children}
       </ButtonContent>
-    </button>
+    </ActionElement>
   ),
 )
 

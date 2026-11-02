@@ -7,6 +7,7 @@ import {
 
 import cn from 'classnames'
 
+import type { AnchorProps } from '../link-provider/Anchor'
 import { ActionElement } from '../utils'
 import styles from './Logo.module.css'
 
@@ -22,10 +23,8 @@ export type LogoProps = Omit<HTMLAttributes<HTMLElement>, 'children'> &
     product?: string
     /** Renders a link; with only `onClick` it renders a button, otherwise a plain `role="img"` element. */
     href?: string
-    /** Opens the link in a new tab; needs `href`. */
-    external?: boolean
     dataTestId?: LogoDataTestId
-  }
+  } & Pick<AnchorProps, 'external'>
 
 const DROPLET = (
   <svg

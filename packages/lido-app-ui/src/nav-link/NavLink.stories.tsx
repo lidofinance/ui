@@ -10,9 +10,6 @@ const meta: Meta<typeof NavLink> = {
     active: {
       control: 'boolean',
     },
-    external: {
-      control: 'boolean',
-    },
     icon: {
       options: ['none', 'lightning'],
       mapping: { none: undefined, lightning: <IconLightning /> },
@@ -53,18 +50,10 @@ export const WithIcons: Story = {
       <NavLink href='#' active icon={<IconLightning />}>
         Lend
       </NavLink>
-      <NavLink href='#' external>
-        Stake
-      </NavLink>
-      <NavLink href='#' external>
-        Earn
-      </NavLink>
-      <NavLink href='#' external>
-        Yieldcoin
-      </NavLink>
-      <NavLink href='#' external>
-        Swap
-      </NavLink>
+      <NavLink href='https://lido.fi'>Stake</NavLink>
+      <NavLink href='https://lido.fi'>Earn</NavLink>
+      <NavLink href='https://lido.fi'>Yieldcoin</NavLink>
+      <NavLink href='https://lido.fi'>Swap</NavLink>
     </nav>
   ),
 }

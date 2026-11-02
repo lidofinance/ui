@@ -75,7 +75,7 @@ export const ExternalLinks: Story = {
           Lend
         </NavLink>
         {['Stake', 'Earn', 'Swap'].map((label) => (
-          <NavLink key={label} href='#' external>
+          <NavLink key={label} href='https://lido.fi'>
             {label}
           </NavLink>
         ))}

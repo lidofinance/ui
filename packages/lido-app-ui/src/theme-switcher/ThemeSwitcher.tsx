@@ -2,12 +2,12 @@ import { forwardRef, type MouseEvent } from 'react'
 
 import { ThemeName, useThemeToggle } from '@lidofinance/lido-shared-ui'
 
-import { IconButton, type IconButtonProps } from '../icon-button'
+import { IconButton, type IconButtonAsButtonProps } from '../icon-button'
 import { IconDay, IconNight } from '../icons'
 import styles from './ThemeSwitcher.module.css'
 
 export type ThemeSwitcherProps = Omit<
-  IconButtonProps,
+  IconButtonAsButtonProps,
   'icon' | 'variant' | 'aria-label'
 > & {
   /** Overrides the default English label, e.g. for localization. */

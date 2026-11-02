@@ -109,6 +109,68 @@ describe('Anchor', () => {
     })
   })
 
+  describe('new tab by URL', () => {
+    it('opens https in a new tab with rel', () => {
+      render(<Anchor href='https://lido.fi'>X</Anchor>)
+      const a = screen.getByRole('link')
+      expect(a).toHaveAttribute('target', '_blank')
+      expect(a).toHaveAttribute('rel', 'noopener noreferrer')
+    })
+
+    it('opens a protocol-relative URL in a new tab', () => {
+      render(<Anchor href='//cdn.lido.fi/a.pdf'>X</Anchor>)
+      expect(screen.getByRole('link')).toHaveAttribute('target', '_blank')
+    })
+
+    it.each(['mailto:help@lido.fi', '/x', '#hash'])(
+      'leaves %s in the same tab',
+      (href) => {
+        render(<Anchor href={href}>X</Anchor>)
+        expect(screen.getByRole('link')).not.toHaveAttribute('target')
+      },
+    )
+
+    it('lets an explicit target win without a rel default', () => {
+      render(
+        <Anchor href='https://lido.fi' target='_self'>
+          X
+        </Anchor>,
+      )
+      const a = screen.getByRole('link')
+      expect(a).toHaveAttribute('target', '_self')
+      expect(a).not.toHaveAttribute('rel')
+    })
+
+    it('opts out with external={false}', () => {
+      render(
+        <Anchor href='https://lido.fi' external={false}>
+          X
+        </Anchor>,
+      )
+      expect(screen.getByRole('link')).not.toHaveAttribute('target')
+    })
+
+    it('adds no target to a disabled link', () => {
+      render(
+        <Anchor href='https://lido.fi' disabled>
+          X
+        </Anchor>,
+      )
+      const a = screen.getByRole('link')
+      expect(a).not.toHaveAttribute('target')
+      expect(a).not.toHaveAttribute('href')
+    })
+
+    it('lets an explicit rel win', () => {
+      render(
+        <Anchor href='https://lido.fi' rel='noopener'>
+          X
+        </Anchor>,
+      )
+      expect(screen.getByRole('link')).toHaveAttribute('rel', 'noopener')
+    })
+  })
+
   describe('disabled', () => {
     it('renders an href-less link that ignores clicks, tabIndex and routing', () => {
       const onClick = vi.fn()

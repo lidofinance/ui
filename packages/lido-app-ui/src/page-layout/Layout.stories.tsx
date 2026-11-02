@@ -32,18 +32,10 @@ export const Basic: Story = {
         <Card>Short page content</Card>
       </PageContent>
       <Footer>
-        <TextLink
-          href='https://lido.fi/terms-of-use'
-          external
-          variant='secondary'
-        >
+        <TextLink href='https://lido.fi/terms-of-use' variant='secondary'>
           Terms of Use
         </TextLink>
-        <TextLink
-          href='https://lido.fi/privacy-notice'
-          external
-          variant='secondary'
-        >
+        <TextLink href='https://lido.fi/privacy-notice' variant='secondary'>
           Privacy Notice
         </TextLink>
       </Footer>

@@ -3,7 +3,11 @@ import { forwardRef, type AnchorHTMLAttributes, type ReactNode } from 'react'
 import cn from 'classnames'
 
 import { IconLink } from '../icons'
-import { Anchor, type AnchorProps } from '../link-provider/Anchor'
+import {
+  Anchor,
+  opensInNewTab,
+  type AnchorProps,
+} from '../link-provider/Anchor'
 import styles from './NavLink.module.css'
 
 export type NavLinkDataTestId = {
@@ -17,7 +21,7 @@ export type NavLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   active?: boolean
   /** Leading icon. */
   icon?: ReactNode
-  /** Opens in a new tab and appends the external-link arrow. */
+  /** @deprecated Absolute http(s) URLs open in a new tab with the arrow automatically; pass `target` to override. */
   external?: boolean
   linkProps?: AnchorProps['linkProps']
   dataTestId?: NavLinkDataTestId
@@ -29,43 +33,46 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
     {
       active = false,
       icon,
-      external = false,
+      external,
       className,
       children,
       dataTestId,
       ...rest
     },
     ref,
-  ) => (
-    <Anchor
-      ref={ref}
-      className={cn(styles.link, active && styles.active, className)}
-      aria-current={active ? 'page' : undefined}
-      external={external}
-      data-testid={dataTestId?.root}
-      {...rest}
-    >
-      {icon != null ? (
-        <span
-          className={styles.icon}
-          aria-hidden='true'
-          data-testid={dataTestId?.icon}
-        >
-          {icon}
-        </span>
-      ) : null}
-      {children}
-      {external ? (
-        <span
-          className={styles.icon}
-          aria-hidden='true'
-          data-testid={dataTestId?.externalIcon}
-        >
-          <IconLink />
-        </span>
-      ) : null}
-    </Anchor>
-  ),
+  ) => {
+    const newTab = opensInNewTab({ ...rest, external })
+    return (
+      <Anchor
+        ref={ref}
+        className={cn(styles.link, active && styles.active, className)}
+        aria-current={active ? 'page' : undefined}
+        external={newTab}
+        data-testid={dataTestId?.root}
+        {...rest}
+      >
+        {icon != null ? (
+          <span
+            className={styles.icon}
+            aria-hidden='true'
+            data-testid={dataTestId?.icon}
+          >
+            {icon}
+          </span>
+        ) : null}
+        {children}
+        {newTab ? (
+          <span
+            className={styles.icon}
+            aria-hidden='true'
+            data-testid={dataTestId?.externalIcon}
+          >
+            <IconLink />
+          </span>
+        ) : null}
+      </Anchor>
+    )
+  },
 )
 
 NavLink.displayName = 'NavLink'

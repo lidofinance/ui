@@ -1,9 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, LinkButton, type ButtonVariant } from '.'
+import { Button, type ButtonProps, type ButtonVariant } from '.'
 
-import { StoryContainer, StorySection } from '../../.storybook/components'
+import {
+  DemoRouter,
+  StoryContainer,
+  StorySection,
+} from '../../.storybook/components'
 import { Counter, type CounterVariant } from '../counter'
-import { IconInfo } from '../icons'
+import { IconArrowNarrowUpRight, IconInfo } from '../icons'
 
 const meta: Meta<typeof Button> = {
   title: 'Buttons/Button',
@@ -23,12 +27,16 @@ const meta: Meta<typeof Button> = {
     },
     disabled: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
+    counter: { control: { type: 'text' } },
+    href: { control: { type: 'text' } },
     type: { table: { disable: true } },
+    linkProps: { table: { disable: true } },
   },
 }
 
 export default meta
-type Story = StoryObj<typeof meta>
+// A union of props breaks `StoryObj<typeof meta>` (args collapse to never).
+type Story = StoryObj<ButtonProps>
 
 export const Basic: Story = {}
 
@@ -193,18 +201,20 @@ export const WithCounter: Story = {
 export const AsLink: Story = {
   render: () => (
     <StoryContainer>
-      <StorySection title='LinkButton'>
-        {variants.map((variant) => (
-          <LinkButton key={variant} variant={variant} href='#section'>
-            {variant}
-          </LinkButton>
-        ))}
-      </StorySection>
+      {(['big', 'small'] as const).map((size) => (
+        <StorySection key={size} title={size}>
+          {variants.map((variant) => (
+            <Button key={variant} variant={variant} size={size} href='#keys'>
+              {variant}
+            </Button>
+          ))}
+        </StorySection>
+      ))}
       <StorySection title='disabled'>
         {variants.map((variant) => (
-          <LinkButton key={variant} variant={variant} href='#section' disabled>
+          <Button key={variant} variant={variant} href='#keys' disabled>
             {variant}
-          </LinkButton>
+          </Button>
         ))}
       </StorySection>
     </StoryContainer>
@@ -214,7 +224,57 @@ export const AsLink: Story = {
     docs: {
       description: {
         story:
-          '`LinkButton` is the same button as an `<a>`, for navigation: it keeps link semantics and routes through `LinkProvider`. `disabled` drops the `href` and sets `aria-disabled`. It takes `external` and the anchor attributes instead of `type` and `loading`.',
+          'With `href`, `Button` renders an `<a>` for navigation: it keeps link semantics and routes through `LinkProvider`. It takes the anchor attributes instead of `type` and `loading`. `disabled` drops the `href` and `onClick` and sets `aria-disabled`, so the link is neither clickable nor focusable.',
+      },
+    },
+  },
+}
+
+export const External: Story = {
+  render: () => (
+    <Button
+      href='https://lido.fi'
+      variant='outline'
+      iconRight={<IconArrowNarrowUpRight />}
+    >
+      lido.fi
+    </Button>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Absolute `http(s)` URLs open in a new tab with `rel="noopener noreferrer"`; pass `target` to override. An up-right arrow marks an outbound link.',
+      },
+    },
+  },
+}
+
+export const WithRouter: Story = {
+  render: () => (
+    <DemoRouter>
+      <StorySection>
+        <Button href='/keys'>In-app: /keys</Button>
+        <Button href='/settings' variant='outline'>
+          In-app: /settings
+        </Button>
+        <Button
+          href='https://lido.fi'
+          variant='subtle'
+          iconRight={<IconArrowNarrowUpRight />}
+        >
+          External: lido.fi
+        </Button>
+      </StorySection>
+    </DemoRouter>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Inside `LinkProvider`, in-app hrefs go to `component` and absolute URLs to `externalComponent`. Click a button to see which handled it; navigation is prevented in the demo.',
       },
     },
   },

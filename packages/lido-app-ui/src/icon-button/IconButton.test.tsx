@@ -1,9 +1,12 @@
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { Counter } from '../counter'
 import counterStyles from '../counter/Counter.module.css'
+import { LinkProvider } from '../link-provider'
+import { RouterLink } from '../link-provider/linkStubs.test-utils'
 import { IconButton } from './IconButton'
 
 describe('IconButton', () => {
@@ -103,5 +106,81 @@ describe('IconButton counter', () => {
     expect(
       screen.getByRole('button', { name: 'Bell, 3 unread' }),
     ).toBeInTheDocument()
+  })
+})
+
+describe('IconButton with href', () => {
+  it('renders a link with the href and forwards ref to the anchor', () => {
+    const ref = createRef<HTMLAnchorElement>()
+    render(
+      <IconButton
+        ref={ref}
+        href='/notifications'
+        icon='x'
+        aria-label='Notifications'
+      />,
+    )
+    const link = screen.getByRole('link', { name: 'Notifications' })
+    expect(link).toHaveAttribute('href', '/notifications')
+    expect(link).not.toHaveAttribute('type')
+    expect(ref.current).toBe(link)
+  })
+
+  it('routes through LinkProvider', () => {
+    render(
+      <LinkProvider component={RouterLink}>
+        <IconButton href='/keys' icon='x' aria-label='Keys' />
+      </LinkProvider>,
+    )
+    expect(screen.getByRole('link')).toHaveAttribute('data-router')
+  })
+
+  it('drops href and click when disabled', async () => {
+    const onClick = vi.fn()
+    render(
+      <IconButton
+        href='/keys'
+        icon='x'
+        aria-label='Keys'
+        disabled
+        onClick={onClick}
+      />,
+    )
+    const link = screen.getByRole('link')
+    expect(link).not.toHaveAttribute('href')
+    expect(link).toHaveAttribute('aria-disabled', 'true')
+    await userEvent.click(link)
+    expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it('joins aria-label with counterLabel', () => {
+    render(
+      <IconButton
+        href='/inbox'
+        icon='x'
+        aria-label='Notifications'
+        counter={3}
+        counterLabel='3 unread'
+      />,
+    )
+    expect(screen.getByRole('link')).toHaveAccessibleName(
+      'Notifications, 3 unread',
+    )
+  })
+
+  it('rejects invalid prop combinations', () => {
+    // @ts-expect-error loading is button-only
+    void (<IconButton href='/keys' icon='x' aria-label='Keys' loading />)
+    // @ts-expect-error type is button-only
+    void (<IconButton href='/keys' icon='x' aria-label='K' type='submit' />)
+    void (
+      <IconButton
+        href='https://lido.fi'
+        // @ts-expect-error IconButton takes no external
+        external
+        icon='x'
+        aria-label='Keys'
+      />
+    )
   })
 })

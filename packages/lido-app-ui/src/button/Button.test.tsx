@@ -1,9 +1,12 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Counter } from '../counter'
 import counterStyles from '../counter/Counter.module.css'
+import { LinkProvider } from '../link-provider'
+import { RouterLink } from '../link-provider/linkStubs.test-utils'
 import { Button } from './Button'
 
 describe('Button', () => {
@@ -149,5 +152,61 @@ describe('Button counter', () => {
     expect(
       screen.getByRole('button', { name: 'Inbox, 3 unread' }),
     ).toBeInTheDocument()
+  })
+})
+
+describe('Button with href', () => {
+  it('renders a link with the href and forwards ref to the anchor', () => {
+    const ref = createRef<HTMLAnchorElement>()
+    render(
+      <Button ref={ref} href='/keys'>
+        Keys
+      </Button>,
+    )
+    const link = screen.getByRole('link', { name: 'Keys' })
+    expect(link).toHaveAttribute('href', '/keys')
+    expect(link).not.toHaveAttribute('type')
+    expect(ref.current).toBe(link)
+  })
+
+  it('routes through LinkProvider', () => {
+    render(
+      <LinkProvider component={RouterLink}>
+        <Button href='/keys'>Keys</Button>
+      </LinkProvider>,
+    )
+    expect(screen.getByRole('link')).toHaveAttribute('data-router')
+  })
+
+  it('drops href and click when disabled', async () => {
+    const onClick = vi.fn()
+    render(
+      <Button href='/keys' disabled onClick={onClick}>
+        Keys
+      </Button>,
+    )
+    const link = screen.getByRole('link')
+    expect(link).not.toHaveAttribute('href')
+    expect(link).toHaveAttribute('aria-disabled', 'true')
+    await userEvent.click(link)
+    expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it('joins aria-label with counterLabel', () => {
+    render(
+      <Button href='/inbox' aria-label='Inbox' counterLabel='3 unread'>
+        Inbox
+      </Button>,
+    )
+    expect(screen.getByRole('link')).toHaveAccessibleName('Inbox, 3 unread')
+  })
+
+  it('rejects invalid prop combinations', () => {
+    // @ts-expect-error loading is button-only
+    void (<Button href='/keys' loading />)
+    // @ts-expect-error type is button-only
+    void (<Button href='/keys' type='submit' />)
+    // @ts-expect-error Button takes no external
+    void (<Button href='https://lido.fi' external />)
   })
 })

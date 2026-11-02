@@ -25,14 +25,11 @@ export type SmallCardProps = Omit<
   /** Trailing glyph next to the title — an external-link arrow, a badge, etc. */
   icon?: ReactNode
   title: ReactNode
-  /** Opens in a new tab: sets `target="_blank"` and `rel="noopener noreferrer"` unless given. */
-  external?: boolean
-  linkProps?: AnchorProps['linkProps']
   description?: ReactNode
   /** Arbitrary content below the description — wraps in a row, e.g. a list of `Tag`s. */
   footer?: ReactNode
   dataTestId?: SmallCardDataTestId
-}
+} & Pick<AnchorProps, 'external' | 'linkProps'>
 
 /** Clickable card that always renders as a link: optional `image`, `logo`, title with trailing `icon`, `description` and `footer`; title and description wrap instead of truncating. */
 export const SmallCard = forwardRef<HTMLAnchorElement, SmallCardProps>(

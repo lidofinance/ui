@@ -1,6 +1,8 @@
 export { Button } from './Button'
 export type {
   ButtonProps,
+  ButtonAsButtonProps,
+  ButtonAsLinkProps,
   ButtonSize,
   ButtonVariant,
   ButtonDataTestId,

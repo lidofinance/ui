@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import type { ActionAsButtonProps, ActionAsLinkProps } from '../utils'
+
 export type ButtonVariant = 'primary' | 'outline' | 'subtle' | 'ghost' | 'error'
 
 export type ButtonSize = 'big' | 'small'
@@ -27,3 +29,9 @@ export type ButtonOwnProps = {
   counterLabel?: string
   dataTestId?: ButtonDataTestId
 }
+
+export type ButtonAsButtonProps = ButtonOwnProps & ActionAsButtonProps
+
+export type ButtonAsLinkProps = ButtonOwnProps & ActionAsLinkProps
+
+export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps

@@ -1,53 +1,15 @@
 import { forwardRef } from 'react'
 
-import cn from 'classnames'
+import type { AnchorProps } from '../link-provider/Anchor'
+import { Button } from './Button'
+import type { ButtonAsLinkProps } from './types'
 
-import { Anchor, type AnchorProps } from '../link-provider/Anchor'
-import styles from './Button.module.css'
-import { ButtonContent, joinAriaLabel } from './ButtonContent'
-import type { ButtonOwnProps } from './types'
+/** @deprecated Use `Button` with `href`. */
+export type LinkButtonProps = ButtonAsLinkProps & Pick<AnchorProps, 'external'>
 
-export type LinkButtonProps = Omit<AnchorProps, 'href'> &
-  ButtonOwnProps & {
-    href: string
-  }
-
-/** Button-styled `<a>` that routes through `LinkProvider`; `disabled` drops the `href`. */
+/** @deprecated Use `Button` with `href`. */
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
-  (
-    {
-      className,
-      children,
-      variant = 'primary',
-      size = 'big',
-      iconLeft,
-      iconRight,
-      counter,
-      counterLabel,
-      dataTestId,
-      'aria-label': ariaLabel,
-      ...rest
-    },
-    ref,
-  ) => (
-    <Anchor
-      ref={ref}
-      className={cn(styles.button, styles[variant], styles[size], className)}
-      data-testid={dataTestId?.root}
-      aria-label={joinAriaLabel(ariaLabel, counterLabel)}
-      {...rest}
-    >
-      <ButtonContent
-        iconLeft={iconLeft}
-        iconRight={iconRight}
-        counter={counter}
-        counterLabel={counterLabel}
-        dataTestId={dataTestId}
-      >
-        {children}
-      </ButtonContent>
-    </Anchor>
-  ),
+  (props, ref) => <Button ref={ref} {...props} />,
 )
 
 LinkButton.displayName = 'LinkButton'

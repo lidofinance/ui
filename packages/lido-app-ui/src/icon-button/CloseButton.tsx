@@ -1,10 +1,11 @@
 import { forwardRef } from 'react'
 
 import { IconCross } from '../icons'
-import { IconButton, type IconButtonProps } from './IconButton'
+import { IconButton } from './IconButton'
+import type { IconButtonAsButtonProps } from './types'
 
 export type CloseButtonProps = Omit<
-  IconButtonProps,
+  IconButtonAsButtonProps,
   'icon' | 'variant' | 'aria-label'
 > & { 'aria-label'?: string }
 
