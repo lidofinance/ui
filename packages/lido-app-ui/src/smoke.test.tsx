@@ -73,7 +73,7 @@ import {
   Body,
   BodyLarge,
   Description,
-  GroupName,
+  Caption,
   H1,
   H2,
   H3,
@@ -291,7 +291,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['BodyLarge', () => <BodyLarge>Text</BodyLarge>],
   ['Body', () => <Body>Text</Body>],
   ['Description', () => <Description>Text</Description>],
-  ['GroupName', () => <GroupName>Group</GroupName>],
+  ['Caption', () => <Caption>Group</Caption>],
   ['Tab', () => <Tab>Tab</Tab>],
   [
     'Breadcrumbs',
@@ -307,14 +307,12 @@ const barrels = import.meta.glob(
 ) as Record<string, Record<string, unknown>>
 
 const exportedComponents = Object.values(barrels).flatMap((module) =>
-  Object.entries(module)
-    .filter(
-      ([name, value]) =>
-        /^[A-Z]/.test(name) &&
-        (typeof value === 'function' ||
-          (typeof value === 'object' && value !== null && '$$typeof' in value)),
-    )
-    .map(([name]) => name),
+  Object.entries(module).filter(
+    ([name, value]) =>
+      /^[A-Z]/.test(name) &&
+      (typeof value === 'function' ||
+        (typeof value === 'object' && value !== null && '$$typeof' in value)),
+  ),
 )
 
 // Components that only mount inside a case above and have no case of their own.
@@ -330,11 +328,21 @@ const portaled = new Set(['Popover'])
 
 describe('component smoke render', () => {
   it('has a case for every exported component', () => {
-    const covered = new Set([
+    const coveredNames = new Set([
       ...cases.map(([name]) => name),
       ...coveredByParent,
     ])
-    expect(exportedComponents.filter((name) => !covered.has(name))).toEqual([])
+    // Deprecated aliases share identity with their replacement.
+    const coveredValues = new Set(
+      exportedComponents
+        .filter(([name]) => coveredNames.has(name))
+        .map(([, value]) => value),
+    )
+    expect(
+      exportedComponents
+        .filter(([, value]) => !coveredValues.has(value))
+        .map(([name]) => name),
+    ).toEqual([])
   })
 
   it.each(cases)('%s mounts', (name, renderCase) => {

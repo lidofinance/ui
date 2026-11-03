@@ -94,6 +94,27 @@ declare module '@lidofinance/lido-app-ui' {
 ;<SmallCard href='/keys' title='Keys' linkProps={{ prefetch: false }} />
 ```
 
+## Typography
+
+`Typography` renders the type scale; it sets no color unless asked.
+
+- `variant`: `h1`, `h2`, `h3`, `amount`, `bodyLarge`, `body` (default), `description`, `caption`. Also decides the tag; override with `as`.
+- `weight`: `thin` | `regular` | `medium` | `semibold` | `bold`; overrides the variant's weight on any variant. `thin` is Manrope ExtraLight (200).
+- `color`: `default`, `secondary`, `tertiary`, `neutral`, `active`, `success`, `warning`, `error`, `info`, `inverse`, `disabled`. Omit to inherit.
+- Shortcuts: `H1`, `H2`, `H3`, `BodyLarge`, `Body`, `Description`, `Caption`.
+
+app-ui sets no default text color, so set it once in the app:
+
+```css
+body {
+  color: var(--lido-app-ui-color-text-default);
+}
+```
+
+PostCSS mixins: `font-amount`, `font-caption` (plus `font-h1`, `font-body`, ...). `font-rich-input` and `font-group-name` are deprecated.
+
+Deprecated aliases: `GroupName` (use `Caption`), variants `richInput` (use `amount`) and `groupName` (use `caption`).
+
 ## Customization
 
 Override any token after importing the stylesheet. Non-color tokens (radii, typography, z-index, spacing, `--lido-app-ui-shadow-dropdown`) are theme-independent and live on `:root`. Color tokens and `--lido-app-ui-shadow-popover` (it reads color tokens) are redeclared on every theme scope, so override them on `:root, [data-lido-theme]` or per theme, not on `:root` alone:

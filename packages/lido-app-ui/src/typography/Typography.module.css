@@ -14,8 +14,8 @@
   @mixin font-h3;
 }
 
-.richInput {
-  @mixin font-rich-input;
+.amount {
+  @mixin font-amount;
 }
 
 .bodyLarge {
@@ -30,10 +30,70 @@
   @mixin font-description;
 }
 
-.groupName {
-  @mixin font-group-name;
+.caption {
+  @mixin font-caption;
 }
 
-.semibold {
+.weight-thin {
+  font-weight: var(--lido-app-ui-font-weight-thin);
+}
+
+.weight-regular {
+  font-weight: var(--lido-app-ui-font-weight-regular);
+}
+
+.weight-medium {
+  font-weight: var(--lido-app-ui-font-weight-medium);
+}
+
+.weight-semibold {
   font-weight: var(--lido-app-ui-font-weight-semibold);
+}
+
+.weight-bold {
+  font-weight: var(--lido-app-ui-font-weight-bold);
+}
+
+.color-default {
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.color-secondary {
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.color-tertiary {
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.color-neutral {
+  color: var(--lido-app-ui-color-text-neutral);
+}
+
+.color-active {
+  color: var(--lido-app-ui-color-text-active);
+}
+
+.color-success {
+  color: var(--lido-app-ui-color-text-success);
+}
+
+.color-warning {
+  color: var(--lido-app-ui-color-text-warning);
+}
+
+.color-error {
+  color: var(--lido-app-ui-color-text-error);
+}
+
+.color-info {
+  color: var(--lido-app-ui-color-text-info);
+}
+
+.color-inverse {
+  color: var(--lido-app-ui-color-text-inverse);
+}
+
+.color-disabled {
+  color: var(--lido-app-ui-color-text-disabled);
 }

@@ -4,65 +4,102 @@ import cn from 'classnames'
 
 import styles from './Typography.module.css'
 
+export const typographyColors = [
+  'default',
+  'secondary',
+  'tertiary',
+  'neutral',
+  'active',
+  'success',
+  'warning',
+  'error',
+  'info',
+  'inverse',
+  'disabled',
+] as const
+
+export type TypographyColor = (typeof typographyColors)[number]
+
+export const typographyWeights = [
+  'thin',
+  'regular',
+  'medium',
+  'semibold',
+  'bold',
+] as const
+
+export type TypographyWeight = (typeof typographyWeights)[number]
+
 export type TypographyVariant =
   | 'h1'
   | 'h2'
   | 'h3'
-  | 'richInput'
+  | 'amount'
   | 'bodyLarge'
   | 'body'
   | 'description'
-  | 'groupName'
+  | 'caption'
 
-// Weight only applies to bodyLarge/body/description; headings are single-weight by design.
-export type TypographyWeight = 'regular' | 'semibold'
+/** @deprecated `richInput` → `amount`, `groupName` → `caption` */
+type DeprecatedTypographyVariant = 'richInput' | 'groupName'
 
 export type TypographyDataTestId = {
   root?: string
 }
 
-export type TypographyProps = HTMLAttributes<HTMLElement> & {
+export type TypographyProps = Omit<HTMLAttributes<HTMLElement>, 'color'> & {
   /** Type style; also decides the default tag. */
-  variant: TypographyVariant
-  /** Only `bodyLarge`, `body` and `description` have two weights. */
+  variant?: TypographyVariant | DeprecatedTypographyVariant
+  /** Overrides the variant's font weight. */
   weight?: TypographyWeight
+  /** Text color token; omit to inherit. */
+  color?: TypographyColor
   /** Overrides the rendered tag without changing the style. */
   as?: ElementType
   dataTestId?: TypographyDataTestId
 }
 
+const resolveVariant = (
+  variant: TypographyVariant | DeprecatedTypographyVariant,
+): TypographyVariant =>
+  variant === 'richInput'
+    ? 'amount'
+    : variant === 'groupName'
+      ? 'caption'
+      : variant
+
 const variantTag: Record<TypographyVariant, ElementType> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
-  richInput: 'p',
+  amount: 'p',
   bodyLarge: 'p',
   body: 'p',
   description: 'p',
-  groupName: 'p',
+  caption: 'p',
 }
-
-const isBodyVariant = (variant: TypographyVariant): boolean =>
-  variant === 'bodyLarge' || variant === 'body' || variant === 'description'
 
 /** Typed text in Manrope; use the shortcuts (`H1`, `Body`, ...) in app code and `Typography` when the variant is dynamic. The same styles ship as PostCSS mixins from `@lidofinance/lido-app-ui/styles`. */
 export const Typography = ({
-  variant,
+  variant = 'body',
   weight,
+  color,
   as,
   className,
   children,
   dataTestId,
   ...rest
 }: TypographyProps) => {
-  const Component = as ?? variantTag[variant]
+  const resolved = resolveVariant(variant)
+  const Component = as ?? variantTag[resolved]
 
   return (
     <Component
       className={cn(
         styles.root,
-        styles[variant],
-        weight === 'semibold' && isBodyVariant(variant) && styles.semibold,
+        styles[resolved],
+        color && styles[`color-${color}`],
+        weight && styles[`weight-${weight}`],
         className,
       )}
       data-testid={dataTestId?.root}
@@ -99,6 +136,9 @@ export const Description = (props: ShorthandProps) => (
   <Typography {...props} variant='description' />
 )
 
-export const GroupName = (props: ShorthandProps) => (
-  <Typography {...props} variant='groupName' />
+export const Caption = (props: ShorthandProps) => (
+  <Typography {...props} variant='caption' />
 )
+
+/** @deprecated use Caption */
+export const GroupName = Caption

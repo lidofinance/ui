@@ -91,12 +91,17 @@
   --lido-app-ui-font-family:
     'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
     'Helvetica Neue', sans-serif;
+  --lido-app-ui-font-weight-thin: 200;
   --lido-app-ui-font-weight-regular: 400;
   --lido-app-ui-font-weight-medium: 500;
   --lido-app-ui-font-weight-semibold: 600;
   --lido-app-ui-font-weight-bold: 700;
-  --lido-app-ui-font-size-rich-input: 36px;
-  --lido-app-ui-line-height-rich-input: 50px;
+  --lido-app-ui-font-size-amount: 36px;
+  --lido-app-ui-line-height-amount: 50px;
+
+  /* Deprecated: use the amount tokens */
+  --lido-app-ui-font-size-rich-input: var(--lido-app-ui-font-size-amount);
+  --lido-app-ui-line-height-rich-input: var(--lido-app-ui-line-height-amount);
   --lido-app-ui-font-size-body: 16px;
   --lido-app-ui-line-height-body: 28px;
   --lido-app-ui-letter-spacing-body: -0.14px;

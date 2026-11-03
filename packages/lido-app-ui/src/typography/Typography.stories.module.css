@@ -1,0 +1,5 @@
+.display {
+  @mixin font-display;
+
+  margin: 0;
+}
