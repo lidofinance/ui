@@ -8,6 +8,7 @@ import {
 import cn from 'classnames'
 
 import { InfoTooltip } from '../info-tooltip'
+import { Skeleton } from '../skeleton'
 import styles from './Input.module.css'
 
 export type InputSize = 'default' | 'small'
@@ -28,10 +29,12 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   tooltip?: ReactNode
   description?: ReactNode
   error?: ReactNode | boolean
+  /** Swaps the value for a skeleton and makes the field read-only. */
+  loading?: boolean
   dataTestId?: InputDataTestId
 }
 
-/** Bordered text field; `icon` adds a leading icon, `label`/`description`/`error` add the field chrome, `tooltip` puts an info icon next to the label. */
+/** Bordered text field; `icon` adds a leading icon, `label`/`description`/`error` add the field chrome, `tooltip` puts an info icon next to the label, `loading` swaps the value for a skeleton. */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
@@ -42,6 +45,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       description,
       error,
       disabled,
+      loading,
+      readOnly,
       className,
       id,
       dataTestId,
@@ -78,6 +83,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           className={cn(styles.root, styles[size], {
             [styles.error]: hasError,
             [styles.disabled]: disabled,
+            [styles.loading]: loading,
           })}
         >
           {icon ? (
@@ -89,16 +95,23 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               {icon}
             </span>
           ) : null}
-          <input
-            ref={ref}
-            id={inputId}
-            className={styles.input}
-            disabled={disabled}
-            aria-invalid={hasError || undefined}
-            aria-describedby={showErrorMessage ? errorId : undefined}
-            data-testid={dataTestId?.input}
-            {...rest}
-          />
+          <span className={styles.control}>
+            <input
+              ref={ref}
+              id={inputId}
+              className={styles.input}
+              disabled={disabled}
+              readOnly={loading || readOnly}
+              aria-busy={loading || undefined}
+              aria-invalid={hasError || undefined}
+              aria-describedby={showErrorMessage ? errorId : undefined}
+              data-testid={dataTestId?.input}
+              {...rest}
+            />
+            {loading ? (
+              <Skeleton variant='text' className={styles.skeleton} />
+            ) : null}
+          </span>
         </label>
         {showErrorMessage ? (
           <p
