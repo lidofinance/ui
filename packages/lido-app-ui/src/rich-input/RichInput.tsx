@@ -11,6 +11,7 @@ import {
 import cn from 'classnames'
 import { IconLockKeyhole } from '../icons'
 import { InfoTooltip } from '../info-tooltip'
+import { Skeleton } from '../skeleton'
 import { Tag } from '../tag'
 import { Tooltip, type TooltipPosition } from '../tooltip'
 
@@ -50,6 +51,8 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   locked?: boolean
   /** Tooltip on the lock icon. */
   lockedTooltip?: ReactNode
+  /** Swaps the amount for a skeleton, hides the fiat line and makes the field read-only without Max. */
+  loading?: boolean
   dataTestId?: RichInputDataTestId
 }
 
@@ -66,7 +69,7 @@ const sanitizeDecimal = (raw: string): string => {
 
 const noop = () => undefined
 
-/** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max; `locked` makes it read-only without Max. */
+/** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max; `locked` makes it read-only without Max; `loading` shows a skeleton for the amount and hides the fiat line. */
 export const RichInput = ({
   label,
   labelTooltip,
@@ -86,6 +89,7 @@ export const RichInput = ({
   disabled,
   locked,
   lockedTooltip,
+  loading,
   readOnly,
   dataTestId,
   ...inputProps
@@ -97,8 +101,9 @@ export const RichInput = ({
   const hasError = !!error
   const showErrorMessage = !!errorText
   const errorId = `${inputId}-error`
-  const showMax = showMaxButton && !disabled && !locked
-  const hasBottomRow = secondaryValue != null || balance != null || showMax
+  const showMax = showMaxButton && !disabled && !locked && !loading
+  const showSecondary = secondaryValue != null && !loading
+  const hasBottomRow = showSecondary || balance != null || showMax
 
   const maxTag = (
     <Tag
@@ -151,6 +156,7 @@ export const RichInput = ({
           styles.card,
           hasError && styles.error,
           locked && styles.locked,
+          loading && styles.loading,
         )}
         onClick={handleRootClick}
       >
@@ -187,26 +193,32 @@ export const RichInput = ({
           </span>
         ) : null}
         <div className={styles.amountRow}>
-          <input
-            ref={inputRef}
-            id={inputId}
-            className={styles.input}
-            inputMode='decimal'
-            disabled={disabled}
-            readOnly={locked || readOnly}
-            aria-invalid={hasError || undefined}
-            aria-describedby={showErrorMessage ? errorId : undefined}
-            onChange={handleChange}
-            data-testid={dataTestId?.input}
-            {...inputProps}
-          />
+          <span className={styles.amount}>
+            <input
+              ref={inputRef}
+              id={inputId}
+              className={styles.input}
+              inputMode='decimal'
+              disabled={disabled}
+              readOnly={locked || loading || readOnly}
+              aria-busy={loading || undefined}
+              aria-invalid={hasError || undefined}
+              aria-describedby={showErrorMessage ? errorId : undefined}
+              onChange={handleChange}
+              data-testid={dataTestId?.input}
+              {...inputProps}
+            />
+            {loading ? (
+              <Skeleton variant='text' className={styles.amountSkeleton} />
+            ) : null}
+          </span>
           {tokenSelector != null ? (
             <div className={styles.token}>{tokenSelector}</div>
           ) : null}
         </div>
         {hasBottomRow ? (
           <div className={styles.bottomRow}>
-            {secondaryValue != null ? (
+            {showSecondary ? (
               <span
                 data-testid={dataTestId?.secondaryValue}
                 className={styles.secondary}
