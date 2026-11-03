@@ -81,7 +81,7 @@
   height: 36px;
   gap: 8px;
   padding: 6px 16px;
-  border-radius: 32px;
+  border-radius: var(--lido-app-ui-border-radius-control);
 }
 
 .input {

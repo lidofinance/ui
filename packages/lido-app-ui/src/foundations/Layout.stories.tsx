@@ -10,7 +10,13 @@ import {
   spaces,
   type Breakpoint,
 } from '../utils'
-import { PAGE_GUTTER, RADII, SHADOWS, Z_INDEX } from './layoutTokens'
+import {
+  PAGE_GUTTER,
+  RADII,
+  RADIUS_SCALE,
+  SHADOWS,
+  Z_INDEX,
+} from './layoutTokens'
 
 const meta: Meta = {
   title: 'Foundations/Layout',
@@ -499,7 +505,7 @@ const ShadowSample = ({ token }: { token: string }) => (
       style={{
         width: 120,
         height: 64,
-        borderRadius: 16,
+        borderRadius: 'var(--lido-app-ui-border-radius-md)',
         border: '1px solid var(--lido-app-ui-color-border-default)',
         background: 'var(--lido-app-ui-color-background-surface)',
         boxShadow: `var(${token})`,
@@ -509,34 +515,64 @@ const ShadowSample = ({ token }: { token: string }) => (
   </div>
 )
 
-const RadiusSample = ({ token }: { token: string }) => {
+// Computed values have var() already substituted, so match against resolved scale values.
+const scaleStep = (value: string) => {
+  const root = getComputedStyle(document.documentElement)
+  const step = RADIUS_SCALE.find(
+    (token) => root.getPropertyValue(token).trim() === value,
+  )
+  return step
+    ? `${step.replace('--lido-app-ui-border-radius-', '')} (${value})`
+    : `${value}, off-scale`
+}
+
+const RadiusRow = ({ token, step }: { token: string; step?: boolean }) => {
   const value = useTokenValue(token)
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-      <div
-        style={{
-          width: 120,
-          height: 64,
-          borderRadius: `var(${token})`,
-          border: '1px solid var(--lido-app-ui-color-border-default)',
-          background: 'var(--lido-app-ui-color-background-surface)',
-        }}
-      />
-      <span style={code}>
-        {token} ({value})
-      </span>
-    </div>
+    <tr>
+      <td style={cell}>
+        <div
+          style={{
+            width: 80,
+            height: 80,
+            borderRadius: `var(${token})`,
+            border: '1px solid var(--lido-app-ui-color-border-default)',
+            background: 'var(--lido-app-ui-color-background-surface)',
+          }}
+        />
+      </td>
+      <td style={{ ...cell, ...code }}>{token}</td>
+      <td style={cell}>{step && value ? scaleStep(value) : value}</td>
+    </tr>
   )
 }
 
-export const ShadowsAndRadii: Story = {
+export const Radii: Story = {
+  render: () => (
+    <StoryContainer gap={24}>
+      <Note>
+        Scale tokens mirror the Figma Radius variables. Semantic tokens map to a
+        scale step and can be overridden per product.
+      </Note>
+      <Table head={['Sample', 'Scale token', 'Value']}>
+        {RADIUS_SCALE.map((token) => (
+          <RadiusRow key={token} token={token} />
+        ))}
+      </Table>
+      <Table head={['Sample', 'Semantic token', 'Scale step']}>
+        {RADII.map((token) => (
+          <RadiusRow key={token} token={token} step />
+        ))}
+      </Table>
+    </StoryContainer>
+  ),
+}
+
+export const Shadows: Story = {
   render: () => (
     <StoryContainer gap={24}>
       {SHADOWS.map((token) => (
         <ShadowSample key={token} token={token} />
-      ))}
-      {RADII.map((token) => (
-        <RadiusSample key={token} token={token} />
       ))}
     </StoryContainer>
   ),

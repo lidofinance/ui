@@ -129,17 +129,25 @@
   --lido-app-ui-letter-spacing-h3: -0.14px;
 
   /* Radii */
-  --lido-app-ui-border-radius-badge: 8px;
-  --lido-app-ui-border-radius-pill: 100px;
-  --lido-app-ui-border-radius-button-50: 50px;
-  --lido-app-ui-border-radius-control: 100px;
-  --lido-app-ui-border-radius-control-inactive: 110px;
-  --lido-app-ui-border-radius-card: 16px;
-  --lido-app-ui-border-radius-dropdown: 20px;
-  --lido-app-ui-border-radius-dropdown-item: 12px;
-  --lido-app-ui-border-radius-tooltip: 20px;
-  --lido-app-ui-border-radius-modal: 32px;
-  --lido-app-ui-border-radius-skeleton: 4px;
+  --lido-app-ui-border-radius-none: 0;
+  --lido-app-ui-border-radius-xs: 4px;
+  --lido-app-ui-border-radius-sm: 8px;
+  --lido-app-ui-border-radius-md: 16px;
+  --lido-app-ui-border-radius-lg: 20px;
+  --lido-app-ui-border-radius-xl: 32px;
+  --lido-app-ui-border-radius-full: 9999px;
+  --lido-app-ui-border-radius-badge: var(--lido-app-ui-border-radius-sm);
+  --lido-app-ui-border-radius-pill: var(--lido-app-ui-border-radius-full);
+  --lido-app-ui-border-radius-button: var(--lido-app-ui-border-radius-full);
+  --lido-app-ui-border-radius-control: var(--lido-app-ui-border-radius-full);
+  --lido-app-ui-border-radius-card: var(--lido-app-ui-border-radius-md);
+  --lido-app-ui-border-radius-dropdown: var(--lido-app-ui-border-radius-lg);
+  --lido-app-ui-border-radius-dropdown-item: var(
+    --lido-app-ui-border-radius-md
+  );
+  --lido-app-ui-border-radius-tooltip: var(--lido-app-ui-border-radius-lg);
+  --lido-app-ui-border-radius-modal: var(--lido-app-ui-border-radius-xl);
+  --lido-app-ui-border-radius-skeleton: var(--lido-app-ui-border-radius-xs);
 
   /* Shadows */
   --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);

@@ -14,7 +14,7 @@
   padding: calc(var(--local-pad-v) - var(--local-border-width))
     calc(var(--local-pad-h) - var(--local-border-width));
   border: var(--local-border-width) solid var(--local-border-color);
-  border-radius: var(--lido-app-ui-border-radius-button-50);
+  border-radius: var(--lido-app-ui-border-radius-button);
   background-color: var(--local-bg);
   color: var(--local-color);
   font-family: var(--lido-app-ui-font-family);

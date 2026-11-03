@@ -2,7 +2,13 @@ import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import { describe, expect, it } from 'vitest'
 
-import { PAGE_GUTTER, RADII, SHADOWS, Z_INDEX } from './layoutTokens'
+import {
+  PAGE_GUTTER,
+  RADII,
+  RADIUS_SCALE,
+  SHADOWS,
+  Z_INDEX,
+} from './layoutTokens'
 
 const tokensCss = readFileSync(
   resolve(__dirname, '../../styles/tokens.css'),
@@ -16,6 +22,7 @@ describe('foundations layout tokens', () => {
   it.each([
     ...Z_INDEX.map(({ token }) => token),
     ...SHADOWS,
+    ...RADIUS_SCALE,
     ...RADII,
     PAGE_GUTTER,
   ])('declares %s in tokens.css', (token) => {
@@ -30,13 +37,30 @@ describe('foundations layout tokens', () => {
   })
 
   it.each([
-    ['radius', RADII, /^\s*(--lido-app-ui-border-radius-[a-z0-9-]+):/gm],
+    [
+      'radius',
+      [...RADIUS_SCALE, ...RADII],
+      /^\s*(--lido-app-ui-border-radius-[a-z0-9-]+):/gm,
+    ],
     ['shadow', SHADOWS, /^\s*(--lido-app-ui-shadow-[a-z-]+):/gm],
   ])('lists every %s token declared in tokens.css', (_, listed, pattern) => {
     const declared = new Set(
       Array.from(tokensCss.matchAll(pattern)).map((match) => match[1]),
     )
     expect([...listed].sort()).toEqual([...declared].sort())
+  })
+
+  it('maps every semantic radius to a scale step', () => {
+    const values = new Map(
+      Array.from(
+        tokensCss.matchAll(
+          /^\s*(--lido-app-ui-border-radius-[a-z-]+):\s*([^;]+);/gm,
+        ),
+        ([, token, value]) => [token, value.replace(/\s+/g, '')],
+      ),
+    )
+    const scale = RADIUS_SCALE.map((token) => `var(${token})`)
+    RADII.forEach((token) => expect(scale, token).toContain(values.get(token)))
   })
 
   it('declares the page gutter at base, md-down and sm-down', () => {
