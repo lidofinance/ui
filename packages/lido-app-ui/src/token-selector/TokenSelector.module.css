@@ -120,9 +120,6 @@
 
 .panel {
   gap: 0;
-  padding: 0;
-  border: 0.5px solid var(--lido-app-ui-color-border-default);
-  border-radius: var(--lido-app-ui-border-radius-dropdown);
 }
 
 .list {
@@ -131,7 +128,6 @@
   gap: 4px;
   box-sizing: border-box;
   width: 100%;
-  padding: 8px;
 }
 
 .option {
@@ -155,11 +151,12 @@
 
 .option.small {
   padding: 4px 12px 4px 8px;
-  height: 32px;
+  height: 36px;
+  border-radius: var(--lido-app-ui-border-radius-xl);
 }
 
 .option:not(:disabled):hover {
-  background-color: var(--lido-app-ui-color-background-surface-hover);
+  background-color: var(--lido-app-ui-color-background-transparent-hover);
 }
 
 .option.selected {
