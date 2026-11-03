@@ -91,3 +91,38 @@ describe('RichInput locked', () => {
     expect(screen.queryByRole('img', { name: 'Locked' })).toBeNull()
   })
 })
+
+describe('RichInput loading', () => {
+  it('sets aria-busy and readOnly without disabling', () => {
+    render(<RichInput loading />)
+    const input = screen.getByRole('textbox')
+    expect(input).toHaveAttribute('aria-busy', 'true')
+    expect(input).toHaveAttribute('readonly')
+    expect(input).not.toBeDisabled()
+  })
+
+  it('hides Max and keeps balance', () => {
+    render(<RichInput loading balance='Balance: 1' />)
+    expect(screen.queryByRole('button', { name: 'Max' })).toBeNull()
+    expect(screen.getByText('Balance: 1')).toBeInTheDocument()
+  })
+
+  it('hides secondaryValue and keeps balance', () => {
+    render(
+      <RichInput
+        loading
+        secondaryValue='$5.00'
+        balance='Balance: 1'
+        dataTestId={{ secondaryValue: 'secondary' }}
+      />,
+    )
+    expect(screen.queryByText('$5.00')).toBeNull()
+    expect(screen.queryByTestId('secondary')).toBeNull()
+    expect(screen.getByText('Balance: 1')).toBeInTheDocument()
+  })
+
+  it('has no busy state when not loading', () => {
+    render(<RichInput />)
+    expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-busy')
+  })
+})

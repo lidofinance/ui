@@ -31,6 +31,10 @@
   cursor: default;
 }
 
+.card.loading {
+  cursor: default;
+}
+
 .card.error {
   border-color: var(--lido-app-ui-color-border-error);
 }
@@ -74,6 +78,13 @@
   justify-content: space-between;
 }
 
+.amount {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
 .input {
   @mixin font-amount;
 
@@ -98,6 +109,22 @@
 .card.error .input {
   caret-color: var(--lido-app-ui-color-text-error);
   color: var(--lido-app-ui-color-text-error);
+}
+
+.card.loading .input,
+.card.loading .input::placeholder {
+  color: transparent;
+  caret-color: transparent;
+}
+
+.amountSkeleton {
+  @mixin font-amount;
+
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 50%;
+  pointer-events: none;
 }
 
 .token {
