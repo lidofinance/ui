@@ -149,9 +149,6 @@
   --lido-app-ui-border-radius-modal: var(--lido-app-ui-border-radius-xl);
   --lido-app-ui-border-radius-skeleton: var(--lido-app-ui-border-radius-xs);
 
-  /* Shadows */
-  --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
-
   /* Stacking: header < drawer scrim (overlay) < drawer < popover/modal < toast < tooltip.
      Popover and modal share a layer on purpose: both portal to <body>, so the later-mounted overlay wins and nested overlays stack correctly. Consumer chrome must stay below it. */
   --lido-app-ui-z-index-header: 250;
@@ -247,8 +244,8 @@
   --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-white-a200);
 
   /* Semantic - Shadow */
-  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a100);
-  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a200);
+  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a200);
+  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a100);
 
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-gray-200);
@@ -372,8 +369,8 @@
   --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-black-a200);
 
   /* Semantic - Shadow */
-  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a300);
-  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a500);
+  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a300);
 
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-black-a900);
@@ -451,9 +448,9 @@
 /* var() in a custom property resolves where declared, so redeclare on every theme root */
 :root,
 [data-lido-theme] {
-  --lido-app-ui-shadow-popover:
+  --lido-app-ui-shadow-default:
     0 0 32px var(--lido-app-ui-color-shadow-secondary),
-    0 0 8px var(--lido-app-ui-color-shadow-primary);
+    0 0 4px var(--lido-app-ui-color-shadow-primary);
 }
 
 @media (--lido-app-ui-breakpoint-sm-down) {
