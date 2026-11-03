@@ -3,7 +3,9 @@ import { resolve } from 'path'
 import { describe, expect, it } from 'vitest'
 
 import {
+  PAGE_CONTENT_MAX,
   PAGE_GUTTER,
+  PAGE_GUTTERS,
   RADII,
   RADIUS_SCALE,
   SHADOWS,
@@ -63,10 +65,18 @@ describe('foundations layout tokens', () => {
     RADII.forEach((token) => expect(scale, token).toContain(values.get(token)))
   })
 
-  it('declares the page gutter at base, md-down and sm-down', () => {
+  it('declares the page gutter at base and sm-down', () => {
     const gutters = Array.from(
       tokensCss.matchAll(/--lido-app-ui-page-gutter:\s*(\d+)px/g),
     ).map((match) => Number(match[1]))
-    expect(gutters).toEqual([52, 32, 12])
+    expect(gutters).toEqual([PAGE_GUTTERS.base, PAGE_GUTTERS.sm])
+  })
+
+  it('keeps PAGE_CONTENT_MAX in sync with PageContent.module.css', () => {
+    const css = readFileSync(
+      resolve(__dirname, '../page-layout/PageContent.module.css'),
+      'utf-8',
+    )
+    expect(css).toContain(`--local-max: ${PAGE_CONTENT_MAX}px;`)
   })
 })

@@ -81,7 +81,7 @@ const meta: Meta<typeof Sidebar> = {
       story: { inline: false, iframeHeight: 720 },
       description: {
         component:
-          '296px navigation column with `logo`, grouped items and a `footer` slot. At `sidebar-down` widths it becomes an off-canvas drawer controlled by `open` / `onClose`. The height of content above the Sidebar (e.g. a banner) is measured automatically so the sticky Sidebar fits the viewport; an explicit `--lido-app-ui-sidebar-offset` on an ancestor still overrides it. In drawer mode, clicking a link closes the drawer unless `closeOnNavigate={false}`.',
+          '296px navigation column with `logo`, grouped items and a `footer` slot. At `lg` and below it becomes an off-canvas drawer controlled by `open` / `onClose`. The height of content above the Sidebar (e.g. a banner) is measured automatically so the sticky Sidebar fits the viewport; an explicit `--lido-app-ui-sidebar-offset` on an ancestor still overrides it. In drawer mode, clicking a link closes the drawer unless `closeOnNavigate={false}`.',
       },
     },
   },
@@ -99,7 +99,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
-  // `open` only matters below the sidebar breakpoint (e.g. ~1000px docs iframes); `onClose` lets the `open` control reopen it.
+  // `open` only matters at the sidebar breakpoint and below (e.g. ~1000px docs iframes); `onClose` lets the `open` control reopen it.
   render: function Render(args) {
     const [, updateArgs] = useArgs()
     return (
@@ -116,18 +116,18 @@ export const Basic: Story = {
 export const AtSidebarUp: Story = {
   ...Basic,
   tags: ['!autodocs'],
-  globals: { viewport: { value: 'sidebar-up', isRotated: false } },
+  globals: { viewport: { value: 'lg-up', isRotated: false } },
   parameters: {
-    docs: { description: { story: 'At 1280px the sidebar is persistent.' } },
+    docs: { description: { story: 'At 1025px the sidebar is persistent.' } },
   },
 }
 
 export const AtSidebarDown: Story = {
   ...Basic,
   tags: ['!autodocs'],
-  globals: { viewport: { value: 'sidebar-down', isRotated: false } },
+  globals: { viewport: { value: 'lg-down', isRotated: false } },
   parameters: {
-    docs: { description: { story: 'At 1279px it becomes a drawer.' } },
+    docs: { description: { story: 'At 1024px it becomes a drawer.' } },
   },
 }
 
@@ -160,7 +160,7 @@ export const MobileDrawer: Story = {
     docs: {
       description: {
         story:
-          '`SidebarLayout` wires `Sidebar` and `SidebarToggle` through context (`useSidebarDrawer` does the same by spreading props explicitly). Below `sidebar-down` the sidebar slides in over a scrim; Escape, scrim click, the close button or following a link dismiss it. The play function opens it.',
+          '`SidebarLayout` wires `Sidebar` and `SidebarToggle` through context (`useSidebarDrawer` does the same by spreading props explicitly). At `lg` and below the sidebar slides in over a scrim; Escape, scrim click, the close button or following a link dismiss it. The play function opens it.',
       },
     },
   },

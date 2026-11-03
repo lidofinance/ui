@@ -59,7 +59,7 @@ export const connectedActions = (
   </>
 )
 
-// Below sm only the address fits next to the burger and compact logo.
+// At ≤ sm only the address fits next to the burger and compact logo.
 export const mobileActions = (
   <>
     <Hidden below='sm'>
@@ -187,16 +187,14 @@ export const SidebarShell = ({
             <Hidden above='lg'>
               <Logo variant='compact' product='Operators' href='#' />
             </Hidden>
-            <Hidden below='md'>
-              <Stack direction='row' justify={{ lg: 'center' }} grow>
-                <Breadcrumbs items={breadcrumbs} />
-              </Stack>
+            <Hidden below='lg'>
+              <Breadcrumbs items={breadcrumbs} />
             </Hidden>
           </Stack>
         </Header>
         <Main>
           <PageContent>
-            <Hidden above='md'>
+            <Hidden above='lg'>
               <Breadcrumbs items={breadcrumbs} />
             </Hidden>
             {children}

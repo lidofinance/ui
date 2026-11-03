@@ -8,8 +8,8 @@ export { joinAriaLabel } from './joinAriaLabel'
 export {
   breakpoints,
   breakpointWidths,
-  logoBreakpointWidth,
-  sidebarBreakpointWidth,
+  downQuery,
+  upQuery,
 } from './breakpoints'
 export type { Breakpoint } from './breakpoints'
 export type { PolymorphicComponent, PolymorphicProps } from './polymorphic'

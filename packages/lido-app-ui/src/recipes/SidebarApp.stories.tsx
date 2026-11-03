@@ -78,7 +78,7 @@ const meta: Meta<PlaygroundArgs> = {
       source: { type: 'code' },
       description: {
         component:
-          'App shell with a grouped Sidebar, Header and Footer: `Layout` > `SidebarLayout` > `Sidebar` + `SidebarInset` (`Header` > `Stack` + `Main` > `PageContent` > `Breadcrumbs` + `Footer`); see "Show code" and the anatomy in `Layout/Helpers`. Below `lg` (1280, the sidebar breakpoint) the Sidebar becomes a drawer opened from the Header. There Breadcrumbs center between the logo and the actions; below md they move from the Header into `PageContent` (`Hidden` around each copy). `Sidebar` must be a direct child of `SidebarLayout`: it measures the content above it (e.g. a banner) on its own. Render `SkipLink` first: it targets `Main` (`id=\'main-content\'`) by default. Use `useSidebar()` to close the drawer on programmatic navigation, or `useSidebarDrawer` to wire the parts by hand.',
+          'App shell with a grouped Sidebar, Header and Footer: `Layout` > `SidebarLayout` > `Sidebar` + `SidebarInset` (`Header` > `Stack` + `Main` > `PageContent` > `Breadcrumbs` + `Footer`); see "Show code" and the anatomy in `Layout/Helpers`. At `lg` and below (1024, the sidebar breakpoint) the Sidebar becomes a drawer opened from the Header. At `lg` and below Breadcrumbs move from the Header into `PageContent` (`Hidden` around each copy); the Header keeps the toggle, logo and actions. `Sidebar` must be a direct child of `SidebarLayout`: it measures the content above it (e.g. a banner) on its own. Render `SkipLink` first: it targets `Main` (`id=\'main-content\'`) by default. Use `useSidebar()` to close the drawer on programmatic navigation, or `useSidebarDrawer` to wire the parts by hand.',
       },
     },
   },
@@ -129,16 +129,14 @@ export const Playground: Story = {
                 <Hidden above='lg'>
                   <Logo variant='compact' product='Operators' href='#' />
                 </Hidden>
-                <Hidden below='md'>
-                  <Stack direction='row' justify={{ lg: 'center' }} grow>
-                    <Breadcrumbs items={breadcrumbs} />
-                  </Stack>
+                <Hidden below='lg'>
+                  <Breadcrumbs items={breadcrumbs} />
                 </Hidden>
               </Stack>
             </Header>
             <Main>
               <PageContent>
-                <Hidden above='md'>
+                <Hidden above='lg'>
                   <Breadcrumbs items={breadcrumbs} />
                 </Hidden>
                 {tall ? sections : <SimpleCard title='Page title' />}
@@ -162,9 +160,9 @@ export const Default: Story = {
 
 export const Drawer: Story = {
   parameters: storyParams(
-    'Below `lg` (1280, the sidebar breakpoint) the Sidebar is a drawer: the burger in the Header opens it with a scrim; it closes via the close button, scrim, Escape or a link click.',
+    'At `lg` and below (1024, the sidebar breakpoint) the Sidebar is a drawer: the burger in the Header opens it with a scrim; it closes via the close button, scrim, Escape or a link click.',
   ),
-  globals: { viewport: { value: 'sidebar-down', isRotated: false } },
+  globals: { viewport: { value: 'lg-down', isRotated: false } },
   render: () => <SidebarShell />,
   play: async ({ canvasElement }) => {
     // Toggle is display:none until the viewport addon resizes the frame.
@@ -200,7 +198,7 @@ export const WithTestEnvBanner: Story = {
 
 export const Tablet: Story = {
   parameters: storyParams(
-    'Below `lg` (1280, the sidebar breakpoint) Breadcrumbs sit centered between the logo and the actions; below md they move from the Header into `PageContent`.',
+    'At `lg` and below (1024, the sidebar breakpoint) the Sidebar becomes a drawer and Breadcrumbs move from the Header into `PageContent`.',
   ),
   globals: { viewport: { value: 'md-up', isRotated: false } },
   render: () => (
@@ -212,9 +210,9 @@ export const Tablet: Story = {
 
 export const LongBreadcrumbs: Story = {
   parameters: storyParams(
-    'At drawer widths a deep trail fills the space between the logo and the actions and fades at the edge instead of pushing the actions out.',
+    'At the narrowest Header width (1025px) a deep trail fills the space up to the actions and fades at the edge instead of pushing the actions out.',
   ),
-  globals: { viewport: { value: 'md-up', isRotated: false } },
+  globals: { viewport: { value: 'lg-up', isRotated: false } },
   render: () => (
     <SidebarShell
       breadcrumbs={[

@@ -67,8 +67,8 @@ export * from './typography'
 export {
   breakpoints,
   breakpointWidths,
-  logoBreakpointWidth,
-  sidebarBreakpointWidth,
+  downQuery,
+  upQuery,
   spaces,
 } from './utils'
 export type { Breakpoint, Responsive, Space } from './utils'

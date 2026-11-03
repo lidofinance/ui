@@ -43,3 +43,7 @@ export const RADII = [
 ] as const
 
 export const PAGE_GUTTER = '--lido-app-ui-page-gutter'
+
+export const PAGE_CONTENT_MAX = 1000
+
+export const PAGE_GUTTERS = { base: 32, sm: 12 } as const

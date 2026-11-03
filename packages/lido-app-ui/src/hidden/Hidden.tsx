@@ -8,9 +8,9 @@ import styles from './Hidden.module.css'
 export type HiddenDataTestId = { root?: string }
 
 export type HiddenProps = HTMLAttributes<HTMLElement> & {
-  /** Hides below this breakpoint's width. */
+  /** Hides at this breakpoint's width and below. */
   below?: Breakpoint
-  /** Hides at this breakpoint's width and above. */
+  /** Hides above this breakpoint's width. */
   above?: Breakpoint
   /** Wrapper tag; `span` is valid inside text, use `div` around block content. */
   as?: 'span' | 'div'
