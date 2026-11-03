@@ -1,11 +1,10 @@
-/** Desktop-first: a key applies below this width in px; `base` covers everything at or above `lg`. */
+/** Desktop-first: a key applies at this width in px and below; `base` covers everything above `xl`. */
 export const breakpointWidths = {
-  lg: 1280,
-  ml: 1024,
+  xl: 1280,
+  lg: 1024,
   md: 900,
-  sm: 768,
-  xs: 600,
-  xxs: 400,
+  sm: 600,
+  xs: 400,
 } as const
 
 export type Breakpoint = keyof typeof breakpointWidths
@@ -14,8 +13,10 @@ export const breakpoints = Object.keys(
   breakpointWidths,
 ) as readonly Breakpoint[]
 
-/** Width below which the Sidebar becomes a drawer; separate from the scale. */
-export const sidebarBreakpointWidth = 1280
+/** Media query matching widths at and below the breakpoint. */
+export const downQuery = (key: Breakpoint) =>
+  `(width <= ${breakpointWidths[key]}px)`
 
-/** Width below which Logo `auto` drops the wordmark; separate from the scale. */
-export const logoBreakpointWidth = 1024
+/** Media query matching widths above the breakpoint. */
+export const upQuery = (key: Breakpoint) =>
+  `(width > ${breakpointWidths[key]}px)`

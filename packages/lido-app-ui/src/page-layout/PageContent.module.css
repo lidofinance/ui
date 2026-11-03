@@ -1,5 +1,5 @@
 .root {
-  --local-max: 1200px;
+  --local-max: 1000px;
 
   box-sizing: border-box;
   display: flex;

@@ -54,18 +54,14 @@
   height: 20px;
 }
 
-/* CSS vars are invalid in @media; the huge multiplier makes clamp() a switch: hidden below N, shown from N */
+/* CSS vars are invalid in @media; the huge multiplier makes clamp() a switch: hidden at N and below, shown above N */
 .auto .wordmark {
   --local-breakpoint: var(
     --lido-app-ui-logo-breakpoint,
-    var(--lido-app-ui-breakpoint-logo)
+    var(--lido-app-ui-breakpoint-lg)
   );
 
-  width: clamp(
-    0px,
-    calc((100vw - var(--local-breakpoint) + 1px) * 10000),
-    63.125px
-  );
+  width: clamp(0px, calc((100vw - var(--local-breakpoint)) * 10000), 63.125px);
   transition: width 0.2s ease;
 }
 

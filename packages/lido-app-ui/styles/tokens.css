@@ -129,20 +129,25 @@
   --lido-app-ui-letter-spacing-h3: -0.14px;
 
   /* Radii */
-  --lido-app-ui-border-radius-badge: 8px;
-  --lido-app-ui-border-radius-pill: 100px;
-  --lido-app-ui-border-radius-button-50: 50px;
-  --lido-app-ui-border-radius-control: 100px;
-  --lido-app-ui-border-radius-control-inactive: 110px;
-  --lido-app-ui-border-radius-card: 16px;
-  --lido-app-ui-border-radius-dropdown: 20px;
-  --lido-app-ui-border-radius-dropdown-item: 12px;
-  --lido-app-ui-border-radius-tooltip: 20px;
-  --lido-app-ui-border-radius-modal: 32px;
-  --lido-app-ui-border-radius-skeleton: 4px;
-
-  /* Shadows */
-  --lido-app-ui-shadow-dropdown: 0px 4px 8px rgb(0 0 0 / 5%);
+  --lido-app-ui-border-radius-none: 0;
+  --lido-app-ui-border-radius-xs: 4px;
+  --lido-app-ui-border-radius-sm: 8px;
+  --lido-app-ui-border-radius-md: 16px;
+  --lido-app-ui-border-radius-lg: 20px;
+  --lido-app-ui-border-radius-xl: 32px;
+  --lido-app-ui-border-radius-full: 9999px;
+  --lido-app-ui-border-radius-badge: var(--lido-app-ui-border-radius-sm);
+  --lido-app-ui-border-radius-pill: var(--lido-app-ui-border-radius-full);
+  --lido-app-ui-border-radius-button: var(--lido-app-ui-border-radius-full);
+  --lido-app-ui-border-radius-control: var(--lido-app-ui-border-radius-full);
+  --lido-app-ui-border-radius-card: var(--lido-app-ui-border-radius-md);
+  --lido-app-ui-border-radius-dropdown: var(--lido-app-ui-border-radius-lg);
+  --lido-app-ui-border-radius-dropdown-item: var(
+    --lido-app-ui-border-radius-md
+  );
+  --lido-app-ui-border-radius-tooltip: var(--lido-app-ui-border-radius-lg);
+  --lido-app-ui-border-radius-modal: var(--lido-app-ui-border-radius-xl);
+  --lido-app-ui-border-radius-skeleton: var(--lido-app-ui-border-radius-xs);
 
   /* Stacking: header < drawer scrim (overlay) < drawer < popover/modal < toast < tooltip.
      Popover and modal share a layer on purpose: both portal to <body>, so the later-mounted overlay wins and nested overlays stack correctly. Consumer chrome must stay below it. */
@@ -171,17 +176,14 @@
   --lido-app-ui-space-52: 52px;
 
   /* Breakpoint widths for calc() and clamp(); media queries live in breakpoints.css */
-  --lido-app-ui-breakpoint-lg: 1280px;
-  --lido-app-ui-breakpoint-ml: 1024px;
+  --lido-app-ui-breakpoint-xl: 1280px;
+  --lido-app-ui-breakpoint-lg: 1024px;
   --lido-app-ui-breakpoint-md: 900px;
-  --lido-app-ui-breakpoint-sm: 768px;
-  --lido-app-ui-breakpoint-xs: 600px;
-  --lido-app-ui-breakpoint-xxs: 400px;
-  --lido-app-ui-breakpoint-sidebar: 1280px;
-  --lido-app-ui-breakpoint-logo: 1024px;
+  --lido-app-ui-breakpoint-sm: 600px;
+  --lido-app-ui-breakpoint-xs: 400px;
 
   /* Horizontal page padding for page-level shells */
-  --lido-app-ui-page-gutter: 52px;
+  --lido-app-ui-page-gutter: 32px;
 
   /* Set on <html> to the scrollbar width removed by a modal's scroll lock; fixed elements can pad with it to avoid shifting */
   --lido-app-ui-scrollbar-width: 0px;
@@ -242,8 +244,8 @@
   --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-white-a200);
 
   /* Semantic - Shadow */
-  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a100);
-  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a200);
+  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a200);
+  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a100);
 
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-gray-200);
@@ -367,8 +369,8 @@
   --lido-app-ui-color-border-inverse: var(--lido-app-ui-palette-black-a200);
 
   /* Semantic - Shadow */
-  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a300);
-  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a400);
+  --lido-app-ui-color-shadow-primary: var(--lido-app-ui-palette-black-a500);
+  --lido-app-ui-color-shadow-secondary: var(--lido-app-ui-palette-black-a300);
 
   /* Semantic - Background / page */
   --lido-app-ui-color-background-page: var(--lido-app-ui-palette-black-a900);
@@ -446,15 +448,9 @@
 /* var() in a custom property resolves where declared, so redeclare on every theme root */
 :root,
 [data-lido-theme] {
-  --lido-app-ui-shadow-popover:
+  --lido-app-ui-shadow-default:
     0 0 32px var(--lido-app-ui-color-shadow-secondary),
-    0 0 8px var(--lido-app-ui-color-shadow-primary);
-}
-
-@media (--lido-app-ui-breakpoint-md-down) {
-  :root {
-    --lido-app-ui-page-gutter: 32px;
-  }
+    0 0 4px var(--lido-app-ui-color-shadow-primary);
 }
 
 @media (--lido-app-ui-breakpoint-sm-down) {

@@ -47,7 +47,7 @@ const panelStyle = {
   border: '1px solid var(--lido-app-ui-color-border-default)',
   background: 'var(--lido-app-ui-color-background-surface)',
   color: 'var(--lido-app-ui-color-text-default)',
-  boxShadow: 'var(--lido-app-ui-shadow-popover)',
+  boxShadow: 'var(--lido-app-ui-shadow-default)',
 } as const
 
 type PanelProps = {

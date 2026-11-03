@@ -6,7 +6,7 @@
   width: 100%;
   padding: 16px;
   border: 1px solid var(--lido-app-ui-color-border-default);
-  border-radius: 12px;
+  border-radius: var(--lido-app-ui-border-radius-md);
   background-color: var(--lido-app-ui-color-background-default);
   font-family: var(--lido-app-ui-font-family);
   height: 80px;

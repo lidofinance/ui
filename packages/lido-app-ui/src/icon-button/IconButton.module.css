@@ -11,7 +11,7 @@
   padding: calc(8px - var(--local-border-width, 0px));
   border: var(--local-border-width, 0) solid
     var(--local-border-color, transparent);
-  border-radius: var(--lido-app-ui-border-radius-button-50);
+  border-radius: var(--lido-app-ui-border-radius-button);
   background-color: var(--local-bg, transparent);
   color: var(--lido-app-ui-color-icons-secondary);
   text-decoration: none;

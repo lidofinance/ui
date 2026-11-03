@@ -17,11 +17,11 @@ import {
   useIsomorphicLayoutEffect,
 } from '../hooks'
 import { CloseButton } from '../icon-button'
-import { sidebarBreakpointWidth } from '../utils'
+import { downQuery } from '../utils'
 import styles from './Sidebar.module.css'
 import { SidebarContext } from './SidebarContext'
 
-export const DRAWER_QUERY = `(width < ${sidebarBreakpointWidth}px)`
+export const DRAWER_QUERY = downQuery('lg')
 
 const OFFSET_VAR = '--local-measured-offset'
 
@@ -54,7 +54,7 @@ export type SidebarProps = Omit<ComponentPropsWithoutRef<'div'>, 'children'> & {
   logo?: ReactNode
   footer?: ReactNode
   children?: ReactNode
-  /** Drawer state; only has an effect at `sidebar-down` widths. Defaults to the SidebarLayout's. */
+  /** Drawer state; only has an effect at `lg-down` widths. Defaults to the SidebarLayout's. */
   open?: boolean
   onClose?: () => void
   navLabel?: string

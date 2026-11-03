@@ -68,7 +68,7 @@ describe('token references', () => {
 
   it('does not treat var() width tokens as custom media', () => {
     const css =
-      'width: var(--lido-app-ui-breakpoint-ml); @media (--lido-app-ui-breakpoint-sm-down) {}'
+      'width: var(--lido-app-ui-breakpoint-lg); @media (--lido-app-ui-breakpoint-sm-down) {}'
     expect(Array.from(css.matchAll(customMediaPattern), (m) => m[1])).toEqual([
       '--lido-app-ui-breakpoint-sm-down',
     ])

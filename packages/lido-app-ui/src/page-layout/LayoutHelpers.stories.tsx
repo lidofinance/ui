@@ -26,6 +26,7 @@ import {
 } from '../sidebar'
 import { SkipLink } from '../skip-link'
 import { Stack } from '../stack'
+import { breakpointWidths } from '../utils'
 import { Layout } from './Layout'
 import styles from './LayoutHelpers.stories.module.css'
 import { Main } from './Main'
@@ -46,9 +47,9 @@ const meta: Meta = {
       story: { inline: false, iframeHeight: 720 },
       description: {
         component: [
-          'Shell helpers that nest into the page frame. `Layout` is the root column; `SidebarLayout` is the row that owns the drawer state (`Sidebar` must be its direct child); `SidebarInset` is the column next to the Sidebar; `Main` is the `SkipLink` target and grows to push the Footer down. The left of `Header` is a `Stack` of `SidebarToggle`, a `Logo` (`Hidden above="lg"`) and `Breadcrumbs` (`Hidden below="md"`); below md the breadcrumbs repeat in content inside `Hidden above="md"`. Read the drawer state anywhere inside with `useSidebar()`.',
+          'Shell helpers that nest into the page frame. `Layout` is the root column; `SidebarLayout` is the row that owns the drawer state (`Sidebar` must be its direct child); `SidebarInset` is the column next to the Sidebar; `Main` is the `SkipLink` target and grows to push the Footer down. The left of `Header` is a `Stack` of `SidebarToggle`, a `Logo` (`Hidden above="lg"`) and `Breadcrumbs` (`Hidden below="lg"`); at `lg` and below the breadcrumbs repeat in content inside `Hidden above="lg"`. Read the drawer state anywhere inside with `useSidebar()`.',
           'Apps without a sidebar use `Layout` > `Header` + `Main` + `Footer`.',
-          '```\nLayout\n├─ banner (optional)\n└─ SidebarLayout\n   ├─ Sidebar\n   └─ SidebarInset\n      ├─ Header\n      │  └─ Stack (SidebarToggle, logo, breadcrumbs)\n      ├─ Main\n      │  └─ PageContent\n      │     └─ Breadcrumbs (below md)\n      └─ Footer\n```',
+          '```\nLayout\n├─ banner (optional)\n└─ SidebarLayout\n   ├─ Sidebar\n   └─ SidebarInset\n      ├─ Header\n      │  └─ Stack (SidebarToggle, logo, breadcrumbs)\n      ├─ Main\n      │  └─ PageContent\n      │     └─ Breadcrumbs (lg and below)\n      └─ Footer\n```',
         ].join('\n\n'),
       },
     },
@@ -80,16 +81,14 @@ export const SidebarAnatomy: Story = {
               <Hidden above='lg'>
                 <Logo variant='compact' product='Operators' href='#' />
               </Hidden>
-              <Hidden below='md'>
-                <Stack direction='row' justify={{ lg: 'center' }} grow>
-                  <Breadcrumbs items={[{ label: 'Dashboard' }]} />
-                </Stack>
+              <Hidden below='lg'>
+                <Breadcrumbs items={[{ label: 'Dashboard' }]} />
               </Hidden>
             </Stack>
           </Header>
           <Main {...region('Main', 'container')}>
             <PageContent {...region('PageContent', 'component')}>
-              <Hidden above='md'>
+              <Hidden above='lg'>
                 <Breadcrumbs items={[{ label: 'Dashboard' }]} />
               </Hidden>
               <SimpleCard title='Page title' />
@@ -147,10 +146,8 @@ const ControlledDrawerDemo = () => {
               <Hidden above='lg'>
                 <Logo variant='compact' product='Operators' href='#' />
               </Hidden>
-              <Hidden below='md'>
-                <Stack direction='row' justify={{ lg: 'center' }} grow>
-                  <Breadcrumbs items={[{ label: 'Dashboard' }]} />
-                </Stack>
+              <Hidden below='lg'>
+                <Breadcrumbs items={[{ label: 'Dashboard' }]} />
               </Hidden>
             </Stack>
           </Header>
@@ -171,7 +168,7 @@ export const ControlledDrawer: Story = {
   parameters: storyParams(
     '`open` and `onOpenChange` on `SidebarLayout` drive the drawer from app state; `useSidebar()` lets any child open it.',
   ),
-  globals: { viewport: { value: 'sidebar-down', isRotated: false } },
+  globals: { viewport: { value: 'lg-down', isRotated: false } },
   render: () => <ControlledDrawerDemo />,
 }
 
@@ -179,7 +176,7 @@ const protocolCrumbs = [{ label: 'Protocol' }, { label: 'Overview' }]
 
 export const SidebarHeader: Story = {
   parameters: storyParams(
-    'Compose the left of `Header` with `Stack`: `SidebarToggle`, `Logo` in `Hidden above="lg"`, then breadcrumbs in `Hidden below="md"`. From `lg` up only the breadcrumbs show (see Sidebar Anatomy); `lg` matches the sidebar breakpoint (1280). Below `lg` the toggle opens the drawer, the logo stands in for the Sidebar logo hidden inside it, and the breadcrumbs center via responsive `justify`.',
+    `Compose the left of \`Header\` with \`Stack\`: \`SidebarToggle\`, \`Logo\` in \`Hidden above="lg"\`, then breadcrumbs in \`Hidden below="lg"\`. Shown at ${breakpointWidths.md + 1}px: at \`lg\` (${breakpointWidths.lg}, the sidebar breakpoint) and below the toggle opens the drawer, the logo stands in for the Sidebar logo hidden inside it, and the breadcrumbs move into \`PageContent\`. Above \`lg\` only the breadcrumbs show (see Sidebar Anatomy).`,
   ),
   globals: { viewport: { value: 'md-up', isRotated: false } },
   render: () => (
@@ -189,7 +186,7 @@ export const SidebarHeader: Story = {
 
 export const MobileBreadcrumbs: Story = {
   parameters: storyParams(
-    'Below md the Header hides the breadcrumbs, so repeat them first in `PageContent` inside `Hidden above="md"`.',
+    'At `lg` and below the Header hides the breadcrumbs, so repeat them first in `PageContent` inside `Hidden above="lg"`.',
   ),
   globals: { viewport: { value: 'px375', isRotated: false } },
   render: () => (

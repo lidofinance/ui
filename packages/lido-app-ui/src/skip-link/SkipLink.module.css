@@ -8,11 +8,11 @@
   padding: 8px 16px;
   border-radius: var(--lido-app-ui-border-radius-badge);
   background-color: var(--lido-app-ui-color-background-surface);
-  box-shadow: var(--lido-app-ui-shadow-popover);
+  box-shadow: var(--lido-app-ui-shadow-default);
   color: var(--lido-app-ui-color-text-default);
   text-decoration: none;
 
-  /* clears the top offset and the popover shadow's 32px blur */
+  /* clears the top offset and the default shadow's 32px blur */
   transform: translateY(calc(-100% - 12px - 32px));
   transition: transform 0.2s ease;
 }

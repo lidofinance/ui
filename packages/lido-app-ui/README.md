@@ -39,7 +39,6 @@ Next.js 13+ — `next/link` renders its own `<a>` and forwards its ref, so pass 
 ```tsx
 import NextLink from 'next/link'
 import { LinkProvider } from '@lidofinance/lido-app-ui'
-
 ;<LinkProvider component={NextLink}>{children}</LinkProvider>
 ```
 
@@ -117,7 +116,7 @@ Deprecated aliases: `GroupName` (use `Caption`), variants `richInput` (use `amou
 
 ## Customization
 
-Override any token after importing the stylesheet. Non-color tokens (radii, typography, z-index, spacing, `--lido-app-ui-shadow-dropdown`) are theme-independent and live on `:root`. Color tokens and `--lido-app-ui-shadow-popover` (it reads color tokens) are redeclared on every theme scope, so override them on `:root, [data-lido-theme]` or per theme, not on `:root` alone:
+Override any token after importing the stylesheet. Non-color tokens (radii, typography, z-index, spacing) are theme-independent and live on `:root`. Color tokens and `--lido-app-ui-shadow-default` (it reads color tokens) are redeclared on every theme scope, so override them on `:root, [data-lido-theme]` or per theme, not on `:root` alone:
 
 ```css
 :root {
@@ -159,20 +158,19 @@ export default {
 
 ## Layout
 
-Breakpoints are desktop-first: `-down` is `(width < N)`, `-up` is `(width >= N)`. The queries use range syntax (Safari 16.4+, Chrome 104+, Firefox 63+).
+Breakpoints are desktop-first: `-down` is `(width <= N)`, `-up` is `(width > N)`. The queries use range syntax (Safari 16.4+, Chrome 104+, Firefox 63+).
 
-| Name  | N      |
-| ----- | ------ |
-| `lg`  | 1280px |
-| `ml`  | 1024px |
-| `md`  | 900px  |
-| `sm`  | 768px  |
-| `xs`  | 600px  |
-| `xxs` | 400px  |
+| Name | N      |
+| ---- | ------ |
+| `xl` | 1280px |
+| `lg` | 1024px |
+| `md` | 900px  |
+| `sm` | 600px  |
+| `xs` | 400px  |
 
-Two component breakpoints sit outside the scale: the Sidebar drawer at `--lido-app-ui-breakpoint-sidebar-down` / `-up` (1280px, `sidebarBreakpointWidth`) and Logo `auto` dropping its wordmark at `--lido-app-ui-breakpoint-logo-down` / `-up` (1024px, `logoBreakpointWidth`).
+The Sidebar drawer and Logo `auto` switch at `lg`. In JS, `downQuery('md')` / `upQuery('md')` build the matching `matchMedia` strings.
 
-In CSS use `@media (--lido-app-ui-breakpoint-md-down)`. Responsive props such as `Stack` `gap` take `{ base, mdDown, smDown, … }` (bare `md`/`sm` are aliases), where a key applies below that width:
+In CSS use `@media (--lido-app-ui-breakpoint-md-down)`. Responsive props such as `Stack` `gap` take `{ base, mdDown, smDown, … }` (bare `md`/`sm` are aliases), where a key applies at that width and below:
 
 ```tsx
 <Stack gap={{ base: 24, smDown: 12 }}>{children}</Stack>
