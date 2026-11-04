@@ -31,19 +31,20 @@
   pointer-events: auto;
 }
 
-/* Enter: slide in from the stack edge. */
+/* Closed state: enter start position and exit fade timing. */
 .item[data-state='closed'] .body {
   opacity: 0;
   transform: translate(var(--toastShiftX), var(--toastShiftY));
-  transition-duration: var(--lido-app-ui-duration-base-exit);
+  transition-duration: var(--lido-app-ui-duration-fast-exit);
   transition-timing-function: var(--lido-app-ui-easing-exit);
 }
 
-/* Exit: resolve in place, then close the gap once the content is nearly gone. */
+/* Collapse overlaps the fade so exit stays shorter than enter. */
 .item[data-state='closed'][data-motion='exit'] {
   grid-template-rows: 0fr;
-  transition-delay: var(--lido-app-ui-duration-fast-exit);
+  transition-delay: calc(var(--lido-app-ui-duration-fast-exit) * 0.2);
   transition-duration: var(--lido-app-ui-duration-base-exit);
+  transition-timing-function: var(--lido-app-ui-easing-out);
 }
 
 .item[data-state='closed'][data-motion='exit'] .body {
@@ -71,10 +72,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .stack .item {
-    transition: grid-template-rows 0s linear;
+    transition-duration: 0s;
   }
 
   .stack .item[data-state='closed'][data-motion='exit'] {
+    transition-duration: 0s;
     transition-delay: var(--lido-app-ui-duration-fast-exit);
   }
 

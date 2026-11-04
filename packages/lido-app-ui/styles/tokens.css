@@ -216,22 +216,17 @@
   --lido-app-ui-easing-move: cubic-bezier(0.77, 0, 0.175, 1);
   --lido-app-ui-easing-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 
-  /* Deprecated alias of easing-out; exits never use ease-in. */
-  --lido-app-ui-easing-in: var(--lido-app-ui-easing-out);
-
   /* Motion: amplitude */
   --lido-app-ui-motion-shift: 4px;
   --lido-app-ui-motion-shift-lg: 16px;
   --lido-app-ui-motion-scale: 0.96;
 
-  /* Motion: colour transition list; resolves at :root, so subtree duration overrides do not apply */
+  /* Motion: colour transition list; resolves at :root, so subtree duration overrides do not apply; no outline so focus rings appear instantly */
   --lido-app-ui-transition-colors:
     color var(--lido-app-ui-duration-color) var(--lido-app-ui-easing-standard),
     background-color var(--lido-app-ui-duration-color)
       var(--lido-app-ui-easing-standard),
     border-color var(--lido-app-ui-duration-color)
-      var(--lido-app-ui-easing-standard),
-    outline-color var(--lido-app-ui-duration-color)
       var(--lido-app-ui-easing-standard),
     fill var(--lido-app-ui-duration-color) var(--lido-app-ui-easing-standard);
 }

@@ -9,6 +9,14 @@
     transition-duration: $exit;
     transition-timing-function: var(--lido-app-ui-easing-exit);
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: var(--lido-app-ui-duration-fast);
+
+    &[data-state='closed'] {
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
+    }
+  }
 }
 
 @define-mixin motion-pop $origin: center,
@@ -29,9 +37,11 @@
 
   @media (prefers-reduced-motion: reduce) {
     transition-property: opacity;
+    transition-duration: var(--lido-app-ui-duration-fast);
 
     &[data-state='closed'] {
       transform: none;
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
     }
   }
 }
@@ -51,9 +61,11 @@
 
   @media (prefers-reduced-motion: reduce) {
     transition-property: opacity;
+    transition-duration: var(--lido-app-ui-duration-fast);
 
     &[data-state='closed'] {
       transform: none;
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
     }
   }
 }
@@ -90,11 +102,21 @@
     overflow: hidden;
   }
 
+  /* Height snaps after the fade-out so the exit stays awaitable: a 0s transition with a delay still runs (duration + delay > 0). */
   @media (prefers-reduced-motion: reduce) {
     transition: none;
 
     & > * {
       transition-duration: var(--lido-app-ui-duration-fast);
+    }
+
+    &[data-state='closed'] {
+      transition: grid-template-rows 0s linear
+        var(--lido-app-ui-duration-fast-exit);
+    }
+
+    &[data-state='closed'] > * {
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
     }
   }
 }

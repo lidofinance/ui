@@ -30,7 +30,6 @@ export const MOTION_EASINGS = [
   },
   { token: '--lido-app-ui-easing-move', note: 'On-screen movement' },
   { token: '--lido-app-ui-easing-drawer', note: 'Drawer slide' },
-  { token: '--lido-app-ui-easing-in', note: 'Deprecated alias of easing-out' },
 ] as const
 
 export const MOTION_AMPLITUDES = [
