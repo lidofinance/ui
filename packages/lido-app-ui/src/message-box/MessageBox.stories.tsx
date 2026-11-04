@@ -62,3 +62,12 @@ export const Variants: Story = {
     },
   },
 }
+
+export const KeysDecreased: Story = {
+  args: {
+    variant: 'warning',
+    icon: true,
+    headline: undefined,
+    children: 'The number of your keys has decreased. Please update the data',
+  },
+}

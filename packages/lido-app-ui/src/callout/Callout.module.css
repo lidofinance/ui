@@ -1,0 +1,81 @@
+.callout {
+  --local-bg: var(--lido-app-ui-color-tint-info);
+  --local-bg-hover: var(--lido-app-ui-color-tint-info-hover);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  margin: 0;
+  padding: 12px 32px;
+  border: none;
+  background-color: var(--local-bg);
+  color: var(--lido-app-ui-color-text-default);
+
+  @mixin font-body;
+
+  text-align: center;
+  text-decoration: none;
+}
+
+.rounded {
+  border-radius: var(--lido-app-ui-border-radius-md);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background-color: var(--local-bg-hover);
+}
+
+.clickable:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: -2px;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.success {
+  --local-bg: var(--lido-app-ui-color-tint-success);
+  --local-bg-hover: var(--lido-app-ui-color-tint-success-hover);
+}
+
+.warning {
+  --local-bg: var(--lido-app-ui-color-tint-warning);
+  --local-bg-hover: var(--lido-app-ui-color-tint-warning-hover);
+}
+
+.error {
+  --local-bg: var(--lido-app-ui-color-tint-error);
+  --local-bg-hover: var(--lido-app-ui-color-tint-error-hover);
+}
+
+.neutral {
+  --local-bg: var(--lido-app-ui-color-tint-neutral);
+  --local-bg-hover: var(--lido-app-ui-color-tint-neutral-hover);
+}
+
+.active {
+  --local-bg: var(--lido-app-ui-color-tint-active);
+  --local-bg-hover: var(--lido-app-ui-color-tint-active-hover);
+}
