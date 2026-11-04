@@ -1,0 +1,60 @@
+.root {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: clip;
+  container-type: inline-size;
+  background-color: var(--lido-app-ui-color-background-surface);
+  border-radius: var(--lido-app-ui-border-radius-lg);
+}
+
+/* a @container rule cannot style the container itself, so the layout lives here */
+.layout {
+  display: flex;
+}
+
+.main {
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 0;
+  padding: 32px;
+}
+
+.aside {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 328px;
+  padding: 32px 20px;
+  background-color: var(--lido-app-ui-color-background-default);
+  border-left: 1px solid var(--lido-app-ui-color-border-default);
+}
+
+/* clears a sticky Header (it sets --lido-app-ui-sticky-top), otherwise the summary slides under it */
+.asideContent {
+  position: sticky;
+  top: calc(var(--lido-app-ui-sticky-top, 0px) + var(--lido-app-ui-space-24));
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 328 aside + 392 main (32px padding each side leaves a 328px form) */
+@container (width < 720px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .aside {
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid var(--lido-app-ui-color-border-default);
+    border-left: none;
+  }
+
+  .asideContent {
+    position: static;
+  }
+}
