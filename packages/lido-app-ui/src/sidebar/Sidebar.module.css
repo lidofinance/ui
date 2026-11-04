@@ -97,14 +97,18 @@
     transform: translateX(-100%);
     visibility: hidden;
     transition:
-      transform 0.2s ease,
-      visibility 0s linear 0.2s;
+      transform var(--lido-app-ui-duration-slow-exit)
+        var(--lido-app-ui-easing-exit),
+      visibility 0s linear var(--lido-app-ui-duration-slow-exit);
   }
 
   .sidebar[data-open='true'] {
     transform: none;
     visibility: visible;
-    transition-delay: 0s;
+    transition:
+      transform var(--lido-app-ui-duration-slow)
+        var(--lido-app-ui-easing-drawer),
+      visibility 0s linear 0s;
   }
 
   .scrim {
@@ -116,14 +120,17 @@
     opacity: 0;
     visibility: hidden;
     transition:
-      opacity 0.2s ease,
-      visibility 0s linear 0.2s;
+      opacity var(--lido-app-ui-duration-slow-exit)
+        var(--lido-app-ui-easing-exit),
+      visibility 0s linear var(--lido-app-ui-duration-slow-exit);
   }
 
   .scrimOpen {
     opacity: 1;
     visibility: visible;
-    transition-delay: 0s;
+    transition:
+      opacity var(--lido-app-ui-duration-slow) var(--lido-app-ui-easing-out),
+      visibility 0s linear 0s;
   }
 
   .logoRowCloseOnly {
@@ -137,7 +144,20 @@
 
 @media (prefers-reduced-motion: reduce) {
   .sidebar,
+  .sidebar[data-open='true'] {
+    transition: visibility 0s linear 0s;
+  }
+
   .scrim {
-    transition: none;
+    transition:
+      opacity var(--lido-app-ui-duration-fast-exit)
+        var(--lido-app-ui-easing-exit),
+      visibility 0s linear var(--lido-app-ui-duration-fast-exit);
+  }
+
+  .scrimOpen {
+    transition:
+      opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out),
+      visibility 0s linear 0s;
   }
 }

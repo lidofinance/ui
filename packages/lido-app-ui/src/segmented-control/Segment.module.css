@@ -14,9 +14,7 @@
   @mixin font-body-semibold;
 
   cursor: pointer;
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .segment:hover:not(:disabled, .active) {

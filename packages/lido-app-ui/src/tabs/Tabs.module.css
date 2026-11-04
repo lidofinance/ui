@@ -13,13 +13,13 @@
   height: 2px;
   background-color: var(--lido-app-ui-color-border-black);
   pointer-events: none;
-  will-change: transform, width;
+  will-change: transform;
 }
 
 .animated {
   transition:
-    transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
-    width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transform var(--lido-app-ui-duration-move) var(--lido-app-ui-easing-move),
+    width var(--lido-app-ui-duration-move) var(--lido-app-ui-easing-move);
 }
 
 @media (prefers-reduced-motion: reduce) {

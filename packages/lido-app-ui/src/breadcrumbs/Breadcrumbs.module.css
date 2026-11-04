@@ -52,7 +52,7 @@
   background: none;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .link:hover,
