@@ -1,0 +1,165 @@
+.root {
+  container-type: inline-size;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--lido-app-ui-border-radius-sm);
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.circle {
+  @mixin font-description-semibold;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--lido-app-ui-border-radius-pill);
+  color: var(--lido-app-ui-color-text-inverse);
+}
+
+.circle.done,
+.circle.upcoming {
+  background-color: var(--lido-app-ui-color-icons-tertiary);
+}
+
+.circle.current {
+  background-color: var(--lido-app-ui-color-icons-default);
+}
+
+.checkIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--lido-app-ui-color-text-inverse);
+}
+
+.label {
+  @mixin font-body-semibold;
+
+  white-space: nowrap;
+}
+
+.label.done,
+.label.upcoming {
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.label.current {
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.connector {
+  display: none;
+  flex-shrink: 0;
+  width: 36px;
+  height: 1px;
+  margin-left: 12px;
+  background-color: var(--lido-app-ui-color-border-default);
+}
+
+/* ~160px per step, assuming short labels. */
+.list[data-orientation='horizontal'] {
+  flex-direction: row;
+  align-items: center;
+}
+
+.list[data-orientation='horizontal'] .connector {
+  display: block;
+}
+
+@container (min-width: 360px) {
+  .list[data-orientation='auto'][data-count='2'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='2'] .connector {
+    display: block;
+  }
+}
+
+@container (min-width: 520px) {
+  .list[data-orientation='auto'][data-count='3'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='3'] .connector {
+    display: block;
+  }
+}
+
+@container (min-width: 680px) {
+  .list[data-orientation='auto'][data-count='4'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='4'] .connector {
+    display: block;
+  }
+}
+
+@container (min-width: 840px) {
+  .list[data-orientation='auto'][data-count='5'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='5'] .connector {
+    display: block;
+  }
+}
+
+@container (min-width: 1000px) {
+  .list[data-orientation='auto'][data-count='6'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='6'] .connector {
+    display: block;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
