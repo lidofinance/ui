@@ -194,6 +194,14 @@
   --lido-app-ui-opacity-pressed-content: 0.7;
   --lido-app-ui-opacity-disabled-content: 0.3;
   --lido-app-ui-opacity-disabled-content-compact: 0.2;
+
+  /* Motion */
+  --lido-app-ui-duration-fast: 150ms;
+  --lido-app-ui-duration-base: 200ms;
+  --lido-app-ui-duration-slow: 300ms;
+  --lido-app-ui-easing-standard: ease;
+  --lido-app-ui-easing-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --lido-app-ui-easing-in: cubic-bezier(0.55, 0, 1, 0.45);
 }
 
 :root,
