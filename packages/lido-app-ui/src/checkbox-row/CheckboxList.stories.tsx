@@ -39,7 +39,6 @@ export const SelectAll: Story = {
   parameters: {
     controls: { disable: true },
     docs: {
-      source: { type: 'code' },
       description: {
         story:
           'Bulk key selection: the header row selects all and shows `indeterminate` while only some keys are checked.',

@@ -28,7 +28,7 @@ const meta: Meta<typeof Steps> = {
     docs: {
       description: {
         component:
-          'Wizard progress. In `auto` mode it is a row when its container is wide enough for all steps (about 160px per step) and a column below that. Pass `onStepClick` to let users go back to completed steps.',
+          'Wizard progress. In `auto` mode it is a row when its container is wide enough for all steps (about 160px per step) and a column below that. Pass `onStepClick` to let users go back to completed steps. The digit cross-fades to a check and the connector fills (slower) or drains (faster) as `current` changes; use `ClickablePreviousSteps` to check for flicker.',
       },
     },
   },
@@ -67,7 +67,7 @@ export const ClickablePreviousSteps: Story = {
       { label: 'Confirm bond' },
       { label: 'Done' },
     ]
-    const [current, setCurrent] = useState(3)
+    const [current, setCurrent] = useState(2)
     return (
       <>
         <Steps steps={steps} current={current} onStepClick={setCurrent} />

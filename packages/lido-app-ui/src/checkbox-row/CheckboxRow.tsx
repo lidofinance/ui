@@ -63,12 +63,15 @@ export const CheckboxRow = forwardRef<HTMLInputElement, CheckboxRowProps>(
     }
 
     return (
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- row click toggles the checkbox; the input itself is keyboard-operable
       <div
         className={cn(styles.row, disabled && styles.disabled, className)}
         style={style}
         data-testid={dataTestId?.root}
         onClick={handleRowClick}
+        onMouseDown={(event) => {
+          if (event.detail > 1) event.preventDefault()
+        }}
       >
         <Checkbox
           ref={ref}

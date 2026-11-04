@@ -33,7 +33,9 @@ describe('ProgressBar', () => {
     )
     const marker = container.querySelector('[aria-hidden="true"]')
     expect(marker).not.toBeNull()
-    expect((marker as HTMLElement).style.left).toBe('30%')
+    expect(
+      (marker as HTMLElement).style.getPropertyValue('--local-limit'),
+    ).toBe('30')
   })
 
   it('renders segments with widths proportional to max', () => {
@@ -41,7 +43,7 @@ describe('ProgressBar', () => {
       <ProgressBar max={200} segments={[{ value: 50, color: 'active' }]} />,
     )
     const segment = container.querySelector('span')
-    expect(segment?.getAttribute('style')).toContain('width: 25%')
+    expect(segment?.getAttribute('style')).toContain('inset(0 75% 0 calc(0%')
   })
 })
 
@@ -55,12 +57,33 @@ describe('ProgressBar limit and colors', () => {
         segments={[{ value: 85, color: 'active' }]}
       />,
     )
-    const group = container.querySelector('[class*="segmentGroup"]')
-    expect(group?.children.length).toBe(2)
-    const [under, over] = Array.from(group?.children ?? []) as HTMLElement[]
-    expect(parseFloat(under.style.width)).toBeCloseTo(70.6, 1)
-    expect(parseFloat(over.style.width)).toBeCloseTo(29.4, 1)
+    const bar = container.querySelector('[class*="segments"]')
+    expect(bar?.children.length).toBe(2)
+    const [under, over] = Array.from(bar?.children ?? []) as HTMLElement[]
+    expect(under.style.clipPath).toContain('inset(0 40% 0 calc(0%')
+    expect(over.style.clipPath).toContain('inset(0 15% 0 calc(60%')
     expect(over.className).toContain('hatched')
+  })
+
+  it('keeps the same nodes when limit and overLimit change', () => {
+    const { container, rerender } = render(
+      <ProgressBar aria-label='U' segments={[{ value: 50 }]} />,
+    )
+    const before = Array.from(
+      container.querySelector('[class*="segments"]')?.children ?? [],
+    )
+    rerender(
+      <ProgressBar aria-label='U' limit={30} segments={[{ value: 50 }]} />,
+    )
+    rerender(
+      <ProgressBar aria-label='U' overLimit segments={[{ value: 50 }]} />,
+    )
+    const after = Array.from(
+      container.querySelector('[class*="segments"]')?.children ?? [],
+    )
+    expect(after).toHaveLength(2)
+    expect(after[0]).toBe(before[0])
+    expect(after[1]).toBe(before[1])
   })
 
   it('overLimit={false} suppresses hatching', () => {
@@ -73,14 +96,16 @@ describe('ProgressBar limit and colors', () => {
         segments={[{ value: 85 }]}
       />,
     )
-    expect(container.querySelector('[class*="hatched"]')).toBeNull()
+    const hatched = container.querySelector('[class*="hatched"]') as HTMLElement
+    expect(hatched.style.clipPath).toContain('inset(0 15% 0 calc(85%')
   })
 
   it('overLimit forces hatching', () => {
     const { container } = render(
       <ProgressBar aria-label='Usage' value={10} overLimit />,
     )
-    expect(container.querySelector('[class*="hatched"]')).not.toBeNull()
+    const hatched = container.querySelector('[class*="hatched"]') as HTMLElement
+    expect(hatched.style.clipPath).toContain('inset(0 90% 0 calc(0%')
   })
 
   it('applies custom css colors inline', () => {
@@ -91,7 +116,7 @@ describe('ProgressBar limit and colors', () => {
       />,
     )
     const segment = container.querySelector(
-      '[class*="segment"] span',
+      '[class*="segments"] > span',
     ) as HTMLElement
     expect(segment.style.backgroundColor).toBe('rgb(255, 0, 0)')
   })
@@ -113,9 +138,9 @@ describe('SegmentedBar', () => {
   it('fills the current pill partially for fractional values', () => {
     const { container } = render(<SegmentedBar steps={3} value={1.5} />)
     const fills = container.querySelectorAll('span > span')
-    expect((fills[1] as HTMLElement).style.width).toBe('50%')
-    expect((fills[0] as HTMLElement).style.width).toBe('100%')
-    expect((fills[2] as HTMLElement).style.width).toBe('0%')
+    expect((fills[1] as HTMLElement).style.clipPath).toBe('inset(0 50% 0 0)')
+    expect((fills[0] as HTMLElement).style.clipPath).toBe('inset(0 0% 0 0)')
+    expect((fills[2] as HTMLElement).style.clipPath).toBe('inset(0 100% 0 0)')
   })
 
   it('applies fixed width to SegmentedBar', () => {

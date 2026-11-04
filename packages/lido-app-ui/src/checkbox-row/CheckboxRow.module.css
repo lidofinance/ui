@@ -6,7 +6,7 @@
   min-height: 58px;
   padding: var(--lido-app-ui-space-16) var(--lido-app-ui-space-20);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .row:hover:not(.disabled) {
