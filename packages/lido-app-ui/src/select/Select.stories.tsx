@@ -51,8 +51,8 @@ export const Basic: Story = {
 
 export const Controlled: Story = {
   parameters: {
-    controls: { disable: true },
     docs: { source: { type: 'code' } },
+    controls: { disable: true },
   },
   render: function Render(args) {
     const [token, setToken] = useState('wsteth')
@@ -126,8 +126,8 @@ export const LongList: Story = {
 
 export const RolePickerInForm: Story = {
   parameters: {
-    controls: { disable: true },
     docs: { source: { type: 'code' } },
+    controls: { disable: true },
   },
   render: function Render(args) {
     const [submitted, setSubmitted] = useState('')

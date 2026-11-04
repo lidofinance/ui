@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useCallback, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 
@@ -51,54 +51,71 @@ const panelStyle = {
   boxShadow: 'var(--lido-app-ui-shadow-default)',
 } as const
 
-type PanelProps = {
-  title: string
-  onClose: () => void
-  children?: ReactNode
-}
+const panelHeader = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+} as const
 
-const Panel = ({ title, onClose, children }: PanelProps) => {
-  const [el, setEl] = useState<HTMLDivElement | null>(null)
-  useFocusTrap(el)
-  useEscape(onClose)
-  useBodyScrollLock()
-  useOutsideClick(el, onClose)
-
-  return (
-    <Portal>
-      <div ref={setEl} role='dialog' aria-label={title} style={panelStyle}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <strong>{title}</strong>
-          <CloseButton onClick={onClose} />
-        </div>
-        <Input label='Sample input' placeholder='Tab stays in here' />
-        {children}
-      </div>
-    </Portal>
-  )
-}
+const presenceStyle = (state: 'open' | 'closed') => ({
+  opacity: state === 'open' ? 1 : 0,
+  transition:
+    state === 'open'
+      ? 'opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out)'
+      : 'opacity var(--lido-app-ui-duration-base-exit) var(--lido-app-ui-easing-exit)',
+})
 
 export const Basic: Story = {
   parameters: {
     docs: {
       description: {
         story:
-          'Portal + `useFocusTrap` + `useEscape` + `useBodyScrollLock` + `useOutsideClick` on one panel. Escape, an outside click or the close button dismisses it; focus returns to the opener.',
+          'Portal + `useFocusTrap` + `useEscape` + `useBodyScrollLock` + `useOutsideClick` + `usePresence` on one panel. Escape, an outside click or the close button dismisses it with an exit fade; focus returns to the opener.',
       },
     },
   },
   render: function Render() {
     const [open, setOpen] = useState(false)
+    const [panel, setPanel] = useState<HTMLDivElement | null>(null)
+    const presence = usePresence<HTMLDivElement>(open)
+    const close = () => setOpen(false)
+    const { ref: presenceRef } = presence
+    const panelRef = useCallback(
+      (node: HTMLDivElement | null) => {
+        setPanel(node)
+        presenceRef(node)
+      },
+      [presenceRef],
+    )
+
+    useFocusTrap(panel, { enabled: open })
+    useEscape(close, { enabled: open })
+    useBodyScrollLock({ enabled: open })
+    useOutsideClick(panel, close, { enabled: open })
+
     return (
       <>
         <Button onClick={() => setOpen(true)}>Open panel</Button>
-        {open && <Panel title='Panel' onClose={() => setOpen(false)} />}
+        {presence.mounted && (
+          <Portal>
+            <div
+              ref={panelRef}
+              {...presence.motionProps}
+              role='dialog'
+              aria-label='Panel'
+              style={{
+                ...panelStyle,
+                ...presenceStyle(presence.motionProps['data-state']),
+              }}
+            >
+              <div style={panelHeader}>
+                <strong>Panel</strong>
+                <CloseButton onClick={close} />
+              </div>
+              <Input label='Sample input' placeholder='Tab stays in here' />
+            </div>
+          </Portal>
+        )}
       </>
     )
   },
@@ -116,18 +133,58 @@ export const NestedLayers: Story = {
   render: function Render() {
     const [first, setFirst] = useState(false)
     const [second, setSecond] = useState(false)
+    const [firstPanel, setFirstPanel] = useState<HTMLDivElement | null>(null)
+    const [secondPanel, setSecondPanel] = useState<HTMLDivElement | null>(null)
+    const closeFirst = () => setFirst(false)
+    const closeSecond = () => setSecond(false)
+
+    useFocusTrap(firstPanel, { enabled: first })
+    useEscape(closeFirst, { enabled: first })
+    useOutsideClick(firstPanel, closeFirst, { enabled: first })
+
+    useFocusTrap(secondPanel, { enabled: second })
+    useEscape(closeSecond, { enabled: second })
+    useOutsideClick(secondPanel, closeSecond, { enabled: second })
+
+    useBodyScrollLock({ enabled: first || second })
+
     return (
       <>
         <Button onClick={() => setFirst(true)}>Open first panel</Button>
         {first && (
-          <Panel title='First panel' onClose={() => setFirst(false)}>
-            <Button size='small' onClick={() => setSecond(true)}>
-              Open second panel
-            </Button>
-          </Panel>
+          <Portal>
+            <div
+              ref={setFirstPanel}
+              role='dialog'
+              aria-label='First panel'
+              style={panelStyle}
+            >
+              <div style={panelHeader}>
+                <strong>First panel</strong>
+                <CloseButton onClick={closeFirst} />
+              </div>
+              <Input label='Sample input' placeholder='Tab stays in here' />
+              <Button size='small' onClick={() => setSecond(true)}>
+                Open second panel
+              </Button>
+            </div>
+          </Portal>
         )}
         {second && (
-          <Panel title='Second panel' onClose={() => setSecond(false)} />
+          <Portal>
+            <div
+              ref={setSecondPanel}
+              role='dialog'
+              aria-label='Second panel'
+              style={panelStyle}
+            >
+              <div style={panelHeader}>
+                <strong>Second panel</strong>
+                <CloseButton onClick={closeSecond} />
+              </div>
+              <Input label='Sample input' placeholder='Tab stays in here' />
+            </div>
+          </Portal>
         )}
       </>
     )
@@ -169,50 +226,16 @@ export const PortalThemeScope: Story = {
   },
 }
 
-const PresenceBox = ({
-  open,
-  appear,
-  keepMounted,
-}: {
-  open: boolean
-  appear?: boolean
-  keepMounted?: boolean
-}) => {
-  const { mounted, status, ref, motionProps } = usePresence<HTMLDivElement>(
-    open,
-    { appear, keepMounted },
-  )
-  return (
-    <div style={{ display: 'grid', gap: 8 }}>
-      <code>
-        status: {status}, mounted: {String(mounted)}
-      </code>
-      {mounted ? (
-        <div
-          ref={ref}
-          {...motionProps}
-          style={{
-            padding: 16,
-            border: '1px solid var(--lido-app-ui-color-border-default)',
-            borderRadius: 'var(--lido-app-ui-border-radius-md)',
-            color: 'var(--lido-app-ui-color-text-default)',
-            opacity: motionProps['data-state'] === 'open' ? 1 : 0,
-            transition:
-              motionProps['data-state'] === 'open'
-                ? 'opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out)'
-                : 'opacity var(--lido-app-ui-duration-base-exit) var(--lido-app-ui-easing-exit)',
-          }}
-        >
-          Content
-        </div>
-      ) : null}
-    </div>
-  )
-}
-
 const presenceDocs = (story: string) => ({
   docs: { description: { story } },
 })
+
+const presenceBoxStyle = {
+  padding: 16,
+  border: '1px solid var(--lido-app-ui-color-border-default)',
+  borderRadius: 'var(--lido-app-ui-border-radius-md)',
+  color: 'var(--lido-app-ui-color-text-default)',
+} as const
 
 export const UsePresenceBasic: Story = {
   name: 'usePresence: Basic',
@@ -221,11 +244,27 @@ export const UsePresenceBasic: Story = {
   ),
   render: function Render() {
     const [open, setOpen] = useState(false)
+    const { mounted, status, ref, motionProps } =
+      usePresence<HTMLDivElement>(open)
     return (
-      <>
+      <div style={{ display: 'grid', gap: 8 }}>
         <Button onClick={() => setOpen((v) => !v)}>Toggle</Button>
-        <PresenceBox open={open} />
-      </>
+        <code>
+          status: {status}, mounted: {String(mounted)}
+        </code>
+        {mounted && (
+          <div
+            ref={ref}
+            {...motionProps}
+            style={{
+              ...presenceBoxStyle,
+              ...presenceStyle(motionProps['data-state']),
+            }}
+          >
+            Content
+          </div>
+        )}
+      </div>
     )
   },
 }
@@ -235,7 +274,31 @@ export const UsePresenceAppear: Story = {
   parameters: presenceDocs(
     '`appear` animates the first mount when initially open (toasts). Default is to render settled.',
   ),
-  render: () => <PresenceBox open appear />,
+  render: function Render() {
+    const { mounted, status, ref, motionProps } = usePresence<HTMLDivElement>(
+      true,
+      { appear: true },
+    )
+    return (
+      <div style={{ display: 'grid', gap: 8 }}>
+        <code>
+          status: {status}, mounted: {String(mounted)}
+        </code>
+        {mounted && (
+          <div
+            ref={ref}
+            {...motionProps}
+            style={{
+              ...presenceBoxStyle,
+              ...presenceStyle(motionProps['data-state']),
+            }}
+          >
+            Content
+          </div>
+        )}
+      </div>
+    )
+  },
 }
 
 export const UsePresenceKeepMounted: Story = {
@@ -245,11 +308,29 @@ export const UsePresenceKeepMounted: Story = {
   ),
   render: function Render() {
     const [open, setOpen] = useState(true)
+    const { mounted, status, ref, motionProps } = usePresence<HTMLDivElement>(
+      open,
+      { keepMounted: true },
+    )
     return (
-      <>
+      <div style={{ display: 'grid', gap: 8 }}>
         <Button onClick={() => setOpen((v) => !v)}>Toggle</Button>
-        <PresenceBox open={open} keepMounted />
-      </>
+        <code>
+          status: {status}, mounted: {String(mounted)}
+        </code>
+        {mounted && (
+          <div
+            ref={ref}
+            {...motionProps}
+            style={{
+              ...presenceBoxStyle,
+              ...presenceStyle(motionProps['data-state']),
+            }}
+          >
+            Content
+          </div>
+        )}
+      </div>
     )
   },
 }

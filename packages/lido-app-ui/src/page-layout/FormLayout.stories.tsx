@@ -30,7 +30,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
-  parameters: { docs: { source: { type: 'code' } } },
   render: () => (
     <Layout>
       <Main>
@@ -66,7 +65,6 @@ export const Basic: Story = {
 export const LongForm: Story = {
   parameters: {
     docs: {
-      source: { type: 'code' },
       description: {
         story:
           'Scroll: the summary stays pinned below the sticky `Header` instead of sliding under it.',
@@ -124,7 +122,6 @@ export const NarrowContainer: Story = {
   parameters: {
     storyBackground: 'page',
     docs: {
-      source: { type: 'code' },
       description: {
         story:
           'The wide viewport does not matter: the 560px parent is narrower than 720px, so the aside stacks.',

@@ -84,13 +84,11 @@ export const ClickablePreviousSteps: Story = {
   },
   parameters: {
     controls: { disable: true },
-    docs: { source: { type: 'code' } },
   },
 }
 
 export const NarrowContainer: Story = {
   args: { current: 1 },
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     return (
       <div style={{ width: 280 }}>
@@ -114,7 +112,6 @@ export const ForcedVertical: Story = {
 
 export const ForcedHorizontal: Story = {
   args: { orientation: 'horizontal' },
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     return (
       <div style={{ width: 280, overflowX: 'auto' }}>

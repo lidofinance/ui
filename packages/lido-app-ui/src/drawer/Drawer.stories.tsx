@@ -27,7 +27,7 @@ const meta: Meta<typeof Drawer> = {
     side: { control: { type: 'inline-radio' }, options: ['right', 'left'] },
     width: { control: { type: 'number' } },
   },
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', docs: { source: { type: 'code' } } },
 }
 
 export default meta
@@ -36,7 +36,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   parameters: {
     docs: {
-      source: { type: 'code' },
       description: {
         story:
           'Portaled panel with a scrim. Closes on Escape, scrim click and the close button; traps focus and locks body scroll. Full-width on mobile; the slide-in is disabled under `prefers-reduced-motion`.',
@@ -65,7 +64,6 @@ export const Default: Story = {
 
 export const LeftSide: Story = {
   args: { side: 'left', title: 'Menu', width: 320 },
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     const [open, setOpen] = useState(false)
     return (
@@ -87,7 +85,6 @@ export const LongContent: Story = {
   args: { title: 'FAQ' },
   parameters: {
     docs: {
-      source: { type: 'code' },
       description: {
         story:
           'The panel scrolls; the header stays pinned and focused links scroll clear of it.',
@@ -115,7 +112,6 @@ export const LongContent: Story = {
 
 export const InertOthers: Story = {
   args: { inertOthers: true },
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     const [open, setOpen] = useState(false)
     return (
@@ -135,7 +131,6 @@ export const InertOthers: Story = {
 export const WithModalOnTop: Story = {
   parameters: {
     docs: {
-      source: { type: 'code' },
       description: {
         story:
           'Overlays share one stack: Escape and scrim clicks only reach the top layer, and scroll lock is ref-counted.',

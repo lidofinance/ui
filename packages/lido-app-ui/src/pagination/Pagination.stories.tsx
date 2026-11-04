@@ -18,6 +18,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
+  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     const [page, setPage] = useState(args.page)
     const [pageSize, setPageSize] = useState(args.pageSize)

@@ -109,7 +109,10 @@ export const Basic: Story = {
     )
   },
   parameters: {
-    docs: { description: { story: 'Desktop composition.' } },
+    docs: {
+      source: { type: 'code' },
+      description: { story: 'Desktop composition.' },
+    },
   },
 }
 
