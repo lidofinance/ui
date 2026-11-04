@@ -17,18 +17,11 @@ const meta = {
     },
   },
   args: {
-    label: 'Specify custom addresses',
+    label: 'Specify custom reward address',
   },
   argTypes: {
     open: { control: false },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ width: 400 }}>
-        <Story />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof Disclosure>
 
 export default meta
@@ -36,9 +29,11 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
   render: (args) => (
-    <Disclosure {...args}>
-      <Input label='Manager address' placeholder='0x...' />
-    </Disclosure>
+    <div style={{ width: 400 }}>
+      <Disclosure {...args}>
+        <Input label='Reward address' placeholder='0x...' />
+      </Disclosure>
+    </div>
   ),
 }
 
@@ -52,14 +47,36 @@ export const DefaultOpen: Story = {
 
 export const Controlled: Story = {
   parameters: {
-    docs: { description: { story: 'State owned by the parent.' } },
+    docs: {
+      source: { type: 'code' },
+      description: {
+        story:
+          'State owned by the parent: collapsing discards the custom address.',
+      },
+    },
   },
   render: function Render(args) {
     const [open, setOpen] = useState(false)
+    const [address, setAddress] = useState('')
+
     return (
-      <Disclosure {...args} open={open} onOpenChange={setOpen}>
-        <Input label='Reward address' placeholder='0x...' />
-      </Disclosure>
+      <div style={{ width: 400 }}>
+        <Disclosure
+          {...args}
+          open={open}
+          onOpenChange={(next) => {
+            setOpen(next)
+            if (!next) setAddress('')
+          }}
+        >
+          <Input
+            label='Reward address'
+            placeholder='0x...'
+            value={address}
+            onChange={(event) => setAddress(event.target.value)}
+          />
+        </Disclosure>
+      </div>
     )
   },
 }

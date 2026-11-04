@@ -17,7 +17,7 @@ export type DisclosureDataTestId = {
   content?: string
 }
 
-export type DisclosureProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
+export type DisclosureProps = ComponentPropsWithoutRef<'div'> & {
   label: ReactNode
   defaultOpen?: boolean
   /** Makes the component controlled; pair with `onOpenChange`. */
