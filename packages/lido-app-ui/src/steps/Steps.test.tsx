@@ -18,7 +18,7 @@ describe('Steps', () => {
 
   it('renders a check icon for completed steps', () => {
     const { container } = render(<Steps steps={steps} current={2} />)
-    expect(container.querySelectorAll('svg').length).toBe(2)
+    expect(container.querySelectorAll('[data-status="done"]').length).toBe(2)
   })
 
   it('renders an ordered list and announces completed steps', () => {
@@ -61,5 +61,27 @@ describe('Steps', () => {
     expect(screen.getByRole('list').getAttribute('data-orientation')).toBe(
       'vertical',
     )
+  })
+
+  it('keeps item nodes stable when current changes with onStepClick', () => {
+    const { container, rerender } = render(
+      <Steps steps={steps} current={1} onStepClick={() => {}} />,
+    )
+    const items = Array.from(container.querySelectorAll('li > span'))
+    const circles = Array.from(container.querySelectorAll('[data-status]'))
+    rerender(<Steps steps={steps} current={2} onStepClick={() => {}} />)
+    expect(Array.from(container.querySelectorAll('li > span'))).toEqual(items)
+    expect(Array.from(container.querySelectorAll('[data-status]'))).toEqual(
+      circles,
+    )
+    expect(screen.getAllByRole('button').length).toBe(2)
+  })
+
+  it('names the step button after its label', () => {
+    render(<Steps steps={steps} current={1} onStepClick={() => {}} />)
+    expect(screen.getByRole('button', { name: /One/ })).toBeTruthy()
+    expect(
+      screen.queryAllByText(/One/, { ignore: '[aria-hidden="true"]' }),
+    ).toHaveLength(0)
   })
 })

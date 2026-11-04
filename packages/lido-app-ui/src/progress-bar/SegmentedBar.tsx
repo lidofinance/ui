@@ -36,7 +36,10 @@ export const SegmentedBar = forwardRef<HTMLDivElement, SegmentedBarProps>(
         const fill = Math.min(1, Math.max(0, value - index))
         return (
           <span key={index} className={styles.pill}>
-            <span className={styles.fill} style={{ width: `${fill * 100}%` }} />
+            <span
+              className={styles.fill}
+              style={{ clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)` }}
+            />
           </span>
         )
       })}

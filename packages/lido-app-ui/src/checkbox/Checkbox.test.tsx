@@ -27,6 +27,24 @@ describe('Checkbox', () => {
     expect(container.querySelector('svg')).toBeInTheDocument()
   })
 
+  it('keeps both glyphs mounted while the state flips', () => {
+    const noop = () => {}
+    const { container, rerender } = render(
+      <Checkbox label='All' checked={false} indeterminate onChange={noop} />,
+    )
+    const input = screen.getByRole('checkbox') as HTMLInputElement
+    const glyphs = Array.from(container.querySelectorAll('svg'))
+    expect(glyphs).toHaveLength(2)
+    expect(input.indeterminate).toBe(true)
+    expect(input.checked).toBe(false)
+    rerender(
+      <Checkbox label='All' checked indeterminate={false} onChange={noop} />,
+    )
+    expect(input.indeterminate).toBe(false)
+    expect(input.checked).toBe(true)
+    expect(Array.from(container.querySelectorAll('svg'))).toEqual(glyphs)
+  })
+
   it('calls a callback ref once across rerenders', () => {
     const ref = vi.fn()
     const { rerender } = render(<Checkbox ref={ref} />)

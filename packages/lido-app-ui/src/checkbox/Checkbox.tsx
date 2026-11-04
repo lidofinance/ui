@@ -66,11 +66,15 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     }
 
     return (
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- blocks text selection on double-click; keyboard is unaffected
       <label
         className={cn(styles.container, className, {
           [styles.containerDisabled]: disabled,
         })}
         data-testid={dataTestId?.root}
+        onMouseDown={(event) => {
+          if (event.detail > 1) event.preventDefault()
+        }}
       >
         <span className={styles.control}>
           <input
@@ -84,11 +88,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             onChange={handleChange}
             {...rest}
           />
-          {indeterminate ? (
-            <IconMinus className={styles.tick} />
-          ) : (
-            <IconCheck className={styles.tick} />
-          )}
+          <IconCheck className={cn(styles.tick, styles.check)} aria-hidden />
+          <IconMinus className={cn(styles.tick, styles.minus)} aria-hidden />
         </span>
         {label ? (
           <span

@@ -19,4 +19,12 @@
   display: block;
   height: 100%;
   background-color: var(--lido-app-ui-color-background-surface-selected);
+  transition: clip-path var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
 }

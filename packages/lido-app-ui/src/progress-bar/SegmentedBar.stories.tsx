@@ -1,5 +1,8 @@
+import { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { Button } from '../button'
 import { SegmentedBar } from './SegmentedBar'
 
 const meta = {
@@ -68,4 +71,31 @@ export const Empty: Story = {
       <SegmentedBar {...args} />
     </div>
   ),
+}
+
+export const Animated: Story = {
+  render: () => {
+    const [value, setValue] = useState(1.5)
+    return (
+      <div style={{ width: 320, display: 'grid', gap: 16 }}>
+        <SegmentedBar steps={5} value={value} aria-label='Steps' />
+        <Button
+          size='small'
+          variant='outline'
+          onClick={() => setValue((v) => (v >= 5 ? 0 : Math.floor(v) + 1))}
+        >
+          Next step
+        </Button>
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Pills fill smoothly when `value` changes.',
+      },
+      source: { type: 'code' },
+    },
+    controls: { disable: true },
+  },
 }

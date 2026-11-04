@@ -1,5 +1,8 @@
+import { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { Button } from '../button'
 import { ProgressBar } from './ProgressBar'
 
 const meta: Meta<typeof ProgressBar> = {
@@ -108,4 +111,42 @@ export const Sizes: Story = {
     </div>
   ),
   parameters: { controls: { disable: true } },
+}
+
+export const Animated: Story = {
+  render: () => {
+    const [value, setValue] = useState(30)
+    const [limit, setLimit] = useState(60)
+    return (
+      <div style={{ width: 320, display: 'grid', gap: 16 }}>
+        <ProgressBar aria-label='Usage' value={value} limit={limit} />
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Button
+            size='small'
+            variant='outline'
+            onClick={() => setValue((v) => (v >= 90 ? 10 : v + 30))}
+          >
+            Change value
+          </Button>
+          <Button
+            size='small'
+            variant='outline'
+            onClick={() => setLimit((l) => (l === 60 ? 40 : 60))}
+          >
+            Change limit
+          </Button>
+        </div>
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Value, limit marker and over-limit state transition on change; nothing animates on first render.',
+      },
+      source: { type: 'code' },
+    },
+    controls: { disable: true },
+  },
 }

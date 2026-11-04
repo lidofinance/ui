@@ -1,4 +1,9 @@
-import { forwardRef, type HTMLAttributes } from 'react'
+import {
+  Fragment,
+  forwardRef,
+  type CSSProperties,
+  type HTMLAttributes,
+} from 'react'
 
 import cn from 'classnames'
 
@@ -47,6 +52,12 @@ const namedColors = [
 const isNamedColor = (c: string): c is (typeof namedColors)[number] =>
   (namedColors as readonly string[]).includes(c)
 
+const clip = (from: number, to: number, max: number, gap: string) => {
+  const left = (from / max) * 100
+  const right = 100 - (Math.max(to, from) / max) * 100
+  return `inset(0 ${right}% 0 calc(${left}% + ${gap}))`
+}
+
 /** Thin multi-segment track against `max`; `limit` draws a marker and hatches the part beyond it, `overLimit` forces the hatched state. Pass `aria-label` or `aria-labelledby`. */
 export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
   (
@@ -88,63 +99,51 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
             const end = cursor + segment.value
             cursor = end
 
-            const isOverLimit = overLimit ?? (limit != null && end > limit)
-            const overlapsLimit =
-              limit != null && start < limit && end > limit && overLimit == null
-
-            const width = (segment.value / max) * 100
             const color = segment.color ?? 'active'
             const style = isNamedColor(color)
               ? undefined
               : { backgroundColor: color }
 
-            if (overlapsLimit && limit != null) {
-              const underWidth = ((limit - start) / max) * 100
-              const overWidth = ((end - limit) / max) * 100
-              return (
-                <span
-                  key={index}
-                  className={styles.segmentGroup}
-                  style={{ width: `${width}%` }}
-                >
-                  <span
-                    className={cn(
-                      styles.segment,
-                      isNamedColor(color) && styles[color],
-                    )}
-                    style={{
-                      width: `${(underWidth / width) * 100}%`,
-                      ...style,
-                    }}
-                  />
-                  <span
-                    className={cn(styles.segment, styles.hatched)}
-                    style={{ width: `${(overWidth / width) * 100}%` }}
-                  />
-                </span>
-              )
-            }
+            const split =
+              overLimit != null ? (overLimit ? start : end) : (limit ?? end)
+            const boundary = Math.min(Math.max(split, start), end)
+            const gap = index > 0 ? '1px' : '0px'
 
             return (
-              <span
-                key={index}
-                className={cn(
-                  styles.segment,
-                  isNamedColor(color) && styles[color],
-                  isOverLimit && styles.hatched,
-                )}
-                style={{
-                  width: `${width}%`,
-                  ...(isOverLimit ? undefined : style),
-                }}
-              />
+              <Fragment key={index}>
+                <span
+                  className={cn(
+                    styles.segment,
+                    isNamedColor(color) && styles[color],
+                  )}
+                  style={{
+                    clipPath: clip(start, boundary, max, gap),
+                    ...style,
+                  }}
+                />
+                <span
+                  className={cn(styles.segment, styles.hatched)}
+                  style={{
+                    clipPath: clip(
+                      boundary,
+                      end,
+                      max,
+                      boundary === start ? gap : '0px',
+                    ),
+                  }}
+                />
+              </Fragment>
             )
           })}
         </div>
         {limit != null ? (
           <span
             className={styles.limitMarker}
-            style={{ left: `${Math.min(Math.max(limit / max, 0), 1) * 100}%` }}
+            style={
+              {
+                '--local-limit': Math.min(Math.max(limit / max, 0), 1) * 100,
+              } as CSSProperties
+            }
             aria-hidden='true'
           />
         ) : null}

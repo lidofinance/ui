@@ -3,27 +3,122 @@
   z-index: var(--lido-app-ui-z-index-toast);
   display: flex;
   flex-direction: column;
-  gap: var(--lido-app-ui-space-8);
   max-width: calc(100vw - 2 * var(--lido-app-ui-space-20));
   pointer-events: none;
 }
 
-.stack > * {
+.item {
+  display: grid;
+  grid-template-rows: 1fr;
+  animation: toast-enter var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
+  pointer-events: none;
+  transition:
+    grid-template-rows var(--lido-app-ui-duration-fast)
+      var(--lido-app-ui-easing-out),
+    opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-in),
+    transform var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-in);
+}
+
+.inner {
+  min-height: 0;
+}
+
+.body {
+  padding-bottom: var(--lido-app-ui-space-8);
+}
+
+.body > * {
   pointer-events: auto;
 }
 
+.closing {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translate(
+    calc(var(--toastShiftX) / 2),
+    calc(var(--toastShiftY) / 2)
+  );
+  animation: none;
+}
+
+.closing .inner {
+  overflow: hidden;
+}
+
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translate(var(--toastShiftX), var(--toastShiftY));
+  }
+}
+
+@keyframes toast-enter-grow {
+  from {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transform: translate(var(--toastShiftX), var(--toastShiftY));
+  }
+}
+
+@keyframes toast-clip {
+  0%,
+  99% {
+    overflow: hidden;
+  }
+}
+
+.bottomRight .item,
+.bottomCenter .item {
+  animation-name: toast-enter-grow;
+}
+
+.bottomRight .inner,
+.bottomCenter .inner {
+  animation: toast-clip var(--lido-app-ui-duration-base);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack .item {
+    animation-name: toast-fade;
+  }
+
+  .stack .inner {
+    animation: none;
+  }
+
+  .closing {
+    transition: none;
+  }
+}
+
+@keyframes toast-fade {
+  from {
+    opacity: 0;
+  }
+}
+
 .topRight {
-  top: calc(var(--lido-app-ui-header-height) + var(--lido-app-ui-space-8));
+  --toastShiftX: var(--lido-app-ui-space-16);
+  --toastShiftY: 0px;
+
+  top: calc(var(--lido-app-ui-sticky-top, 0px) + var(--lido-app-ui-space-8));
   right: var(--lido-app-ui-space-20);
 }
 
 .bottomRight {
+  --toastShiftX: var(--lido-app-ui-space-16);
+  --toastShiftY: 0px;
+
   right: var(--lido-app-ui-space-20);
-  bottom: var(--lido-app-ui-space-20);
+  bottom: calc(var(--lido-app-ui-space-20) - var(--lido-app-ui-space-8));
 }
 
 .bottomCenter {
-  bottom: var(--lido-app-ui-space-20);
+  --toastShiftX: 0px;
+  --toastShiftY: var(--lido-app-ui-space-12);
+
+  bottom: calc(var(--lido-app-ui-space-20) - var(--lido-app-ui-space-8));
   left: 50%;
   transform: translateX(-50%);
 }
