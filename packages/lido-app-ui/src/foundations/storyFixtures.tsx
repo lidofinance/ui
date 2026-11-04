@@ -17,7 +17,7 @@ export const cell: CSSProperties = {
 }
 
 export const code: CSSProperties = {
-  fontFamily: 'monospace',
+  fontFamily: 'var(--lido-app-ui-font-family-mono)',
   fontSize: 12,
 }
 
