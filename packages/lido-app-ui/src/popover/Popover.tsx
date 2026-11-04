@@ -1,10 +1,12 @@
 import {
   forwardRef,
+  useCallback,
   useEffect,
   useId,
   useImperativeHandle,
   useRef,
   useState,
+  type AnimationEvent,
   type FocusEvent,
   type HTMLAttributes,
   type RefObject,
@@ -139,11 +141,25 @@ const computePosition = (
   return { placement: resolved, coordinates }
 }
 
-const PopoverPanel = forwardRef<
-  HTMLDivElement,
-  Omit<PopoverProps, 'open'> &
-    Required<Pick<PopoverProps, 'placement' | 'align' | 'offset' | 'modal'>>
->(
+const EXIT_FALLBACK_MS = 50
+
+const prefersReducedMotion = () =>
+  typeof window.matchMedia === 'function' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+const toMs = (time: string) => {
+  const value = parseFloat(time)
+  if (Number.isNaN(value)) return 0
+  return time.trim().endsWith('ms') ? value : value * 1000
+}
+
+type PanelProps = Omit<PopoverProps, 'open'> &
+  Required<Pick<PopoverProps, 'placement' | 'align' | 'offset' | 'modal'>> & {
+    closing: boolean
+    onExited: () => void
+  }
+
+const PopoverPanel = forwardRef<HTMLDivElement, PanelProps>(
   (
     {
       onClose,
@@ -154,10 +170,13 @@ const PopoverPanel = forwardRef<
       offset,
       width,
       modal,
+      closing,
+      onExited,
       className,
       style,
       children,
       onFocus,
+      onAnimationEnd,
       dataTestId,
       ...rest
     },
@@ -205,20 +224,45 @@ const PopoverPanel = forwardRef<
       }
     }, [anchorRef, alignRef, panel, placement, align, offset, width])
 
+    // Unmounts after the exit animation; immediately when there is none (reduced motion, no CSS, jsdom).
+    useIsomorphicLayoutEffect(() => {
+      if (!closing || !panel) return
+      // Keeps focus from lingering in an inert panel; the anchor is where the unmount restore would put it.
+      if (panel.contains(document.activeElement)) anchorRef.current?.focus()
+      const computed = window.getComputedStyle(panel)
+      const duration = toMs(computed.animationDuration)
+      if (
+        prefersReducedMotion() ||
+        !duration ||
+        !computed.animationName ||
+        computed.animationName === 'none'
+      ) {
+        onExited()
+        return
+      }
+      const timer = window.setTimeout(onExited, duration + EXIT_FALLBACK_MS)
+      return () => window.clearTimeout(timer)
+    }, [closing, panel, onExited, anchorRef])
+
     useFocusTrap(panel, {
-      enabled: modal && position != null,
+      enabled: modal && !closing && position != null,
       restoreFocus: false,
     })
-    useEscape(onClose)
-    useOutsideClick(panel, (event) => {
-      // Anchor clicks are left to the anchor's own toggle handler.
-      if (
-        event.target instanceof Node &&
-        anchorRef.current?.contains(event.target)
-      )
-        return
-      onClose()
-    })
+    // Released on close so a parent overlay gets the next Escape / outside click during the exit.
+    useEscape(onClose, { enabled: !closing })
+    useOutsideClick(
+      panel,
+      (event) => {
+        // Anchor clicks are left to the anchor's own toggle handler.
+        if (
+          event.target instanceof Node &&
+          anchorRef.current?.contains(event.target)
+        )
+          return
+        onClose()
+      },
+      { enabled: !closing },
+    )
 
     // Passive cleanup runs after the panel left the DOM; focus is on body unless the user moved it elsewhere.
     // Only when focus was inside the panel, so a non-modal hover close doesn't pull focus to the anchor.
@@ -232,6 +276,11 @@ const PopoverPanel = forwardRef<
       [anchorRef],
     )
 
+    const handleAnimationEnd = (event: AnimationEvent<HTMLDivElement>) => {
+      onAnimationEnd?.(event)
+      if (closing && event.target === event.currentTarget) onExited()
+    }
+
     const handleFocus = (event: FocusEvent<HTMLDivElement>) => {
       hadFocus.current = true
       onFocus?.(event)
@@ -242,6 +291,10 @@ const PopoverPanel = forwardRef<
         ref={setPanel}
         role='dialog'
         aria-modal={modal || undefined}
+        aria-hidden={closing || undefined}
+        // React 18 has no `inert` prop type; it blocks keyboard and AT while the exit plays.
+        {...(closing ? ({ inert: '' } as object) : null)}
+        data-state={closing ? 'closing' : 'open'}
         data-placement={position?.placement}
         data-testid={dataTestId?.root}
         className={cn(styles.panel, className)}
@@ -252,6 +305,7 @@ const PopoverPanel = forwardRef<
         }}
         {...rest}
         onFocus={handleFocus}
+        onAnimationEnd={handleAnimationEnd}
       >
         {children}
       </div>
@@ -309,11 +363,20 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       }
     }, [open, named])
 
-    return open ? (
+    // Stays mounted while the exit animation plays.
+    const [mounted, setMounted] = useState(open)
+    useEffect(() => {
+      if (open) setMounted(true)
+    }, [open])
+    const handleExited = useCallback(() => setMounted(false), [])
+
+    return open || mounted ? (
       <Portal>
         <PopoverPanel
           ref={ref}
           {...props}
+          closing={!open}
+          onExited={handleExited}
           placement={placement}
           align={align}
           offset={offset}
