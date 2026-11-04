@@ -12,8 +12,10 @@
   text-align: left;
   cursor: pointer;
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+    background-color var(--lido-app-ui-duration-base)
+      var(--lido-app-ui-easing-standard),
+    border-color var(--lido-app-ui-duration-base)
+      var(--lido-app-ui-easing-standard);
 }
 
 .root:hover {
@@ -83,7 +85,8 @@
   width: 20px;
   height: 20px;
   color: var(--lido-app-ui-color-icons-secondary);
-  transition: transform 0.2s ease;
+  transition: transform var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
 }
 
 .chevron svg {
@@ -93,6 +96,12 @@
 
 .open .chevron {
   transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
 }
 
 .panel {

@@ -12,7 +12,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Collapsible section; controlled via `open` + `onOpenChange`, content is unmounted when closed.',
+          'Collapsible section; controlled via `open` + `onOpenChange`, content stays mounted during the exit animation, then unmounts.',
       },
     },
   },
@@ -66,7 +66,7 @@ export const Controlled: Story = {
           open={open}
           onOpenChange={(next) => {
             setOpen(next)
-            if (!next) setAddress('')
+            if (next) setAddress('')
           }}
         >
           <Input

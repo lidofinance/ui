@@ -14,7 +14,8 @@
   color: var(--lido-app-ui-color-text-default);
   cursor: pointer;
   border-radius: var(--lido-app-ui-border-radius-control);
-  transition: background-color 150ms;
+  transition: background-color var(--lido-app-ui-duration-fast)
+    var(--lido-app-ui-easing-standard);
 }
 
 .trigger:hover {
@@ -95,6 +96,18 @@
 
   /* Figma "Icons/secondary" — chevron is muted, not full text-default. */
   color: var(--lido-app-ui-color-icons-secondary);
+  transition: transform var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
+}
+
+.open .chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
 }
 
 .chevron svg {
@@ -141,7 +154,8 @@
   background-color: transparent;
   text-align: left;
   cursor: pointer;
-  transition: background-color 150ms;
+  transition: background-color var(--lido-app-ui-duration-fast)
+    var(--lido-app-ui-easing-standard);
 }
 
 .option.default {

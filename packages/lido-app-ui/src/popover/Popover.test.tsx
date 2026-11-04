@@ -1,5 +1,5 @@
 import { createRef, useRef, useState } from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -410,5 +410,98 @@ describe('Popover', () => {
     expect(
       screen.getByRole('dialog', { name: 'Dark' }).closest('[data-lido-theme]'),
     ).toHaveAttribute('data-lido-theme', 'dark')
+  })
+
+  describe('exit animation', () => {
+    const stubMotion = (reduced = false) => {
+      const real = window.getComputedStyle.bind(window)
+      vi.spyOn(window, 'getComputedStyle').mockImplementation((el, pseudo) => {
+        const style = real(el, pseudo)
+        return new Proxy(style, {
+          get: (target, prop) =>
+            prop === 'animationName'
+              ? 'popover-out'
+              : prop === 'animationDuration'
+                ? '0.1s'
+                : Reflect.get(target, prop),
+        })
+      })
+      window.matchMedia = vi.fn().mockReturnValue({ matches: reduced })
+    }
+
+    afterEach(() => {
+      vi.useRealTimers()
+      // @ts-expect-error jsdom has no matchMedia to restore
+      delete window.matchMedia
+    })
+
+    it('stays mounted as closing, then unmounts on animationend', async () => {
+      stubMotion()
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} />)
+      const dialog = screen.getByRole('dialog', { hidden: true })
+      expect(dialog).toHaveAttribute('data-state', 'closing')
+      expect(dialog).toHaveAttribute('inert')
+      fireEvent.animationEnd(dialog)
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('unmounts after the fallback timer without animationend', async () => {
+      stubMotion()
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      vi.useFakeTimers()
+      rerender(<Single open={false} />)
+      expect(screen.getByRole('dialog', { hidden: true })).toBeInTheDocument()
+      act(() => {
+        vi.advanceTimersByTime(200)
+      })
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('keeps the panel open when reopened during the exit', async () => {
+      stubMotion()
+      vi.useFakeTimers()
+      const { rerender } = render(<Single />)
+      rerender(<Single open={false} />)
+      rerender(<Single />)
+      act(() => {
+        vi.advanceTimersByTime(500)
+      })
+      expect(screen.getByRole('dialog')).toHaveAttribute('data-state', 'open')
+    })
+
+    it('unmounts at once under reduced motion', async () => {
+      stubMotion(true)
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} />)
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('moves focus to the anchor as soon as closing starts', async () => {
+      stubMotion()
+      render(<Demo />)
+      const anchor = openPopover()
+      const inside = await screen.findByText('inside')
+      expect(inside).toHaveFocus()
+      await userEvent.setup().keyboard('{Escape}')
+      expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute(
+        'data-state',
+        'closing',
+      )
+      expect(anchor).toHaveFocus()
+    })
+
+    it('releases Escape to the parent while closing', async () => {
+      stubMotion()
+      const onClose = vi.fn()
+      const { rerender } = render(<Single onClose={onClose} />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} onClose={onClose} />)
+      fireEvent.keyDown(document, { key: 'Escape' })
+      expect(onClose).not.toHaveBeenCalled()
+    })
   })
 })

@@ -1,11 +1,61 @@
 import { createRef } from 'react'
 
-import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { act, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { Disclosure } from '.'
 
 describe('Disclosure', () => {
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  it('keeps content mounted through the exit, then unmounts', () => {
+    vi.useFakeTimers()
+    render(
+      <Disclosure label='Toggle' defaultOpen>
+        <p>Content</p>
+      </Disclosure>,
+    )
+    fireEvent.click(screen.getByRole('button'))
+    expect(screen.getByText('Content')).toBeInTheDocument()
+    act(() => {
+      vi.advanceTimersByTime(300)
+    })
+    expect(screen.queryByText('Content')).not.toBeInTheDocument()
+  })
+
+  it('keeps content when reopened during the exit', () => {
+    vi.useFakeTimers()
+    render(
+      <Disclosure label='Toggle' defaultOpen>
+        <p>Content</p>
+      </Disclosure>,
+    )
+    const button = screen.getByRole('button')
+    fireEvent.click(button)
+    act(() => {
+      vi.advanceTimersByTime(100)
+    })
+    fireEvent.click(button)
+    act(() => {
+      vi.advanceTimersByTime(500)
+    })
+    expect(screen.getByText('Content')).toBeInTheDocument()
+  })
+
+  it('unmounts immediately under reduced motion', () => {
+    vi.stubGlobal('matchMedia', () => ({ matches: true }))
+    render(
+      <Disclosure label='Toggle' defaultOpen>
+        <p>Content</p>
+      </Disclosure>,
+    )
+    fireEvent.click(screen.getByRole('button'))
+    expect(screen.queryByText('Content')).not.toBeInTheDocument()
+  })
+
   it('is closed by default and opens on click', () => {
     render(
       <Disclosure label='Specify custom addresses'>

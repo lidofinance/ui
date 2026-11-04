@@ -4,7 +4,7 @@ import {
   type ComponentPropsWithoutRef,
   type ReactNode,
 } from 'react'
-import { IconCheck, IconChevronDown, IconChevronUp } from '../icons'
+import { IconCheck, IconChevronDown } from '../icons'
 import cn from 'classnames'
 import { Popover } from '../popover'
 import styles from './TokenSelector.module.css'
@@ -146,7 +146,7 @@ export const TokenSelector = ({
           )}
         </span>
         <span className={styles.chevron} aria-hidden='true'>
-          {open ? <IconChevronUp /> : <IconChevronDown />}
+          <IconChevronDown />
         </span>
       </button>
       <Popover

@@ -29,11 +29,47 @@
   width: 20px;
   height: 20px;
   color: var(--lido-app-ui-color-icons-secondary);
-  transition: transform 0.2s ease;
+  transition: transform var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-standard);
 }
 
 .iconOpen {
   transform: rotate(45deg);
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--lido-app-ui-duration-fast)
+    var(--lido-app-ui-easing-in);
+}
+
+.contentWrapper.expanded {
+  grid-template-rows: 1fr;
+  transition: grid-template-rows var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
+}
+
+.clip {
+  overflow: hidden;
+  min-height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-in),
+    visibility 0s linear var(--lido-app-ui-duration-fast);
+}
+
+.expanded .clip {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out),
+    visibility 0s;
+}
+
+.expanded .clip.settled {
+  overflow: visible;
 }
 
 .content {
@@ -41,7 +77,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .icon {
+  .icon,
+  .contentWrapper,
+  .contentWrapper.expanded {
     transition: none;
+  }
+
+  .clip,
+  .expanded .clip {
+    transition:
+      opacity var(--lido-app-ui-duration-fast) linear,
+      visibility 0s;
   }
 }
