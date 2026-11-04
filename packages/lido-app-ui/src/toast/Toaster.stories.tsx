@@ -16,6 +16,7 @@ const meta: Meta<typeof Toaster> = {
       description: {
         component:
           'Mount `<Toaster />` once near the app root; it portals a stack to `body`.\n\n' +
+          'Toasts slide in from the stack edge; on dismiss they fade and shrink in place, then the gap closes (faster than the enter). Re-emitting the same id mid-exit reverses the exit. With reduced motion the slide and shrink are dropped and only a short fade remains.\n\n' +
           'Call `toast(content, options?)` from anywhere, no provider or hook needed. It returns an id.\n\n' +
           '- `content` is a string or `{ title, children, actions }` (Notification props).\n' +
           '- `options.timeout` is the auto-dismiss delay in ms; `0` keeps it until dismissed. Defaults to the `Toaster` `timeout` (5000).\n' +

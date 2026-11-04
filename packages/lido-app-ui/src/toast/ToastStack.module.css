@@ -10,14 +10,9 @@
 .item {
   display: grid;
   grid-template-rows: 1fr;
-  animation: toast-enter var(--lido-app-ui-duration-base)
-    var(--lido-app-ui-easing-out);
   pointer-events: none;
-  transition:
-    grid-template-rows var(--lido-app-ui-duration-fast)
-      var(--lido-app-ui-easing-out),
-    opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-in),
-    transform var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-in);
+  transition: grid-template-rows var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
 }
 
 .inner {
@@ -26,75 +21,71 @@
 
 .body {
   padding-bottom: var(--lido-app-ui-space-8);
+  transform-origin: right center;
+  transition:
+    opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out),
+    transform var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out);
 }
 
 .body > * {
   pointer-events: auto;
 }
 
-.closing {
-  grid-template-rows: 0fr;
+/* Enter: slide in from the stack edge. */
+.item[data-state='closed'] .body {
   opacity: 0;
-  transform: translate(
-    calc(var(--toastShiftX) / 2),
-    calc(var(--toastShiftY) / 2)
-  );
-  animation: none;
+  transform: translate(var(--toastShiftX), var(--toastShiftY));
+  transition-duration: var(--lido-app-ui-duration-base-exit);
+  transition-timing-function: var(--lido-app-ui-easing-exit);
 }
 
-.closing .inner {
-  overflow: hidden;
+/* Exit: resolve in place, then close the gap once the content is nearly gone. */
+.item[data-state='closed'][data-motion='exit'] {
+  grid-template-rows: 0fr;
+  transition-delay: var(--lido-app-ui-duration-fast-exit);
+  transition-duration: var(--lido-app-ui-duration-base-exit);
 }
 
-@keyframes toast-enter {
-  from {
-    opacity: 0;
-    transform: translate(var(--toastShiftX), var(--toastShiftY));
-  }
+.item[data-state='closed'][data-motion='exit'] .body {
+  transform: scale(var(--lido-app-ui-motion-scale));
 }
 
-@keyframes toast-enter-grow {
-  from {
-    grid-template-rows: 0fr;
-    opacity: 0;
-    transform: translate(var(--toastShiftX), var(--toastShiftY));
-  }
+.item[data-motion='exit'] .inner {
+  overflow-y: clip;
 }
 
-@keyframes toast-clip {
-  0%,
-  99% {
-    overflow: hidden;
-  }
+/* Bottom stacks: a new toast displaces the others, so rows grow on enter. */
+.bottomRight .item[data-state='closed'],
+.bottomCenter .item[data-state='closed'] {
+  grid-template-rows: 0fr;
 }
 
-.bottomRight .item,
-.bottomCenter .item {
-  animation-name: toast-enter-grow;
+.bottomRight .item[data-motion] .inner,
+.bottomCenter .item[data-motion] .inner {
+  overflow-y: clip;
 }
 
-.bottomRight .inner,
-.bottomCenter .inner {
-  animation: toast-clip var(--lido-app-ui-duration-base);
+.bottomCenter .body {
+  transform-origin: bottom center;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .stack .item {
-    animation-name: toast-fade;
+    transition: grid-template-rows 0s linear;
   }
 
-  .stack .inner {
-    animation: none;
+  .stack .item[data-state='closed'][data-motion='exit'] {
+    transition-delay: var(--lido-app-ui-duration-fast-exit);
   }
 
-  .closing {
-    transition: none;
+  .stack .body {
+    transition-property: opacity;
+    transition-duration: var(--lido-app-ui-duration-fast);
   }
-}
 
-@keyframes toast-fade {
-  from {
-    opacity: 0;
+  .stack .item[data-state='closed'] .body {
+    transform: none;
+    transition-duration: var(--lido-app-ui-duration-fast-exit);
   }
 }
 

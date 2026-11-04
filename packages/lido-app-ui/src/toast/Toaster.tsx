@@ -8,8 +8,7 @@ import {
 } from 'react'
 import { createPortal } from 'react-dom'
 
-import cn from 'classnames'
-
+import { usePresence } from '../hooks'
 import { Notification, type NotificationProps } from '../notification'
 import styles from './ToastStack.module.css'
 import { ToastStack, type ToastStackPosition } from './ToastStack'
@@ -43,19 +42,6 @@ const getProps = (content: ToastContent): Partial<NotificationProps> =>
   isNotificationProps(content) ? content : {}
 
 type ToastEntry = { item: ToastItem; closing: boolean }
-
-const EXIT_FALLBACK_MS = 100
-
-const toMs = (value: string) =>
-  Math.max(
-    0,
-    ...value
-      .split(',')
-      .map((v) =>
-        v.trim().endsWith('ms') ? parseFloat(v) : parseFloat(v) * 1000,
-      )
-      .map((v) => (Number.isNaN(v) ? 0 : v)),
-  )
 
 const syncEntries = (
   prev: ToastEntry[],
@@ -92,7 +78,7 @@ const ToastView = ({
   const paused = hovered || focused || closing
   const remaining = useRef(timeout)
   const startedAt = useRef(0)
-  const rootRef = useRef<HTMLDivElement>(null)
+  const rootRef = useRef<HTMLDivElement | null>(null)
   const returnFocusTo = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -112,6 +98,18 @@ const ToastView = ({
     }
   }, [paused, timeout, item])
 
+  const { ref: presenceRef, motionProps } = usePresence<HTMLDivElement>(
+    !closing,
+    { appear: true, subtree: true, onExited: () => onExited(item.id) },
+  )
+  const setRoot = useCallback(
+    (node: HTMLDivElement | null) => {
+      rootRef.current = node
+      presenceRef(node)
+    },
+    [presenceRef],
+  )
+
   const moveFocusAway = useCallback(() => {
     const root = rootRef.current
     if (!root || !root.contains(document.activeElement)) return
@@ -122,37 +120,18 @@ const ToastView = ({
   }, [])
 
   useEffect(() => {
-    if (!closing || !rootRef.current) return
-    moveFocusAway()
-    const duration = toMs(getComputedStyle(rootRef.current).transitionDuration)
-    if (duration === 0) {
-      onExited(item.id)
-      return
-    }
-    const timer = setTimeout(
-      () => onExited(item.id),
-      duration + EXIT_FALLBACK_MS,
-    )
-    return () => clearTimeout(timer)
-  }, [closing, item.id, onExited, moveFocusAway])
+    if (closing) moveFocusAway()
+  }, [closing, moveFocusAway])
 
   const props = getProps(item.content)
 
   return (
     <div
-      ref={rootRef}
-      className={cn(styles.item, closing && styles.closing)}
+      ref={setRoot}
+      className={styles.item}
+      {...motionProps}
       aria-hidden={closing || undefined}
       aria-live={item.assertive ? 'off' : undefined}
-      onTransitionEnd={(e) => {
-        if (
-          closing &&
-          e.target === e.currentTarget &&
-          e.propertyName === 'grid-template-rows'
-        ) {
-          onExited(item.id)
-        }
-      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocus={(e) => {
