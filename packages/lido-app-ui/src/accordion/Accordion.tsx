@@ -1,11 +1,13 @@
 import {
+  useEffect,
   useId,
   useState,
   type ComponentPropsWithoutRef,
   type ReactNode,
+  type TransitionEvent,
 } from 'react'
 
-import { IconChevronDown, IconChevronUp } from '../icons'
+import { IconChevronDown } from '../icons'
 import cn from 'classnames'
 
 import styles from './Accordion.module.css'
@@ -44,6 +46,26 @@ export const Accordion = ({
     useState(defaultExpanded)
   const isExpanded = expanded ?? uncontrolledExpanded
   const contentId = useId()
+  const [settled, setSettled] = useState(isExpanded)
+
+  // Clip only while animating so focus rings and shadows of the content stay visible.
+  useEffect(() => {
+    if (!isExpanded) {
+      setSettled(false)
+      return
+    }
+    const timer = setTimeout(() => setSettled(true), 300)
+    return () => clearTimeout(timer)
+  }, [isExpanded])
+
+  const handleTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
+    if (
+      isExpanded &&
+      event.target === event.currentTarget &&
+      event.propertyName === 'grid-template-rows'
+    )
+      setSettled(true)
+  }
 
   const handleToggle = () => {
     const next = !isExpanded
@@ -70,8 +92,11 @@ export const Accordion = ({
         <span className={styles.title} data-testid={dataTestId?.title}>
           {title}
         </span>
-        <span className={styles.chevron} aria-hidden='true'>
-          {isExpanded ? <IconChevronUp /> : <IconChevronDown />}
+        <span
+          className={cn(styles.chevron, isExpanded && styles.chevronOpen)}
+          aria-hidden='true'
+        >
+          <IconChevronDown />
         </span>
       </button>
       <div
@@ -79,8 +104,13 @@ export const Accordion = ({
         className={cn(styles.contentWrapper, {
           [styles.expanded]: isExpanded,
         })}
+        onTransitionEnd={handleTransitionEnd}
       >
-        <div className={styles.content}>
+        <div
+          className={cn(styles.content, {
+            [styles.settled]: isExpanded && settled,
+          })}
+        >
           <div
             className={styles.contentInner}
             data-testid={dataTestId?.content}
