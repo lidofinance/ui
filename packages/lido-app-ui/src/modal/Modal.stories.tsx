@@ -6,7 +6,7 @@ import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 import { Button } from '../button'
 import { DataList, DataListRow } from '../data-list'
 import { Popover } from '../popover'
-import { Modal, ModalCard, type ModalProps } from '.'
+import { Modal, ModalCard } from '.'
 
 const meta: Meta<typeof Modal> = {
   title: 'Feedback & Overlays/Modal',
@@ -60,26 +60,6 @@ const body = (
   </DataList>
 )
 
-type OverlayDemoProps = Omit<ModalProps, 'open' | 'onClose'> & {
-  label?: string
-}
-
-const OverlayDemo = ({ label = 'Open modal', ...props }: OverlayDemoProps) => {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>{label}</Button>
-      <Modal
-        {...props}
-        withOverlay
-        open={open}
-        onClose={() => setOpen(false)}
-      />
-    </>
-  )
-}
-
 export const Card: Story = {
   argTypes: {
     lockScroll: { control: false },
@@ -109,29 +89,39 @@ export const Card: Story = {
 
 export const InDarkScope: Story = {
   tags: ['!autodocs'],
-  render: () => (
-    <DarkThemeProvider>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 16,
-          padding: 24,
-          borderRadius: 'var(--lido-app-ui-border-radius-modal)',
-          background: 'var(--lido-app-ui-color-background-surface)',
-        }}
-      >
-        <OverlayDemo title='Dark scope overlay'>
-          <p style={{ margin: 0 }}>
-            The portaled card keeps the dark scope text color and font.
-          </p>
-        </OverlayDemo>
-        <ModalCard title='Dark scope' onClose={() => undefined}>
-          <p style={{ margin: 0 }}>Plain text keeps the scope text color.</p>
-        </ModalCard>
-      </div>
-    </DarkThemeProvider>
-  ),
+  render: function Render() {
+    const [open, setOpen] = useState(false)
+
+    return (
+      <DarkThemeProvider>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 16,
+            padding: 24,
+            borderRadius: 'var(--lido-app-ui-border-radius-modal)',
+            background: 'var(--lido-app-ui-color-background-surface)',
+          }}
+        >
+          <Button onClick={() => setOpen(true)}>Open modal</Button>
+          <Modal
+            withOverlay
+            open={open}
+            onClose={() => setOpen(false)}
+            title='Dark scope overlay'
+          >
+            <p style={{ margin: 0 }}>
+              The portaled card keeps the dark scope text color and font.
+            </p>
+          </Modal>
+          <ModalCard title='Dark scope' onClose={() => undefined}>
+            <p style={{ margin: 0 }}>Plain text keeps the scope text color.</p>
+          </ModalCard>
+        </div>
+      </DarkThemeProvider>
+    )
+  },
   parameters: {
     docs: {
       description: {
@@ -143,8 +133,26 @@ export const InDarkScope: Story = {
 }
 
 export const WithOverlay: Story = {
-  render: (args) => <OverlayDemo {...args}>{body}</OverlayDemo>,
+  render: function Render() {
+    const [open, setOpen] = useState(false)
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
+        <Modal
+          withOverlay
+          open={open}
+          onClose={() => setOpen(false)}
+          title='Supply stETH'
+          subtitle='Review the details before you confirm'
+        >
+          {body}
+        </Modal>
+      </>
+    )
+  },
   parameters: {
+    controls: { disable: true },
     docs: {
       description: {
         story:
@@ -184,18 +192,27 @@ const operatorRow = (name: string, note: string) => (
 )
 
 export const ChooseNodeOperator: Story = {
-  render: () => (
-    <OverlayDemo
-      label='Choose operator'
-      title='Choose a Node Operator'
-      subtitle='Select the operator you want to manage'
-    >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {operatorRow('Chorus One', 'Available types: PTO, IODC')}
-        {operatorRow('Operator #182', 'CSM')}
-      </div>
-    </OverlayDemo>
-  ),
+  render: function Render() {
+    const [open, setOpen] = useState(false)
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Choose operator</Button>
+        <Modal
+          withOverlay
+          open={open}
+          onClose={() => setOpen(false)}
+          title='Choose a Node Operator'
+          subtitle='Select the operator you want to manage'
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {operatorRow('Chorus One', 'Available types: PTO, IODC')}
+            {operatorRow('Operator #182', 'CSM')}
+          </div>
+        </Modal>
+      </>
+    )
+  },
   parameters: {
     controls: { disable: true },
     docs: {
@@ -210,11 +227,23 @@ export const ChooseNodeOperator: Story = {
 export const LongContentMobile: Story = {
   tags: ['!autodocs'],
   globals: { viewport: { value: 'px375' } },
-  render: () => (
-    <OverlayDemo title='Supply stETH'>
-      <div style={{ height: 1500 }}>{body}</div>
-    </OverlayDemo>
-  ),
+  render: function Render() {
+    const [open, setOpen] = useState(false)
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
+        <Modal
+          withOverlay
+          open={open}
+          onClose={() => setOpen(false)}
+          title='Supply stETH'
+        >
+          <div style={{ height: 1500 }}>{body}</div>
+        </Modal>
+      </>
+    )
+  },
   parameters: {
     controls: { disable: true },
     docs: {
@@ -226,34 +255,37 @@ export const LongContentMobile: Story = {
   },
 }
 
-const PopoverToggle = () => {
-  const [open, setOpen] = useState(false)
-  const anchorRef = useRef<HTMLButtonElement>(null)
-
-  return (
-    <>
-      <Button ref={anchorRef} onClick={() => setOpen((v) => !v)}>
-        Toggle popover
-      </Button>
-      <Popover
-        open={open}
-        anchorRef={anchorRef}
-        aria-label='Details'
-        onClose={() => setOpen(false)}
-      >
-        Escape or an outside press closes only this popover.
-      </Popover>
-    </>
-  )
-}
-
 export const PopoverInModal: Story = {
   tags: ['!autodocs'],
-  render: () => (
-    <OverlayDemo title='Popover in modal'>
-      <PopoverToggle />
-    </OverlayDemo>
-  ),
+  render: function Render() {
+    const [open, setOpen] = useState(false)
+    const [popoverOpen, setPopoverOpen] = useState(false)
+    const anchorRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
+        <Modal
+          withOverlay
+          open={open}
+          onClose={() => setOpen(false)}
+          title='Popover in modal'
+        >
+          <Button ref={anchorRef} onClick={() => setPopoverOpen((v) => !v)}>
+            Toggle popover
+          </Button>
+          <Popover
+            open={popoverOpen}
+            anchorRef={anchorRef}
+            aria-label='Details'
+            onClose={() => setPopoverOpen(false)}
+          >
+            Escape or an outside press closes only this popover.
+          </Popover>
+        </Modal>
+      </>
+    )
+  },
   parameters: {
     controls: { disable: true },
     docs: {
@@ -267,28 +299,38 @@ export const PopoverInModal: Story = {
 
 export const InertOthers: Story = {
   tags: ['!autodocs'],
-  render: () => (
-    <>
-      <OverlayDemo inertOthers title='Inert others'>
-        Everything outside the modal is inert, except body-level roots marked
-        with <code>data-lido-overlay-keep</code>.
-      </OverlayDemo>
-      {createPortal(
-        <div
-          data-lido-overlay-keep
-          role='status'
-          style={{ position: 'fixed', bottom: 16, left: 16 }}
+  render: function Render() {
+    const [open, setOpen] = useState(false)
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
+        <Modal
+          withOverlay
+          inertOthers
+          open={open}
+          onClose={() => setOpen(false)}
+          title='Inert others'
         >
-          Toast host stays live
-        </div>,
-        document.body,
-      )}
-    </>
-  ),
+          Everything outside the modal is inert, except body-level roots marked
+          with <code>data-lido-overlay-keep</code>.
+        </Modal>
+        {createPortal(
+          <div
+            data-lido-overlay-keep
+            role='status'
+            style={{ position: 'fixed', bottom: 16, left: 16 }}
+          >
+            Toast host stays live
+          </div>,
+          document.body,
+        )}
+      </>
+    )
+  },
   parameters: {
     controls: { disable: true },
     docs: {
-      source: { type: 'code' },
       description: {
         story:
           '`inertOthers` makes every other body child inert, including the app root. Mark body-level toast or live-region roots with `data-lido-overlay-keep` so they stay live.',
@@ -299,13 +341,33 @@ export const InertOthers: Story = {
 
 export const NestedModals: Story = {
   tags: ['!autodocs'],
-  render: () => (
-    <OverlayDemo label='Open outer modal' title='Outer'>
-      <OverlayDemo label='Open inner modal' title='Inner'>
-        Escape closes only this one; scroll stays locked until the last closes.
-      </OverlayDemo>
-    </OverlayDemo>
-  ),
+  render: function Render() {
+    const [outerOpen, setOuterOpen] = useState(false)
+    const [innerOpen, setInnerOpen] = useState(false)
+
+    return (
+      <>
+        <Button onClick={() => setOuterOpen(true)}>Open outer modal</Button>
+        <Modal
+          withOverlay
+          open={outerOpen}
+          onClose={() => setOuterOpen(false)}
+          title='Outer'
+        >
+          <Button onClick={() => setInnerOpen(true)}>Open inner modal</Button>
+          <Modal
+            withOverlay
+            open={innerOpen}
+            onClose={() => setInnerOpen(false)}
+            title='Inner'
+          >
+            Escape closes only this one; scroll stays locked until the last
+            closes.
+          </Modal>
+        </Modal>
+      </>
+    )
+  },
   parameters: {
     controls: { disable: true },
   },

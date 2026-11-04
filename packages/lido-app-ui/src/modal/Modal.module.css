@@ -5,33 +5,33 @@
   display: flex;
   overflow-y: auto;
   padding: 16px;
+}
+
+/* The scrim is its own layer so only it fades; the card keeps its own opacity instead of compounding with the overlay's. */
+.overlay::before {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  inset: 0;
   background-color: var(--lido-app-ui-color-background-overlay);
-  opacity: 0;
   transition: opacity var(--lido-app-ui-duration-base)
-    var(--lido-app-ui-easing-standard);
+    var(--lido-app-ui-easing-out);
 }
 
-.overlay .card {
+.overlay[data-state='closed']::before {
   opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out),
-    transform var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out);
+  transition-duration: var(--lido-app-ui-duration-base-exit);
+  transition-timing-function: var(--lido-app-ui-easing-exit);
 }
 
-.open,
-.open .card {
-  opacity: 1;
-}
+@media (prefers-reduced-motion: reduce) {
+  .overlay::before {
+    transition-duration: var(--lido-app-ui-duration-fast);
+  }
 
-.open .card {
-  transform: none;
-}
-
-.closing,
-.closing .card {
-  transition-duration: var(--lido-app-ui-duration-fast);
-  transition-timing-function: var(--lido-app-ui-easing-out);
+  .overlay[data-state='closed']::before {
+    transition-duration: var(--lido-app-ui-duration-fast-exit);
+  }
 }
 
 .card {
@@ -52,6 +52,9 @@
   box-shadow: var(--lido-app-ui-shadow-default);
   font-family: var(--lido-app-ui-font-family);
   color: var(--lido-app-ui-color-text-default);
+
+  @mixin motion-pop center, var(--lido-app-ui-duration-base),
+    var(--lido-app-ui-duration-base-exit);
 }
 
 .headerGroup {
@@ -96,18 +99,6 @@
   flex-direction: column;
 }
 
-/* Reduced motion keeps only the opacity fades. */
-@media (prefers-reduced-motion: reduce) {
-  .overlay .card,
-  .open .card {
-    transform: none;
-  }
-
-  .overlay .card {
-    transition-property: opacity;
-  }
-}
-
 /* At 600 and below the modal goes full-screen (no scrim, square corners) when it
    owns the overlay — matches the mobile macet, which is full-screen, not a
    bottom-sheet. The bare card (no overlay) just fills its container's width. */
@@ -119,10 +110,16 @@
   .overlay {
     padding: 0;
     scroll-padding-top: var(--local-header-height, 80px);
+  }
+
+  .overlay::before {
     background-color: transparent;
   }
 
   .overlay .card {
+    --lido-app-ui-motion-scale: 1;
+    --local-motion-shift: 16px;
+
     min-height: 100dvh;
     border: none;
     border-radius: 0;

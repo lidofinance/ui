@@ -8,11 +8,17 @@ import { Disclosure } from '.'
 describe('Disclosure', () => {
   afterEach(() => {
     vi.useRealTimers()
-    vi.unstubAllGlobals()
+    vi.restoreAllMocks()
   })
 
   it('keeps content mounted through the exit, then unmounts', () => {
     vi.useFakeTimers()
+    vi.spyOn(window, 'getComputedStyle').mockReturnValue({
+      transitionDuration: '0.14s',
+      transitionDelay: '0s',
+      animationDuration: '0s',
+      animationDelay: '0s',
+    } as unknown as CSSStyleDeclaration)
     render(
       <Disclosure label='Toggle' defaultOpen>
         <p>Content</p>
@@ -28,25 +34,42 @@ describe('Disclosure', () => {
 
   it('keeps content when reopened during the exit', () => {
     vi.useFakeTimers()
+    vi.spyOn(window, 'getComputedStyle').mockReturnValue({
+      transitionDuration: '0.14s',
+      transitionDelay: '0s',
+      animationDuration: '0s',
+      animationDelay: '0s',
+    } as unknown as CSSStyleDeclaration)
     render(
       <Disclosure label='Toggle' defaultOpen>
         <p>Content</p>
       </Disclosure>,
     )
     const button = screen.getByRole('button')
+    const node = screen.getByText('Content')
     fireEvent.click(button)
     act(() => {
-      vi.advanceTimersByTime(100)
+      vi.advanceTimersByTime(60)
     })
     fireEvent.click(button)
     act(() => {
       vi.advanceTimersByTime(500)
     })
-    expect(screen.getByText('Content')).toBeInTheDocument()
+    expect(screen.getByText('Content')).toBe(node)
   })
 
-  it('unmounts immediately under reduced motion', () => {
-    vi.stubGlobal('matchMedia', () => ({ matches: true }))
+  it('renders initially-open content settled, without motion attributes', () => {
+    render(
+      <Disclosure label='Toggle' defaultOpen>
+        <p>Content</p>
+      </Disclosure>,
+    )
+    const wrapper = screen.getByText('Content').closest('[data-state]')
+    expect(wrapper).toHaveAttribute('data-state', 'open')
+    expect(wrapper).not.toHaveAttribute('data-motion')
+  })
+
+  it('unmounts immediately when there is no motion', () => {
     render(
       <Disclosure label='Toggle' defaultOpen>
         <p>Content</p>

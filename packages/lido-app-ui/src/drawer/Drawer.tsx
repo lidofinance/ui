@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  useCallback,
   useEffect,
   useId,
   useImperativeHandle,
@@ -20,8 +21,6 @@ import {
   useBodyScrollLock,
   useEscape,
   useFocusTrap,
-  useEntered,
-  useExitEnd,
   useHideOthers,
   useOutsideClick,
   usePresence,
@@ -66,14 +65,14 @@ export type DrawerProps = Omit<
   dataTestId?: DrawerDataTestId
 }
 
-type DrawerDialogProps = Omit<DrawerProps, 'open'> & {
-  closing: boolean
+type DrawerDialogProps = DrawerProps & {
   onExited: () => void
 }
 
 const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
   (
     {
+      open,
       title,
       onClose,
       side = 'right',
@@ -87,7 +86,6 @@ const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
       className,
       style,
       dataTestId,
-      closing,
       onExited,
       ...rest
     },
@@ -101,13 +99,14 @@ const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
         ? null
         : (document.activeElement as HTMLElement | null),
     )
-    const overlayRef = useRef<HTMLDivElement>(null)
+    const overlayRef = useRef<HTMLDivElement | null>(null)
     const headerRef = useRef<HTMLDivElement>(null)
     const pressedScrim = useRef(false)
 
     useImperativeHandle(ref, () => panelEl as HTMLDivElement, [panelEl])
     // Released as soon as closing starts, so focus returns to the opener without waiting for the exit animation.
-    const active = !closing
+    const closing = !open
+    const active = open
     useBodyScrollLock({ enabled: lockScroll && active })
     // Before the trap: cleanups run in order, so inert lifts before focus returns to the opener.
     useHideOthers(panelEl, inertOthers && active)
@@ -128,8 +127,23 @@ const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
       },
       { enabled: active },
     )
-    useExitEnd(panelEl, closing, onExited)
-    const entered = useEntered(panelEl)
+    // Mounted fresh on each open, so it appears; the overlay owns the exit wait for scrim and panel.
+    const presence = usePresence<HTMLDivElement>(open, {
+      appear: true,
+      subtree: true,
+    })
+    const { status, ref: presenceRef, motionProps } = presence
+    const setOverlay = useCallback(
+      (node: HTMLDivElement | null) => {
+        overlayRef.current = node
+        presenceRef(node)
+      },
+      [presenceRef],
+    )
+    // Also covers a dialog that mounts already closed and never animates.
+    useEffect(() => {
+      if (status === 'exited') onExited()
+    }, [status, onExited])
 
     // Sticky header: scroll-padding keeps focused content from landing under it (WCAG 2.4.11).
     useEffect(() => {
@@ -171,11 +185,9 @@ const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
       // Pointer-only: a focusable backdrop would add a tab stop before the dialog; keyboard closes via Escape.
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div
-        ref={overlayRef}
-        className={cn(
-          styles.overlay,
-          closing ? styles.closing : entered && styles.open,
-        )}
+        ref={setOverlay}
+        className={styles.overlay}
+        {...motionProps}
         // Not React 18 typed; the dying dialog must leave the a11y tree and tab order.
         {...(closing ? ({ inert: '' } as object) : null)}
         onClick={handleOverlayClick}
@@ -187,6 +199,7 @@ const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
           aria-labelledby={title != null ? titleId : undefined}
           data-testid={dataTestId?.root}
           {...rest}
+          {...motionProps}
           onPointerDown={handlePanelPointerDown}
           ref={setPanelEl}
           style={panelStyle}
@@ -226,14 +239,16 @@ DrawerDialog.displayName = 'DrawerDialog'
 /** Side panel in a portaled scrim; closes on Escape and scrim click, traps focus and locks body scroll like `Modal` with `withOverlay`. */
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
   ({ open, ...props }, ref) => {
-    const { mounted, closing, onExited } = usePresence(open)
-    if (!mounted) return null
+    const [present, setPresent] = useState(open)
+    if (open && !present) setPresent(true)
+    const handleExited = useCallback(() => setPresent(false), [])
+    if (!open && !present) return null
     return (
       <Portal>
         <DrawerDialog
           ref={ref}
-          closing={closing}
-          onExited={onExited}
+          open={open}
+          onExited={handleExited}
           {...props}
         />
       </Portal>

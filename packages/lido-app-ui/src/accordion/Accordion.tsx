@@ -1,12 +1,11 @@
 import {
-  useEffect,
   useId,
   useState,
   type ComponentPropsWithoutRef,
   type ReactNode,
-  type TransitionEvent,
 } from 'react'
 
+import { usePresence } from '../hooks'
 import { IconChevronDown } from '../icons'
 import cn from 'classnames'
 
@@ -46,26 +45,10 @@ export const Accordion = ({
     useState(defaultExpanded)
   const isExpanded = expanded ?? uncontrolledExpanded
   const contentId = useId()
-  const [settled, setSettled] = useState(isExpanded)
-
-  // Clip only while animating so focus rings and shadows of the content stay visible.
-  useEffect(() => {
-    if (!isExpanded) {
-      setSettled(false)
-      return
-    }
-    const timer = setTimeout(() => setSettled(true), 300)
-    return () => clearTimeout(timer)
-  }, [isExpanded])
-
-  const handleTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
-    if (
-      isExpanded &&
-      event.target === event.currentTarget &&
-      event.propertyName === 'grid-template-rows'
-    )
-      setSettled(true)
-  }
+  const { ref: presenceRef, motionProps } = usePresence<HTMLDivElement>(
+    isExpanded,
+    { keepMounted: true },
+  )
 
   const handleToggle = () => {
     const next = !isExpanded
@@ -101,16 +84,11 @@ export const Accordion = ({
       </button>
       <div
         id={contentId}
-        className={cn(styles.contentWrapper, {
-          [styles.expanded]: isExpanded,
-        })}
-        onTransitionEnd={handleTransitionEnd}
+        ref={presenceRef}
+        className={styles.contentWrapper}
+        {...motionProps}
       >
-        <div
-          className={cn(styles.content, {
-            [styles.settled]: isExpanded && settled,
-          })}
-        >
+        <div>
           <div
             className={styles.contentInner}
             data-testid={dataTestId?.content}

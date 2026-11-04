@@ -1,8 +1,7 @@
 .accordion {
   width: 100%;
   border-bottom: 1px solid var(--lido-app-ui-color-border-default);
-  transition: border-bottom-color var(--lido-app-ui-duration-base)
-    var(--lido-app-ui-easing-standard);
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .accordion.borderless {
@@ -50,47 +49,18 @@
   width: 24px;
   height: 24px;
   color: var(--lido-app-ui-color-icons-secondary);
-  transition: transform var(--lido-app-ui-duration-base)
-    var(--lido-app-ui-easing-standard);
+  transition: transform var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
 }
 
 .chevronOpen {
   transform: rotate(180deg);
+  transition-duration: var(--lido-app-ui-duration-fast);
+  transition-timing-function: var(--lido-app-ui-easing-out);
 }
 
 .contentWrapper {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows var(--lido-app-ui-duration-fast)
-    var(--lido-app-ui-easing-in);
-}
-
-.contentWrapper.expanded {
-  grid-template-rows: 1fr;
-  transition: grid-template-rows var(--lido-app-ui-duration-base)
-    var(--lido-app-ui-easing-out);
-}
-
-.content {
-  overflow: hidden;
-  min-height: 0;
-  visibility: hidden;
-  opacity: 0;
-  transition:
-    opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-in),
-    visibility 0s linear var(--lido-app-ui-duration-fast);
-}
-
-.expanded .content {
-  visibility: visible;
-  opacity: 1;
-  transition:
-    opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out),
-    visibility 0s;
-}
-
-.expanded .content.settled {
-  overflow: visible;
+  @mixin motion-collapse;
 }
 
 .contentInner {
@@ -103,16 +73,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .chevron,
-  .contentWrapper,
-  .contentWrapper.expanded {
+  .chevron {
     transition: none;
-  }
-
-  .content,
-  .expanded .content {
-    transition:
-      opacity var(--lido-app-ui-duration-fast) linear,
-      visibility 0s;
   }
 }
