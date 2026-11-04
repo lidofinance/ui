@@ -34,7 +34,7 @@ import { MessageBox } from './message-box'
 import { Modal, ModalCard } from './modal'
 import { NavLink } from './nav-link'
 import { Notification } from './notification'
-import { Layout, Main, PageContent } from './page-layout'
+import { FormLayout, Layout, Main, PageContent } from './page-layout'
 import { Pagination } from './pagination'
 import { Popover } from './popover'
 import { RadioButton } from './radio-button'
@@ -55,6 +55,7 @@ import {
   SidebarToggle,
 } from './sidebar'
 import { Skeleton } from './skeleton'
+import { Spinner } from './spinner'
 import { SkipLink } from './skip-link'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
@@ -69,6 +70,27 @@ import { TokenAmount } from './token-amount'
 import { TokenSelector } from './token-selector'
 import { Tooltip } from './tooltip'
 import { TxStatus } from './tx-status'
+import { Callout } from './callout'
+import { CheckboxList, CheckboxRow } from './checkbox-row'
+import { Disclosure } from './disclosure'
+import { Drawer } from './drawer'
+import { EmptyState } from './empty-state'
+import { ProgressBar, SegmentedBar } from './progress-bar'
+import { Select } from './select'
+import { StatCard, StatCardMeta } from './stat-card'
+import { Steps } from './steps'
+import {
+  RankCell,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRoot,
+  TableRow,
+} from './table'
+import { Textarea } from './textarea'
+import { Toaster } from './toast'
 import {
   Body,
   BodyLarge,
@@ -253,6 +275,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ],
   ['SidebarToggle', () => <SidebarToggle />],
   ['Skeleton', () => <Skeleton />],
+  ['Spinner', () => <Spinner />],
   ['SkipLink', () => <SkipLink />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
@@ -297,6 +320,81 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Breadcrumbs',
     () => <Breadcrumbs items={[{ label: 'A', href: '/a' }, { label: 'B' }]} />,
   ],
+  ['Callout', () => <Callout>Notice</Callout>],
+  ['CheckboxRow', () => <CheckboxRow label='Key' />],
+  [
+    'CheckboxList',
+    () => (
+      <CheckboxList>
+        <CheckboxRow label='Key' />
+      </CheckboxList>
+    ),
+  ],
+  ['Disclosure', () => <Disclosure label='More'>Content</Disclosure>],
+  [
+    'Drawer',
+    () => (
+      <Drawer open onClose={() => undefined} title='Details'>
+        body
+      </Drawer>
+    ),
+  ],
+  ['EmptyState', () => <EmptyState title='Nothing here' />],
+  [
+    'FormLayout',
+    () => <FormLayout aside={<span>Aside</span>}>Form</FormLayout>,
+  ],
+  ['ProgressBar', () => <ProgressBar value={40} aria-label='Progress' />],
+  [
+    'SegmentedBar',
+    () => <SegmentedBar steps={4} value={2} aria-label='Steps' />,
+  ],
+  [
+    'Select',
+    () => <Select label='Network' options={[{ value: 'a', label: 'A' }]} />,
+  ],
+  ['StatCard', () => <StatCard title='TVL' value='1M' />],
+  [
+    'StatCardMeta',
+    () => <StatCardMeta items={[{ label: 'Keys', value: '3' }]} />,
+  ],
+  [
+    'Steps',
+    () => <Steps steps={[{ label: 'One' }, { label: 'Two' }]} current={0} />,
+  ],
+  [
+    'Table',
+    () => (
+      <Table
+        columns={[
+          { key: 'a', header: 'A', render: (r: { id: string }) => r.id },
+        ]}
+        rows={[{ id: '1' }]}
+        rowKey={(r) => r.id}
+      />
+    ),
+  ],
+  [
+    'TableRoot',
+    () => (
+      <TableRoot>
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>A</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>
+              <RankCell rank={1} change='up' />
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </TableRoot>
+    ),
+  ],
+  ['Textarea', () => <Textarea label='Notes' />],
+  ['Toaster', () => <Toaster />],
   ['Layout', () => <Layout>Content</Layout>],
   ['PageContent', () => <PageContent>Content</PageContent>],
 ]
@@ -322,9 +420,18 @@ const coveredByParent = [
   'SidebarGroup',
   'SidebarInset',
   'SidebarItem',
+  'RankCell',
+  'TableBody',
+  'TableCell',
+  'TableHead',
+  'TableHeaderCell',
+  'TableRow',
 ]
 
-const portaled = new Set(['Popover'])
+const portaled = new Set(['Popover', 'Drawer'])
+
+// Portals after mount and renders nothing into the container.
+const renderless = new Set(['Toaster'])
 
 describe('component smoke render', () => {
   it('has a case for every exported component', () => {
@@ -349,7 +456,7 @@ describe('component smoke render', () => {
     const { container } = render(renderCase())
     if (portaled.has(name)) {
       expect(screen.getByRole('dialog')).toBeInTheDocument()
-    } else {
+    } else if (!renderless.has(name)) {
       expect(container.firstChild).toBeInTheDocument()
     }
     cleanup()
