@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Checkbox } from '.'
 
-import { StoryContainer } from '../../.storybook/components'
-
 const meta: Meta<typeof Checkbox> = {
   title: 'Inputs & Controls/Checkbox',
   component: Checkbox,
@@ -11,6 +9,7 @@ const meta: Meta<typeof Checkbox> = {
   },
   argTypes: {
     disabled: { control: { type: 'boolean' } },
+    indeterminate: { control: { type: 'boolean' } },
   },
 }
 
@@ -20,18 +19,15 @@ type Story = StoryObj<typeof meta>
 export const Basic: Story = {}
 
 export const States: Story = {
-  args: {
-    icon: undefined,
-    action: undefined,
-  },
   render: () => (
-    <StoryContainer gap={16}>
-      <Checkbox label='Unchecked' defaultChecked={false} />
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <Checkbox label='Unchecked' />
       <Checkbox label='Checked' defaultChecked />
+      <Checkbox label='Indeterminate' indeterminate checked={false} />
       <Checkbox aria-label='Without a label' />
       <Checkbox label='Disabled unchecked' disabled />
       <Checkbox label='Disabled checked' disabled checked={true} />
-    </StoryContainer>
+    </div>
   ),
   parameters: {
     controls: { disable: true },

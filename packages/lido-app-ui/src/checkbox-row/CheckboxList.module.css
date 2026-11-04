@@ -1,0 +1,13 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-card);
+  background-color: var(--lido-app-ui-color-background-surface);
+}
+
+.list > * + * {
+  border-top: 1px solid var(--lido-app-ui-color-border-default);
+}
