@@ -333,7 +333,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
           role='listbox'
           id={listboxId}
           aria-labelledby={label != null ? labelId : selectId}
-          className={cn(styles.panel, styles[size])}
+          className={cn(styles.panel, size === 'small' && styles.panelSmall)}
           dataTestId={{ root: dataTestId?.listbox }}
         >
           {options.map((option, index) => {

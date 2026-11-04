@@ -67,6 +67,16 @@ const mockLayout = (
       return this.getAttribute('role') === 'dialog' ? rect(panel) : rect(anchor)
     },
   )
+  vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+    function (this: HTMLElement) {
+      return this.getAttribute('role') === 'dialog' ? (panel.width ?? 0) : 0
+    },
+  )
+  vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockImplementation(
+    function (this: HTMLElement) {
+      return this.getAttribute('role') === 'dialog' ? (panel.height ?? 0) : 0
+    },
+  )
   vi.spyOn(document.documentElement, 'clientWidth', 'get').mockReturnValue(
     viewport.width,
   )
@@ -176,7 +186,9 @@ describe('Popover', () => {
     render(<Single />)
     const dialog = await screen.findByRole('dialog')
     expect(dialog.dataset.placement).toBe('top')
-    expect(dialog.style.maxHeight).toBe('384px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('384px')
     expect(dialog.style.maxWidth).toBe('984px')
   })
 
@@ -188,7 +200,9 @@ describe('Popover', () => {
     )
     render(<Single />)
     const dialog = await screen.findByRole('dialog')
-    expect(dialog.style.maxHeight).toBe('84px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('84px')
   })
 
   it('flips on the natural height of a capped panel', async () => {
@@ -200,7 +214,9 @@ describe('Popover', () => {
     render(<Single placement='top' />)
     const dialog = await screen.findByRole('dialog')
     expect(dialog.dataset.placement).toBe('bottom')
-    expect(dialog.style.maxHeight).toBe('404px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('404px')
   })
 
   it('scrolls the initially focused element into view', async () => {
@@ -413,47 +429,31 @@ describe('Popover', () => {
   })
 
   describe('exit animation', () => {
-    const stubMotion = (reduced = false) => {
+    const stubMotion = (transitionDuration = '0.1s') => {
       const real = window.getComputedStyle.bind(window)
       vi.spyOn(window, 'getComputedStyle').mockImplementation((el, pseudo) => {
         const style = real(el, pseudo)
         return new Proxy(style, {
           get: (target, prop) =>
-            prop === 'animationName'
-              ? 'popover-out'
-              : prop === 'animationDuration'
-                ? '0.1s'
-                : Reflect.get(target, prop),
+            prop === 'transitionDuration'
+              ? transitionDuration
+              : Reflect.get(target, prop),
         })
       })
-      window.matchMedia = vi.fn().mockReturnValue({ matches: reduced })
     }
 
-    afterEach(() => {
-      vi.useRealTimers()
-      // @ts-expect-error jsdom has no matchMedia to restore
-      delete window.matchMedia
-    })
+    afterEach(() => vi.useRealTimers())
 
-    it('stays mounted as closing, then unmounts on animationend', async () => {
-      stubMotion()
-      const { rerender } = render(<Single />)
-      await screen.findByRole('dialog')
-      rerender(<Single open={false} />)
-      const dialog = screen.getByRole('dialog', { hidden: true })
-      expect(dialog).toHaveAttribute('data-state', 'closing')
-      expect(dialog).toHaveAttribute('inert')
-      fireEvent.animationEnd(dialog)
-      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
-    })
-
-    it('unmounts after the fallback timer without animationend', async () => {
+    it('stays mounted as closed, then unmounts after the transition', async () => {
       stubMotion()
       const { rerender } = render(<Single />)
       await screen.findByRole('dialog')
       vi.useFakeTimers()
       rerender(<Single open={false} />)
-      expect(screen.getByRole('dialog', { hidden: true })).toBeInTheDocument()
+      const dialog = screen.getByRole('dialog', { hidden: true })
+      expect(dialog).toHaveAttribute('data-state', 'closed')
+      expect(dialog).toHaveAttribute('data-motion', 'exit')
+      expect(dialog).toHaveAttribute('inert')
       act(() => {
         vi.advanceTimersByTime(200)
       })
@@ -472,8 +472,17 @@ describe('Popover', () => {
       expect(screen.getByRole('dialog')).toHaveAttribute('data-state', 'open')
     })
 
-    it('unmounts at once under reduced motion', async () => {
-      stubMotion(true)
+    it('keeps the same node on reopen during the exit', async () => {
+      stubMotion()
+      vi.useFakeTimers()
+      const { rerender } = render(<Single />)
+      const before = screen.getByRole('dialog')
+      rerender(<Single open={false} />)
+      rerender(<Single />)
+      expect(screen.getByRole('dialog')).toBe(before)
+    })
+
+    it('unmounts at once when there is no motion', async () => {
       const { rerender } = render(<Single />)
       await screen.findByRole('dialog')
       rerender(<Single open={false} />)
@@ -489,7 +498,7 @@ describe('Popover', () => {
       await userEvent.setup().keyboard('{Escape}')
       expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute(
         'data-state',
-        'closing',
+        'closed',
       )
       expect(anchor).toHaveFocus()
     })

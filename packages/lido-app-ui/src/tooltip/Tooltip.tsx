@@ -15,7 +15,12 @@ import cn from 'classnames'
 
 import { ThemeName, ThemeProvider } from '@lidofinance/lido-shared-ui'
 
-import { Portal, useEscape, useIsomorphicLayoutEffect } from '../hooks'
+import {
+  Portal,
+  useEscape,
+  useIsomorphicLayoutEffect,
+  usePresence,
+} from '../hooks'
 import styles from './Tooltip.module.css'
 
 export type TooltipPosition =
@@ -171,6 +176,16 @@ export const Tooltip = ({
   const [open, setOpen] = useState(false)
   const [focusedEl, setFocusedEl] = useState<HTMLElement | null>(null)
   const tooltipId = useId()
+  const presence = usePresence<HTMLSpanElement>(open)
+  const { mounted, ref: presenceRef } = presence
+
+  const setContent = useCallback(
+    (node: HTMLSpanElement | null) => {
+      setContentEl(node)
+      presenceRef(node)
+    },
+    [presenceRef],
+  )
 
   const updatePosition = useCallback(() => {
     const anchor = anchorRef.current
@@ -192,7 +207,7 @@ export const Tooltip = ({
   }, [position, contentEl])
 
   useIsomorphicLayoutEffect(() => {
-    if (!open || !contentEl) return
+    if (!mounted || !contentEl) return
     updatePosition()
     window.addEventListener('scroll', updatePosition, true)
     window.addEventListener('resize', updatePosition)
@@ -200,7 +215,7 @@ export const Tooltip = ({
       window.removeEventListener('scroll', updatePosition, true)
       window.removeEventListener('resize', updatePosition)
     }
-  }, [open, contentEl, updatePosition])
+  }, [mounted, contentEl, updatePosition])
 
   // AT describes the focused element, not the wrapper, so the id is merged onto it too.
   useEffect(() => {
@@ -259,14 +274,15 @@ export const Tooltip = ({
       {...rest}
     >
       {children}
-      {open ? (
+      {mounted ? (
         <Portal>
           <ThemeProvider themeName={ThemeName.dark}>
             <span
-              ref={setContentEl}
+              ref={setContent}
               id={tooltipId}
               role='tooltip'
               className={styles.content}
+              {...presence.motionProps}
               style={
                 { '--local-tooltip-width': getMaxWidth(width) } as CSSProperties
               }

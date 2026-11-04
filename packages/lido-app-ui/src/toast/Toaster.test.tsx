@@ -27,6 +27,19 @@ describe('Toaster', () => {
     expect(screen.queryByText('Saved')).toBeNull()
   })
 
+  it('keeps existing toast nodes when another toast is added', () => {
+    render(<Toaster />)
+    act(() => {
+      toast('First', { timeout: 0 })
+    })
+    const node = screen.getByText('First').closest('[data-state]')
+    act(() => {
+      toast('Second', { timeout: 0 })
+    })
+    expect(screen.getByText('First').closest('[data-state]')).toBe(node)
+    expect(node).toHaveAttribute('data-state', 'open')
+  })
+
   it('keeps sticky toasts and honors per-toast timeout', () => {
     render(<Toaster />)
     act(() => {

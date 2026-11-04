@@ -75,8 +75,16 @@ export {
   useEscape,
   useFocusTrap,
   useOutsideClick,
+  usePresence,
 } from './hooks'
-export type { FocusTrapOptions, PortalProps } from './hooks'
+export type {
+  FocusTrapOptions,
+  PortalProps,
+  Presence,
+  PresenceMotionProps,
+  PresenceStatus,
+  UsePresenceOptions,
+} from './hooks'
 export {
   breakpoints,
   breakpointWidths,

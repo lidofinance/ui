@@ -45,6 +45,18 @@ describe('Select', () => {
     expect(trigger()).toHaveTextContent('Apple')
   })
 
+  it.each(['default', 'small'] as const)(
+    'listbox does not reuse the trigger size class (%s)',
+    async (size) => {
+      const user = userEvent.setup()
+      render(<Select options={options} size={size} />)
+      await user.click(trigger())
+      const panel = new Set(screen.getByRole('listbox').classList)
+      const shared = [...trigger().classList].filter((c) => panel.has(c))
+      expect(shared).toEqual([])
+    },
+  )
+
   it('does not select disabled options', async () => {
     const user = userEvent.setup()
     const onChange = vi.fn()

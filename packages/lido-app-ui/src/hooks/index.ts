@@ -8,4 +8,10 @@ export type { FocusTrapOptions } from './useFocusTrap'
 export { useHideOthers } from './useHideOthers'
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
 export { useOutsideClick } from './useOutsideClick'
-export { useEntered, useExitEnd, usePresence } from './usePresence'
+export { usePresence } from './usePresence'
+export type {
+  Presence,
+  PresenceMotionProps,
+  PresenceStatus,
+  UsePresenceOptions,
+} from './usePresence'
