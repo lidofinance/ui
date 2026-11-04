@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 
 import { Modal } from '../modal'
 import { Drawer } from './Drawer'
@@ -127,5 +127,29 @@ describe('Drawer', () => {
       </Drawer>,
     )
     expect(ref.current?.getAttribute('role')).toBe('dialog')
+  })
+
+  it('stays mounted during the exit animation and releases scroll lock at once', () => {
+    const spy = vi
+      .spyOn(window, 'getComputedStyle')
+      .mockReturnValue({ transitionDuration: '0.15s' } as CSSStyleDeclaration)
+    const { rerender } = render(
+      <Drawer open onClose={vi.fn()} dataTestId={dataTestId}>
+        Body
+      </Drawer>,
+    )
+    rerender(
+      <Drawer open={false} onClose={vi.fn()} dataTestId={dataTestId}>
+        Body
+      </Drawer>,
+    )
+    expect(screen.getByTestId('root')).toBeInTheDocument()
+    expect(document.documentElement.style.overflow).not.toBe('hidden')
+    expect(document.body.style.overflow).not.toBe('hidden')
+    act(() => {
+      fireEvent.transitionEnd(screen.getByTestId('root'))
+    })
+    expect(screen.queryByTestId('root')).not.toBeInTheDocument()
+    spy.mockRestore()
   })
 })

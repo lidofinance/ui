@@ -17,8 +17,11 @@ import {
   useBodyScrollLock,
   useEscape,
   useFocusTrap,
+  useEntered,
+  useExitEnd,
   useHideOthers,
   useOutsideClick,
+  usePresence,
 } from '../hooks'
 import { CloseButton } from '../icon-button'
 import cn from 'classnames'
@@ -61,7 +64,12 @@ export type ModalProps = Omit<
   dataTestId?: ModalDataTestId
 }
 
-const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
+type ModalDialogProps = ModalProps & {
+  closing?: boolean
+  onExited?: () => void
+}
+
+const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
   (
     {
       title,
@@ -77,6 +85,8 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
       children,
       className,
       dataTestId,
+      closing = false,
+      onExited,
       ...rest
     },
     ref,
@@ -95,16 +105,20 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
     const pressedScrim = useRef(false)
 
     useImperativeHandle(ref, () => cardEl as HTMLDivElement, [cardEl])
-    useBodyScrollLock({ enabled: withOverlay && lockScroll })
+    // Released as soon as closing starts, so focus returns to the opener without waiting for the exit animation.
+    const active = withOverlay && !closing
+    useBodyScrollLock({ enabled: active && lockScroll })
     // Before the trap: cleanups run in order, so inert lifts before focus returns to the opener.
-    useHideOthers(cardEl, withOverlay && inertOthers)
-    useFocusTrap(cardEl, { enabled: withOverlay, initialFocus, returnFocus })
+    useHideOthers(cardEl, active && inertOthers)
+    useFocusTrap(cardEl, { enabled: active, initialFocus, returnFocus })
+    useExitEnd(cardEl, closing, () => onExited?.())
+    const entered = useEntered(cardEl)
     // Stays registered with closeOnEscape={false} so Escape doesn't fall through to an underlying overlay.
     useEscape(
       () => {
         if (closeOnEscape) onClose?.()
       },
-      { enabled: withOverlay },
+      { enabled: active },
     )
 
     // Sticky header on mobile: scroll-padding keeps focused fields from landing under it (WCAG 2.4.11).
@@ -132,7 +146,7 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
         pressedScrim.current =
           !(event.button > 0) && event.target === overlayRef.current
       },
-      { enabled: withOverlay },
+      { enabled: active },
     )
 
     const handleCardPointerDown = (event: PointerEvent<HTMLDivElement>) => {
@@ -204,7 +218,12 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div
         ref={overlayRef}
-        className={styles.overlay}
+        className={cn(
+          styles.overlay,
+          closing ? styles.closing : entered && styles.open,
+        )}
+        // Not React 18 typed; the dying dialog must leave the a11y tree and tab order.
+        {...(closing ? ({ inert: '' } as object) : null)}
         onClick={handleOverlayClick}
         data-testid={dataTestId?.overlay}
       >
@@ -220,9 +239,21 @@ ModalDialog.displayName = 'ModalDialog'
 /** Dialog card for supply, borrow and repay flows; with `withOverlay` it is portaled and closes on Escape and scrim click, traps focus and locks body scroll. `ModalCard` is the bare card. */
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ({ open = true, ...props }, ref) => {
-    if (!open) return null
-    const dialog = <ModalDialog ref={ref} {...props} />
-    return props.withOverlay ? <Portal>{dialog}</Portal> : dialog
+    const { mounted, closing, onExited } = usePresence(open)
+    if (!props.withOverlay) {
+      return open ? <ModalDialog ref={ref} {...props} /> : null
+    }
+    if (!mounted) return null
+    return (
+      <Portal>
+        <ModalDialog
+          ref={ref}
+          closing={closing}
+          onExited={onExited}
+          {...props}
+        />
+      </Portal>
+    )
   },
 )
 

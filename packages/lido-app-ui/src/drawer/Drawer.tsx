@@ -20,8 +20,11 @@ import {
   useBodyScrollLock,
   useEscape,
   useFocusTrap,
+  useEntered,
+  useExitEnd,
   useHideOthers,
   useOutsideClick,
+  usePresence,
 } from '../hooks'
 import { CloseButton } from '../icon-button'
 
@@ -63,7 +66,12 @@ export type DrawerProps = Omit<
   dataTestId?: DrawerDataTestId
 }
 
-const DrawerDialog = forwardRef<HTMLDivElement, Omit<DrawerProps, 'open'>>(
+type DrawerDialogProps = Omit<DrawerProps, 'open'> & {
+  closing: boolean
+  onExited: () => void
+}
+
+const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
   (
     {
       title,
@@ -79,6 +87,8 @@ const DrawerDialog = forwardRef<HTMLDivElement, Omit<DrawerProps, 'open'>>(
       className,
       style,
       dataTestId,
+      closing,
+      onExited,
       ...rest
     },
     ref,
@@ -96,19 +106,30 @@ const DrawerDialog = forwardRef<HTMLDivElement, Omit<DrawerProps, 'open'>>(
     const pressedScrim = useRef(false)
 
     useImperativeHandle(ref, () => panelEl as HTMLDivElement, [panelEl])
-    useBodyScrollLock({ enabled: lockScroll })
+    // Released as soon as closing starts, so focus returns to the opener without waiting for the exit animation.
+    const active = !closing
+    useBodyScrollLock({ enabled: lockScroll && active })
     // Before the trap: cleanups run in order, so inert lifts before focus returns to the opener.
-    useHideOthers(panelEl, inertOthers)
-    useFocusTrap(panelEl, { initialFocus, returnFocus })
+    useHideOthers(panelEl, inertOthers && active)
+    useFocusTrap(panelEl, { enabled: active, initialFocus, returnFocus })
     // Stays registered with closeOnEscape={false} so Escape doesn't fall through to an underlying overlay.
-    useEscape(() => {
-      if (closeOnEscape) onClose()
-    })
+    useEscape(
+      () => {
+        if (closeOnEscape) onClose()
+      },
+      { enabled: active },
+    )
     // Joins the outside-click stack even with closeOnOverlayClick={false}, so presses here never reach an overlay underneath.
-    useOutsideClick(panelEl, (event) => {
-      pressedScrim.current =
-        !(event.button > 0) && event.target === overlayRef.current
-    })
+    useOutsideClick(
+      panelEl,
+      (event) => {
+        pressedScrim.current =
+          !(event.button > 0) && event.target === overlayRef.current
+      },
+      { enabled: active },
+    )
+    useExitEnd(panelEl, closing, onExited)
+    const entered = useEntered(panelEl)
 
     // Sticky header: scroll-padding keeps focused content from landing under it (WCAG 2.4.11).
     useEffect(() => {
@@ -151,7 +172,12 @@ const DrawerDialog = forwardRef<HTMLDivElement, Omit<DrawerProps, 'open'>>(
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div
         ref={overlayRef}
-        className={styles.overlay}
+        className={cn(
+          styles.overlay,
+          closing ? styles.closing : entered && styles.open,
+        )}
+        // Not React 18 typed; the dying dialog must leave the a11y tree and tab order.
+        {...(closing ? ({ inert: '' } as object) : null)}
         onClick={handleOverlayClick}
         data-testid={dataTestId?.overlay}
       >
@@ -200,10 +226,16 @@ DrawerDialog.displayName = 'DrawerDialog'
 /** Side panel in a portaled scrim; closes on Escape and scrim click, traps focus and locks body scroll like `Modal` with `withOverlay`. */
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
   ({ open, ...props }, ref) => {
-    if (!open) return null
+    const { mounted, closing, onExited } = usePresence(open)
+    if (!mounted) return null
     return (
       <Portal>
-        <DrawerDialog ref={ref} {...props} />
+        <DrawerDialog
+          ref={ref}
+          closing={closing}
+          onExited={onExited}
+          {...props}
+        />
       </Portal>
     )
   },

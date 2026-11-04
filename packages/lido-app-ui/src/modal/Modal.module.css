@@ -6,6 +6,32 @@
   overflow-y: auto;
   padding: 16px;
   background-color: var(--lido-app-ui-color-background-overlay);
+  opacity: 0;
+  transition: opacity var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-standard);
+}
+
+.overlay .card {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out),
+    transform var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out);
+}
+
+.open,
+.open .card {
+  opacity: 1;
+}
+
+.open .card {
+  transform: none;
+}
+
+.closing,
+.closing .card {
+  transition-duration: var(--lido-app-ui-duration-fast);
+  transition-timing-function: var(--lido-app-ui-easing-out);
 }
 
 .card {
@@ -68,6 +94,18 @@
 .body {
   display: flex;
   flex-direction: column;
+}
+
+/* Reduced motion keeps only the opacity fades. */
+@media (prefers-reduced-motion: reduce) {
+  .overlay .card,
+  .open .card {
+    transform: none;
+  }
+
+  .overlay .card {
+    transition-property: opacity;
+  }
 }
 
 /* At 600 and below the modal goes full-screen (no scrim, square corners) when it
