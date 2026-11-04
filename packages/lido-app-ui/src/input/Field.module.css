@@ -1,0 +1,38 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.label {
+  @mixin font-body-large;
+
+  color: var(--lido-app-ui-color-text-secondary);
+  white-space: nowrap;
+}
+
+.errorText {
+  margin: 0;
+
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-error);
+  word-break: break-word;
+}
+
+.description {
+  margin: 0;
+
+  @mixin font-description;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+  word-break: break-word;
+}

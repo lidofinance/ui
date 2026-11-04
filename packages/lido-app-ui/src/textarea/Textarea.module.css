@@ -1,0 +1,81 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--lido-app-ui-border-radius-card);
+  font-size: var(--lido-app-ui-font-size-body);
+  line-height: var(--lido-app-ui-line-height-body);
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  background-color: var(--lido-app-ui-color-background-default);
+  font-family: var(--lido-app-ui-font-family);
+  cursor: text;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.root:hover {
+  background-color: var(--lido-app-ui-color-background-default-hover);
+}
+
+.root:has(.textarea:focus) {
+  border-color: var(--lido-app-ui-color-border-active);
+  background-color: var(--lido-app-ui-color-background-default-active);
+}
+
+.root.error {
+  border-color: var(--lido-app-ui-color-border-error);
+}
+
+.root.error .textarea {
+  color: var(--lido-app-ui-color-text-error);
+  caret-color: var(--lido-app-ui-color-text-error);
+}
+
+.root.disabled,
+.root.disabled:hover {
+  cursor: not-allowed;
+  background-color: var(--lido-app-ui-color-background-disabled);
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--lido-app-ui-color-text-default);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  resize: vertical;
+}
+
+.textarea.autosize {
+  overflow: hidden;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.textarea:disabled,
+.textarea:disabled::placeholder {
+  color: var(--lido-app-ui-color-text-secondary);
+  cursor: not-allowed;
+}
+
+.counter {
+  align-self: flex-end;
+
+  @mixin font-description;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+}

@@ -7,8 +7,8 @@ import {
 
 import cn from 'classnames'
 
-import { InfoTooltip } from '../info-tooltip'
 import { Skeleton } from '../skeleton'
+import { Field, getFieldDescribedBy, resolveFieldError } from './Field'
 import styles from './Input.module.css'
 
 export type InputSize = 'default' | 'small'
@@ -56,29 +56,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const fallbackId = useId()
     const inputId = id ?? fallbackId
-    const errorId = `${inputId}-error`
-
-    const hasError = Boolean(error)
-    const errorMessage = typeof error === 'boolean' ? null : error
-    const showErrorMessage = errorMessage != null
+    const { hasError } = resolveFieldError(error)
 
     return (
-      <div
-        className={cn(styles.field, className)}
-        data-testid={dataTestId?.root}
+      <Field
+        id={inputId}
+        label={label}
+        tooltip={tooltip}
+        description={description}
+        error={error}
+        className={className}
+        dataTestId={dataTestId}
       >
-        {label != null ? (
-          <span className={styles.labelRow}>
-            <label
-              className={styles.label}
-              htmlFor={inputId}
-              data-testid={dataTestId?.label}
-            >
-              {label}
-            </label>
-            {tooltip != null ? <InfoTooltip content={tooltip} /> : null}
-          </span>
-        ) : null}
         <label
           className={cn(styles.root, styles[size], {
             [styles.error]: hasError,
@@ -104,7 +93,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               readOnly={loading || readOnly}
               aria-busy={loading || undefined}
               aria-invalid={hasError || undefined}
-              aria-describedby={showErrorMessage ? errorId : undefined}
+              aria-describedby={getFieldDescribedBy(
+                inputId,
+                error,
+                description,
+              )}
               data-testid={dataTestId?.input}
               {...rest}
             />
@@ -113,25 +106,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             ) : null}
           </span>
         </label>
-        {showErrorMessage ? (
-          <p
-            id={errorId}
-            className={styles.errorText}
-            role='alert'
-            data-testid={dataTestId?.error}
-          >
-            {errorMessage}
-          </p>
-        ) : null}
-        {description != null ? (
-          <p
-            className={styles.description}
-            data-testid={dataTestId?.description}
-          >
-            {description}
-          </p>
-        ) : null}
-      </div>
+      </Field>
     )
   },
 )
