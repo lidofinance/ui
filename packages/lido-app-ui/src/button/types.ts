@@ -17,6 +17,8 @@ export type ButtonDataTestId = {
 export type ButtonOwnProps = {
   variant?: ButtonVariant
   size?: ButtonSize
+  /** Stretches to the full width of the container. */
+  fullWidth?: boolean
   iconLeft?: ReactNode
   iconRight?: ReactNode
   /**

@@ -1,6 +1,4 @@
 .notification {
-  --local-border: var(--lido-app-ui-color-border-default);
-
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -9,10 +7,14 @@
   width: 320px;
   max-width: 100%;
   padding: calc(16px - 1px);
-  border: 1px solid var(--local-border);
+  border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-dropdown);
   background-color: var(--lido-app-ui-color-background-toast);
   color: var(--lido-app-ui-color-text-default);
+}
+
+.fluid {
+  width: 100%;
 }
 
 .content {
