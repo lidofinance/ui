@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-autofocus -- autoFocus is the behavior under test */
 import { createRef, StrictMode, useRef, useState } from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { Popover } from '../popover'
 import { TokenSelector } from '../token-selector'
@@ -568,5 +568,71 @@ describe('Modal', () => {
     )
     fireEvent.click(scrim)
     expect(onClose).not.toHaveBeenCalled()
+  })
+})
+
+describe('Modal exit transition', () => {
+  const animated = () =>
+    vi
+      .spyOn(window, 'getComputedStyle')
+      .mockReturnValue({ transitionDuration: '0.15s' } as CSSStyleDeclaration)
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+    vi.useRealTimers()
+  })
+
+  it('stays mounted and inert until transitionend, releasing lock and focus at once', () => {
+    animated()
+    const { rerender } = render(modal({ inertOthers: true }))
+    rerender(modal({ open: false, inertOthers: true }))
+    expect(screen.getByTestId('scrim')).toHaveAttribute('inert')
+    expect(document.body.style.overflow).toBe('')
+    act(() => {
+      fireEvent.transitionEnd(screen.getByRole('dialog', { hidden: true }))
+    })
+    expect(screen.queryByTestId('scrim')).not.toBeInTheDocument()
+  })
+
+  it('ignores transitionend bubbling from a child', () => {
+    animated()
+    const { rerender } = render(modal({ children: <i data-testid='kid' /> }))
+    rerender(modal({ open: false, children: <i data-testid='kid' /> }))
+    act(() => {
+      fireEvent.transitionEnd(screen.getByTestId('kid'))
+    })
+    expect(screen.getByTestId('scrim')).toBeInTheDocument()
+  })
+
+  it('unmounts through the fallback timeout when transitionend never fires', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    rerender(modal({ open: false }))
+    act(() => {
+      vi.advanceTimersByTime(700)
+    })
+    expect(screen.queryByTestId('scrim')).not.toBeInTheDocument()
+  })
+
+  it('reopening during the exit keeps it mounted and re-engages the lock', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    rerender(modal({ open: false }))
+    rerender(modal())
+    act(() => {
+      vi.advanceTimersByTime(700)
+    })
+    expect(screen.getByTestId('scrim')).toBeInTheDocument()
+    expect(screen.getByTestId('scrim')).not.toHaveAttribute('inert')
+    expect(document.body.style.overflow).toBe('hidden')
+  })
+
+  it('unmounts synchronously without an overlay', () => {
+    animated()
+    const { rerender } = render(modal({ withOverlay: false }))
+    rerender(modal({ withOverlay: false, open: false }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 })
