@@ -30,6 +30,10 @@ function Widget() {
 
 Theme providers (`ThemeProvider`, `CookieThemeProvider`) are re-exported from `@lidofinance/lido-shared-ui`. The color tokens follow the `data-lido-theme` attribute they set, so switching to the dark theme restyles these components. `ThemeSwitcher` is the app-ui-styled theme toggle, since the shared `ThemeToggler` relies on `--lido-ui-*` tokens that app-ui doesn't define. `ThemeSwitcher` needs `CookieThemeProvider`; the static `ThemeProvider` has no toggle, so the switcher renders but clicking does nothing. In SSR apps pass the request cookie as `initialThemeName` so the label is right on first paint (the icon already follows `data-lido-theme` in CSS).
 
+Set `color: var(--lido-app-ui-color-text-default)` and `font-family: var(--lido-app-ui-font-family)` on `body`: app-ui sets no default text color.
+
+Optional mono font: `--lido-app-ui-font-family-mono` (system stack by default) is for keys and hashes (the Operators design renders them in Manrope, so this is opt-in). To use a webfont, load it yourself and override the token on `:root`. See the Foundations/Setup story for the full setup.
+
 ## Router links
 
 Every app-ui link (`TextLink`, `NavLink`, `Button` and `IconButton` with `href`, `SmallCard`, `Tag` with `href`, `Breadcrumbs` items with `href`, `Logo` with `href`) renders a plain `<a>` by default. Wrap the app in `LinkProvider` to route in-app hrefs through your router's link component; `externalComponent` does the same for absolute URLs. In-app hash links, `download` links and links with a non-`_self` `target` stay a plain `<a>`; absolute URLs always go to `externalComponent` when one is set. Absolute `http(s)` URLs open in a new tab (`target="_blank"`, `rel="noopener noreferrer"`) unless `target` is passed. Adapters must be `forwardRef` components: under React 18 `ref` is never passed as a prop.

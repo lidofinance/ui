@@ -91,6 +91,8 @@
   --lido-app-ui-font-family:
     'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
     'Helvetica Neue', sans-serif;
+  --lido-app-ui-font-family-mono:
+    ui-monospace, sfmono-regular, menlo, consolas, monospace;
   --lido-app-ui-font-weight-thin: 200;
   --lido-app-ui-font-weight-regular: 400;
   --lido-app-ui-font-weight-medium: 500;
