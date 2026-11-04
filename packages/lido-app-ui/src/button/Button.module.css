@@ -40,6 +40,13 @@
   cursor: wait;
 }
 
+.button.fullWidth {
+  display: flex;
+  width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
 .button:focus-visible {
   outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
@@ -62,15 +69,7 @@
 }
 
 .spinner {
-  flex-shrink: 0;
   color: var(--local-spinner-color);
-  animation: spin 0.9s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* Sizes */
@@ -83,10 +82,13 @@
   line-height: var(--lido-app-ui-line-height-body);
 }
 
-.big .icon,
-.big .spinner {
+.big .icon {
   width: 20px;
   height: 20px;
+}
+
+.big .spinner {
+  --spinner-size: 20px;
 }
 
 .small {
@@ -97,10 +99,13 @@
   line-height: var(--lido-app-ui-line-height-label);
 }
 
-.small .icon,
-.small .spinner {
+.small .icon {
   width: 16px;
   height: 16px;
+}
+
+.small .spinner {
+  --spinner-size: 16px;
 }
 
 /* Variants */

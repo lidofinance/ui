@@ -34,6 +34,7 @@ export const Button = forwardRef<
       children,
       variant = 'primary',
       size = 'big',
+      fullWidth = false,
       loading = false,
       disabled = false,
       iconLeft,
@@ -52,6 +53,7 @@ export const Button = forwardRef<
         styles.button,
         styles[variant],
         styles[size],
+        fullWidth && styles.fullWidth,
         loading && !disabled && styles.loading,
         className,
       )}
