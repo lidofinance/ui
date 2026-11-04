@@ -1,0 +1,38 @@
+.stack {
+  position: fixed;
+  z-index: var(--lido-app-ui-z-index-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lido-app-ui-space-8);
+  max-width: calc(100vw - 2 * var(--lido-app-ui-space-20));
+  pointer-events: none;
+}
+
+.stack > * {
+  pointer-events: auto;
+}
+
+.topRight {
+  top: calc(var(--lido-app-ui-header-height) + var(--lido-app-ui-space-8));
+  right: var(--lido-app-ui-space-20);
+}
+
+.bottomRight {
+  right: var(--lido-app-ui-space-20);
+  bottom: var(--lido-app-ui-space-20);
+}
+
+.bottomCenter {
+  bottom: var(--lido-app-ui-space-20);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
