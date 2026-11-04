@@ -1,0 +1,47 @@
+.disclosure {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lido-app-ui-space-8);
+  width: 100%;
+  padding: var(--lido-app-ui-space-12) 0;
+  border: none;
+  background: none;
+  color: var(--lido-app-ui-color-text-default);
+  text-align: start;
+  cursor: pointer;
+
+  @mixin font-body-semibold;
+}
+
+.header:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--lido-app-ui-color-icons-secondary);
+  transition: transform 0.2s ease;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+}
+
+.content {
+  padding-top: var(--lido-app-ui-space-16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    transition: none;
+  }
+}

@@ -1,0 +1,80 @@
+.root {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: var(--lido-app-ui-space-40) var(--lido-app-ui-space-24);
+  text-align: center;
+}
+
+.fill {
+  flex: 1;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.title {
+  @mixin font-body-large-semibold;
+
+  color: var(--lido-app-ui-color-text-secondary);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.description {
+  @mixin font-body;
+
+  max-width: 360px;
+  color: var(--lido-app-ui-color-text-tertiary);
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lido-app-ui-space-12);
+}
+
+.title + .description {
+  margin-top: var(--lido-app-ui-space-8);
+}
+
+* + .action {
+  margin-top: var(--lido-app-ui-space-24);
+}
+
+.illustration + * {
+  margin-top: var(--lido-app-ui-space-16);
+}
+
+.large .title {
+  @mixin font-h2;
+
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.large .description {
+  @mixin font-body-large;
+
+  max-width: 560px;
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.large .title + .description {
+  margin-top: var(--lido-app-ui-space-12);
+}
+
+.large .illustration + * {
+  margin-top: var(--lido-app-ui-space-24);
+}
