@@ -133,6 +133,7 @@ describe('Drawer', () => {
     const spy = vi
       .spyOn(window, 'getComputedStyle')
       .mockReturnValue({ transitionDuration: '0.15s' } as CSSStyleDeclaration)
+    vi.useFakeTimers()
     const { rerender } = render(
       <Drawer open onClose={vi.fn()} dataTestId={dataTestId}>
         Body
@@ -147,9 +148,35 @@ describe('Drawer', () => {
     expect(document.documentElement.style.overflow).not.toBe('hidden')
     expect(document.body.style.overflow).not.toBe('hidden')
     act(() => {
-      fireEvent.transitionEnd(screen.getByTestId('root'))
+      vi.advanceTimersByTime(250)
     })
     expect(screen.queryByTestId('root')).not.toBeInTheDocument()
     spy.mockRestore()
+    vi.useRealTimers()
+  })
+
+  it('reopening mid-exit keeps the same panel node mounted', () => {
+    const spy = vi
+      .spyOn(window, 'getComputedStyle')
+      .mockReturnValue({ transitionDuration: '0.15s' } as CSSStyleDeclaration)
+    vi.useFakeTimers()
+    const el = (open: boolean) => (
+      <Drawer open={open} onClose={vi.fn()} dataTestId={dataTestId}>
+        Body
+      </Drawer>
+    )
+    const { rerender } = render(el(true))
+    const node = screen.getByTestId('root')
+    rerender(el(false))
+    expect(node).toHaveAttribute('data-state', 'closed')
+    expect(node).toHaveAttribute('data-motion', 'exit')
+    rerender(el(true))
+    act(() => {
+      vi.advanceTimersByTime(500)
+    })
+    expect(screen.getByTestId('root')).toBe(node)
+    expect(node).toHaveAttribute('data-state', 'open')
+    spy.mockRestore()
+    vi.useRealTimers()
   })
 })

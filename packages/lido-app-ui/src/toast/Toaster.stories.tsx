@@ -42,7 +42,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     return (
       <>
@@ -56,7 +55,6 @@ export const Basic: Story = {
 }
 
 export const TitleAndDescription: Story = {
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     return (
       <>
@@ -78,7 +76,6 @@ export const TitleAndDescription: Story = {
 
 export const ErrorToast: Story = {
   name: 'Error',
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     return (
       <>
@@ -103,7 +100,6 @@ export const ErrorToast: Story = {
 }
 
 export const Sticky: Story = {
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     return (
       <>
@@ -143,7 +139,6 @@ export const Sticky: Story = {
 }
 
 export const DismissAll: Story = {
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     return (
       <>
@@ -168,7 +163,6 @@ export const DismissAll: Story = {
 }
 
 export const CustomTimeout: Story = {
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     return (
       <>
@@ -187,7 +181,6 @@ export const CustomTimeout: Story = {
 }
 
 export const WithUseToasts: Story = {
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     const toasts = useToasts()
 
@@ -208,7 +201,6 @@ export const WithUseToasts: Story = {
 }
 
 export const OverModal: Story = {
-  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     const [open, setOpen] = useState(false)
 

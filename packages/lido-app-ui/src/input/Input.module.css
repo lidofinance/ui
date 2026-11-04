@@ -7,9 +7,7 @@
   background-color: var(--lido-app-ui-color-background-default);
   font-family: var(--lido-app-ui-font-family);
   cursor: text;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .root:hover {

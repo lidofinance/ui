@@ -18,7 +18,7 @@
   background-color: var(--lido-app-ui-color-background-default);
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .card:hover:not(:disabled, .active) {

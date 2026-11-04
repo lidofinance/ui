@@ -582,29 +582,46 @@ describe('Modal exit transition', () => {
     vi.useRealTimers()
   })
 
-  it('stays mounted and inert until transitionend, releasing lock and focus at once', () => {
+  it('stays mounted and inert until the exit ends, releasing lock and focus at once', () => {
     animated()
+    vi.useFakeTimers()
     const { rerender } = render(modal({ inertOthers: true }))
     rerender(modal({ open: false, inertOthers: true }))
     expect(screen.getByTestId('scrim')).toHaveAttribute('inert')
     expect(document.body.style.overflow).toBe('')
     act(() => {
-      fireEvent.transitionEnd(screen.getByRole('dialog', { hidden: true }))
+      vi.advanceTimersByTime(250)
     })
     expect(screen.queryByTestId('scrim')).not.toBeInTheDocument()
   })
 
-  it('ignores transitionend bubbling from a child', () => {
+  it('marks overlay and card closed while exiting, and settled once open', () => {
     animated()
-    const { rerender } = render(modal({ children: <i data-testid='kid' /> }))
-    rerender(modal({ open: false, children: <i data-testid='kid' /> }))
-    act(() => {
-      fireEvent.transitionEnd(screen.getByTestId('kid'))
-    })
-    expect(screen.getByTestId('scrim')).toBeInTheDocument()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    expect(screen.getByTestId('scrim')).toHaveAttribute('data-state', 'open')
+    rerender(modal({ open: false }))
+    expect(screen.getByTestId('scrim')).toHaveAttribute('data-motion', 'exit')
+    expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute(
+      'data-state',
+      'closed',
+    )
   })
 
-  it('unmounts through the fallback timeout when transitionend never fires', () => {
+  it('reopening mid-exit keeps the same card node', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    const card = screen.getByRole('dialog')
+    rerender(modal({ open: false }))
+    rerender(modal())
+    act(() => {
+      vi.advanceTimersByTime(500)
+    })
+    expect(screen.getByRole('dialog')).toBe(card)
+  })
+
+  it('unmounts through the fallback timeout when no motion event fires', () => {
     animated()
     vi.useFakeTimers()
     const { rerender } = render(modal())

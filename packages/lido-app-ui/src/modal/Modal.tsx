@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  useCallback,
   useEffect,
   useId,
   useImperativeHandle,
@@ -17,8 +18,6 @@ import {
   useBodyScrollLock,
   useEscape,
   useFocusTrap,
-  useEntered,
-  useExitEnd,
   useHideOthers,
   useOutsideClick,
   usePresence,
@@ -65,13 +64,13 @@ export type ModalProps = Omit<
 }
 
 type ModalDialogProps = ModalProps & {
-  closing?: boolean
   onExited?: () => void
 }
 
 const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
   (
     {
+      open = true,
       title,
       subtitle,
       onClose,
@@ -85,7 +84,6 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
       children,
       className,
       dataTestId,
-      closing = false,
       onExited,
       ...rest
     },
@@ -100,19 +98,39 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
         ? null
         : (document.activeElement as HTMLElement | null),
     )
-    const overlayRef = useRef<HTMLDivElement>(null)
+    const overlayRef = useRef<HTMLDivElement | null>(null)
     const headerRef = useRef<HTMLDivElement>(null)
     const pressedScrim = useRef(false)
 
     useImperativeHandle(ref, () => cardEl as HTMLDivElement, [cardEl])
     // Released as soon as closing starts, so focus returns to the opener without waiting for the exit animation.
-    const active = withOverlay && !closing
+    const closing = !open
+    const active = withOverlay && open
     useBodyScrollLock({ enabled: active && lockScroll })
     // Before the trap: cleanups run in order, so inert lifts before focus returns to the opener.
     useHideOthers(cardEl, active && inertOthers)
     useFocusTrap(cardEl, { enabled: active, initialFocus, returnFocus })
-    useExitEnd(cardEl, closing, () => onExited?.())
-    const entered = useEntered(cardEl)
+    // Mounted fresh on each open, so it appears; the overlay owns the exit wait for scrim and card.
+    const {
+      status,
+      ref: presenceRef,
+      motionProps,
+    } = usePresence<HTMLDivElement>(open, {
+      appear: withOverlay,
+      subtree: true,
+    })
+    const setOverlay = useCallback(
+      (node: HTMLDivElement | null) => {
+        overlayRef.current = node
+        presenceRef(node)
+      },
+      [presenceRef],
+    )
+    // Also covers a dialog that mounts already closed and never animates.
+    useEffect(() => {
+      if (withOverlay && status === 'exited') onExited?.()
+    }, [withOverlay, status, onExited])
+    const overlayMotion = withOverlay ? motionProps : undefined
     // Stays registered with closeOnEscape={false} so Escape doesn't fall through to an underlying overlay.
     useEscape(
       () => {
@@ -173,6 +191,7 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
         aria-describedby={subtitle != null ? subtitleId : undefined}
         data-testid={dataTestId?.root}
         {...rest}
+        {...overlayMotion}
         onPointerDown={handleCardPointerDown}
         ref={setCardEl}
         className={cn(styles.card, bodyFill && styles.cardBodyFill, className)}
@@ -217,11 +236,9 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
       // Pointer-only: a focusable backdrop would add a tab stop before the dialog; keyboard closes via Escape.
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div
-        ref={overlayRef}
-        className={cn(
-          styles.overlay,
-          closing ? styles.closing : entered && styles.open,
-        )}
+        ref={setOverlay}
+        className={styles.overlay}
+        {...motionProps}
         // Not React 18 typed; the dying dialog must leave the a11y tree and tab order.
         {...(closing ? ({ inert: '' } as object) : null)}
         onClick={handleOverlayClick}
@@ -239,19 +256,16 @@ ModalDialog.displayName = 'ModalDialog'
 /** Dialog card for supply, borrow and repay flows; with `withOverlay` it is portaled and closes on Escape and scrim click, traps focus and locks body scroll. `ModalCard` is the bare card. */
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ({ open = true, ...props }, ref) => {
-    const { mounted, closing, onExited } = usePresence(open)
+    const [present, setPresent] = useState(open)
+    if (open && !present) setPresent(true)
+    const handleExited = useCallback(() => setPresent(false), [])
     if (!props.withOverlay) {
       return open ? <ModalDialog ref={ref} {...props} /> : null
     }
-    if (!mounted) return null
+    if (!open && !present) return null
     return (
       <Portal>
-        <ModalDialog
-          ref={ref}
-          closing={closing}
-          onExited={onExited}
-          {...props}
-        />
+        <ModalDialog ref={ref} open={open} onExited={handleExited} {...props} />
       </Portal>
     )
   },

@@ -15,9 +15,7 @@
   border-radius: var(--lido-app-ui-border-radius-card);
   background-color: var(--lido-app-ui-color-background-default);
   cursor: text;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
   height: 152px;
 }
 
