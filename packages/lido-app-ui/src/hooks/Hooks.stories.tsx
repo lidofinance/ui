@@ -11,6 +11,7 @@ import {
   useEscape,
   useFocusTrap,
   useOutsideClick,
+  usePresence,
 } from '.'
 
 const meta: Meta<typeof Portal> = {
@@ -164,6 +165,91 @@ export const PortalThemeScope: Story = {
           )}
         </div>
       </DarkThemeProvider>
+    )
+  },
+}
+
+const PresenceBox = ({
+  open,
+  appear,
+  keepMounted,
+}: {
+  open: boolean
+  appear?: boolean
+  keepMounted?: boolean
+}) => {
+  const { mounted, status, ref, motionProps } = usePresence<HTMLDivElement>(
+    open,
+    { appear, keepMounted },
+  )
+  return (
+    <div style={{ display: 'grid', gap: 8 }}>
+      <code>
+        status: {status}, mounted: {String(mounted)}
+      </code>
+      {mounted ? (
+        <div
+          ref={ref}
+          {...motionProps}
+          style={{
+            padding: 16,
+            border: '1px solid var(--lido-app-ui-color-border-default)',
+            borderRadius: 'var(--lido-app-ui-border-radius-md)',
+            color: 'var(--lido-app-ui-color-text-default)',
+            opacity: motionProps['data-state'] === 'open' ? 1 : 0,
+            transition:
+              motionProps['data-state'] === 'open'
+                ? 'opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out)'
+                : 'opacity var(--lido-app-ui-duration-base-exit) var(--lido-app-ui-easing-exit)',
+          }}
+        >
+          Content
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
+const presenceDocs = (story: string) => ({
+  docs: { description: { story } },
+})
+
+export const UsePresenceBasic: Story = {
+  name: 'usePresence: Basic',
+  parameters: presenceDocs(
+    '`usePresence(open)` keeps the node mounted until its exit motion finishes. Spread `motionProps` (`data-state`, `data-motion`) and merge `ref`; CSS keys on the attributes (see Foundations/Motion).',
+  ),
+  render: function Render() {
+    const [open, setOpen] = useState(false)
+    return (
+      <>
+        <Button onClick={() => setOpen((v) => !v)}>Toggle</Button>
+        <PresenceBox open={open} />
+      </>
+    )
+  },
+}
+
+export const UsePresenceAppear: Story = {
+  name: 'usePresence: Appear',
+  parameters: presenceDocs(
+    '`appear` animates the first mount when initially open (toasts). Default is to render settled.',
+  ),
+  render: () => <PresenceBox open appear />,
+}
+
+export const UsePresenceKeepMounted: Story = {
+  name: 'usePresence: KeepMounted',
+  parameters: presenceDocs(
+    '`keepMounted` leaves the node in the DOM while closed (Accordion); only the attributes and status change.',
+  ),
+  render: function Render() {
+    const [open, setOpen] = useState(true)
+    return (
+      <>
+        <Button onClick={() => setOpen((v) => !v)}>Toggle</Button>
+        <PresenceBox open={open} keepMounted />
+      </>
     )
   },
 }

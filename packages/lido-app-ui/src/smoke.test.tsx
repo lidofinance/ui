@@ -471,6 +471,7 @@ describe('package entry', () => {
     expect(entry.useOutsideClick).toBeTypeOf('function')
     expect(entry.useFocusTrap).toBeTypeOf('function')
     expect(entry.useBodyScrollLock).toBeTypeOf('function')
+    expect(entry.usePresence).toBeTypeOf('function')
     expect(entry.ModalCard).toBeTypeOf('object')
   })
 })
