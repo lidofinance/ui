@@ -94,7 +94,6 @@ export const Animated: Story = {
       description: {
         story: 'Pills fill smoothly when `value` changes.',
       },
-      source: { type: 'code' },
     },
     controls: { disable: true },
   },

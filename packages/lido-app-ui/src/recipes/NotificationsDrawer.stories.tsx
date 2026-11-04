@@ -35,7 +35,6 @@ const meta: Meta = {
     storyBackground: 'page',
     docs: {
       story: { inline: false, iframeHeight: 720 },
-      source: { type: 'code' },
       description: {
         component:
           'Sidebar app shell where the bell `IconButton` in the `Header` actions opens a right-side `Drawer` with a list of `Notification`s. Keep the open state next to the button; `Drawer` portals itself, so it can be rendered anywhere in the tree.',

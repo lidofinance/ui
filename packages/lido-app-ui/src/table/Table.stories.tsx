@@ -276,6 +276,7 @@ const rankRows: RankRow[] = [
 ]
 
 export const ValmartRankings: Story = {
+  parameters: { docs: { source: { type: 'code' } } },
   args: { variant: 'dense', stickyHeader: true, maxHeight: 220 },
   render: (args) => (
     <Table<RankRow>
@@ -358,6 +359,7 @@ export const HorizontalScroll: Story = {
   ),
   parameters: {
     docs: {
+      source: { type: 'code' },
       description: {
         story:
           'The container is 420px wide and the table needs 760px: it scrolls inside the table wrapper while the page stays put.',
@@ -391,7 +393,6 @@ export const Composed: Story = {
   parameters: {
     controls: { disable: true },
     docs: {
-      source: { type: 'code' },
       description: {
         story:
           'Building blocks for custom layouts. The parts carry no surface or scroller: wrap them in your own container. Pass `variant="dense"` to `TableRoot` for dense spacing.',

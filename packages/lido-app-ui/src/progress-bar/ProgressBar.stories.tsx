@@ -145,7 +145,6 @@ export const Animated: Story = {
         story:
           'Value, limit marker and over-limit state transition on change; nothing animates on first render.',
       },
-      source: { type: 'code' },
     },
     controls: { disable: true },
   },

@@ -82,6 +82,7 @@ export const Basic: Story = {
   },
   parameters: {
     docs: {
+      source: { type: 'code' },
       description: {
         story:
           'Fully wired: type an amount and the fiat line follows, or hit Max to fill the balance. Letters are stripped out, and a second decimal point is ignored.',

@@ -137,7 +137,7 @@ Override any token after importing the stylesheet. Non-color tokens (radii, typo
 }
 ```
 
-The typography mixins and breakpoint definitions are published too, for products running `postcss-mixins` / `postcss-custom-media`:
+The typography and motion mixins (`typography-mixins.css`, `motion-mixins.css`) and breakpoint definitions are published too under `@lidofinance/lido-app-ui/styles/*`, for products running `postcss-mixins` / `postcss-custom-media`. `mixinsDir` picks up both mixin files. The motion mixins use nested rules, so keep `postcss-nested` (or target browsers with native CSS nesting):
 
 ```js
 // postcss.config.mjs
@@ -155,10 +155,17 @@ export default {
       files: [path.join(stylesDir, 'breakpoints.css')],
     },
     'postcss-mixins': { mixinsDir: stylesDir },
+    'postcss-nested': {},
     'postcss-custom-media': { preserve: false },
   },
 }
 ```
+
+## Motion
+
+Durations, easings and amplitudes are tokens: enter `--lido-app-ui-duration-{fast,base,slow}`, exit `-exit` variants (shorter), `--lido-app-ui-easing-*`, `--lido-app-ui-motion-{shift,shift-lg,scale}`, `--lido-app-ui-transition-colors`. Override them on `:root` to retune.
+
+Custom components can reuse the mixins (`motion-fade`, `motion-pop`, `motion-slide`, `motion-collapse`, `motion-press`; see the `postcss-mixins` setup above) together with the `usePresence` hook. It keeps an element mounted through its exit and returns `{ mounted, status, ref, motionProps }`; spread `motionProps` (`data-state`, `data-motion`) on the element the CSS keys on. Mixins respect `prefers-reduced-motion`.
 
 ## Layout
 
