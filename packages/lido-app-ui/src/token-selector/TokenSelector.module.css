@@ -14,8 +14,7 @@
   color: var(--lido-app-ui-color-text-default);
   cursor: pointer;
   border-radius: var(--lido-app-ui-border-radius-control);
-  transition: background-color var(--lido-app-ui-duration-fast)
-    var(--lido-app-ui-easing-standard);
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .trigger:hover {
@@ -96,12 +95,14 @@
 
   /* Figma "Icons/secondary" — chevron is muted, not full text-default. */
   color: var(--lido-app-ui-color-icons-secondary);
-  transition: transform var(--lido-app-ui-duration-base)
-    var(--lido-app-ui-easing-out);
+  transition: transform var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
 }
 
 .open .chevron {
   transform: rotate(180deg);
+  transition-duration: var(--lido-app-ui-duration-fast);
+  transition-timing-function: var(--lido-app-ui-easing-out);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -154,8 +155,7 @@
   background-color: transparent;
   text-align: left;
   cursor: pointer;
-  transition: background-color var(--lido-app-ui-duration-fast)
-    var(--lido-app-ui-easing-standard);
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .option.default {

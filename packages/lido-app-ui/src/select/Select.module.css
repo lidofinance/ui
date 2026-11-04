@@ -11,11 +11,7 @@
   letter-spacing: var(--lido-app-ui-letter-spacing-body);
   text-align: left;
   cursor: pointer;
-  transition:
-    background-color var(--lido-app-ui-duration-base)
-      var(--lido-app-ui-easing-standard),
-    border-color var(--lido-app-ui-duration-base)
-      var(--lido-app-ui-easing-standard);
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .root:hover {
@@ -85,8 +81,8 @@
   width: 20px;
   height: 20px;
   color: var(--lido-app-ui-color-icons-secondary);
-  transition: transform var(--lido-app-ui-duration-base)
-    var(--lido-app-ui-easing-out);
+  transition: transform var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
 }
 
 .chevron svg {
@@ -96,6 +92,8 @@
 
 .open .chevron {
   transform: rotate(180deg);
+  transition-duration: var(--lido-app-ui-duration-fast);
+  transition-timing-function: var(--lido-app-ui-easing-out);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -106,7 +104,11 @@
 
 .panel {
   gap: var(--lido-app-ui-space-4);
-  max-height: 320px;
+  max-height: min(320px, var(--lido-app-ui-popover-available-height, 320px));
+}
+
+.panelSmall {
+  min-width: min(max-content, calc(100vw - 16px));
 }
 
 .option {
@@ -130,11 +132,11 @@
   background-color: var(--lido-app-ui-color-background-surface-active);
 }
 
-.panel.default .option.selected {
+.panel:not(.panelSmall) .option.selected {
   border-color: var(--lido-app-ui-color-border-active);
 }
 
-.panel.small .option {
+.panelSmall .option {
   padding: 4px 12px 4px 8px;
   border-radius: var(--lido-app-ui-border-radius-xl);
 }
