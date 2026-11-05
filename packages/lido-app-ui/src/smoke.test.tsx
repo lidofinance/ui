@@ -76,7 +76,7 @@ import { Disclosure } from './disclosure'
 import { Drawer } from './drawer'
 import { EmptyState } from './empty-state'
 import { ProgressBar, SegmentedBar } from './progress-bar'
-import { Select } from './select'
+import { Select, SelectItem } from './select'
 import { StatCard, StatCardMeta } from './stat-card'
 import { Steps } from './steps'
 import {
@@ -353,6 +353,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Select',
     () => <Select label='Network' options={[{ value: 'a', label: 'A' }]} />,
   ],
+  ['SelectItem', () => <SelectItem label='Option' />],
   ['StatCard', () => <StatCard title='TVL' value='1M' />],
   [
     'StatCardMeta',

@@ -27,7 +27,7 @@ const meta: Meta<typeof Popover> = {
       control: { type: 'select' },
     },
     width: {
-      options: ['auto', 240, 320, 'anchor', 'align'],
+      options: ['auto', 240, 320, 'anchor', 'align', 'min-anchor'],
       mapping: { auto: undefined },
       control: { type: 'select' },
     },
@@ -278,58 +278,7 @@ export const Width: Story = {
     docs: {
       description: {
         story:
-          "Omitted `width` sizes the panel by content (up to the viewport minus 16px). A number is px, `'anchor'` matches the trigger and `'align'` matches the `alignRef` element (the grey container here), falling back to the anchor.",
-      },
-    },
-  },
-}
-
-export const WithMenu: Story = {
-  render: function Render(args) {
-    const [open, setOpen] = useState(false)
-    const triggerRef = useRef<HTMLButtonElement>(null)
-
-    return (
-      <div style={stage}>
-        <Button
-          ref={triggerRef}
-          variant='outline'
-          onClick={() => setOpen((value) => !value)}
-        >
-          Account
-        </Button>
-        <Popover
-          aria-label='Account actions'
-          {...args}
-          width={args.width ?? 240}
-          open={open}
-          onClose={() => setOpen(false)}
-          anchorRef={triggerRef}
-        >
-          <Stack>
-            {['Copy address', 'View on Etherscan', 'Disconnect'].map(
-              (label) => (
-                <Button
-                  key={label}
-                  variant='ghost'
-                  size='small'
-                  style={{ width: '100%', justifyContent: 'flex-start' }}
-                  onClick={() => setOpen(false)}
-                >
-                  {label}
-                </Button>
-              ),
-            )}
-          </Stack>
-        </Popover>
-      </div>
-    )
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'A list of actions in a fixed-width panel. Selecting an item closes the popover.',
+          "Omitted `width` sizes the panel by content (up to the viewport minus 16px). A number is px, `'anchor'` matches the trigger, `'min-anchor'` is content-sized but never narrower than the trigger, and `'align'` matches the `alignRef` element (the grey container here), falling back to the anchor.",
       },
     },
   },

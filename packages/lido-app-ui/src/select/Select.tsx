@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
   type ButtonHTMLAttributes,
+  type HTMLAttributes,
   type KeyboardEvent,
   type ReactNode,
 } from 'react'
@@ -19,9 +20,16 @@ import {
   resolveFieldError,
   type FieldDataTestId,
 } from '../input/Field'
-import { IconCheck, IconChevronDown } from '../icons'
+import { IconChevronDown } from '../icons'
 import { Popover } from '../popover'
+import { Skeleton } from '../skeleton'
 import styles from './Select.module.css'
+import {
+  SelectItem,
+  SelectItemContent,
+  type SelectItemDataTestId,
+  type SelectItemLabelWeight,
+} from './SelectItem'
 
 export type SelectSize = 'default' | 'small'
 
@@ -29,7 +37,12 @@ export type SelectOption = {
   value: string
   label: ReactNode
   disabled?: boolean
+  icon?: ReactNode
+  /** Muted text next to `label`, default size only. */
+  secondaryLabel?: ReactNode
+  /** Caption below the label row, default size only. */
   description?: ReactNode
+  dataTestId?: SelectItemDataTestId
   /** Plain-text label for typeahead; defaults to `label` when it is a string. */
   textValue?: string
 }
@@ -57,6 +70,14 @@ export type SelectProps = Omit<
   description?: ReactNode
   error?: ReactNode | boolean
   dataTestId?: SelectDataTestId
+  /** Static chip: no chevron, no popup, not focusable. */
+  single?: boolean
+  /** Accessible name of the listbox when there is no `label`. */
+  listLabel?: string
+  /** Label weight of trigger and items; `semibold` is the token-picker look. */
+  labelWeight?: SelectItemLabelWeight
+  /** Swaps the value for a skeleton; the trigger stays focusable but won't open. */
+  loading?: boolean
 }
 
 const TYPEAHEAD_RESET_MS = 500
@@ -65,7 +86,32 @@ const textOf = (option: SelectOption) =>
   option.textValue ??
   (typeof option.label === 'string' ? option.label : option.value)
 
-/** Single select with the Input chrome: button trigger, listbox popup, full keyboard support, typeahead, optional hidden form input. */
+type SelectChipProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'children'
+> & { size: SelectSize; children: ReactNode }
+
+const SelectChip = ({
+  size,
+  children,
+  form: _form,
+  formAction: _formAction,
+  formEncType: _formEncType,
+  formMethod: _formMethod,
+  formNoValidate: _formNoValidate,
+  formTarget: _formTarget,
+  type: _type,
+  ...rest
+}: SelectChipProps) => (
+  <span
+    {...(rest as HTMLAttributes<HTMLSpanElement>)}
+    className={cn(styles.single, styles[size])}
+  >
+    {children}
+  </span>
+)
+
+/** Single select: button trigger, listbox popup, full keyboard support, typeahead, optional hidden form input, `loading` swaps the value for a skeleton. Options can carry icon, secondary label and description. */
 export const Select = forwardRef<HTMLButtonElement, SelectProps>(
   (
     {
@@ -87,6 +133,10 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       onKeyUp,
       onClick,
       dataTestId,
+      single = false,
+      listLabel,
+      labelWeight = 'regular',
+      loading,
       ...rest
     },
     ref,
@@ -152,6 +202,12 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
     useEffect(() => () => window.clearTimeout(typeahead.current.timer), [])
 
     useEffect(() => {
+      if (!loading) return
+      setOpen(false)
+      setActiveIndex(-1)
+    }, [loading])
+
+    useEffect(() => {
       if (!open || activeIndex < 0) return
       document
         .getElementById(`${selectId}-option-${activeIndex}`)
@@ -196,6 +252,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
         if (open) close()
         return
       }
+      if (loading) return
 
       if (
         key.length === 1 &&
@@ -258,6 +315,47 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       }
     }
 
+    const isSmall = size === 'small'
+
+    const skeleton = (
+      <Skeleton
+        variant='text'
+        className={cn(
+          styles.skeleton,
+          labelWeight === 'semibold' && styles.skeletonLarge,
+        )}
+      />
+    )
+
+    const content = loading ? (
+      skeleton
+    ) : selectedOption ? (
+      <SelectItemContent
+        labelWeight={labelWeight}
+        icon={selectedOption.icon}
+        label={selectedOption.label}
+        secondaryLabel={isSmall ? undefined : selectedOption.secondaryLabel}
+        dataTestId={selectedOption.dataTestId}
+      />
+    ) : null
+
+    const hiddenInput = name ? (
+      <input
+        type='hidden'
+        name={name}
+        value={currentValue ?? ''}
+        disabled={disabled}
+        form={rest.form}
+      />
+    ) : null
+
+    const listName =
+      label != null
+        ? { 'aria-labelledby': labelId }
+        : listLabel
+          ? { 'aria-label': listLabel }
+          : { 'aria-labelledby': selectId }
+
     return (
       <Field
         id={selectId}
@@ -266,118 +364,121 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
         tooltip={tooltip}
         description={description}
         error={error}
+        fit={single}
         className={className}
         dataTestId={dataTestId}
       >
-        <button
-          ref={triggerRef}
-          id={selectId}
-          type='button'
-          role='combobox'
-          className={cn(styles.root, styles[size], {
-            [styles.error]: hasError,
-            [styles.open]: open,
-          })}
-          disabled={disabled}
-          aria-haspopup='listbox'
-          aria-expanded={open}
-          aria-controls={open ? listboxId : undefined}
-          aria-activedescendant={
-            open && activeIndex >= 0 ? optionId(activeIndex) : undefined
-          }
-          aria-labelledby={label != null ? labelId : undefined}
-          aria-invalid={hasError || undefined}
-          aria-describedby={getFieldDescribedBy(selectId, error, description)}
-          data-testid={dataTestId?.trigger}
-          {...rest}
-          onClick={(event) => {
-            onClick?.(event)
-            if (event.defaultPrevented) return
-            if (open) close()
-            else {
-              openList()
-              triggerRef.current?.focus()
-            }
-          }}
-          onKeyDown={handleKeyDown}
-          onKeyUp={(event) => {
-            onKeyUp?.(event)
-            if (event.key === ' ') event.preventDefault()
-          }}
-        >
-          <span
-            className={cn(styles.value, !selectedOption && styles.placeholder)}
-          >
-            {selectedOption ? selectedOption.label : placeholder}
-          </span>
-          <span className={styles.chevron} aria-hidden='true'>
-            <IconChevronDown />
-          </span>
-        </button>
-        {name ? (
-          <input
-            type='hidden'
-            name={name}
-            value={currentValue ?? ''}
-            disabled={disabled}
-            form={rest.form}
-          />
-        ) : null}
-        <Popover
-          open={open}
-          onClose={close}
-          anchorRef={triggerRef}
-          width='anchor'
-          offset={4}
-          modal={false}
-          role='listbox'
-          id={listboxId}
-          aria-labelledby={label != null ? labelId : selectId}
-          className={cn(styles.panel, size === 'small' && styles.panelSmall)}
-          dataTestId={{ root: dataTestId?.listbox }}
-        >
-          {options.map((option, index) => {
-            const selected = index === selectedIndex
-            return (
-              // Options are driven by the trigger's keyboard handling (aria-activedescendant), so they are not focusable.
-              // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/interactive-supports-focus
-              <div
-                key={option.value}
-                id={optionId(index)}
-                role='option'
-                aria-selected={selected}
-                aria-disabled={option.disabled || undefined}
-                className={cn(styles.option, {
-                  [styles.active]: index === activeIndex,
-                  [styles.selected]: selected,
-                  [styles.optionDisabled]: option.disabled,
-                })}
-                data-testid={dataTestId?.option}
-                onPointerMove={() => {
-                  if (!option.disabled && index !== activeIndex)
-                    setActiveIndex(index)
-                }}
-                onClick={() => commit(index)}
-                // Keeps focus on the trigger while clicking an option.
-                onMouseDown={(event) => event.preventDefault()}
-              >
-                <span className={styles.optionContent}>
-                  <span className={styles.optionLabel}>{option.label}</span>
-                  {option.description != null ? (
-                    <span className={styles.optionDescription}>
-                      {option.description}
-                    </span>
-                  ) : null}
-                </span>
-                {selected ? (
-                  <span className={styles.check} aria-hidden='true'>
-                    <IconCheck />
+        {single ? (
+          <SelectChip {...rest} size={size} data-testid={dataTestId?.trigger}>
+            {content}
+          </SelectChip>
+        ) : (
+          <>
+            <button
+              ref={triggerRef}
+              id={selectId}
+              type='button'
+              role='combobox'
+              className={cn(styles.trigger, styles[size], {
+                [styles.error]: hasError,
+                [styles.open]: open,
+                [styles.loading]: loading,
+              })}
+              disabled={disabled}
+              aria-haspopup='listbox'
+              aria-expanded={open}
+              aria-busy={loading || undefined}
+              aria-controls={open ? listboxId : undefined}
+              aria-activedescendant={
+                open && activeIndex >= 0 ? optionId(activeIndex) : undefined
+              }
+              aria-labelledby={label != null ? labelId : undefined}
+              aria-label={label == null ? listLabel : undefined}
+              aria-invalid={hasError || undefined}
+              aria-describedby={getFieldDescribedBy(
+                selectId,
+                error,
+                description,
+              )}
+              data-testid={dataTestId?.trigger}
+              {...rest}
+              onClick={(event) => {
+                onClick?.(event)
+                if (event.defaultPrevented || loading) return
+                if (open) close()
+                else {
+                  openList()
+                  triggerRef.current?.focus()
+                }
+              }}
+              onKeyDown={handleKeyDown}
+              onKeyUp={(event) => {
+                onKeyUp?.(event)
+                if (event.key === ' ') event.preventDefault()
+              }}
+            >
+              <span className={styles.content}>
+                {content ?? (
+                  <span
+                    className={cn(
+                      styles.placeholder,
+                      labelWeight === 'semibold' && styles.placeholderLarge,
+                    )}
+                  >
+                    {placeholder}
                   </span>
-                ) : null}
-              </div>
-            )
-          })}
-        </Popover>
+                )}
+              </span>
+              <span className={styles.chevron} aria-hidden='true'>
+                <IconChevronDown />
+              </span>
+            </button>
+            <Popover
+              open={open}
+              onClose={close}
+              anchorRef={triggerRef}
+              width={isSmall ? 'min-anchor' : 'anchor'}
+              offset={4}
+              modal={false}
+              role='listbox'
+              id={listboxId}
+              {...listName}
+              className={styles.panel}
+              dataTestId={{ root: dataTestId?.listbox }}
+            >
+              {options.map((option, index) => (
+                <SelectItem
+                  key={option.value}
+                  id={optionId(index)}
+                  role='option'
+                  aria-selected={index === selectedIndex}
+                  aria-disabled={option.disabled || undefined}
+                  size={size}
+                  labelWeight={labelWeight}
+                  icon={option.icon}
+                  label={option.label}
+                  secondaryLabel={option.secondaryLabel}
+                  description={option.description}
+                  selected={index === selectedIndex}
+                  active={index === activeIndex}
+                  disabled={option.disabled}
+                  dataTestId={{
+                    ...option.dataTestId,
+                    root: option.dataTestId?.root ?? dataTestId?.option,
+                  }}
+                  onPointerMove={() => {
+                    if (!option.disabled && index !== activeIndex)
+                      setActiveIndex(index)
+                  }}
+                  onClick={() => commit(index)}
+                  // Keeps focus on the trigger while clicking an option.
+                  onMouseDown={(event) => event.preventDefault()}
+                />
+              ))}
+            </Popover>
+          </>
+        )}
+        {hiddenInput}
       </Field>
     )
   },

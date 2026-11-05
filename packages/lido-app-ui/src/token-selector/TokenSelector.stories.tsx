@@ -50,6 +50,12 @@ const meta: Meta<typeof TokenSelector> = {
   },
   parameters: {
     controls: { disable: true },
+    docs: {
+      description: {
+        component:
+          'A `Select` preset with the token-picker look: semibold labels, a "Select" placeholder and a "Select token" list name. It accepts every `Select` prop.',
+      },
+    },
   },
 }
 

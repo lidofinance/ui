@@ -1,85 +1,109 @@
-.root {
+.trigger {
+  --local-bg: transparent;
+  --local-border: var(--lido-app-ui-color-border-default);
+  --local-color: var(--lido-app-ui-color-text-default);
+
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 12px;
-  box-sizing: border-box;
+  gap: var(--lido-app-ui-space-6);
   width: 100%;
-  border: 1px solid var(--lido-app-ui-color-border-default);
-  background-color: var(--lido-app-ui-color-background-default);
-  color: var(--lido-app-ui-color-text-default);
+  border: 1px solid var(--local-border);
+  background-color: var(--local-bg);
+  color: var(--local-color);
   font-family: var(--lido-app-ui-font-family);
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
   text-align: left;
   cursor: pointer;
   transition: var(--lido-app-ui-transition-colors);
 }
 
-.root:hover {
-  background-color: var(--lido-app-ui-color-background-default-hover);
+.trigger:hover {
+  --local-bg: var(--lido-app-ui-color-background-default-hover);
 }
 
-.root:focus-visible,
-.root.open {
-  border-color: var(--lido-app-ui-color-border-active);
-  background-color: var(--lido-app-ui-color-background-default-active);
-  outline: none;
+.trigger:active,
+.trigger.open {
+  --local-bg: var(--lido-app-ui-color-background-default-pressed);
 }
 
-.root.error {
-  border-color: var(--lido-app-ui-color-border-error);
+.trigger:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
 }
 
-.root.error .value:not(.placeholder) {
-  color: var(--lido-app-ui-color-text-error);
+.trigger.error {
+  --local-border: var(--lido-app-ui-color-border-error);
+  --local-color: var(--lido-app-ui-color-text-error);
 }
 
-.root:disabled,
-.root:disabled:hover {
+.trigger:disabled {
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-secondary);
+
   cursor: not-allowed;
-  background-color: var(--lido-app-ui-color-background-disabled);
-  color: var(--lido-app-ui-color-text-secondary);
 }
 
 .default {
   height: 52px;
   padding: 12px 16px;
-  border-radius: var(--lido-app-ui-border-radius-card);
-  font-size: var(--lido-app-ui-font-size-body);
-  line-height: var(--lido-app-ui-line-height-body);
+  border-radius: var(--lido-app-ui-border-radius-md);
 }
 
 .small {
-  align-self: flex-start;
-  gap: var(--lido-app-ui-space-6);
-  width: auto;
   height: 36px;
   padding: 4px 12px;
   border-radius: var(--lido-app-ui-border-radius-control);
-  font-size: var(--lido-app-ui-font-size-label);
-  line-height: var(--lido-app-ui-line-height-label);
 }
 
-.value {
+.content {
+  display: flex;
   flex: 1 1 0%;
+  align-items: center;
+  gap: var(--lido-app-ui-space-6);
   min-width: 0;
+}
+
+.placeholder {
   overflow: hidden;
+
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-tertiary);
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.value.placeholder {
-  color: var(--lido-app-ui-color-text-tertiary);
+.placeholder.placeholderLarge {
+  @mixin font-body-large;
 }
 
-.root:disabled .value.placeholder {
+.trigger:disabled .placeholder {
   color: var(--lido-app-ui-color-text-secondary);
+}
+
+.trigger.loading {
+  cursor: progress;
+}
+
+.skeleton {
+  width: 50%;
+
+  @mixin font-body;
+}
+
+.skeleton.skeletonLarge {
+  @mixin font-body-large;
+}
+
+.single .skeleton {
+  width: 64px;
 }
 
 .chevron {
   display: inline-flex;
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   color: var(--lido-app-ui-color-icons-secondary);
   transition: transform var(--lido-app-ui-duration-fast-exit)
     var(--lido-app-ui-easing-exit);
@@ -102,82 +126,15 @@
   }
 }
 
-.panel {
-  gap: var(--lido-app-ui-space-4);
-  max-height: min(320px, var(--lido-app-ui-popover-available-height, 320px));
-}
-
-.panelSmall {
-  min-width: min(max-content, calc(100vw - 16px));
-}
-
-.option {
+.single {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-sizing: border-box;
-  padding: 10px 12px;
+  gap: var(--lido-app-ui-space-6);
   border: 1px solid transparent;
-  border-radius: var(--lido-app-ui-border-radius-dropdown-item);
-  cursor: pointer;
-
-  @mixin font-body;
+  color: var(--lido-app-ui-color-text-default);
 }
 
-.option.active {
-  background-color: var(--lido-app-ui-color-background-transparent-hover);
-}
-
-.option.selected {
-  background-color: var(--lido-app-ui-color-background-surface-active);
-}
-
-.panel:not(.panelSmall) .option.selected {
-  border-color: var(--lido-app-ui-color-border-active);
-}
-
-.panelSmall .option {
-  padding: 4px 12px 4px 8px;
-  border-radius: var(--lido-app-ui-border-radius-xl);
-}
-
-.option.optionDisabled {
-  color: var(--lido-app-ui-color-text-disabled);
-  background-color: var(--lido-app-ui-color-background-disabled);
-  cursor: not-allowed;
-}
-
-.optionContent {
-  display: flex;
-  flex: 1 1 0%;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.optionLabel {
-  overflow-wrap: anywhere;
-}
-
-.optionDescription {
-  @mixin font-description;
-
-  color: var(--lido-app-ui-color-text-tertiary);
-}
-
-.optionDisabled .optionDescription {
-  color: var(--lido-app-ui-color-text-disabled);
-}
-
-.check {
-  display: inline-flex;
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  color: var(--lido-app-ui-color-icons-active);
-}
-
-.check svg {
-  width: 100%;
-  height: 100%;
+.panel {
+  gap: var(--lido-app-ui-space-4);
 }
