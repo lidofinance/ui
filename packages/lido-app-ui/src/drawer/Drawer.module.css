@@ -1,10 +1,9 @@
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: var(--lido-app-ui-z-index-modal);
-  background-color: var(--lido-app-ui-color-background-overlay);
+  z-index: var(--lido-app-ui-z-index-drawer);
 
-  @mixin motion-fade var(--lido-app-ui-duration-slow),
+  @mixin motion-scrim var(--lido-app-ui-duration-slow),
     var(--lido-app-ui-duration-slow-exit);
 }
 

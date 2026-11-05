@@ -1,30 +1,19 @@
 import {
   forwardRef,
   useCallback,
-  useEffect,
   useId,
   useImperativeHandle,
-  useRef,
   useState,
   type ComponentPropsWithoutRef,
   type CSSProperties,
-  type MouseEvent,
-  type PointerEvent,
   type ReactNode,
   type RefObject,
 } from 'react'
 
 import cn from 'classnames'
 
-import {
-  Portal,
-  useBodyScrollLock,
-  useEscape,
-  useFocusTrap,
-  useHideOthers,
-  useOutsideClick,
-  usePresence,
-} from '../hooks'
+import { useHeaderOffset } from '../hooks'
+import { DialogLayer, type DialogLayerRender } from '../hooks/DialogLayer'
 import { CloseButton } from '../icon-button'
 
 import styles from './Drawer.module.css'
@@ -65,116 +54,46 @@ export type DrawerProps = Omit<
   dataTestId?: DrawerDataTestId
 }
 
-type DrawerDialogProps = DrawerProps & {
-  onExited: () => void
-}
+type DrawerPanelProps = Omit<
+  DrawerProps,
+  | 'open'
+  | 'inertOthers'
+  | 'lockScroll'
+  | 'closeOnEscape'
+  | 'closeOnOverlayClick'
+  | 'initialFocus'
+> & { layer: DialogLayerRender }
 
-const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
+const DrawerPanel = forwardRef<HTMLDivElement, DrawerPanelProps>(
   (
     {
-      open,
       title,
       onClose,
       side = 'right',
       width = 440,
-      inertOthers = false,
-      lockScroll = true,
-      closeOnEscape = true,
-      closeOnOverlayClick = true,
-      initialFocus,
       children,
       className,
       style,
       dataTestId,
-      onExited,
+      layer,
       ...rest
     },
     ref,
   ) => {
     const titleId = useId()
     const [panelEl, setPanelEl] = useState<HTMLDivElement | null>(null)
-    // Captured during render: a child's autoFocus is applied at commit, after this.
-    const [returnFocus] = useState(() =>
-      typeof document === 'undefined'
-        ? null
-        : (document.activeElement as HTMLElement | null),
+    const [headerEl, setHeaderEl] = useState<HTMLDivElement | null>(null)
+    const { panelRef } = layer
+    const setPanel = useCallback(
+      (node: HTMLDivElement | null) => {
+        setPanelEl(node)
+        panelRef(node)
+      },
+      [panelRef],
     )
-    const overlayRef = useRef<HTMLDivElement | null>(null)
-    const headerRef = useRef<HTMLDivElement>(null)
-    const pressedScrim = useRef(false)
 
     useImperativeHandle(ref, () => panelEl as HTMLDivElement, [panelEl])
-    // Released as soon as closing starts, so focus returns to the opener without waiting for the exit animation.
-    const closing = !open
-    const active = open
-    useBodyScrollLock({ enabled: lockScroll && active })
-    // Before the trap: cleanups run in order, so inert lifts before focus returns to the opener.
-    useHideOthers(panelEl, inertOthers && active)
-    useFocusTrap(panelEl, { enabled: active, initialFocus, returnFocus })
-    // Stays registered with closeOnEscape={false} so Escape doesn't fall through to an underlying overlay.
-    useEscape(
-      () => {
-        if (closeOnEscape) onClose()
-      },
-      { enabled: active },
-    )
-    // Joins the outside-click stack even with closeOnOverlayClick={false}, so presses here never reach an overlay underneath.
-    useOutsideClick(
-      panelEl,
-      (event) => {
-        pressedScrim.current =
-          !(event.button > 0) && event.target === overlayRef.current
-      },
-      { enabled: active },
-    )
-    // Mounted fresh on each open, so it appears; the overlay owns the exit wait for scrim and panel.
-    const presence = usePresence<HTMLDivElement>(open, {
-      appear: true,
-      subtree: true,
-    })
-    const { status, ref: presenceRef, motionProps } = presence
-    const setOverlay = useCallback(
-      (node: HTMLDivElement | null) => {
-        overlayRef.current = node
-        presenceRef(node)
-      },
-      [presenceRef],
-    )
-    // Also covers a dialog that mounts already closed and never animates.
-    useEffect(() => {
-      if (status === 'exited') onExited()
-    }, [status, onExited])
-
-    // Sticky header: scroll-padding keeps focused content from landing under it (WCAG 2.4.11).
-    useEffect(() => {
-      const header = headerRef.current
-      if (!panelEl || !header || typeof ResizeObserver === 'undefined') return
-      const measure = () =>
-        panelEl.style.setProperty(
-          '--local-header-height',
-          `${header.offsetHeight + 8}px`,
-        )
-      measure()
-      const observer = new ResizeObserver(measure)
-      observer.observe(header)
-      return () => observer.disconnect()
-    }, [panelEl])
-
-    const handlePanelPointerDown = (event: PointerEvent<HTMLDivElement>) => {
-      pressedScrim.current = false
-      rest.onPointerDown?.(event)
-    }
-
-    const handleOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
-      if (
-        closeOnOverlayClick &&
-        pressedScrim.current &&
-        event.target === event.currentTarget
-      ) {
-        onClose()
-      }
-      pressedScrim.current = false
-    }
+    useHeaderOffset(panelEl, headerEl)
 
     const panelStyle = {
       ...style,
@@ -182,78 +101,74 @@ const DrawerDialog = forwardRef<HTMLDivElement, DrawerDialogProps>(
     } as CSSProperties
 
     return (
-      // Pointer-only: a focusable backdrop would add a tab stop before the dialog; keyboard closes via Escape.
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div
-        ref={setOverlay}
-        className={styles.overlay}
-        {...motionProps}
-        // Not React 18 typed; the dying dialog must leave the a11y tree and tab order.
-        {...(closing ? ({ inert: '' } as object) : null)}
-        onClick={handleOverlayClick}
-        data-testid={dataTestId?.overlay}
+        role='dialog'
+        aria-modal='true'
+        aria-labelledby={title != null ? titleId : undefined}
+        data-testid={dataTestId?.root}
+        {...rest}
+        {...layer.motionProps}
+        ref={setPanel}
+        style={panelStyle}
+        className={cn(styles.panel, styles[side], className)}
       >
-        <div
-          role='dialog'
-          aria-modal='true'
-          aria-labelledby={title != null ? titleId : undefined}
-          data-testid={dataTestId?.root}
-          {...rest}
-          {...motionProps}
-          onPointerDown={handlePanelPointerDown}
-          ref={setPanelEl}
-          style={panelStyle}
-          className={cn(styles.panel, styles[side], className)}
-        >
-          <div ref={headerRef} className={styles.header}>
-            {title != null ? (
-              <span
-                role='heading'
-                aria-level={2}
-                id={titleId}
-                className={styles.title}
-                data-testid={dataTestId?.title}
-              >
-                {title}
-              </span>
-            ) : (
-              <span className={styles.title} />
-            )}
-            <CloseButton
-              onClick={onClose}
-              dataTestId={{ root: dataTestId?.closeButton }}
-            />
-          </div>
-          <div className={styles.body} data-testid={dataTestId?.body}>
-            {children}
-          </div>
+        <div ref={setHeaderEl} className={styles.header}>
+          {title != null ? (
+            <span
+              role='heading'
+              aria-level={2}
+              id={titleId}
+              className={styles.title}
+              data-testid={dataTestId?.title}
+            >
+              {title}
+            </span>
+          ) : (
+            <span className={styles.title} />
+          )}
+          <CloseButton
+            onClick={onClose}
+            dataTestId={{ root: dataTestId?.closeButton }}
+          />
+        </div>
+        <div className={styles.body} data-testid={dataTestId?.body}>
+          {children}
         </div>
       </div>
     )
   },
 )
 
-DrawerDialog.displayName = 'DrawerDialog'
+DrawerPanel.displayName = 'DrawerPanel'
 
-// Hooks live in DrawerDialog so they run once the portal has mounted its content.
 /** Side panel in a portaled scrim; closes on Escape and scrim click, traps focus and locks body scroll like `Modal` with `withOverlay`. */
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
-  ({ open, ...props }, ref) => {
-    const [present, setPresent] = useState(open)
-    if (open && !present) setPresent(true)
-    const handleExited = useCallback(() => setPresent(false), [])
-    if (!open && !present) return null
-    return (
-      <Portal>
-        <DrawerDialog
-          ref={ref}
-          open={open}
-          onExited={handleExited}
-          {...props}
-        />
-      </Portal>
-    )
-  },
+  (
+    {
+      open,
+      inertOthers,
+      lockScroll,
+      closeOnEscape,
+      closeOnOverlayClick,
+      initialFocus,
+      ...panelProps
+    },
+    ref,
+  ) => (
+    <DialogLayer
+      open={open}
+      onClose={panelProps.onClose}
+      closeOnEscape={closeOnEscape}
+      closeOnOverlayClick={closeOnOverlayClick}
+      lockScroll={lockScroll}
+      inertOthers={inertOthers}
+      initialFocus={initialFocus}
+      className={styles.overlay}
+      dataTestId={panelProps.dataTestId?.overlay}
+    >
+      {(layer) => <DrawerPanel ref={ref} layer={layer} {...panelProps} />}
+    </DialogLayer>
+  ),
 )
 
 Drawer.displayName = 'Drawer'

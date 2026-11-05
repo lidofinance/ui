@@ -64,6 +64,40 @@ describe('Drawer', () => {
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
+  it('ignores a click on the scrim after a press that started in the panel', () => {
+    const onClose = vi.fn()
+    render(
+      <Drawer open onClose={onClose} dataTestId={dataTestId}>
+        Body
+      </Drawer>,
+    )
+    fireEvent.pointerDown(screen.getByTestId('overlay'))
+    fireEvent.pointerDown(screen.getByTestId('root'))
+    fireEvent.click(screen.getByTestId('overlay'))
+    expect(onClose).not.toHaveBeenCalled()
+  })
+
+  it('returns focus to the latest opener after reopening', () => {
+    const first = document.createElement('button')
+    const second = document.createElement('button')
+    document.body.append(first, second)
+    const drawer = (open: boolean) => (
+      <Drawer open={open} onClose={vi.fn()}>
+        Body
+      </Drawer>
+    )
+    first.focus()
+    const { rerender } = render(drawer(true))
+    rerender(drawer(false))
+    expect(document.activeElement).toBe(first)
+    second.focus()
+    rerender(drawer(true))
+    rerender(drawer(false))
+    expect(document.activeElement).toBe(second)
+    first.remove()
+    second.remove()
+  })
+
   it('closes from the close button', () => {
     const onClose = vi.fn()
     render(

@@ -5,33 +5,9 @@
   display: flex;
   overflow-y: auto;
   padding: 16px;
-}
 
-/* The scrim is its own layer so only it fades; the card keeps its own opacity instead of compounding with the overlay's. */
-.overlay::before {
-  content: '';
-  position: fixed;
-  z-index: -1;
-  inset: 0;
-  background-color: var(--lido-app-ui-color-background-overlay);
-  transition: opacity var(--lido-app-ui-duration-base)
-    var(--lido-app-ui-easing-out);
-}
-
-.overlay[data-state='closed']::before {
-  opacity: 0;
-  transition-duration: var(--lido-app-ui-duration-base-exit);
-  transition-timing-function: var(--lido-app-ui-easing-exit);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .overlay::before {
-    transition-duration: var(--lido-app-ui-duration-fast);
-  }
-
-  .overlay[data-state='closed']::before {
-    transition-duration: var(--lido-app-ui-duration-fast-exit);
-  }
+  @mixin motion-scrim var(--lido-app-ui-duration-base),
+    var(--lido-app-ui-duration-base-exit);
 }
 
 .card {
