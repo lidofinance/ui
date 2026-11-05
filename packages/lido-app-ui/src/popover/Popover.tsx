@@ -16,6 +16,7 @@ import cn from 'classnames'
 import {
   Portal,
   useEscape,
+  useExitLatch,
   useFocusTrap,
   useIsomorphicLayoutEffect,
   useOutsideClick,
@@ -359,17 +360,15 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     }, [open, named])
 
     // Stays mounted until the panel's exit motion ends.
-    const [mounted, setMounted] = useState(open)
-    if (open && !mounted) setMounted(true)
-    const handleExited = useCallback(() => setMounted(false), [])
+    const { present, onExited } = useExitLatch(open)
 
-    return open || mounted ? (
+    return open || present ? (
       <Portal>
         <PopoverPanel
           ref={ref}
           {...props}
           open={open}
-          onExited={handleExited}
+          onExited={onExited}
           placement={placement}
           align={align}
           offset={offset}

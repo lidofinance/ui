@@ -165,7 +165,7 @@ export default {
 
 Durations, easings and amplitudes are tokens: enter `--lido-app-ui-duration-{fast,base,slow}`, exit `-exit` variants (shorter), `--lido-app-ui-easing-*`, `--lido-app-ui-motion-{shift,shift-lg,scale}`, `--lido-app-ui-transition-colors`. Override them on `:root` to retune.
 
-Custom components can reuse the mixins (`motion-fade`, `motion-pop`, `motion-slide`, `motion-collapse`, `motion-press`; see the `postcss-mixins` setup above) together with the `usePresence` hook. It keeps an element mounted through its exit and returns `{ mounted, status, ref, motionProps }`; spread `motionProps` (`data-state`, `data-motion`) on the element the CSS keys on. Mixins respect `prefers-reduced-motion`.
+Custom components can reuse the mixins (`motion-fade`, `motion-pop`, `motion-slide`, `motion-scrim`, `motion-collapse`, `motion-press`; see the `postcss-mixins` setup above) together with the `usePresence` hook. It keeps an element mounted through its exit and returns `{ mounted, status, ref, motionProps }`; spread `motionProps` (`data-state`, `data-motion`) on the element the CSS keys on. Mixins respect `prefers-reduced-motion`.
 
 ## Layout
 
@@ -189,7 +189,7 @@ In CSS use `@media (--lido-app-ui-breakpoint-md-down)`. Responsive props such as
 
 Page shells align to the page gutter, which shrinks on narrow screens: `padding-inline: var(--lido-app-ui-page-gutter)`.
 
-Popovers, tooltips and modals with `withOverlay` portal to `<body>` and stack by `--lido-app-ui-z-index-*`: header 250, popover and modal 1000, toast 1050, tooltip 1100. Keep your own app chrome below 1000. `Modal` `inertOthers` makes the rest of `<body>` inert; mark body-level toast or live-region roots with `data-lido-overlay-keep` to keep them live.
+Popovers, tooltips, drawers and modals with `withOverlay` portal to `<body>` and stack by `--lido-app-ui-z-index-*`: header 250, drawer, popover and modal 1000, toast 1050, tooltip 1100. Keep your own app chrome below 1000. `Modal` `inertOthers` makes the rest of `<body>` inert; mark body-level toast or live-region roots with `data-lido-overlay-keep` to keep them live.
 
 ## More
 

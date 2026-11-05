@@ -445,9 +445,26 @@ describe('Modal', () => {
   it('does not close on a press that starts inside the card and ends on the scrim', () => {
     const onClose = vi.fn()
     render(modal({ onClose }))
+    fireEvent.pointerDown(screen.getByTestId('scrim'))
     fireEvent.pointerDown(screen.getByRole('dialog'))
     fireEvent.click(screen.getByTestId('scrim'))
     expect(onClose).not.toHaveBeenCalled()
+  })
+
+  it('returns focus to the latest opener after reopening', () => {
+    const first = document.createElement('button')
+    const second = document.createElement('button')
+    document.body.append(first, second)
+    first.focus()
+    const { rerender } = render(modal({ open: true }))
+    rerender(modal({ open: false }))
+    expect(document.activeElement).toBe(first)
+    second.focus()
+    rerender(modal({ open: true }))
+    rerender(modal({ open: false }))
+    expect(document.activeElement).toBe(second)
+    first.remove()
+    second.remove()
   })
 
   it('closes only a Popover on Escape and outside press, and returns focus inside the modal', async () => {

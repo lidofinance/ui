@@ -46,6 +46,35 @@
   }
 }
 
+/* Fading scrim on a ::before layer, so the sibling panel keeps its own opacity instead of compounding with it. */
+@define-mixin motion-scrim $enter: var(--lido-app-ui-duration-base),
+  $exit: var(--lido-app-ui-duration-base-exit) {
+  &::before {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background-color: var(--lido-app-ui-color-background-overlay);
+    transition: opacity $enter var(--lido-app-ui-easing-out);
+  }
+
+  &[data-state='closed']::before {
+    opacity: 0;
+    transition-duration: $exit;
+    transition-timing-function: var(--lido-app-ui-easing-exit);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::before {
+      transition-duration: var(--lido-app-ui-duration-fast);
+    }
+
+    &[data-state='closed']::before {
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
+    }
+  }
+}
+
 @define-mixin motion-slide $x, $y, $enter: var(--lido-app-ui-duration-base),
   $exit: var(--lido-app-ui-duration-base-exit),
   $easing: var(--lido-app-ui-easing-out) {
