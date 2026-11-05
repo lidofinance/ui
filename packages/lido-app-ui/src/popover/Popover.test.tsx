@@ -167,6 +167,17 @@ describe('Popover', () => {
     expect(dialog.style.left).toBe('350px')
   })
 
+  it('sets a min width at the anchor width with min-anchor', async () => {
+    mockLayout(
+      { left: 400, right: 500, top: 100, bottom: 140, width: 100, height: 40 },
+      { width: 200, height: 100 },
+    )
+    render(<Single width='min-anchor' />)
+    const dialog = await screen.findByRole('dialog')
+    expect(dialog.style.minWidth).toBe('100px')
+    expect(dialog.style.width).toBe('')
+  })
+
   it('flips to top when there is no room below', async () => {
     mockLayout(
       { left: 400, right: 500, top: 700, bottom: 740, width: 100, height: 40 },

@@ -8,7 +8,8 @@ import { CheckboxRow } from './checkbox-row'
 import { Counter } from './counter'
 import { EmptyState } from './empty-state'
 import { ProgressBar } from './progress-bar'
-import { Select } from './select'
+import { Select, SelectItem } from './select'
+import { TokenSelector } from './token-selector'
 import { StatCard } from './stat-card'
 import { TableRoot } from './table'
 import { Textarea } from './textarea'
@@ -134,6 +135,16 @@ const cases: Array<
     'Select trigger',
     (ref) => <Select ref={ref} label='Net' options={[]} />,
     (root) => root === screen.getByRole('combobox'),
+  ],
+  [
+    'TokenSelector trigger',
+    (ref) => <TokenSelector ref={ref} options={[]} />,
+    (root) => root === screen.getByRole('combobox'),
+  ],
+  [
+    'SelectItem',
+    (ref) => <SelectItem ref={ref} label='Item' data-testid='item' />,
+    (root) => root === screen.getByTestId('item'),
   ],
   [
     'StatCard',

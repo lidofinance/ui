@@ -43,8 +43,8 @@ export type PopoverProps = HTMLAttributes<HTMLDivElement> & {
   align?: PopoverAlign
   /** Gap in px between the anchor and the panel. */
   offset?: number
-  /** Px, or match the width of the anchor / align element. */
-  width?: number | 'anchor' | 'align'
+  /** Px, or match the width of the anchor / align element; `min-anchor` only sets a minimum at the anchor width. */
+  width?: number | 'anchor' | 'align' | 'min-anchor'
   /** false: focus isn't moved into or trapped in the panel. Only for content that never needs focus, e.g. hover previews that also have a click/keyboard path, or listboxes anchored to an input. Not for menus. */
   modal?: boolean
   dataTestId?: PopoverDataTestId
@@ -56,6 +56,7 @@ const POSITION_KEYS = [
   'left',
   'right',
   'width',
+  'minWidth',
   'maxWidth',
 ] as const
 type Coordinates = Partial<Record<(typeof POSITION_KEYS)[number], number>>
@@ -123,6 +124,7 @@ const computePosition = (
 
   const coordinates: Coordinates = {}
   if (fixedWidth != null) coordinates.width = fixedWidth
+  if (width === 'min-anchor') coordinates.minWidth = anchorRect.width
   coordinates.maxWidth = viewportWidth - 2 * VIEWPORT_MARGIN
   const availableHeight = Math.max(
     resolved === 'top' ? roomAbove : roomBelow,

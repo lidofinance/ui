@@ -21,6 +21,8 @@ export type FieldProps = {
   tooltip?: ReactNode
   description?: ReactNode
   error?: ReactNode | boolean
+  /** Shrink to content instead of filling the width. */
+  fit?: boolean
   className?: string
   dataTestId?: FieldDataTestId
   children: ReactNode
@@ -60,6 +62,7 @@ export const Field = ({
   tooltip,
   description,
   error,
+  fit,
   className,
   dataTestId,
   children,
@@ -67,7 +70,10 @@ export const Field = ({
   const { message, hasMessage } = resolveFieldError(error)
 
   return (
-    <div className={cn(styles.field, className)} data-testid={dataTestId?.root}>
+    <div
+      className={cn(styles.field, fit && styles.fit, className)}
+      data-testid={dataTestId?.root}
+    >
       {label != null ? (
         <span className={styles.labelRow}>
           {/* Select's trigger is a button: the label only moves focus to it, since a native label click would toggle the list. */}

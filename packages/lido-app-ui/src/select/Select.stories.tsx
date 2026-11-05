@@ -2,7 +2,9 @@ import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Button } from '../button'
+import { TokenEth, TokenSteth, TokenWsteth } from '../icons'
 import { Select, type SelectOption } from '.'
 
 const rewardTokens: SelectOption[] = [
@@ -12,25 +14,65 @@ const rewardTokens: SelectOption[] = [
   { value: 'old', label: 'Legacy token', disabled: true },
 ]
 
+const tokenOptions: SelectOption[] = [
+  {
+    value: 'eth',
+    label: 'ETH',
+    secondaryLabel: 'Ethereum',
+    description: 'The base asset, unstaked.',
+    icon: <TokenEth />,
+  },
+  {
+    value: 'steth',
+    label: 'stETH',
+    secondaryLabel: 'Staked Ether',
+    description: 'Rebasing, balance grows with rewards.',
+    icon: <TokenSteth />,
+  },
+  {
+    value: 'wsteth',
+    label: 'wstETH',
+    secondaryLabel: 'Wrapped Staked Ether',
+    description: 'Non-rebasing, value grows instead.',
+    icon: <TokenWsteth />,
+    disabled: true,
+  },
+]
+
 const meta = {
   title: 'Inputs & Controls/Select',
   component: Select,
+  tags: ['autodocs'],
   args: {
     options: rewardTokens,
     placeholder: 'Select token',
     size: 'default',
     error: false,
     disabled: false,
+    loading: false,
   },
   argTypes: {
     options: { control: false },
     size: { options: ['default', 'small'], control: { type: 'radio' } },
+    labelWeight: {
+      options: ['regular', 'semibold'],
+      control: { type: 'radio' },
+    },
     error: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
+    loading: { control: { type: 'boolean' } },
     value: { control: false },
     onChange: { control: false },
   },
-  parameters: { layout: 'padded' },
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        component:
+          'Single select with a button trigger and a listbox popup. Options may carry an icon, a secondary label and a description; `size="small"` is a compact chip, `single` renders it static.',
+      },
+    },
+  },
 } satisfies Meta<typeof Select>
 
 export default meta
@@ -71,41 +113,110 @@ export const Controlled: Story = {
   },
 }
 
-export const Small: Story = {
-  args: {
-    size: 'small',
-    placeholder: 'Sort by',
-    'aria-label': 'Sort by',
+export const Sizes: Story = {
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Width comes from the container, like Input; `small` hides secondary label and description. Icon options with a semibold label are the token-picker look.',
+      },
+    },
   },
-  render: (args) => (
-    <div style={{ maxWidth: 240, minHeight: 280 }}>
-      <Select
-        {...args}
-        options={[
-          { value: 'bond', label: 'Bond' },
-          { value: 'keys', label: 'Keys' },
-          { value: 'rewards', label: 'Rewards' },
-        ]}
-      />
-    </div>
+  render: () => (
+    <StoryContainer gap={24} style={{ width: 400, minHeight: 360 }}>
+      <StorySection title='Default' row={false}>
+        <Select
+          label='Token'
+          options={tokenOptions}
+          defaultValue='steth'
+          labelWeight='semibold'
+        />
+      </StorySection>
+      <StorySection title='Small' row={false}>
+        <Select
+          aria-label='Token'
+          size='small'
+          options={tokenOptions}
+          defaultValue='eth'
+          labelWeight='semibold'
+        />
+      </StorySection>
+      <StorySection title='Small, text only' row={false}>
+        <Select
+          aria-label='Sort by'
+          size='small'
+          options={[
+            { value: 'bond', label: 'Bond' },
+            { value: 'keys', label: 'Keys' },
+            { value: 'rewards', label: 'Rewards' },
+          ]}
+          defaultValue='bond'
+        />
+      </StorySection>
+    </StoryContainer>
   ),
 }
 
-export const WithError: Story = {
-  args: { label: 'Reward token', error: 'Select a token' },
-  render: (args) => (
-    <div style={{ maxWidth: 400 }}>
-      <Select {...args} />
-    </div>
-  ),
-}
-
-export const Disabled: Story = {
-  args: { label: 'Reward token', disabled: true, defaultValue: 'steth' },
-  render: (args) => (
-    <div style={{ maxWidth: 400 }}>
-      <Select {...args} />
-    </div>
+export const States: Story = {
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Error, disabled, loading, a disabled option, and the static `single` chip.',
+      },
+    },
+  },
+  render: () => (
+    <StoryContainer gap={24} style={{ width: 400, minHeight: 360 }}>
+      <StorySection title='Error' row={false}>
+        <Select
+          label='Reward token'
+          options={rewardTokens}
+          defaultValue='steth'
+          error='Select a token'
+        />
+      </StorySection>
+      <StorySection title='Disabled' row={false}>
+        <Select
+          label='Reward token'
+          options={rewardTokens}
+          defaultValue='steth'
+          disabled
+        />
+      </StorySection>
+      <StorySection title='Loading' row={false}>
+        <Select
+          label='Reward token'
+          options={rewardTokens}
+          defaultValue='steth'
+          loading
+        />
+        <Select
+          size='small'
+          aria-label='Token'
+          options={tokenOptions}
+          defaultValue='steth'
+          loading
+        />
+      </StorySection>
+      <StorySection title='Disabled option (open the list)' row={false}>
+        <Select
+          aria-label='Token'
+          options={rewardTokens}
+          placeholder='Select token'
+        />
+      </StorySection>
+      <StorySection title='Single' row={false}>
+        <Select
+          aria-label='Token'
+          options={tokenOptions}
+          defaultValue='steth'
+          single
+        />
+      </StorySection>
+    </StoryContainer>
   ),
 }
 
@@ -124,7 +235,7 @@ export const LongList: Story = {
   ),
 }
 
-export const RolePickerInForm: Story = {
+export const Form: Story = {
   parameters: {
     docs: { source: { type: 'code' } },
     controls: { disable: true },

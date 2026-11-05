@@ -6,6 +6,10 @@
   font-family: var(--lido-app-ui-font-family);
 }
 
+.fit {
+  width: auto;
+}
+
 .labelRow {
   display: flex;
   align-items: center;

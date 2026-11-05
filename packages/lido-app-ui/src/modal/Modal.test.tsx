@@ -335,7 +335,7 @@ describe('Modal', () => {
         ),
       }),
     )
-    const trigger = screen.getByRole('button', { name: 'Pick' })
+    const trigger = screen.getByRole('combobox')
     fireEvent.click(trigger)
     expect(screen.getByRole('listbox')).toBeInTheDocument()
     await userEvent.keyboard('{Escape}')
@@ -380,7 +380,7 @@ describe('Modal', () => {
         ),
       }),
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Pick' }))
+    fireEvent.click(screen.getByRole('combobox'))
     clickScrim()
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
     expect(onClose).not.toHaveBeenCalled()

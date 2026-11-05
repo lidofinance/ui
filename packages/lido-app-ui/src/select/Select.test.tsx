@@ -190,9 +190,153 @@ describe('Select', () => {
     expect(screen.queryByRole('listbox')).toBeNull()
   })
 
+  it('renders icon, secondary label and description at default size', async () => {
+    const user = userEvent.setup()
+    render(
+      <Select
+        options={[
+          {
+            value: 'a',
+            label: 'Apple',
+            icon: <svg data-testid='icon' />,
+            secondaryLabel: 'Fruit',
+            description: 'Red',
+          },
+        ]}
+        defaultValue='a'
+      />,
+    )
+    expect(trigger()).toHaveTextContent('Fruit')
+    expect(screen.getByTestId('icon')).toBeInTheDocument()
+    await user.click(trigger())
+    expect(screen.getByRole('option')).toHaveTextContent('Red')
+  })
+
+  it('applies per-option test ids, falling back to dataTestId.option', async () => {
+    const user = userEvent.setup()
+    render(
+      <Select
+        options={[
+          { value: 'a', label: 'A', dataTestId: { root: 'own' } },
+          { value: 'b', label: 'B' },
+        ]}
+        dataTestId={{ option: 'shared' }}
+      />,
+    )
+    await user.click(trigger())
+    expect(screen.getByTestId('own')).toHaveTextContent('A')
+    expect(screen.getByTestId('shared')).toHaveTextContent('B')
+  })
+
   it('forwards the ref to the trigger', () => {
     const ref = { current: null as HTMLButtonElement | null }
     render(<Select ref={ref} options={options} />)
     expect(ref.current).toBe(trigger())
+  })
+
+  it('names trigger and listbox with listLabel unless aria-label overrides it', async () => {
+    const user = userEvent.setup()
+    const { unmount } = render(
+      <Select options={options} listLabel='Pick fruit' />,
+    )
+    await user.click(screen.getByRole('combobox', { name: 'Pick fruit' }))
+    expect(
+      screen.getByRole('listbox', { name: 'Pick fruit' }),
+    ).toBeInTheDocument()
+    unmount()
+    render(<Select options={options} listLabel='Pick fruit' aria-label='Own' />)
+    expect(screen.getByRole('combobox', { name: 'Own' })).toBeInTheDocument()
+  })
+
+  it('single renders a static chip with rest props and the hidden input', () => {
+    const { container } = render(
+      <Select
+        single
+        name='f'
+        options={options}
+        value='a'
+        data-foo='x'
+        aria-label='Chip'
+        style={{ color: 'red' }}
+      />,
+    )
+    expect(screen.queryByRole('combobox')).toBeNull()
+    expect(screen.getByText('Apple')).toBeInTheDocument()
+    const chip = screen.getByLabelText('Chip')
+    expect(chip).toHaveAttribute('data-foo', 'x')
+    expect(chip).toHaveStyle({ color: 'rgb(255, 0, 0)' })
+    expect(container.querySelector('input[type="hidden"]')).toHaveValue('a')
+  })
+
+  it('passes size small to the trigger content', () => {
+    render(
+      <Select
+        size='small'
+        options={[{ value: 'a', label: 'Apple', secondaryLabel: 'Fruit' }]}
+        defaultValue='a'
+      />,
+    )
+    expect(trigger()).toHaveTextContent('Apple')
+    expect(screen.queryByText('Fruit')).toBeNull()
+  })
+
+  it('single chip fits content', () => {
+    const { container } = render(
+      <Select single options={options} defaultValue='a' />,
+    )
+    expect(
+      /fit/.test((container.firstElementChild as HTMLElement).className),
+    ).toBe(true)
+  })
+})
+
+describe('Select loading', () => {
+  it('sets aria-busy, stays enabled and swaps the label for a skeleton', () => {
+    const { container } = render(
+      <Select options={options} defaultValue='a' loading />,
+    )
+    expect(trigger()).toHaveAttribute('aria-busy', 'true')
+    expect(trigger()).not.toBeDisabled()
+    expect(trigger()).not.toHaveTextContent('Apple')
+    expect(container.querySelectorAll('span[aria-hidden="true"]')).toHaveLength(
+      2,
+    )
+  })
+
+  it('does not open on click or keyboard', async () => {
+    const user = userEvent.setup()
+    render(<Select options={options} loading />)
+    await user.click(trigger())
+    expect(screen.queryByRole('listbox')).toBeNull()
+    trigger().focus()
+    await user.keyboard('{ArrowDown}{Enter} {Home}{End}')
+    expect(screen.queryByRole('listbox')).toBeNull()
+    expect(trigger()).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('closes an open list when loading starts', async () => {
+    const user = userEvent.setup()
+    const { rerender } = render(<Select options={options} />)
+    await user.click(trigger())
+    expect(screen.getByRole('listbox')).toBeInTheDocument()
+    rerender(<Select options={options} loading />)
+    expect(screen.queryByRole('listbox')).toBeNull()
+  })
+
+  it('does not change the value via typeahead', async () => {
+    const user = userEvent.setup()
+    const onChange = vi.fn()
+    render(<Select options={options} onChange={onChange} loading />)
+    trigger().focus()
+    await user.keyboard('d')
+    expect(onChange).not.toHaveBeenCalled()
+  })
+
+  it('has no busy state or skeleton by default', () => {
+    const { container } = render(<Select options={options} defaultValue='a' />)
+    expect(trigger()).not.toHaveAttribute('aria-busy')
+    expect(container.querySelectorAll('span[aria-hidden="true"]')).toHaveLength(
+      1,
+    )
   })
 })
