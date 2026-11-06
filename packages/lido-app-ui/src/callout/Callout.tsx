@@ -42,7 +42,7 @@ export type CalloutProps = Omit<HTMLAttributes<HTMLElement>, 'onClick'> &
     dataTestId?: CalloutDataTestId
   }
 
-/** Full-width tinted strip with a centered message (for in-content notes use MessageBox); becomes a link or button row with an arrow when `href` or `onClick` is set. */
+/** Full-width tinted strip with a centered message (for in-content notes use MessageBox); becomes a link or button row with an arrow when `href` or `onClick` is set. Needs a definite-width parent (it fills it). */
 export const Callout = forwardRef<HTMLElement, CalloutProps>(
   (
     {
@@ -68,7 +68,7 @@ export const Callout = forwardRef<HTMLElement, CalloutProps>(
       className,
     )
     const content = (
-      <>
+      <span className={styles.content}>
         {icon != null ? (
           <span
             className={styles.icon}
@@ -86,7 +86,7 @@ export const Callout = forwardRef<HTMLElement, CalloutProps>(
             data-testid={dataTestId?.arrow}
           />
         ) : null}
-      </>
+      </span>
     )
 
     if (clickable) {

@@ -52,7 +52,7 @@ export type StatCardProps = Omit<
   dataTestId?: StatCardDataTestId
 }
 
-/** Surface card for a headline metric: title with info, header link, value with suffix, secondary and tag, description, footer and an optional background sparkline. */
+/** Surface card for a headline metric: title with info, header link, value with suffix, secondary and tag, description, footer and an optional background sparkline. Needs a definite-width parent (it fills it). */
 export const StatCard = forwardRef<HTMLDivElement, StatCardProps>(
   (
     {

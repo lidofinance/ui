@@ -3,11 +3,14 @@
   padding: var(--lido-app-ui-space-32) var(--lido-app-ui-page-gutter);
 }
 
-/* Gutters come from .root; beats EmptyState's own padding by specificity. */
+/* Gutters come from .root; EmptyState's padding sits on its inner content element. */
 .root .state {
   max-width: 560px;
-  padding: 0;
   margin-inline: auto;
+}
+
+.root .state > * {
+  padding: 0;
 }
 
 .code {

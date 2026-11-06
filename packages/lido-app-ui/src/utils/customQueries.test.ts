@@ -1,10 +1,13 @@
 import { createRequire } from 'module'
+import { readdirSync, readFileSync } from 'fs'
+import { join, relative, resolve } from 'path'
 import postcss from 'postcss'
 import { describe, expect, it } from 'vitest'
 
 import postcssConfig from '../../postcss.config.js'
 
 const require = createRequire(import.meta.url)
+const srcDir = resolve(__dirname, '..')
 
 const compile = async (css: string) => {
   const plugins = Object.entries(postcssConfig.plugins).map(([name, options]) =>
@@ -13,6 +16,13 @@ const compile = async (css: string) => {
   const { css: out } = await postcss(plugins).process(css, { from: undefined })
   return out.replace(/\s+/g, ' ').replace(/\{ ?/g, '{ ').trim()
 }
+
+const moduleCssFiles = (dir: string): string[] =>
+  readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(dir, entry.name)
+    if (entry.isDirectory()) return moduleCssFiles(path)
+    return entry.name.endsWith('.module.css') ? [path] : []
+  })
 
 const N = '--lido-app-ui-container-narrow'
 
@@ -116,4 +126,26 @@ describe('postcss-custom-queries', () => {
       ).rejects.toThrow(/plain condition/)
     },
   )
+})
+
+describe('viewport media in content components', () => {
+  // shell/page chrome stays on viewport breakpoints; content components use @container
+  const allowed = [
+    'drawer/Drawer.module.css',
+    'hidden/Hidden.module.css',
+    'modal/Modal.module.css',
+    'sidebar/Sidebar.module.css',
+    'sidebar/SidebarToggle.module.css',
+    'sidebar/stories.module.css',
+  ]
+
+  it('limits @media breakpoint queries to the allowlisted files', () => {
+    const offenders = moduleCssFiles(srcDir)
+      .filter((file) =>
+        /@media[^{]*--lido-app-ui-breakpoint/.test(readFileSync(file, 'utf-8')),
+      )
+      .map((file) => relative(srcDir, file))
+      .filter((file) => !allowed.includes(file))
+    expect(offenders).toEqual([])
+  })
 })

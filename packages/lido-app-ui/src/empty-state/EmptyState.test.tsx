@@ -25,12 +25,14 @@ describe('EmptyState', () => {
 
   it('omits empty slots', () => {
     const { container } = render(<EmptyState title='Empty' />)
-    expect(container.firstElementChild?.children).toHaveLength(1)
+    expect(
+      container.firstElementChild?.firstElementChild?.children,
+    ).toHaveLength(1)
   })
 
   it('renders without a title', () => {
     render(<EmptyState description='Only text' dataTestId={{ root: 'r' }} />)
-    expect(screen.getByTestId('r').children).toHaveLength(1)
+    expect(screen.getByTestId('r').firstElementChild?.children).toHaveLength(1)
   })
 
   it('omits boolean and empty-string slots', () => {
@@ -42,7 +44,7 @@ describe('EmptyState', () => {
         dataTestId={{ root: 'r' }}
       />,
     )
-    expect(screen.getByTestId('r').children).toHaveLength(0)
+    expect(screen.getByTestId('r').firstElementChild?.children).toHaveLength(0)
   })
 
   it('applies size and fill classes', () => {

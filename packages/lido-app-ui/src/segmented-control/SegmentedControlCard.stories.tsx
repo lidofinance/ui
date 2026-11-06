@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { ContainerWidths } from '../../.storybook/components'
 import { IconShield } from '../icons'
 import { SegmentedControlCard, type SegmentCardItem } from '.'
 
@@ -78,6 +79,26 @@ export const WithDisabledItem: Story = {
       description: {
         story:
           'A disabled card stays visible but cannot be selected or take focus.',
+      },
+    },
+  },
+}
+
+export const NarrowContainers: Story = {
+  render: function Render() {
+    const [value, setValue] = useState('eject')
+    return (
+      <ContainerWidths>
+        <SegmentedControlCard items={items} value={value} onChange={setValue} />
+      </ContainerWidths>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Cards stack once the container cannot give each at least 212px.',
       },
     },
   },

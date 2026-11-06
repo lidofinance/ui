@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { StoryContainer, StorySection } from '../../.storybook/components'
+import {
+  ContainerWidths,
+  StoryContainer,
+  StorySection,
+} from '../../.storybook/components'
 
 import { Button } from '../button'
 import { TokenSteth } from '../icons'
@@ -66,5 +70,13 @@ export const Minimal: Story = {
         />
       </StorySection>
     </StoryContainer>
+  ),
+}
+
+export const NarrowContainers: Story = {
+  render: (args) => (
+    <ContainerWidths widths={[240, 320, 360, 400]}>
+      <Banner {...args} title={args.title} />
+    </ContainerWidths>
   ),
 }

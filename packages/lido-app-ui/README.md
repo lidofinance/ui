@@ -187,6 +187,10 @@ In CSS use `@media (--lido-app-ui-breakpoint-md-down)`. Responsive props such as
 <Stack gap={{ base: 24, smDown: 12 }}>{children}</Stack>
 ```
 
+For `@container`, which `postcss-custom-media` doesn't resolve, use raw values such as `@container (width <= 400px)`.
+
+`Banner`, `Callout`, `EmptyState` and `StatCard` size their layout to their own width via container queries, so give them a definite-width parent; in a shrink-to-fit parent they collapse.
+
 Page shells align to the page gutter, which shrinks on narrow screens: `padding-inline: var(--lido-app-ui-page-gutter)`.
 
 Popovers, tooltips, drawers and modals with `withOverlay` portal to `<body>` and stack by `--lido-app-ui-z-index-*`: header 250, drawer, popover and modal 1000, toast 1050, tooltip 1100. Keep your own app chrome below 1000. `Modal` `inertOthers` makes the rest of `<body>` inert; mark body-level toast or live-region roots with `data-lido-overlay-keep` to keep them live.

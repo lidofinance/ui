@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { ContainerWidths } from '../../.storybook/components'
 import { Button } from '../button'
 import { IconHourglass, IconKeyRound, IconSearch, IconUser } from '../icons'
 import { EmptyState } from '.'
@@ -113,4 +114,25 @@ export const FillCard: Story = {
       </div>
     )
   },
+}
+
+export const NarrowContainers: Story = {
+  args: {
+    size: 'large',
+    title: 'No node operator for this address',
+    description:
+      'Connect the wallet you used to create your node operator, or create a new one.',
+  },
+  render: function Render(args) {
+    return (
+      <ContainerWidths>
+        <EmptyState
+          {...args}
+          illustration={<IconUser width={64} height={64} />}
+          action={<Button>Create node operator</Button>}
+        />
+      </ContainerWidths>
+    )
+  },
+  parameters: { controls: { disable: true } },
 }

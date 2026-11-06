@@ -20,7 +20,7 @@ export type BannerProps = ComponentPropsWithoutRef<'div'> & {
   dataTestId?: BannerDataTestId
 }
 
-/** Compact card row: icon, title and description, with an optional `action` slot on the right (usually a `Button`). */
+/** Compact card row: icon, title and description, with an optional `action` slot on the right (usually a `Button`). Needs a definite-width parent (it fills it). */
 export const Banner = ({
   icon,
   title,
@@ -35,31 +35,33 @@ export const Banner = ({
     data-testid={dataTestId?.root}
     {...rest}
   >
-    <div className={styles.content}>
-      {icon ? (
-        <span className={styles.icon} data-testid={dataTestId?.icon}>
-          {icon}
-        </span>
-      ) : null}
-      <div className={styles.text}>
-        <p className={styles.title} data-testid={dataTestId?.title}>
-          {title}
-        </p>
-        {description ? (
-          <p
-            className={styles.description}
-            data-testid={dataTestId?.description}
-          >
-            {description}
-          </p>
+    <div className={styles.inner}>
+      <div className={styles.content}>
+        {icon ? (
+          <span className={styles.icon} data-testid={dataTestId?.icon}>
+            {icon}
+          </span>
         ) : null}
+        <div className={styles.text}>
+          <p className={styles.title} data-testid={dataTestId?.title}>
+            {title}
+          </p>
+          {description ? (
+            <p
+              className={styles.description}
+              data-testid={dataTestId?.description}
+            >
+              {description}
+            </p>
+          ) : null}
+        </div>
       </div>
+      {action ? (
+        <div className={styles.action} data-testid={dataTestId?.action}>
+          {action}
+        </div>
+      ) : null}
     </div>
-    {action ? (
-      <div className={styles.action} data-testid={dataTestId?.action}>
-        {action}
-      </div>
-    ) : null}
   </div>
 )
 

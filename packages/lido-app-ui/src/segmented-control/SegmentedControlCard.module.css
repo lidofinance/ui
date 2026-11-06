@@ -1,6 +1,9 @@
 .segmentedControlCard {
+  --local-stack-at: calc(var(--local-count) * 216px - 6px);
+
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 4px;
   box-sizing: border-box;
@@ -8,6 +11,7 @@
   border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-lg);
   background-color: var(--lido-app-ui-color-background-default);
+  width: 100%;
 }
 
 .selection {
@@ -34,4 +38,9 @@
   .animated {
     transition: none;
   }
+}
+
+/* All cards stack together below count * (212px card + 4px gap) - 6px: flex-basis is huge below it (forcing a wrap), 0 above it */
+.segmentedControlCard > [role='tab'] {
+  flex: 1 1 calc((var(--local-stack-at) - 100%) * 999);
 }
