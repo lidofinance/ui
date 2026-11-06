@@ -2,6 +2,7 @@
   position: relative;
   z-index: 1;
   display: inline-flex;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -46,6 +47,12 @@
 }
 
 .content {
-  display: inline-flex;
-  align-items: center;
+  display: block;
+  max-width: 100%;
+
+  @mixin truncate;
+}
+
+.content > * {
+  vertical-align: middle;
 }

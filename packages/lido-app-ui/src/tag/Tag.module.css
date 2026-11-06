@@ -11,12 +11,17 @@
   align-items: center;
   gap: 4px;
   box-sizing: border-box;
+  max-width: 100%;
   padding: 1px 7px;
   border: 1px solid transparent;
   border-radius: var(--lido-app-ui-border-radius-badge);
   background: var(--local-surface);
   color: var(--local-text);
   white-space: nowrap;
+}
+
+.label {
+  @mixin truncate;
 }
 
 .interactive {

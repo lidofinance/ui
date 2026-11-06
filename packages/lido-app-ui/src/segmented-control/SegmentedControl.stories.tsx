@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { StoryContainer, StorySection } from '../../.storybook/components'
+import {
+  ContainerWidths,
+  StoryContainer,
+  StorySection,
+} from '../../.storybook/components'
 import { SegmentedControl, type SegmentItem } from '.'
 
 const items: SegmentItem[] = [
@@ -67,6 +71,25 @@ export const Variants: Story = {
       description: {
         story:
           'The grey track, plus a bar with an unavailable segment. A disabled item stays visible but cannot take focus.',
+      },
+    },
+  },
+}
+
+export const NarrowContainers: Story = {
+  render: function Render() {
+    const [value, setValue] = useState('supply')
+    return (
+      <ContainerWidths>
+        <SegmentedControl items={items} value={value} onChange={setValue} />
+      </ContainerWidths>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: 'Segments fill the width and truncate long labels.',
       },
     },
   },

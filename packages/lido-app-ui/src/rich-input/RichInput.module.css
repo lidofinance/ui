@@ -16,7 +16,7 @@
   background-color: var(--lido-app-ui-color-background-default);
   cursor: text;
   transition: var(--lido-app-ui-transition-colors);
-  height: 152px;
+  min-height: 152px;
 }
 
 .card:not(.locked):hover {
@@ -25,7 +25,7 @@
 
 .card.locked {
   /* No Max, so usually no bottom row: hug content. */
-  height: auto;
+  min-height: 0;
   cursor: default;
 }
 
@@ -133,8 +133,9 @@
 
 .bottomRow {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  height: 26px;
+  min-height: 26px;
 }
 
 .secondary {

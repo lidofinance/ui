@@ -3,7 +3,12 @@ import { type ComponentPropsWithoutRef, type ReactNode } from 'react'
 import cn from 'classnames'
 
 import { Tab, type TabDataTestId } from './Tab'
-import { useSelectionIndicator } from '../hooks'
+import {
+  useEdgeFade,
+  useIsomorphicLayoutEffect,
+  useSelectionIndicator,
+} from '../hooks'
+import { scrollIntoCenter } from '../utils/dom'
 import styles from './Tabs.module.css'
 
 export type TabsDataTestId = {
@@ -24,7 +29,7 @@ export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   dataTestId?: TabsDataTestId
 }
 
-/** Row of text tabs with an underline on the active item; controlled via `value`. */
+/** Row of text tabs with an underline on the active item; controlled via `value`. Scrolls with an edge fade when it does not fit. */
 export const Tabs = ({
   items,
   value,
@@ -35,6 +40,15 @@ export const Tabs = ({
 }: TabsProps) => {
   const { containerRef, activeRef, indicatorRef, animated } =
     useSelectionIndicator('x', [value, items])
+
+  const { sync } = useEdgeFade(containerRef)
+
+  useIsomorphicLayoutEffect(sync, [items, sync])
+
+  useIsomorphicLayoutEffect(() => {
+    if (containerRef.current)
+      scrollIntoCenter(containerRef.current, activeRef.current)
+  }, [value])
 
   return (
     <div
