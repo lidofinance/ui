@@ -1,0 +1,167 @@
+/* Motion mixins. Key on data-state / data-motion from usePresence. The base rule is the enter timing, [data-state='closed'] the (shorter) exit timing. */
+
+@define-mixin motion-fade $enter: var(--lido-app-ui-duration-fast),
+  $exit: var(--lido-app-ui-duration-fast-exit) {
+  transition: opacity $enter var(--lido-app-ui-easing-out);
+
+  &[data-state='closed'] {
+    opacity: 0;
+    transition-duration: $exit;
+    transition-timing-function: var(--lido-app-ui-easing-exit);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: var(--lido-app-ui-duration-fast);
+
+    &[data-state='closed'] {
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
+    }
+  }
+}
+
+@define-mixin motion-pop $origin: center,
+  $enter: var(--lido-app-ui-duration-fast),
+  $exit: var(--lido-app-ui-duration-fast-exit) {
+  transform-origin: $origin;
+  transition:
+    opacity $enter var(--lido-app-ui-easing-out),
+    transform $enter var(--lido-app-ui-easing-out);
+
+  &[data-state='closed'] {
+    opacity: 0;
+    transform: translateY(var(--local-motion-shift, 0))
+      scale(var(--lido-app-ui-motion-scale));
+    transition-duration: $exit;
+    transition-timing-function: var(--lido-app-ui-easing-exit);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: opacity;
+    transition-duration: var(--lido-app-ui-duration-fast);
+
+    &[data-state='closed'] {
+      transform: none;
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
+    }
+  }
+}
+
+/* Fading scrim on a ::before layer, so the sibling panel keeps its own opacity instead of compounding with it. */
+@define-mixin motion-scrim $enter: var(--lido-app-ui-duration-base),
+  $exit: var(--lido-app-ui-duration-base-exit) {
+  &::before {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background-color: var(--lido-app-ui-color-background-overlay);
+    transition: opacity $enter var(--lido-app-ui-easing-out);
+  }
+
+  &[data-state='closed']::before {
+    opacity: 0;
+    transition-duration: $exit;
+    transition-timing-function: var(--lido-app-ui-easing-exit);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::before {
+      transition-duration: var(--lido-app-ui-duration-fast);
+    }
+
+    &[data-state='closed']::before {
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
+    }
+  }
+}
+
+@define-mixin motion-slide $x, $y, $enter: var(--lido-app-ui-duration-base),
+  $exit: var(--lido-app-ui-duration-base-exit),
+  $easing: var(--lido-app-ui-easing-out) {
+  transition:
+    opacity $enter $easing,
+    transform $enter $easing;
+
+  &[data-state='closed'] {
+    opacity: 0;
+    transform: translate($x, $y);
+    transition-duration: $exit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: opacity;
+    transition-duration: var(--lido-app-ui-duration-fast);
+
+    &[data-state='closed'] {
+      transform: none;
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
+    }
+  }
+}
+
+/* Height collapse on a wrapper; its single child is the clip. */
+@define-mixin motion-collapse $enter: var(--lido-app-ui-duration-base),
+  $exit: var(--lido-app-ui-duration-base-exit) {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows $enter var(--lido-app-ui-easing-out);
+
+  & > * {
+    min-height: 0;
+    transition: opacity $enter var(--lido-app-ui-easing-out);
+  }
+
+  &[data-motion] > * {
+    overflow: hidden;
+  }
+
+  &[data-state='closed'] {
+    grid-template-rows: 0fr;
+    transition-duration: $exit;
+    transition-timing-function: var(--lido-app-ui-easing-exit);
+  }
+
+  &[data-state='closed'] > * {
+    opacity: 0;
+    transition-duration: $exit;
+  }
+
+  &[data-state='closed']:not([data-motion]) > * {
+    visibility: hidden;
+    overflow: hidden;
+  }
+
+  /* Height snaps after the fade-out so the exit stays awaitable: a 0s transition with a delay still runs (duration + delay > 0). */
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    & > * {
+      transition-duration: var(--lido-app-ui-duration-fast);
+    }
+
+    &[data-state='closed'] {
+      transition: grid-template-rows 0s linear
+        var(--lido-app-ui-duration-fast-exit);
+    }
+
+    &[data-state='closed'] > * {
+      transition-duration: var(--lido-app-ui-duration-fast-exit);
+    }
+  }
+}
+
+@define-mixin motion-press {
+  transition:
+    var(--lido-app-ui-transition-colors),
+    transform var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out);
+
+  &:active:not(:disabled, [aria-disabled='true']) {
+    transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &:active {
+      transform: none;
+    }
+  }
+}

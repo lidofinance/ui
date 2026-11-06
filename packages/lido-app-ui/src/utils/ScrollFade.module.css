@@ -26,8 +26,10 @@
   );
   /* stylelint-disable custom-property-no-missing-var-function -- transition property names */
   transition:
-    --lido-app-ui-fade-start 0.2s cubic-bezier(0.23, 1, 0.32, 1),
-    --lido-app-ui-fade-end 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    --lido-app-ui-fade-start var(--lido-app-ui-duration-base)
+      var(--lido-app-ui-easing-out),
+    --lido-app-ui-fade-end var(--lido-app-ui-duration-base)
+      var(--lido-app-ui-easing-out);
   /* stylelint-enable custom-property-no-missing-var-function */
 }
 

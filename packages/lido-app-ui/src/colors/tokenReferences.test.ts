@@ -35,6 +35,8 @@ const declaredBreakpoints = new Set(
 const privateTokens = [
   /^--lido-app-ui-fade-(start|end)$/,
   /^--lido-app-ui-logo-breakpoint$/,
+  /^--lido-app-ui-popover-available-height$/,
+  /^--lido-app-ui-sticky-top$/,
   /^--lido-app-ui-tag-[a-z-]+$/,
 ]
 

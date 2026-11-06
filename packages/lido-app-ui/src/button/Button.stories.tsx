@@ -198,6 +198,35 @@ export const WithCounter: Story = {
   },
 }
 
+export const FullWidth: Story = {
+  render: () => (
+    <StoryContainer>
+      <div style={{ width: 320 }}>
+        <StorySection title='button'>
+          <Button fullWidth>Continue</Button>
+          <Button fullWidth variant='outline' size='small'>
+            Cancel
+          </Button>
+        </StorySection>
+        <StorySection title='link'>
+          <Button fullWidth href='#keys' variant='subtle'>
+            View keys
+          </Button>
+        </StorySection>
+      </div>
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`fullWidth` makes the button (or link button) fill its container; content stays centered.',
+      },
+    },
+  },
+}
+
 export const AsLink: Story = {
   render: () => (
     <StoryContainer>

@@ -1,14 +1,14 @@
-import {
-  useRef,
-  useState,
-  type ComponentPropsWithoutRef,
-  type ReactNode,
-} from 'react'
+import { type ComponentPropsWithoutRef, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
 import { Tab, type TabDataTestId } from './Tab'
-import { useIsomorphicLayoutEffect } from '../hooks'
+import {
+  useEdgeFade,
+  useIsomorphicLayoutEffect,
+  useSelectionIndicator,
+} from '../hooks'
+import { scrollIntoCenter } from '../utils/dom'
 import styles from './Tabs.module.css'
 
 export type TabsDataTestId = {
@@ -29,7 +29,7 @@ export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   dataTestId?: TabsDataTestId
 }
 
-/** Row of text tabs with an underline on the active item; controlled via `value`. */
+/** Row of text tabs with an underline on the active item; controlled via `value`. Scrolls with an edge fade when it does not fit. */
 export const Tabs = ({
   items,
   value,
@@ -38,35 +38,17 @@ export const Tabs = ({
   dataTestId,
   ...rest
 }: TabsProps) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const activeButtonRef = useRef<HTMLButtonElement>(null)
-  const selectionRef = useRef<HTMLDivElement>(null)
-  // Skip the transition on the first measurement so the bar doesn't fly in from 0,0.
-  const [animated, setAnimated] = useState(false)
+  const { containerRef, activeRef, indicatorRef, animated } =
+    useSelectionIndicator('x', [value, items])
+
+  const { sync } = useEdgeFade(containerRef)
+
+  useIsomorphicLayoutEffect(sync, [items, sync])
 
   useIsomorphicLayoutEffect(() => {
-    const updateSelection = () => {
-      const button = activeButtonRef.current
-      const container = containerRef.current
-      const selection = selectionRef.current
-      if (!button || !container || !selection) return
-
-      const buttonRect = button.getBoundingClientRect()
-      const containerRect = container.getBoundingClientRect()
-      const x = buttonRect.left - containerRect.left
-
-      selection.style.width = `${buttonRect.width}px`
-      selection.style.transform = `translateX(${x}px)`
-    }
-
-    updateSelection()
-    setAnimated(true)
-
-    window.addEventListener('resize', updateSelection)
-    return () => {
-      window.removeEventListener('resize', updateSelection)
-    }
-  }, [value, items])
+    if (containerRef.current)
+      scrollIntoCenter(containerRef.current, activeRef.current)
+  }, [value])
 
   return (
     <div
@@ -77,7 +59,7 @@ export const Tabs = ({
       {...rest}
     >
       <div
-        ref={selectionRef}
+        ref={indicatorRef}
         aria-hidden='true'
         className={cn(styles.selection, animated && styles.animated)}
       />
@@ -86,7 +68,7 @@ export const Tabs = ({
         return (
           <Tab
             key={item.value}
-            ref={active ? activeButtonRef : undefined}
+            ref={active ? activeRef : undefined}
             active={active}
             disabled={item.disabled}
             dataTestId={item.dataTestId}

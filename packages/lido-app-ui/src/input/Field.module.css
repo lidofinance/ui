@@ -1,0 +1,43 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.fit {
+  width: auto;
+}
+
+.labelRow {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.label {
+  @mixin font-body-large;
+  @mixin truncate;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.errorText {
+  margin: 0;
+
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-error);
+  word-break: break-word;
+}
+
+.description {
+  margin: 0;
+
+  @mixin font-description;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+  word-break: break-word;
+}

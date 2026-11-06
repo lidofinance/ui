@@ -8,7 +8,7 @@ import styles from './Tag.module.css'
 describe('Tag', () => {
   it('is a plain span without onClick or href', () => {
     render(<Tag>R</Tag>)
-    const tag = screen.getByText('R')
+    const tag = screen.getByText('R').parentElement as HTMLElement
     expect(tag.tagName).toBe('SPAN')
     expect(tag).not.toHaveClass(styles.interactive)
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
@@ -120,7 +120,7 @@ describe('Tag', () => {
 
   it('applies the custom variant class', () => {
     render(<Tag variant='custom'>R</Tag>)
-    expect(screen.getByText('R')).toHaveClass(styles.custom)
+    expect(screen.getByText('R').parentElement).toHaveClass(styles.custom)
   })
 
   it('keeps a role=button span for custom with onClick', () => {

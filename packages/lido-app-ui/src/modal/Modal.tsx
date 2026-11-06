@@ -1,25 +1,16 @@
 import {
   forwardRef,
-  useEffect,
+  useCallback,
   useId,
   useImperativeHandle,
-  useRef,
   useState,
   type ComponentPropsWithoutRef,
-  type MouseEvent,
-  type PointerEvent,
   type ReactNode,
   type RefObject,
 } from 'react'
 
-import {
-  Portal,
-  useBodyScrollLock,
-  useEscape,
-  useFocusTrap,
-  useHideOthers,
-  useOutsideClick,
-} from '../hooks'
+import { useHeaderOffset } from '../hooks'
+import { DialogLayer, type DialogLayerRender } from '../hooks/DialogLayer'
 import { CloseButton } from '../icon-button'
 import cn from 'classnames'
 
@@ -61,22 +52,19 @@ export type ModalProps = Omit<
   dataTestId?: ModalDataTestId
 }
 
-const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
+type ModalDialogProps = ModalCardProps & { layer?: DialogLayerRender }
+
+const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
   (
     {
       title,
       subtitle,
       onClose,
-      withOverlay = false,
-      inertOthers = false,
       bodyFill = false,
-      lockScroll = true,
-      closeOnEscape = true,
-      closeOnOverlayClick = true,
-      initialFocus,
       children,
       className,
       dataTestId,
+      layer,
       ...rest
     },
     ref,
@@ -84,86 +72,33 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
     const titleId = useId()
     const subtitleId = useId()
     const [cardEl, setCardEl] = useState<HTMLDivElement | null>(null)
-    // Captured during render: a child's autoFocus is applied at commit, after this.
-    const [returnFocus] = useState(() =>
-      typeof document === 'undefined'
-        ? null
-        : (document.activeElement as HTMLElement | null),
+    const [headerEl, setHeaderEl] = useState<HTMLDivElement | null>(null)
+    const panelRef = layer?.panelRef
+    const setCard = useCallback(
+      (node: HTMLDivElement | null) => {
+        setCardEl(node)
+        panelRef?.(node)
+      },
+      [panelRef],
     )
-    const overlayRef = useRef<HTMLDivElement>(null)
-    const headerRef = useRef<HTMLDivElement>(null)
-    const pressedScrim = useRef(false)
 
     useImperativeHandle(ref, () => cardEl as HTMLDivElement, [cardEl])
-    useBodyScrollLock({ enabled: withOverlay && lockScroll })
-    // Before the trap: cleanups run in order, so inert lifts before focus returns to the opener.
-    useHideOthers(cardEl, withOverlay && inertOthers)
-    useFocusTrap(cardEl, { enabled: withOverlay, initialFocus, returnFocus })
-    // Stays registered with closeOnEscape={false} so Escape doesn't fall through to an underlying overlay.
-    useEscape(
-      () => {
-        if (closeOnEscape) onClose?.()
-      },
-      { enabled: withOverlay },
-    )
+    // The overlay is the mobile scroll container, so it carries the offset.
+    useHeaderOffset(layer?.scrim ?? null, headerEl)
 
-    // Sticky header on mobile: scroll-padding keeps focused fields from landing under it (WCAG 2.4.11).
-    useEffect(() => {
-      const overlay = overlayRef.current
-      const header = headerRef.current
-      if (!withOverlay || !overlay || !header) return
-      if (typeof ResizeObserver === 'undefined') return
-      const measure = () =>
-        overlay.style.setProperty(
-          '--local-header-height',
-          `${header.offsetHeight + 8}px`,
-        )
-      measure()
-      const observer = new ResizeObserver(measure)
-      observer.observe(header)
-      return () => observer.disconnect()
-    }, [withOverlay, cardEl])
-
-    // Joins the outside-click stack even with closeOnOverlayClick={false}, so presses here never reach an overlay underneath.
-    // Decided at pointerdown: the handler only runs while this is the top layer.
-    useOutsideClick(
-      cardEl,
-      (event) => {
-        pressedScrim.current =
-          !(event.button > 0) && event.target === overlayRef.current
-      },
-      { enabled: withOverlay },
-    )
-
-    const handleCardPointerDown = (event: PointerEvent<HTMLDivElement>) => {
-      pressedScrim.current = false
-      rest.onPointerDown?.(event)
-    }
-
-    const handleOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
-      if (
-        closeOnOverlayClick &&
-        pressedScrim.current &&
-        event.target === event.currentTarget
-      ) {
-        onClose?.()
-      }
-      pressedScrim.current = false
-    }
-
-    const card = (
+    return (
       <div
         role='dialog'
-        aria-modal={withOverlay || undefined}
+        aria-modal={layer ? true : undefined}
         aria-labelledby={title ? titleId : undefined}
         aria-describedby={subtitle != null ? subtitleId : undefined}
         data-testid={dataTestId?.root}
         {...rest}
-        onPointerDown={handleCardPointerDown}
-        ref={setCardEl}
+        {...layer?.motionProps}
+        ref={setCard}
         className={cn(styles.card, bodyFill && styles.cardBodyFill, className)}
       >
-        <div ref={headerRef} className={styles.headerGroup}>
+        <div ref={setHeaderEl} className={styles.headerGroup}>
           <div className={styles.header}>
             <span
               role='heading'
@@ -196,33 +131,44 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalProps>(
         </div>
       </div>
     )
-
-    if (!withOverlay) return card
-
-    return (
-      // Pointer-only: a focusable backdrop would add a tab stop before the dialog; keyboard closes via Escape.
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-      <div
-        ref={overlayRef}
-        className={styles.overlay}
-        onClick={handleOverlayClick}
-        data-testid={dataTestId?.overlay}
-      >
-        {card}
-      </div>
-    )
   },
 )
 
 ModalDialog.displayName = 'ModalDialog'
 
-// Hooks live in ModalDialog so they run once the portal has mounted its content.
 /** Dialog card for supply, borrow and repay flows; with `withOverlay` it is portaled and closes on Escape and scrim click, traps focus and locks body scroll. `ModalCard` is the bare card. */
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({ open = true, ...props }, ref) => {
-    if (!open) return null
-    const dialog = <ModalDialog ref={ref} {...props} />
-    return props.withOverlay ? <Portal>{dialog}</Portal> : dialog
+  (
+    {
+      open = true,
+      withOverlay = false,
+      inertOthers,
+      lockScroll,
+      closeOnEscape,
+      closeOnOverlayClick,
+      initialFocus,
+      ...cardProps
+    },
+    ref,
+  ) => {
+    if (!withOverlay) {
+      return open ? <ModalDialog ref={ref} {...cardProps} /> : null
+    }
+    return (
+      <DialogLayer
+        open={open}
+        onClose={cardProps.onClose}
+        closeOnEscape={closeOnEscape}
+        closeOnOverlayClick={closeOnOverlayClick}
+        lockScroll={lockScroll}
+        inertOthers={inertOthers}
+        initialFocus={initialFocus}
+        className={styles.overlay}
+        dataTestId={cardProps.dataTestId?.overlay}
+      >
+        {(layer) => <ModalDialog ref={ref} layer={layer} {...cardProps} />}
+      </DialogLayer>
+    )
   },
 )
 
@@ -241,7 +187,7 @@ export type ModalCardProps = Omit<
 
 /** The bare dialog card with no portal or overlay behavior; you own positioning. */
 export const ModalCard = forwardRef<HTMLDivElement, ModalCardProps>(
-  (props, ref) => <ModalDialog ref={ref} {...props} withOverlay={false} />,
+  (props, ref) => <ModalDialog ref={ref} {...props} />,
 )
 
 ModalCard.displayName = 'ModalCard'

@@ -8,8 +8,25 @@ import counterStyles from '../counter/Counter.module.css'
 import { LinkProvider } from '../link-provider'
 import { RouterLink } from '../link-provider/linkStubs.test-utils'
 import { Button } from './Button'
+import styles from './Button.module.css'
 
 describe('Button', () => {
+  it('applies the fullWidth class only when requested', () => {
+    const { rerender } = render(<Button>A</Button>)
+    expect(screen.getByRole('button')).not.toHaveClass(styles.fullWidth)
+    rerender(<Button fullWidth>A</Button>)
+    expect(screen.getByRole('button')).toHaveClass(styles.fullWidth)
+  })
+
+  it('applies fullWidth to a link button', () => {
+    render(
+      <Button fullWidth href='/keys'>
+        A
+      </Button>,
+    )
+    expect(screen.getByRole('link')).toHaveClass(styles.fullWidth)
+  })
+
   it('forwards ref to the button element', () => {
     const ref = createRef<HTMLButtonElement>()
     render(<Button ref={ref}>A</Button>)

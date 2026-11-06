@@ -91,6 +91,8 @@
   --lido-app-ui-font-family:
     'Manrope', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
     'Helvetica Neue', sans-serif;
+  --lido-app-ui-font-family-mono:
+    ui-monospace, sfmono-regular, menlo, consolas, monospace;
   --lido-app-ui-font-weight-thin: 200;
   --lido-app-ui-font-weight-regular: 400;
   --lido-app-ui-font-weight-medium: 500;
@@ -149,11 +151,12 @@
   --lido-app-ui-border-radius-modal: var(--lido-app-ui-border-radius-xl);
   --lido-app-ui-border-radius-skeleton: var(--lido-app-ui-border-radius-xs);
 
-  /* Stacking: header < drawer scrim (overlay) < drawer < popover/modal < toast < tooltip.
-     Popover and modal share a layer on purpose: both portal to <body>, so the later-mounted overlay wins and nested overlays stack correctly. Consumer chrome must stay below it. */
+  /* Stacking: header < sidebar scrim (overlay) < sidebar < drawer/popover/modal < toast < tooltip.
+     Drawer, popover and modal share a layer on purpose: all portal to <body>, so the later-mounted one wins (a popover inside a drawer, a modal opened from a drawer). Consumer chrome must stay below it. */
   --lido-app-ui-z-index-header: 250;
   --lido-app-ui-z-index-overlay: 290;
   --lido-app-ui-z-index-sidebar: 300;
+  --lido-app-ui-z-index-drawer: 1000;
   --lido-app-ui-z-index-modal: 1000;
   --lido-app-ui-z-index-popover: 1000;
   --lido-app-ui-z-index-toast: 1050;
@@ -192,6 +195,41 @@
   --lido-app-ui-opacity-pressed-content: 0.7;
   --lido-app-ui-opacity-disabled-content: 0.3;
   --lido-app-ui-opacity-disabled-content-compact: 0.2;
+
+  /* Motion: durations, enter */
+  --lido-app-ui-duration-fast: 150ms;
+  --lido-app-ui-duration-base: 200ms;
+  --lido-app-ui-duration-slow: 280ms;
+
+  /* Motion: durations, exit (about 0.7x enter) */
+  --lido-app-ui-duration-fast-exit: 100ms;
+  --lido-app-ui-duration-base-exit: 140ms;
+  --lido-app-ui-duration-slow-exit: 200ms;
+
+  /* Motion: feedback and on-screen movement */
+  --lido-app-ui-duration-color: 150ms;
+  --lido-app-ui-duration-move: 250ms;
+
+  /* Motion: easing */
+  --lido-app-ui-easing-standard: ease;
+  --lido-app-ui-easing-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --lido-app-ui-easing-exit: var(--lido-app-ui-easing-out);
+  --lido-app-ui-easing-move: cubic-bezier(0.77, 0, 0.175, 1);
+  --lido-app-ui-easing-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Motion: amplitude */
+  --lido-app-ui-motion-shift: 4px;
+  --lido-app-ui-motion-shift-lg: 16px;
+  --lido-app-ui-motion-scale: 0.96;
+
+  /* Motion: colour transition list; resolves at :root, so subtree duration overrides do not apply; no outline so focus rings appear instantly */
+  --lido-app-ui-transition-colors:
+    color var(--lido-app-ui-duration-color) var(--lido-app-ui-easing-standard),
+    background-color var(--lido-app-ui-duration-color)
+      var(--lido-app-ui-easing-standard),
+    border-color var(--lido-app-ui-duration-color)
+      var(--lido-app-ui-easing-standard),
+    fill var(--lido-app-ui-duration-color) var(--lido-app-ui-easing-standard);
 }
 
 :root,

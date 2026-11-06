@@ -34,7 +34,7 @@ export type StatItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   dataTestId?: StatItemDataTestId
 }
 
-/** Label-over-value metric; use it alone or pass a list to `StatsRow` for the four-up dashboard block. */
+/** Label-over-value metric; compose several in a `Grid` or `Stack` for a stats row. */
 export const StatItem = ({
   label,
   value,

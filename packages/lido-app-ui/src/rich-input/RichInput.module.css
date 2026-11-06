@@ -15,10 +15,8 @@
   border-radius: var(--lido-app-ui-border-radius-card);
   background-color: var(--lido-app-ui-color-background-default);
   cursor: text;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-  height: 152px;
+  transition: var(--lido-app-ui-transition-colors);
+  min-height: 152px;
 }
 
 .card:not(.locked):hover {
@@ -27,7 +25,11 @@
 
 .card.locked {
   /* No Max, so usually no bottom row: hug content. */
-  height: auto;
+  min-height: 0;
+  cursor: default;
+}
+
+.card.loading {
   cursor: default;
 }
 
@@ -74,6 +76,13 @@
   justify-content: space-between;
 }
 
+.amount {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
 .input {
   @mixin font-amount;
 
@@ -100,6 +109,22 @@
   color: var(--lido-app-ui-color-text-error);
 }
 
+.card.loading .input,
+.card.loading .input::placeholder {
+  color: transparent;
+  caret-color: transparent;
+}
+
+.amountSkeleton {
+  @mixin font-amount;
+
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 50%;
+  pointer-events: none;
+}
+
 .token {
   display: inline-flex;
   flex-shrink: 0;
@@ -108,8 +133,9 @@
 
 .bottomRow {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  height: 26px;
+  min-height: 26px;
 }
 
 .secondary {

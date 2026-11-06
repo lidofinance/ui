@@ -1,0 +1,63 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--lido-app-ui-space-16);
+  box-sizing: border-box;
+  min-height: 58px;
+  padding: var(--lido-app-ui-space-16) var(--lido-app-ui-space-20);
+  cursor: pointer;
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.row:hover:not(.disabled) {
+  background-color: var(--lido-app-ui-color-background-default-hover);
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.text {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--lido-app-ui-space-4);
+}
+
+.label {
+  overflow: hidden;
+  color: var(--lido-app-ui-color-text-default);
+  text-overflow: ellipsis;
+
+  @mixin font-body-large;
+}
+
+.mono {
+  font-family: var(--lido-app-ui-font-family-mono);
+}
+
+.disabled .label {
+  color: var(--lido-app-ui-color-text-disabled);
+}
+
+.disabled .description {
+  color: var(--lido-app-ui-color-text-disabled);
+}
+
+.description {
+  color: var(--lido-app-ui-color-text-tertiary);
+
+  @mixin font-description;
+}
+
+.trailing {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}

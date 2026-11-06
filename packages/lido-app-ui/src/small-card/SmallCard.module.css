@@ -9,7 +9,7 @@
   background-color: var(--lido-app-ui-color-background-default);
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 150ms;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .card:hover {

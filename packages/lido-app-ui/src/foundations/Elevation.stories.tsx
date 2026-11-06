@@ -36,9 +36,9 @@ export const ZIndex: Story = {
   render: () => (
     <StoryContainer gap={16}>
       <Note>
-        Popover and Modal share the overlay layer on purpose: the later-mounted
-        one wins, so nested overlays stack correctly. Keep your own app chrome
-        below 1000 so overlays always cover it.
+        Drawer, Popover and Modal share the overlay layer on purpose: the
+        later-mounted one wins, so nested overlays stack correctly. Keep your
+        own app chrome below 1000 so overlays always cover it.
       </Note>
       <Table head={['Token', 'Value', 'Used by']}>
         {Z_INDEX.map((layer) => (

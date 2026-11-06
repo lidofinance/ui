@@ -46,12 +46,15 @@ describe('styles/tokens.css layout', () => {
     expect(names.filter((name, i) => names.indexOf(name) !== i)).toEqual([])
   })
 
-  it('keeps popover and modal on one shared z-index layer', () => {
+  it('keeps drawer, popover and modal on one shared z-index layer', () => {
     const value = (name: string) =>
       withoutMedia.match(new RegExp(`${name}:\\s*([^;]+);`))?.[1]
 
     expect(value('--lido-app-ui-z-index-modal')).toBeDefined()
     expect(value('--lido-app-ui-z-index-popover')).toBe(
+      value('--lido-app-ui-z-index-modal'),
+    )
+    expect(value('--lido-app-ui-z-index-drawer')).toBe(
       value('--lido-app-ui-z-index-modal'),
     )
   })

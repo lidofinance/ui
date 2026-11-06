@@ -20,6 +20,18 @@ describe('Tooltip', () => {
     expect(tooltip.dataset.placed).toBe('true')
   })
 
+  it('settles to the open state without leftover motion attributes', async () => {
+    render(
+      <Tooltip content='Hint'>
+        <button type='button'>trigger</button>
+      </Tooltip>,
+    )
+    fireEvent.focus(screen.getByRole('button', { name: 'trigger' }))
+    const tooltip = await screen.findByRole('tooltip')
+    expect(tooltip).toHaveAttribute('data-state', 'open')
+    expect(tooltip).not.toHaveAttribute('data-motion')
+  })
+
   it('renders inside the nearest theme scope', async () => {
     render(
       <div data-lido-theme='dark'>

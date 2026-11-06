@@ -1,0 +1,234 @@
+.root {
+  container-type: inline-size;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hit {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--lido-app-ui-border-radius-sm);
+  background: none;
+  cursor: pointer;
+}
+
+.hit:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.circle {
+  @mixin font-description-semibold;
+
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--lido-app-ui-border-radius-pill);
+  color: var(--lido-app-ui-color-text-inverse);
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.circle.done,
+.circle.upcoming {
+  background-color: var(--lido-app-ui-color-icons-tertiary);
+}
+
+.circle.current {
+  background-color: var(--lido-app-ui-color-icons-default);
+}
+
+/* Both glyphs stay mounted and cross-fade; timing comes from the destination state; a disappearing glyph uses *-exit. */
+.digit {
+  grid-area: 1 / 1;
+  opacity: 1;
+  transition: opacity var(--lido-app-ui-duration-fast)
+    var(--lido-app-ui-easing-out);
+}
+
+.done .digit {
+  opacity: 0;
+  transition-duration: var(--lido-app-ui-duration-fast-exit);
+  transition-timing-function: var(--lido-app-ui-easing-exit);
+}
+
+.checkIcon {
+  grid-area: 1 / 1;
+  width: 16px;
+  height: 16px;
+  color: var(--lido-app-ui-color-text-inverse);
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transition:
+    opacity var(--lido-app-ui-duration-fast-exit) var(--lido-app-ui-easing-exit),
+    clip-path 0s linear var(--lido-app-ui-duration-fast-exit);
+}
+
+.done .checkIcon {
+  opacity: 1;
+  clip-path: inset(0);
+  transition:
+    opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out),
+    clip-path var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out);
+}
+
+.label {
+  @mixin font-body-semibold;
+
+  white-space: nowrap;
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.label.done,
+.label.upcoming {
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.label.current {
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.connector {
+  display: none;
+  flex-shrink: 0;
+  width: 36px;
+  height: 1px;
+  margin-left: 12px;
+  position: relative;
+  background-color: var(--lido-app-ui-color-border-default);
+}
+
+.connector::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--lido-app-ui-color-icons-tertiary);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--lido-app-ui-duration-base-exit)
+    var(--lido-app-ui-easing-exit);
+}
+
+.connectorFilled::after {
+  clip-path: inset(0);
+  transition-duration: var(--lido-app-ui-duration-base);
+  transition-timing-function: var(--lido-app-ui-easing-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connector::after,
+  .connectorFilled::after {
+    clip-path: none;
+    opacity: 0;
+    transition: opacity var(--lido-app-ui-duration-fast-exit)
+      var(--lido-app-ui-easing-exit);
+  }
+
+  .connectorFilled::after {
+    opacity: 1;
+    transition-duration: var(--lido-app-ui-duration-fast);
+  }
+
+  .checkIcon,
+  .done .checkIcon {
+    clip-path: none;
+    transition-property: opacity;
+  }
+}
+
+/* ~160px per step, assuming short labels. */
+.list[data-orientation='horizontal'] {
+  flex-direction: row;
+  align-items: center;
+}
+
+.list[data-orientation='horizontal'] .connector {
+  display: block;
+}
+
+@container (min-width: 360px) {
+  .list[data-orientation='auto'][data-count='2'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='2'] .connector {
+    display: block;
+  }
+}
+
+@container (min-width: 520px) {
+  .list[data-orientation='auto'][data-count='3'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='3'] .connector {
+    display: block;
+  }
+}
+
+@container (min-width: 680px) {
+  .list[data-orientation='auto'][data-count='4'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='4'] .connector {
+    display: block;
+  }
+}
+
+@container (min-width: 840px) {
+  .list[data-orientation='auto'][data-count='5'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='5'] .connector {
+    display: block;
+  }
+}
+
+@container (min-width: 1000px) {
+  .list[data-orientation='auto'][data-count='6'] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list[data-orientation='auto'][data-count='6'] .connector {
+    display: block;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

@@ -1,5 +1,5 @@
 import { createRef, useRef, useState } from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -65,6 +65,16 @@ const mockLayout = (
   vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(
     function (this: HTMLElement) {
       return this.getAttribute('role') === 'dialog' ? rect(panel) : rect(anchor)
+    },
+  )
+  vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+    function (this: HTMLElement) {
+      return this.getAttribute('role') === 'dialog' ? (panel.width ?? 0) : 0
+    },
+  )
+  vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockImplementation(
+    function (this: HTMLElement) {
+      return this.getAttribute('role') === 'dialog' ? (panel.height ?? 0) : 0
     },
   )
   vi.spyOn(document.documentElement, 'clientWidth', 'get').mockReturnValue(
@@ -157,6 +167,17 @@ describe('Popover', () => {
     expect(dialog.style.left).toBe('350px')
   })
 
+  it('sets a min width at the anchor width with min-anchor', async () => {
+    mockLayout(
+      { left: 400, right: 500, top: 100, bottom: 140, width: 100, height: 40 },
+      { width: 200, height: 100 },
+    )
+    render(<Single width='min-anchor' />)
+    const dialog = await screen.findByRole('dialog')
+    expect(dialog.style.minWidth).toBe('100px')
+    expect(dialog.style.width).toBe('')
+  })
+
   it('flips to top when there is no room below', async () => {
     mockLayout(
       { left: 400, right: 500, top: 700, bottom: 740, width: 100, height: 40 },
@@ -176,7 +197,9 @@ describe('Popover', () => {
     render(<Single />)
     const dialog = await screen.findByRole('dialog')
     expect(dialog.dataset.placement).toBe('top')
-    expect(dialog.style.maxHeight).toBe('384px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('384px')
     expect(dialog.style.maxWidth).toBe('984px')
   })
 
@@ -188,7 +211,9 @@ describe('Popover', () => {
     )
     render(<Single />)
     const dialog = await screen.findByRole('dialog')
-    expect(dialog.style.maxHeight).toBe('84px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('84px')
   })
 
   it('flips on the natural height of a capped panel', async () => {
@@ -200,7 +225,9 @@ describe('Popover', () => {
     render(<Single placement='top' />)
     const dialog = await screen.findByRole('dialog')
     expect(dialog.dataset.placement).toBe('bottom')
-    expect(dialog.style.maxHeight).toBe('404px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('404px')
   })
 
   it('scrolls the initially focused element into view', async () => {
@@ -410,5 +437,91 @@ describe('Popover', () => {
     expect(
       screen.getByRole('dialog', { name: 'Dark' }).closest('[data-lido-theme]'),
     ).toHaveAttribute('data-lido-theme', 'dark')
+  })
+
+  describe('exit animation', () => {
+    const stubMotion = (transitionDuration = '0.1s') => {
+      const real = window.getComputedStyle.bind(window)
+      vi.spyOn(window, 'getComputedStyle').mockImplementation((el, pseudo) => {
+        const style = real(el, pseudo)
+        return new Proxy(style, {
+          get: (target, prop) =>
+            prop === 'transitionDuration'
+              ? transitionDuration
+              : Reflect.get(target, prop),
+        })
+      })
+    }
+
+    afterEach(() => vi.useRealTimers())
+
+    it('stays mounted as closed, then unmounts after the transition', async () => {
+      stubMotion()
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      vi.useFakeTimers()
+      rerender(<Single open={false} />)
+      const dialog = screen.getByRole('dialog', { hidden: true })
+      expect(dialog).toHaveAttribute('data-state', 'closed')
+      expect(dialog).toHaveAttribute('data-motion', 'exit')
+      expect(dialog).toHaveAttribute('inert')
+      act(() => {
+        vi.advanceTimersByTime(200)
+      })
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('keeps the panel open when reopened during the exit', async () => {
+      stubMotion()
+      vi.useFakeTimers()
+      const { rerender } = render(<Single />)
+      rerender(<Single open={false} />)
+      rerender(<Single />)
+      act(() => {
+        vi.advanceTimersByTime(500)
+      })
+      expect(screen.getByRole('dialog')).toHaveAttribute('data-state', 'open')
+    })
+
+    it('keeps the same node on reopen during the exit', async () => {
+      stubMotion()
+      vi.useFakeTimers()
+      const { rerender } = render(<Single />)
+      const before = screen.getByRole('dialog')
+      rerender(<Single open={false} />)
+      rerender(<Single />)
+      expect(screen.getByRole('dialog')).toBe(before)
+    })
+
+    it('unmounts at once when there is no motion', async () => {
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} />)
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('moves focus to the anchor as soon as closing starts', async () => {
+      stubMotion()
+      render(<Demo />)
+      const anchor = openPopover()
+      const inside = await screen.findByText('inside')
+      expect(inside).toHaveFocus()
+      await userEvent.setup().keyboard('{Escape}')
+      expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute(
+        'data-state',
+        'closed',
+      )
+      expect(anchor).toHaveFocus()
+    })
+
+    it('releases Escape to the parent while closing', async () => {
+      stubMotion()
+      const onClose = vi.fn()
+      const { rerender } = render(<Single onClose={onClose} />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} onClose={onClose} />)
+      fireEvent.keyDown(document, { key: 'Escape' })
+      expect(onClose).not.toHaveBeenCalled()
+    })
   })
 })

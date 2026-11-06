@@ -1,0 +1,2 @@
+@custom-media --lido-app-ui-container-narrow (width <= 400px);
+@custom-media --lido-app-ui-container-compact (width <= 600px);

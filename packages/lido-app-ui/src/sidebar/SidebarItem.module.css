@@ -15,9 +15,7 @@
   color: var(--local-color);
   text-decoration: none;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .item:not(.disabled):hover {

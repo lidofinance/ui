@@ -1,0 +1,27 @@
+export {
+  Table,
+  TableRoot,
+  TableHead,
+  TableHeaderCell,
+  TableBody,
+  TableRow,
+  TableCell,
+  RankCell,
+} from './Table'
+export type {
+  TableProps,
+  TableRootProps,
+  TableHeadProps,
+  TableHeaderCellProps,
+  TableBodyProps,
+  TableRowProps,
+  TableCellProps,
+  TableColumn,
+  TableSort,
+  TableSortDirection,
+  TableVariant,
+  TableAlign,
+  TableDataTestId,
+  RankCellProps,
+  RankChange,
+} from './Table'

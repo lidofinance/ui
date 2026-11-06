@@ -6,7 +6,10 @@
   gap: var(--lido-app-ui-space-24);
   box-sizing: border-box;
   max-width: calc(100vw - 16px);
-  max-height: calc(100dvh - 16px);
+  max-height: min(
+    var(--lido-app-ui-popover-available-height, 100dvh),
+    calc(100dvh - 16px)
+  );
   padding: var(--lido-app-ui-space-12);
   overflow-y: auto;
   border: 1px solid var(--lido-app-ui-color-border-default);
@@ -15,6 +18,36 @@
   box-shadow: var(--lido-app-ui-shadow-default);
   font-family: var(--lido-app-ui-font-family);
   color: var(--lido-app-ui-color-text-default);
+
+  @mixin motion-pop top left;
+
+  --local-motion-shift: calc(var(--lido-app-ui-motion-shift) * -1);
+}
+
+.panel[data-placement='bottom'][data-align='center'] {
+  transform-origin: top center;
+}
+
+.panel[data-placement='bottom'][data-align='end'] {
+  transform-origin: top right;
+}
+
+.panel[data-placement='top'] {
+  --local-motion-shift: var(--lido-app-ui-motion-shift);
+
+  transform-origin: bottom left;
+}
+
+.panel[data-placement='top'][data-align='center'] {
+  transform-origin: bottom center;
+}
+
+.panel[data-placement='top'][data-align='end'] {
+  transform-origin: bottom right;
+}
+
+.panel[data-state='closed'] {
+  pointer-events: none;
 }
 
 .panel:focus {

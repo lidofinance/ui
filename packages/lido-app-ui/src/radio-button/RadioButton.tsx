@@ -22,11 +22,15 @@ export type RadioButtonProps = Omit<
 /** 24px radio wrapped in a `<label>` so the text is clickable; forwards every native input prop, group radios with a shared `name`. */
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   ({ label, className, disabled, dataTestId, ...rest }, ref) => (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- blocks text selection on double-click; keyboard is unaffected
     <label
       className={cn(styles.container, className, {
         [styles.containerDisabled]: disabled,
       })}
       data-testid={dataTestId?.root}
+      onMouseDown={(event) => {
+        if (event.detail > 1) event.preventDefault()
+      }}
     >
       <span className={styles.control}>
         <input

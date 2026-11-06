@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { StorySection } from '../../.storybook/components'
+import { ContainerWidths, StorySection } from '../../.storybook/components'
 import { IconInfo } from '../icons'
 import { Tag } from '.'
 
@@ -143,6 +143,36 @@ export const Removable: Story = {
     docs: {
       description: {
         story: '`onClose` renders a close button and makes the tag removable.',
+      },
+    },
+  },
+}
+
+const LONG_LABEL = 'Distributed validator technology cluster'
+
+export const NarrowWidths: Story = {
+  render: () => (
+    <ContainerWidths widths={[160, 240, 320]}>
+      <StorySection
+        style={{ flexDirection: 'column', alignItems: 'flex-start' }}
+      >
+        <Tag>{LONG_LABEL}</Tag>
+        <Tag icon={<IconInfo />}>{LONG_LABEL}</Tag>
+        <Tag icon={<IconInfo />} onClose={() => undefined}>
+          {LONG_LABEL}
+        </Tag>
+        <Tag icon={<IconInfo />} iconPosition='right' onClose={() => undefined}>
+          {LONG_LABEL}
+        </Tag>
+      </StorySection>
+    </ContainerWidths>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Long labels truncate with an ellipsis; the icon and close button keep their size.',
       },
     },
   },

@@ -10,12 +10,7 @@ import {
 
 import cn from 'classnames'
 
-import {
-  useBodyScrollLock,
-  useEscape,
-  useFocusTrap,
-  useIsomorphicLayoutEffect,
-} from '../hooks'
+import { useDialogLayer, useIsomorphicLayoutEffect } from '../hooks'
 import { CloseButton } from '../icon-button'
 import { downQuery } from '../utils'
 import styles from './Sidebar.module.css'
@@ -81,6 +76,7 @@ export const Sidebar = ({
   const onClose = onCloseProp ?? context?.sidebarProps.onClose
   const id = idProp ?? context?.sidebarProps.id
   const [root, setRoot] = useState<HTMLElement | null>(null)
+  const [scrim, setScrim] = useState<HTMLDivElement | null>(null)
   const isDrawerViewport = useIsDrawerViewport()
 
   useIsomorphicLayoutEffect(() => {
@@ -115,9 +111,11 @@ export const Sidebar = ({
     wasDrawerViewport.current = isDrawerViewport
   }, [isDrawerViewport, open, onClose])
 
-  useBodyScrollLock({ enabled: drawerActive })
-  useFocusTrap(root, { enabled: drawerActive })
-  useEscape(() => onClose?.(), { enabled: drawerActive && !!onClose })
+  const { onScrimClick } = useDialogLayer(root, {
+    scrim,
+    active: drawerActive,
+    onClose,
+  })
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     onClick?.(event)
@@ -127,10 +125,11 @@ export const Sidebar = ({
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- scrim is a pointer-only dismiss target; Escape closes via useEscape */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- scrim is a pointer-only dismiss target; Escape closes via useDialogLayer */}
       <div
+        ref={setScrim}
         className={cn(styles.scrim, open && styles.scrimOpen)}
-        onClick={onClose}
+        onClick={onScrimClick}
         aria-hidden='true'
       />
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions -- delegated link-click handler; links are natively keyboard-activatable */}

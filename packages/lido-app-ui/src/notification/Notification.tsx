@@ -31,6 +31,8 @@ export type NotificationProps = Omit<
   /** Slot above the title, usually a `Tag`. */
   subheader?: ReactNode
   actions?: ReactNode
+  /** Fills the container width instead of the fixed 320px. */
+  fluid?: boolean
   /** Renders a dismiss button when set. A plain `() => void` handler is fine; the click event is rarely needed. */
   onClose?: MouseEventHandler<HTMLButtonElement>
   dataTestId?: NotificationDataTestId
@@ -50,6 +52,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
       subheader,
       actions,
       onClose,
+      fluid = false,
       role = 'alert',
       className,
       dataTestId,
@@ -64,7 +67,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         <div
           ref={ref}
           role={role}
-          className={cn(styles.notification, className)}
+          className={cn(styles.notification, fluid && styles.fluid, className)}
           data-testid={dataTestId?.root}
           {...rest}
         >

@@ -1,0 +1,30 @@
+.bar {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.pill {
+  flex: 1 1 0;
+  min-width: 2px;
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--lido-app-ui-border-radius-pill);
+  background-color: var(--lido-app-ui-color-background-secondary);
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  background-color: var(--lido-app-ui-color-background-surface-selected);
+  transition: clip-path var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+}

@@ -35,6 +35,9 @@ const meta: Meta<typeof RichInput> = {
     locked: {
       control: { type: 'boolean' },
     },
+    loading: {
+      control: { type: 'boolean' },
+    },
     tokenSelector: {
       control: false,
       table: { defaultValue: { summary: 'TokenSelector' } },
@@ -79,6 +82,7 @@ export const Basic: Story = {
   },
   parameters: {
     docs: {
+      source: { type: 'code' },
       description: {
         story:
           'Fully wired: type an amount and the fiat line follows, or hit Max to fill the balance. Letters are stripped out, and a second decimal point is ignored.',
@@ -139,6 +143,13 @@ export const States: Story = {
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}
         disabled
+      />
+      <RichInput
+        label='You receive'
+        loading
+        secondaryValue='$13,104.00'
+        balance='Balance: 12.4218'
+        tokenSelector={tokenSelector}
       />
       <RichInput
         label='Locked'
