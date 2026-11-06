@@ -37,7 +37,10 @@ export default {
     const postcssOptions = {
       plugins: {
         '@csstools/postcss-global-data': {
-          files: [path.join(packageRoot, 'styles/breakpoints.css')],
+          files: [
+            path.join(packageRoot, 'styles/breakpoints.css'),
+            path.join(packageRoot, 'styles/container-queries.css'),
+          ],
         },
         'postcss-mixins': {
           mixinsDir: path.join(packageRoot, 'styles'),
@@ -45,7 +48,7 @@ export default {
         autoprefixer: {},
         'postcss-import': {},
         'postcss-nested': {},
-        'postcss-custom-media': { preserve: false },
+        [path.join(packageRoot, 'scripts/postcss-custom-queries.cjs')]: {},
       },
     }
 
