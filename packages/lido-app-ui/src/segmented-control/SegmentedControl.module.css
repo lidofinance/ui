@@ -10,7 +10,8 @@
 }
 
 .segmentedControl > button {
-  flex: 1 0 0;
+  /* basis 0 would split a hugging control equally and truncate its longest label */
+  flex: 1 1 auto;
 }
 
 .selection {

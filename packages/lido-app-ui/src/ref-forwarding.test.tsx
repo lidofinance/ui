@@ -46,7 +46,7 @@ const cases: Array<
   [
     'Tag',
     (ref) => <Tag ref={ref}>Tag</Tag>,
-    (root) => root === screen.getByText('Tag'),
+    (root) => root === screen.getByText('Tag').parentElement,
   ],
   [
     'Tag as button',

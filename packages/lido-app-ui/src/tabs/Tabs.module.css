@@ -1,9 +1,16 @@
 .tabs {
+  /* stylelint-disable-next-line value-keyword-case */
+  composes: scrollFade from '../utils/ScrollFade.module.css';
   position: relative;
   display: flex;
   align-items: center;
   gap: 24px;
+  min-width: 0;
   border-bottom: 1px solid var(--lido-app-ui-color-border-default);
+}
+
+.tabs > * {
+  flex-shrink: 0;
 }
 
 .selection {

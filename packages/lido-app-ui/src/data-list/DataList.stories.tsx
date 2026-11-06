@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { DataList, DataListRow } from '.'
 
+import { ContainerWidths } from '../../.storybook/components'
 import { TokenSteth } from '../icons'
 
 const meta: Meta<typeof DataList> = {
@@ -99,6 +100,31 @@ export const Divided: Story = {
     docs: {
       description: {
         story: 'Pass `divided` to draw a hairline between rows.',
+      },
+    },
+  },
+}
+
+export const NarrowContainers: Story = {
+  render: () => (
+    <ContainerWidths>
+      <DataList divided>
+        <DataListRow
+          label='Reward address'
+          value='0x1234567890abcdef1234567890abcdef12345678'
+        />
+        <DataListRow
+          label='Estimated monthly rewards'
+          value='1,234.5678 stETH'
+        />
+      </DataList>
+    </ContainerWidths>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: 'The value wraps below the label at narrow widths.',
       },
     },
   },

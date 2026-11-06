@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { ContainerWidths } from '../../.storybook/components'
 import { Grid } from '../grid'
 import { Tag } from '../tag'
 import { StatCard, StatCardMeta } from '.'
@@ -197,4 +198,29 @@ export const FooterMeta: Story = {
       },
     },
   },
+}
+
+export const NarrowContainers: Story = {
+  args: {
+    title: 'Total rewards earned',
+    value: '42.318',
+    valueSuffix: 'stETH',
+    secondary: '$194,740.12',
+    size: 'hero',
+    tag: 'delta',
+    sparkline: 'sparkline',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'At 400px and below padding drops to 20px and the hero value steps down.',
+      },
+    },
+  },
+  render: (args) => (
+    <ContainerWidths>
+      <StatCard {...args} value={args.value} />
+    </ContainerWidths>
+  ),
 }

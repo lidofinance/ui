@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 
-import { StoryContainer, StorySection } from '../../.storybook/components'
+import {
+  ContainerWidths,
+  StoryContainer,
+  StorySection,
+} from '../../.storybook/components'
 import { IconInfo } from '../icons'
 import { Callout } from '.'
 
@@ -83,6 +87,17 @@ export const Interactive: Story = {
         </Callout>
       </StorySection>
     </StoryContainer>
+  ),
+  parameters: { controls: { disable: true } },
+}
+
+export const NarrowContainers: Story = {
+  render: () => (
+    <ContainerWidths>
+      <Callout tone='warning' icon={<IconInfo />} href='#bond'>
+        Bond is running low. Top up to keep your validators active
+      </Callout>
+    </ContainerWidths>
   ),
   parameters: { controls: { disable: true } },
 }

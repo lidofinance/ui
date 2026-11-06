@@ -59,4 +59,16 @@ describe('Callout', () => {
     render(<Callout ref={ref}>Text</Callout>)
     expect(ref.current).toBeInstanceOf(HTMLElement)
   })
+
+  it('keeps children and slots inside one content wrapper', () => {
+    render(
+      <Callout icon={<i data-testid='i' />} dataTestId={{ root: 'root' }}>
+        Text
+      </Callout>,
+    )
+    const root = screen.getByTestId('root')
+    expect(root.children).toHaveLength(1)
+    expect(root.firstElementChild?.textContent).toBe('Text')
+    expect(root.firstElementChild?.contains(screen.getByTestId('i'))).toBe(true)
+  })
 })

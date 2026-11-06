@@ -17,10 +17,13 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  min-width: 0;
 }
 
 .title {
+  min-width: 0;
   margin: 0;
+  overflow-wrap: anywhere;
 
   @mixin font-body-large-semibold;
 
@@ -30,6 +33,7 @@
 .subtitle {
   margin: 0;
   width: 100%;
+  overflow-wrap: anywhere;
 
   @mixin font-body;
 
@@ -45,5 +49,5 @@
 }
 
 .large {
-  align-items: center;
+  align-items: flex-start;
 }

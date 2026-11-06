@@ -100,7 +100,9 @@ export const Tag = forwardRef<HTMLElement, TagProps>(
     const content = (
       <>
         {iconPosition === 'left' ? iconElement : null}
-        {onClose ? <span id={labelId}>{children}</span> : children}
+        <span id={onClose ? labelId : undefined} className={styles.label}>
+          {children}
+        </span>
         {iconPosition === 'right' ? iconElement : null}
         {onClose ? (
           <button

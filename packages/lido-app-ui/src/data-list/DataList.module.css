@@ -27,8 +27,9 @@
 .mainRow {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 16px;
+  gap: 4px 16px;
   width: 100%;
   min-height: 23px;
 }
@@ -68,6 +69,10 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+  margin-inline-start: auto;
+  overflow-wrap: anywhere;
 
   @mixin font-body;
 

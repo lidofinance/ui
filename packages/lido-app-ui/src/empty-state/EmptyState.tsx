@@ -29,7 +29,7 @@ export type EmptyStateProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   dataTestId?: EmptyStateDataTestId
 }
 
-/** Centered placeholder for empty lists and zero states; every slot is optional. */
+/** Centered placeholder for empty lists and zero states; every slot is optional. Needs a definite-width parent (it fills it). */
 export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   (
     {
@@ -51,32 +51,34 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
       data-testid={dataTestId?.root}
       {...rest}
     >
-      {has(illustration) ? (
-        <div
-          className={styles.illustration}
-          data-testid={dataTestId?.illustration}
-        >
-          {illustration}
-        </div>
-      ) : null}
-      {has(title) ? (
-        <div className={styles.title} data-testid={dataTestId?.title}>
-          {title}
-        </div>
-      ) : null}
-      {has(description) ? (
-        <div
-          className={styles.description}
-          data-testid={dataTestId?.description}
-        >
-          {description}
-        </div>
-      ) : null}
-      {has(action) ? (
-        <div className={styles.action} data-testid={dataTestId?.action}>
-          {action}
-        </div>
-      ) : null}
+      <div className={styles.content}>
+        {has(illustration) ? (
+          <div
+            className={styles.illustration}
+            data-testid={dataTestId?.illustration}
+          >
+            {illustration}
+          </div>
+        ) : null}
+        {has(title) ? (
+          <div className={styles.title} data-testid={dataTestId?.title}>
+            {title}
+          </div>
+        ) : null}
+        {has(description) ? (
+          <div
+            className={styles.description}
+            data-testid={dataTestId?.description}
+          >
+            {description}
+          </div>
+        ) : null}
+        {has(action) ? (
+          <div className={styles.action} data-testid={dataTestId?.action}>
+            {action}
+          </div>
+        ) : null}
+      </div>
     </div>
   ),
 )

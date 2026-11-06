@@ -2,6 +2,14 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  container-type: inline-size;
+}
+
+.content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   padding: var(--lido-app-ui-space-40) var(--lido-app-ui-space-24);
@@ -10,8 +18,12 @@
 
 .fill {
   flex: 1;
-  justify-content: center;
   min-height: 320px;
+}
+
+.fill .content {
+  flex: 1;
+  justify-content: center;
 }
 
 .illustration {
@@ -77,4 +89,14 @@
 
 .large .illustration + * {
   margin-top: var(--lido-app-ui-space-24);
+}
+
+@container (--lido-app-ui-container-narrow) {
+  .content {
+    padding: var(--lido-app-ui-space-24) var(--lido-app-ui-space-16);
+  }
+
+  .large .title {
+    @mixin font-h3;
+  }
 }

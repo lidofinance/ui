@@ -1,4 +1,8 @@
-import { type ComponentPropsWithoutRef, type ReactNode } from 'react'
+import {
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
+  type ReactNode,
+} from 'react'
 
 import cn from 'classnames'
 
@@ -36,6 +40,7 @@ export const SegmentedControlCard = ({
   value,
   onChange,
   className,
+  style,
   dataTestId,
   ...rest
 }: SegmentedControlCardProps) => {
@@ -47,6 +52,7 @@ export const SegmentedControlCard = ({
       ref={containerRef}
       role='tablist'
       className={cn(styles.segmentedControlCard, className)}
+      style={{ ...style, '--local-count': items.length } as CSSProperties}
       data-testid={dataTestId?.root}
       {...rest}
     >

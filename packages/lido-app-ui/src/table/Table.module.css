@@ -228,7 +228,7 @@
   border-top: 8px solid var(--lido-app-ui-color-icons-error);
 }
 
-@container (width <= 600px) {
+@container (--lido-app-ui-container-compact) {
   .table:not(.dense) .headerCell:first-child,
   .table:not(.dense) .cell:first-child {
     padding-left: var(--lido-app-ui-space-16);

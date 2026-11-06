@@ -3,14 +3,12 @@
   --local-bg-hover: var(--lido-app-ui-color-tint-info-hover);
 
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
+  display: block;
   width: 100%;
   margin: 0;
-  padding: 12px 32px;
+  padding: 0;
   border: none;
+  container-type: inline-size;
   background-color: var(--local-bg);
   color: var(--lido-app-ui-color-text-default);
 
@@ -18,6 +16,15 @@
 
   text-align: center;
   text-decoration: none;
+}
+
+.content {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 32px;
 }
 
 .rounded {
@@ -78,4 +85,12 @@
 .active {
   --local-bg: var(--lido-app-ui-color-tint-active);
   --local-bg-hover: var(--lido-app-ui-color-tint-active-hover);
+}
+
+@container (--lido-app-ui-container-narrow) {
+  .content {
+    justify-content: flex-start;
+    padding-inline: 16px;
+    text-align: start;
+  }
 }
