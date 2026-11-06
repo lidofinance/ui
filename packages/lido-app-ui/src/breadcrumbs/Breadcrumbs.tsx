@@ -1,9 +1,13 @@
-import { forwardRef, useEffect, useRef } from 'react'
+import { forwardRef, useRef } from 'react'
 import type { HTMLAttributes, PointerEvent, ReactNode } from 'react'
 
 import cn from 'classnames'
 
-import { useEdgeFade, useIsomorphicLayoutEffect } from '../hooks'
+import {
+  useEdgeFade,
+  useIsomorphicLayoutEffect,
+  useResizeObserver,
+} from '../hooks'
 import { IconChevronRight } from '../icons'
 import { ActionElement, type ActionElementProps } from '../utils'
 import styles from './Breadcrumbs.module.css'
@@ -55,12 +59,14 @@ const BreadcrumbsTrail = forwardRef<HTMLElement, BreadcrumbsProps>(
   ({ items, className, dataTestId, ...rest }, ref) => {
     const listRef = useRef<HTMLOListElement>(null)
 
-    const { sync, onFocus } = useEdgeFade(listRef)
+    const { sync } = useEdgeFade(listRef)
     const trailRef = useRef<string>()
+    const hiddenRef = useRef<boolean>()
 
     useIsomorphicLayoutEffect(() => {
       const list = listRef.current
       if (!list) return
+      hiddenRef.current ??= list.clientWidth === 0
       const trail = Array.from(list.children, (li) => li.textContent).join(
         '\u0000',
       )
@@ -72,20 +78,15 @@ const BreadcrumbsTrail = forwardRef<HTMLElement, BreadcrumbsProps>(
     })
 
     // A list mounted hidden (display: none) can't scroll on mount, so scroll once it gets a width.
-    useEffect(() => {
+    useResizeObserver(listRef, () => {
       const list = listRef.current
-      if (!list || typeof ResizeObserver === 'undefined') return
-      let hidden = list.clientWidth === 0
-      const observer = new ResizeObserver(() => {
-        const wasHidden = hidden
-        hidden = list.clientWidth === 0
-        if (!wasHidden || hidden) return
-        list.scrollLeft = list.scrollWidth
-        sync()
-      })
-      observer.observe(list)
-      return () => observer.disconnect()
-    }, [sync])
+      if (!list) return
+      const wasHidden = hiddenRef.current
+      hiddenRef.current = list.clientWidth === 0
+      if (!wasHidden || hiddenRef.current) return
+      list.scrollLeft = list.scrollWidth
+      sync()
+    })
 
     return (
       <nav
@@ -99,8 +100,6 @@ const BreadcrumbsTrail = forwardRef<HTMLElement, BreadcrumbsProps>(
           ref={listRef}
           className={styles.list}
           data-testid={dataTestId?.list}
-          onScroll={sync}
-          onFocus={onFocus}
           onPointerOver={syncTitle}
         >
           {items.map(

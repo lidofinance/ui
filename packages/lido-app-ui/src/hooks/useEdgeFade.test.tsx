@@ -7,9 +7,9 @@ import { useEdgeFade } from './useEdgeFade'
 
 const Strip = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const { sync, onFocus } = useEdgeFade(ref)
+  useEdgeFade(ref)
   return (
-    <div ref={ref} data-testid='strip' onScroll={sync} onFocus={onFocus}>
+    <div ref={ref} data-testid='strip'>
       <a href='#x'>x</a>
     </div>
   )
