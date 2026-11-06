@@ -12,6 +12,8 @@ export { useHideOthers } from './useHideOthers'
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
 export { useOpenerElement } from './useOpenerElement'
 export { useOutsideClick } from './useOutsideClick'
+export { useResizeObserver } from './useResizeObserver'
+export { useSelectionIndicator } from './useSelectionIndicator'
 export { usePresence } from './usePresence'
 export type {
   Presence,
