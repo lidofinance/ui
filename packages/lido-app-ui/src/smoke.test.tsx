@@ -231,7 +231,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['RadioButton', () => <RadioButton label='Option' />],
-  ['RichInput', () => <RichInput label='Amount' error errorText='Too much' />],
+  ['RichInput', () => <RichInput label='Amount' error='Too much' />],
   ['SectionTitle', () => <SectionTitle title='Choose a token' />],
   ['Segment', () => <Segment active>Tab</Segment>],
   [

@@ -136,6 +136,7 @@ describe('RichInput field chrome', () => {
     const input = screen.getByRole('textbox')
     expect(input).toHaveAttribute('aria-invalid', 'true')
     expect(screen.getByTestId('err')).toHaveTextContent('Too much')
+    expect(screen.getByRole('alert')).toHaveTextContent('Too much')
     expect(describedBy(input)).toEqual([screen.getByTestId('err').id])
   })
 
@@ -143,11 +144,6 @@ describe('RichInput field chrome', () => {
     render(<RichInput error />)
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true')
     expect(screen.queryByRole('alert')).toBeNull()
-  })
-
-  it('errorText still renders the message', () => {
-    render(<RichInput error errorText='Legacy' />)
-    expect(screen.getByRole('alert')).toHaveTextContent('Legacy')
   })
 
   it('renders the description and merges a consumer aria-describedby', () => {
@@ -164,8 +160,8 @@ describe('RichInput field chrome', () => {
     ])
   })
 
-  it('keeps the label inside the card and supports the deprecated labelTooltip', () => {
-    render(<RichInput label='Amount' labelTooltip='Help' />)
+  it('keeps the label inside the card and shows the tooltip icon', () => {
+    render(<RichInput label='Amount' tooltip='Help' />)
     expect(screen.getByLabelText('Amount')).toBe(screen.getByRole('textbox'))
     expect(screen.getByRole('img', { name: 'More info' })).toBeInTheDocument()
   })

@@ -37,8 +37,6 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: ReactNode
   /** Info icon next to the label. */
   tooltip?: ReactNode
-  /** @deprecated use `tooltip` */
-  labelTooltip?: ReactNode
   description?: ReactNode
   /** Fiat equivalent, bottom left. */
   secondaryValue?: ReactNode
@@ -48,8 +46,6 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   tokenSelector?: ReactNode
   /** Marks the card invalid; a node is also shown as the message. */
   error?: ReactNode | boolean
-  /** @deprecated pass the message as `error` */
-  errorText?: ReactNode
   showMaxButton?: boolean
   onMaxClick?: MouseEventHandler<HTMLButtonElement>
   /** Dims the Max shortcut, leaving the field editable. */
@@ -85,13 +81,11 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
     {
       label,
       tooltip,
-      labelTooltip,
       description,
       secondaryValue,
       balance,
       tokenSelector,
       error,
-      errorText,
       showMaxButton = true,
       onMaxClick,
       maxDisabled,
@@ -117,9 +111,7 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
 
     const setRefs = useMergedRef(inputRef, ref)
 
-    const fieldError = errorText || error
     const { hasError } = resolveFieldError(error)
-    const infoTooltip = tooltip ?? labelTooltip
     const showMax = showMaxButton && !disabled && !locked && !loading
     const showSecondary = secondaryValue != null && !loading
     const hasBottomRow = showSecondary || balance != null || showMax
@@ -169,7 +161,7 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
       <Field
         id={inputId}
         description={description}
-        error={fieldError}
+        error={error}
         fit
         className={className}
         dataTestId={dataTestId}
@@ -197,9 +189,9 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
               >
                 {label}
               </label>
-              {infoTooltip != null ? (
+              {tooltip != null ? (
                 <InfoTooltip
-                  content={infoTooltip}
+                  content={tooltip}
                   size={20}
                   dataTestId={{
                     root: dataTestId?.tooltip,
@@ -240,7 +232,7 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
                 aria-invalid={hasError || undefined}
                 aria-describedby={getFieldDescribedBy(
                   inputId,
-                  fieldError,
+                  error,
                   description,
                   ariaDescribedBy,
                 )}
