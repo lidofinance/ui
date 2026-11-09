@@ -3,7 +3,7 @@ import { type ComponentPropsWithoutRef, type ReactNode } from 'react'
 import cn from 'classnames'
 
 import { Segment, type SegmentDataTestId } from './Segment'
-import { useSelectionIndicator } from '../hooks'
+import { useRovingTabs, useSelectionIndicator } from '../hooks'
 import styles from './SegmentedControl.module.css'
 
 export type SegmentedControlDataTestId = {
@@ -34,18 +34,22 @@ export const SegmentedControl = ({
   onChange,
   className,
   dataTestId,
+  onKeyDown,
   ...rest
 }: SegmentedControlProps) => {
   const { containerRef, activeRef, indicatorRef, animated } =
     useSelectionIndicator('both', [value, items])
+  const roving = useRovingTabs(containerRef, items, value, onChange, onKeyDown)
 
   return (
+    // eslint-disable-next-line jsx-a11y/interactive-supports-focus -- focus lives on the roving tabs
     <div
       ref={containerRef}
       role='tablist'
       className={cn(styles.segmentedControl, className)}
       data-testid={dataTestId?.root}
       {...rest}
+      onKeyDown={roving.onKeyDown}
     >
       <div
         ref={indicatorRef}
@@ -60,6 +64,7 @@ export const SegmentedControl = ({
             ref={active ? activeRef : undefined}
             active={active}
             disabled={item.disabled}
+            tabIndex={roving.getTabIndex(item.value)}
             dataTestId={item.dataTestId}
             onClick={() => {
               if (item.value !== value) onChange(item.value)

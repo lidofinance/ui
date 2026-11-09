@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
@@ -14,14 +16,75 @@ describe('Tabs keyboard', () => {
     const onChange = vi.fn()
     const user = userEvent.setup()
     render(<Tabs items={items} value='a' onChange={onChange} />)
-    await user.tab()
-    await user.tab()
-    expect(screen.getByRole('tab', { name: 'B' })).toHaveFocus()
+    screen.getByRole('tab', { name: 'B' }).focus()
     await user.keyboard('{Enter}')
     expect(onChange).toHaveBeenCalledWith('b')
     onChange.mockClear()
     await user.keyboard(' ')
     expect(onChange).toHaveBeenCalledWith('b')
+  })
+})
+
+describe('Tabs roving keyboard', () => {
+  const four = [
+    { value: 'a', label: 'A' },
+    { value: 'b', label: 'B', disabled: true },
+    { value: 'c', label: 'C' },
+    { value: 'd', label: 'D' },
+  ]
+
+  const setup = (value = 'a', props = {}) => {
+    const onChange = vi.fn()
+    render(<Tabs items={four} value={value} onChange={onChange} {...props} />)
+    return { onChange, user: userEvent.setup() }
+  }
+
+  it('has a single tab stop on the selected tab', () => {
+    setup('c')
+    const stops = screen.getAllByRole('tab').filter((t) => t.tabIndex === 0)
+    expect(stops).toEqual([screen.getByRole('tab', { name: 'C' })])
+  })
+
+  it('falls back to the first enabled tab when value matches none', () => {
+    setup('zzz')
+    expect(screen.getByRole('tab', { name: 'A' }).tabIndex).toBe(0)
+  })
+
+  it('moves focus and selection with arrows, skipping disabled', async () => {
+    const { onChange, user } = setup('a')
+    await user.tab()
+    expect(screen.getByRole('tab', { name: 'A' })).toHaveFocus()
+    await user.keyboard('{ArrowRight}')
+    expect(screen.getByRole('tab', { name: 'C' })).toHaveFocus()
+    expect(onChange).toHaveBeenCalledWith('c')
+  })
+
+  it('wraps around in both directions', async () => {
+    const { onChange, user } = setup('a')
+    await user.tab()
+    await user.keyboard('{ArrowLeft}')
+    expect(screen.getByRole('tab', { name: 'D' })).toHaveFocus()
+    expect(onChange).toHaveBeenLastCalledWith('d')
+    await user.keyboard('{ArrowRight}')
+    expect(screen.getByRole('tab', { name: 'A' })).toHaveFocus()
+  })
+
+  it('supports Home and End', async () => {
+    const { onChange, user } = setup('c')
+    await user.tab()
+    await user.keyboard('{End}')
+    expect(onChange).toHaveBeenLastCalledWith('d')
+    await user.keyboard('{Home}')
+    expect(screen.getByRole('tab', { name: 'A' })).toHaveFocus()
+    expect(onChange).toHaveBeenLastCalledWith('a')
+  })
+
+  it('calls the consumer onKeyDown', async () => {
+    const onKeyDown = vi.fn()
+    const { user } = setup('a', { onKeyDown })
+    await user.tab()
+    await user.keyboard('{ArrowRight}')
+    expect(onKeyDown).toHaveBeenCalled()
   })
 })
 
@@ -67,5 +130,32 @@ describe('Tabs overflow', () => {
     const bar = container.querySelector('[aria-hidden="true"]') as HTMLElement
     expect(bar.style.transform).toBe('translateX(70px)')
     expect(bar.style.width).toBe('40px')
+  })
+})
+
+describe('Tabs stateful', () => {
+  const Wrapper = () => {
+    const [value, setValue] = useState('a')
+    return (
+      <>
+        <Tabs items={items} value={value} onChange={setValue} />
+        <button>after</button>
+      </>
+    )
+  }
+
+  it('moves the tab stop with selection and returns to it on Shift+Tab', async () => {
+    const user = userEvent.setup()
+    render(<Wrapper />)
+    await user.tab()
+    await user.keyboard('{ArrowRight}')
+    const b = screen.getByRole('tab', { name: 'B' })
+    expect(b).toHaveAttribute('aria-selected', 'true')
+    expect(b.tabIndex).toBe(0)
+    expect(screen.getByRole('tab', { name: 'A' }).tabIndex).toBe(-1)
+    await user.tab()
+    expect(screen.getByRole('button', { name: 'after' })).toHaveFocus()
+    await user.tab({ shift: true })
+    expect(b).toHaveFocus()
   })
 })

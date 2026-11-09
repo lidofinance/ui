@@ -6,6 +6,7 @@ import { Tab, type TabDataTestId } from './Tab'
 import {
   useEdgeFade,
   useIsomorphicLayoutEffect,
+  useRovingTabs,
   useSelectionIndicator,
 } from '../hooks'
 import { scrollIntoCenter } from '../utils/dom'
@@ -36,10 +37,12 @@ export const Tabs = ({
   onChange,
   className,
   dataTestId,
+  onKeyDown,
   ...rest
 }: TabsProps) => {
   const { containerRef, activeRef, indicatorRef, animated } =
     useSelectionIndicator('x', [value, items])
+  const roving = useRovingTabs(containerRef, items, value, onChange, onKeyDown)
 
   const { sync } = useEdgeFade(containerRef)
 
@@ -51,12 +54,14 @@ export const Tabs = ({
   }, [value])
 
   return (
+    // eslint-disable-next-line jsx-a11y/interactive-supports-focus -- focus lives on the roving tabs
     <div
       ref={containerRef}
       role='tablist'
       className={cn(styles.tabs, className)}
       data-testid={dataTestId?.root}
       {...rest}
+      onKeyDown={roving.onKeyDown}
     >
       <div
         ref={indicatorRef}
@@ -71,6 +76,7 @@ export const Tabs = ({
             ref={active ? activeRef : undefined}
             active={active}
             disabled={item.disabled}
+            tabIndex={roving.getTabIndex(item.value)}
             dataTestId={item.dataTestId}
             onClick={() => {
               if (item.value !== value) onChange(item.value)

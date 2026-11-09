@@ -7,7 +7,7 @@ import {
 import cn from 'classnames'
 
 import { SegmentCard, type SegmentCardDataTestId } from './SegmentCard'
-import { useSelectionIndicator } from '../hooks'
+import { useRovingTabs, useSelectionIndicator } from '../hooks'
 import styles from './SegmentedControlCard.module.css'
 
 export type SegmentedControlCardDataTestId = {
@@ -42,12 +42,15 @@ export const SegmentedControlCard = ({
   className,
   style,
   dataTestId,
+  onKeyDown,
   ...rest
 }: SegmentedControlCardProps) => {
   const { containerRef, activeRef, indicatorRef, animated } =
     useSelectionIndicator('both', [value, items])
+  const roving = useRovingTabs(containerRef, items, value, onChange, onKeyDown)
 
   return (
+    // eslint-disable-next-line jsx-a11y/interactive-supports-focus -- focus lives on the roving tabs
     <div
       ref={containerRef}
       role='tablist'
@@ -55,6 +58,7 @@ export const SegmentedControlCard = ({
       style={{ ...style, '--local-count': items.length } as CSSProperties}
       data-testid={dataTestId?.root}
       {...rest}
+      onKeyDown={roving.onKeyDown}
     >
       <div
         ref={indicatorRef}
@@ -69,6 +73,7 @@ export const SegmentedControlCard = ({
             ref={active ? activeRef : undefined}
             active={active}
             disabled={item.disabled}
+            tabIndex={roving.getTabIndex(item.value)}
             icon={item.icon}
             title={item.title}
             tag={item.tag}
