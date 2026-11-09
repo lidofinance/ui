@@ -8,7 +8,7 @@ import {
 import cn from 'classnames'
 
 import { Skeleton } from '../skeleton'
-import { Field, getFieldDescribedBy, resolveFieldError } from './Field'
+import { Field, getFieldDescribedBy, resolveFieldError } from '../field/Field'
 import styles from './Input.module.css'
 
 export type InputSize = 'default' | 'small'

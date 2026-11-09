@@ -19,7 +19,7 @@ import {
   getFieldDescribedBy,
   resolveFieldError,
   type FieldDataTestId,
-} from '../input/Field'
+} from '../field/Field'
 import styles from './Textarea.module.css'
 
 export type TextareaDataTestId = FieldDataTestId & {
@@ -103,12 +103,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       onChange?.(event)
     }
 
-    const fieldDescribedBy = getFieldDescribedBy(textareaId, error, description)
     const counterId = `${textareaId}-counter`
-    const describedBy =
-      [fieldDescribedBy, counter ? counterId : null]
-        .filter(Boolean)
-        .join(' ') || undefined
+    const describedBy = getFieldDescribedBy(
+      textareaId,
+      error,
+      description,
+      counter ? counterId : undefined,
+    )
 
     return (
       <Field

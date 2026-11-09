@@ -15,6 +15,7 @@ const meta = {
     disabled: { control: { type: 'boolean' } },
     mono: { control: { type: 'boolean' } },
     indeterminate: { control: { type: 'boolean' } },
+    error: { control: { type: 'text' } },
   },
 } satisfies Meta<typeof CheckboxRow>
 
@@ -41,6 +42,20 @@ export const Mono: Story = {
 export const WithTrailing: Story = {
   args: { trailing: <Tag variant='error'>Duplicate</Tag> },
   render: Basic.render,
+}
+
+export const Error: Story = {
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <CheckboxList style={{ width: 480 }}>
+      <CheckboxRow label='Styling only' error />
+      <CheckboxRow
+        label='Operator #419'
+        description='Community Staking Module node operator'
+        error='Select an operator to continue'
+      />
+    </CheckboxList>
+  ),
 }
 
 export const States: Story = {

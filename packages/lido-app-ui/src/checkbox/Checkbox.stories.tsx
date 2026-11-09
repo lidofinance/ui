@@ -11,6 +11,7 @@ const meta: Meta<typeof Checkbox> = {
   argTypes: {
     disabled: { control: { type: 'boolean' } },
     indeterminate: { control: { type: 'boolean' } },
+    error: { control: { type: 'text' } },
   },
 }
 
@@ -36,6 +37,27 @@ export const States: Story = {
       description: {
         story:
           'Checked/unchecked, the label-less form (drop `label` and pass `aria-label` when the text lives elsewhere), and the two disabled states.',
+      },
+    },
+  },
+}
+
+export const Error: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <Checkbox label='Styling only' error />
+      <Checkbox
+        label='I have read and agree to the Terms of Use'
+        error='Accept the terms to continue'
+      />
+    </div>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`error` sets `aria-invalid` and outlines the unchecked box; a checked box keeps its fill. `true` is styling only, a node also renders the message below the label.',
       },
     },
   },

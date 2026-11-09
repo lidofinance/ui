@@ -16,15 +16,17 @@ export type CheckboxListDataTestId = {
 export type CheckboxListProps = ComponentPropsWithoutRef<'div'> & {
   /** Pinned first row, typically a select-all `CheckboxRow` with `indeterminate`. */
   header?: ReactNode
+  /** Outlines the list in the error colour. */
+  error?: boolean
   dataTestId?: CheckboxListDataTestId
 }
 
 /** Bordered container that stacks `CheckboxRow`s with dividers and an optional header row. */
 export const CheckboxList = forwardRef<HTMLDivElement, CheckboxListProps>(
-  ({ header, children, className, dataTestId, ...rest }, ref) => (
+  ({ header, error, children, className, dataTestId, ...rest }, ref) => (
     <div
       ref={ref}
-      className={cn(styles.list, className)}
+      className={cn(styles.list, error && styles.error, className)}
       data-testid={dataTestId?.root}
       {...rest}
     >

@@ -13,6 +13,10 @@ export type DataListRowDataTestId = {
   value?: string
   icon?: string
   description?: string
+  info?: string
+  infoContent?: string
+  descriptionInfo?: string
+  descriptionInfoContent?: string
 }
 
 export type DetailRowProps = ComponentPropsWithoutRef<'div'> & {
@@ -65,6 +69,10 @@ export const DataListRow = ({
         {info ? (
           <InfoTooltip
             content={info}
+            dataTestId={{
+              root: dataTestId?.info,
+              content: dataTestId?.infoContent,
+            }}
             className={cn(infoFaint && styles.infoFaint)}
           />
         ) : null}
@@ -92,7 +100,14 @@ export const DataListRow = ({
           {description}
         </span>
         {descriptionInfo ? (
-          <InfoTooltip content={descriptionInfo} tone='tertiary' />
+          <InfoTooltip
+            content={descriptionInfo}
+            tone='tertiary'
+            dataTestId={{
+              root: dataTestId?.descriptionInfo,
+              content: dataTestId?.descriptionInfoContent,
+            }}
+          />
         ) : null}
       </span>
     ) : null}

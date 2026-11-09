@@ -10,6 +10,8 @@ export type FieldDataTestId = {
   label?: string
   error?: string
   description?: string
+  tooltip?: string
+  tooltipContent?: string
 }
 
 export type FieldProps = {
@@ -32,19 +34,22 @@ export const getFieldLabelId = (id: string) => `${id}-label`
 export const getFieldErrorId = (id: string) => `${id}-error`
 export const getFieldDescriptionId = (id: string) => `${id}-description`
 
-/** `aria-describedby` value for the error message and description that are present. */
+/** `aria-describedby` value for the error message and description that are present, plus any extra ids. */
 export const getFieldDescribedBy = (
   id: string,
   error: ReactNode | boolean | undefined,
   description: ReactNode,
+  ...extraIds: (string | undefined)[]
 ) =>
   [
     resolveFieldError(error).hasMessage ? getFieldErrorId(id) : null,
     description != null ? getFieldDescriptionId(id) : null,
+    ...extraIds,
   ]
     .filter(Boolean)
     .join(' ') || undefined
 
+/** Splits `error` into invalid state (`hasError`) and the optional message to render. */
 export const resolveFieldError = (error: ReactNode | boolean | undefined) => {
   const message = typeof error === 'boolean' ? null : error
   return {
@@ -54,7 +59,25 @@ export const resolveFieldError = (error: ReactNode | boolean | undefined) => {
   }
 }
 
-/** Internal chrome shared by Input, Textarea and Select: label row, control slot, error and description. */
+export type FieldErrorProps = {
+  /** Id of the control; the message gets `getFieldErrorId(id)` so `getFieldDescribedBy` points at it. */
+  id: string
+  dataTestId?: string
+  children: ReactNode
+}
+
+export const FieldError = ({ id, dataTestId, children }: FieldErrorProps) => (
+  <span
+    id={getFieldErrorId(id)}
+    role='alert'
+    className={styles.errorText}
+    data-testid={dataTestId}
+  >
+    {children}
+  </span>
+)
+
+/** Wraps any control with a label row, error and description; the control must use `id` and `aria-describedby={getFieldDescribedBy(...)}`. */
 export const Field = ({
   id,
   label,
@@ -87,19 +110,22 @@ export const Field = ({
           >
             {label}
           </label>
-          {tooltip != null ? <InfoTooltip content={tooltip} /> : null}
+          {tooltip != null ? (
+            <InfoTooltip
+              content={tooltip}
+              dataTestId={{
+                root: dataTestId?.tooltip,
+                content: dataTestId?.tooltipContent,
+              }}
+            />
+          ) : null}
         </span>
       ) : null}
       {children}
       {hasMessage ? (
-        <p
-          id={getFieldErrorId(id)}
-          className={styles.errorText}
-          role='alert'
-          data-testid={dataTestId?.error}
-        >
+        <FieldError id={id} dataTestId={dataTestId?.error}>
           {message}
-        </p>
+        </FieldError>
       ) : null}
       {description != null ? (
         <p

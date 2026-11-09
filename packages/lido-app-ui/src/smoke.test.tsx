@@ -27,6 +27,7 @@ import { Hidden } from './hidden'
 import { CloseButton, IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { InfoTooltip } from './info-tooltip'
+import { Field, FieldError } from './field'
 import { Input } from './input'
 import { LinkProvider, type LinkComponent } from './link-provider'
 import { Logo } from './logo'
@@ -394,6 +395,15 @@ const cases: Array<[string, () => JSX.Element]> = [
       </TableRoot>
     ),
   ],
+  [
+    'Field',
+    () => (
+      <Field id='f' label='Label'>
+        <input id='f' />
+      </Field>
+    ),
+  ],
+  ['FieldError', () => <FieldError id='f'>Required</FieldError>],
   ['Textarea', () => <Textarea label='Notes' />],
   ['Toaster', () => <Toaster />],
   ['Layout', () => <Layout>Content</Layout>],

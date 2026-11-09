@@ -14,6 +14,16 @@ describe('FormLayout', () => {
     expect(screen.getByRole('complementary').textContent).toBe('Summary')
   })
 
+  it('renders no aside when it is null, false or omitted', () => {
+    const { rerender } = render(<FormLayout aside={null}>Form</FormLayout>)
+    expect(screen.queryByRole('complementary')).toBeNull()
+    rerender(<FormLayout>Form</FormLayout>)
+    expect(screen.queryByRole('complementary')).toBeNull()
+    rerender(<FormLayout aside={false}>Form</FormLayout>)
+    expect(screen.queryByRole('complementary')).toBeNull()
+    expect(screen.getByText('Form')).toBeDefined()
+  })
+
   it('forwards ref, className and props', () => {
     const ref = createRef<HTMLDivElement>()
     render(

@@ -15,6 +15,8 @@ export type StatItemDataTestId = {
   value?: string
   subValue?: string
   description?: string
+  info?: string
+  infoContent?: string
 }
 
 export type StatItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
@@ -62,7 +64,15 @@ export const StatItem = ({
       <div className={styles.label} data-testid={dataTestId?.label}>
         {label}
       </div>
-      {info ? <InfoTooltip content={info} /> : null}
+      {info ? (
+        <InfoTooltip
+          content={info}
+          dataTestId={{
+            root: dataTestId?.info,
+            content: dataTestId?.infoContent,
+          }}
+        />
+      ) : null}
     </div>
     <div className={styles.valueRow}>
       <div className={styles.value} data-testid={dataTestId?.value}>

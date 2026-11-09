@@ -19,7 +19,7 @@ import {
   getFieldLabelId,
   resolveFieldError,
   type FieldDataTestId,
-} from '../input/Field'
+} from '../field/Field'
 import { IconChevronDown } from '../icons'
 import { Popover } from '../popover'
 import { Skeleton } from '../skeleton'

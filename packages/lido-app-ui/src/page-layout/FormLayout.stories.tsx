@@ -62,6 +62,32 @@ export const Basic: Story = {
   ),
 }
 
+export const WithoutAside: Story = {
+  name: 'Without aside',
+  parameters: {
+    docs: {
+      description: {
+        story: 'Without `aside` the form fills the full width.',
+      },
+    },
+  },
+  render: () => (
+    <Layout>
+      <Main>
+        <PageContent>
+          <FormLayout>
+            <Stack gap={24}>
+              <SectionTitle title='Operator settings' />
+              <Input label='Reward address' placeholder='0x...' />
+              <Input label='Manager address' placeholder='0x...' />
+            </Stack>
+          </FormLayout>
+        </PageContent>
+      </Main>
+    </Layout>
+  ),
+}
+
 export const LongForm: Story = {
   parameters: {
     docs: {
