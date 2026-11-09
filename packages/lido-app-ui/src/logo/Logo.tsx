@@ -17,7 +17,7 @@ export type LogoDataTestId = { root?: string; product?: string }
 
 export type LogoProps = Omit<HTMLAttributes<HTMLElement>, 'children'> &
   Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'> & {
-    /** `full` shows the wordmark, `compact` drops it, `auto` drops it below `--lido-app-ui-breakpoint-logo` (1024px), overridable per instance with `--lido-app-ui-logo-breakpoint`. */
+    /** `full` shows the wordmark, `compact` drops it, `auto` drops it at `--lido-app-ui-breakpoint-lg` and below (1024px), overridable per instance with `--lido-app-ui-logo-breakpoint`. */
     variant?: LogoVariant
     /** Product name shown after a divider and added to the accessible name. */
     product?: string

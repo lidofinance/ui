@@ -104,7 +104,7 @@ export const ResponsiveColumns: Story = {
     docs: {
       description: {
         story:
-          '4 columns, 2 below `md` (900px), 1 below `sm` (600px). Edit `columns` and `gap` in Controls or use the viewport toolbar to resize.',
+          '4 columns, 2 at `md` (900px) and below, 1 at `sm` (600px) and below. Edit `columns` and `gap` in Controls or use the viewport toolbar to resize.',
       },
     },
   },

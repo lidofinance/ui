@@ -10,7 +10,7 @@
   padding-inline-end: calc(12px - var(--local-border-width, 0px));
   border: var(--local-border-width, 0) solid
     var(--local-border-color, transparent);
-  border-radius: var(--lido-app-ui-border-radius-button-50);
+  border-radius: var(--lido-app-ui-border-radius-button);
   background-color: var(--local-bg, transparent);
   color: var(--lido-app-ui-color-text-default);
   white-space: nowrap;

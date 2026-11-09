@@ -14,9 +14,16 @@ export const Z_INDEX = [
   { token: '--lido-app-ui-z-index-tooltip', note: 'Tooltip, above everything' },
 ] as const
 
-export const SHADOWS = [
-  '--lido-app-ui-shadow-dropdown',
-  '--lido-app-ui-shadow-popover',
+export const SHADOWS = ['--lido-app-ui-shadow-default'] as const
+
+export const RADIUS_SCALE = [
+  '--lido-app-ui-border-radius-none',
+  '--lido-app-ui-border-radius-xs',
+  '--lido-app-ui-border-radius-sm',
+  '--lido-app-ui-border-radius-md',
+  '--lido-app-ui-border-radius-lg',
+  '--lido-app-ui-border-radius-xl',
+  '--lido-app-ui-border-radius-full',
 ] as const
 
 export const RADII = [
@@ -28,9 +35,12 @@ export const RADII = [
   '--lido-app-ui-border-radius-tooltip',
   '--lido-app-ui-border-radius-modal',
   '--lido-app-ui-border-radius-pill',
-  '--lido-app-ui-border-radius-button-50',
+  '--lido-app-ui-border-radius-button',
   '--lido-app-ui-border-radius-control',
-  '--lido-app-ui-border-radius-control-inactive',
 ] as const
 
 export const PAGE_GUTTER = '--lido-app-ui-page-gutter'
+
+export const PAGE_CONTENT_MAX = 1000
+
+export const PAGE_GUTTERS = { base: 32, sm: 12 } as const

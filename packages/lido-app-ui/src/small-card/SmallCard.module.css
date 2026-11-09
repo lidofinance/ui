@@ -5,9 +5,7 @@
   gap: 16px;
   overflow: hidden;
   padding: 16px;
-
-  /* Figma "Radius/lg" (20px) — no matching semantic token yet. */
-  border-radius: 20px;
+  border-radius: var(--lido-app-ui-border-radius-lg);
   background-color: var(--lido-app-ui-color-background-default);
   text-decoration: none;
   cursor: pointer;
@@ -35,7 +33,7 @@
   height: 120px;
   flex-shrink: 0;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: var(--lido-app-ui-border-radius-lg);
 }
 
 .image img,
@@ -59,7 +57,7 @@
   width: 24px;
   height: 24px;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: var(--lido-app-ui-border-radius-full);
 }
 
 .title {

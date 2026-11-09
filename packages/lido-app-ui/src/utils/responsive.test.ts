@@ -98,9 +98,9 @@ describe('responsive-prop mixin', () => {
   it('chains every breakpoint var to the next wider one', () => {
     const out = mixin({}, 'gap', 'gap', '0')
     expect(out['--local-gap']).toBe('0')
-    expect(out['--local-gap-lg']).toBe('var(--local-gap)')
+    expect(out['--local-gap-xl']).toBe('var(--local-gap)')
     expect(out['--local-gap-sm']).toBe('var(--local-gap-md)')
-    expect(out['--local-gap-xxs']).toBe('var(--local-gap-xs)')
+    expect(out['--local-gap-xs']).toBe('var(--local-gap-sm)')
     expect(out['gap']).toBe('var(--local-gap)')
     expect(out['@media (--lido-app-ui-breakpoint-sm-down)']).toEqual({
       gap: 'var(--local-gap-sm)',

@@ -35,7 +35,9 @@ export const Basic: Story = {
   args: {
     as: 'div',
     below: 'sm',
-    children: <StoryBox>{`Hidden below ${breakpointWidths.sm}px`}</StoryBox>,
+    children: (
+      <StoryBox>{`Hidden at ${breakpointWidths.sm}px and below`}</StoryBox>
+    ),
   },
 }
 
@@ -45,7 +47,7 @@ export const BelowAndAbove: Story = {
     docs: {
       description: {
         story:
-          'Resize with the viewport toolbar: the first block disappears below `sm`, the second at `sm` and above.',
+          'Resize with the viewport toolbar: the first block disappears at `sm` and below, the second above `sm`.',
       },
     },
   },
@@ -73,7 +75,7 @@ export const AtSmDown: Story = {
     ...BelowAndAbove.parameters,
     docs: {
       description: {
-        story: 'The same blocks pinned at 767px: only "Mobile only" shows.',
+        story: 'The same blocks pinned at 600px: only "Mobile only" shows.',
       },
     },
   },
@@ -87,7 +89,7 @@ export const AtSmUp: Story = {
     ...BelowAndAbove.parameters,
     docs: {
       description: {
-        story: 'The same blocks pinned at 600px: only "Desktop only" shows.',
+        story: 'The same blocks pinned at 601px: only "Desktop only" shows.',
       },
     },
   },
