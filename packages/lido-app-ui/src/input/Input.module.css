@@ -61,7 +61,7 @@
 }
 
 .default {
-  .input {
+  .control {
     font-size: var(--lido-app-ui-font-size-body);
     line-height: var(--lido-app-ui-line-height-body);
   }
@@ -73,7 +73,7 @@
 }
 
 .small {
-  .input {
+  .control {
     font-size: var(--lido-app-ui-font-size-label);
     line-height: var(--lido-app-ui-line-height-label);
   }
@@ -82,6 +82,13 @@
   gap: 8px;
   padding: 6px 16px;
   border-radius: 32px;
+}
+
+.control {
+  position: relative;
+  display: flex;
+  flex: 1 1 0%;
+  min-width: 0;
 }
 
 .input {
@@ -93,6 +100,8 @@
   background-color: transparent;
   color: var(--lido-app-ui-color-text-default);
   font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   letter-spacing: var(--lido-app-ui-letter-spacing-body);
 }
 
@@ -108,6 +117,20 @@
 .input:disabled::placeholder {
   color: var(--lido-app-ui-color-text-secondary);
   cursor: not-allowed;
+}
+
+.root.loading .input,
+.root.loading .input::placeholder {
+  color: transparent;
+  caret-color: transparent;
+}
+
+.skeleton {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 50%;
+  pointer-events: none;
 }
 
 .icon {

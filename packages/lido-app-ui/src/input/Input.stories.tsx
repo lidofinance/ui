@@ -12,6 +12,7 @@ const meta: Meta<typeof Input> = {
     size: 'default',
     error: false,
     disabled: false,
+    loading: false,
   },
   argTypes: {
     size: {
@@ -20,6 +21,7 @@ const meta: Meta<typeof Input> = {
     },
     error: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
+    loading: { control: { type: 'boolean' } },
   },
   parameters: {
     layout: 'padded',
@@ -74,13 +76,19 @@ export const States: Story = {
       <Input defaultValue='Text' />
       <Input defaultValue='Text' error />
       <Input placeholder='Disabled' disabled />
+      <Input defaultValue='Text' loading />
+      <Input defaultValue='Text' loading icon={<IconInfo />} />
+      <StoryContainer gap={16} style={{ maxWidth: 240 }}>
+        <Input size='small' defaultValue='Text' loading />
+        <Input size='small' defaultValue='Text' loading icon={<IconSearch />} />
+      </StoryContainer>
     </StoryContainer>
   ),
   parameters: {
     controls: { disable: true },
     docs: {
       description: {
-        story: 'Empty, filled, error and disabled.',
+        story: 'Empty, filled, error, disabled and loading.',
       },
     },
   },

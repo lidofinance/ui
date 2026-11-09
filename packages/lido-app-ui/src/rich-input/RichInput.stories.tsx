@@ -35,6 +35,9 @@ const meta: Meta<typeof RichInput> = {
     locked: {
       control: { type: 'boolean' },
     },
+    loading: {
+      control: { type: 'boolean' },
+    },
     tokenSelector: {
       control: false,
       table: { defaultValue: { summary: 'TokenSelector' } },
@@ -139,6 +142,13 @@ export const States: Story = {
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}
         disabled
+      />
+      <RichInput
+        label='You receive'
+        loading
+        secondaryValue='$13,104.00'
+        balance='Balance: 12.4218'
+        tokenSelector={tokenSelector}
       />
       <RichInput
         label='Locked'
