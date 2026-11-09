@@ -1,4 +1,6 @@
 .root {
+  @mixin font-body-large;
+
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -6,11 +8,8 @@
   width: 100%;
   padding: 12px 16px;
   border-radius: var(--lido-app-ui-border-radius-card);
-  font-size: var(--lido-app-ui-font-size-body);
-  line-height: var(--lido-app-ui-line-height-body);
   border: 1px solid var(--lido-app-ui-color-border-default);
   background-color: var(--lido-app-ui-color-background-default);
-  font-family: var(--lido-app-ui-font-family);
   cursor: text;
   transition: var(--lido-app-ui-transition-colors);
 }
@@ -51,7 +50,7 @@
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  letter-spacing: inherit;
   resize: vertical;
 }
 
@@ -68,6 +67,29 @@
 .textarea:disabled::placeholder {
   color: var(--lido-app-ui-color-text-secondary);
   cursor: not-allowed;
+}
+
+.root.loading .textarea,
+.root.loading .textarea::placeholder {
+  color: transparent;
+  caret-color: transparent;
+}
+
+.root.loading {
+  cursor: default;
+}
+
+.skeleton {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 50%;
+  pointer-events: none;
+}
+
+.body {
+  display: block;
+  position: relative;
 }
 
 .counter {

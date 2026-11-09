@@ -17,7 +17,7 @@ describe('RichInput', () => {
     render(
       <RichInput
         label='Amount'
-        labelTooltip='Help'
+        tooltip='Help'
         dataTestId={{ input: 'input' }}
       />,
     )
@@ -124,5 +124,57 @@ describe('RichInput loading', () => {
   it('has no busy state when not loading', () => {
     render(<RichInput />)
     expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-busy')
+  })
+})
+
+describe('RichInput field chrome', () => {
+  const describedBy = (el: HTMLElement) =>
+    el.getAttribute('aria-describedby')?.split(' ') ?? []
+
+  it('shows a node error as the message and marks invalid', () => {
+    render(<RichInput error='Too much' dataTestId={{ error: 'err' }} />)
+    const input = screen.getByRole('textbox')
+    expect(input).toHaveAttribute('aria-invalid', 'true')
+    expect(screen.getByTestId('err')).toHaveTextContent('Too much')
+    expect(describedBy(input)).toEqual([screen.getByTestId('err').id])
+  })
+
+  it('boolean error marks invalid without a message', () => {
+    render(<RichInput error />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true')
+    expect(screen.queryByRole('alert')).toBeNull()
+  })
+
+  it('errorText still renders the message', () => {
+    render(<RichInput error errorText='Legacy' />)
+    expect(screen.getByRole('alert')).toHaveTextContent('Legacy')
+  })
+
+  it('renders the description and merges a consumer aria-describedby', () => {
+    render(
+      <RichInput
+        description='Hint'
+        aria-describedby='extra'
+        dataTestId={{ description: 'd' }}
+      />,
+    )
+    expect(describedBy(screen.getByRole('textbox'))).toEqual([
+      screen.getByTestId('d').id,
+      'extra',
+    ])
+  })
+
+  it('keeps the label inside the card and supports the deprecated labelTooltip', () => {
+    render(<RichInput label='Amount' labelTooltip='Help' />)
+    expect(screen.getByLabelText('Amount')).toBe(screen.getByRole('textbox'))
+    expect(screen.getByRole('img', { name: 'More info' })).toBeInTheDocument()
+  })
+
+  it('puts className and root test id on the outermost element', () => {
+    const { container } = render(
+      <RichInput className='x' dataTestId={{ root: 'root' }} />,
+    )
+    expect(container.firstElementChild).toBe(screen.getByTestId('root'))
+    expect(container.firstElementChild).toHaveClass('x')
   })
 })

@@ -14,6 +14,7 @@ import {
 import cn from 'classnames'
 
 import { useIsomorphicLayoutEffect } from '../hooks'
+import { Skeleton } from '../skeleton'
 import {
   Field,
   getFieldDescribedBy,
@@ -36,10 +37,12 @@ export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   autosize?: boolean
   /** Shows the character count, as `n/max` when `maxLength` is set. */
   counter?: boolean
+  /** Swaps the value for a skeleton and makes the field read-only. */
+  loading?: boolean
   dataTestId?: TextareaDataTestId
 }
 
-/** Multi-line text field with the Input chrome; `autosize` grows with content, `counter` shows the length. */
+/** Multi-line text field with the Input chrome; `autosize` grows with content, `counter` shows the length, `loading` swaps the value for a skeleton. */
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
@@ -49,6 +52,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       error,
       autosize,
       counter,
+      loading,
+      readOnly,
       disabled,
       rows = 3,
       className,
@@ -58,6 +63,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       maxLength,
       onChange,
       dataTestId,
+      'aria-describedby': ariaDescribedBy,
       ...rest
     },
     ref,
@@ -109,6 +115,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       error,
       description,
       counter ? counterId : undefined,
+      ariaDescribedBy,
     )
 
     return (
@@ -125,23 +132,31 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           className={cn(styles.root, {
             [styles.error]: hasError,
             [styles.disabled]: disabled,
+            [styles.loading]: loading,
           })}
         >
-          <textarea
-            ref={innerRef}
-            id={textareaId}
-            className={cn(styles.textarea, autosize && styles.autosize)}
-            rows={rows}
-            value={value}
-            defaultValue={defaultValue}
-            maxLength={maxLength}
-            disabled={disabled}
-            aria-invalid={hasError || undefined}
-            aria-describedby={describedBy}
-            data-testid={dataTestId?.textarea}
-            onChange={handleChange}
-            {...rest}
-          />
+          <span className={styles.body}>
+            <textarea
+              ref={innerRef}
+              id={textareaId}
+              className={cn(styles.textarea, autosize && styles.autosize)}
+              rows={rows}
+              value={value}
+              defaultValue={defaultValue}
+              maxLength={maxLength}
+              disabled={disabled}
+              readOnly={loading || readOnly}
+              aria-busy={loading || undefined}
+              aria-invalid={hasError || undefined}
+              aria-describedby={describedBy}
+              data-testid={dataTestId?.textarea}
+              onChange={handleChange}
+              {...rest}
+            />
+            {loading ? (
+              <Skeleton variant='text' className={styles.skeleton} />
+            ) : null}
+          </span>
           {counter ? (
             <span
               id={counterId}

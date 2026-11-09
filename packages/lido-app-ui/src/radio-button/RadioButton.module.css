@@ -5,6 +5,17 @@
   cursor: pointer;
 }
 
+.containerWithMessage {
+  align-items: flex-start;
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--lido-app-ui-space-4);
+}
+
 .control {
   position: relative;
   flex-shrink: 0;
@@ -71,6 +82,10 @@
 .input:focus-visible {
   outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
+}
+
+.input.inputError:not(:checked, :disabled) {
+  border-color: var(--lido-app-ui-color-border-error);
 }
 
 .input:disabled {

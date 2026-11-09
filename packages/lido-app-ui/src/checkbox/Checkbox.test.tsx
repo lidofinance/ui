@@ -89,6 +89,15 @@ describe('Checkbox', () => {
     expect(screen.getByRole('checkbox', { name: 'Terms' })).toBeInvalid()
   })
 
+  it('renders no label element for falsy labels except 0', () => {
+    const { container, rerender } = render(
+      <Checkbox aria-label='x' label={false} />,
+    )
+    expect(container.querySelector('label > span:not(:first-child)')).toBeNull()
+    rerender(<Checkbox aria-label='x' label={0} />)
+    expect(container.querySelector('label')).toHaveTextContent('0')
+  })
+
   it('calls a callback ref once across rerenders', () => {
     const ref = vi.fn()
     const { rerender } = render(<Checkbox ref={ref} />)

@@ -104,4 +104,52 @@ describe('Textarea', () => {
     expect(textarea.style.height).toBe('200px')
     spy.mockRestore()
   })
+
+  it('merges a consumer aria-describedby with the field ids', () => {
+    render(
+      <Textarea
+        error='Bad'
+        description='Hint'
+        counter
+        aria-describedby='extra'
+        dataTestId={{ error: 'err', description: 'd', counter: 'c' }}
+      />,
+    )
+    expect(
+      screen.getByRole('textbox').getAttribute('aria-describedby')?.split(' '),
+    ).toEqual([
+      screen.getByTestId('err').id,
+      screen.getByTestId('d').id,
+      screen.getByTestId('c').id,
+      'extra',
+    ])
+  })
+
+  it('loading sets aria-busy, read-only and a skeleton, keeping the counter', () => {
+    const { container } = render(
+      <Textarea
+        loading
+        counter
+        defaultValue='abc'
+        dataTestId={{ counter: 'c' }}
+      />,
+    )
+    const textarea = screen.getByRole('textbox')
+    expect(textarea).toHaveAttribute('aria-busy', 'true')
+    expect(textarea).toHaveAttribute('readonly')
+    expect(container.querySelector('[class*="skeleton" i]')).not.toBeNull()
+    expect(screen.getByTestId('c')).toHaveTextContent('3')
+  })
+
+  it('stays read-only when loading with readOnly false', () => {
+    render(<Textarea loading readOnly={false} />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('readonly')
+  })
+
+  it('has no busy state by default', () => {
+    render(<Textarea />)
+    const textarea = screen.getByRole('textbox')
+    expect(textarea).not.toHaveAttribute('aria-busy')
+    expect(textarea).not.toHaveAttribute('readonly')
+  })
 })

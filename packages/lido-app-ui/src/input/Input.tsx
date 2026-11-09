@@ -8,18 +8,19 @@ import {
 import cn from 'classnames'
 
 import { Skeleton } from '../skeleton'
-import { Field, getFieldDescribedBy, resolveFieldError } from '../field/Field'
+import {
+  Field,
+  getFieldDescribedBy,
+  resolveFieldError,
+  type FieldDataTestId,
+} from '../field/Field'
 import styles from './Input.module.css'
 
 export type InputSize = 'default' | 'small'
 
-export type InputDataTestId = {
-  root?: string
-  label?: string
+export type InputDataTestId = FieldDataTestId & {
   icon?: string
   input?: string
-  error?: string
-  description?: string
 }
 
 export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
@@ -50,6 +51,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       className,
       id,
       dataTestId,
+      'aria-describedby': ariaDescribedBy,
       ...rest
     },
     ref,
@@ -97,6 +99,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 inputId,
                 error,
                 description,
+                ariaDescribedBy,
               )}
               data-testid={dataTestId?.input}
               {...rest}

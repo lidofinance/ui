@@ -1,6 +1,5 @@
 import {
   forwardRef,
-  useCallback,
   useEffect,
   useId,
   useRef,
@@ -17,6 +16,7 @@ import {
   getFieldLabelId,
   resolveFieldError,
 } from '../field/Field'
+import { useMergedRef } from '../hooks'
 import { IconCheck, IconMinus } from '../icons'
 
 import styles from './Checkbox.module.css'
@@ -73,14 +73,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       if (inputRef.current) inputRef.current.indeterminate = !!indeterminate
     }, [indeterminate])
 
-    const setRefs = useCallback(
-      (node: HTMLInputElement | null) => {
-        inputRef.current = node
-        if (typeof ref === 'function') ref(node)
-        else if (ref) ref.current = node
-      },
-      [ref],
-    )
+    const setRefs = useMergedRef(inputRef, ref)
 
     // A click clears the native flag; re-apply so it follows the prop.
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -88,7 +81,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       event.currentTarget.indeterminate = !!indeterminate
     }
 
-    const labelNode = label ? (
+    const hasLabel = label != null && label !== false
+
+    const labelNode = hasLabel ? (
       <span
         id={labelId}
         className={cn(styles.label, { [styles.labelDisabled]: disabled })}
@@ -126,7 +121,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             })}
             disabled={disabled}
             aria-invalid={hasError || undefined}
-            aria-labelledby={hasMessage && label ? labelId : undefined}
+            aria-labelledby={hasMessage && hasLabel ? labelId : undefined}
             aria-describedby={describedBy}
             data-testid={dataTestId?.input}
             onChange={handleChange}

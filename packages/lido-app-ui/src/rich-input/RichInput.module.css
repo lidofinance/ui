@@ -1,12 +1,6 @@
-.root {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-family: var(--lido-app-ui-font-family);
-}
-
 .card {
   display: flex;
+  font-family: var(--lido-app-ui-font-family);
   flex-direction: column;
   gap: 8px;
   box-sizing: border-box;
@@ -155,10 +149,4 @@
   @mixin font-body;
 
   color: var(--lido-app-ui-color-text-secondary);
-}
-
-.errorMessage {
-  @mixin font-body;
-
-  color: var(--lido-app-ui-color-text-error);
 }

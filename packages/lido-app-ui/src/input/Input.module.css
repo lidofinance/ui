@@ -39,8 +39,7 @@
 
 .default {
   .control {
-    font-size: var(--lido-app-ui-font-size-body);
-    line-height: var(--lido-app-ui-line-height-body);
+    @mixin font-body-large;
   }
 
   height: 52px;
@@ -51,8 +50,7 @@
 
 .small {
   .control {
-    font-size: var(--lido-app-ui-font-size-label);
-    line-height: var(--lido-app-ui-line-height-label);
+    @mixin font-body;
   }
 
   height: 36px;
@@ -79,7 +77,7 @@
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  letter-spacing: inherit;
 }
 
 .input::placeholder {

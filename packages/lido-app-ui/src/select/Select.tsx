@@ -137,6 +137,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       listLabel,
       labelWeight = 'regular',
       loading,
+      'aria-describedby': ariaDescribedBy,
       ...rest
     },
     ref,
@@ -349,6 +350,13 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       />
     ) : null
 
+    const describedBy = getFieldDescribedBy(
+      selectId,
+      error,
+      description,
+      ariaDescribedBy,
+    )
+
     const listName =
       label != null
         ? { 'aria-labelledby': labelId }
@@ -369,7 +377,12 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
         dataTestId={dataTestId}
       >
         {single ? (
-          <SelectChip {...rest} size={size} data-testid={dataTestId?.trigger}>
+          <SelectChip
+            {...rest}
+            aria-describedby={describedBy}
+            size={size}
+            data-testid={dataTestId?.trigger}
+          >
             {content}
           </SelectChip>
         ) : (
@@ -395,11 +408,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
               aria-labelledby={label != null ? labelId : undefined}
               aria-label={label == null ? listLabel : undefined}
               aria-invalid={hasError || undefined}
-              aria-describedby={getFieldDescribedBy(
-                selectId,
-                error,
-                description,
-              )}
+              aria-describedby={describedBy}
               data-testid={dataTestId?.trigger}
               {...rest}
               onClick={(event) => {

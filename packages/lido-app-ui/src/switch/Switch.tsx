@@ -44,7 +44,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         />
         <span className={styles.knob} />
       </span>
-      {label ? (
+      {label != null && label !== false ? (
         <span
           className={cn(styles.label, { [styles.labelDisabled]: disabled })}
           data-testid={dataTestId?.label}

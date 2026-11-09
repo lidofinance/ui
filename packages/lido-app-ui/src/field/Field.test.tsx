@@ -49,4 +49,16 @@ describe('Field', () => {
     fireEvent.focus(trigger)
     expect(await screen.findByTestId('tt-content')).toHaveTextContent('Help')
   })
+
+  it('renders a group label as a non-label element the group can reference', () => {
+    render(
+      <Field id='grp' label='Options' group>
+        <div role='group' aria-labelledby='grp-label' id='grp' />
+      </Field>,
+    )
+    const label = screen.getByText('Options')
+    expect(label.tagName).toBe('SPAN')
+    expect(label.id).toBe('grp-label')
+    expect(screen.getByRole('group', { name: 'Options' })).toBeInTheDocument()
+  })
 })

@@ -110,8 +110,14 @@ export const States: Story = {
       <RichInput
         label='Error'
         defaultValue='99'
-        error
-        errorText='Amount exceeds your balance'
+        error='Amount exceeds your balance'
+        balance='Balance: 12.4218'
+        tokenSelector={tokenSelector}
+      />
+      <RichInput
+        label='Description'
+        description='Minimum deposit is 0.01 ETH.'
+        placeholder='0'
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}
       />
@@ -131,7 +137,7 @@ export const States: Story = {
       />
       <RichInput
         label='With label tooltip'
-        labelTooltip='The amount you want to deposit.'
+        tooltip='The amount you want to deposit.'
         placeholder='0'
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}

@@ -12,6 +12,7 @@ const meta: Meta<typeof RadioButton> = {
   },
   argTypes: {
     disabled: { control: { type: 'boolean' } },
+    error: { control: { type: 'text' } },
   },
 }
 
@@ -78,6 +79,28 @@ export const States: Story = {
       description: {
         story:
           'Checked/unchecked, the label-less form (drop `label` and pass `aria-label` when the text lives elsewhere), and the two disabled states.',
+      },
+    },
+  },
+}
+
+export const Error: Story = {
+  render: () => (
+    <StoryContainer gap={16}>
+      <RadioButton label='Styling only' name='error-1' error />
+      <RadioButton
+        label='I agree to the Terms of Use'
+        name='error-2'
+        error='Select an option to continue'
+      />
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`error` outlines the unchecked circle without `aria-invalid` (that belongs on the radiogroup); a checked radio keeps its fill. `true` is styling only, a node also renders the message below the label. For a group, pass `error` to each radio and put the message on the group `Field`.',
       },
     },
   },

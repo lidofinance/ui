@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { StoryContainer } from '../../.storybook/components'
 import { CheckboxList, CheckboxRow } from '../checkbox-row'
+import { RadioButton } from '../radio-button'
 import { SegmentedControl } from '../segmented-control'
 import { H3 } from '../typography'
 import {
@@ -49,6 +50,7 @@ export const WithCheckboxList: Story = {
           tooltip='Operators the keys are uploaded for.'
           error={error}
           description={description}
+          group
         >
           <CheckboxList
             id={id}
@@ -78,6 +80,47 @@ export const WithCheckboxList: Story = {
   },
 }
 
+export const WithRadioGroup: Story = {
+  render: function Render() {
+    const id = 'network'
+    const [value, setValue] = useState<string | null>(null)
+    const error = value === null ? 'Choose a network' : null
+    const description = 'Applies to every key in this upload.'
+
+    return (
+      <StoryContainer style={{ maxWidth: 480 }}>
+        <Field
+          id={id}
+          label='Network'
+          error={error}
+          description={description}
+          group
+        >
+          <div
+            id={id}
+            role='radiogroup'
+            aria-invalid={error != null || undefined}
+            aria-labelledby={getFieldLabelId(id)}
+            aria-describedby={getFieldDescribedBy(id, error, description)}
+            style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+          >
+            {['Mainnet', 'Hoodi', 'Holesky'].map((name) => (
+              <RadioButton
+                key={name}
+                name={id}
+                label={name}
+                error={error != null}
+                checked={value === name}
+                onChange={() => setValue(name)}
+              />
+            ))}
+          </div>
+        </Field>
+      </StoryContainer>
+    )
+  },
+}
+
 export const WithSegmentedControl: Story = {
   render: function Render() {
     const id = 'action'
@@ -91,6 +134,7 @@ export const WithSegmentedControl: Story = {
           label='Action'
           tooltip='What to do with the position.'
           description={description}
+          group
         >
           <SegmentedControl
             id={id}

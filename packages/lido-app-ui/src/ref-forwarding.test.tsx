@@ -4,8 +4,14 @@ import { describe, expect, it } from 'vitest'
 
 import { Breadcrumbs } from './breadcrumbs'
 import { Callout } from './callout'
+import { Checkbox } from './checkbox'
 import { CheckboxRow } from './checkbox-row'
 import { Counter } from './counter'
+import { Input } from './input'
+import { RadioButton } from './radio-button'
+import { RichInput } from './rich-input'
+import { Slider } from './slider'
+import { Switch } from './switch'
 import { EmptyState } from './empty-state'
 import { ProgressBar } from './progress-bar'
 import { Select, SelectItem } from './select'
@@ -163,6 +169,36 @@ const cases: Array<
   [
     'Textarea',
     (ref) => <Textarea ref={ref} label='Notes' />,
+    (root) => root === screen.getByRole('textbox'),
+  ],
+  [
+    'Input',
+    (ref) => <Input ref={ref} label='Name' />,
+    (root) => root === screen.getByRole('textbox'),
+  ],
+  [
+    'Checkbox',
+    (ref) => <Checkbox ref={ref} label='Agree' />,
+    (root) => root === screen.getByRole('checkbox'),
+  ],
+  [
+    'RadioButton',
+    (ref) => <RadioButton ref={ref} label='Pick' />,
+    (root) => root === screen.getByRole('radio'),
+  ],
+  [
+    'Switch',
+    (ref) => <Switch ref={ref} label='On' />,
+    (root) => root === screen.getByRole('switch'),
+  ],
+  [
+    'Slider',
+    (ref) => <Slider ref={ref} label='Amount' />,
+    (root) => root === screen.getByRole('slider'),
+  ],
+  [
+    'RichInput',
+    (ref) => <RichInput ref={ref} label='Amount' />,
     (root) => root === screen.getByRole('textbox'),
   ],
   [

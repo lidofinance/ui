@@ -25,6 +25,8 @@ export type FieldProps = {
   error?: ReactNode | boolean
   /** Shrink to content instead of filling the width. */
   fit?: boolean
+  /** The child isn't a labelable element (group, radiogroup, tablist): the label renders as a span for `aria-labelledby`. */
+  group?: boolean
   className?: string
   dataTestId?: FieldDataTestId
   children: ReactNode
@@ -86,6 +88,7 @@ export const Field = ({
   description,
   error,
   fit,
+  group,
   className,
   dataTestId,
   children,
@@ -99,17 +102,27 @@ export const Field = ({
     >
       {label != null ? (
         <span className={styles.labelRow}>
-          {/* Select's trigger is a button: the label only moves focus to it, since a native label click would toggle the list. */}
-          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
-          <label
-            id={getFieldLabelId(id)}
-            className={styles.label}
-            htmlFor={onLabelClick ? undefined : id}
-            onClick={onLabelClick}
-            data-testid={dataTestId?.label}
-          >
-            {label}
-          </label>
+          {group ? (
+            <span
+              id={getFieldLabelId(id)}
+              className={styles.label}
+              data-testid={dataTestId?.label}
+            >
+              {label}
+            </span>
+          ) : (
+            // Select's trigger is a button: the label only moves focus to it, since a native label click would toggle the list.
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+            <label
+              id={getFieldLabelId(id)}
+              className={styles.label}
+              htmlFor={onLabelClick ? undefined : id}
+              onClick={onLabelClick}
+              data-testid={dataTestId?.label}
+            >
+              {label}
+            </label>
+          )}
           {tooltip != null ? (
             <InfoTooltip
               content={tooltip}

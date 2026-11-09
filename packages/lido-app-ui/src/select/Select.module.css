@@ -44,6 +44,8 @@
 }
 
 .default {
+  --local-bg: var(--lido-app-ui-color-background-default);
+
   height: 52px;
   padding: 12px 16px;
   border-radius: var(--lido-app-ui-border-radius-md);

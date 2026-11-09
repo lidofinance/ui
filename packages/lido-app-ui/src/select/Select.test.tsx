@@ -16,6 +16,39 @@ const options: SelectOption[] = [
 const trigger = () => screen.getByRole('combobox')
 
 describe('Select', () => {
+  it('merges a consumer aria-describedby with the field ids', () => {
+    render(
+      <Select
+        options={options}
+        error='Bad'
+        description='Hint'
+        aria-describedby='extra'
+        dataTestId={{ error: 'err', description: 'd' }}
+      />,
+    )
+    expect(trigger().getAttribute('aria-describedby')?.split(' ')).toEqual([
+      screen.getByTestId('err').id,
+      screen.getByTestId('d').id,
+      'extra',
+    ])
+  })
+
+  it('merges aria-describedby on the single chip', () => {
+    render(
+      <Select
+        single
+        options={options}
+        defaultValue='a'
+        description='Hint'
+        aria-describedby='extra'
+        dataTestId={{ description: 'd', trigger: 'chip' }}
+      />,
+    )
+    expect(
+      screen.getByTestId('chip').getAttribute('aria-describedby')?.split(' '),
+    ).toEqual([screen.getByTestId('d').id, 'extra'])
+  })
+
   it('is labelled and exposes aria state', () => {
     render(<Select label='Fruit' options={options} />)
     expect(screen.getByRole('combobox', { name: 'Fruit' })).toHaveAttribute(

@@ -12,12 +12,14 @@ const meta = {
     disabled: false,
     autosize: false,
     counter: false,
+    loading: false,
   },
   argTypes: {
     error: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     autosize: { control: { type: 'boolean' } },
     counter: { control: { type: 'boolean' } },
+    loading: { control: { type: 'boolean' } },
   },
   parameters: { layout: 'padded' },
 } satisfies Meta<typeof Textarea>
@@ -67,6 +69,21 @@ export const Disabled: Story = {
   args: {
     label: 'About',
     disabled: true,
+    defaultValue: 'Solo staker running 120 validators.',
+  },
+  render: (args) => (
+    <div style={{ maxWidth: 400 }}>
+      <Textarea {...args} />
+    </div>
+  ),
+}
+
+export const Loading: Story = {
+  args: {
+    label: 'About',
+    loading: true,
+    counter: true,
+    maxLength: 200,
     defaultValue: 'Solo staker running 120 validators.',
   },
   render: (args) => (
