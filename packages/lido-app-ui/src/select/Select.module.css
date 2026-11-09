@@ -57,6 +57,10 @@
   border-radius: var(--lido-app-ui-border-radius-control);
 }
 
+.small.semibold {
+  padding-left: 8px;
+}
+
 .content {
   display: flex;
   flex: 1 1 0%;
@@ -109,6 +113,11 @@
   color: var(--lido-app-ui-color-icons-secondary);
   transition: transform var(--lido-app-ui-duration-fast-exit)
     var(--lido-app-ui-easing-exit);
+}
+
+.small .chevron {
+  width: 20px;
+  height: 20px;
 }
 
 .chevron svg {

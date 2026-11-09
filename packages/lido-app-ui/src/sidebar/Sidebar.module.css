@@ -15,7 +15,7 @@
   width: 296px;
   height: calc(100dvh - var(--local-offset));
   padding: 16px 16px 0;
-  box-shadow: inset -1px 0 0 var(--lido-app-ui-color-border-subtle);
+  box-shadow: inset -1px 0 0 var(--lido-app-ui-color-border-default);
   background-color: var(--lido-app-ui-color-background-surface);
 }
 
@@ -92,6 +92,7 @@
     bottom: 0;
     left: 0;
     height: auto;
+    box-shadow: none;
     animation: none;
     z-index: var(--lido-app-ui-z-index-sidebar);
     transform: translateX(-100%);

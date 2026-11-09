@@ -4,7 +4,10 @@
   align-items: center;
   gap: 4px;
   box-sizing: border-box;
-  padding: 4px;
+
+  /* Figma's inside stroke doesn't push the 4px tab inset */
+  padding: 3px;
+  border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-pill);
   background-color: var(--lido-app-ui-color-background-secondary);
 }

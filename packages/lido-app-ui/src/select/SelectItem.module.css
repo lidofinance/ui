@@ -19,13 +19,15 @@
   transition: var(--lido-app-ui-transition-colors);
 }
 
+/* Figma's 16px inset includes the 1px border (inside stroke). */
 .default {
-  padding: 16px;
+  padding: 15px;
 }
 
 .small {
   padding: 4px 12px 4px 8px;
   min-height: 36px;
+  border-width: 0;
   border-radius: var(--lido-app-ui-border-radius-xl);
 }
 

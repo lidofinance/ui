@@ -89,10 +89,15 @@ const textOf = (option: SelectOption) =>
 type SelectChipProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'children'
-> & { size: SelectSize; children: ReactNode }
+> & {
+  size: SelectSize
+  labelWeight: SelectItemLabelWeight
+  children: ReactNode
+}
 
 const SelectChip = ({
   size,
+  labelWeight,
   children,
   form: _form,
   formAction: _formAction,
@@ -105,7 +110,9 @@ const SelectChip = ({
 }: SelectChipProps) => (
   <span
     {...(rest as HTMLAttributes<HTMLSpanElement>)}
-    className={cn(styles.single, styles[size])}
+    className={cn(styles.single, styles[size], {
+      [styles.semibold]: labelWeight === 'semibold',
+    })}
   >
     {children}
   </span>
@@ -381,6 +388,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
             {...rest}
             aria-describedby={describedBy}
             size={size}
+            labelWeight={labelWeight}
             data-testid={dataTestId?.trigger}
           >
             {content}
@@ -393,6 +401,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
               type='button'
               role='combobox'
               className={cn(styles.trigger, styles[size], {
+                [styles.semibold]: labelWeight === 'semibold',
                 [styles.error]: hasError,
                 [styles.open]: open,
                 [styles.loading]: loading,
