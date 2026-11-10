@@ -3,7 +3,7 @@
 Rules for adding or changing components in this package. See the repo root
 [`CLAUDE.md`](../../CLAUDE.md) for monorepo-wide conventions (package manager,
 commits, checks).
-
+f
 ## Is this the right package?
 
 `lido-app-ui` is for Lido **app/widget** products. If the component is for a
