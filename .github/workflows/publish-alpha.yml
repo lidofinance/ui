@@ -14,6 +14,7 @@ on:
         description: Branch to release, must match release-alpha-* (e.g. release-alpha-breakpoints)
         required: true
         type: string
+        default: release-alpha-test
       dry_run:
         description: Dry run (compute versions, do not publish)
         required: false
@@ -87,26 +88,26 @@ jobs:
 
       - run: yarn build
 
-#      - name: Release
-#        env:
-#          REF: ${{ inputs.ref }}
-#          DRY_RUN: ${{ inputs.dry_run }}
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-#        run: |
-#          set -euo pipefail
-#          # CRITICAL: semantic-release detects the branch from GITHUB_REF, which is
-#          # `refs/heads/main` for this workflow run. Left as is, it would treat the
-#          # checked-out feature branch as `main` and publish a STABLE release to
-#          # `latest`. Point it at the real branch.
-#          export GITHUB_REF="refs/heads/$REF"
-#          [ "$(git rev-parse --abbrev-ref HEAD)" = "$REF" ] || { echo "::error::checked-out branch is not $REF"; exit 1; }
-#
-#          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-#          echo "provenance=true" >> ~/.npmrc
-#          if [ "$DRY_RUN" = "true" ]; then
-#            yarn release --dry-run
-#          else
-#            yarn release
-#          fi
+      - name: Release
+        env:
+          REF: ${{ inputs.ref }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -euo pipefail
+          # CRITICAL: semantic-release detects the branch from GITHUB_REF, which is
+          # `refs/heads/main` for this workflow run. Left as is, it would treat the
+          # checked-out feature branch as `main` and publish a STABLE release to
+          # `latest`. Point it at the real branch.
+          export GITHUB_REF="refs/heads/$REF"
+          [ "$(git rev-parse --abbrev-ref HEAD)" = "$REF" ] || { echo "::error::checked-out branch is not $REF"; exit 1; }
+
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          echo "provenance=true" >> ~/.npmrc
+          if [ "$DRY_RUN" = "true" ]; then
+            yarn release --dry-run
+          else
+            yarn release
+          fi
