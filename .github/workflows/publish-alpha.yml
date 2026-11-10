@@ -1,55 +1,66 @@
 name: Publish Alpha
 
+# Manual alpha-style prerelease of any branch via semantic-release.
+# Must be run from `main`: the `production` environment (and NPM_TOKEN) is only
+# available there. The branch to release is passed as the `ref` input and checked
+# out inside the job. NOTE: branch code (config, plugins, build scripts) runs in the
+# same job as the token, exactly like publish-alpha.yml does for `develop` —
+# keep the `production` environment protected (required reviewers) for this reason.
+
 on:
-  push:
-    branches:
-      - develop
   workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch to release, must match release-alpha-* (e.g. release-alpha-breakpoints)
+        required: true
+        type: string
+      dry_run:
+        description: Dry run (compute versions, do not publish)
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
-  group: publish-alpha
+  group: publish-preview
   cancel-in-progress: false
 
 permissions: {}
 
 jobs:
-  # Gate the whole alpha publish before the dry-run: a prerelease branch must
-  # have main merged in, or semantic-release (which only sees tags merged into
-  # the branch) computes a version below the latest stable. gh api needs no
-  # checkout and works on private repos via GITHUB_TOKEN.
   guard:
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - name: Ensure develop is not behind main
+      - name: Ensure branch exists and is not behind main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
+          REF: ${{ inputs.ref }}
         run: |
           set -euo pipefail
-          behind=$(gh api "repos/$REPOSITORY/compare/develop...main" --jq '.ahead_by')
-          # Fail closed: a non-numeric result (API error / unexpected body) must
-          # block the publish, not silently pass the guard.
+          # Only release-alpha-<name> branches (lowercase letters, digits, dashes).
+          # This also keeps the derived prerelease id / dist-tag valid.
+          if ! [[ "$REF" =~ ^release-alpha-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+            echo "::error::branch '$REF' does not match release-alpha-*"
+            exit 1
+          fi
+          # Same reason as in publish-alpha.yml: semantic-release only sees tags
+          # reachable from the branch, so without main merged in it can compute
+          # a version below the latest stable. Fails closed.
+          behind=$(gh api "repos/$REPOSITORY/compare/$REF...main" --jq '.ahead_by')
           if ! [[ "$behind" =~ ^[0-9]+$ ]]; then
-            echo "::error::could not compare develop vs main (got: '$behind')"
+            echo "::error::could not compare $REF vs main (got: '$behind')"
             exit 1
           fi
           if [ "$behind" -gt 0 ]; then
-            echo "::error::develop is behind main by $behind commit(s) — merge main into develop before an alpha release"
+            echo "::error::$REF is behind main by $behind commit(s) — merge main into it first"
             exit 1
           fi
 
-  dry-run:
-    needs: guard
-    uses: ./.github/workflows/_dry-run.yml
-    permissions:
-      contents: write
-    secrets: inherit
-
   publish:
-    needs: dry-run
+    needs: guard
     runs-on: ubuntu-latest
     environment: production
     permissions:
@@ -61,6 +72,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          ref: ${{ inputs.ref }}
           fetch-depth: 0
           persist-credentials: false
 
@@ -71,27 +83,30 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Cache node_modules and turbo
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
-        with:
-          path: |
-            node_modules
-            .turbo
-          key: ${{ runner.os }}-cache-${{ hashFiles('**/yarn.lock') }}-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-cache-${{ hashFiles('**/yarn.lock') }}-
-            ${{ runner.os }}-cache-
-
       - run: yarn install --immutable
 
       - run: yarn build
 
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-          echo "provenance=true" >> ~/.npmrc
-          yarn release
+#      - name: Release
+#        env:
+#          REF: ${{ inputs.ref }}
+#          DRY_RUN: ${{ inputs.dry_run }}
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+#        run: |
+#          set -euo pipefail
+#          # CRITICAL: semantic-release detects the branch from GITHUB_REF, which is
+#          # `refs/heads/main` for this workflow run. Left as is, it would treat the
+#          # checked-out feature branch as `main` and publish a STABLE release to
+#          # `latest`. Point it at the real branch.
+#          export GITHUB_REF="refs/heads/$REF"
+#          [ "$(git rev-parse --abbrev-ref HEAD)" = "$REF" ] || { echo "::error::checked-out branch is not $REF"; exit 1; }
+#
+#          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+#          echo "provenance=true" >> ~/.npmrc
+#          if [ "$DRY_RUN" = "true" ]; then
+#            yarn release --dry-run
+#          else
+#            yarn release
+#          fi

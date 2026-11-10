@@ -29,6 +29,11 @@
         "name": "develop",
         "channel": "alpha",
         "prerelease": "alpha"
+      },
+      {
+        "name": "release-alpha-*",
+        "channel": "${name.replace(/^release-/, '')}",
+        "prerelease": "${name.replace(/^release-/, '')}"
       }
     ],
     "plugins": [

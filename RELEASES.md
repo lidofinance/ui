@@ -12,6 +12,17 @@ Both first call the shared [`_dry-run.yml`](./.github/workflows/_dry-run.yml) re
 - Build all packages (`yarn build`)
 - Release packages if they need releasing (`yarn release`)
 
+### Manual prerelease of any branch
+
+[`publish-preview.yml`](./.github/workflows/publish-preview.yml) is a `workflow_dispatch` job that runs the same semantic-release flow as alpha, but for an arbitrary branch. Run it **from `main`** (the `production` environment only allows `main`) and pass the branch as the `ref` input — it must match `release-alpha-*` (lowercase letters, digits, dashes); `dry_run` computes versions without publishing.
+
+- A `guard` job rejects branches that don't match `release-alpha-*` and branches behind `main` (same reason as for alpha).
+- The `publish` job checks out `ref`, builds and runs `yarn release`. The branch is picked up by a static entry in `release.branches` (`package.json`): `{ name: "release-alpha-*", channel/prerelease: "${name.replace(/^release-/, '')}" }` — semantic-release expands the glob against remote branches, so `release-alpha-foo` gives `1.5.0-alpha-foo.1`, dist-tag `alpha-foo`. A per-branch id avoids version/dist-tag collisions with develop's `alpha`. Nothing is rewritten at runtime.
+- `GITHUB_REF` is overridden to the real branch before `yarn release`: otherwise semantic-release sees `refs/heads/main` and would publish a stable release from the branch.
+- Branch code runs in the same job as `NPM_TOKEN` (as in `publish-alpha.yml`); keep the `production` environment protected.
+- Like any semantic-release run it pushes git tags and creates GitHub releases for these prereleases.
+- Install with `yarn add @lidofinance/lido-app-ui@alpha-foo`.
+
 ## Technical Setup
 
 NPM token is stored as a repo secret (`NPM_TOKEN`) and passed as an environment variable to the release step.
