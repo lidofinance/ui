@@ -2,20 +2,29 @@ import { useEffect, useRef, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 
+import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Button } from '../button'
 import { Card } from '../card'
+import { IconButton } from '../icon-button'
 import { Identicon } from '../identicon'
-import { IconPlus } from '../icons'
+import { IconInfo, IconPlus } from '../icons'
 import { Input } from '../input'
 import { Stack } from '../stack'
 import { Tag } from '../tag'
+import { Body, Description } from '../typography'
 import { spaces } from '../utils'
 import { Popover } from '.'
 
 const meta: Meta<typeof Popover> = {
   title: 'Feedback & Overlays/Popover',
   component: Popover,
-  args: { placement: 'bottom', align: 'start', offset: 8, modal: true },
+  args: {
+    placement: 'bottom',
+    align: 'start',
+    offset: 8,
+    modal: true,
+    arrow: false,
+  },
   argTypes: {
     placement: { options: ['top', 'bottom'], control: { type: 'select' } },
     align: {
@@ -32,6 +41,7 @@ const meta: Meta<typeof Popover> = {
       control: { type: 'select' },
     },
     modal: { control: { type: 'boolean' } },
+    arrow: { control: { type: 'boolean' } },
     open: { control: false },
     onClose: { control: false },
     anchorRef: { control: false },
@@ -39,6 +49,10 @@ const meta: Meta<typeof Popover> = {
   },
   parameters: {
     layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=5118-22',
+    },
     docs: { source: { type: 'code' } },
   },
 }
@@ -577,6 +591,155 @@ export const OperatorSwitcher: Story = {
       description: {
         story:
           'Anchored above a sidebar footer trigger, 296px wide and aligned to the sidebar edge through `alignRef`.',
+      },
+    },
+  },
+}
+
+type ArrowDemoProps = {
+  placement: 'top' | 'bottom'
+  align: 'start' | 'center' | 'end'
+  narrow?: boolean
+}
+
+const ArrowDemo = ({ placement, align, narrow = false }: ArrowDemoProps) => {
+  const [open, setOpen] = useState(true)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const label = `${placement} / ${align}`
+
+  return (
+    <div
+      style={{
+        width: 280,
+        height: 140,
+        display: 'flex',
+        alignItems: placement === 'top' ? 'flex-end' : 'flex-start',
+        justifyContent:
+          align === 'start'
+            ? 'flex-start'
+            : align === 'center'
+              ? 'center'
+              : 'flex-end',
+      }}
+    >
+      {narrow ? (
+        <IconButton
+          ref={triggerRef}
+          aria-label={label}
+          icon={<IconInfo />}
+          onClick={() => setOpen((value) => !value)}
+        />
+      ) : (
+        <Button
+          ref={triggerRef}
+          variant='outline'
+          onClick={() => setOpen((value) => !value)}
+        >
+          {label}
+        </Button>
+      )}
+      <Popover
+        arrow
+        modal={false}
+        aria-label={label}
+        open={open}
+        onClose={() => setOpen(false)}
+        anchorRef={triggerRef}
+        placement={placement}
+        align={align}
+        width={200}
+      >
+        {narrow
+          ? 'Panel shifts so the beak points at the anchor.'
+          : 'Beak follows the anchor center.'}
+      </Popover>
+    </div>
+  )
+}
+
+export const WithArrow: Story = {
+  render: () => (
+    <StoryContainer>
+      {(['bottom', 'top'] as const).map((placement) => (
+        <StorySection key={placement} title={`placement ${placement}`}>
+          <ArrowDemo placement={placement} align='start' />
+          <ArrowDemo placement={placement} align='center' />
+          <ArrowDemo placement={placement} align='end' />
+          <ArrowDemo placement={placement} align='start' narrow />
+          <ArrowDemo placement={placement} align='end' narrow />
+        </StorySection>
+      ))}
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'With `arrow` the beak points at the anchor center and stays at least 32px from the panel sides; for a narrow anchor (the icon buttons) the panel shifts to keep the beak on it. `offset` then measures anchor to beak tip. All panels are open and non-modal here.',
+      },
+    },
+  },
+}
+
+export const AutoOpenedHint: Story = {
+  render: function Render() {
+    const [hint, setHint] = useState(true)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <div style={{ display: 'flex', minHeight: 480 }}>
+        <div
+          style={{
+            width: 296,
+            boxSizing: 'border-box',
+            padding: '24px 16px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <Button
+            ref={triggerRef}
+            variant='outline'
+            iconLeft={<Identicon address='0x419' size={24} />}
+            onClick={() => setHint(false)}
+            style={{ width: '100%' }}
+          >
+            Choose NO
+          </Button>
+        </div>
+        <Popover
+          arrow
+          modal={false}
+          role='tooltip'
+          open={hint}
+          onClose={() => setHint(false)}
+          anchorRef={triggerRef}
+          placement='top'
+          align='center'
+          width={213}
+        >
+          <Stack gap={4}>
+            <Body weight='semibold'>Select a Node Operator here</Body>
+            <Description color='secondary'>
+              You can switch between operators anytime.
+            </Description>
+          </Stack>
+        </Popover>
+      </div>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/9q8Bp7XHM2XGipfpLI63s1/Operators?node-id=2563-90476',
+    },
+    docs: {
+      description: {
+        story:
+          'Onboarding hint open on load, pointing at the sidebar footer switcher. Non-modal so focus is not trapped on load, and `role="tooltip"` so the anchor gets `aria-describedby` instead of `aria-haspopup`. Escape, an outside click or clicking the switcher closes it.',
       },
     },
   },

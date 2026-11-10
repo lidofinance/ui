@@ -120,7 +120,7 @@ Deprecated aliases: `GroupName` (use `Caption`), variants `richInput` (use `amou
 
 ## Customization
 
-Override any token after importing the stylesheet. Non-color tokens (radii, typography, z-index, spacing) are theme-independent and live on `:root`. Color tokens and `--lido-app-ui-shadow-default` (it reads color tokens) are redeclared on every theme scope, so override them on `:root, [data-lido-theme]` or per theme, not on `:root` alone:
+Override any token after importing the stylesheet. Non-color tokens (radii, typography, z-index, spacing) are theme-independent and live on `:root`. Color tokens and `--lido-app-ui-shadow-default` and `--lido-app-ui-shadow-default-filter` (they read color tokens) are redeclared on every theme scope, so override them on `:root, [data-lido-theme]` or per theme, not on `:root` alone:
 
 ```css
 :root {

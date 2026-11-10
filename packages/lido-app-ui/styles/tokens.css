@@ -489,6 +489,12 @@
   --lido-app-ui-shadow-default:
     0 0 32px var(--lido-app-ui-color-shadow-secondary),
     0 0 4px var(--lido-app-ui-color-shadow-primary);
+
+  /* For `filter`, which follows non-rectangular shapes (the popover beak); blur is halved because drop-shadow takes a standard deviation. */
+  --lido-app-ui-shadow-default-filter: drop-shadow(
+      0 0 16px var(--lido-app-ui-color-shadow-secondary)
+    )
+    drop-shadow(0 0 2px var(--lido-app-ui-color-shadow-primary));
 }
 
 @media (--lido-app-ui-breakpoint-sm-down) {

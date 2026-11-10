@@ -18,7 +18,10 @@ export const Z_INDEX = [
   { token: '--lido-app-ui-z-index-tooltip', note: 'Tooltip, above everything' },
 ] as const
 
-export const SHADOWS = ['--lido-app-ui-shadow-default'] as const
+export const SHADOWS = [
+  '--lido-app-ui-shadow-default',
+  '--lido-app-ui-shadow-default-filter',
+] as const
 
 export const RADIUS_SCALE = [
   '--lido-app-ui-border-radius-none',

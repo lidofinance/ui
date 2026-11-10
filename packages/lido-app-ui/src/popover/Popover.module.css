@@ -53,3 +53,50 @@
 .panel:focus {
   outline: none;
 }
+
+.panel.arrow {
+  overflow: visible;
+  box-shadow: none;
+  filter: var(--lido-app-ui-shadow-default-filter);
+}
+
+.panel.arrow[data-placement='bottom'] {
+  transform-origin: var(--lido-app-ui-popover-beak-x) -12px;
+}
+
+.panel.arrow[data-placement='top'] {
+  transform-origin: var(--lido-app-ui-popover-beak-x) calc(100% + 12px);
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: inherit;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* 17px square rotated 45deg is a 24px diamond; its center sits on the outer border edge, so 12px shows (must match BEAK_SIZE in position.ts). */
+.beak {
+  position: absolute;
+  top: -1px;
+  left: calc(var(--lido-app-ui-popover-beak-x) - 1px);
+  box-sizing: border-box;
+  width: 17px;
+  height: 17px;
+  border-top: 1px solid var(--lido-app-ui-color-border-default);
+  border-left: 1px solid var(--lido-app-ui-color-border-default);
+  border-top-left-radius: 2px;
+  background-color: var(--lido-app-ui-color-background-surface);
+  translate: -50% -50%;
+  rotate: 45deg;
+}
+
+.panel[data-placement='top'] .beak {
+  top: auto;
+  bottom: -1px;
+  translate: -50% 50%;
+  rotate: 225deg;
+}

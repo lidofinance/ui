@@ -94,7 +94,10 @@ export const Shadows: Story = {
         4px and <span style={code}>--lido-app-ui-color-shadow-secondary</span> 0
         0 32px. They are combined in{' '}
         <span style={code}>--lido-app-ui-shadow-default</span>, used by Popover,
-        Tooltip, Modal, SkipLink and TokenSelector.
+        Tooltip, Modal, SkipLink and TokenSelector.{' '}
+        <span style={code}>--lido-app-ui-shadow-default-filter</span> is the
+        same shadow as a <span style={code}>filter</span>, for shapes a
+        box-shadow can&apos;t follow (the Popover arrow).
       </Note>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
         <ThemePanel theme='light' />

@@ -23,6 +23,7 @@ import {
   usePresence,
 } from '../hooks'
 import styles from './Popover.module.css'
+import { computePosition, samePosition, type Position } from './position'
 
 export type PopoverPlacement = 'top' | 'bottom'
 export type PopoverAlign = 'start' | 'center' | 'end'
@@ -33,7 +34,7 @@ export type PopoverProps = HTMLAttributes<HTMLDivElement> & {
   open: boolean
   /** Called on Escape and outside clicks; clicks on the anchor are ignored so it can toggle. */
   onClose: () => void
-  /** Element the panel is positioned against; gets `aria-haspopup`, `aria-expanded` and `aria-controls` unless it sets them. */
+  /** Element the panel is positioned against; gets `aria-haspopup`, `aria-expanded` and `aria-controls` unless it sets them; for `role='tooltip'` the panel id is appended to `aria-describedby` instead. */
   anchorRef: RefObject<HTMLElement | null>
   /** Element whose edge the panel aligns to; defaults to the anchor. */
   alignRef?: RefObject<HTMLElement | null>
@@ -45,107 +46,11 @@ export type PopoverProps = HTMLAttributes<HTMLDivElement> & {
   offset?: number
   /** Px, or match the width of the anchor / align element; `min-anchor` only sets a minimum at the anchor width. */
   width?: number | 'anchor' | 'align' | 'min-anchor'
-  /** false: focus isn't moved into or trapped in the panel. Only for content that never needs focus, e.g. hover previews that also have a click/keyboard path, or listboxes anchored to an input. Not for menus. */
+  /** false: focus isn't moved into or trapped in the panel. Only for content that never needs focus, e.g. hover previews that also have a click/keyboard path, or listboxes anchored to an input. Not for menus. Ignored (always false) for `role='tooltip'`. */
   modal?: boolean
+  /** Adds a beak pointing at the anchor, kept 32px from the panel side (the panel shifts to reach a narrow anchor); `offset` then measures anchor to beak tip. */
+  arrow?: boolean
   dataTestId?: PopoverDataTestId
-}
-
-const POSITION_KEYS = [
-  'top',
-  'bottom',
-  'left',
-  'right',
-  'width',
-  'minWidth',
-  'maxWidth',
-] as const
-type Coordinates = Partial<Record<(typeof POSITION_KEYS)[number], number>>
-type Position = {
-  placement: PopoverPlacement
-  coordinates: Coordinates
-  availableHeight: number
-}
-
-const samePosition = (a: Position | null, b: Position) =>
-  a != null &&
-  a.placement === b.placement &&
-  a.availableHeight === b.availableHeight &&
-  POSITION_KEYS.every((key) => a.coordinates[key] === b.coordinates[key])
-
-const VIEWPORT_MARGIN = 8
-
-const clamp = (value: number, max: number) =>
-  Math.max(VIEWPORT_MARGIN, Math.min(value, max))
-
-const computePosition = (
-  anchor: HTMLElement,
-  alignEl: HTMLElement,
-  panel: HTMLElement | null,
-  placement: PopoverPlacement,
-  align: PopoverAlign,
-  offset: number,
-  width: PopoverProps['width'],
-): Position => {
-  const anchorRect = anchor.getBoundingClientRect()
-  const alignRect =
-    alignEl === anchor ? anchorRect : alignEl.getBoundingClientRect()
-  const viewportWidth = document.documentElement.clientWidth
-  const viewportHeight = document.documentElement.clientHeight
-
-  const fixedWidth =
-    typeof width === 'number'
-      ? width
-      : width === 'anchor'
-        ? anchorRect.width
-        : width === 'align'
-          ? alignRect.width
-          : undefined
-  const panelWidth = fixedWidth ?? panel?.offsetWidth ?? 0
-  const maxEdge = viewportWidth - VIEWPORT_MARGIN - panelWidth
-
-  // Offset sizes, not rects: rects include the enter/exit scale. Natural height, not the capped one, so a capped panel can still flip to the bigger side.
-  const panelHeight = panel
-    ? Math.max(
-        panel.offsetHeight,
-        panel.scrollHeight + panel.offsetHeight - panel.clientHeight,
-      )
-    : 0
-  const roomBelow =
-    viewportHeight - anchorRect.bottom - offset - VIEWPORT_MARGIN
-  const roomAbove = anchorRect.top - offset - VIEWPORT_MARGIN
-  const [room, opposite] =
-    placement === 'top' ? [roomAbove, roomBelow] : [roomBelow, roomAbove]
-  const resolved: PopoverPlacement =
-    panelHeight > room && opposite > room
-      ? placement === 'top'
-        ? 'bottom'
-        : 'top'
-      : placement
-
-  const coordinates: Coordinates = {}
-  if (fixedWidth != null) coordinates.width = fixedWidth
-  if (width === 'min-anchor') coordinates.minWidth = anchorRect.width
-  coordinates.maxWidth = viewportWidth - 2 * VIEWPORT_MARGIN
-  const availableHeight = Math.max(
-    resolved === 'top' ? roomAbove : roomBelow,
-    0,
-  )
-  if (resolved === 'top') {
-    coordinates.bottom = viewportHeight - anchorRect.top + offset
-  } else {
-    coordinates.top = anchorRect.bottom + offset
-  }
-  if (align === 'end') {
-    coordinates.right = clamp(viewportWidth - alignRect.right, maxEdge)
-  } else if (align === 'center') {
-    coordinates.left = clamp(
-      alignRect.left + alignRect.width / 2 - panelWidth / 2,
-      maxEdge,
-    )
-  } else {
-    coordinates.left = clamp(alignRect.left, maxEdge)
-  }
-  return { placement: resolved, coordinates, availableHeight }
 }
 
 type PanelProps = Omit<PopoverProps, 'open'> &
@@ -153,6 +58,15 @@ type PanelProps = Omit<PopoverProps, 'open'> &
     open: boolean
     onExited: () => void
   }
+
+// Offset sizes, not rects: rects include the enter/exit scale. Natural height, not the capped one, so a capped panel can still flip to the bigger side.
+const measure = (panel: HTMLElement) => ({
+  width: panel.offsetWidth,
+  height: Math.max(
+    panel.offsetHeight,
+    panel.scrollHeight + panel.offsetHeight - panel.clientHeight,
+  ),
+})
 
 const PopoverPanel = forwardRef<HTMLDivElement, PanelProps>(
   (
@@ -165,6 +79,7 @@ const PopoverPanel = forwardRef<HTMLDivElement, PanelProps>(
       offset,
       width,
       modal,
+      arrow = false,
       open,
       onExited,
       className,
@@ -202,15 +117,24 @@ const PopoverPanel = forwardRef<HTMLDivElement, PanelProps>(
       const update = () => {
         const anchor = anchorRef.current
         if (!anchor) return
-        const next = computePosition(
-          anchor,
-          alignRef?.current ?? anchor,
-          nodeRef.current,
+        const anchorRect = anchor.getBoundingClientRect()
+        const alignEl = alignRef?.current ?? anchor
+        const node = nodeRef.current
+        const next = computePosition({
+          anchorRect,
+          alignRect:
+            alignEl === anchor ? anchorRect : alignEl.getBoundingClientRect(),
+          viewport: {
+            width: document.documentElement.clientWidth,
+            height: document.documentElement.clientHeight,
+          },
+          panelSize: node && measure(node),
           placement,
           align,
           offset,
           width,
-        )
+          arrow,
+        })
         // Keeps the previous object so unchanged scroll/resize frames skip a re-render.
         setPosition((prev) => (samePosition(prev, next) ? prev : next))
       }
@@ -234,7 +158,7 @@ const PopoverPanel = forwardRef<HTMLDivElement, PanelProps>(
         window.removeEventListener('resize', schedule)
         window.removeEventListener('scroll', schedule, true)
       }
-    }, [anchorRef, alignRef, panel, placement, align, offset, width])
+    }, [anchorRef, alignRef, panel, placement, align, offset, width, arrow])
 
     // Keeps focus from lingering in an inert panel; the anchor is where the unmount restore would put it.
     useIsomorphicLayoutEffect(() => {
@@ -291,7 +215,7 @@ const PopoverPanel = forwardRef<HTMLDivElement, PanelProps>(
         data-placement={position?.placement}
         data-align={align}
         data-testid={dataTestId?.root}
-        className={cn(styles.panel, className)}
+        className={cn(styles.panel, arrow && styles.arrow, className)}
         style={{
           ...position?.coordinates,
           ...(position
@@ -299,13 +223,23 @@ const PopoverPanel = forwardRef<HTMLDivElement, PanelProps>(
                 '--lido-app-ui-popover-available-height': `${position.availableHeight}px`,
               }
             : null),
+          ...(position?.beakX != null
+            ? { '--lido-app-ui-popover-beak-x': `${position.beakX}px` }
+            : null),
           ...style,
           visibility: position ? undefined : 'hidden',
         }}
         {...rest}
         onFocus={handleFocus}
       >
-        {children}
+        {arrow ? (
+          <>
+            <span className={styles.beak} aria-hidden='true' />
+            <div className={styles.body}>{children}</div>
+          </>
+        ) : (
+          children
+        )}
       </div>
     )
   },
@@ -313,15 +247,31 @@ const PopoverPanel = forwardRef<HTMLDivElement, PanelProps>(
 
 PopoverPanel.displayName = 'PopoverPanel'
 
-// Attributes the consumer already set on the anchor stay theirs; only missing ones are managed here.
+// Dialog attributes the consumer already set on the anchor stay theirs; a tooltip id is merged into `aria-describedby`.
 const useAnchorAria = (
   anchorRef: RefObject<HTMLElement | null>,
   open: boolean,
   panelId: string,
+  passive: boolean,
 ) => {
   useEffect(() => {
     const anchor = anchorRef.current
     if (!anchor) return
+    if (passive) {
+      if (!open) return
+      const ids = (anchor.getAttribute('aria-describedby') ?? '')
+        .split(' ')
+        .filter(Boolean)
+      if (ids.includes(panelId)) return
+      anchor.setAttribute('aria-describedby', [...ids, panelId].join(' '))
+      return () => {
+        const rest = (anchor.getAttribute('aria-describedby') ?? '')
+          .split(' ')
+          .filter((id) => id && id !== panelId)
+        if (rest.length) anchor.setAttribute('aria-describedby', rest.join(' '))
+        else anchor.removeAttribute('aria-describedby')
+      }
+    }
     const managed: Record<string, string> = {
       'aria-haspopup': 'dialog',
       'aria-expanded': String(open),
@@ -332,7 +282,7 @@ const useAnchorAria = (
     )
     owned.forEach((name) => anchor.setAttribute(name, managed[name]))
     return () => owned.forEach((name) => anchor.removeAttribute(name))
-  }, [anchorRef, open, panelId])
+  }, [anchorRef, open, panelId, passive])
 }
 
 /** Floating panel in a portal, positioned against `anchorRef`; modal by default (focus moves in and is trapped), name it with `aria-label` or `aria-labelledby`. */
@@ -350,16 +300,17 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   ) => {
     const generatedId = useId()
     const id = props.id ?? generatedId
-    useAnchorAria(props.anchorRef, open, id)
+    const passive = props.role === 'tooltip'
+    useAnchorAria(props.anchorRef, open, id, passive)
 
     const named = Boolean(props['aria-label'] || props['aria-labelledby'])
     useEffect(() => {
-      if (process.env.NODE_ENV !== 'production' && open && !named) {
+      if (process.env.NODE_ENV !== 'production' && open && !named && !passive) {
         console.warn(
           'Popover: role="dialog" needs aria-label or aria-labelledby.',
         )
       }
-    }, [open, named])
+    }, [open, named, passive])
 
     // Stays mounted until the panel's exit motion ends.
     const { present, onExited } = useExitLatch(open)
@@ -374,7 +325,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
           placement={placement}
           align={align}
           offset={offset}
-          modal={modal}
+          modal={passive ? false : modal}
           id={id}
         />
       </Portal>
