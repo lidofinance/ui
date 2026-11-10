@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
 import { Input } from './Input'
@@ -83,5 +84,35 @@ describe('Input field chrome', () => {
   it('keeps a consumer aria-describedby alone when there is no chrome', () => {
     render(<Input aria-describedby='extra' />)
     expect(describedBy(screen.getByRole('textbox'))).toEqual(['extra'])
+  })
+})
+
+describe('Input trailing', () => {
+  it('renders trailing content', () => {
+    render(
+      <Input
+        trailing={<span>Connected</span>}
+        dataTestId={{ trailing: 't' }}
+      />,
+    )
+    expect(screen.getByTestId('t')).toHaveTextContent('Connected')
+  })
+
+  it('keeps trailing text out of the accessible name', () => {
+    render(<Input label='Address' trailing={<span>Connected</span>} />)
+    expect(screen.getByRole('textbox', { name: 'Address' })).toBeInTheDocument()
+  })
+
+  it('focuses the input when the root padding is clicked', async () => {
+    render(<Input dataTestId={{ input: 'i' }} />)
+    const input = screen.getByTestId('i')
+    await userEvent.click(input.parentElement!.parentElement!)
+    expect(input).toHaveFocus()
+  })
+
+  it('does not focus the input when a trailing button is clicked', async () => {
+    render(<Input trailing={<button type='button'>Paste</button>} />)
+    await userEvent.click(screen.getByRole('button', { name: 'Paste' }))
+    expect(screen.getByRole('textbox')).not.toHaveFocus()
   })
 })

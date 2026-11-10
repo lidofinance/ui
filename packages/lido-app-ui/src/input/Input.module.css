@@ -115,3 +115,15 @@
   height: 20px;
   color: var(--lido-app-ui-color-icons-secondary);
 }
+
+.trailing {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  align-self: stretch;
+  cursor: auto;
+}
+
+.small .trailing {
+  align-items: center;
+}
