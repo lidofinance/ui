@@ -8,6 +8,10 @@
   border-radius: var(--lido-app-ui-border-radius-lg);
 }
 
+.flush {
+  padding: 0;
+}
+
 .divided {
   gap: 8px;
 }

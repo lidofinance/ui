@@ -9,9 +9,11 @@ const meta: Meta<typeof DataList> = {
   component: DataList,
   args: {
     divided: true,
+    flush: false,
   },
   argTypes: {
     divided: { control: { type: 'boolean' } },
+    flush: { control: { type: 'boolean' } },
   },
   parameters: {
     layout: 'padded',
@@ -125,6 +127,27 @@ export const NarrowContainers: Story = {
     docs: {
       description: {
         story: 'The value wraps below the label at narrow widths.',
+      },
+    },
+  },
+}
+
+export const Flush: Story = {
+  args: { flush: true },
+  render: (args) => (
+    <div style={{ maxWidth: 460 }}>
+      <DataList {...args}>
+        <DataListRow label='Exchange rate' value='1 stETH = 1 ETH' />
+        <DataListRow label='Max transaction cost' value='$2.41' />
+      </DataList>
+    </div>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'No inner padding, for lists inside a container that already pads.',
       },
     },
   },

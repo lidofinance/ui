@@ -14,6 +14,8 @@ export type DataListProps = Omit<
 > & {
   children: ReactNode
   divided?: boolean
+  /** Drops the 16px padding so rows align with surrounding content. */
+  flush?: boolean
   dataTestId?: DataListDataTestId
 }
 
@@ -22,11 +24,17 @@ export const DataList = ({
   children,
   className,
   divided = false,
+  flush = false,
   dataTestId,
   ...rest
 }: DataListProps) => (
   <div
-    className={cn(styles.card, divided && styles.divided, className)}
+    className={cn(
+      styles.card,
+      divided && styles.divided,
+      flush && styles.flush,
+      className,
+    )}
     data-testid={dataTestId?.root}
     {...rest}
   >
