@@ -8,6 +8,8 @@ import styles from './StatItem.module.css'
 
 export type StatItemAlign = 'left' | 'center'
 
+export type StatItemSize = 'default' | 'small' | 'xsmall'
+
 export type StatItemDataTestId = {
   root?: string
   label?: string
@@ -22,7 +24,7 @@ export type StatItemDataTestId = {
 export type StatItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   label: ReactNode
   value: ReactNode
-  /** 24×24 glyph before the label. */
+  /** 24×24 glyph before the label (20×20 for `size='xsmall'`). */
   titleIcon?: ReactNode
   /** Tooltip content, shown as an info icon after the label. */
   info?: ReactNode
@@ -33,6 +35,8 @@ export type StatItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   /** Muted caption at the bottom. */
   description?: ReactNode
   align?: StatItemAlign
+  /** Steps label/value type down; `small`/`xsmall` also mute `subValue`; `xsmall` shrinks icon slots to 20×20. */
+  size?: StatItemSize
   dataTestId?: StatItemDataTestId
 }
 
@@ -46,12 +50,18 @@ export const StatItem = ({
   subValue,
   description,
   align = 'center',
+  size = 'default',
   className,
   dataTestId,
   ...rest
 }: StatItemProps) => (
   <div
-    className={cn(styles.item, styles[align], className)}
+    className={cn(
+      styles.item,
+      styles[align],
+      size !== 'default' && styles[size],
+      className,
+    )}
     data-testid={dataTestId?.root}
     {...rest}
   >

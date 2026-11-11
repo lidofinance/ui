@@ -27,6 +27,8 @@
 .titleIcon {
   display: inline-flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
 }
@@ -79,4 +81,34 @@
   @mixin font-description;
 
   color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.small .label {
+  @mixin font-body;
+}
+
+.small .value {
+  @mixin font-body-large-semibold;
+}
+
+.small .subValue,
+.xsmall .subValue {
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.xsmall .label,
+.xsmall .subValue {
+  @mixin font-description;
+}
+
+.xsmall .value {
+  @mixin font-body-semibold;
+}
+
+.xsmall .titleIcon,
+.xsmall .titleIcon > svg,
+.xsmall .icon,
+.xsmall .icon svg {
+  width: 20px;
+  height: 20px;
 }

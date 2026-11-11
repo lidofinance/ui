@@ -14,6 +14,10 @@ const meta: Meta<typeof StatItem> = {
   },
   argTypes: {
     align: { control: { type: 'radio' }, options: ['left', 'center'] },
+    size: {
+      control: { type: 'radio' },
+      options: ['default', 'small', 'xsmall'],
+    },
   },
 }
 
@@ -78,6 +82,37 @@ export const Align: Story = {
       description: {
         story:
           "`align='left'` keeps `subValue` inline with the number and puts `description` on its own line below. `align='center'` (default) centers everything and drops `subValue` to its own centered line.",
+      },
+    },
+  },
+}
+
+export const Sizes: Story = {
+  render: function Render() {
+    return (
+      <Stack direction='row' gap={52} align='start'>
+        {(['default', 'small', 'xsmall'] as const).map((size) => (
+          <StatItem
+            key={size}
+            size={size}
+            align='left'
+            titleIcon={<IconShield width={24} height={24} />}
+            label='Active keys'
+            info='Keys attesting now.'
+            value='1,204'
+            subValue='107 keys'
+            description='Description text'
+          />
+        ))}
+      </Stack>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`small` and `xsmall` step the label and value type down and mute `subValue`; `xsmall` also shrinks `titleIcon` and `icon` to 20×20.',
       },
     },
   },
