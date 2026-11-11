@@ -38,6 +38,9 @@ const isSticky = (timeout: number) => timeout <= 0 || !Number.isFinite(timeout)
 const getTitle = (content: ToastContent): ReactNode =>
   isNotificationProps(content) ? content.title : (content as ReactNode)
 
+const isPlainText = (node: ReactNode): node is string | number =>
+  typeof node === 'string' || typeof node === 'number'
+
 const getProps = (content: ToastContent): Partial<NotificationProps> =>
   isNotificationProps(content) ? content : {}
 
@@ -164,7 +167,7 @@ const ToastView = ({
   )
 }
 
-/** Renders `toast()` notifications in a stack portaled to `body`; mount once near the app root. */
+/** Renders `toast()` notifications in a stack portaled to `body`; mount once near the app root. Assertive toasts announce the title plus plain-text (string/number) `subheader` and `children` only. */
 export const Toaster = ({
   position = 'top-right',
   timeout = DEFAULT_TOAST_TIMEOUT,
@@ -194,12 +197,19 @@ export const Toaster = ({
       data-lido-overlay-keep=''
       dataTestId={dataTestId}
     >
-      <div aria-live='assertive' aria-atomic='true' className={styles.srOnly}>
+      <div aria-live='assertive' className={styles.srOnly}>
         {items
           .filter((item) => item.assertive)
-          .map((item) => (
-            <div key={item.id}>{getTitle(item.content)}</div>
-          ))}
+          .map((item) => {
+            const { subheader, children } = getProps(item.content)
+            return (
+              <div key={item.id} aria-atomic='true'>
+                {isPlainText(subheader) && <div>{subheader}</div>}
+                <div>{getTitle(item.content)}</div>
+                {isPlainText(children) && <div>{children}</div>}
+              </div>
+            )
+          })}
       </div>
       {entries.map(({ item, closing }) => (
         <ToastView

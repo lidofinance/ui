@@ -5,6 +5,11 @@ import { renderToString } from 'react-dom/server'
 
 import { toast, Toaster, useToasts } from '.'
 
+const assertiveRegion = () =>
+  screen
+    .getByTestId('stack')
+    .querySelector('[aria-live="assertive"]') as HTMLElement
+
 describe('Toaster', () => {
   beforeEach(() => {
     vi.useFakeTimers()
@@ -148,12 +153,36 @@ describe('Toaster', () => {
       toast('Boom', { timeout: 0, assertive: true })
       toast('Fine', { timeout: 0 })
     })
-    const region = screen
-      .getByTestId('stack')
-      .querySelector('[aria-live="assertive"]') as HTMLElement
+    const region = assertiveRegion()
     expect(region).toHaveTextContent('Boom')
     expect(region).not.toHaveTextContent('Fine')
     expect(screen.queryByRole('alert')).toBeNull()
+  })
+
+  it('announces plain-text body of assertive toasts', () => {
+    render(<Toaster dataTestId='stack' />)
+    act(() => {
+      toast(
+        { title: 'Failed', children: 'Try again later' },
+        { timeout: 0, assertive: true },
+      )
+    })
+    const region = assertiveRegion()
+    expect(region).toHaveTextContent('FailedTry again later')
+  })
+
+  it('mirrors only the title when assertive body is not plain text', () => {
+    render(<Toaster dataTestId='stack' />)
+    act(() => {
+      toast(
+        { title: 'Failed', children: <a href='/log'>View log</a> },
+        { timeout: 0, assertive: true },
+      )
+    })
+    const region = assertiveRegion()
+    expect(region).toHaveTextContent('Failed')
+    expect(region).not.toHaveTextContent('View log')
+    expect(region.querySelector('a')).toBeNull()
   })
 
   it('updates in place with a reused id and restarts the timer', () => {
