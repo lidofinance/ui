@@ -195,7 +195,7 @@ export const Scale: Story = {
     docs: {
       description: {
         story:
-          'The whole scale: variant, shortcut, PostCSS mixin, size/line-height.',
+          'The whole scale: variant, shortcut, PostCSS mixin, size/line-height. `Caption` is the uppercase overline; for plain 12px secondary text use `Description` with `color="secondary"`.',
       },
     },
   },

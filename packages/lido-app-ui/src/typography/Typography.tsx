@@ -136,6 +136,7 @@ export const Description = (props: ShorthandProps) => (
   <Typography {...props} variant='description' />
 )
 
+/** Uppercase 12px overline; for plain 12px secondary text use `Description` with `color='secondary'`. */
 export const Caption = (props: ShorthandProps) => (
   <Typography {...props} variant='caption' />
 )
