@@ -30,6 +30,7 @@ import { InfoTooltip } from './info-tooltip'
 import { Field, FieldError } from './field'
 import { Input } from './input'
 import { LinkProvider, type LinkComponent } from './link-provider'
+import { ActionList, ActionRow } from './action-list'
 import { Logo } from './logo'
 import { MessageBox } from './message-box'
 import { Modal, ModalCard } from './modal'
@@ -192,11 +193,30 @@ const cases: Array<[string, () => JSX.Element]> = [
   ['InfoTooltip', () => <InfoTooltip content='Help' />],
   ['Input', () => <Input label='Amount' />],
   [
+    'ActionList',
+    () => (
+      <ActionList overline='Roles'>
+        <ActionRow end='0x81e5' href='/roles/manager'>
+          Manager
+        </ActionRow>
+        <ActionRow end='Not set'>Claimer</ActionRow>
+      </ActionList>
+    ),
+  ],
+  [
     'LinkProvider',
     () => (
       <LinkProvider component={RouterLink}>
         <NavLink href='/a'>Link</NavLink>
       </LinkProvider>
+    ),
+  ],
+  [
+    'ActionRow',
+    () => (
+      <ul>
+        <ActionRow end='0x81e5'>Manager</ActionRow>
+      </ul>
     ),
   ],
   ['Logo', () => <Logo />],

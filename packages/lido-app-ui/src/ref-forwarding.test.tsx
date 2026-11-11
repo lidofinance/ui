@@ -8,6 +8,7 @@ import { Checkbox } from './checkbox'
 import { CheckboxRow } from './checkbox-row'
 import { Counter } from './counter'
 import { Input } from './input'
+import { ActionRow } from './action-list'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
 import { Slider } from './slider'
@@ -222,6 +223,15 @@ const cases: Array<
       />
     ),
     (root) => root === screen.getByTestId('root'),
+  ],
+  [
+    'ActionRow',
+    (ref) => (
+      <ActionRow ref={ref} href='/a'>
+        Manager
+      </ActionRow>
+    ),
+    (root) => root === screen.getByRole('listitem'),
   ],
 ]
 
