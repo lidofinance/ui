@@ -347,6 +347,32 @@ describe('Select loading', () => {
     expect(trigger()).toHaveAttribute('aria-expanded', 'false')
   })
 
+  it('closes an open list when disabled', async () => {
+    const user = userEvent.setup()
+    const { rerender } = render(<Select options={options} />)
+    await user.click(trigger())
+    rerender(<Select options={options} disabled />)
+    expect(screen.queryByRole('listbox')).toBeNull()
+    expect(trigger()).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('keeps the active option valid when options shrink while open', async () => {
+    const user = userEvent.setup()
+    const onChange = vi.fn()
+    const { rerender } = render(
+      <Select options={options} onChange={onChange} />,
+    )
+    await user.click(trigger())
+    await user.keyboard('{End}')
+    rerender(<Select options={options.slice(0, 2)} onChange={onChange} />)
+    const activeId = trigger().getAttribute('aria-activedescendant')
+    expect(document.getElementById(activeId as string)).toHaveTextContent(
+      'Apple',
+    )
+    await user.keyboard('{Enter}')
+    expect(onChange).toHaveBeenCalledWith('a')
+  })
+
   it('closes an open list when loading starts', async () => {
     const user = userEvent.setup()
     const { rerender } = render(<Select options={options} />)

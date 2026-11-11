@@ -239,6 +239,45 @@ export const LongList: Story = {
   ),
 }
 
+export const DisabledWhileOpen: Story = {
+  parameters: {
+    docs: {
+      source: { type: 'code' },
+      description: {
+        story:
+          'Click "Disable in 3s", then open the list: it closes when the Select becomes disabled.',
+      },
+    },
+    controls: { disable: true },
+  },
+  render: function Render(args) {
+    const [disabled, setDisabled] = useState(false)
+
+    return (
+      <div style={{ maxWidth: 400, minHeight: 320 }}>
+        <Select
+          {...args}
+          label='Reward token'
+          options={rewardTokens}
+          defaultValue='wsteth'
+          disabled={disabled}
+        />
+        <Button
+          variant='outline'
+          size='small'
+          onClick={() =>
+            disabled
+              ? setDisabled(false)
+              : void setTimeout(() => setDisabled(true), 3000)
+          }
+        >
+          {disabled ? 'Enable' : 'Disable in 3s'}
+        </Button>
+      </div>
+    )
+  },
+}
+
 export const Form: Story = {
   parameters: {
     docs: { source: { type: 'code' } },

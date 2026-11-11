@@ -177,6 +177,11 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
     const firstEnabled = enabledIndexes[0] ?? -1
     const lastEnabled = enabledIndexes[enabledIndexes.length - 1] ?? -1
 
+    const resolvedActive = !open
+      ? -1
+      : ([activeIndex, selectedIndex].find((i) => enabledIndexes.includes(i)) ??
+        firstEnabled)
+
     const step = (from: number, delta: 1 | -1) => {
       const position = enabledIndexes.indexOf(from)
       if (position === -1) return delta === 1 ? firstEnabled : lastEnabled
@@ -210,17 +215,17 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
     useEffect(() => () => window.clearTimeout(typeahead.current.timer), [])
 
     useEffect(() => {
-      if (!loading) return
+      if (!loading && !disabled) return
       setOpen(false)
       setActiveIndex(-1)
-    }, [loading])
+    }, [loading, disabled])
 
     useEffect(() => {
-      if (!open || activeIndex < 0) return
+      if (resolvedActive < 0) return
       document
-        .getElementById(`${selectId}-option-${activeIndex}`)
+        .getElementById(`${selectId}-option-${resolvedActive}`)
         ?.scrollIntoView?.({ block: 'nearest' })
-    }, [open, activeIndex, selectId])
+    }, [resolvedActive, selectId])
 
     const runTypeahead = (key: string) => {
       const state = typeahead.current
@@ -232,7 +237,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
 
       const repeated = state.query.split('').every((c) => c === state.query[0])
       const query = repeated ? state.query[0] : state.query
-      const current = open ? activeIndex : selectedIndex
+      const current = open ? resolvedActive : selectedIndex
       const from = current < 0 ? 0 : current
       const total = options.length
       const firstOffset = repeated && current >= 0 ? 1 : 0
@@ -301,11 +306,11 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       switch (key) {
         case 'ArrowDown':
           event.preventDefault()
-          setActiveIndex(step(activeIndex, 1))
+          setActiveIndex(step(resolvedActive, 1))
           break
         case 'ArrowUp':
           event.preventDefault()
-          setActiveIndex(step(activeIndex, -1))
+          setActiveIndex(step(resolvedActive, -1))
           break
         case 'Home':
           event.preventDefault()
@@ -318,7 +323,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
         case 'Enter':
         case ' ':
           event.preventDefault()
-          commit(activeIndex)
+          commit(resolvedActive)
           break
       }
     }
@@ -412,7 +417,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
               aria-busy={loading || undefined}
               aria-controls={open ? listboxId : undefined}
               aria-activedescendant={
-                open && activeIndex >= 0 ? optionId(activeIndex) : undefined
+                resolvedActive >= 0 ? optionId(resolvedActive) : undefined
               }
               aria-labelledby={label != null ? labelId : undefined}
               aria-label={label == null ? listLabel : undefined}
@@ -478,14 +483,14 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
                   secondaryLabel={option.secondaryLabel}
                   description={option.description}
                   selected={index === selectedIndex}
-                  active={index === activeIndex}
+                  active={index === resolvedActive}
                   disabled={option.disabled}
                   dataTestId={{
                     ...option.dataTestId,
                     root: option.dataTestId?.root ?? dataTestId?.option,
                   }}
                   onPointerMove={() => {
-                    if (!option.disabled && index !== activeIndex)
+                    if (!option.disabled && index !== resolvedActive)
                       setActiveIndex(index)
                   }}
                   onClick={() => commit(index)}
