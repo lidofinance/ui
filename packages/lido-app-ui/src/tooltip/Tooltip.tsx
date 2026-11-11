@@ -32,6 +32,10 @@ export type TooltipPosition =
   | 'top-right'
   | 'bottom-left'
   | 'bottom-right'
+  | 'top-start'
+  | 'top-end'
+  | 'bottom-start'
+  | 'bottom-end'
 
 export type TooltipDataTestId = {
   root?: string
@@ -40,6 +44,7 @@ export type TooltipDataTestId = {
 
 export type TooltipProps = Omit<ComponentPropsWithoutRef<'span'>, 'content'> & {
   content: ReactNode
+  /** Side, or side + edge. `-start`/`-end`: above/below with that edge aligned to the anchor's. `-left`/`-right`: hangs diagonally off that corner. Flips/slides to stay in view. */
   position?: TooltipPosition
   /** Bubble width in px. */
   width?: number
@@ -84,7 +89,13 @@ const getAdjustment = (
   const spaceLeft = anchor.left - VIEWPORT_MARGIN
   const spaceRight = viewportWidth - anchor.right - VIEWPORT_MARGIN
 
-  let [main, corner] = position.split('-') as [string, string | undefined]
+  const [initialMain, suffix] = position.split('-') as [
+    string,
+    string | undefined,
+  ]
+  let main = initialMain
+  let corner = suffix === 'left' || suffix === 'right' ? suffix : undefined
+  let align = suffix === 'start' || suffix === 'end' ? suffix : undefined
   const fitGap = corner ? 0 : FIT_BUFFER
 
   // Side positions: flip to the other side, or fall back to a vertical
@@ -119,8 +130,20 @@ const getAdjustment = (
     }
   }
 
+  // Edge-aligned: flip to the opposite edge when that overflows the viewport less.
+  if (align) {
+    const overflowStart =
+      anchor.left + contentWidth - (viewportWidth - VIEWPORT_MARGIN)
+    const overflowEnd = VIEWPORT_MARGIN - (anchor.right - contentWidth)
+    const current = align === 'start' ? overflowStart : overflowEnd
+    const opposite = align === 'start' ? overflowEnd : overflowStart
+    if (current > 0 && opposite < current) {
+      align = align === 'start' ? 'end' : 'start'
+    }
+  }
+
   const resolvedPosition = (
-    corner ? `${main}-${corner}` : main
+    corner ? `${main}-${corner}` : align ? `${main}-${align}` : main
   ) as TooltipPosition
 
   let left: number
@@ -138,11 +161,15 @@ const getAdjustment = (
         ? anchor.right + MAIN_GAP
         : anchor.left - MAIN_GAP - contentWidth
   } else {
-    const idealLeft = !corner
-      ? anchor.left + anchor.width / 2 - contentWidth / 2
-      : corner === 'left'
-        ? anchor.left - contentWidth - CORNER_GAP
-        : anchor.right + CORNER_GAP
+    const idealLeft = align
+      ? align === 'start'
+        ? anchor.left
+        : anchor.right - contentWidth
+      : !corner
+        ? anchor.left + anchor.width / 2 - contentWidth / 2
+        : corner === 'left'
+          ? anchor.left - contentWidth - CORNER_GAP
+          : anchor.right + CORNER_GAP
     left = clampValue(
       idealLeft,
       VIEWPORT_MARGIN,

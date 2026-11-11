@@ -1,8 +1,8 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { Tooltip } from './Tooltip'
+import { Tooltip, type TooltipPosition } from './Tooltip'
 
 describe('Tooltip', () => {
   it('shows on focus and links the trigger through aria-describedby', async () => {
@@ -110,5 +110,89 @@ describe('Tooltip', () => {
     await userEvent.keyboard('{Escape}')
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     expect(button).toHaveAttribute('aria-describedby', 'own')
+  })
+
+  describe('edge-aligned positions', () => {
+    const VIEWPORT = { width: 1000, height: 800 }
+    const BUBBLE = { width: 200, height: 60 }
+
+    const mockLayout = (anchor: { left: number; top: number }) => {
+      vi.spyOn(document.documentElement, 'clientWidth', 'get').mockReturnValue(
+        VIEWPORT.width,
+      )
+      vi.spyOn(document.documentElement, 'clientHeight', 'get').mockReturnValue(
+        VIEWPORT.height,
+      )
+      vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(
+        BUBBLE.width,
+      )
+      vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(
+        BUBBLE.height,
+      )
+      vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(
+        () =>
+          ({
+            left: anchor.left,
+            top: anchor.top,
+            right: anchor.left + 20,
+            bottom: anchor.top + 20,
+            width: 20,
+            height: 20,
+            x: anchor.left,
+            y: anchor.top,
+            toJSON: () => ({}),
+          }) as DOMRect,
+      )
+    }
+
+    const open = async (position: TooltipPosition) => {
+      render(
+        <Tooltip content='Hint' position={position}>
+          trigger
+        </Tooltip>,
+      )
+      fireEvent.mouseEnter(screen.getByText('trigger'))
+      return screen.findByRole('tooltip')
+    }
+
+    afterEach(() => vi.restoreAllMocks())
+
+    it('bottom-start aligns the left edges below the anchor', async () => {
+      mockLayout({ left: 300, top: 300 })
+      const tooltip = await open('bottom-start')
+      expect(tooltip.style.left).toBe('300px')
+      expect(tooltip.style.top).toBe('328px')
+      expect(tooltip.dataset.position).toBe('bottom-start')
+    })
+
+    it('top-end aligns the right edges above the anchor', async () => {
+      mockLayout({ left: 300, top: 300 })
+      const tooltip = await open('top-end')
+      expect(tooltip.style.left).toBe('120px')
+      expect(tooltip.style.top).toBe('232px')
+      expect(tooltip.dataset.position).toBe('top-end')
+    })
+
+    it('flips start to end near the right viewport edge', async () => {
+      mockLayout({ left: 900, top: 300 })
+      const tooltip = await open('bottom-start')
+      expect(tooltip.dataset.position).toBe('bottom-end')
+      expect(tooltip.style.left).toBe('720px')
+    })
+
+    it('flips end to start near the left viewport edge', async () => {
+      mockLayout({ left: 20, top: 300 })
+      const tooltip = await open('top-end')
+      expect(tooltip.dataset.position).toBe('top-start')
+      expect(tooltip.style.left).toBe('20px')
+    })
+
+    it('flips vertically when there is no room, keeping the alignment', async () => {
+      mockLayout({ left: 300, top: 10 })
+      const tooltip = await open('top-start')
+      expect(tooltip.dataset.position).toBe('bottom-start')
+      expect(tooltip.style.left).toBe('300px')
+      expect(tooltip.style.top).toBe('38px')
+    })
   })
 })

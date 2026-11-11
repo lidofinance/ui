@@ -52,6 +52,22 @@
   transform-origin: bottom left;
 }
 
+.content[data-position='bottom-start'] {
+  transform-origin: top left;
+}
+
+.content[data-position='bottom-end'] {
+  transform-origin: top right;
+}
+
+.content[data-position='top-start'] {
+  transform-origin: bottom left;
+}
+
+.content[data-position='top-end'] {
+  transform-origin: bottom right;
+}
+
 .content[data-position='left'],
 .content[data-position='right'] {
   --local-motion-shift: 0px;
