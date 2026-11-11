@@ -15,6 +15,11 @@ describe('InfoTooltip', () => {
     expect(screen.getByRole('img').querySelectorAll('svg')).toHaveLength(1)
   })
 
+  it('inherit tone applies the inherit class', () => {
+    render(<InfoTooltip content='Help' tone='inherit' />)
+    expect(screen.getByRole('img').className).toContain('inherit')
+  })
+
   it('is focusable', () => {
     render(<InfoTooltip content='Help' />)
     expect(screen.getByRole('img').getAttribute('tabindex')).toBe('0')

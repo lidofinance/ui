@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { ContainerWidths, StorySection } from '../../.storybook/components'
-import { IconInfo } from '../icons'
+import { IconInfo, IconWarning } from '../icons'
 import { Tag } from '.'
 
 const meta: Meta<typeof Tag> = {
@@ -106,6 +106,32 @@ export const WithIcon: Story = {
       description: {
         story:
           'The icon inherits the variant colour through `currentColor`. `iconPosition` picks which side it renders on.',
+      },
+    },
+  },
+}
+
+export const WithInfo: Story = {
+  render: () => (
+    <StorySection>
+      <Tag
+        variant='warning'
+        icon={<IconWarning />}
+        info='Operators need at least 3 more keys to reach the next tier.'
+      >
+        Add 3 more keys
+      </Tag>
+      <Tag variant='success' info='All keys are deposited.'>
+        Enough keys
+      </Tag>
+    </StorySection>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'The info icon inherits the tag colour. Interactive tags (`href`, `onClick`, `disabled`) do not render it.',
       },
     },
   },
