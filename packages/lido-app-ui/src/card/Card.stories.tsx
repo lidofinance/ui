@@ -4,6 +4,7 @@ import { StoryContainer } from '../../.storybook/components'
 import { Button } from '../button'
 import { Input } from '../input'
 import { SectionTitle } from '../section-title'
+import { Table } from '../table'
 import { Card } from '.'
 import { StatItem } from '../stat-item'
 
@@ -96,6 +97,36 @@ export const Variants: Story = {
       description: {
         story:
           'Any content can go inside — a narrow form-like card on the left, versus a wide card used purely to group a row of `StatItem` metrics on the right. `Card` itself only supplies the surface, padding and gap.',
+      },
+    },
+  },
+}
+
+export const Stretch: Story = {
+  render: () => (
+    <div style={{ width: 560 }}>
+      <Card align='stretch'>
+        <SectionTitle title='Your keys' subtitle='Uploaded validator keys.' />
+        <Table
+          rows={[
+            { id: '1', key: '0x8f3a...1c19', bond: '1.30 ETH' },
+            { id: '2', key: '0x1c02...47ab', bond: '1.30 ETH' },
+          ]}
+          rowKey={(row) => row.id}
+          columns={[
+            { key: 'key', header: 'Key', render: (row) => row.key },
+            { key: 'bond', header: 'Bond', render: (row) => row.bond },
+          ]}
+        />
+        <Button fullWidth>Upload keys</Button>
+      </Card>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'By default children hug their content (`align="start"`). `align="stretch"` makes tables and full-width buttons fill the card.',
       },
     },
   },
