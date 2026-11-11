@@ -42,9 +42,9 @@
     @mixin font-body-large;
   }
 
+  --local-gap: 12px;
+
   height: 52px;
-  gap: 12px;
-  padding: 12px 16px;
   border-radius: var(--lido-app-ui-border-radius-card);
 }
 
@@ -53,10 +53,26 @@
     @mixin font-body;
   }
 
+  --local-gap: 8px;
+
   height: 36px;
-  gap: 8px;
-  padding: 6px 16px;
   border-radius: var(--lido-app-ui-border-radius-control);
+}
+
+.label {
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  gap: var(--local-gap);
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+  padding-inline: 16px;
+  cursor: inherit;
+}
+
+.label:not(:last-child) {
+  padding-inline-end: var(--local-gap);
 }
 
 .control {
@@ -78,6 +94,7 @@
   font-size: inherit;
   line-height: inherit;
   letter-spacing: inherit;
+  text-overflow: ellipsis;
 }
 
 .input::placeholder {
@@ -121,9 +138,14 @@
   flex-shrink: 0;
   align-items: stretch;
   align-self: stretch;
+  gap: 8px;
+  box-sizing: border-box;
+  padding-block: 12px;
+  padding-inline-end: 16px;
   cursor: auto;
 }
 
 .small .trailing {
   align-items: center;
+  padding-block: 6px;
 }

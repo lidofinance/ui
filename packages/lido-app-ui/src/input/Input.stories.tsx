@@ -86,6 +86,19 @@ export const WithTrailing: Story = {
           </Tag>
         }
       />
+      <Input
+        placeholder='Message'
+        trailing={
+          <>
+            <Tag as='button' variant='action' onClick={() => {}}>
+              Sign
+            </Tag>
+            <Tag as='button' onClick={() => {}}>
+              Clear
+            </Tag>
+          </>
+        }
+      />
       <div style={{ maxWidth: 240 }}>
         <Input
           size='small'

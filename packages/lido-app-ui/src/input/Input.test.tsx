@@ -103,11 +103,16 @@ describe('Input trailing', () => {
     expect(screen.getByRole('textbox', { name: 'Address' })).toBeInTheDocument()
   })
 
-  it('focuses the input when the root padding is clicked', async () => {
-    render(<Input dataTestId={{ input: 'i' }} />)
-    const input = screen.getByTestId('i')
-    await userEvent.click(input.parentElement!.parentElement!)
-    expect(input).toHaveFocus()
+  it('wraps the input in a label that excludes trailing', () => {
+    render(
+      <Input
+        dataTestId={{ input: 'i', trailing: 't' }}
+        trailing={<span>Connected</span>}
+      />,
+    )
+    const label = screen.getByTestId('i').closest('label')
+    expect(label).not.toBeNull()
+    expect(label).not.toContainElement(screen.getByTestId('t'))
   })
 
   it('does not focus the input when a trailing button is clicked', async () => {

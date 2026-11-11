@@ -191,7 +191,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
   ['InfoTooltip', () => <InfoTooltip content='Help' />],
-  ['Input', () => <Input label='Amount' />],
+  ['Input', () => <Input label='Amount' trailing={<Tag>Verified</Tag>} />],
   [
     'ActionList',
     () => (
