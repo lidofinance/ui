@@ -1,4 +1,5 @@
 import {
+  forwardRef,
   useCallback,
   useEffect,
   useId,
@@ -19,6 +20,7 @@ import {
   Portal,
   useEscape,
   useIsomorphicLayoutEffect,
+  useMergedRef,
   usePresence,
 } from '../hooks'
 import styles from './Tooltip.module.css'
@@ -185,143 +187,151 @@ const getAdjustment = (
 
 // Portaled, not just fixed: a transform/filter/backdrop-filter ancestor would capture position: fixed.
 /** Bubble rendered in a portal on `document.body`, so overflow-clipped ancestors never cut it off; flips or slides to stay in the viewport. Always dark, like Notification, so token-coloured content inside uses dark-theme values. */
-export const Tooltip = ({
-  content,
-  position = 'top',
-  width = 320,
-  className,
-  children,
-  onMouseEnter,
-  onMouseLeave,
-  onFocus,
-  onBlur,
-  dataTestId,
-  ...rest
-}: TooltipProps) => {
-  const anchorRef = useRef<HTMLSpanElement>(null)
-  const [contentEl, setContentEl] = useState<HTMLSpanElement | null>(null)
-  const [open, setOpen] = useState(false)
-  const [focusedEl, setFocusedEl] = useState<HTMLElement | null>(null)
-  const tooltipId = useId()
-  const presence = usePresence<HTMLSpanElement>(open)
-  const { mounted, ref: presenceRef } = presence
-
-  const setContent = useCallback(
-    (node: HTMLSpanElement | null) => {
-      setContentEl(node)
-      presenceRef(node)
+export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
+  (
+    {
+      content,
+      position = 'top',
+      width = 320,
+      className,
+      children,
+      onMouseEnter,
+      onMouseLeave,
+      onFocus,
+      onBlur,
+      dataTestId,
+      ...rest
     },
-    [presenceRef],
-  )
+    forwardedRef,
+  ) => {
+    const anchorRef = useRef<HTMLSpanElement | null>(null)
+    const setAnchor = useMergedRef(anchorRef, forwardedRef)
+    const [contentEl, setContentEl] = useState<HTMLSpanElement | null>(null)
+    const [open, setOpen] = useState(false)
+    const [focusedEl, setFocusedEl] = useState<HTMLElement | null>(null)
+    const tooltipId = useId()
+    const presence = usePresence<HTMLSpanElement>(open)
+    const { mounted, ref: presenceRef } = presence
 
-  const updatePosition = useCallback(() => {
-    const anchor = anchorRef.current
-    if (!anchor || !contentEl) return
-    const {
-      left,
-      top,
-      position: resolved,
-    } = getAdjustment(
-      position,
-      anchor.getBoundingClientRect(),
-      contentEl.offsetWidth,
-      contentEl.offsetHeight,
+    const setContent = useCallback(
+      (node: HTMLSpanElement | null) => {
+        setContentEl(node)
+        presenceRef(node)
+      },
+      [presenceRef],
     )
-    contentEl.style.left = `${left}px`
-    contentEl.style.top = `${top}px`
-    contentEl.dataset.position = resolved
-    contentEl.dataset.placed = 'true'
-  }, [position, contentEl])
 
-  useIsomorphicLayoutEffect(() => {
-    if (!mounted || !contentEl) return
-    updatePosition()
-    window.addEventListener('scroll', updatePosition, true)
-    window.addEventListener('resize', updatePosition)
-    return () => {
-      window.removeEventListener('scroll', updatePosition, true)
-      window.removeEventListener('resize', updatePosition)
-    }
-  }, [mounted, contentEl, updatePosition])
+    const updatePosition = useCallback(() => {
+      const anchor = anchorRef.current
+      if (!anchor || !contentEl) return
+      const {
+        left,
+        top,
+        position: resolved,
+      } = getAdjustment(
+        position,
+        anchor.getBoundingClientRect(),
+        contentEl.offsetWidth,
+        contentEl.offsetHeight,
+      )
+      contentEl.style.left = `${left}px`
+      contentEl.style.top = `${top}px`
+      contentEl.dataset.position = resolved
+      contentEl.dataset.placed = 'true'
+    }, [position, contentEl])
 
-  // AT describes the focused element, not the wrapper, so the id is merged onto it too.
-  useEffect(() => {
-    if (!open || !contentEl || !focusedEl) return
-    const ids = (focusedEl.getAttribute('aria-describedby') ?? '')
-      .split(' ')
-      .filter(Boolean)
-    if (ids.includes(tooltipId)) return
-    focusedEl.setAttribute('aria-describedby', [...ids, tooltipId].join(' '))
-    return () => {
-      const rest = (focusedEl.getAttribute('aria-describedby') ?? '')
+    useIsomorphicLayoutEffect(() => {
+      if (!mounted || !contentEl) return
+      updatePosition()
+      window.addEventListener('scroll', updatePosition, true)
+      window.addEventListener('resize', updatePosition)
+      return () => {
+        window.removeEventListener('scroll', updatePosition, true)
+        window.removeEventListener('resize', updatePosition)
+      }
+    }, [mounted, contentEl, updatePosition])
+
+    // AT describes the focused element, not the wrapper, so the id is merged onto it too.
+    useEffect(() => {
+      if (!open || !contentEl || !focusedEl) return
+      const ids = (focusedEl.getAttribute('aria-describedby') ?? '')
         .split(' ')
-        .filter((id) => id && id !== tooltipId)
-      if (rest.length)
-        focusedEl.setAttribute('aria-describedby', rest.join(' '))
-      else focusedEl.removeAttribute('aria-describedby')
+        .filter(Boolean)
+      if (ids.includes(tooltipId)) return
+      focusedEl.setAttribute('aria-describedby', [...ids, tooltipId].join(' '))
+      return () => {
+        const rest = (focusedEl.getAttribute('aria-describedby') ?? '')
+          .split(' ')
+          .filter((id) => id && id !== tooltipId)
+        if (rest.length)
+          focusedEl.setAttribute('aria-describedby', rest.join(' '))
+        else focusedEl.removeAttribute('aria-describedby')
+      }
+    }, [open, contentEl, focusedEl, tooltipId])
+
+    // A hover-opened tooltip has no focus to catch the key, so Escape is heard document-wide.
+    useEscape(() => setOpen(false), { enabled: open })
+
+    const handleMouseEnter = (event: MouseEvent<HTMLSpanElement>) => {
+      onMouseEnter?.(event)
+      setOpen(true)
     }
-  }, [open, contentEl, focusedEl, tooltipId])
 
-  // A hover-opened tooltip has no focus to catch the key, so Escape is heard document-wide.
-  useEscape(() => setOpen(false), { enabled: open })
+    const handleMouseLeave = (event: MouseEvent<HTMLSpanElement>) => {
+      onMouseLeave?.(event)
+      setOpen(false)
+    }
 
-  const handleMouseEnter = (event: MouseEvent<HTMLSpanElement>) => {
-    onMouseEnter?.(event)
-    setOpen(true)
-  }
+    const handleFocus = (event: FocusEvent<HTMLSpanElement>) => {
+      onFocus?.(event)
+      if (event.target !== anchorRef.current)
+        setFocusedEl(event.target as HTMLElement)
+      setOpen(true)
+    }
 
-  const handleMouseLeave = (event: MouseEvent<HTMLSpanElement>) => {
-    onMouseLeave?.(event)
-    setOpen(false)
-  }
+    const handleBlur = (event: FocusEvent<HTMLSpanElement>) => {
+      onBlur?.(event)
+      setFocusedEl(null)
+      setOpen(false)
+    }
 
-  const handleFocus = (event: FocusEvent<HTMLSpanElement>) => {
-    onFocus?.(event)
-    if (event.target !== anchorRef.current)
-      setFocusedEl(event.target as HTMLElement)
-    setOpen(true)
-  }
-
-  const handleBlur = (event: FocusEvent<HTMLSpanElement>) => {
-    onBlur?.(event)
-    setFocusedEl(null)
-    setOpen(false)
-  }
-
-  return (
-    <span
-      ref={anchorRef}
-      className={cn(styles.wrapper, className)}
-      aria-describedby={open ? tooltipId : undefined}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      data-testid={dataTestId?.root}
-      {...rest}
-    >
-      {children}
-      {mounted ? (
-        <Portal>
-          <ThemeProvider themeName={ThemeName.dark}>
-            <span
-              ref={setContent}
-              id={tooltipId}
-              role='tooltip'
-              className={styles.content}
-              {...presence.motionProps}
-              style={
-                { '--local-tooltip-width': getMaxWidth(width) } as CSSProperties
-              }
-              data-testid={dataTestId?.content}
-            >
-              {content}
-            </span>
-          </ThemeProvider>
-        </Portal>
-      ) : null}
-    </span>
-  )
-}
+    return (
+      <span
+        ref={setAnchor}
+        className={cn(styles.wrapper, className)}
+        aria-describedby={open ? tooltipId : undefined}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        data-testid={dataTestId?.root}
+        {...rest}
+      >
+        {children}
+        {mounted ? (
+          <Portal>
+            <ThemeProvider themeName={ThemeName.dark}>
+              <span
+                ref={setContent}
+                id={tooltipId}
+                role='tooltip'
+                className={styles.content}
+                {...presence.motionProps}
+                style={
+                  {
+                    '--local-tooltip-width': getMaxWidth(width),
+                  } as CSSProperties
+                }
+                data-testid={dataTestId?.content}
+              >
+                {content}
+              </span>
+            </ThemeProvider>
+          </Portal>
+        ) : null}
+      </span>
+    )
+  },
+)
 
 Tooltip.displayName = 'Tooltip'

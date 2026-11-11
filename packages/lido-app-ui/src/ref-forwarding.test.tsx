@@ -2,6 +2,7 @@ import { createRef, type ReactElement, type Ref } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
+import { AvatarStack } from './avatar-stack'
 import { Breadcrumbs } from './breadcrumbs'
 import { Callout } from './callout'
 import { Checkbox } from './checkbox'
@@ -33,6 +34,7 @@ import { Steps } from './steps'
 import { SmallCard } from './small-card'
 import { Tag } from './tag'
 import { TextLink } from './text-link'
+import { Tooltip } from './tooltip'
 
 const cases: Array<
   [string, (ref: Ref<never>) => ReactElement, (root: HTMLElement) => boolean]
@@ -64,6 +66,24 @@ const cases: Array<
       </Tag>
     ),
     (root) => root === screen.getByRole('button'),
+  ],
+  [
+    'AvatarStack',
+    (ref) => (
+      <AvatarStack ref={ref} dataTestId={{ root: 'stack' }}>
+        <img src='a.svg' alt='A' />
+      </AvatarStack>
+    ),
+    (root) => root === screen.getByTestId('stack'),
+  ],
+  [
+    'Tooltip',
+    (ref) => (
+      <Tooltip ref={ref} content='Hint' dataTestId={{ root: 'tooltip' }}>
+        trigger
+      </Tooltip>
+    ),
+    (root) => root === screen.getByTestId('tooltip'),
   ],
   [
     'Counter',

@@ -1,0 +1,103 @@
+.root {
+  --local-size: 32px;
+  --local-overlap: calc(var(--local-size) / 4);
+
+  display: flex;
+  isolation: isolate;
+}
+
+.slot {
+  position: relative;
+  display: block;
+  flex: none;
+  width: var(--local-size);
+  height: var(--local-size);
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: 50%;
+  background: var(--lido-app-ui-color-background-surface);
+  z-index: var(--local-z);
+  transition:
+    transform var(--lido-app-ui-duration-fast-exit)
+      var(--lido-app-ui-easing-exit),
+    z-index 0s linear var(--lido-app-ui-duration-fast-exit);
+}
+
+/* Raised instantly on enter, dropped only after the scale-down so the shrinking circle is not covered. */
+.slot:has(:focus-visible) {
+  z-index: 1000;
+  transition:
+    transform var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out),
+    z-index 0s linear 0s;
+  transform: scale(1.1);
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .slot:hover {
+    z-index: 1000;
+    transition:
+      transform var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out),
+      z-index 0s linear 0s;
+    transform: scale(1.1);
+  }
+}
+
+/* On a handoff between slots the previous one drops at once, so it never stays painted over the new one; the delayed drop is for leaving the stack. */
+@media (prefers-reduced-motion: no-preference) {
+  .root:has(:focus-visible) .slot:not(:has(:focus-visible)) {
+    transition:
+      transform var(--lido-app-ui-duration-fast-exit)
+        var(--lido-app-ui-easing-exit),
+      z-index 0s;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .root:has(.slot:hover) .slot:not(:hover) {
+    transition:
+      transform var(--lido-app-ui-duration-fast-exit)
+        var(--lido-app-ui-easing-exit),
+      z-index 0s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot,
+  .slot:hover,
+  .slot:has(:focus-visible) {
+    transform: none;
+    transition: none;
+  }
+}
+
+.slot:not(:first-child) {
+  margin-inline-start: calc(var(--local-overlap) * -1);
+}
+
+.root .slot > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.slot :is(a, button) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  outline: none;
+}
+
+.slot :is(img, svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
