@@ -4,7 +4,44 @@ import { render, screen } from '@testing-library/react'
 import { ProgressBar } from './ProgressBar'
 import { SegmentedBar } from './SegmentedBar'
 
+import { ProgressBarLegendMark } from './ProgressBarLegendMark'
+import barStyles from './ProgressBar.module.css'
+
+describe('ProgressBarLegendMark', () => {
+  it('is aria-hidden and reuses the bar colour class', () => {
+    const { container } = render(<ProgressBarLegendMark color='success' />)
+    const root = container.firstElementChild as HTMLElement
+    expect(root).toHaveAttribute('aria-hidden', 'true')
+    expect(root.firstElementChild).toHaveClass(barStyles.success)
+  })
+
+  it('uses inline background for custom colours', () => {
+    const { container } = render(<ProgressBarLegendMark color='#ff0000' />)
+    const dot = container.firstElementChild?.firstElementChild as HTMLElement
+    expect(dot.style.backgroundColor).toBe('rgb(255, 0, 0)')
+  })
+
+  it('renders the limit variant without colour classes', () => {
+    const { container } = render(<ProgressBarLegendMark variant='limit' />)
+    const bar = container.firstElementChild?.firstElementChild as HTMLElement
+    expect(bar).not.toHaveClass(barStyles.active)
+    expect(bar.style.backgroundColor).toBe('')
+  })
+})
+
 describe('ProgressBar', () => {
+  it('does not hatch past the limit with overLimit=false', () => {
+    const { container } = render(
+      <ProgressBar value={80} max={100} limit={50} overLimit={false} />,
+    )
+    const layers = container.querySelectorAll<HTMLElement>(
+      `.${barStyles.segment}`,
+    )
+    expect(layers[0].style.clipPath).toContain('inset(0 20%')
+    expect(layers[1].style.clipPath).toContain('inset(0 20% 0 calc(80%')
+    expect(container.querySelector(`.${barStyles.limitMarker}`)).not.toBeNull()
+  })
+
   it('exposes aria-valuenow/max derived from segments', () => {
     render(
       <ProgressBar

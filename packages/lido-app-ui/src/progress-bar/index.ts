@@ -8,3 +8,8 @@ export type {
 } from './ProgressBar'
 export { SegmentedBar } from './SegmentedBar'
 export type { SegmentedBarDataTestId, SegmentedBarProps } from './SegmentedBar'
+export { ProgressBarLegendMark } from './ProgressBarLegendMark'
+export type {
+  ProgressBarLegendMarkProps,
+  ProgressBarLegendMarkVariant,
+} from './ProgressBarLegendMark'

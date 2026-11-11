@@ -77,7 +77,11 @@ import { CheckboxList, CheckboxRow } from './checkbox-row'
 import { Disclosure } from './disclosure'
 import { Drawer } from './drawer'
 import { EmptyState } from './empty-state'
-import { ProgressBar, SegmentedBar } from './progress-bar'
+import {
+  ProgressBar,
+  ProgressBarLegendMark,
+  SegmentedBar,
+} from './progress-bar'
 import { VisuallyHidden } from './visually-hidden'
 import { Select, SelectItem } from './select'
 import { StatCard, StatCardMeta } from './stat-card'
@@ -367,6 +371,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     () => <FormLayout aside={<span>Aside</span>}>Form</FormLayout>,
   ],
   ['ProgressBar', () => <ProgressBar value={40} aria-label='Progress' />],
+  ['ProgressBarLegendMark', () => <ProgressBarLegendMark />],
   ['VisuallyHidden', () => <VisuallyHidden>Hidden</VisuallyHidden>],
   [
     'SegmentedBar',

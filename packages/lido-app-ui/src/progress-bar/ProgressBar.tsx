@@ -7,6 +7,7 @@ import {
 
 import cn from 'classnames'
 
+import { isNamedColor } from './colors'
 import styles from './ProgressBar.module.css'
 
 export type ProgressBarColor =
@@ -35,22 +36,11 @@ export type ProgressBarProps = Omit<
   value?: number
   max?: number
   limit?: number
+  /** Hatching past `limit`: unset hatches beyond `limit`, `true` hatches the whole bar, `false` never hatches (marker kept). */
   overLimit?: boolean
   size?: ProgressBarSize
   dataTestId?: ProgressBarDataTestId
 }
-
-const namedColors = [
-  'active',
-  'success',
-  'info',
-  'warning',
-  'error',
-  'neutral',
-] as const
-
-const isNamedColor = (c: string): c is (typeof namedColors)[number] =>
-  (namedColors as readonly string[]).includes(c)
 
 const clip = (from: number, to: number, max: number, gap: string) => {
   const left = (from / max) * 100

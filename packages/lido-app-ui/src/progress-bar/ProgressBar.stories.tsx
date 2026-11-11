@@ -3,11 +3,14 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '../button'
+import { StatItem } from '../stat-item'
 import { ProgressBar } from './ProgressBar'
+import { ProgressBarLegendMark } from './ProgressBarLegendMark'
 
 const meta: Meta<typeof ProgressBar> = {
   title: 'Content & Data/ProgressBar',
   component: ProgressBar,
+  subcomponents: { ProgressBarLegendMark },
   args: { 'aria-label': 'Usage' },
   tags: ['autodocs'],
   parameters: {
@@ -100,6 +103,83 @@ export const ForcedOverLimit: Story = {
         story: '`overLimit` hatches the bar regardless of `limit`.',
       },
     },
+  },
+}
+
+export const NeverHatched: Story = {
+  render: () => (
+    <div style={{ width: 320 }}>
+      <ProgressBar
+        aria-label='Usage'
+        max={100}
+        limit={50}
+        overLimit={false}
+        segments={[
+          { value: 40, color: 'success' },
+          { value: 30, color: 'info' },
+        ]}
+      />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'With `overLimit={false}` segments past `limit` keep their own colour; the marker still renders.',
+      },
+    },
+    controls: { disable: true },
+  },
+}
+
+export const WithLegend: Story = {
+  render: () => (
+    <div style={{ width: 480, display: 'grid', gap: 12 }}>
+      <div style={{ display: 'flex', gap: 24 }}>
+        <StatItem
+          size='xsmall'
+          align='left'
+          titleIcon={<ProgressBarLegendMark color='success' />}
+          label='Active'
+          value='312'
+          subValue='107 keys'
+        />
+        <StatItem
+          size='xsmall'
+          align='left'
+          titleIcon={<ProgressBarLegendMark color='info' />}
+          label='Depositable'
+          value='94'
+          subValue='41 keys'
+        />
+        <StatItem
+          size='xsmall'
+          align='left'
+          titleIcon={<ProgressBarLegendMark variant='limit' />}
+          label='TSA'
+          value='350'
+        />
+      </div>
+      <ProgressBar
+        aria-label='Keys'
+        max={452}
+        limit={350}
+        overLimit={false}
+        segments={[
+          { value: 312, color: 'success' },
+          { value: 94, color: 'info' },
+        ]}
+      />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          '`ProgressBarLegendMark` reuses the bar colour classes, so legend dots never drift from the segments. Put it in a `StatItem` `titleIcon`.',
+      },
+    },
+    controls: { disable: true },
   },
 }
 

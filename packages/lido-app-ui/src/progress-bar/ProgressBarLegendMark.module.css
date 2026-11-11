@@ -1,0 +1,18 @@
+.root {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.segment {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.limit {
+  width: 3px;
+  height: 12px;
+  background-color: var(--lido-app-ui-color-border-black);
+}
