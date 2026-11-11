@@ -44,6 +44,10 @@
   margin-left: 4px;
 }
 
+.lock:first-child {
+  margin-left: 0;
+}
+
 .lockIcon {
   flex-shrink: 0;
   width: 20px;

@@ -86,6 +86,25 @@ describe('RichInput locked', () => {
     expect(screen.getByRole('tooltip').textContent).toBe('Fixed amount')
   })
 
+  it('shows the lock and tooltip without a label', () => {
+    render(
+      <RichInput
+        locked
+        lockedTooltip='Fixed by pool'
+        dataTestId={{ lock: 'lock' }}
+      />,
+    )
+    const lock = screen.getByTestId('lock')
+    fireEvent.focus(screen.getByRole('img', { name: 'Locked' }))
+    expect(lock).toBeInTheDocument()
+    expect(screen.getByRole('tooltip').textContent).toBe('Fixed by pool')
+  })
+
+  it('shows the lock icon without label and tooltip', () => {
+    render(<RichInput locked dataTestId={{ lock: 'lock' }} />)
+    expect(screen.getByTestId('lock')).toBeInTheDocument()
+  })
+
   it('shows no lock role without lockedTooltip', () => {
     render(<RichInput label='Amount' locked />)
     expect(screen.queryByRole('img', { name: 'Locked' })).toBeNull()

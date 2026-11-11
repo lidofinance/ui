@@ -174,6 +174,13 @@ export const States: Story = {
         lockedTooltip='Amount is fixed by the bond curve.'
         tokenSelector={smallTokenSelector}
       />
+      <RichInput
+        defaultValue='12'
+        locked
+        lockedTooltip='Amount is fixed by the bond curve.'
+        tokenSelector={smallTokenSelector}
+      />
+      <RichInput defaultValue='12' locked tokenSelector={smallTokenSelector} />
     </StoryContainer>
   ),
   parameters: {

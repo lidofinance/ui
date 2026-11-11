@@ -180,24 +180,28 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
           )}
           onClick={handleRootClick}
         >
-          {label != null ? (
+          {label != null || locked ? (
             <span className={styles.labelRow}>
-              <label
-                data-testid={dataTestId?.label}
-                className={styles.label}
-                htmlFor={inputId}
-              >
-                {label}
-              </label>
-              {tooltip != null ? (
-                <InfoTooltip
-                  content={tooltip}
-                  size={20}
-                  dataTestId={{
-                    root: dataTestId?.tooltip,
-                    content: dataTestId?.tooltipContent,
-                  }}
-                />
+              {label != null ? (
+                <>
+                  <label
+                    data-testid={dataTestId?.label}
+                    className={styles.label}
+                    htmlFor={inputId}
+                  >
+                    {label}
+                  </label>
+                  {tooltip != null ? (
+                    <InfoTooltip
+                      content={tooltip}
+                      size={20}
+                      dataTestId={{
+                        root: dataTestId?.tooltip,
+                        content: dataTestId?.tooltipContent,
+                      }}
+                    />
+                  ) : null}
+                </>
               ) : null}
               {locked ? (
                 lockedTooltip != null ? (
