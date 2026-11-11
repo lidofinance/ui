@@ -71,6 +71,7 @@ export * from './token-selector'
 export * from './tooltip'
 export * from './tx-status'
 export * from './typography'
+export * from './visually-hidden'
 export {
   Portal,
   useBodyScrollLock,

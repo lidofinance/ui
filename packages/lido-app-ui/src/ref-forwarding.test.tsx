@@ -15,6 +15,7 @@ import { Slider } from './slider'
 import { Switch } from './switch'
 import { EmptyState } from './empty-state'
 import { ProgressBar } from './progress-bar'
+import { VisuallyHidden } from './visually-hidden'
 import { Select, SelectItem } from './select'
 import { TokenSelector } from './token-selector'
 import { StatCard } from './stat-card'
@@ -137,6 +138,11 @@ const cases: Array<
     'ProgressBar',
     (ref) => <ProgressBar ref={ref} value={10} aria-label='Progress' />,
     (root) => root === screen.getByRole('progressbar'),
+  ],
+  [
+    'VisuallyHidden',
+    (ref) => <VisuallyHidden ref={ref}>Hidden</VisuallyHidden>,
+    (root) => root.tagName === 'SPAN',
   ],
   [
     'Select trigger',
