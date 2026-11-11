@@ -92,3 +92,12 @@
 .card:disabled .description {
   color: var(--lido-app-ui-color-text-disabled);
 }
+
+.tagNode {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.card:disabled .tagNode {
+  opacity: 0.5;
+}

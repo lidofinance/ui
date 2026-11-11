@@ -19,6 +19,7 @@ export type SegmentCardItem = {
   title: ReactNode
   description?: ReactNode
   icon?: ReactNode
+  /** Strings and numbers get a neutral Tag; elements (incl. i18n like `<Trans>`) render as-is, so wrap them in `<Tag variant='neutral'>` to keep the pill. Must be non-interactive: the card is a `<button role="tab">`. */
   tag?: ReactNode
   disabled?: boolean
   dataTestId?: SegmentCardDataTestId
@@ -31,6 +32,8 @@ export type SegmentedControlCardProps = Omit<
   items: SegmentCardItem[]
   value: string
   onChange: (value: string) => void
+  /** Control width below which all cards stack (number = px); defaults to fitting each card at 212px. */
+  stackAt?: number | string
   dataTestId?: SegmentedControlCardDataTestId
 }
 
@@ -39,6 +42,7 @@ export const SegmentedControlCard = ({
   items,
   value,
   onChange,
+  stackAt,
   className,
   style,
   dataTestId,
@@ -55,7 +59,16 @@ export const SegmentedControlCard = ({
       ref={containerRef}
       role='tablist'
       className={cn(styles.segmentedControlCard, className)}
-      style={{ ...style, '--local-count': items.length } as CSSProperties}
+      style={
+        {
+          ...style,
+          '--local-count': items.length,
+          ...(stackAt != null && {
+            '--local-stack-at-outer':
+              typeof stackAt === 'number' ? `${stackAt}px` : stackAt,
+          }),
+        } as CSSProperties
+      }
       data-testid={dataTestId?.root}
       {...rest}
       onKeyDown={roving.onKeyDown}

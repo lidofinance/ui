@@ -1,5 +1,6 @@
 .segmentedControlCard {
-  --local-stack-at: calc(var(--local-count) * 216px - 6px);
+  --local-stack-at-outer: calc(var(--local-count) * 216px + 4px);
+  --local-stack-at: calc(var(--local-stack-at-outer) - 10px);
 
   position: relative;
   display: flex;
@@ -40,7 +41,7 @@
   }
 }
 
-/* All cards stack together below count * (212px card + 4px gap) - 6px: flex-basis is huge below it (forcing a wrap), 0 above it */
+/* All cards stack together below the outer threshold (default count * 216px + 4px; 10px is padding + border): flex-basis is huge below it (forcing a wrap), 0 above it */
 .segmentedControlCard > [role='tab'] {
   flex: 1 1 calc((var(--local-stack-at) - 100%) * 999);
 }
