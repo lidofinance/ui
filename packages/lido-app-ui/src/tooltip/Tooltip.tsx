@@ -23,6 +23,7 @@ import {
   useMergedRef,
   usePresence,
 } from '../hooks'
+import { addDescribedBy } from '../utils/dom'
 import styles from './Tooltip.module.css'
 
 export type TooltipPosition =
@@ -254,19 +255,7 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
     // AT describes the focused element, not the wrapper, so the id is merged onto it too.
     useEffect(() => {
       if (!open || !contentEl || !focusedEl) return
-      const ids = (focusedEl.getAttribute('aria-describedby') ?? '')
-        .split(' ')
-        .filter(Boolean)
-      if (ids.includes(tooltipId)) return
-      focusedEl.setAttribute('aria-describedby', [...ids, tooltipId].join(' '))
-      return () => {
-        const rest = (focusedEl.getAttribute('aria-describedby') ?? '')
-          .split(' ')
-          .filter((id) => id && id !== tooltipId)
-        if (rest.length)
-          focusedEl.setAttribute('aria-describedby', rest.join(' '))
-        else focusedEl.removeAttribute('aria-describedby')
-      }
+      return addDescribedBy(focusedEl, tooltipId)
     }, [open, contentEl, focusedEl, tooltipId])
 
     // A hover-opened tooltip has no focus to catch the key, so Escape is heard document-wide.

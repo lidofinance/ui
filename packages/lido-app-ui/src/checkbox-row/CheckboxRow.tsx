@@ -17,6 +17,8 @@ import {
   resolveFieldError,
 } from '../field/Field'
 
+import { preventMultiClickSelect } from '../utils/dom'
+
 import styles from './CheckboxRow.module.css'
 
 export type CheckboxRowDataTestId = {
@@ -88,9 +90,7 @@ export const CheckboxRow = forwardRef<HTMLInputElement, CheckboxRowProps>(
         style={style}
         data-testid={dataTestId?.root}
         onClick={handleRowClick}
-        onMouseDown={(event) => {
-          if (event.detail > 1) event.preventDefault()
-        }}
+        onMouseDown={preventMultiClickSelect}
       >
         <Checkbox
           ref={ref}

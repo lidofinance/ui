@@ -18,6 +18,7 @@ import {
 } from '../field/Field'
 import { useMergedRef } from '../hooks'
 import { IconCheck, IconMinus } from '../icons'
+import { preventMultiClickSelect } from '../utils/dom'
 
 import styles from './Checkbox.module.css'
 
@@ -107,9 +108,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           [styles.containerWithMessage]: hasMessage,
         })}
         data-testid={dataTestId?.root}
-        onMouseDown={(event) => {
-          if (event.detail > 1) event.preventDefault()
-        }}
+        onMouseDown={preventMultiClickSelect}
       >
         <span className={styles.control}>
           <input

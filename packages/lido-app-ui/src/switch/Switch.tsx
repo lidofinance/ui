@@ -2,6 +2,8 @@ import { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { preventMultiClickSelect } from '../utils/dom'
+
 import styles from './Switch.module.css'
 
 export type SwitchDataTestId = {
@@ -28,9 +30,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         [styles.containerDisabled]: disabled,
       })}
       data-testid={dataTestId?.root}
-      onMouseDown={(event) => {
-        if (event.detail > 1) event.preventDefault()
-      }}
+      onMouseDown={preventMultiClickSelect}
     >
       <span className={styles.control}>
         <input

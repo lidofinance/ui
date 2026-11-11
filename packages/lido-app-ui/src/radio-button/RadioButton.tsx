@@ -14,6 +14,8 @@ import {
   resolveFieldError,
 } from '../field/Field'
 
+import { preventMultiClickSelect } from '../utils/dom'
+
 import styles from './RadioButton.module.css'
 
 export type RadioButtonDataTestId = {
@@ -84,9 +86,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           [styles.containerWithMessage]: hasMessage,
         })}
         data-testid={dataTestId?.root}
-        onMouseDown={(event) => {
-          if (event.detail > 1) event.preventDefault()
-        }}
+        onMouseDown={preventMultiClickSelect}
       >
         <span className={styles.control}>
           <input

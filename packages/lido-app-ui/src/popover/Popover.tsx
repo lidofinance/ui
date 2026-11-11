@@ -22,6 +22,7 @@ import {
   useOutsideClick,
   usePresence,
 } from '../hooks'
+import { addDescribedBy } from '../utils/dom'
 import styles from './Popover.module.css'
 import { computePosition, samePosition, type Position } from './position'
 
@@ -259,18 +260,7 @@ const useAnchorAria = (
     if (!anchor) return
     if (passive) {
       if (!open) return
-      const ids = (anchor.getAttribute('aria-describedby') ?? '')
-        .split(' ')
-        .filter(Boolean)
-      if (ids.includes(panelId)) return
-      anchor.setAttribute('aria-describedby', [...ids, panelId].join(' '))
-      return () => {
-        const rest = (anchor.getAttribute('aria-describedby') ?? '')
-          .split(' ')
-          .filter((id) => id && id !== panelId)
-        if (rest.length) anchor.setAttribute('aria-describedby', rest.join(' '))
-        else anchor.removeAttribute('aria-describedby')
-      }
+      return addDescribedBy(anchor, panelId)
     }
     const managed: Record<string, string> = {
       'aria-haspopup': 'dialog',
