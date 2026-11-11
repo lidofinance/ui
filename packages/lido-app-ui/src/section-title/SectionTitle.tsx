@@ -16,7 +16,10 @@ export type SectionTitleDataTestId = {
 
 export type SectionTitleSize = 'default' | 'large'
 
-export type SectionTitleProps = HTMLAttributes<HTMLDivElement> & {
+export type SectionTitleProps = Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'title'
+> & {
   title: ReactNode
   subtitle?: ReactNode
   /** Renders an info glyph next to the title; hovering it shows this content. */

@@ -12,7 +12,7 @@ export type BannerDataTestId = {
   action?: string
 }
 
-export type BannerProps = ComponentPropsWithoutRef<'div'> & {
+export type BannerProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   icon?: ReactNode
   title: ReactNode
   description?: ReactNode

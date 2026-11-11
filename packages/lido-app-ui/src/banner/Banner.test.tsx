@@ -4,6 +4,11 @@ import { describe, expect, it } from 'vitest'
 import { Banner } from './Banner'
 
 describe('Banner', () => {
+  it('accepts a ReactNode title', () => {
+    render(<Banner title={<strong>Rich title</strong>} />)
+    expect(screen.getByText('Rich title').tagName).toBe('STRONG')
+  })
+
   it('renders title, description, icon and action', () => {
     render(
       <Banner
