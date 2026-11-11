@@ -7,7 +7,7 @@ const KEY_STEP: Record<string, 1 | -1> = {
   ArrowRight: 1,
 }
 
-/** WAI-ARIA tabs keyboard model with automatic activation: one tab stop, Left/Right arrows and Home/End move focus and call `onChange`. */
+/** WAI-ARIA tabs keyboard model with automatic activation: one tab stop, Left/Right arrows (flipped in RTL) and Home/End move focus and call `onChange`. */
 export const useRovingTabs = <T extends HTMLElement>(
   containerRef: RefObject<T | null>,
   items: RovingItem[],
@@ -27,10 +27,10 @@ export const useRovingTabs = <T extends HTMLElement>(
     if (event.defaultPrevented) return
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
 
+    const container = containerRef.current
+    if (!container) return
     const tabs = Array.from(
-      containerRef.current?.querySelectorAll<HTMLElement>(
-        '[role=tab]:not(:disabled)',
-      ) ?? [],
+      container.querySelectorAll<HTMLElement>('[role=tab]:not(:disabled)'),
     )
     const current = tabs.findIndex((tab) => tab.contains(event.target as Node))
     // Indices map DOM tabs to `enabled`; bail if they disagree.
@@ -39,9 +39,11 @@ export const useRovingTabs = <T extends HTMLElement>(
     let next: number
     if (event.key === 'Home') next = 0
     else if (event.key === 'End') next = tabs.length - 1
-    else if (event.key in KEY_STEP)
-      next = (current + KEY_STEP[event.key] + tabs.length) % tabs.length
-    else return
+    else if (event.key in KEY_STEP) {
+      const rtl = getComputedStyle(container).direction === 'rtl'
+      const step = rtl ? -KEY_STEP[event.key] : KEY_STEP[event.key]
+      next = (current + step + tabs.length) % tabs.length
+    } else return
 
     event.preventDefault()
     tabs[next].focus()

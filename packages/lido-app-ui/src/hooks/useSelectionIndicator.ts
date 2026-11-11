@@ -1,7 +1,6 @@
 import { useRef, useState, type DependencyList } from 'react'
 
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
-import { useResizeObserver } from './useResizeObserver'
 
 /**
  * Owns the refs: attach `containerRef`, `activeRef` (selected button) and `indicatorRef`;
@@ -46,9 +45,22 @@ export const useSelectionIndicator = (
     indicator.style.transform = `translate(${x}px, ${y}px)`
   }
 
-  useResizeObserver(containerRef, update)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useIsomorphicLayoutEffect(update, deps)
+  const updateRef = useRef(update)
+  updateRef.current = update
+
+  // Tabs are observed too: a tab resizing (badge, counter, font) shifts the active one.
+  useIsomorphicLayoutEffect(() => {
+    update()
+    const container = containerRef.current
+    if (!container || typeof ResizeObserver === 'undefined') return
+    const observer = new ResizeObserver(() => updateRef.current())
+    observer.observe(container)
+    container
+      .querySelectorAll('[role="tab"]')
+      .forEach((tab) => observer.observe(tab))
+    return () => observer.disconnect()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps)
   useIsomorphicLayoutEffect(() => {
     setAnimated(true)
   }, [])

@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { Tabs } from './Tabs'
 
@@ -77,6 +77,16 @@ describe('Tabs roving keyboard', () => {
     await user.keyboard('{Home}')
     expect(screen.getByRole('tab', { name: 'A' })).toHaveFocus()
     expect(onChange).toHaveBeenLastCalledWith('a')
+  })
+
+  it('flips arrow keys in right-to-left layouts', async () => {
+    const { onChange, user } = setup('c', { style: { direction: 'rtl' } })
+    await user.tab()
+    await user.keyboard('{ArrowRight}')
+    expect(screen.getByRole('tab', { name: 'A' })).toHaveFocus()
+    expect(onChange).toHaveBeenLastCalledWith('a')
+    await user.keyboard('{ArrowLeft}')
+    expect(screen.getByRole('tab', { name: 'C' })).toHaveFocus()
   })
 
   it('calls the consumer onKeyDown', async () => {
@@ -157,5 +167,44 @@ describe('Tabs stateful', () => {
     expect(screen.getByRole('button', { name: 'after' })).toHaveFocus()
     await user.tab({ shift: true })
     expect(b).toHaveFocus()
+  })
+})
+
+describe('Tabs indicator', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('updates the indicator when a tab resizes', () => {
+    const observed: Element[] = []
+    const callbacks: (() => void)[] = []
+    vi.stubGlobal(
+      'ResizeObserver',
+      class {
+        constructor(cb: () => void) {
+          callbacks.push(cb)
+        }
+        observe(el: Element) {
+          observed.push(el)
+        }
+        unobserve() {}
+        disconnect() {}
+      },
+    )
+
+    const { container } = render(
+      <Tabs items={items} value='a' onChange={vi.fn()} />,
+    )
+    const tab = screen.getByRole('tab', { name: 'A' })
+    expect(observed).toContain(tab)
+
+    vi.spyOn(tab, 'getBoundingClientRect').mockReturnValue({
+      width: 120,
+    } as DOMRect)
+    callbacks.forEach((cb) => cb())
+    const indicator = container.querySelector(
+      '[aria-hidden="true"]',
+    ) as HTMLElement
+    expect(indicator.style.width).toBe('120px')
   })
 })
