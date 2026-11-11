@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StorySection } from '../../.storybook/components'
+import { Button } from '../button'
 import { IconInfo } from '../icons'
 import { Tooltip } from '.'
 
@@ -197,6 +198,43 @@ export const NearViewportEdge: Story = {
       description: {
         story:
           'Triggers pinned to the left and right edges of the canvas — the bubble adjusts itself instead of overflowing.',
+      },
+    },
+  },
+}
+
+export const FocusableTriggers: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 24 }}>
+      <Tooltip
+        content='Applies to both buttons in the group.'
+        position='bottom'
+      >
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Button variant='outline' size='small'>
+            Pause
+          </Button>
+          <Button variant='outline' size='small'>
+            Resume
+          </Button>
+        </div>
+      </Tooltip>
+      <Tooltip
+        content='Stays open while the button keeps focus.'
+        position='bottom'
+      >
+        <Button variant='outline' size='small'>
+          Focus me
+        </Button>
+      </Tooltip>
+    </div>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Tab from the first button to the second: the bubble stays open. Click "Focus me", then move the mouse away: it stays open until focus leaves.',
       },
     },
   },

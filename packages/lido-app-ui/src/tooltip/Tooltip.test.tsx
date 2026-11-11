@@ -112,6 +112,74 @@ describe('Tooltip', () => {
     expect(button).toHaveAttribute('aria-describedby', 'own')
   })
 
+  const renderTrigger = () => {
+    render(
+      <Tooltip content='Hint'>
+        <button type='button'>trigger</button>
+      </Tooltip>,
+    )
+    return screen.getByRole('button').parentElement as HTMLElement
+  }
+
+  it('stays open while focus moves between children', async () => {
+    render(
+      <Tooltip content='Hint'>
+        <button type='button'>one</button>
+        <button type='button'>two</button>
+      </Tooltip>,
+    )
+    const one = screen.getByRole('button', { name: 'one' })
+    const two = screen.getByRole('button', { name: 'two' })
+    act(() => one.focus())
+    const tooltip = await screen.findByRole('tooltip')
+    fireEvent.blur(one, { relatedTarget: two })
+    expect(tooltip).toBeInTheDocument()
+    fireEvent.focus(two)
+    expect(two).toHaveAccessibleDescription('Hint')
+  })
+
+  it('drops the old child description when focus moves to the wrapper', async () => {
+    render(
+      <Tooltip content='Hint' tabIndex={0}>
+        <button type='button'>one</button>
+      </Tooltip>,
+    )
+    const one = screen.getByRole('button', { name: 'one' })
+    const wrapper = one.parentElement as HTMLElement
+    act(() => one.focus())
+    await screen.findByRole('tooltip')
+    expect(one).toHaveAccessibleDescription('Hint')
+    fireEvent.blur(one, { relatedTarget: wrapper })
+    fireEvent.focus(wrapper)
+    expect(one).not.toHaveAttribute('aria-describedby')
+  })
+
+  it('stays open on blur while hovered', async () => {
+    const anchor = renderTrigger()
+    fireEvent.mouseEnter(anchor)
+    await userEvent.tab()
+    await screen.findByRole('tooltip')
+    await userEvent.tab()
+    expect(screen.getByRole('tooltip')).toBeInTheDocument()
+  })
+
+  it('stays open on mouse leave while focused', async () => {
+    const anchor = renderTrigger()
+    await userEvent.tab()
+    fireEvent.mouseEnter(anchor)
+    fireEvent.mouseLeave(anchor)
+    expect(screen.getByRole('tooltip')).toBeInTheDocument()
+  })
+
+  it('Escape closes while hovered and focused', async () => {
+    const anchor = renderTrigger()
+    fireEvent.mouseEnter(anchor)
+    await userEvent.tab()
+    await screen.findByRole('tooltip')
+    await userEvent.keyboard('{Escape}')
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+  })
+
   describe('edge-aligned positions', () => {
     const VIEWPORT = { width: 1000, height: 800 }
     const BUBBLE = { width: 200, height: 60 }

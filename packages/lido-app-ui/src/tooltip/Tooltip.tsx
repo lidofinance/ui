@@ -208,7 +208,9 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
     const anchorRef = useRef<HTMLSpanElement | null>(null)
     const setAnchor = useMergedRef(anchorRef, forwardedRef)
     const [contentEl, setContentEl] = useState<HTMLSpanElement | null>(null)
-    const [open, setOpen] = useState(false)
+    const [hovered, setHovered] = useState(false)
+    const [focused, setFocused] = useState(false)
+    const open = hovered || focused
     const [focusedEl, setFocusedEl] = useState<HTMLElement | null>(null)
     const tooltipId = useId()
     const presence = usePresence<HTMLSpanElement>(open)
@@ -259,29 +261,40 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
     }, [open, contentEl, focusedEl, tooltipId])
 
     // A hover-opened tooltip has no focus to catch the key, so Escape is heard document-wide.
-    useEscape(() => setOpen(false), { enabled: open })
+    useEscape(
+      () => {
+        setHovered(false)
+        setFocused(false)
+      },
+      { enabled: open },
+    )
 
     const handleMouseEnter = (event: MouseEvent<HTMLSpanElement>) => {
       onMouseEnter?.(event)
-      setOpen(true)
+      setHovered(true)
     }
 
     const handleMouseLeave = (event: MouseEvent<HTMLSpanElement>) => {
       onMouseLeave?.(event)
-      setOpen(false)
+      setHovered(false)
     }
 
     const handleFocus = (event: FocusEvent<HTMLSpanElement>) => {
       onFocus?.(event)
-      if (event.target !== anchorRef.current)
-        setFocusedEl(event.target as HTMLElement)
-      setOpen(true)
+      setFocusedEl(
+        event.target !== anchorRef.current
+          ? (event.target as HTMLElement)
+          : null,
+      )
+      setFocused(true)
     }
 
     const handleBlur = (event: FocusEvent<HTMLSpanElement>) => {
       onBlur?.(event)
+      if (anchorRef.current?.contains(event.relatedTarget as Node | null))
+        return
       setFocusedEl(null)
-      setOpen(false)
+      setFocused(false)
     }
 
     return (
