@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { StoryContainer } from '../../.storybook/components'
+import { ContainerWidths, StoryContainer } from '../../.storybook/components'
+import { Button } from '../button'
 import { MessageBox } from '.'
 
 const meta: Meta<typeof MessageBox> = {
@@ -63,11 +64,58 @@ export const Variants: Story = {
   },
 }
 
-export const KeysDecreased: Story = {
+export const WithoutHeadline: Story = {
   args: {
     variant: 'warning',
     icon: true,
     headline: undefined,
     children: 'The number of your keys has decreased. Please update the data',
   },
+}
+
+const design = {
+  type: 'figma',
+  url: 'https://www.figma.com/design/9q8Bp7XHM2XGipfpLI63s1/?node-id=748-119174',
+}
+
+export const WithAction: Story = {
+  args: {
+    variant: 'info',
+    icon: false,
+    headline: undefined,
+    children:
+      'Connected address is proposed to become a Manager / Rewards Address for several Node Operators',
+    action: (
+      <Button size='small' variant='primary'>
+        View
+      </Button>
+    ),
+  },
+  render: (args) => (
+    <StoryContainer gap={16} style={{ maxWidth: 520 }}>
+      <MessageBox {...args} />
+      <MessageBox
+        {...args}
+        variant='warning'
+        icon
+        headline='Action required'
+        action={
+          <Button size='small' variant='outline'>
+            Review
+          </Button>
+        }
+      />
+    </StoryContainer>
+  ),
+  parameters: { design },
+}
+
+export const NarrowWithAction: Story = {
+  args: WithAction.args,
+  render: (args) => (
+    <ContainerWidths widths={[240, 320, 400, 520]}>
+      <MessageBox {...args} />
+    </ContainerWidths>
+  ),
+  parameters: { design },
 }

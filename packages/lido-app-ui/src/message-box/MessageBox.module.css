@@ -4,9 +4,11 @@
   --local-headline-color: var(--lido-app-ui-color-text-default);
   --local-description-color: var(--lido-app-ui-color-text-secondary);
 
+  container-type: inline-size;
   display: flex;
   align-items: flex-start;
   gap: 12px;
+  width: 100%;
   box-sizing: border-box;
   padding: 16px;
   border-radius: var(--lido-app-ui-border-radius-card);
@@ -25,6 +27,25 @@
 .icon > * {
   width: 100%;
   height: 100%;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.action {
+  flex-shrink: 0;
+}
+
+@container (--lido-app-ui-container-narrow) {
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .text {
