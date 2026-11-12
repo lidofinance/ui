@@ -80,8 +80,3 @@
 .content[data-position='right'] {
   transform-origin: left center;
 }
-
-/* Hidden until placed so the bubble never flashes at (0,0); transition is kept so the pop's transform starts at the hook's flush. */
-.content:not([data-placed='true']) {
-  opacity: 0;
-}

@@ -10,6 +10,7 @@ import {
   type FocusEvent,
   type MouseEvent,
   type ReactNode,
+  type RefObject,
 } from 'react'
 
 import cn from 'classnames'
@@ -19,6 +20,7 @@ import { ThemeName, ThemeProvider } from '@lidofinance/lido-shared-ui'
 import {
   Portal,
   useEscape,
+  useExitLatch,
   useIsomorphicLayoutEffect,
   useMergedRef,
   usePresence,
@@ -186,6 +188,95 @@ const getAdjustment = (
   return { position: resolvedPosition, left, top }
 }
 
+type BubbleProps = {
+  id: string
+  open: boolean
+  onExited: () => void
+  anchorRef: RefObject<HTMLElement | null>
+  position: TooltipPosition
+  width: number
+  dataTestId?: string
+  children: ReactNode
+}
+
+const TooltipBubble = ({
+  id,
+  open,
+  onExited,
+  anchorRef,
+  position,
+  width,
+  dataTestId,
+  children,
+}: BubbleProps) => {
+  const [contentEl, setContentEl] = useState<HTMLSpanElement | null>(null)
+  const [placed, setPlaced] = useState(false)
+  // Pre-enter starts only once data-position is on the node, so the pop grows from the right side.
+  const presence = usePresence<HTMLSpanElement>(open && placed)
+  const { ref: presenceRef } = presence
+
+  const setContent = useCallback(
+    (node: HTMLSpanElement | null) => {
+      setContentEl(node)
+      presenceRef(node)
+    },
+    [presenceRef],
+  )
+
+  // Closed before ever entering: the hook has nothing to exit.
+  useIsomorphicLayoutEffect(() => {
+    if (!open && presence.status === 'exited') onExited()
+  }, [open, presence.status, onExited])
+
+  const updatePosition = useCallback(() => {
+    const anchor = anchorRef.current
+    if (!anchor || !contentEl) return
+    const {
+      left,
+      top,
+      position: resolved,
+    } = getAdjustment(
+      position,
+      anchor.getBoundingClientRect(),
+      contentEl.offsetWidth,
+      contentEl.offsetHeight,
+    )
+    contentEl.style.left = `${left}px`
+    contentEl.style.top = `${top}px`
+    contentEl.dataset.position = resolved
+    setPlaced(true)
+  }, [anchorRef, position, contentEl])
+
+  useIsomorphicLayoutEffect(() => {
+    if (!contentEl) return
+    updatePosition()
+    window.addEventListener('scroll', updatePosition, true)
+    window.addEventListener('resize', updatePosition)
+    return () => {
+      window.removeEventListener('scroll', updatePosition, true)
+      window.removeEventListener('resize', updatePosition)
+    }
+  }, [contentEl, updatePosition])
+
+  return (
+    <span
+      ref={setContent}
+      id={id}
+      role='tooltip'
+      className={styles.content}
+      {...presence.motionProps}
+      style={
+        {
+          '--local-tooltip-width': getMaxWidth(width),
+        } as CSSProperties
+      }
+      data-testid={dataTestId}
+    >
+      {children}
+    </span>
+  )
+}
+
 // Portaled, not just fixed: a transform/filter/backdrop-filter ancestor would capture position: fixed.
 /** Bubble rendered in a portal on `document.body`, so overflow-clipped ancestors never cut it off; flips or slides to stay in the viewport. Always dark, like Notification, so token-coloured content inside uses dark-theme values. */
 export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
@@ -207,58 +298,19 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
   ) => {
     const anchorRef = useRef<HTMLSpanElement | null>(null)
     const setAnchor = useMergedRef(anchorRef, forwardedRef)
-    const [contentEl, setContentEl] = useState<HTMLSpanElement | null>(null)
     const [hovered, setHovered] = useState(false)
     const [focused, setFocused] = useState(false)
     const open = hovered || focused
     const [focusedEl, setFocusedEl] = useState<HTMLElement | null>(null)
     const tooltipId = useId()
-    const presence = usePresence<HTMLSpanElement>(open)
-    const { mounted, ref: presenceRef } = presence
-
-    const setContent = useCallback(
-      (node: HTMLSpanElement | null) => {
-        setContentEl(node)
-        presenceRef(node)
-      },
-      [presenceRef],
-    )
-
-    const updatePosition = useCallback(() => {
-      const anchor = anchorRef.current
-      if (!anchor || !contentEl) return
-      const {
-        left,
-        top,
-        position: resolved,
-      } = getAdjustment(
-        position,
-        anchor.getBoundingClientRect(),
-        contentEl.offsetWidth,
-        contentEl.offsetHeight,
-      )
-      contentEl.style.left = `${left}px`
-      contentEl.style.top = `${top}px`
-      contentEl.dataset.position = resolved
-      contentEl.dataset.placed = 'true'
-    }, [position, contentEl])
-
-    useIsomorphicLayoutEffect(() => {
-      if (!mounted || !contentEl) return
-      updatePosition()
-      window.addEventListener('scroll', updatePosition, true)
-      window.addEventListener('resize', updatePosition)
-      return () => {
-        window.removeEventListener('scroll', updatePosition, true)
-        window.removeEventListener('resize', updatePosition)
-      }
-    }, [mounted, contentEl, updatePosition])
+    // Stays mounted until the bubble's exit motion ends.
+    const { present, onExited } = useExitLatch(open)
 
     // AT describes the focused element, not the wrapper, so the id is merged onto it too.
     useEffect(() => {
-      if (!open || !contentEl || !focusedEl) return
+      if (!open || !focusedEl) return
       return addDescribedBy(focusedEl, tooltipId)
-    }, [open, contentEl, focusedEl, tooltipId])
+    }, [open, focusedEl, tooltipId])
 
     // A hover-opened tooltip has no focus to catch the key, so Escape is heard document-wide.
     useEscape(
@@ -310,24 +362,20 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
         {...rest}
       >
         {children}
-        {mounted ? (
+        {open || present ? (
           <Portal>
             <ThemeProvider themeName={ThemeName.dark}>
-              <span
-                ref={setContent}
+              <TooltipBubble
                 id={tooltipId}
-                role='tooltip'
-                className={styles.content}
-                {...presence.motionProps}
-                style={
-                  {
-                    '--local-tooltip-width': getMaxWidth(width),
-                  } as CSSProperties
-                }
-                data-testid={dataTestId?.content}
+                open={open}
+                onExited={onExited}
+                anchorRef={anchorRef}
+                position={position}
+                width={width}
+                dataTestId={dataTestId?.content}
               >
                 {content}
-              </span>
+              </TooltipBubble>
             </ThemeProvider>
           </Portal>
         ) : null}

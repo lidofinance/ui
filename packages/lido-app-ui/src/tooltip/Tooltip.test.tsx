@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -17,7 +17,7 @@ describe('Tooltip', () => {
     expect(
       screen.getByRole('button', { name: 'trigger' }).parentElement,
     ).toHaveAttribute('aria-describedby', tooltip.id)
-    expect(tooltip.dataset.placed).toBe('true')
+    expect(tooltip.dataset.position).toBe('top')
   })
 
   it('settles to the open state without leftover motion attributes', async () => {
@@ -30,6 +30,34 @@ describe('Tooltip', () => {
     const tooltip = await screen.findByRole('tooltip')
     expect(tooltip).toHaveAttribute('data-state', 'open')
     expect(tooltip).not.toHaveAttribute('data-motion')
+  })
+
+  it('enters from the closed state on a fresh open', async () => {
+    // oldValue exposes states that were replaced within one act() batch.
+    const previous: (string | null)[] = []
+    const observer = new MutationObserver((records) =>
+      records.forEach((record) => {
+        if (
+          record.attributeName === 'data-state' &&
+          (record.target as HTMLElement).getAttribute('role') === 'tooltip'
+        )
+          previous.push(record.oldValue)
+      }),
+    )
+    observer.observe(document.body, {
+      subtree: true,
+      attributes: true,
+      attributeOldValue: true,
+      attributeFilter: ['data-state'],
+    })
+    render(<Tooltip content='Hint'>trigger</Tooltip>)
+    fireEvent.mouseEnter(screen.getByText('trigger'))
+    await waitFor(() =>
+      expect(screen.getByRole('tooltip')).toHaveAttribute('data-state', 'open'),
+    )
+    observer.takeRecords().forEach((record) => previous.push(record.oldValue))
+    observer.disconnect()
+    expect(previous).toContain('closed')
   })
 
   it('renders inside the nearest theme scope', async () => {
@@ -73,6 +101,19 @@ describe('Tooltip', () => {
     await screen.findByRole('tooltip')
     fireEvent.mouseLeave(anchor)
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+  })
+
+  it('removes the bubble after the exit when closed', async () => {
+    render(<Tooltip content='Hint'>trigger</Tooltip>)
+    const anchor = screen.getByText('trigger')
+    fireEvent.mouseEnter(anchor)
+    await waitFor(() =>
+      expect(screen.getByRole('tooltip')).toHaveAttribute('data-state', 'open'),
+    )
+    fireEvent.mouseLeave(anchor)
+    await waitFor(() =>
+      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument(),
+    )
   })
 
   it('describes the focused child by the tooltip', async () => {
