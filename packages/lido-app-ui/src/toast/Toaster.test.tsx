@@ -32,6 +32,20 @@ describe('Toaster', () => {
     expect(screen.queryByText('Saved')).toBeNull()
   })
 
+  it('auto ids skip ids already in use', () => {
+    render(<Toaster />)
+    let taken = ''
+    act(() => {
+      const probe = toast('probe', { timeout: 0 })
+      toast.dismiss(probe)
+      taken = `toast-${Number(probe.slice('toast-'.length)) + 1}`
+      toast('a', { id: taken, timeout: 0 })
+      toast('b', { timeout: 0 })
+    })
+    expect(screen.getByText('a')).toBeInTheDocument()
+    expect(screen.getByText('b')).toBeInTheDocument()
+  })
+
   it('keeps existing toast nodes when another toast is added', () => {
     render(<Toaster />)
     act(() => {

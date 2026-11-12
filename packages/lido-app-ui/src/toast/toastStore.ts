@@ -39,9 +39,14 @@ export const subscribeToasts = (listener: Listener) => {
 
 export const getToasts = () => items
 
+const nextId = () => {
+  while (items.some((it) => it.id === `toast-${++counter}`));
+  return `toast-${counter}`
+}
+
 /** Shows a toast and returns its id; reusing an `id` replaces that toast in place. */
 export const toast = (content: ToastContent, options: ToastOptions = {}) => {
-  const { id = `toast-${++counter}`, ...rest } = options
+  const { id = nextId(), ...rest } = options
   const item: ToastItem = { ...rest, id, content }
   emit(
     items.some((it) => it.id === id)
