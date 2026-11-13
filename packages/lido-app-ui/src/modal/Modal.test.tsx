@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-autofocus -- autoFocus is the behavior under test */
 import { createRef, StrictMode, useRef, useState } from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { Popover } from '../popover'
 import { TokenSelector } from '../token-selector'
@@ -335,7 +335,7 @@ describe('Modal', () => {
         ),
       }),
     )
-    const trigger = screen.getByRole('button', { name: 'Pick' })
+    const trigger = screen.getByRole('combobox')
     fireEvent.click(trigger)
     expect(screen.getByRole('listbox')).toBeInTheDocument()
     await userEvent.keyboard('{Escape}')
@@ -380,7 +380,7 @@ describe('Modal', () => {
         ),
       }),
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Pick' }))
+    fireEvent.click(screen.getByRole('combobox'))
     clickScrim()
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
     expect(onClose).not.toHaveBeenCalled()
@@ -445,9 +445,26 @@ describe('Modal', () => {
   it('does not close on a press that starts inside the card and ends on the scrim', () => {
     const onClose = vi.fn()
     render(modal({ onClose }))
+    fireEvent.pointerDown(screen.getByTestId('scrim'))
     fireEvent.pointerDown(screen.getByRole('dialog'))
     fireEvent.click(screen.getByTestId('scrim'))
     expect(onClose).not.toHaveBeenCalled()
+  })
+
+  it('returns focus to the latest opener after reopening', () => {
+    const first = document.createElement('button')
+    const second = document.createElement('button')
+    document.body.append(first, second)
+    first.focus()
+    const { rerender } = render(modal({ open: true }))
+    rerender(modal({ open: false }))
+    expect(document.activeElement).toBe(first)
+    second.focus()
+    rerender(modal({ open: true }))
+    rerender(modal({ open: false }))
+    expect(document.activeElement).toBe(second)
+    first.remove()
+    second.remove()
   })
 
   it('closes only a Popover on Escape and outside press, and returns focus inside the modal', async () => {
@@ -568,5 +585,88 @@ describe('Modal', () => {
     )
     fireEvent.click(scrim)
     expect(onClose).not.toHaveBeenCalled()
+  })
+})
+
+describe('Modal exit transition', () => {
+  const animated = () =>
+    vi
+      .spyOn(window, 'getComputedStyle')
+      .mockReturnValue({ transitionDuration: '0.15s' } as CSSStyleDeclaration)
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+    vi.useRealTimers()
+  })
+
+  it('stays mounted and inert until the exit ends, releasing lock and focus at once', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal({ inertOthers: true }))
+    rerender(modal({ open: false, inertOthers: true }))
+    expect(screen.getByTestId('scrim')).toHaveAttribute('inert')
+    expect(document.body.style.overflow).toBe('')
+    act(() => {
+      vi.advanceTimersByTime(250)
+    })
+    expect(screen.queryByTestId('scrim')).not.toBeInTheDocument()
+  })
+
+  it('marks overlay and card closed while exiting, and settled once open', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    expect(screen.getByTestId('scrim')).toHaveAttribute('data-state', 'open')
+    rerender(modal({ open: false }))
+    expect(screen.getByTestId('scrim')).toHaveAttribute('data-motion', 'exit')
+    expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute(
+      'data-state',
+      'closed',
+    )
+  })
+
+  it('reopening mid-exit keeps the same card node', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    const card = screen.getByRole('dialog')
+    rerender(modal({ open: false }))
+    rerender(modal())
+    act(() => {
+      vi.advanceTimersByTime(500)
+    })
+    expect(screen.getByRole('dialog')).toBe(card)
+  })
+
+  it('unmounts through the fallback timeout when no motion event fires', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    rerender(modal({ open: false }))
+    act(() => {
+      vi.advanceTimersByTime(700)
+    })
+    expect(screen.queryByTestId('scrim')).not.toBeInTheDocument()
+  })
+
+  it('reopening during the exit keeps it mounted and re-engages the lock', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    rerender(modal({ open: false }))
+    rerender(modal())
+    act(() => {
+      vi.advanceTimersByTime(700)
+    })
+    expect(screen.getByTestId('scrim')).toBeInTheDocument()
+    expect(screen.getByTestId('scrim')).not.toHaveAttribute('inert')
+    expect(document.body.style.overflow).toBe('hidden')
+  })
+
+  it('unmounts synchronously without an overlay', () => {
+    animated()
+    const { rerender } = render(modal({ withOverlay: false }))
+    rerender(modal({ withOverlay: false, open: false }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 })

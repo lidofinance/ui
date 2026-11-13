@@ -1,0 +1,85 @@
+.row {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 16px 8px;
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.withLeading {
+  padding-block: 12px;
+}
+
+.actionable:hover {
+  background-color: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.content {
+  @mixin font-body-large;
+
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.end {
+  @mixin font-body-large;
+
+  flex: 0 100 auto;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--lido-app-ui-color-text-default);
+  text-align: end;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.end > * {
+  vertical-align: top;
+}
+
+.leading {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin-inline-end: 8px;
+}
+
+/* Empty overlay over the row, so content stays outside the button/anchor and trailing controls stay clickable above it. */
+.action {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: -2px;
+}
+
+.trailing {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--lido-app-ui-color-icons-secondary);
+  pointer-events: none;
+}

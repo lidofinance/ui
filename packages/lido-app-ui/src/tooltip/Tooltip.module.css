@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  opacity: 0;
   width: max-content;
   max-width: var(--local-tooltip-width, 320px);
   box-sizing: border-box;
@@ -25,11 +24,59 @@
 
   word-break: break-word;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+
+  @mixin motion-pop bottom center;
+
+  --local-motion-shift: var(--lido-app-ui-motion-shift);
 }
 
-/* Set once the position is measured and applied, so the bubble never flashes
-   at its initial (0,0) spot before the layout effect places it. */
-.content[data-placed='true'] {
-  opacity: 1;
+.content[data-position^='bottom'] {
+  --local-motion-shift: calc(var(--lido-app-ui-motion-shift) * -1);
+
+  transform-origin: top center;
+}
+
+.content[data-position='bottom-left'] {
+  transform-origin: top right;
+}
+
+.content[data-position='bottom-right'] {
+  transform-origin: top left;
+}
+
+.content[data-position='top-left'] {
+  transform-origin: bottom right;
+}
+
+.content[data-position='top-right'] {
+  transform-origin: bottom left;
+}
+
+.content[data-position='bottom-start'] {
+  transform-origin: top left;
+}
+
+.content[data-position='bottom-end'] {
+  transform-origin: top right;
+}
+
+.content[data-position='top-start'] {
+  transform-origin: bottom left;
+}
+
+.content[data-position='top-end'] {
+  transform-origin: bottom right;
+}
+
+.content[data-position='left'],
+.content[data-position='right'] {
+  --local-motion-shift: 0px;
+}
+
+.content[data-position='left'] {
+  transform-origin: right center;
+}
+
+.content[data-position='right'] {
+  transform-origin: left center;
 }

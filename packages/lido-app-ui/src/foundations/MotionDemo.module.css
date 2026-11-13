@@ -1,0 +1,90 @@
+.dot {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--lido-app-ui-border-radius-full);
+  background-color: var(--lido-app-ui-color-background-action);
+  transform: translateX(0);
+}
+
+.track {
+  width: 184px;
+  flex: none;
+}
+
+.fade {
+  @mixin motion-fade;
+}
+
+.pop {
+  --local-motion-shift: calc(var(--lido-app-ui-motion-shift) * -1);
+
+  @mixin motion-pop top left;
+}
+
+.slide {
+  @mixin motion-slide var(--lido-app-ui-motion-shift-lg), 0;
+}
+
+.collapse {
+  @mixin motion-collapse;
+}
+
+.press {
+  @mixin motion-press;
+}
+
+.surface {
+  padding: 12px 16px;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-md);
+  background-color: var(--lido-app-ui-color-background-surface);
+  color: var(--lido-app-ui-color-text-default);
+  font-size: 14px;
+}
+
+.clip {
+  min-height: 0;
+}
+
+.pressButton {
+  padding: 8px 16px;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-md);
+  background-color: var(--lido-app-ui-color-background-surface);
+  color: var(--lido-app-ui-color-text-default);
+  cursor: pointer;
+}
+
+.pressButton:hover {
+  background-color: var(--lido-app-ui-color-background-surface-hover);
+}
+
+.tickBox {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  color: var(--lido-app-ui-color-icons-default);
+}
+
+.tickScale {
+  transition:
+    transform 0.4s ease-out,
+    opacity 0.4s ease-out;
+}
+
+.tickScale[data-on='false'] {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.tickClip {
+  transition:
+    clip-path var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out),
+    opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out);
+}
+
+.tickClip[data-on='false'] {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+}

@@ -2,6 +2,8 @@ import { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { preventMultiClickSelect } from '../utils/dom'
+
 import styles from './Switch.module.css'
 
 export type SwitchDataTestId = {
@@ -22,11 +24,13 @@ export type SwitchProps = Omit<
 /** 40×24 toggle wrapped in a `<label>` so the text is clickable; forwards every native input prop. */
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   ({ label, className, disabled, dataTestId, ...rest }, ref) => (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- blocks text selection on double-click; keyboard is unaffected
     <label
       className={cn(styles.container, className, {
         [styles.containerDisabled]: disabled,
       })}
       data-testid={dataTestId?.root}
+      onMouseDown={preventMultiClickSelect}
     >
       <span className={styles.control}>
         <input
@@ -40,7 +44,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         />
         <span className={styles.knob} />
       </span>
-      {label ? (
+      {label != null && label !== false ? (
         <span
           className={cn(styles.label, { [styles.labelDisabled]: disabled })}
           data-testid={dataTestId?.label}

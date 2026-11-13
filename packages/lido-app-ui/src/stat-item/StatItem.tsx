@@ -8,6 +8,8 @@ import styles from './StatItem.module.css'
 
 export type StatItemAlign = 'left' | 'center'
 
+export type StatItemSize = 'default' | 'small' | 'xsmall'
+
 export type StatItemDataTestId = {
   root?: string
   label?: string
@@ -15,12 +17,14 @@ export type StatItemDataTestId = {
   value?: string
   subValue?: string
   description?: string
+  info?: string
+  infoContent?: string
 }
 
 export type StatItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   label: ReactNode
   value: ReactNode
-  /** 24×24 glyph before the label. */
+  /** 24×24 glyph before the label (20×20 for `size='xsmall'`). */
   titleIcon?: ReactNode
   /** Tooltip content, shown as an info icon after the label. */
   info?: ReactNode
@@ -31,10 +35,12 @@ export type StatItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   /** Muted caption at the bottom. */
   description?: ReactNode
   align?: StatItemAlign
+  /** Steps label/value type down; `small`/`xsmall` also mute `subValue`; `xsmall` shrinks icon slots to 20×20. */
+  size?: StatItemSize
   dataTestId?: StatItemDataTestId
 }
 
-/** Label-over-value metric; use it alone or pass a list to `StatsRow` for the four-up dashboard block. */
+/** Label-over-value metric; compose several in a `Grid` or `Stack` for a stats row. */
 export const StatItem = ({
   label,
   value,
@@ -44,12 +50,18 @@ export const StatItem = ({
   subValue,
   description,
   align = 'center',
+  size = 'default',
   className,
   dataTestId,
   ...rest
 }: StatItemProps) => (
   <div
-    className={cn(styles.item, styles[align], className)}
+    className={cn(
+      styles.item,
+      styles[align],
+      size !== 'default' && styles[size],
+      className,
+    )}
     data-testid={dataTestId?.root}
     {...rest}
   >
@@ -62,7 +74,15 @@ export const StatItem = ({
       <div className={styles.label} data-testid={dataTestId?.label}>
         {label}
       </div>
-      {info ? <InfoTooltip content={info} /> : null}
+      {info ? (
+        <InfoTooltip
+          content={info}
+          dataTestId={{
+            root: dataTestId?.info,
+            content: dataTestId?.infoContent,
+          }}
+        />
+      ) : null}
     </div>
     <div className={styles.valueRow}>
       <div className={styles.value} data-testid={dataTestId?.value}>

@@ -38,6 +38,34 @@ export const WithMarks: Story = {
   },
 }
 
+export const WithLabel: Story = {
+  args: {
+    label: 'Amount',
+    tooltip: 'How much to supply.',
+    description: 'Drag to choose the share of your balance.',
+    marks: false,
+  },
+  render: (args) => (
+    <div style={{ maxWidth: 400 }}>
+      <Slider {...args} />
+    </div>
+  ),
+}
+
+export const WithError: Story = {
+  args: {
+    label: 'Amount',
+    error: 'Above the available limit',
+    defaultValue: 90,
+    marks: false,
+  },
+  render: (args) => (
+    <div style={{ maxWidth: 400 }}>
+      <Slider {...args} />
+    </div>
+  ),
+}
+
 export const States: Story = {
   render: () => (
     <StoryContainer gap={32}>

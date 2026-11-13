@@ -17,7 +17,7 @@ describe('RichInput', () => {
     render(
       <RichInput
         label='Amount'
-        labelTooltip='Help'
+        tooltip='Help'
         dataTestId={{ input: 'input' }}
       />,
     )
@@ -86,6 +86,25 @@ describe('RichInput locked', () => {
     expect(screen.getByRole('tooltip').textContent).toBe('Fixed amount')
   })
 
+  it('shows the lock and tooltip without a label', () => {
+    render(
+      <RichInput
+        locked
+        lockedTooltip='Fixed by pool'
+        dataTestId={{ lock: 'lock' }}
+      />,
+    )
+    const lock = screen.getByTestId('lock')
+    fireEvent.focus(screen.getByRole('img', { name: 'Locked' }))
+    expect(lock).toBeInTheDocument()
+    expect(screen.getByRole('tooltip').textContent).toBe('Fixed by pool')
+  })
+
+  it('shows the lock icon without label and tooltip', () => {
+    render(<RichInput locked dataTestId={{ lock: 'lock' }} />)
+    expect(screen.getByTestId('lock')).toBeInTheDocument()
+  })
+
   it('shows no lock role without lockedTooltip', () => {
     render(<RichInput label='Amount' locked />)
     expect(screen.queryByRole('img', { name: 'Locked' })).toBeNull()
@@ -124,5 +143,53 @@ describe('RichInput loading', () => {
   it('has no busy state when not loading', () => {
     render(<RichInput />)
     expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-busy')
+  })
+})
+
+describe('RichInput field chrome', () => {
+  const describedBy = (el: HTMLElement) =>
+    el.getAttribute('aria-describedby')?.split(' ') ?? []
+
+  it('shows a node error as the message and marks invalid', () => {
+    render(<RichInput error='Too much' dataTestId={{ error: 'err' }} />)
+    const input = screen.getByRole('textbox')
+    expect(input).toHaveAttribute('aria-invalid', 'true')
+    expect(screen.getByTestId('err')).toHaveTextContent('Too much')
+    expect(screen.getByRole('alert')).toHaveTextContent('Too much')
+    expect(describedBy(input)).toEqual([screen.getByTestId('err').id])
+  })
+
+  it('boolean error marks invalid without a message', () => {
+    render(<RichInput error />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true')
+    expect(screen.queryByRole('alert')).toBeNull()
+  })
+
+  it('renders the description and merges a consumer aria-describedby', () => {
+    render(
+      <RichInput
+        description='Hint'
+        aria-describedby='extra'
+        dataTestId={{ description: 'd' }}
+      />,
+    )
+    expect(describedBy(screen.getByRole('textbox'))).toEqual([
+      screen.getByTestId('d').id,
+      'extra',
+    ])
+  })
+
+  it('keeps the label inside the card and shows the tooltip icon', () => {
+    render(<RichInput label='Amount' tooltip='Help' />)
+    expect(screen.getByLabelText('Amount')).toBe(screen.getByRole('textbox'))
+    expect(screen.getByRole('img', { name: 'More info' })).toBeInTheDocument()
+  })
+
+  it('puts className and root test id on the outermost element', () => {
+    const { container } = render(
+      <RichInput className='x' dataTestId={{ root: 'root' }} />,
+    )
+    expect(container.firstElementChild).toBe(screen.getByTestId('root'))
+    expect(container.firstElementChild).toHaveClass('x')
   })
 })

@@ -109,7 +109,7 @@ describe('Pagination', () => {
         onPageSizeChange={onPageSizeChange}
       />,
     )
-    fireEvent.click(screen.getByRole('button', { expanded: false }))
+    fireEvent.click(screen.getByRole('combobox'))
     fireEvent.click(screen.getByRole('option', { name: '50' }))
     expect(onPageSizeChange).toHaveBeenCalledWith(50)
   })
@@ -130,7 +130,7 @@ describe('Pagination', () => {
     expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument()
   })
 
-  it('names the page-size dialog and honours a custom label', () => {
+  it('names the page-size combobox and list, honouring a custom label', () => {
     const { unmount } = render(
       <Pagination
         page={1}
@@ -139,9 +139,12 @@ describe('Pagination', () => {
         onPageChange={() => undefined}
       />,
     )
-    fireEvent.click(screen.getByRole('button', { expanded: false }))
     expect(
-      screen.getByRole('dialog', { name: 'Records per page' }),
+      screen.getByRole('combobox', { name: 'Records per page' }),
+    ).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('combobox'))
+    expect(
+      screen.getByRole('listbox', { name: 'Records per page' }),
     ).toBeInTheDocument()
     unmount()
     render(
@@ -153,9 +156,9 @@ describe('Pagination', () => {
         labels={{ pageSize: 'Zeilen pro Seite' }}
       />,
     )
-    fireEvent.click(screen.getByRole('button', { expanded: false }))
+    fireEvent.click(screen.getByRole('combobox'))
     expect(
-      screen.getByRole('dialog', { name: 'Zeilen pro Seite' }),
+      screen.getByRole('listbox', { name: 'Zeilen pro Seite' }),
     ).toBeInTheDocument()
   })
 })

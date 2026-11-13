@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StorySection } from '../../.storybook/components'
+import { Button } from '../button'
 import { IconInfo } from '../icons'
 import { Tooltip } from '.'
 
@@ -24,6 +25,10 @@ const meta: Meta<typeof Tooltip> = {
         'top-right',
         'bottom-left',
         'bottom-right',
+        'top-start',
+        'top-end',
+        'bottom-start',
+        'bottom-end',
       ],
       control: { type: 'select' },
     },
@@ -48,38 +53,43 @@ export const Basic: Story = {
   },
 }
 
+const positionGroups = [
+  { title: 'Sides', positions: ['top', 'right', 'bottom', 'left'] },
+  {
+    title: 'Corners: bubble sits diagonally off the anchor',
+    positions: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
+  },
+  {
+    title: 'Edge-aligned: bubble edge lines up with the anchor edge',
+    positions: ['top-start', 'top-end', 'bottom-start', 'bottom-end'],
+  },
+] as const
+
 export const Positions: Story = {
   render: () => (
-    <StorySection style={{ gap: 40, padding: '32px 24px' }}>
-      {(
-        [
-          'top',
-          'right',
-          'bottom',
-          'left',
-          'top-left',
-          'top-right',
-          'bottom-left',
-          'bottom-right',
-        ] as const
-      ).map((position) => (
-        <Tooltip
-          key={position}
-          position={position}
-          content={position}
-          width={160}
-        >
-          <IconInfo />
-        </Tooltip>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+      {positionGroups.map(({ title, positions }) => (
+        <StorySection key={title} title={title} style={{ gap: 40 }}>
+          {positions.map((position) => (
+            <Tooltip
+              key={position}
+              position={position}
+              content={position}
+              width={160}
+            >
+              <IconInfo />
+            </Tooltip>
+          ))}
+        </StorySection>
       ))}
-    </StorySection>
+    </div>
   ),
   parameters: {
     controls: { disable: true },
     docs: {
       description: {
         story:
-          'All eight anchors — hover each icon; the bubble names its own position. With room on every side none of them need to flip; see `NearViewportEdge` for that.',
+          'All twelve anchors, hover each icon; the bubble names its own position. Corners hang diagonally off the anchor, `start`/`end` keep the bubble above or below it with one edge aligned. With room on every side none of them need to flip; see `NearViewportEdge` for that.',
       },
     },
   },
@@ -188,6 +198,43 @@ export const NearViewportEdge: Story = {
       description: {
         story:
           'Triggers pinned to the left and right edges of the canvas — the bubble adjusts itself instead of overflowing.',
+      },
+    },
+  },
+}
+
+export const FocusableTriggers: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 24 }}>
+      <Tooltip
+        content='Applies to both buttons in the group.'
+        position='bottom'
+      >
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Button variant='outline' size='small'>
+            Pause
+          </Button>
+          <Button variant='outline' size='small'>
+            Resume
+          </Button>
+        </div>
+      </Tooltip>
+      <Tooltip
+        content='Stays open while the button keeps focus.'
+        position='bottom'
+      >
+        <Button variant='outline' size='small'>
+          Focus me
+        </Button>
+      </Tooltip>
+    </div>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Tab from the first button to the second: the bubble stays open. Click "Focus me", then move the mouse away: it stays open until focus leaves.',
       },
     },
   },

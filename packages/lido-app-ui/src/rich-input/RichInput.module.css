@@ -1,12 +1,6 @@
-.root {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-family: var(--lido-app-ui-font-family);
-}
-
 .card {
   display: flex;
+  font-family: var(--lido-app-ui-font-family);
   flex-direction: column;
   gap: 8px;
   box-sizing: border-box;
@@ -15,10 +9,8 @@
   border-radius: var(--lido-app-ui-border-radius-card);
   background-color: var(--lido-app-ui-color-background-default);
   cursor: text;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-  height: 152px;
+  transition: var(--lido-app-ui-transition-colors);
+  min-height: 152px;
 }
 
 .card:not(.locked):hover {
@@ -27,7 +19,7 @@
 
 .card.locked {
   /* No Max, so usually no bottom row: hug content. */
-  height: auto;
+  min-height: 0;
   cursor: default;
 }
 
@@ -50,6 +42,10 @@
 
 .lock {
   margin-left: 4px;
+}
+
+.lock:first-child {
+  margin-left: 0;
 }
 
 .lockIcon {
@@ -135,8 +131,9 @@
 
 .bottomRow {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  height: 26px;
+  min-height: 26px;
 }
 
 .secondary {
@@ -156,10 +153,4 @@
   @mixin font-body;
 
   color: var(--lido-app-ui-color-text-secondary);
-}
-
-.errorMessage {
-  @mixin font-body;
-
-  color: var(--lido-app-ui-color-text-error);
 }

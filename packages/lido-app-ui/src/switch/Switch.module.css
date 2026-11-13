@@ -24,9 +24,12 @@
   border-radius: var(--lido-app-ui-border-radius-control);
   background-color: var(--lido-app-ui-color-background-secondary);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition:
-    background-color 150ms,
-    border-color 150ms;
+    background-color var(--lido-app-ui-duration-fast-exit)
+      var(--lido-app-ui-easing-exit),
+    border-color var(--lido-app-ui-duration-fast-exit)
+      var(--lido-app-ui-easing-exit);
 }
 
 .knob {
@@ -38,16 +41,23 @@
   border-radius: 50%;
   background-color: var(--lido-app-ui-color-background-surface);
   pointer-events: none;
-  transition: left 150ms;
+  transition: transform var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
 }
 
 .input:checked {
   border-color: transparent;
   background-color: var(--lido-app-ui-color-background-surface-selected);
+  transition:
+    background-color var(--lido-app-ui-duration-fast)
+      var(--lido-app-ui-easing-out),
+    border-color var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out);
 }
 
 .input:checked ~ .knob {
-  left: 18px;
+  transform: translateX(16px);
+  transition: transform var(--lido-app-ui-duration-fast)
+    var(--lido-app-ui-easing-out);
 }
 
 .input:not(:disabled):hover {
@@ -85,4 +95,11 @@
 
 .labelDisabled {
   color: var(--lido-app-ui-color-text-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .knob,
+  .input:checked ~ .knob {
+    transition: none;
+  }
 }

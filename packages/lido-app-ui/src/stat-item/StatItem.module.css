@@ -3,13 +3,19 @@
   flex: 1 0 0;
   flex-direction: column;
   gap: 4px;
-  align-items: center;
+  align-items: stretch;
   align-self: stretch;
   min-width: 0;
+  text-align: center;
 }
 
 .left {
-  align-items: flex-start;
+  text-align: left;
+}
+
+.center .title,
+.center .valueRow {
+  justify-content: center;
 }
 
 .title {
@@ -21,6 +27,8 @@
 .titleIcon {
   display: inline-flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
 }
@@ -32,9 +40,9 @@
 
 .label {
   @mixin font-body-large;
+  @mixin truncate;
 
   color: var(--lido-app-ui-color-text-secondary);
-  white-space: nowrap;
 }
 
 .valueRow {
@@ -45,9 +53,9 @@
 
 .value {
   @mixin font-h2;
+  @mixin truncate;
 
   color: var(--lido-app-ui-color-text-default);
-  white-space: nowrap;
 }
 
 .icon {
@@ -64,13 +72,43 @@
 
 .subValue {
   @mixin font-body;
+  @mixin truncate;
 
   color: var(--lido-app-ui-color-text-secondary);
-  white-space: nowrap;
 }
 
 .description {
   @mixin font-description;
 
   color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.small .label {
+  @mixin font-body;
+}
+
+.small .value {
+  @mixin font-body-large-semibold;
+}
+
+.small .subValue,
+.xsmall .subValue {
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.xsmall .label,
+.xsmall .subValue {
+  @mixin font-description;
+}
+
+.xsmall .value {
+  @mixin font-body-semibold;
+}
+
+.xsmall .titleIcon,
+.xsmall .titleIcon > svg,
+.xsmall .icon,
+.xsmall .icon svg {
+  width: 20px;
+  height: 20px;
 }

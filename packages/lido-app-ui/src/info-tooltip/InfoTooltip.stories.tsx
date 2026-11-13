@@ -14,7 +14,7 @@ const meta: Meta<typeof InfoTooltip> = {
     size: { control: { type: 'inline-radio' }, options: [16, 20] },
     tone: {
       control: { type: 'inline-radio' },
-      options: ['secondary', 'tertiary'],
+      options: ['secondary', 'tertiary', 'inherit'],
     },
     position: {
       control: { type: 'select' },
@@ -27,6 +27,10 @@ const meta: Meta<typeof InfoTooltip> = {
         'top-right',
         'bottom-left',
         'bottom-right',
+        'top-start',
+        'top-end',
+        'bottom-start',
+        'bottom-end',
       ],
     },
   },
@@ -52,6 +56,20 @@ export const Size20: Story = {
 
 export const TertiaryTone: Story = {
   args: { tone: 'tertiary' },
+}
+
+export const InheritTone: Story = {
+  render: () => (
+    <span style={{ color: 'var(--lido-app-ui-color-text-warning)' }}>
+      <InfoTooltip content='Inherits the warning colour.' tone='inherit' />
+    </span>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: { story: '`inherit` takes the surrounding text colour.' },
+    },
+  },
 }
 
 export const RichContent: Story = {

@@ -50,6 +50,16 @@ const meta: Meta<typeof TokenSelector> = {
   },
   parameters: {
     controls: { disable: true },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=1717-58190&m=dev',
+    },
+    docs: {
+      description: {
+        component:
+          'A `Select` preset with the token-picker look: semibold labels, a "Select" placeholder and a "Select token" list name. It accepts every `Select` prop.',
+      },
+    },
   },
 }
 

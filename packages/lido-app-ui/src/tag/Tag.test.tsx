@@ -8,7 +8,7 @@ import styles from './Tag.module.css'
 describe('Tag', () => {
   it('is a plain span without onClick or href', () => {
     render(<Tag>R</Tag>)
-    const tag = screen.getByText('R')
+    const tag = screen.getByText('R').parentElement as HTMLElement
     expect(tag.tagName).toBe('SPAN')
     expect(tag).not.toHaveClass(styles.interactive)
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
@@ -118,9 +118,52 @@ describe('Tag', () => {
     ).toHaveAccessibleDescription('Lido')
   })
 
+  it('renders info after the label without joining its accessible name', () => {
+    render(
+      <Tag onClose={() => undefined} info='Hint'>
+        Lido
+      </Tag>,
+    )
+    expect(screen.getByRole('img', { name: 'More info' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Remove' }),
+    ).toHaveAccessibleDescription('Lido')
+  })
+
+  it('does not render info on interactive tags', () => {
+    const { rerender } = render(
+      <Tag onClick={() => undefined} info='Hint'>
+        R
+      </Tag>,
+    )
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+    rerender(
+      <Tag href='/x' info='Hint'>
+        R
+      </Tag>,
+    )
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+    rerender(
+      <Tag disabled info='Hint'>
+        R
+      </Tag>,
+    )
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+  })
+
+  it('renders info on passive tags', () => {
+    render(<Tag info='Hint'>R</Tag>)
+    expect(screen.getByRole('img', { name: 'More info' })).toBeInTheDocument()
+  })
+
+  it('renders no info icon for info={false}', () => {
+    render(<Tag info={false}>R</Tag>)
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+  })
+
   it('applies the custom variant class', () => {
     render(<Tag variant='custom'>R</Tag>)
-    expect(screen.getByText('R')).toHaveClass(styles.custom)
+    expect(screen.getByText('R').parentElement).toHaveClass(styles.custom)
   })
 
   it('keeps a role=button span for custom with onClick', () => {

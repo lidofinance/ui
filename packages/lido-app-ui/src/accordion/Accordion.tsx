@@ -5,7 +5,8 @@ import {
   type ReactNode,
 } from 'react'
 
-import { IconChevronDown, IconChevronUp } from '../icons'
+import { usePresence } from '../hooks'
+import { IconChevronDown } from '../icons'
 import cn from 'classnames'
 
 import styles from './Accordion.module.css'
@@ -44,6 +45,10 @@ export const Accordion = ({
     useState(defaultExpanded)
   const isExpanded = expanded ?? uncontrolledExpanded
   const contentId = useId()
+  const { ref: presenceRef, motionProps } = usePresence<HTMLDivElement>(
+    isExpanded,
+    { keepMounted: true },
+  )
 
   const handleToggle = () => {
     const next = !isExpanded
@@ -70,17 +75,20 @@ export const Accordion = ({
         <span className={styles.title} data-testid={dataTestId?.title}>
           {title}
         </span>
-        <span className={styles.chevron} aria-hidden='true'>
-          {isExpanded ? <IconChevronUp /> : <IconChevronDown />}
+        <span
+          className={cn(styles.chevron, isExpanded && styles.chevronOpen)}
+          aria-hidden='true'
+        >
+          <IconChevronDown />
         </span>
       </button>
       <div
         id={contentId}
-        className={cn(styles.contentWrapper, {
-          [styles.expanded]: isExpanded,
-        })}
+        ref={presenceRef}
+        className={styles.contentWrapper}
+        {...motionProps}
       >
-        <div className={styles.content}>
+        <div>
           <div
             className={styles.contentInner}
             data-testid={dataTestId?.content}

@@ -7,6 +7,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { Accordion } from './accordion'
 import { Address } from './address'
 import { AddressButton } from './address-button'
+import { AvatarStack } from './avatar-stack'
 import { Badge } from './badge'
 import { Banner } from './banner'
 import { Breadcrumbs } from './breadcrumbs'
@@ -27,14 +28,16 @@ import { Hidden } from './hidden'
 import { CloseButton, IconButton } from './icon-button'
 import { Identicon } from './identicon'
 import { InfoTooltip } from './info-tooltip'
+import { Field, FieldError } from './field'
 import { Input } from './input'
 import { LinkProvider, type LinkComponent } from './link-provider'
+import { ActionList, ActionRow } from './action-list'
 import { Logo } from './logo'
 import { MessageBox } from './message-box'
 import { Modal, ModalCard } from './modal'
 import { NavLink } from './nav-link'
 import { Notification } from './notification'
-import { Layout, Main, PageContent } from './page-layout'
+import { FormLayout, Layout, Main, PageContent } from './page-layout'
 import { Pagination } from './pagination'
 import { Popover } from './popover'
 import { RadioButton } from './radio-button'
@@ -55,6 +58,7 @@ import {
   SidebarToggle,
 } from './sidebar'
 import { Skeleton } from './skeleton'
+import { Spinner } from './spinner'
 import { SkipLink } from './skip-link'
 import { Slider } from './slider'
 import { SmallCard } from './small-card'
@@ -69,6 +73,32 @@ import { TokenAmount } from './token-amount'
 import { TokenSelector } from './token-selector'
 import { Tooltip } from './tooltip'
 import { TxStatus } from './tx-status'
+import { Callout } from './callout'
+import { CheckboxList, CheckboxRow } from './checkbox-row'
+import { Disclosure } from './disclosure'
+import { Drawer } from './drawer'
+import { EmptyState } from './empty-state'
+import {
+  ProgressBar,
+  ProgressBarLegendMark,
+  SegmentedBar,
+} from './progress-bar'
+import { VisuallyHidden } from './visually-hidden'
+import { Select, SelectItem } from './select'
+import { StatCard, StatCardMeta } from './stat-card'
+import { Steps } from './steps'
+import {
+  RankCell,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRoot,
+  TableRow,
+} from './table'
+import { Textarea } from './textarea'
+import { Toaster } from './toast'
 import {
   Body,
   BodyLarge,
@@ -104,6 +134,15 @@ const cases: Array<[string, () => JSX.Element]> = [
     'AddressButton',
     () => (
       <AddressButton address='0x56f4a7c1d2e3b4a5968778695a4b3c2d1e0fc12e' />
+    ),
+  ],
+  [
+    'AvatarStack',
+    () => (
+      <AvatarStack>
+        <img src='a.svg' alt='A' />
+        <img src='b.svg' alt='B' />
+      </AvatarStack>
     ),
   ],
   ['Badge', () => <Badge>Badge text</Badge>],
@@ -167,13 +206,32 @@ const cases: Array<[string, () => JSX.Element]> = [
     () => <Identicon address='0x1f9840a85d5af5bf1d1762f925bdaddc' />,
   ],
   ['InfoTooltip', () => <InfoTooltip content='Help' />],
-  ['Input', () => <Input label='Amount' />],
+  ['Input', () => <Input label='Amount' trailing={<Tag>Verified</Tag>} />],
+  [
+    'ActionList',
+    () => (
+      <ActionList overline='Roles'>
+        <ActionRow end='0x81e5' href='/roles/manager'>
+          Manager
+        </ActionRow>
+        <ActionRow end='Not set'>Claimer</ActionRow>
+      </ActionList>
+    ),
+  ],
   [
     'LinkProvider',
     () => (
       <LinkProvider component={RouterLink}>
         <NavLink href='/a'>Link</NavLink>
       </LinkProvider>
+    ),
+  ],
+  [
+    'ActionRow',
+    () => (
+      <ul>
+        <ActionRow end='0x81e5'>Manager</ActionRow>
+      </ul>
     ),
   ],
   ['Logo', () => <Logo />],
@@ -208,7 +266,7 @@ const cases: Array<[string, () => JSX.Element]> = [
     ),
   ],
   ['RadioButton', () => <RadioButton label='Option' />],
-  ['RichInput', () => <RichInput label='Amount' error errorText='Too much' />],
+  ['RichInput', () => <RichInput label='Amount' error='Too much' />],
   ['SectionTitle', () => <SectionTitle title='Choose a token' />],
   ['Segment', () => <Segment active>Tab</Segment>],
   [
@@ -253,6 +311,7 @@ const cases: Array<[string, () => JSX.Element]> = [
   ],
   ['SidebarToggle', () => <SidebarToggle />],
   ['Skeleton', () => <Skeleton />],
+  ['Spinner', () => <Spinner />],
   ['SkipLink', () => <SkipLink />],
   ['Slider', () => <Slider defaultValue={40} />],
   [
@@ -297,6 +356,93 @@ const cases: Array<[string, () => JSX.Element]> = [
     'Breadcrumbs',
     () => <Breadcrumbs items={[{ label: 'A', href: '/a' }, { label: 'B' }]} />,
   ],
+  ['Callout', () => <Callout>Notice</Callout>],
+  ['CheckboxRow', () => <CheckboxRow label='Key' />],
+  [
+    'CheckboxList',
+    () => (
+      <CheckboxList>
+        <CheckboxRow label='Key' />
+      </CheckboxList>
+    ),
+  ],
+  ['Disclosure', () => <Disclosure label='More'>Content</Disclosure>],
+  [
+    'Drawer',
+    () => (
+      <Drawer open onClose={() => undefined} title='Details'>
+        body
+      </Drawer>
+    ),
+  ],
+  ['EmptyState', () => <EmptyState title='Nothing here' />],
+  [
+    'FormLayout',
+    () => <FormLayout aside={<span>Aside</span>}>Form</FormLayout>,
+  ],
+  ['ProgressBar', () => <ProgressBar value={40} aria-label='Progress' />],
+  ['ProgressBarLegendMark', () => <ProgressBarLegendMark />],
+  ['VisuallyHidden', () => <VisuallyHidden>Hidden</VisuallyHidden>],
+  [
+    'SegmentedBar',
+    () => <SegmentedBar steps={4} value={2} aria-label='Steps' />,
+  ],
+  [
+    'Select',
+    () => <Select label='Network' options={[{ value: 'a', label: 'A' }]} />,
+  ],
+  ['SelectItem', () => <SelectItem label='Option' />],
+  ['StatCard', () => <StatCard title='TVL' value='1M' />],
+  [
+    'StatCardMeta',
+    () => <StatCardMeta items={[{ label: 'Keys', value: '3' }]} />,
+  ],
+  [
+    'Steps',
+    () => <Steps steps={[{ label: 'One' }, { label: 'Two' }]} current={0} />,
+  ],
+  [
+    'Table',
+    () => (
+      <Table
+        columns={[
+          { key: 'a', header: 'A', render: (r: { id: string }) => r.id },
+        ]}
+        rows={[{ id: '1' }]}
+        rowKey={(r) => r.id}
+      />
+    ),
+  ],
+  [
+    'TableRoot',
+    () => (
+      <TableRoot>
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>A</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>
+              <RankCell rank={1} change='up' />
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </TableRoot>
+    ),
+  ],
+  [
+    'Field',
+    () => (
+      <Field id='f' label='Label'>
+        <input id='f' />
+      </Field>
+    ),
+  ],
+  ['FieldError', () => <FieldError id='f'>Required</FieldError>],
+  ['Textarea', () => <Textarea label='Notes' />],
+  ['Toaster', () => <Toaster />],
   ['Layout', () => <Layout>Content</Layout>],
   ['PageContent', () => <PageContent>Content</PageContent>],
 ]
@@ -322,9 +468,18 @@ const coveredByParent = [
   'SidebarGroup',
   'SidebarInset',
   'SidebarItem',
+  'RankCell',
+  'TableBody',
+  'TableCell',
+  'TableHead',
+  'TableHeaderCell',
+  'TableRow',
 ]
 
-const portaled = new Set(['Popover'])
+const portaled = new Set(['Popover', 'Drawer'])
+
+// Portals after mount and renders nothing into the container.
+const renderless = new Set(['Toaster'])
 
 describe('component smoke render', () => {
   it('has a case for every exported component', () => {
@@ -349,7 +504,7 @@ describe('component smoke render', () => {
     const { container } = render(renderCase())
     if (portaled.has(name)) {
       expect(screen.getByRole('dialog')).toBeInTheDocument()
-    } else {
+    } else if (!renderless.has(name)) {
       expect(container.firstChild).toBeInTheDocument()
     }
     cleanup()
@@ -364,6 +519,7 @@ describe('package entry', () => {
     expect(entry.useOutsideClick).toBeTypeOf('function')
     expect(entry.useFocusTrap).toBeTypeOf('function')
     expect(entry.useBodyScrollLock).toBeTypeOf('function')
+    expect(entry.usePresence).toBeTypeOf('function')
     expect(entry.ModalCard).toBeTypeOf('object')
   })
 })

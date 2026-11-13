@@ -75,7 +75,6 @@ const meta: Meta<PlaygroundArgs> = {
     storyBackground: 'page',
     docs: {
       story: { inline: false, iframeHeight: 720 },
-      source: { type: 'code' },
       description: {
         component:
           'App shell with a grouped Sidebar, Header and Footer: `Layout` > `SidebarLayout` > `Sidebar` + `SidebarInset` (`Header` > `Stack` + `Main` > `PageContent` > `Breadcrumbs` + `Footer`); see "Show code" and the anatomy in `Layout/Helpers`. At `lg` and below (1024, the sidebar breakpoint) the Sidebar becomes a drawer opened from the Header. At `lg` and below Breadcrumbs move from the Header into `PageContent` (`Hidden` around each copy); the Header keeps the toggle, logo and actions. `Sidebar` must be a direct child of `SidebarLayout`: it measures the content above it (e.g. a banner) on its own. Render `SkipLink` first: it targets `Main` (`id=\'main-content\'`) by default. Use `useSidebar()` to close the drawer on programmatic navigation, or `useSidebarDrawer` to wire the parts by hand.',

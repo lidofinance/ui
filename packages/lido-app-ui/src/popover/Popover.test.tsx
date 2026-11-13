@@ -1,5 +1,5 @@
 import { createRef, useRef, useState } from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -65,6 +65,16 @@ const mockLayout = (
   vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(
     function (this: HTMLElement) {
       return this.getAttribute('role') === 'dialog' ? rect(panel) : rect(anchor)
+    },
+  )
+  vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+    function (this: HTMLElement) {
+      return this.getAttribute('role') === 'dialog' ? (panel.width ?? 0) : 0
+    },
+  )
+  vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockImplementation(
+    function (this: HTMLElement) {
+      return this.getAttribute('role') === 'dialog' ? (panel.height ?? 0) : 0
     },
   )
   vi.spyOn(document.documentElement, 'clientWidth', 'get').mockReturnValue(
@@ -157,6 +167,17 @@ describe('Popover', () => {
     expect(dialog.style.left).toBe('350px')
   })
 
+  it('sets a min width at the anchor width with min-anchor', async () => {
+    mockLayout(
+      { left: 400, right: 500, top: 100, bottom: 140, width: 100, height: 40 },
+      { width: 200, height: 100 },
+    )
+    render(<Single width='min-anchor' />)
+    const dialog = await screen.findByRole('dialog')
+    expect(dialog.style.minWidth).toBe('100px')
+    expect(dialog.style.width).toBe('')
+  })
+
   it('flips to top when there is no room below', async () => {
     mockLayout(
       { left: 400, right: 500, top: 700, bottom: 740, width: 100, height: 40 },
@@ -176,7 +197,9 @@ describe('Popover', () => {
     render(<Single />)
     const dialog = await screen.findByRole('dialog')
     expect(dialog.dataset.placement).toBe('top')
-    expect(dialog.style.maxHeight).toBe('384px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('384px')
     expect(dialog.style.maxWidth).toBe('984px')
   })
 
@@ -188,7 +211,9 @@ describe('Popover', () => {
     )
     render(<Single />)
     const dialog = await screen.findByRole('dialog')
-    expect(dialog.style.maxHeight).toBe('84px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('84px')
   })
 
   it('flips on the natural height of a capped panel', async () => {
@@ -200,7 +225,9 @@ describe('Popover', () => {
     render(<Single placement='top' />)
     const dialog = await screen.findByRole('dialog')
     expect(dialog.dataset.placement).toBe('bottom')
-    expect(dialog.style.maxHeight).toBe('404px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('404px')
   })
 
   it('scrolls the initially focused element into view', async () => {
@@ -410,5 +437,252 @@ describe('Popover', () => {
     expect(
       screen.getByRole('dialog', { name: 'Dark' }).closest('[data-lido-theme]'),
     ).toHaveAttribute('data-lido-theme', 'dark')
+  })
+
+  describe('exit animation', () => {
+    const stubMotion = (transitionDuration = '0.1s') => {
+      const real = window.getComputedStyle.bind(window)
+      vi.spyOn(window, 'getComputedStyle').mockImplementation((el, pseudo) => {
+        const style = real(el, pseudo)
+        return new Proxy(style, {
+          get: (target, prop) =>
+            prop === 'transitionDuration'
+              ? transitionDuration
+              : Reflect.get(target, prop),
+        })
+      })
+    }
+
+    afterEach(() => vi.useRealTimers())
+
+    it('stays mounted as closed, then unmounts after the transition', async () => {
+      stubMotion()
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      vi.useFakeTimers()
+      rerender(<Single open={false} />)
+      const dialog = screen.getByRole('dialog', { hidden: true })
+      expect(dialog).toHaveAttribute('data-state', 'closed')
+      expect(dialog).toHaveAttribute('data-motion', 'exit')
+      expect(dialog).toHaveAttribute('inert')
+      act(() => {
+        vi.advanceTimersByTime(200)
+      })
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('keeps the panel open when reopened during the exit', async () => {
+      stubMotion()
+      vi.useFakeTimers()
+      const { rerender } = render(<Single />)
+      rerender(<Single open={false} />)
+      rerender(<Single />)
+      act(() => {
+        vi.advanceTimersByTime(500)
+      })
+      expect(screen.getByRole('dialog')).toHaveAttribute('data-state', 'open')
+    })
+
+    it('keeps the same node on reopen during the exit', async () => {
+      stubMotion()
+      vi.useFakeTimers()
+      const { rerender } = render(<Single />)
+      const before = screen.getByRole('dialog')
+      rerender(<Single open={false} />)
+      rerender(<Single />)
+      expect(screen.getByRole('dialog')).toBe(before)
+    })
+
+    it('unmounts at once when there is no motion', async () => {
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} />)
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('moves focus to the anchor as soon as closing starts', async () => {
+      stubMotion()
+      render(<Demo />)
+      const anchor = openPopover()
+      const inside = await screen.findByText('inside')
+      expect(inside).toHaveFocus()
+      await userEvent.setup().keyboard('{Escape}')
+      expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute(
+        'data-state',
+        'closed',
+      )
+      expect(anchor).toHaveFocus()
+    })
+
+    it('releases Escape to the parent while closing', async () => {
+      stubMotion()
+      const onClose = vi.fn()
+      const { rerender } = render(<Single onClose={onClose} />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} onClose={onClose} />)
+      fireEvent.keyDown(document, { key: 'Escape' })
+      expect(onClose).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('arrow', () => {
+    const anchorRect = {
+      left: 400,
+      right: 500,
+      top: 100,
+      bottom: 140,
+      width: 100,
+      height: 40,
+    }
+    const beakX = (dialog: HTMLElement) =>
+      dialog.style.getPropertyValue('--lido-app-ui-popover-beak-x')
+
+    it('renders the beak only with arrow', async () => {
+      const { unmount } = render(<Single />)
+      const dialog = await screen.findByRole('dialog')
+      expect(dialog.querySelector('[aria-hidden="true"]')).toBeNull()
+      expect(beakX(dialog)).toBe('')
+      unmount()
+      render(<Single arrow />)
+      const withArrow = await screen.findByRole('dialog')
+      expect(withArrow.querySelector('span[aria-hidden="true"]')).not.toBeNull()
+    })
+
+    it('centers the beak on the anchor with align center', async () => {
+      mockLayout(anchorRect, { width: 200, height: 100 })
+      render(<Single arrow align='center' />)
+      expect(beakX(await screen.findByRole('dialog'))).toBe('100px')
+    })
+
+    it('clamps the beak to 44px at the start edge', async () => {
+      mockLayout(
+        { left: 400, right: 410, top: 100, bottom: 140, width: 10, height: 40 },
+        { width: 200, height: 100 },
+      )
+      render(<Single arrow align='start' />)
+      expect(beakX(await screen.findByRole('dialog'))).toBe('44px')
+    })
+
+    it('clamps the beak to panelWidth - 44 at the end edge', async () => {
+      mockLayout(
+        { left: 400, right: 410, top: 100, bottom: 140, width: 10, height: 40 },
+        { width: 200, height: 100 },
+      )
+      render(<Single arrow align='end' />)
+      expect(beakX(await screen.findByRole('dialog'))).toBe('156px')
+    })
+
+    it('centers the beak on a panel narrower than 88px', async () => {
+      mockLayout(anchorRect, { width: 60, height: 100 })
+      render(<Single arrow align='start' />)
+      expect(beakX(await screen.findByRole('dialog'))).toBe('30px')
+    })
+
+    describe('narrow anchor', () => {
+      const narrow = {
+        left: 400,
+        right: 420,
+        top: 100,
+        bottom: 140,
+        width: 20,
+        height: 40,
+      }
+      const panel = { width: 200, height: 100 }
+
+      it('moves the panel so the beak is 44px in (align start)', async () => {
+        mockLayout(narrow, panel)
+        render(<Single arrow align='start' />)
+        const dialog = await screen.findByRole('dialog')
+        expect(dialog.style.left).toBe('366px')
+        expect(beakX(dialog)).toBe('44px')
+      })
+
+      it('mirrors for align end and keeps right', async () => {
+        mockLayout(narrow, panel)
+        render(<Single arrow align='end' />)
+        const dialog = await screen.findByRole('dialog')
+        // center 410: left = 410 - 200 + 44 = 254, right = 1000 - 254 - 200
+        expect(dialog.style.right).toBe('546px')
+        expect(dialog.style.left).toBe('')
+        expect(beakX(dialog)).toBe('156px')
+      })
+
+      it('clamps to the viewport edge, then the beak clamps to 44px', async () => {
+        mockLayout({ ...narrow, left: 10, right: 30 }, panel)
+        render(<Single arrow align='start' />)
+        const dialog = await screen.findByRole('dialog')
+        expect(dialog.style.left).toBe('8px')
+        expect(beakX(dialog)).toBe('44px')
+      })
+    })
+
+    it('adds the 12px beak to the offset', async () => {
+      mockLayout(anchorRect, { width: 200, height: 100 })
+      render(<Single arrow offset={10} />)
+      expect((await screen.findByRole('dialog')).style.top).toBe('162px')
+    })
+
+    it('counts the beak in the room when flipping', async () => {
+      mockLayout(
+        {
+          left: 400,
+          right: 500,
+          top: 400,
+          bottom: 440,
+          width: 100,
+          height: 40,
+        },
+        { width: 200, height: 380 },
+        { width: 1000, height: 1000 },
+      )
+      render(<Single arrow placement='top' offset={8} />)
+      expect((await screen.findByRole('dialog')).dataset.placement).toBe(
+        'bottom',
+      )
+    })
+  })
+
+  it('uses aria-describedby instead of dialog wiring for role tooltip', async () => {
+    render(<Single role='tooltip' aria-label={undefined} />)
+    const anchor = screen.getByRole('button', { name: 'anchor' })
+    const tooltip = await screen.findByRole('tooltip')
+    expect(anchor).toHaveAttribute('aria-describedby', tooltip.id)
+    expect(anchor).not.toHaveAttribute('aria-haspopup')
+    expect(anchor).not.toHaveAttribute('aria-expanded')
+    expect(anchor).not.toHaveAttribute('aria-controls')
+  })
+
+  it('merges the tooltip id into an existing aria-describedby and restores it', async () => {
+    const Hinted = ({ open }: { open: boolean }) => {
+      const ref = useRef<HTMLButtonElement>(null)
+      return (
+        <>
+          <button ref={ref} type='button' aria-describedby='hint'>
+            anchor
+          </button>
+          <Popover
+            open={open}
+            anchorRef={ref}
+            onClose={() => undefined}
+            role='tooltip'
+          >
+            tip
+          </Popover>
+        </>
+      )
+    }
+    const { rerender } = render(<Hinted open />)
+    const anchor = screen.getByRole('button', { name: 'anchor' })
+    const tooltip = await screen.findByRole('tooltip')
+    expect(anchor).toHaveAttribute('aria-describedby', `hint ${tooltip.id}`)
+    rerender(<Hinted open={false} />)
+    expect(anchor).toHaveAttribute('aria-describedby', 'hint')
+  })
+
+  it('is never modal for role tooltip', async () => {
+    render(<Single role='tooltip' aria-label={undefined} />)
+    const tooltip = await screen.findByRole('tooltip')
+    expect(tooltip).not.toHaveAttribute('aria-modal')
+    expect(tooltip.contains(document.activeElement)).toBe(false)
   })
 })

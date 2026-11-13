@@ -2849,7 +2849,6 @@ __metadata:
     babel-plugin-react-inline-svg-unique-id: "npm:1.5.0"
     classnames: "npm:2.5.1"
     jsdom: "npm:^25.0.0"
-    postcss-custom-media: "npm:11.0.5"
     postcss-import: "npm:16.1.0"
     postcss-loader: "npm:8.1.1"
     postcss-mixins: "npm:11.0.3"

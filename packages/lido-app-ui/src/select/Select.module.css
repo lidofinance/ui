@@ -1,0 +1,151 @@
+.trigger {
+  --local-bg: transparent;
+  --local-border: var(--lido-app-ui-color-border-default);
+  --local-color: var(--lido-app-ui-color-text-default);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--lido-app-ui-space-6);
+  width: 100%;
+  border: 1px solid var(--local-border);
+  background-color: var(--local-bg);
+  color: var(--local-color);
+  font-family: var(--lido-app-ui-font-family);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.trigger:hover {
+  --local-bg: var(--lido-app-ui-color-background-default-hover);
+}
+
+.trigger:active,
+.trigger.open {
+  --local-bg: var(--lido-app-ui-color-background-default-pressed);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.trigger.error {
+  --local-border: var(--lido-app-ui-color-border-error);
+  --local-color: var(--lido-app-ui-color-text-error);
+}
+
+.trigger:disabled {
+  --local-bg: var(--lido-app-ui-color-background-disabled);
+  --local-color: var(--lido-app-ui-color-text-secondary);
+
+  cursor: not-allowed;
+}
+
+.default {
+  --local-bg: var(--lido-app-ui-color-background-default);
+
+  height: 52px;
+  padding: 12px 16px;
+  border-radius: var(--lido-app-ui-border-radius-md);
+}
+
+.small {
+  height: 36px;
+  padding: 4px 12px;
+  border-radius: var(--lido-app-ui-border-radius-control);
+}
+
+.small.semibold {
+  padding-left: 8px;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  gap: var(--lido-app-ui-space-6);
+  min-width: 0;
+}
+
+.placeholder {
+  overflow: hidden;
+
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.placeholder.placeholderLarge {
+  @mixin font-body-large;
+}
+
+.trigger:disabled .placeholder {
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.trigger.loading {
+  cursor: progress;
+}
+
+.skeleton {
+  width: 50%;
+
+  @mixin font-body;
+}
+
+.skeleton.skeletonLarge {
+  @mixin font-body-large;
+}
+
+.single .skeleton {
+  width: 64px;
+}
+
+.chevron {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--lido-app-ui-color-icons-secondary);
+  transition: transform var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
+}
+
+.small .chevron {
+  width: 20px;
+  height: 20px;
+}
+
+.chevron svg {
+  width: 100%;
+  height: 100%;
+}
+
+.open .chevron {
+  transform: rotate(180deg);
+  transition-duration: var(--lido-app-ui-duration-fast);
+  transition-timing-function: var(--lido-app-ui-easing-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}
+
+.single {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--lido-app-ui-space-6);
+  border: 1px solid transparent;
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.panel {
+  gap: var(--lido-app-ui-space-4);
+}

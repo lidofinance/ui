@@ -1,27 +1,30 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  type ComponentProps,
-  type ReactNode,
-} from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 
+import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Button } from '../button'
 import { Card } from '../card'
+import { IconButton } from '../icon-button'
 import { Identicon } from '../identicon'
-import { IconPlus } from '../icons'
+import { IconInfo, IconPlus } from '../icons'
 import { Input } from '../input'
 import { Stack } from '../stack'
 import { Tag } from '../tag'
+import { Body, Description } from '../typography'
 import { spaces } from '../utils'
-import { Popover, type PopoverProps } from '.'
+import { Popover } from '.'
 
 const meta: Meta<typeof Popover> = {
   title: 'Feedback & Overlays/Popover',
   component: Popover,
-  args: { placement: 'bottom', align: 'start', offset: 8, modal: true },
+  args: {
+    placement: 'bottom',
+    align: 'start',
+    offset: 8,
+    modal: true,
+    arrow: false,
+  },
   argTypes: {
     placement: { options: ['top', 'bottom'], control: { type: 'select' } },
     align: {
@@ -33,11 +36,12 @@ const meta: Meta<typeof Popover> = {
       control: { type: 'select' },
     },
     width: {
-      options: ['auto', 240, 320, 'anchor', 'align'],
+      options: ['auto', 240, 320, 'anchor', 'align', 'min-anchor'],
       mapping: { auto: undefined },
       control: { type: 'select' },
     },
     modal: { control: { type: 'boolean' } },
+    arrow: { control: { type: 'boolean' } },
     open: { control: false },
     onClose: { control: false },
     anchorRef: { control: false },
@@ -45,23 +49,16 @@ const meta: Meta<typeof Popover> = {
   },
   parameters: {
     layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=5118-22',
+    },
+    docs: { source: { type: 'code' } },
   },
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
-
-type PopoverArgs = Omit<
-  PopoverProps,
-  'open' | 'onClose' | 'anchorRef' | 'alignRef' | 'children'
->
-
-type DemoProps = PopoverArgs & {
-  label?: string
-  variant?: ComponentProps<typeof Button>['variant']
-  defaultOpen?: boolean
-  children: (close: () => void) => ReactNode
-}
 
 const stage = {
   minHeight: 300,
@@ -70,52 +67,39 @@ const stage = {
   justifyContent: 'center',
 } as const
 
-const Demo = ({
-  label = 'Open popover',
-  variant,
-  defaultOpen = false,
-  children,
-  ...args
-}: DemoProps) => {
-  const [open, setOpen] = useState(defaultOpen)
-  const triggerRef = useRef<HTMLButtonElement>(null)
-  const close = () => setOpen(false)
-
-  return (
-    <div style={stage}>
-      <Button
-        ref={triggerRef}
-        variant={variant}
-        onClick={() => setOpen((value) => !value)}
-      >
-        {label}
-      </Button>
-      <Popover
-        aria-label='Details'
-        {...args}
-        open={open}
-        onClose={close}
-        anchorRef={triggerRef}
-      >
-        {children(close)}
-      </Popover>
-    </div>
-  )
-}
+const operators = [
+  { name: 'CSM#182', address: '0x182', tags: ['0x02'] },
+  { name: 'CM#411', address: '0x411', tags: ['CC', 'M'] },
+]
 
 export const Basic: Story = {
-  render: (args) => (
-    <Demo {...args}>
-      {() => (
-        <div>
-          <strong>Details</strong>
-          <p style={{ margin: '4px 0 0' }}>
-            Anchored to the button and rendered in a portal.
-          </p>
-        </div>
-      )}
-    </Demo>
-  ),
+  render: function Render(args) {
+    const [open, setOpen] = useState(false)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <div style={stage}>
+        <Button ref={triggerRef} onClick={() => setOpen((value) => !value)}>
+          Open popover
+        </Button>
+        <Popover
+          aria-label='Details'
+          {...args}
+          open={open}
+          onClose={() => setOpen(false)}
+          anchorRef={triggerRef}
+          dataTestId={{ root: 'details-popover' }}
+        >
+          <Stack gap={4}>
+            <strong>Details</strong>
+            <p style={{ margin: 0 }}>
+              Anchored to the button and rendered in a portal.
+            </p>
+          </Stack>
+        </Popover>
+      </div>
+    )
+  },
   parameters: {
     docs: {
       description: {
@@ -128,23 +112,74 @@ export const Basic: Story = {
 
 export const OpenByDefault: Story = {
   tags: ['!autodocs'],
-  render: (args) => (
-    <Demo {...args} defaultOpen>
-      {() => (
-        <div>
-          <strong>Details</strong>
-          <p style={{ margin: '4px 0 0' }}>
-            Open on mount; focus moves into the panel.
-          </p>
-        </div>
-      )}
-    </Demo>
-  ),
+  render: function Render(args) {
+    const [open, setOpen] = useState(true)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <div style={stage}>
+        <Button ref={triggerRef} onClick={() => setOpen((value) => !value)}>
+          Open popover
+        </Button>
+        <Popover
+          aria-label='Details'
+          {...args}
+          open={open}
+          onClose={() => setOpen(false)}
+          anchorRef={triggerRef}
+        >
+          <Stack gap={4}>
+            <strong>Details</strong>
+            <p style={{ margin: 0 }}>
+              Open on mount; focus moves into the panel.
+            </p>
+          </Stack>
+        </Popover>
+      </div>
+    )
+  },
   parameters: {
     docs: {
       description: {
         story:
           'Rendered open on mount. Focus moves into the panel as soon as it appears.',
+      },
+    },
+  },
+}
+
+export const Placements: Story = {
+  args: { placement: 'top', align: 'end', offset: 4 },
+  render: function Render(args) {
+    const [open, setOpen] = useState(false)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <div style={{ ...stage, justifyContent: 'flex-end' }}>
+        <Button
+          ref={triggerRef}
+          variant='outline'
+          onClick={() => setOpen((value) => !value)}
+        >
+          Preferred side
+        </Button>
+        <Popover
+          aria-label='Placement'
+          {...args}
+          open={open}
+          onClose={() => setOpen(false)}
+          anchorRef={triggerRef}
+        >
+          Opens on the chosen side and flips when it does not fit.
+        </Popover>
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          '`placement` is the preferred side, `align` picks the anchor edge the panel lines up with and `offset` sets the gap. Change them in the controls.',
       },
     },
   },
@@ -257,60 +292,48 @@ export const Width: Story = {
     docs: {
       description: {
         story:
-          "Omitted `width` sizes the panel by content (up to the viewport minus 16px). A number is px, `'anchor'` matches the trigger and `'align'` matches the `alignRef` element (the grey container here), falling back to the anchor.",
-      },
-    },
-  },
-}
-
-export const WithMenu: Story = {
-  render: (args) => (
-    <Demo {...args} width={args.width ?? 240} label='Account' variant='outline'>
-      {(close) => (
-        <Stack>
-          {['Copy address', 'View on Etherscan', 'Disconnect'].map((label) => (
-            <Button
-              key={label}
-              variant='ghost'
-              size='small'
-              style={{ width: '100%', justifyContent: 'flex-start' }}
-              onClick={close}
-            >
-              {label}
-            </Button>
-          ))}
-        </Stack>
-      )}
-    </Demo>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'A list of actions in a fixed-width panel. Selecting an item closes the popover.',
+          "Omitted `width` sizes the panel by content (up to the viewport minus 16px). A number is px, `'anchor'` matches the trigger, `'min-anchor'` is content-sized but never narrower than the trigger, and `'align'` matches the `alignRef` element (the grey container here), falling back to the anchor.",
       },
     },
   },
 }
 
 export const TallContent: Story = {
-  render: (args) => (
-    <Demo
-      {...args}
-      width={args.width ?? 240}
-      label='Open long list'
-      variant='outline'
-      aria-label='Long list'
-    >
-      {(close) =>
-        Array.from({ length: 30 }, (_, index) => (
-          <Button key={index} variant='ghost' size='small' onClick={close}>
-            {`Item ${index + 1}`}
-          </Button>
-        ))
-      }
-    </Demo>
-  ),
+  render: function Render(args) {
+    const [open, setOpen] = useState(false)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <div style={stage}>
+        <Button
+          ref={triggerRef}
+          variant='outline'
+          onClick={() => setOpen((value) => !value)}
+        >
+          Open long list
+        </Button>
+        <Popover
+          aria-label='Long list'
+          {...args}
+          width={args.width ?? 240}
+          open={open}
+          onClose={() => setOpen(false)}
+          anchorRef={triggerRef}
+        >
+          {Array.from({ length: 30 }, (_, index) => (
+            <Button
+              key={index}
+              variant='ghost'
+              size='small'
+              onClick={() => setOpen(false)}
+            >
+              {`Item ${index + 1}`}
+            </Button>
+          ))}
+        </Popover>
+      </div>
+    )
+  },
   parameters: {
     docs: {
       description: {
@@ -323,21 +346,37 @@ export const TallContent: Story = {
 
 export const InDarkScope: Story = {
   tags: ['!autodocs'],
-  render: (args) => (
-    <DarkThemeProvider>
-      <div
-        style={{
-          padding: 24,
-          borderRadius: 'var(--lido-app-ui-border-radius-modal)',
-          background: 'var(--lido-app-ui-color-background-surface)',
-        }}
-      >
-        <Demo {...args} defaultOpen>
-          {() => 'Plain text keeps the scope text color and font.'}
-        </Demo>
-      </div>
-    </DarkThemeProvider>
-  ),
+  render: function Render(args) {
+    const [open, setOpen] = useState(true)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <DarkThemeProvider>
+        <div
+          style={{
+            padding: 24,
+            borderRadius: 'var(--lido-app-ui-border-radius-modal)',
+            background: 'var(--lido-app-ui-color-background-surface)',
+          }}
+        >
+          <div style={stage}>
+            <Button ref={triggerRef} onClick={() => setOpen((value) => !value)}>
+              Open popover
+            </Button>
+            <Popover
+              aria-label='Details'
+              {...args}
+              open={open}
+              onClose={() => setOpen(false)}
+              anchorRef={triggerRef}
+            >
+              Plain text keeps the scope text color and font.
+            </Popover>
+          </div>
+        </div>
+      </DarkThemeProvider>
+    )
+  },
   parameters: {
     docs: {
       description: {
@@ -350,17 +389,36 @@ export const InDarkScope: Story = {
 
 export const DarkOverCard: Story = {
   tags: ['!autodocs'],
-  render: (args) => (
-    <DarkThemeProvider>
-      <div style={{ padding: 24 }}>
-        <Card>
-          <Demo {...args} defaultOpen>
-            {() => 'Only the shadow separates the panel from the card.'}
-          </Demo>
-        </Card>
-      </div>
-    </DarkThemeProvider>
-  ),
+  render: function Render(args) {
+    const [open, setOpen] = useState(true)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <DarkThemeProvider>
+        <div style={{ padding: 24 }}>
+          <Card>
+            <div style={stage}>
+              <Button
+                ref={triggerRef}
+                onClick={() => setOpen((value) => !value)}
+              >
+                Open popover
+              </Button>
+              <Popover
+                aria-label='Details'
+                {...args}
+                open={open}
+                onClose={() => setOpen(false)}
+                anchorRef={triggerRef}
+              >
+                Only the shadow separates the panel from the card.
+              </Popover>
+            </div>
+          </Card>
+        </div>
+      </DarkThemeProvider>
+    )
+  },
   parameters: {
     docs: {
       description: {
@@ -372,28 +430,38 @@ export const DarkOverCard: Story = {
 }
 
 export const WithForm: Story = {
-  render: (args) => (
-    <Demo
-      {...args}
-      width={args.width ?? 320}
-      label='Change address'
-      aria-label='Change reward address'
-    >
-      {(close) => (
-        <Stack
-          as='form'
-          gap={12}
-          onSubmit={(event) => {
-            event.preventDefault()
-            close()
-          }}
+  render: function Render(args) {
+    const [open, setOpen] = useState(false)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <div style={stage}>
+        <Button ref={triggerRef} onClick={() => setOpen((value) => !value)}>
+          Change address
+        </Button>
+        <Popover
+          aria-label='Change reward address'
+          {...args}
+          width={args.width ?? 320}
+          open={open}
+          onClose={() => setOpen(false)}
+          anchorRef={triggerRef}
         >
-          <Input label='Reward address' placeholder='0x...' />
-          <Button type='submit'>Save</Button>
-        </Stack>
-      )}
-    </Demo>
-  ),
+          <Stack
+            as='form'
+            gap={12}
+            onSubmit={(event) => {
+              event.preventDefault()
+              setOpen(false)
+            }}
+          >
+            <Input label='Reward address' placeholder='0x...' />
+            <Button type='submit'>Save</Button>
+          </Stack>
+        </Popover>
+      </div>
+    )
+  },
   parameters: {
     docs: {
       description: {
@@ -403,84 +471,6 @@ export const WithForm: Story = {
     },
   },
 }
-
-const operators = [
-  { name: 'CSM#182', address: '0x182', tags: ['0x02'] },
-  { name: 'CM#411', address: '0x411', tags: ['CC', 'M'] },
-]
-
-const OperatorSwitcherContent = () => (
-  <>
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 12,
-        alignItems: 'center',
-        paddingTop: 20,
-      }}
-    >
-      <Identicon address='0x419' size={64} />
-      <div
-        style={{
-          fontSize: 20,
-          lineHeight: '32px',
-          fontWeight: 600,
-          letterSpacing: '-0.14px',
-        }}
-      >
-        CSM#419
-      </div>
-      <Stack direction='row' gap={4}>
-        <Tag variant='action'>ICS</Tag>
-        <Tag>RM</Tag>
-      </Stack>
-    </div>
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 12,
-        paddingTop: 16,
-        borderTop: '1px solid var(--lido-app-ui-color-border-default)',
-      }}
-    >
-      <div
-        style={{
-          padding: '8px 12px',
-          color: 'var(--lido-app-ui-color-text-tertiary)',
-        }}
-      >
-        Other operators
-      </div>
-      {operators.map(({ name, address, tags }) => (
-        <div
-          key={name}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            padding: '8px 12px',
-          }}
-        >
-          <Identicon address={address} size={24} />
-          <span style={{ flex: 1 }}>{name}</span>
-          {tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </div>
-      ))}
-      <Button
-        variant='ghost'
-        size='small'
-        iconLeft={<IconPlus />}
-        style={{ width: '100%' }}
-      >
-        Create a 0x02 operator
-      </Button>
-    </div>
-  </>
-)
 
 export const OperatorSwitcher: Story = {
   tags: ['!autodocs'],
@@ -523,7 +513,74 @@ export const OperatorSwitcher: Story = {
           width={296}
           aria-label='Switch node operator'
         >
-          <OperatorSwitcherContent />
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 12,
+              alignItems: 'center',
+              paddingTop: 20,
+            }}
+          >
+            <Identicon address='0x419' size={64} />
+            <div
+              style={{
+                fontSize: 20,
+                lineHeight: '32px',
+                fontWeight: 600,
+                letterSpacing: '-0.14px',
+              }}
+            >
+              CSM#419
+            </div>
+            <Stack direction='row' gap={4}>
+              <Tag variant='action'>ICS</Tag>
+              <Tag>RM</Tag>
+            </Stack>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 12,
+              paddingTop: 16,
+              borderTop: '1px solid var(--lido-app-ui-color-border-default)',
+            }}
+          >
+            <div
+              style={{
+                padding: '8px 12px',
+                color: 'var(--lido-app-ui-color-text-tertiary)',
+              }}
+            >
+              Other operators
+            </div>
+            {operators.map(({ name, address, tags }) => (
+              <div
+                key={name}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '8px 12px',
+                }}
+              >
+                <Identicon address={address} size={24} />
+                <span style={{ flex: 1 }}>{name}</span>
+                {tags.map((tag) => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </div>
+            ))}
+            <Button
+              variant='ghost'
+              size='small'
+              iconLeft={<IconPlus />}
+              style={{ width: '100%' }}
+            >
+              Create a 0x02 operator
+            </Button>
+          </div>
         </Popover>
       </div>
     )
@@ -534,6 +591,155 @@ export const OperatorSwitcher: Story = {
       description: {
         story:
           'Anchored above a sidebar footer trigger, 296px wide and aligned to the sidebar edge through `alignRef`.',
+      },
+    },
+  },
+}
+
+type ArrowDemoProps = {
+  placement: 'top' | 'bottom'
+  align: 'start' | 'center' | 'end'
+  narrow?: boolean
+}
+
+const ArrowDemo = ({ placement, align, narrow = false }: ArrowDemoProps) => {
+  const [open, setOpen] = useState(true)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const label = `${placement} / ${align}`
+
+  return (
+    <div
+      style={{
+        width: 280,
+        height: 140,
+        display: 'flex',
+        alignItems: placement === 'top' ? 'flex-end' : 'flex-start',
+        justifyContent:
+          align === 'start'
+            ? 'flex-start'
+            : align === 'center'
+              ? 'center'
+              : 'flex-end',
+      }}
+    >
+      {narrow ? (
+        <IconButton
+          ref={triggerRef}
+          aria-label={label}
+          icon={<IconInfo />}
+          onClick={() => setOpen((value) => !value)}
+        />
+      ) : (
+        <Button
+          ref={triggerRef}
+          variant='outline'
+          onClick={() => setOpen((value) => !value)}
+        >
+          {label}
+        </Button>
+      )}
+      <Popover
+        arrow
+        modal={false}
+        aria-label={label}
+        open={open}
+        onClose={() => setOpen(false)}
+        anchorRef={triggerRef}
+        placement={placement}
+        align={align}
+        width={200}
+      >
+        {narrow
+          ? 'Panel shifts so the beak points at the anchor.'
+          : 'Beak follows the anchor center.'}
+      </Popover>
+    </div>
+  )
+}
+
+export const WithArrow: Story = {
+  render: () => (
+    <StoryContainer>
+      {(['bottom', 'top'] as const).map((placement) => (
+        <StorySection key={placement} title={`placement ${placement}`}>
+          <ArrowDemo placement={placement} align='start' />
+          <ArrowDemo placement={placement} align='center' />
+          <ArrowDemo placement={placement} align='end' />
+          <ArrowDemo placement={placement} align='start' narrow />
+          <ArrowDemo placement={placement} align='end' narrow />
+        </StorySection>
+      ))}
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'With `arrow` the beak points at the anchor center and stays at least 32px from the panel sides; for a narrow anchor (the icon buttons) the panel shifts to keep the beak on it. `offset` then measures anchor to beak tip. All panels are open and non-modal here.',
+      },
+    },
+  },
+}
+
+export const AutoOpenedHint: Story = {
+  render: function Render() {
+    const [hint, setHint] = useState(true)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    return (
+      <div style={{ display: 'flex', minHeight: 480 }}>
+        <div
+          style={{
+            width: 296,
+            boxSizing: 'border-box',
+            padding: '24px 16px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <Button
+            ref={triggerRef}
+            variant='outline'
+            iconLeft={<Identicon address='0x419' size={24} />}
+            onClick={() => setHint(false)}
+            style={{ width: '100%' }}
+          >
+            Choose NO
+          </Button>
+        </div>
+        <Popover
+          arrow
+          modal={false}
+          role='tooltip'
+          open={hint}
+          onClose={() => setHint(false)}
+          anchorRef={triggerRef}
+          placement='top'
+          align='center'
+          width={213}
+        >
+          <Stack gap={4}>
+            <Body weight='semibold'>Select a Node Operator here</Body>
+            <Description color='secondary'>
+              You can switch between operators anytime.
+            </Description>
+          </Stack>
+        </Popover>
+      </div>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/9q8Bp7XHM2XGipfpLI63s1/Operators?node-id=2563-90476',
+    },
+    docs: {
+      description: {
+        story:
+          'Onboarding hint open on load, pointing at the sidebar footer switcher. Non-modal so focus is not trapped on load, and `role="tooltip"` so the anchor gets `aria-describedby` instead of `aria-haspopup`. Escape, an outside click or clicking the switcher closes it.',
       },
     },
   },

@@ -13,7 +13,7 @@ export default {
     actions: { disable: true },
     controls: { hideNoControlsWarning: true },
     docs: {
-      source: { type: 'dynamic' },
+      source: { type: 'auto' },
     },
     viewport: { options: viewports },
   },

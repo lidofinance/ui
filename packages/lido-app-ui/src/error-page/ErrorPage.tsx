@@ -2,6 +2,7 @@ import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { EmptyState } from '../empty-state'
 import styles from './ErrorPage.module.css'
 
 export type ErrorPageCode = '404' | '500'
@@ -64,33 +65,37 @@ export const ErrorPage = forwardRef<HTMLDivElement, ErrorPageProps>(
         data-testid={dataTestId?.root}
         {...rest}
       >
-        <div className={styles.inner}>
-          {codeStr != null ? (
-            <div className={styles.code} data-testid={dataTestId?.code}>
-              {codeStr}
-            </div>
-          ) : null}
-          <div className={styles.text}>
-            {!isEmpty(resolvedTitle) ? (
+        <EmptyState
+          size='large'
+          className={styles.state}
+          illustration={
+            codeStr != null ? (
+              <span className={styles.code}>{codeStr}</span>
+            ) : undefined
+          }
+          title={
+            !isEmpty(resolvedTitle) ? (
               <h1 className={styles.title} data-testid={dataTestId?.title}>
                 {resolvedTitle}
               </h1>
-            ) : null}
-            {!isEmpty(resolvedDescription) ? (
+            ) : undefined
+          }
+          description={
+            !isEmpty(resolvedDescription) ? (
               <p
                 className={styles.description}
                 data-testid={dataTestId?.description}
               >
                 {resolvedDescription}
               </p>
-            ) : null}
-          </div>
-          {action != null ? (
-            <div className={styles.action} data-testid={dataTestId?.action}>
-              {action}
-            </div>
-          ) : null}
-        </div>
+            ) : undefined
+          }
+          action={action ?? undefined}
+          dataTestId={{
+            illustration: dataTestId?.code,
+            action: dataTestId?.action,
+          }}
+        />
       </div>
     )
   },

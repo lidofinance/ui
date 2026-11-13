@@ -1,4 +1,5 @@
 import {
+  forwardRef,
   useId,
   useRef,
   type ChangeEvent,
@@ -9,6 +10,13 @@ import {
 } from 'react'
 
 import cn from 'classnames'
+import {
+  Field,
+  getFieldDescribedBy,
+  resolveFieldError,
+  type FieldDataTestId,
+} from '../field/Field'
+import { useMergedRef } from '../hooks'
 import { IconLockKeyhole } from '../icons'
 import { InfoTooltip } from '../info-tooltip'
 import { Skeleton } from '../skeleton'
@@ -17,29 +25,27 @@ import { Tooltip, type TooltipPosition } from '../tooltip'
 
 import styles from './RichInput.module.css'
 
-export type RichInputDataTestId = {
-  root?: string
-  label?: string
+export type RichInputDataTestId = FieldDataTestId & {
   input?: string
   secondaryValue?: string
   balance?: string
   maxButton?: string
-  error?: string
   lock?: string
 }
 
 export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: ReactNode
-  labelTooltip?: ReactNode
+  /** Info icon next to the label. */
+  tooltip?: ReactNode
+  description?: ReactNode
   /** Fiat equivalent, bottom left. */
   secondaryValue?: ReactNode
   /** Wallet balance, bottom right. */
   balance?: ReactNode
   /** Slot for a `TokenSelector`. */
   tokenSelector?: ReactNode
-  /** Marks the card invalid. */
-  error?: boolean
-  errorText?: ReactNode
+  /** Marks the card invalid; a node is also shown as the message. */
+  error?: ReactNode | boolean
   showMaxButton?: boolean
   onMaxClick?: MouseEventHandler<HTMLButtonElement>
   /** Dims the Max shortcut, leaving the field editable. */
@@ -70,195 +76,219 @@ const sanitizeDecimal = (raw: string): string => {
 const noop = () => undefined
 
 /** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max; `locked` makes it read-only without Max; `loading` shows a skeleton for the amount and hides the fiat line. */
-export const RichInput = ({
-  label,
-  labelTooltip,
-  secondaryValue,
-  balance,
-  tokenSelector,
-  error,
-  errorText,
-  showMaxButton = true,
-  onMaxClick,
-  maxDisabled,
-  maxTooltip,
-  maxTooltipPosition = 'bottom-left',
-  onChange,
-  className,
-  id,
-  disabled,
-  locked,
-  lockedTooltip,
-  loading,
-  readOnly,
-  dataTestId,
-  ...inputProps
-}: RichInputProps) => {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const fallbackId = useId()
-  const inputId = id ?? fallbackId
+export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
+  (
+    {
+      label,
+      tooltip,
+      description,
+      secondaryValue,
+      balance,
+      tokenSelector,
+      error,
+      showMaxButton = true,
+      onMaxClick,
+      maxDisabled,
+      maxTooltip,
+      maxTooltipPosition = 'bottom-left',
+      onChange,
+      className,
+      id,
+      disabled,
+      locked,
+      lockedTooltip,
+      loading,
+      readOnly,
+      dataTestId,
+      'aria-describedby': ariaDescribedBy,
+      ...inputProps
+    },
+    ref,
+  ) => {
+    const inputRef = useRef<HTMLInputElement | null>(null)
+    const fallbackId = useId()
+    const inputId = id ?? fallbackId
 
-  const hasError = !!error
-  const showErrorMessage = !!errorText
-  const errorId = `${inputId}-error`
-  const showMax = showMaxButton && !disabled && !locked && !loading
-  const showSecondary = secondaryValue != null && !loading
-  const hasBottomRow = showSecondary || balance != null || showMax
+    const setRefs = useMergedRef(inputRef, ref)
 
-  const maxTag = (
-    <Tag
-      as='button'
-      dataTestId={{ root: dataTestId?.maxButton }}
-      onClick={onMaxClick ?? noop}
-      disabled={maxDisabled}
-    >
-      Max
-    </Tag>
-  )
+    const { hasError } = resolveFieldError(error)
+    const showMax = showMaxButton && !disabled && !locked && !loading
+    const showSecondary = secondaryValue != null && !loading
+    const hasBottomRow = showSecondary || balance != null || showMax
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value: rawValue, selectionStart } = event.target
-    const sanitized = sanitizeDecimal(rawValue)
+    const maxTag = (
+      <Tag
+        as='button'
+        dataTestId={{ root: dataTestId?.maxButton }}
+        onClick={onMaxClick ?? noop}
+        disabled={maxDisabled}
+      >
+        Max
+      </Tag>
+    )
 
-    if (sanitized !== rawValue) {
-      // Rewrite the DOM value before bubbling up so the parent (controlled
-      // or not) only ever sees the clean value and no invalid char sticks.
-      const removed = rawValue.length - sanitized.length
-      event.target.value = sanitized
-      if (selectionStart != null) {
-        const caret = Math.max(0, selectionStart - removed)
-        event.target.setSelectionRange(caret, caret)
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      const { value: rawValue, selectionStart } = event.target
+      const sanitized = sanitizeDecimal(rawValue)
+
+      if (sanitized !== rawValue) {
+        // Rewrite the DOM value before bubbling up so the parent (controlled
+        // or not) only ever sees the clean value and no invalid char sticks.
+        const removed = rawValue.length - sanitized.length
+        event.target.value = sanitized
+        if (selectionStart != null) {
+          const caret = Math.max(0, selectionStart - removed)
+          event.target.setSelectionRange(caret, caret)
+        }
       }
+
+      onChange?.(event)
     }
 
-    onChange?.(event)
-  }
-
-  const handleRootClick = (event: MouseEvent<HTMLDivElement>) => {
-    if (!(event.target instanceof Element)) return
-    if (
-      event.target.closest('button, input, label, [role="listbox"], [tabindex]')
-    ) {
-      return
+    const handleRootClick = (event: MouseEvent<HTMLDivElement>) => {
+      if (!(event.target instanceof Element)) return
+      if (
+        event.target.closest(
+          'button, input, label, [role="listbox"], [tabindex]',
+        )
+      ) {
+        return
+      }
+      inputRef.current?.focus()
     }
-    inputRef.current?.focus()
-  }
 
-  return (
-    <div className={cn(styles.root, className)} data-testid={dataTestId?.root}>
-      {/*
+    return (
+      <Field
+        id={inputId}
+        description={description}
+        error={error}
+        fit
+        className={className}
+        dataTestId={dataTestId}
+      >
+        {/*
         Clicking the padding around the field focuses it — a pointer convenience
         on top of the real control. Keyboard users tab straight to the input.
       */}
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-      <div
-        className={cn(
-          styles.card,
-          hasError && styles.error,
-          locked && styles.locked,
-          loading && styles.loading,
-        )}
-        onClick={handleRootClick}
-      >
-        {label != null ? (
-          <span className={styles.labelRow}>
-            <label
-              data-testid={dataTestId?.label}
-              className={styles.label}
-              htmlFor={inputId}
-            >
-              {label}
-            </label>
-            {labelTooltip != null ? (
-              <InfoTooltip content={labelTooltip} size={20} />
-            ) : null}
-            {locked ? (
-              lockedTooltip != null ? (
-                <InfoTooltip
-                  icon={<IconLockKeyhole aria-hidden='true' />}
-                  size={20}
-                  aria-label='Locked'
-                  content={lockedTooltip}
-                  className={styles.lock}
-                  dataTestId={{ root: dataTestId?.lock }}
-                />
-              ) : (
-                <IconLockKeyhole
-                  aria-hidden='true'
-                  className={cn(styles.lock, styles.lockIcon)}
-                  data-testid={dataTestId?.lock}
-                />
-              )
-            ) : null}
-          </span>
-        ) : null}
-        <div className={styles.amountRow}>
-          <span className={styles.amount}>
-            <input
-              ref={inputRef}
-              id={inputId}
-              className={styles.input}
-              inputMode='decimal'
-              disabled={disabled}
-              readOnly={locked || loading || readOnly}
-              aria-busy={loading || undefined}
-              aria-invalid={hasError || undefined}
-              aria-describedby={showErrorMessage ? errorId : undefined}
-              onChange={handleChange}
-              data-testid={dataTestId?.input}
-              {...inputProps}
-            />
-            {loading ? (
-              <Skeleton variant='text' className={styles.amountSkeleton} />
-            ) : null}
-          </span>
-          {tokenSelector != null ? (
-            <div className={styles.token}>{tokenSelector}</div>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+        <div
+          className={cn(
+            styles.card,
+            hasError && styles.error,
+            locked && styles.locked,
+            loading && styles.loading,
+          )}
+          onClick={handleRootClick}
+        >
+          {label != null || locked ? (
+            <span className={styles.labelRow}>
+              {label != null ? (
+                <>
+                  <label
+                    data-testid={dataTestId?.label}
+                    className={styles.label}
+                    htmlFor={inputId}
+                  >
+                    {label}
+                  </label>
+                  {tooltip != null ? (
+                    <InfoTooltip
+                      content={tooltip}
+                      size={20}
+                      dataTestId={{
+                        root: dataTestId?.tooltip,
+                        content: dataTestId?.tooltipContent,
+                      }}
+                    />
+                  ) : null}
+                </>
+              ) : null}
+              {locked ? (
+                lockedTooltip != null ? (
+                  <InfoTooltip
+                    icon={<IconLockKeyhole aria-hidden='true' />}
+                    size={20}
+                    aria-label='Locked'
+                    content={lockedTooltip}
+                    className={styles.lock}
+                    dataTestId={{ root: dataTestId?.lock }}
+                  />
+                ) : (
+                  <IconLockKeyhole
+                    aria-hidden='true'
+                    className={cn(styles.lock, styles.lockIcon)}
+                    data-testid={dataTestId?.lock}
+                  />
+                )
+              ) : null}
+            </span>
           ) : null}
-        </div>
-        {hasBottomRow ? (
-          <div className={styles.bottomRow}>
-            {showSecondary ? (
-              <span
-                data-testid={dataTestId?.secondaryValue}
-                className={styles.secondary}
-              >
-                {secondaryValue}
-              </span>
+          <div className={styles.amountRow}>
+            <span className={styles.amount}>
+              <input
+                ref={setRefs}
+                id={inputId}
+                className={styles.input}
+                inputMode='decimal'
+                disabled={disabled}
+                readOnly={locked || loading || readOnly}
+                aria-busy={loading || undefined}
+                aria-invalid={hasError || undefined}
+                aria-describedby={getFieldDescribedBy(
+                  inputId,
+                  error,
+                  description,
+                  ariaDescribedBy,
+                )}
+                onChange={handleChange}
+                data-testid={dataTestId?.input}
+                {...inputProps}
+              />
+              {loading ? (
+                <Skeleton variant='text' className={styles.amountSkeleton} />
+              ) : null}
+            </span>
+            {tokenSelector != null ? (
+              <div className={styles.token}>{tokenSelector}</div>
             ) : null}
-            <div className={styles.balanceGroup}>
-              {balance != null ? (
+          </div>
+          {hasBottomRow ? (
+            <div className={styles.bottomRow}>
+              {showSecondary ? (
                 <span
-                  className={styles.balance}
-                  data-testid={dataTestId?.balance}
+                  data-testid={dataTestId?.secondaryValue}
+                  className={styles.secondary}
                 >
-                  {balance}
+                  {secondaryValue}
                 </span>
               ) : null}
-              {showMax && maxTooltip != null ? (
-                <Tooltip
-                  content={maxTooltip}
-                  position={maxTooltipPosition}
-                  width={240}
-                >
-                  {maxTag}
-                </Tooltip>
-              ) : showMax ? (
-                maxTag
-              ) : null}
+              <div className={styles.balanceGroup}>
+                {balance != null ? (
+                  <span
+                    className={styles.balance}
+                    data-testid={dataTestId?.balance}
+                  >
+                    {balance}
+                  </span>
+                ) : null}
+                {showMax && maxTooltip != null ? (
+                  <Tooltip
+                    content={maxTooltip}
+                    position={maxTooltipPosition}
+                    width={240}
+                  >
+                    {maxTag}
+                  </Tooltip>
+                ) : showMax ? (
+                  maxTag
+                ) : null}
+              </div>
             </div>
-          </div>
-        ) : null}
-      </div>
-      {showErrorMessage ? (
-        <div
-          id={errorId}
-          className={styles.errorMessage}
-          data-testid={dataTestId?.error}
-        >
-          {errorText}
+          ) : null}
         </div>
-      ) : null}
-    </div>
-  )
-}
+      </Field>
+    )
+  },
+)
+
+RichInput.displayName = 'RichInput'

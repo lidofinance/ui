@@ -188,7 +188,9 @@ describe('Sidebar', () => {
   it('calls onClose on scrim click', () => {
     const onClose = vi.fn()
     const { container } = render(<Sidebar logo='Logo' open onClose={onClose} />)
-    fireEvent.click(container.firstElementChild as HTMLElement)
+    const scrim = container.firstElementChild as HTMLElement
+    fireEvent.pointerDown(scrim, { button: 0 })
+    fireEvent.click(scrim)
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 

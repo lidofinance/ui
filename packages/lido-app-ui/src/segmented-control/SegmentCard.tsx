@@ -20,6 +20,7 @@ export type SegmentCardProps = Omit<
   active?: boolean
   icon?: ReactNode
   title: ReactNode
+  /** Strings and numbers get a neutral Tag; other nodes render as-is and must be non-interactive, because the card is a `<button role="tab">`. */
   tag?: ReactNode
   description?: ReactNode
   dataTestId?: SegmentCardDataTestId
@@ -63,7 +64,7 @@ export const SegmentCard = forwardRef<HTMLButtonElement, SegmentCardProps>(
         ) : null}
         <span className={styles.title} data-testid={dataTestId?.title}>
           <span className={styles.titleText}>{title}</span>
-          {tag != null ? (
+          {typeof tag === 'string' || typeof tag === 'number' ? (
             <Tag
               variant='neutral'
               dataTestId={{ root: dataTestId?.tag }}
@@ -77,6 +78,10 @@ export const SegmentCard = forwardRef<HTMLButtonElement, SegmentCardProps>(
             >
               {tag}
             </Tag>
+          ) : tag != null && typeof tag !== 'boolean' ? (
+            <span className={styles.tagNode} data-testid={dataTestId?.tag}>
+              {tag}
+            </span>
           ) : null}
         </span>
         {description != null ? (

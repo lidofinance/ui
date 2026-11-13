@@ -53,6 +53,10 @@ const meta: Meta<typeof RichInput> = {
         'top-right',
         'bottom-left',
         'bottom-right',
+        'top-start',
+        'top-end',
+        'bottom-start',
+        'bottom-end',
       ],
     },
   },
@@ -82,6 +86,7 @@ export const Basic: Story = {
   },
   parameters: {
     docs: {
+      source: { type: 'code' },
       description: {
         story:
           'Fully wired: type an amount and the fiat line follows, or hit Max to fill the balance. Letters are stripped out, and a second decimal point is ignored.',
@@ -109,8 +114,14 @@ export const States: Story = {
       <RichInput
         label='Error'
         defaultValue='99'
-        error
-        errorText='Amount exceeds your balance'
+        error='Amount exceeds your balance'
+        balance='Balance: 12.4218'
+        tokenSelector={tokenSelector}
+      />
+      <RichInput
+        label='Description'
+        description='Minimum deposit is 0.01 ETH.'
+        placeholder='0'
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}
       />
@@ -130,7 +141,7 @@ export const States: Story = {
       />
       <RichInput
         label='With label tooltip'
-        labelTooltip='The amount you want to deposit.'
+        tooltip='The amount you want to deposit.'
         placeholder='0'
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}
@@ -163,6 +174,13 @@ export const States: Story = {
         lockedTooltip='Amount is fixed by the bond curve.'
         tokenSelector={smallTokenSelector}
       />
+      <RichInput
+        defaultValue='12'
+        locked
+        lockedTooltip='Amount is fixed by the bond curve.'
+        tokenSelector={smallTokenSelector}
+      />
+      <RichInput defaultValue='12' locked tokenSelector={smallTokenSelector} />
     </StoryContainer>
   ),
   parameters: {

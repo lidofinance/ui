@@ -5,6 +5,17 @@
   cursor: pointer;
 }
 
+.containerWithMessage {
+  align-items: flex-start;
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--lido-app-ui-space-4);
+}
+
 .control {
   position: relative;
   flex-shrink: 0;
@@ -24,7 +35,9 @@
   border-radius: 50%;
   background-color: var(--lido-app-ui-color-background-default);
   cursor: pointer;
-  transition: background-color 150ms;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
 }
 
 .dot {
@@ -36,20 +49,26 @@
   border-radius: 50%;
   background-color: var(--lido-app-ui-color-background-surface);
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.5);
+  transform: translate(-50%, -50%);
+  clip-path: circle(25%);
   pointer-events: none;
   transition:
-    opacity 150ms,
-    transform 150ms;
+    opacity var(--lido-app-ui-duration-fast-exit) var(--lido-app-ui-easing-exit),
+    clip-path 0s linear var(--lido-app-ui-duration-fast-exit);
 }
 
 .input:checked {
   background-color: var(--lido-app-ui-color-background-surface-selected);
+  transition: background-color var(--lido-app-ui-duration-fast)
+    var(--lido-app-ui-easing-out);
 }
 
 .input:checked + .dot {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  clip-path: circle(50%);
+  transition:
+    opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out),
+    clip-path var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out);
 }
 
 .input:not(:disabled):hover {
@@ -63,6 +82,10 @@
 .input:focus-visible {
   outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
+}
+
+.input.inputError:not(:checked, :disabled) {
+  border-color: var(--lido-app-ui-color-border-error);
 }
 
 .input:disabled {
@@ -82,4 +105,17 @@
 
 .labelDisabled {
   color: var(--lido-app-ui-color-text-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    clip-path: none;
+    transition: opacity var(--lido-app-ui-duration-fast-exit)
+      var(--lido-app-ui-easing-exit);
+  }
+
+  .input:checked + .dot {
+    transition: opacity var(--lido-app-ui-duration-fast)
+      var(--lido-app-ui-easing-out);
+  }
 }

@@ -1,7 +1,7 @@
 .accordion {
   width: 100%;
   border-bottom: 1px solid var(--lido-app-ui-color-border-default);
-  transition: border-bottom-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .accordion.borderless {
@@ -49,21 +49,18 @@
   width: 24px;
   height: 24px;
   color: var(--lido-app-ui-color-icons-secondary);
+  transition: transform var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  transition-duration: var(--lido-app-ui-duration-fast);
+  transition-timing-function: var(--lido-app-ui-easing-out);
 }
 
 .contentWrapper {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.25s ease;
-}
-
-.contentWrapper.expanded {
-  grid-template-rows: 1fr;
-}
-
-.content {
-  overflow: hidden;
-  min-height: 0;
+  @mixin motion-collapse;
 }
 
 .contentInner {
@@ -73,4 +70,10 @@
 
   color: var(--lido-app-ui-color-text-secondary);
   word-break: break-word;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
 }

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 import { CounterLabel, CounterSlot } from '../counter/CounterSlot'
-import { IconLoaderCircle } from '../icons'
+import { Spinner } from '../spinner'
 import styles from './Button.module.css'
 import type { ButtonOwnProps } from './types'
 
@@ -24,7 +24,7 @@ export const ButtonContent = ({
 }: ButtonContentProps) => (
   <>
     {loading ? (
-      <IconLoaderCircle className={styles.spinner} aria-hidden='true' />
+      <Spinner className={styles.spinner} decorative />
     ) : (
       iconLeft != null && (
         <span

@@ -75,6 +75,7 @@ export default [
         targets: [
           { src: 'styles/typography-mixins.css', dest: 'dist/styles' },
           { src: 'styles/breakpoints.css', dest: 'dist/styles' },
+          { src: 'styles/motion-mixins.css', dest: 'dist/styles' },
           { src: './assets/fonts/*', dest: 'dist/assets/fonts' },
         ],
       }),

@@ -98,4 +98,11 @@ describe('Notification', () => {
       screen.getByRole('button', { name: 'Dismiss' }),
     ).toHaveAccessibleDescription('Your key got a strike')
   })
+
+  it('applies the fluid class only when requested', () => {
+    const { rerender } = render(<Notification title='T' data-testid='n' />)
+    expect(screen.getByTestId('n')).not.toHaveClass(styles.fluid)
+    rerender(<Notification title='T' fluid data-testid='n' />)
+    expect(screen.getByTestId('n')).toHaveClass(styles.fluid)
+  })
 })

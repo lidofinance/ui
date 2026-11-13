@@ -1,20 +1,27 @@
 export const Z_INDEX = [
   { token: '--lido-app-ui-z-index-header', note: 'Sticky Header' },
-  { token: '--lido-app-ui-z-index-overlay', note: 'Sidebar drawer scrim' },
-  { token: '--lido-app-ui-z-index-sidebar', note: 'Sidebar drawer' },
+  { token: '--lido-app-ui-z-index-overlay', note: 'Sidebar scrim' },
+  { token: '--lido-app-ui-z-index-sidebar', note: 'Sidebar' },
+  {
+    token: '--lido-app-ui-z-index-drawer',
+    note: 'Drawer, shares a layer with Popover and Modal',
+  },
   {
     token: '--lido-app-ui-z-index-popover',
-    note: 'Popover, shares a layer with Modal',
+    note: 'Popover, shares a layer with Drawer and Modal',
   },
   {
     token: '--lido-app-ui-z-index-modal',
-    note: 'Modal, shares a layer with Popover',
+    note: 'Modal, shares a layer with Drawer and Popover',
   },
   { token: '--lido-app-ui-z-index-toast', note: 'Notification toasts' },
   { token: '--lido-app-ui-z-index-tooltip', note: 'Tooltip, above everything' },
 ] as const
 
-export const SHADOWS = ['--lido-app-ui-shadow-default'] as const
+export const SHADOWS = [
+  '--lido-app-ui-shadow-default',
+  '--lido-app-ui-shadow-default-filter',
+] as const
 
 export const RADIUS_SCALE = [
   '--lido-app-ui-border-radius-none',

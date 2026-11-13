@@ -1,0 +1,23 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+.overline {
+  @mixin font-caption;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.divided > * + * {
+  border-top: 1px solid var(--lido-app-ui-color-border-default);
+}

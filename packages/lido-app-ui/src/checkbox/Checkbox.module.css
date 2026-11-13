@@ -5,6 +5,17 @@
   cursor: pointer;
 }
 
+.containerWithMessage {
+  align-items: flex-start;
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--lido-app-ui-space-4);
+}
+
 .control {
   position: relative;
   flex-shrink: 0;
@@ -24,9 +35,12 @@
   border-radius: var(--lido-app-ui-border-radius-xs);
   background-color: var(--lido-app-ui-color-background-default);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition:
-    background-color 150ms,
-    border-color 150ms;
+    background-color var(--lido-app-ui-duration-fast-exit)
+      var(--lido-app-ui-easing-exit),
+    border-color var(--lido-app-ui-duration-fast-exit)
+      var(--lido-app-ui-easing-exit);
 }
 
 .tick {
@@ -36,33 +50,52 @@
   height: 20px;
   color: var(--lido-app-ui-color-icons-inverse);
   opacity: 0;
-  transform: scale(0.5);
+  clip-path: inset(0 100% 0 0);
   pointer-events: none;
   transition:
-    opacity 150ms,
-    transform 150ms;
+    opacity var(--lido-app-ui-duration-fast-exit) var(--lido-app-ui-easing-exit),
+    clip-path 0s linear var(--lido-app-ui-duration-fast-exit);
 }
 
-.input:checked {
+.minus {
+  clip-path: inset(0 50%);
+}
+
+.input:checked,
+.inputIndeterminate {
+  border-color: transparent;
   background-color: var(--lido-app-ui-color-background-surface-selected);
+  transition:
+    background-color var(--lido-app-ui-duration-fast)
+      var(--lido-app-ui-easing-out),
+    border-color var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out);
 }
 
-.input:checked + .tick {
+.input:checked:not(.inputIndeterminate) ~ .check,
+.inputIndeterminate ~ .minus {
   opacity: 1;
-  transform: scale(1);
+  clip-path: inset(0);
+  transition:
+    opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out),
+    clip-path var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out);
 }
 
 .input:not(:disabled):hover {
   background-color: var(--lido-app-ui-color-background-default-hover);
 }
 
-.input:checked:not(:disabled):hover {
+.input:checked:not(:disabled):hover,
+.inputIndeterminate:not(:disabled):hover {
   background-color: var(--lido-app-ui-color-background-surface-selected-hover);
 }
 
 .input:focus-visible {
   outline: 2px solid var(--lido-app-ui-color-border-active);
   outline-offset: 2px;
+}
+
+.input.inputError:not(:checked, .inputIndeterminate, :disabled) {
+  border-color: var(--lido-app-ui-color-border-error);
 }
 
 .input:disabled {
@@ -82,4 +115,18 @@
 
 .labelDisabled {
   color: var(--lido-app-ui-color-text-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tick {
+    clip-path: none;
+    transition: opacity var(--lido-app-ui-duration-fast-exit)
+      var(--lido-app-ui-easing-exit);
+  }
+
+  .input:checked:not(.inputIndeterminate) ~ .check,
+  .inputIndeterminate ~ .minus {
+    transition: opacity var(--lido-app-ui-duration-fast)
+      var(--lido-app-ui-easing-out);
+  }
 }

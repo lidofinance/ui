@@ -6,7 +6,10 @@
   gap: var(--lido-app-ui-space-24);
   box-sizing: border-box;
   max-width: calc(100vw - 16px);
-  max-height: calc(100dvh - 16px);
+  max-height: min(
+    var(--lido-app-ui-popover-available-height, 100dvh),
+    calc(100dvh - 16px)
+  );
   padding: var(--lido-app-ui-space-12);
   overflow-y: auto;
   border: 1px solid var(--lido-app-ui-color-border-default);
@@ -15,8 +18,85 @@
   box-shadow: var(--lido-app-ui-shadow-default);
   font-family: var(--lido-app-ui-font-family);
   color: var(--lido-app-ui-color-text-default);
+
+  @mixin motion-pop top left;
+
+  --local-motion-shift: calc(var(--lido-app-ui-motion-shift) * -1);
+}
+
+.panel[data-placement='bottom'][data-align='center'] {
+  transform-origin: top center;
+}
+
+.panel[data-placement='bottom'][data-align='end'] {
+  transform-origin: top right;
+}
+
+.panel[data-placement='top'] {
+  --local-motion-shift: var(--lido-app-ui-motion-shift);
+
+  transform-origin: bottom left;
+}
+
+.panel[data-placement='top'][data-align='center'] {
+  transform-origin: bottom center;
+}
+
+.panel[data-placement='top'][data-align='end'] {
+  transform-origin: bottom right;
+}
+
+.panel[data-state='closed'] {
+  pointer-events: none;
 }
 
 .panel:focus {
   outline: none;
+}
+
+.panel.arrow {
+  overflow: visible;
+  box-shadow: none;
+  filter: var(--lido-app-ui-shadow-default-filter);
+}
+
+.panel.arrow[data-placement='bottom'] {
+  transform-origin: var(--lido-app-ui-popover-beak-x) -12px;
+}
+
+.panel.arrow[data-placement='top'] {
+  transform-origin: var(--lido-app-ui-popover-beak-x) calc(100% + 12px);
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: inherit;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* 17px square rotated 45deg is a 24px diamond; its center sits on the outer border edge, so 12px shows (must match BEAK_SIZE in position.ts). */
+.beak {
+  position: absolute;
+  top: -1px;
+  left: calc(var(--lido-app-ui-popover-beak-x) - 1px);
+  box-sizing: border-box;
+  width: 17px;
+  height: 17px;
+  border-top: 1px solid var(--lido-app-ui-color-border-default);
+  border-left: 1px solid var(--lido-app-ui-color-border-default);
+  border-top-left-radius: 2px;
+  background-color: var(--lido-app-ui-color-background-surface);
+  translate: -50% -50%;
+  rotate: 45deg;
+}
+
+.panel[data-placement='top'] .beak {
+  top: auto;
+  bottom: -1px;
+  translate: -50% 50%;
+  rotate: 225deg;
 }

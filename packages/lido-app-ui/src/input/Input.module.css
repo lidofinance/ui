@@ -1,24 +1,3 @@
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  font-family: var(--lido-app-ui-font-family);
-}
-
-.labelRow {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.label {
-  @mixin font-body-large;
-
-  color: var(--lido-app-ui-color-text-secondary);
-  white-space: nowrap;
-}
-
 .root {
   display: inline-flex;
   align-items: center;
@@ -28,9 +7,7 @@
   background-color: var(--lido-app-ui-color-background-default);
   font-family: var(--lido-app-ui-font-family);
   cursor: text;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .root:hover {
@@ -62,26 +39,40 @@
 
 .default {
   .control {
-    font-size: var(--lido-app-ui-font-size-body);
-    line-height: var(--lido-app-ui-line-height-body);
+    @mixin font-body-large;
   }
 
+  --local-gap: 12px;
+
   height: 52px;
-  gap: 12px;
-  padding: 12px 16px;
   border-radius: var(--lido-app-ui-border-radius-card);
 }
 
 .small {
   .control {
-    font-size: var(--lido-app-ui-font-size-label);
-    line-height: var(--lido-app-ui-line-height-label);
+    @mixin font-body;
   }
 
+  --local-gap: 8px;
+
   height: 36px;
-  gap: 8px;
-  padding: 6px 16px;
   border-radius: var(--lido-app-ui-border-radius-control);
+}
+
+.label {
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  gap: var(--local-gap);
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+  padding-inline: 16px;
+  cursor: inherit;
+}
+
+.label:not(:last-child) {
+  padding-inline-end: var(--local-gap);
 }
 
 .control {
@@ -102,7 +93,8 @@
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  letter-spacing: var(--lido-app-ui-letter-spacing-body);
+  letter-spacing: inherit;
+  text-overflow: ellipsis;
 }
 
 .input::placeholder {
@@ -141,20 +133,19 @@
   color: var(--lido-app-ui-color-icons-secondary);
 }
 
-.errorText {
-  margin: 0;
-
-  @mixin font-body;
-
-  color: var(--lido-app-ui-color-text-error);
-  word-break: break-word;
+.trailing {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 8px;
+  box-sizing: border-box;
+  padding-block: 12px;
+  padding-inline-end: 16px;
+  cursor: auto;
 }
 
-.description {
-  margin: 0;
-
-  @mixin font-description;
-
-  color: var(--lido-app-ui-color-text-tertiary);
-  word-break: break-word;
+.small .trailing {
+  align-items: center;
+  padding-block: 6px;
 }

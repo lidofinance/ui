@@ -3,7 +3,7 @@ import { forwardRef, type ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
 
 import { Address } from '../address'
-import { IconLoaderCircle } from '../icons'
+import { Spinner } from '../spinner'
 import surfaceStyles from '../utils/surface.module.css'
 import styles from './AddressButton.module.css'
 
@@ -46,7 +46,7 @@ export const AddressButton = forwardRef<HTMLButtonElement, AddressButtonProps>(
       {loading ? (
         <>
           <span className={styles.slot} aria-hidden='true'>
-            <IconLoaderCircle className={styles.spinner} />
+            <Spinner size='sm' decorative />
           </span>
           Loading
         </>

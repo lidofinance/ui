@@ -11,6 +11,7 @@ import {
 import cn from 'classnames'
 
 import { IconCross } from '../icons'
+import { InfoTooltip } from '../info-tooltip'
 import { ActionElement, type ActionElementProps } from '../utils'
 import styles from './Tag.module.css'
 
@@ -29,6 +30,8 @@ export type TagDataTestId = {
   root?: string
   icon?: string
   closeButton?: string
+  info?: string
+  infoContent?: string
 }
 
 export type TagIconPosition = 'left' | 'right'
@@ -40,6 +43,8 @@ export type TagProps = Omit<HTMLAttributes<HTMLSpanElement>, 'onClick'> & {
   active?: boolean
   icon?: ReactNode
   iconPosition?: TagIconPosition
+  /** Info icon with a tooltip after the label. Passive tags only; for href/onClick/disabled, wrap the Tag in Tooltip. */
+  info?: ReactNode
   /** Renders a trailing close button when set. */
   onClose?: () => void
   /** Renders a link (`<a>` via LinkProvider) instead of a span. */
@@ -61,6 +66,7 @@ export const Tag = forwardRef<HTMLElement, TagProps>(
       active = false,
       icon,
       iconPosition = 'left',
+      info,
       onClose,
       href,
       onClick,
@@ -100,8 +106,20 @@ export const Tag = forwardRef<HTMLElement, TagProps>(
     const content = (
       <>
         {iconPosition === 'left' ? iconElement : null}
-        {onClose ? <span id={labelId}>{children}</span> : children}
+        <span id={onClose ? labelId : undefined} className={styles.label}>
+          {children}
+        </span>
         {iconPosition === 'right' ? iconElement : null}
+        {info && !isAction && !isSpanAction ? (
+          <InfoTooltip
+            content={info}
+            tone='inherit'
+            dataTestId={{
+              root: dataTestId?.info,
+              content: dataTestId?.infoContent,
+            }}
+          />
+        ) : null}
         {onClose ? (
           <button
             type='button'

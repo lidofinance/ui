@@ -4,13 +4,17 @@
   align-items: center;
   gap: 4px;
   box-sizing: border-box;
-  padding: 4px;
+
+  /* Figma's inside stroke doesn't push the 4px tab inset */
+  padding: 3px;
+  border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-pill);
   background-color: var(--lido-app-ui-color-background-secondary);
 }
 
 .segmentedControl > button {
-  flex: 1 0 0;
+  /* basis 0 would split a hugging control equally and truncate its longest label */
+  flex: 1 1 auto;
 }
 
 .selection {
@@ -21,14 +25,14 @@
   border-radius: var(--lido-app-ui-border-radius-control);
   background-color: var(--lido-app-ui-color-background-surface);
   pointer-events: none;
-  will-change: transform, width, height;
+  will-change: transform;
 }
 
 .animated {
   transition:
-    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
-    width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
-    height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transform var(--lido-app-ui-duration-move) var(--lido-app-ui-easing-move),
+    width var(--lido-app-ui-duration-move) var(--lido-app-ui-easing-move),
+    height var(--lido-app-ui-duration-move) var(--lido-app-ui-easing-move);
 }
 
 @media (prefers-reduced-motion: reduce) {

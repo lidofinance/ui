@@ -1,0 +1,121 @@
+.stack {
+  position: fixed;
+  z-index: var(--lido-app-ui-z-index-toast);
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw - 2 * var(--lido-app-ui-space-20));
+  pointer-events: none;
+}
+
+.item {
+  display: grid;
+  grid-template-rows: 1fr;
+  pointer-events: none;
+  transition: grid-template-rows var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
+}
+
+.inner {
+  min-height: 0;
+}
+
+.body {
+  padding-bottom: var(--lido-app-ui-space-8);
+  transform-origin: right center;
+  transition:
+    opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out),
+    transform var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out);
+}
+
+.body > * {
+  pointer-events: auto;
+}
+
+/* Closed state: enter start position and exit fade timing. */
+.item[data-state='closed'] .body {
+  opacity: 0;
+  transform: translate(var(--toastShiftX), var(--toastShiftY));
+  transition-duration: var(--lido-app-ui-duration-fast-exit);
+  transition-timing-function: var(--lido-app-ui-easing-exit);
+}
+
+/* Collapse overlaps the fade so exit stays shorter than enter. */
+.item[data-state='closed'][data-motion='exit'] {
+  grid-template-rows: 0fr;
+  transition-delay: calc(var(--lido-app-ui-duration-fast-exit) * 0.2);
+  transition-duration: var(--lido-app-ui-duration-base-exit);
+  transition-timing-function: var(--lido-app-ui-easing-out);
+}
+
+.item[data-state='closed'][data-motion='exit'] .body {
+  transform: scale(var(--lido-app-ui-motion-scale));
+}
+
+.item[data-motion='exit'] .inner {
+  overflow-y: clip;
+}
+
+/* Bottom stacks: a new toast displaces the others, so rows grow on enter. */
+.bottomRight .item[data-state='closed'],
+.bottomCenter .item[data-state='closed'] {
+  grid-template-rows: 0fr;
+}
+
+.bottomRight .item[data-motion] .inner,
+.bottomCenter .item[data-motion] .inner {
+  overflow-y: clip;
+}
+
+.bottomCenter .body {
+  transform-origin: bottom center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack .item {
+    transition-duration: 0s;
+  }
+
+  .stack .item[data-state='closed'][data-motion='exit'] {
+    transition-duration: 0s;
+    transition-delay: var(--lido-app-ui-duration-fast-exit);
+  }
+
+  .stack .body {
+    transition-property: opacity;
+    transition-duration: var(--lido-app-ui-duration-fast);
+  }
+
+  .stack .item[data-state='closed'] .body {
+    transform: none;
+    transition-duration: var(--lido-app-ui-duration-fast-exit);
+  }
+}
+
+.topRight {
+  --toastShiftX: var(--lido-app-ui-space-16);
+  --toastShiftY: 0px;
+
+  top: calc(var(--lido-app-ui-sticky-top, 0px) + var(--lido-app-ui-space-8));
+  right: var(--lido-app-ui-space-20);
+}
+
+.bottomRight {
+  --toastShiftX: var(--lido-app-ui-space-16);
+  --toastShiftY: 0px;
+
+  right: var(--lido-app-ui-space-20);
+  bottom: calc(var(--lido-app-ui-space-20) - var(--lido-app-ui-space-8));
+}
+
+.bottomCenter {
+  --toastShiftX: 0px;
+  --toastShiftY: var(--lido-app-ui-space-12);
+
+  bottom: calc(var(--lido-app-ui-space-20) - var(--lido-app-ui-space-8));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.srOnly {
+  @mixin visually-hidden;
+}

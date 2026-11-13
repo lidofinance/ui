@@ -14,7 +14,7 @@ import cn from 'classnames'
 import { IconButton } from '../icon-button'
 import { IconChevronLeft, IconChevronRight } from '../icons'
 import { Input } from '../input'
-import { TokenSelector } from '../token-selector'
+import { Select } from '../select'
 import styles from './Pagination.module.css'
 
 export type PaginationLabels = {
@@ -121,7 +121,7 @@ export const Pagination = ({
       : pageSizeOptions
   ).map((size) => ({
     value: String(size),
-    label: <span className={styles.pageSizeLabel}>{size}</span>,
+    label: size,
   }))
 
   const fieldStyle = {
@@ -138,7 +138,7 @@ export const Pagination = ({
         <div className={styles.group}>
           <span className={styles.text}>{text.show}</span>
           <span className={styles.pageSize}>
-            <TokenSelector
+            <Select
               size='small'
               options={sizeOptions}
               value={String(pageSize)}

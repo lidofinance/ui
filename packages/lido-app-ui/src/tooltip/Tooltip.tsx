@@ -1,4 +1,5 @@
 import {
+  forwardRef,
   useCallback,
   useEffect,
   useId,
@@ -9,13 +10,22 @@ import {
   type FocusEvent,
   type MouseEvent,
   type ReactNode,
+  type RefObject,
 } from 'react'
 
 import cn from 'classnames'
 
 import { ThemeName, ThemeProvider } from '@lidofinance/lido-shared-ui'
 
-import { Portal, useEscape, useIsomorphicLayoutEffect } from '../hooks'
+import {
+  Portal,
+  useEscape,
+  useExitLatch,
+  useIsomorphicLayoutEffect,
+  useMergedRef,
+  usePresence,
+} from '../hooks'
+import { addDescribedBy } from '../utils/dom'
 import styles from './Tooltip.module.css'
 
 export type TooltipPosition =
@@ -27,6 +37,10 @@ export type TooltipPosition =
   | 'top-right'
   | 'bottom-left'
   | 'bottom-right'
+  | 'top-start'
+  | 'top-end'
+  | 'bottom-start'
+  | 'bottom-end'
 
 export type TooltipDataTestId = {
   root?: string
@@ -35,6 +49,7 @@ export type TooltipDataTestId = {
 
 export type TooltipProps = Omit<ComponentPropsWithoutRef<'span'>, 'content'> & {
   content: ReactNode
+  /** Side, or side + edge. `-start`/`-end`: above/below with that edge aligned to the anchor's. `-left`/`-right`: hangs diagonally off that corner. Flips/slides to stay in view. */
   position?: TooltipPosition
   /** Bubble width in px. */
   width?: number
@@ -79,7 +94,13 @@ const getAdjustment = (
   const spaceLeft = anchor.left - VIEWPORT_MARGIN
   const spaceRight = viewportWidth - anchor.right - VIEWPORT_MARGIN
 
-  let [main, corner] = position.split('-') as [string, string | undefined]
+  const [initialMain, suffix] = position.split('-') as [
+    string,
+    string | undefined,
+  ]
+  let main = initialMain
+  let corner = suffix === 'left' || suffix === 'right' ? suffix : undefined
+  let align = suffix === 'start' || suffix === 'end' ? suffix : undefined
   const fitGap = corner ? 0 : FIT_BUFFER
 
   // Side positions: flip to the other side, or fall back to a vertical
@@ -114,8 +135,20 @@ const getAdjustment = (
     }
   }
 
+  // Edge-aligned: flip to the opposite edge when that overflows the viewport less.
+  if (align) {
+    const overflowStart =
+      anchor.left + contentWidth - (viewportWidth - VIEWPORT_MARGIN)
+    const overflowEnd = VIEWPORT_MARGIN - (anchor.right - contentWidth)
+    const current = align === 'start' ? overflowStart : overflowEnd
+    const opposite = align === 'start' ? overflowEnd : overflowStart
+    if (current > 0 && opposite < current) {
+      align = align === 'start' ? 'end' : 'start'
+    }
+  }
+
   const resolvedPosition = (
-    corner ? `${main}-${corner}` : main
+    corner ? `${main}-${corner}` : align ? `${main}-${align}` : main
   ) as TooltipPosition
 
   let left: number
@@ -133,11 +166,15 @@ const getAdjustment = (
         ? anchor.right + MAIN_GAP
         : anchor.left - MAIN_GAP - contentWidth
   } else {
-    const idealLeft = !corner
-      ? anchor.left + anchor.width / 2 - contentWidth / 2
-      : corner === 'left'
-        ? anchor.left - contentWidth - CORNER_GAP
-        : anchor.right + CORNER_GAP
+    const idealLeft = align
+      ? align === 'start'
+        ? anchor.left
+        : anchor.right - contentWidth
+      : !corner
+        ? anchor.left + anchor.width / 2 - contentWidth / 2
+        : corner === 'left'
+          ? anchor.left - contentWidth - CORNER_GAP
+          : anchor.right + CORNER_GAP
     left = clampValue(
       idealLeft,
       VIEWPORT_MARGIN,
@@ -151,26 +188,45 @@ const getAdjustment = (
   return { position: resolvedPosition, left, top }
 }
 
-// Portaled, not just fixed: a transform/filter/backdrop-filter ancestor would capture position: fixed.
-/** Bubble rendered in a portal on `document.body`, so overflow-clipped ancestors never cut it off; flips or slides to stay in the viewport. Always dark, like Notification, so token-coloured content inside uses dark-theme values. */
-export const Tooltip = ({
-  content,
-  position = 'top',
-  width = 320,
-  className,
-  children,
-  onMouseEnter,
-  onMouseLeave,
-  onFocus,
-  onBlur,
+type BubbleProps = {
+  id: string
+  open: boolean
+  onExited: () => void
+  anchorRef: RefObject<HTMLElement | null>
+  position: TooltipPosition
+  width: number
+  dataTestId?: string
+  children: ReactNode
+}
+
+const TooltipBubble = ({
+  id,
+  open,
+  onExited,
+  anchorRef,
+  position,
+  width,
   dataTestId,
-  ...rest
-}: TooltipProps) => {
-  const anchorRef = useRef<HTMLSpanElement>(null)
+  children,
+}: BubbleProps) => {
   const [contentEl, setContentEl] = useState<HTMLSpanElement | null>(null)
-  const [open, setOpen] = useState(false)
-  const [focusedEl, setFocusedEl] = useState<HTMLElement | null>(null)
-  const tooltipId = useId()
+  const [placed, setPlaced] = useState(false)
+  // Pre-enter starts only once data-position is on the node, so the pop grows from the right side.
+  const presence = usePresence<HTMLSpanElement>(open && placed)
+  const { ref: presenceRef } = presence
+
+  const setContent = useCallback(
+    (node: HTMLSpanElement | null) => {
+      setContentEl(node)
+      presenceRef(node)
+    },
+    [presenceRef],
+  )
+
+  // Closed before ever entering: the hook has nothing to exit.
+  useIsomorphicLayoutEffect(() => {
+    if (!open && presence.status === 'exited') onExited()
+  }, [open, presence.status, onExited])
 
   const updatePosition = useCallback(() => {
     const anchor = anchorRef.current
@@ -188,11 +244,11 @@ export const Tooltip = ({
     contentEl.style.left = `${left}px`
     contentEl.style.top = `${top}px`
     contentEl.dataset.position = resolved
-    contentEl.dataset.placed = 'true'
-  }, [position, contentEl])
+    setPlaced(true)
+  }, [anchorRef, position, contentEl])
 
   useIsomorphicLayoutEffect(() => {
-    if (!open || !contentEl) return
+    if (!contentEl) return
     updatePosition()
     window.addEventListener('scroll', updatePosition, true)
     window.addEventListener('resize', updatePosition)
@@ -200,85 +256,132 @@ export const Tooltip = ({
       window.removeEventListener('scroll', updatePosition, true)
       window.removeEventListener('resize', updatePosition)
     }
-  }, [open, contentEl, updatePosition])
-
-  // AT describes the focused element, not the wrapper, so the id is merged onto it too.
-  useEffect(() => {
-    if (!open || !contentEl || !focusedEl) return
-    const ids = (focusedEl.getAttribute('aria-describedby') ?? '')
-      .split(' ')
-      .filter(Boolean)
-    if (ids.includes(tooltipId)) return
-    focusedEl.setAttribute('aria-describedby', [...ids, tooltipId].join(' '))
-    return () => {
-      const rest = (focusedEl.getAttribute('aria-describedby') ?? '')
-        .split(' ')
-        .filter((id) => id && id !== tooltipId)
-      if (rest.length)
-        focusedEl.setAttribute('aria-describedby', rest.join(' '))
-      else focusedEl.removeAttribute('aria-describedby')
-    }
-  }, [open, contentEl, focusedEl, tooltipId])
-
-  // A hover-opened tooltip has no focus to catch the key, so Escape is heard document-wide.
-  useEscape(() => setOpen(false), { enabled: open })
-
-  const handleMouseEnter = (event: MouseEvent<HTMLSpanElement>) => {
-    onMouseEnter?.(event)
-    setOpen(true)
-  }
-
-  const handleMouseLeave = (event: MouseEvent<HTMLSpanElement>) => {
-    onMouseLeave?.(event)
-    setOpen(false)
-  }
-
-  const handleFocus = (event: FocusEvent<HTMLSpanElement>) => {
-    onFocus?.(event)
-    if (event.target !== anchorRef.current)
-      setFocusedEl(event.target as HTMLElement)
-    setOpen(true)
-  }
-
-  const handleBlur = (event: FocusEvent<HTMLSpanElement>) => {
-    onBlur?.(event)
-    setFocusedEl(null)
-    setOpen(false)
-  }
+  }, [contentEl, updatePosition])
 
   return (
     <span
-      ref={anchorRef}
-      className={cn(styles.wrapper, className)}
-      aria-describedby={open ? tooltipId : undefined}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      data-testid={dataTestId?.root}
-      {...rest}
+      ref={setContent}
+      id={id}
+      role='tooltip'
+      className={styles.content}
+      {...presence.motionProps}
+      style={
+        {
+          '--local-tooltip-width': getMaxWidth(width),
+        } as CSSProperties
+      }
+      data-testid={dataTestId}
     >
       {children}
-      {open ? (
-        <Portal>
-          <ThemeProvider themeName={ThemeName.dark}>
-            <span
-              ref={setContentEl}
-              id={tooltipId}
-              role='tooltip'
-              className={styles.content}
-              style={
-                { '--local-tooltip-width': getMaxWidth(width) } as CSSProperties
-              }
-              data-testid={dataTestId?.content}
-            >
-              {content}
-            </span>
-          </ThemeProvider>
-        </Portal>
-      ) : null}
     </span>
   )
 }
+
+// Portaled, not just fixed: a transform/filter/backdrop-filter ancestor would capture position: fixed.
+/** Bubble rendered in a portal on `document.body`, so overflow-clipped ancestors never cut it off; flips or slides to stay in the viewport. Always dark, like Notification, so token-coloured content inside uses dark-theme values. */
+export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
+  (
+    {
+      content,
+      position = 'top',
+      width = 320,
+      className,
+      children,
+      onMouseEnter,
+      onMouseLeave,
+      onFocus,
+      onBlur,
+      dataTestId,
+      ...rest
+    },
+    forwardedRef,
+  ) => {
+    const anchorRef = useRef<HTMLSpanElement | null>(null)
+    const setAnchor = useMergedRef(anchorRef, forwardedRef)
+    const [hovered, setHovered] = useState(false)
+    const [focused, setFocused] = useState(false)
+    const open = hovered || focused
+    const [focusedEl, setFocusedEl] = useState<HTMLElement | null>(null)
+    const tooltipId = useId()
+    // Stays mounted until the bubble's exit motion ends.
+    const { present, onExited } = useExitLatch(open)
+
+    // AT describes the focused element, not the wrapper, so the id is merged onto it too.
+    useEffect(() => {
+      if (!open || !focusedEl) return
+      return addDescribedBy(focusedEl, tooltipId)
+    }, [open, focusedEl, tooltipId])
+
+    // A hover-opened tooltip has no focus to catch the key, so Escape is heard document-wide.
+    useEscape(
+      () => {
+        setHovered(false)
+        setFocused(false)
+      },
+      { enabled: open },
+    )
+
+    const handleMouseEnter = (event: MouseEvent<HTMLSpanElement>) => {
+      onMouseEnter?.(event)
+      setHovered(true)
+    }
+
+    const handleMouseLeave = (event: MouseEvent<HTMLSpanElement>) => {
+      onMouseLeave?.(event)
+      setHovered(false)
+    }
+
+    const handleFocus = (event: FocusEvent<HTMLSpanElement>) => {
+      onFocus?.(event)
+      setFocusedEl(
+        event.target !== anchorRef.current
+          ? (event.target as HTMLElement)
+          : null,
+      )
+      setFocused(true)
+    }
+
+    const handleBlur = (event: FocusEvent<HTMLSpanElement>) => {
+      onBlur?.(event)
+      if (anchorRef.current?.contains(event.relatedTarget as Node | null))
+        return
+      setFocusedEl(null)
+      setFocused(false)
+    }
+
+    return (
+      <span
+        ref={setAnchor}
+        className={cn(styles.wrapper, className)}
+        aria-describedby={open ? tooltipId : undefined}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        data-testid={dataTestId?.root}
+        {...rest}
+      >
+        {children}
+        {open || present ? (
+          <Portal>
+            <ThemeProvider themeName={ThemeName.dark}>
+              <TooltipBubble
+                id={tooltipId}
+                open={open}
+                onExited={onExited}
+                anchorRef={anchorRef}
+                position={position}
+                width={width}
+                dataTestId={dataTestId?.content}
+              >
+                {content}
+              </TooltipBubble>
+            </ThemeProvider>
+          </Portal>
+        ) : null}
+      </span>
+    )
+  },
+)
 
 Tooltip.displayName = 'Tooltip'

@@ -62,7 +62,8 @@
   );
 
   width: clamp(0px, calc((100vw - var(--local-breakpoint)) * 10000), 63.125px);
-  transition: width 0.2s ease;
+  transition: width var(--lido-app-ui-duration-move)
+    var(--lido-app-ui-easing-move);
 }
 
 @media (prefers-reduced-motion: reduce) {

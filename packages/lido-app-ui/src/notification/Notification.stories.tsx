@@ -106,6 +106,26 @@ export const OtherOperator: Story = {
   ),
 }
 
+export const Fluid: Story = {
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: '`fluid` fills the container instead of the fixed 320px width.',
+      },
+    },
+  },
+  render: () => (
+    <Notification
+      fluid
+      title='Unsupported chain'
+      actions={<Button size='small'>Switch network</Button>}
+    >
+      Connect to a supported network to continue.
+    </Notification>
+  ),
+}
+
 export const Dismissible: Story = {
   parameters: {
     controls: { disable: true },
