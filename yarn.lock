@@ -3024,9 +3024,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lidofinance/multi-semantic-release@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@lidofinance/multi-semantic-release@npm:1.0.3"
+"@lidofinance/multi-semantic-release@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@lidofinance/multi-semantic-release@npm:1.1.0"
   dependencies:
     "@semrel-extra/topo": "npm:^1.14.1"
     "@types/git-log-parser": "npm:^1.2.3"
@@ -3044,7 +3044,7 @@ __metadata:
     winston: "npm:^3.17.0"
   bin:
     multi-semantic-release: dist/cli.js
-  checksum: 10c0/89b6cf84ab33666a056d805af0e8c3bac4be1e6ef4821986f806e115d2fe960adc8a0633f4d5e9c5b9bc9a0e64b1194bfc4052897db22e279d1bbe8901ffd094
+  checksum: 10c0/93d4c09314e72081db45da5c8a4515d02c784df0e7a654272a01fba381999f9743c5a27c6d52e975bd5f514274fdcae4326f7f8a63c41ef7157fe4598ba14455
   languageName: node
   linkType: hard
 
@@ -19480,7 +19480,7 @@ __metadata:
     "@commitlint/cli": "npm:19.8.0"
     "@commitlint/config-conventional": "npm:19.8.0"
     "@eslint/js": "npm:9.39.5"
-    "@lidofinance/multi-semantic-release": "npm:^1.0.3"
+    "@lidofinance/multi-semantic-release": "npm:^1.1.0"
     "@semantic-release/commit-analyzer": "npm:13.0.1"
     "@semantic-release/github": "npm:12.0.8"
     "@semantic-release/npm": "npm:13.1.5"
