@@ -31,6 +31,13 @@
   "files": [
     "dist"
   ],
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 121",
+    "safari >= 16.4",
+    "ios_saf >= 16.4"
+  ],
   "scripts": {
     "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json && cp dist/esm/index.css dist/index.css && cp README.md dist/README.md",
     "dev": "storybook dev -p 5557",

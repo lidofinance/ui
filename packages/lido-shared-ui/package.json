@@ -27,6 +27,11 @@
   "files": [
     "dist"
   ],
+  "browserslist": [
+    "chrome >= 100",
+    "firefox >= 91",
+    "safari >= 15"
+  ],
   "scripts": {
     "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json && cp dist/esm/index.css dist/index.css && cp README.md dist/README.md",
     "test": "vitest run",

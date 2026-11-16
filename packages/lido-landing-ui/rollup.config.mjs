@@ -9,6 +9,9 @@ import commonjs from '@rollup/plugin-commonjs'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
+// Babel and cssnano look up browserslist from the repo root; pin it to this package.
+process.env.BROWSERSLIST_CONFIG = fs.realpathSync('package.json')
+
 const { dependencies = {}, peerDependencies = {} } = JSON.parse(
   fs.readFileSync('package.json', 'utf-8'),
 )
