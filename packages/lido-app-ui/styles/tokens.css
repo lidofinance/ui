@@ -196,6 +196,8 @@
 
 :root,
 [data-lido-theme='light'] {
+  color-scheme: light;
+
   /* Display toggles so a component can show one of two icons from CSS alone, before JS knows the theme */
   --lido-app-ui-light-only-display: inline-flex;
   --lido-app-ui-dark-only-display: none;
@@ -321,6 +323,8 @@
 /* Dark theme. Follows the `data-lido-theme` attribute set by ThemeProvider /
    CookieThemeProvider from @lidofinance/lido-shared-ui. */
 [data-lido-theme='dark'] {
+  color-scheme: dark;
+
   /* Display toggles so a component can show one of two icons from CSS alone, before JS knows the theme */
   --lido-app-ui-light-only-display: none;
   --lido-app-ui-dark-only-display: inline-flex;

@@ -30,6 +30,11 @@ const lightBlock = blockBody(":root,\n[data-lido-theme='light']")
 const darkBlock = blockBody("[data-lido-theme='dark']")
 
 describe('styles/tokens.css layout', () => {
+  it('declares the native color-scheme on each theme root', () => {
+    expect(lightBlock).toMatch(/^\s*color-scheme: light;$/m)
+    expect(darkBlock).toMatch(/^\s*color-scheme: dark;$/m)
+  })
+
   it('theme blocks declare only color tokens', () => {
     const nonColor = [...declared(lightBlock), ...declared(darkBlock)].filter(
       (name) => !isThemeScoped(name),
