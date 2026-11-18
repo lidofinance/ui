@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -12,16 +13,46 @@ describe('Pagination', () => {
     )
     const prev = screen.getByRole('button', { name: 'Previous page' })
     const next = screen.getByRole('button', { name: 'Next page' })
-    expect(prev).toBeDisabled()
-    expect(next).toBeEnabled()
+    expect(prev).toHaveAttribute('aria-disabled', 'true')
+    expect(next).not.toHaveAttribute('aria-disabled')
+    fireEvent.click(prev)
+    expect(onPageChange).not.toHaveBeenCalled()
 
     fireEvent.click(next)
     expect(onPageChange).toHaveBeenCalledWith(2)
 
     rerender(<Pagination page={5} pageCount={5} onPageChange={onPageChange} />)
-    expect(screen.getByRole('button', { name: 'Next page' })).toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Next page' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    )
     fireEvent.click(screen.getByRole('button', { name: 'Previous page' }))
     expect(onPageChange).toHaveBeenLastCalledWith(4)
+  })
+
+  it('keeps focus on Next when it reaches the last page', async () => {
+    const onPageChange = vi.fn()
+    const Controlled = () => {
+      const [page, setPage] = useState(4)
+      return (
+        <Pagination
+          page={page}
+          pageCount={5}
+          onPageChange={(next) => {
+            onPageChange(next)
+            setPage(next)
+          }}
+        />
+      )
+    }
+    render(<Controlled />)
+    const next = screen.getByRole('button', { name: 'Next page' })
+    await userEvent.click(next)
+    expect(next).toHaveAttribute('aria-disabled', 'true')
+    expect(next).toBeEnabled()
+    expect(next).toHaveFocus()
+    await userEvent.keyboard('{Enter}')
+    expect(onPageChange).toHaveBeenCalledTimes(1)
   })
 
   it('commits a typed page on Enter and clamps it to the range', async () => {
@@ -109,7 +140,7 @@ describe('Pagination', () => {
         onPageSizeChange={onPageSizeChange}
       />,
     )
-    fireEvent.click(screen.getByRole('button', { expanded: false }))
+    fireEvent.click(screen.getByRole('combobox'))
     fireEvent.click(screen.getByRole('option', { name: '50' }))
     expect(onPageSizeChange).toHaveBeenCalledWith(50)
   })
@@ -130,7 +161,7 @@ describe('Pagination', () => {
     expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument()
   })
 
-  it('names the page-size dialog and honours a custom label', () => {
+  it('names the page-size combobox and list, honouring a custom label', () => {
     const { unmount } = render(
       <Pagination
         page={1}
@@ -139,9 +170,12 @@ describe('Pagination', () => {
         onPageChange={() => undefined}
       />,
     )
-    fireEvent.click(screen.getByRole('button', { expanded: false }))
     expect(
-      screen.getByRole('dialog', { name: 'Records per page' }),
+      screen.getByRole('combobox', { name: 'Records per page' }),
+    ).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('combobox'))
+    expect(
+      screen.getByRole('listbox', { name: 'Records per page' }),
     ).toBeInTheDocument()
     unmount()
     render(
@@ -153,9 +187,9 @@ describe('Pagination', () => {
         labels={{ pageSize: 'Zeilen pro Seite' }}
       />,
     )
-    fireEvent.click(screen.getByRole('button', { expanded: false }))
+    fireEvent.click(screen.getByRole('combobox'))
     expect(
-      screen.getByRole('dialog', { name: 'Zeilen pro Seite' }),
+      screen.getByRole('listbox', { name: 'Zeilen pro Seite' }),
     ).toBeInTheDocument()
   })
 })

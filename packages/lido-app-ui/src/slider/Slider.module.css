@@ -5,6 +5,8 @@
 }
 
 .track {
+  --local-thumb-size: 32px;
+
   position: relative;
   width: 100%;
   height: 32px;
@@ -28,15 +30,26 @@
   background-color: var(--lido-app-ui-color-background-surface-selected);
 }
 
-.mark {
+.marks {
   position: absolute;
+
+  /* border box spans thumb-centre range so marks sit under the thumb at each step */
+  inset-inline: calc(var(--local-thumb-size) / 2);
   top: 50%;
-  width: 4px;
+  box-sizing: border-box;
   height: 4px;
-  margin-left: -2px;
+  padding-inline: 2px;
   transform: translateY(-50%);
-  border-radius: 50%;
-  background-color: var(--lido-app-ui-color-background-surface);
+  background-image: radial-gradient(
+    circle closest-side,
+    var(--lido-app-ui-color-background-surface) 100%,
+    transparent
+  );
+  background-origin: border-box;
+  background-clip: content-box;
+  background-position-x: calc(100% / (2 * (var(--local-steps) - 1)));
+  background-repeat: repeat-x;
+  background-size: calc(100% / var(--local-steps)) 100%;
   pointer-events: none;
 }
 
@@ -68,8 +81,8 @@
 .input::-webkit-slider-thumb {
   appearance: none;
   box-sizing: border-box;
-  width: 32px;
-  height: 32px;
+  width: var(--local-thumb-size);
+  height: var(--local-thumb-size);
   border: 4px solid var(--lido-app-ui-color-border-active);
   border-radius: 50%;
   background-color: var(--lido-app-ui-color-background-surface);
@@ -78,8 +91,8 @@
 
 .input::-moz-range-thumb {
   box-sizing: border-box;
-  width: 32px;
-  height: 32px;
+  width: var(--local-thumb-size);
+  height: var(--local-thumb-size);
   border: 4px solid var(--lido-app-ui-color-border-active);
   border-radius: 50%;
   background-color: var(--lido-app-ui-color-background-surface);

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StoryContainer, StorySection } from '../../.storybook/components'
-import { TokenEth, TokenSteth, TokenWsteth } from '../icons'
+import { TokenEth, TokenStEth, TokenWstEth } from '../icons'
 import { TokenSelector, type TokenSelectorOption } from '.'
 
 const options: TokenSelectorOption[] = [
@@ -18,14 +18,14 @@ const options: TokenSelectorOption[] = [
     label: 'stETH',
     secondaryLabel: 'Staked Ether',
     description: 'Rebasing — balance grows with rewards.',
-    icon: <TokenSteth />,
+    icon: <TokenStEth />,
   },
   {
     value: 'wstETH',
     label: 'wstETH',
     secondaryLabel: 'Wrapped Staked Ether',
     description: 'Non-rebasing — value grows instead.',
-    icon: <TokenWsteth />,
+    icon: <TokenWstEth />,
     disabled: true,
   },
 ]
@@ -50,6 +50,16 @@ const meta: Meta<typeof TokenSelector> = {
   },
   parameters: {
     controls: { disable: true },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=1717-58190&m=dev',
+    },
+    docs: {
+      description: {
+        component:
+          'A `Select` preset with the token-picker look: semibold labels, a "Select" placeholder and a "Select token" list name. It accepts every `Select` prop.',
+      },
+    },
   },
 }
 
