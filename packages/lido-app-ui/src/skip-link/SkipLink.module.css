@@ -14,11 +14,14 @@
 
   /* clears the top offset and the default shadow's 32px blur */
   transform: translateY(calc(-100% - 12px - 32px));
-  transition: transform 0.2s ease;
+  transition: transform var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
 }
 
 .root:focus {
   transform: none;
+  transition-duration: var(--lido-app-ui-duration-fast);
+  transition-timing-function: var(--lido-app-ui-easing-out);
 }
 
 .root:focus-visible {

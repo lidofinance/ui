@@ -1,3 +1,4 @@
+import { createRef } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
@@ -29,5 +30,11 @@ describe('Footer', () => {
     expect(screen.getByTestId('r')).toBe(screen.getByRole('contentinfo'))
     expect(screen.getByTestId('c')).toHaveTextContent('L')
     expect(screen.getByTestId('a')).toHaveTextContent('V')
+  })
+
+  it('forwards the ref to the contentinfo root', () => {
+    const ref = createRef<HTMLElement>()
+    render(<Footer ref={ref}>Foot</Footer>)
+    expect(ref.current).toBe(screen.getByRole('contentinfo'))
   })
 })

@@ -22,6 +22,10 @@
   color: var(--lido-app-ui-color-icons-tertiary);
 }
 
+.inherit {
+  color: inherit;
+}
+
 .root > svg {
   display: block;
 }

@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes } from 'react'
+import { forwardRef, useMemo, useState, type HTMLAttributes } from 'react'
 
 import cn from 'classnames'
 
@@ -19,7 +19,17 @@ export type SidebarLayoutProps = HTMLAttributes<HTMLDivElement> & {
  */
 export const SidebarLayout = forwardRef<HTMLDivElement, SidebarLayoutProps>(
   ({ defaultOpen, open, onOpenChange, className, ...rest }, ref) => {
-    const value = useSidebarDrawer({ defaultOpen, open, onOpenChange })
+    const [sidebarId, setSidebarId] = useState<string>()
+    const drawer = useSidebarDrawer({
+      defaultOpen,
+      open,
+      onOpenChange,
+      id: sidebarId,
+    })
+    const value = useMemo(
+      () => ({ ...drawer, registerSidebarId: setSidebarId }),
+      [drawer],
+    )
 
     return (
       <SidebarContext.Provider value={value}>

@@ -2,7 +2,11 @@ import { createContext, useContext } from 'react'
 
 import type { UseSidebarDrawerResult } from './useSidebarDrawer'
 
-export const SidebarContext = createContext<UseSidebarDrawerResult | undefined>(
+export type SidebarContextValue = UseSidebarDrawerResult & {
+  registerSidebarId?: (id: string | undefined) => void
+}
+
+export const SidebarContext = createContext<SidebarContextValue | undefined>(
   undefined,
 )
 

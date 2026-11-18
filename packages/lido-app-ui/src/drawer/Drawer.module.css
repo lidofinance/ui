@@ -1,0 +1,136 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--lido-app-ui-z-index-drawer);
+
+  @mixin motion-scrim var(--lido-app-ui-duration-slow),
+    var(--lido-app-ui-duration-slow-exit);
+}
+
+.panel {
+  --local-padding: 32px;
+  --local-slide-x: 100%;
+  --local-slide-y: 0;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: var(--local-width);
+  max-width: 100%;
+  padding: var(--local-padding) var(--local-padding) 0;
+  overflow: hidden;
+  background-color: var(--lido-app-ui-color-background-surface);
+  box-shadow: var(--lido-app-ui-shadow-default);
+  font-family: var(--lido-app-ui-font-family);
+  color: var(--lido-app-ui-color-text-default);
+
+  @mixin motion-slide var(--local-slide-x), var(--local-slide-y),
+    var(--lido-app-ui-duration-slow), var(--lido-app-ui-duration-slow-exit),
+    var(--lido-app-ui-easing-drawer);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-property: transform;
+
+    &[data-state='closed'] {
+      opacity: 1;
+    }
+  }
+}
+
+.right {
+  right: 0;
+}
+
+.left {
+  --local-slide-x: -100%;
+
+  left: 0;
+}
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: calc(-1 * var(--local-padding));
+  left: calc(-1 * var(--local-padding));
+  height: 24px;
+  background: linear-gradient(
+    var(--lido-app-ui-color-background-surface),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity var(--lido-app-ui-duration-base)
+      var(--lido-app-ui-easing-out);
+  }
+}
+
+.panel[data-scrolled] .header::after {
+  opacity: 1;
+}
+
+.title {
+  flex: 1 0 0;
+  min-width: 0;
+
+  @mixin font-h2;
+
+  overflow-wrap: anywhere;
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  margin: 0 calc(-1 * var(--local-padding));
+  padding: 40px var(--local-padding) 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (--lido-app-ui-breakpoint-sm-down) {
+  .panel {
+    --local-padding: 16px;
+    --local-slide-x: 0;
+    --local-slide-y: 100%;
+
+    top: calc(
+      var(--lido-app-ui-header-height) + var(--lido-app-ui-viewport-inset)
+    );
+    right: 0;
+    left: 0;
+    width: auto;
+    padding-top: 24px;
+    border: 1px solid var(--lido-app-ui-color-border-default);
+    border-bottom: 0;
+    border-radius: var(--lido-app-ui-border-radius-lg)
+      var(--lido-app-ui-border-radius-lg) 0 0;
+  }
+
+  .header {
+    margin-top: -24px;
+    padding-top: 24px;
+    cursor: grab;
+    touch-action: none;
+  }
+
+  .body {
+    padding-top: 24px;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+}

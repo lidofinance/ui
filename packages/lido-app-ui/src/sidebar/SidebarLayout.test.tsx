@@ -37,6 +37,18 @@ describe('SidebarLayout', () => {
     expect(sidebar.getAttribute('data-open')).toBe('false')
   })
 
+  it('points the toggle aria-controls at an explicit Sidebar id', () => {
+    render(
+      <SidebarLayout>
+        <Sidebar id='nav' />
+        <SidebarToggle />
+      </SidebarLayout>,
+    )
+    const toggle = screen.getByRole('button', { name: 'Open menu' })
+    expect(toggle).toHaveAttribute('aria-controls', 'nav')
+    expect(document.getElementById('nav')).not.toBeNull()
+  })
+
   it('supports defaultOpen', () => {
     const { container } = render(<Layout defaultOpen />)
     expect(getSidebar(container).getAttribute('data-open')).toBe('true')

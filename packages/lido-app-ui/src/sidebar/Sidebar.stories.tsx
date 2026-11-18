@@ -4,7 +4,6 @@ import { useArgs } from '@storybook/preview-api'
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, within } from '@storybook/test'
 
-import { Banner } from '../banner'
 import { Button } from '../button'
 import { Counter } from '../counter'
 import {
@@ -85,13 +84,16 @@ const meta: Meta<typeof Sidebar> = {
       },
     },
   },
+  argTypes: {
+    onClose: { control: false },
+  },
   args: {
     logo: LOGO,
     children: menu,
     footer,
     open: true,
     closeOnNavigate: true,
-    navLabel: 'Primary',
+    labels: { close: 'Close menu', nav: 'Primary' },
   },
 }
 
@@ -109,7 +111,10 @@ export const Basic: Story = {
     )
   },
   parameters: {
-    docs: { description: { story: 'Desktop composition.' } },
+    docs: {
+      source: { type: 'code' },
+      description: { story: 'Desktop composition.' },
+    },
   },
 }
 
@@ -160,87 +165,11 @@ export const MobileDrawer: Story = {
     docs: {
       description: {
         story:
-          '`SidebarLayout` wires `Sidebar` and `SidebarToggle` through context (`useSidebarDrawer` does the same by spreading props explicitly). At `lg` and below the sidebar slides in over a scrim; Escape, scrim click, the close button or following a link dismiss it. The play function opens it.',
+          '`SidebarLayout` wires `Sidebar` and `SidebarToggle` through context. At `lg` and below the sidebar slides in over a scrim; Escape, scrim click, the close button or following a link dismiss it. The play function opens it.',
       },
     },
   },
   globals: narrow,
-}
-
-const Paragraphs = ({ count = 30 }: { count?: number }) => (
-  <>
-    {Array.from({ length: count }, (_, index) => (
-      <p key={index}>
-        Paragraph {index + 1}. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-      </p>
-    ))}
-  </>
-)
-
-export const AppShell: Story = {
-  render: () => (
-    <SidebarLayout>
-      <Sidebar logo={LOGO} footer={footer}>
-        {menu}
-      </Sidebar>
-      <SidebarInset>
-        <header
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-            padding: 12,
-          }}
-        >
-          <TopBar>
-            <SidebarToggle />
-          </TopBar>
-          <h1 style={{ margin: 0, fontSize: 20 }}>Dashboard</h1>
-        </header>
-        <main style={{ padding: 24 }}>
-          <Paragraphs />
-        </main>
-      </SidebarInset>
-    </SidebarLayout>
-  ),
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: {
-        story:
-          'Full composition: sticky sidebar on desktop, drawer with a header toggle on narrow viewports.',
-      },
-    },
-  },
-}
-
-export const WithBanner: Story = {
-  render: () => (
-    <>
-      <Banner
-        title='Scheduled maintenance'
-        description='Some actions may be unavailable on Friday.'
-      />
-      <SidebarLayout>
-        <Sidebar logo={LOGO} footer={footer}>
-          {menu}
-        </Sidebar>
-        <SidebarInset style={{ padding: 24 }}>
-          <Paragraphs />
-        </SidebarInset>
-      </SidebarLayout>
-    </>
-  ),
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: {
-        story:
-          'The height of the banner above is measured automatically. The sidebar grows to full height as the banner scrolls away.',
-      },
-    },
-  },
 }
 
 export const LongMenu: Story = {

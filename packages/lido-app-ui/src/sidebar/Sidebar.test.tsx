@@ -2,6 +2,12 @@ import { createRef, forwardRef, useState, type ReactNode } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, fireEvent, render, screen } from '@testing-library/react'
 
+import {
+  back,
+  FakeWatcher,
+  installCloseWatcher,
+  uninstallCloseWatcher,
+} from '../hooks/closeWatcher.test-utils'
 import { Counter } from '../counter'
 import { Portal, useEscape, useFocusTrap } from '../hooks'
 import { LinkProvider, type LinkComponentProps } from '../link-provider'
@@ -188,7 +194,9 @@ describe('Sidebar', () => {
   it('calls onClose on scrim click', () => {
     const onClose = vi.fn()
     const { container } = render(<Sidebar logo='Logo' open onClose={onClose} />)
-    fireEvent.click(container.firstElementChild as HTMLElement)
+    const scrim = container.firstElementChild as HTMLElement
+    fireEvent.pointerDown(scrim, { button: 0 })
+    fireEvent.click(scrim)
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
@@ -481,5 +489,84 @@ describe('Sidebar measured offset', () => {
     mockTop(80)
     fireEvent(window, new Event('resize'))
     expect(offset(container)).toBe('80px')
+  })
+})
+
+describe('Sidebar labels', () => {
+  it('uses a custom close label', () => {
+    render(
+      <Sidebar
+        logo='Logo'
+        open
+        onClose={vi.fn()}
+        labels={{ close: 'Menü schließen' }}
+      />,
+    )
+    expect(screen.getByRole('button', { name: 'Menü schließen' })).toBeTruthy()
+  })
+
+  it('names the nav via labels.nav, falling back to the deprecated navLabel', () => {
+    const { rerender } = render(<Sidebar navLabel='Alt'>x</Sidebar>)
+    expect(screen.getByRole('navigation', { name: 'Alt' })).toBeTruthy()
+    rerender(
+      <Sidebar navLabel='Alt' labels={{ nav: 'Hauptmenü' }}>
+        x
+      </Sidebar>,
+    )
+    expect(screen.getByRole('navigation', { name: 'Hauptmenü' })).toBeTruthy()
+  })
+})
+
+describe('Sidebar dismissal', () => {
+  const blockNavigation = (e: Event) => e.preventDefault()
+  beforeEach(() => {
+    document.addEventListener('click', blockNavigation)
+  })
+  afterEach(() => document.removeEventListener('click', blockNavigation))
+
+  const setup = (props: Partial<React.ComponentProps<typeof Sidebar>> = {}) => {
+    const onClose = vi.fn()
+    const result = render(
+      <Sidebar logo='Logo' open onClose={onClose} {...props}>
+        <SidebarItem href='/a'>A</SidebarItem>
+      </Sidebar>,
+    )
+    return { onClose, ...result }
+  }
+
+  const clickScrim = (container: HTMLElement) => {
+    const scrim = container.querySelector('[aria-hidden=true]') as HTMLElement
+    fireEvent.pointerDown(scrim)
+    fireEvent.click(scrim)
+  }
+
+  it('calls onClose without arguments for Escape, scrim, close button, link navigate and leaving drawer width', () => {
+    const media = stubMatchMedia(true)
+    const { onClose, container } = setup()
+    fireEvent.keyDown(document, { key: 'Escape' })
+    clickScrim(container)
+    fireEvent.click(screen.getByRole('button', { name: 'Close menu' }))
+    fireEvent.click(screen.getByRole('link', { name: 'A' }))
+    media.set(false)
+    expect(onClose.mock.calls).toEqual([[], [], [], [], []])
+  })
+})
+
+describe('Sidebar Android back', () => {
+  beforeEach(() => installCloseWatcher())
+  afterEach(uninstallCloseWatcher)
+
+  it('closes the drawer on back', () => {
+    stubMatchMedia(true)
+    const onClose = vi.fn()
+    render(<Sidebar logo='Logo' open onClose={onClose} />)
+    back()
+    expect(onClose).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not create a CloseWatcher outside the drawer viewport', () => {
+    stubMatchMedia(false)
+    render(<Sidebar logo='Logo' open onClose={vi.fn()} />)
+    expect(FakeWatcher.all).toHaveLength(0)
   })
 })

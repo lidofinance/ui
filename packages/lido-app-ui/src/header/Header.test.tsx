@@ -1,3 +1,4 @@
+import { createRef } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
@@ -48,5 +49,11 @@ describe('Header', () => {
     expect(screen.getByTestId('r')).toBe(screen.getByRole('banner'))
     expect(screen.getByTestId('c')).toHaveTextContent('L')
     expect(screen.getByTestId('a')).toHaveTextContent('A')
+  })
+
+  it('forwards the ref to the banner', () => {
+    const ref = createRef<HTMLElement>()
+    render(<Header ref={ref}>Head</Header>)
+    expect(ref.current).toBe(screen.getByRole('banner'))
   })
 })

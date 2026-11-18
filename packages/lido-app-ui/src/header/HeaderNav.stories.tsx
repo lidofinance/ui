@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect, waitFor, within } from '@storybook/test'
 
@@ -18,13 +17,6 @@ const meta: Meta<typeof HeaderNav> = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-
-const DemoHeader = ({ children }: { children: ReactNode }) => (
-  <Header>
-    <Logo href='#' />
-    {children}
-  </Header>
-)
 
 const links = ['Stake', 'Earn', 'Lend', 'Swap', 'Portfolio']
 const manyLinks = [
@@ -47,7 +39,8 @@ export const Basic: Story = {
     },
   },
   render: () => (
-    <DemoHeader>
+    <Header>
+      <Logo href='#' />
       <HeaderNav>
         {links.map((label, i) => (
           <NavLink key={label} href='#' active={i === 0}>
@@ -55,7 +48,7 @@ export const Basic: Story = {
           </NavLink>
         ))}
       </HeaderNav>
-    </DemoHeader>
+    </Header>
   ),
 }
 
@@ -82,7 +75,8 @@ export const Overflow: Story = {
   },
   render: () => (
     <div style={{ maxWidth: 480 }}>
-      <DemoHeader>
+      <Header>
+        <Logo href='#' />
         <HeaderNav>
           {manyLinks.map((label, i) => (
             <NavLink key={label} href='#' active={i === manyLinks.length - 2}>
@@ -90,7 +84,7 @@ export const Overflow: Story = {
             </NavLink>
           ))}
         </HeaderNav>
-      </DemoHeader>
+      </Header>
     </div>
   ),
 }
@@ -104,7 +98,8 @@ export const ExternalLinks: Story = {
     },
   },
   render: () => (
-    <DemoHeader>
+    <Header>
+      <Logo href='#' />
       <HeaderNav>
         <NavLink href='#' active>
           Dashboard
@@ -112,6 +107,6 @@ export const ExternalLinks: Story = {
         <NavLink href='https://docs.lido.fi'>Docs</NavLink>
         <NavLink href='https://research.lido.fi'>Research</NavLink>
       </HeaderNav>
-    </DemoHeader>
+    </Header>
   ),
 }

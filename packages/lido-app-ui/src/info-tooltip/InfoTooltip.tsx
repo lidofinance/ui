@@ -7,7 +7,7 @@ import { Tooltip, type TooltipProps } from '../tooltip'
 import styles from './InfoTooltip.module.css'
 
 export type InfoTooltipSize = 16 | 20
-export type InfoTooltipTone = 'secondary' | 'tertiary'
+export type InfoTooltipTone = 'secondary' | 'tertiary' | 'inherit'
 
 export type InfoTooltipProps = Omit<TooltipProps, 'children'> & {
   /** Glyph; defaults to the info icon. */

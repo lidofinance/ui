@@ -10,12 +10,7 @@ import {
 
 import cn from 'classnames'
 
-import {
-  useBodyScrollLock,
-  useEscape,
-  useFocusTrap,
-  useIsomorphicLayoutEffect,
-} from '../hooks'
+import { useDialogLayer, useIsomorphicLayoutEffect } from '../hooks'
 import { CloseButton } from '../icon-button'
 import { downQuery } from '../utils'
 import styles from './Sidebar.module.css'
@@ -50,6 +45,18 @@ const isPlainLinkClick = (event: MouseEvent<HTMLDivElement>) => {
   return target === '' || target === '_self'
 }
 
+export type SidebarLabels = {
+  /** Accessible name of the close button. */
+  close?: string
+  /** Accessible name of the navigation landmark. */
+  nav?: string
+}
+
+const DEFAULT_LABELS: Required<SidebarLabels> = {
+  close: 'Close menu',
+  nav: 'Primary',
+}
+
 export type SidebarProps = Omit<ComponentPropsWithoutRef<'div'>, 'children'> & {
   logo?: ReactNode
   footer?: ReactNode
@@ -57,6 +64,9 @@ export type SidebarProps = Omit<ComponentPropsWithoutRef<'div'>, 'children'> & {
   /** Drawer state; only has an effect at `lg-down` widths. Defaults to the SidebarLayout's. */
   open?: boolean
   onClose?: () => void
+  /** Built-in texts, for i18n. */
+  labels?: SidebarLabels
+  /** @deprecated use labels.nav */
   navLabel?: string
   /** Close the drawer when a link inside is clicked. */
   closeOnNavigate?: boolean
@@ -68,8 +78,9 @@ export const Sidebar = ({
   children,
   open: openProp,
   onClose: onCloseProp,
+  labels,
   id: idProp,
-  navLabel = 'Primary',
+  navLabel,
   closeOnNavigate = true,
   className,
   onClick,
@@ -81,7 +92,14 @@ export const Sidebar = ({
   const onClose = onCloseProp ?? context?.sidebarProps.onClose
   const id = idProp ?? context?.sidebarProps.id
   const [root, setRoot] = useState<HTMLElement | null>(null)
+  const [scrim, setScrim] = useState<HTMLDivElement | null>(null)
   const isDrawerViewport = useIsDrawerViewport()
+
+  // Lets SidebarToggle's aria-controls follow an explicit id.
+  useIsomorphicLayoutEffect(
+    () => context?.registerSidebarId?.(idProp),
+    [context?.registerSidebarId, idProp],
+  )
 
   useIsomorphicLayoutEffect(() => {
     const parent = root?.parentElement
@@ -107,6 +125,7 @@ export const Sidebar = ({
     }
   }, [root])
 
+  const navName = labels?.nav ?? navLabel ?? DEFAULT_LABELS.nav
   const drawerActive = open && isDrawerViewport
 
   const wasDrawerViewport = useRef(isDrawerViewport)
@@ -115,9 +134,11 @@ export const Sidebar = ({
     wasDrawerViewport.current = isDrawerViewport
   }, [isDrawerViewport, open, onClose])
 
-  useBodyScrollLock({ enabled: drawerActive })
-  useFocusTrap(root, { enabled: drawerActive })
-  useEscape(() => onClose?.(), { enabled: drawerActive && !!onClose })
+  const { onScrimClick } = useDialogLayer(root, {
+    scrim,
+    active: drawerActive,
+    onClose: onClose ? () => onClose() : undefined,
+  })
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     onClick?.(event)
@@ -127,10 +148,11 @@ export const Sidebar = ({
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- scrim is a pointer-only dismiss target; Escape closes via useEscape */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- scrim is a pointer-only dismiss target; Escape closes via useDialogLayer */}
       <div
-        className={cn(styles.scrim, open && styles.scrimOpen)}
-        onClick={onClose}
+        ref={setScrim}
+        className={styles.scrim}
+        onClick={onScrimClick}
         aria-hidden='true'
       />
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions -- delegated link-click handler; links are natively keyboard-activatable */}
@@ -155,15 +177,15 @@ export const Sidebar = ({
             <div className={styles.logo}>{logo}</div>
             {onClose ? (
               <CloseButton
-                aria-label='Close menu'
-                onClick={onClose}
+                aria-label={labels?.close ?? DEFAULT_LABELS.close}
+                onClick={() => onClose()}
                 className={styles.closeButton}
               />
             ) : null}
           </div>
         ) : null}
         <div className={styles.scroll}>
-          <nav aria-label={navLabel} className={styles.menu}>
+          <nav aria-label={navName} className={styles.menu}>
             {children}
           </nav>
         </div>

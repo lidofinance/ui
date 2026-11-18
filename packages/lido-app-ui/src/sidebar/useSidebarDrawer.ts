@@ -1,6 +1,9 @@
-import { useCallback, useId, useMemo, useRef, useState } from 'react'
+import { useCallback, useId, useMemo, useRef } from 'react'
+
+import { useControllableState } from '../hooks'
 
 export type UseSidebarDrawerOptions = {
+  id?: string
   defaultOpen?: boolean
   /** Controlled state; pair with `onOpenChange`. */
   open?: boolean
@@ -18,28 +21,29 @@ export type UseSidebarDrawerResult = {
   }
 }
 
-/** Wires Sidebar and SidebarToggle together: spread `sidebarProps` and `toggleProps`. */
+/**
+ * Wires Sidebar and SidebarToggle together: spread `sidebarProps` and `toggleProps`.
+ * @deprecated use SidebarLayout
+ */
 export const useSidebarDrawer = ({
-  defaultOpen = false,
+  id: idOption,
+  defaultOpen,
   open: openProp,
   onOpenChange,
 }: UseSidebarDrawerOptions = {}): UseSidebarDrawerResult => {
-  const id = useId()
-  const [internalOpen, setInternalOpen] = useState(defaultOpen)
-  const controlled = openProp !== undefined
-  const open = openProp ?? internalOpen
+  const generatedId = useId()
+  const id = idOption ?? generatedId
+  const [state, setOpen] = useControllableState({
+    value: openProp,
+    defaultValue: defaultOpen,
+    onChange: onOpenChange,
+    name: 'useSidebarDrawer',
+    prop: 'open',
+  })
+  const open = state ?? false
 
   const openRef = useRef(open)
   openRef.current = open
-  const controlledRef = useRef(controlled)
-  controlledRef.current = controlled
-  const onOpenChangeRef = useRef(onOpenChange)
-  onOpenChangeRef.current = onOpenChange
-
-  const setOpen = useCallback((next: boolean) => {
-    if (!controlledRef.current) setInternalOpen(next)
-    onOpenChangeRef.current?.(next)
-  }, [])
   const onClose = useCallback(() => setOpen(false), [setOpen])
   const onClick = useCallback(() => setOpen(!openRef.current), [setOpen])
 

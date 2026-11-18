@@ -1,5 +1,5 @@
 export { Sidebar } from './Sidebar'
-export type { SidebarProps } from './Sidebar'
+export type { SidebarProps, SidebarLabels } from './Sidebar'
 export { SidebarGroup } from './SidebarGroup'
 export type { SidebarGroupProps } from './SidebarGroup'
 export { SidebarItem } from './SidebarItem'

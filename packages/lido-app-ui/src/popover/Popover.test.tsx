@@ -1,10 +1,18 @@
 import { createRef, useRef, useState } from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { DarkThemeProvider } from '@lidofinance/lido-shared-ui'
 
+import {
+  back,
+  FakeWatcher,
+  installCloseWatcher,
+  uninstallCloseWatcher,
+} from '../hooks/closeWatcher.test-utils'
+import { Modal } from '../modal'
+import { stubMotion, unstubMotion } from '../utils/render.test-utils'
 import { Popover, type PopoverProps } from '.'
 
 const Demo = ({ onClose = () => undefined }: { onClose?: () => void }) => {
@@ -67,6 +75,16 @@ const mockLayout = (
       return this.getAttribute('role') === 'dialog' ? rect(panel) : rect(anchor)
     },
   )
+  vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+    function (this: HTMLElement) {
+      return this.getAttribute('role') === 'dialog' ? (panel.width ?? 0) : 0
+    },
+  )
+  vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockImplementation(
+    function (this: HTMLElement) {
+      return this.getAttribute('role') === 'dialog' ? (panel.height ?? 0) : 0
+    },
+  )
   vi.spyOn(document.documentElement, 'clientWidth', 'get').mockReturnValue(
     viewport.width,
   )
@@ -90,6 +108,28 @@ const Single = (props: Partial<PopoverProps>) => {
         {...props}
       >
         <button type='button'>inside</button>
+      </Popover>
+    </>
+  )
+}
+
+const FocusOut = (props: Partial<PopoverProps>) => {
+  const ref = useRef<HTMLButtonElement>(null)
+  return (
+    <>
+      <button ref={ref} type='button'>
+        anchor
+      </button>
+      <button type='button'>outside</button>
+      <Popover
+        open
+        anchorRef={ref}
+        onClose={() => undefined}
+        aria-label='FocusOut'
+        {...props}
+      >
+        <button type='button'>inside</button>
+        <button type='button'>second</button>
       </Popover>
     </>
   )
@@ -157,6 +197,17 @@ describe('Popover', () => {
     expect(dialog.style.left).toBe('350px')
   })
 
+  it('sets a min width at the anchor width with min-anchor', async () => {
+    mockLayout(
+      { left: 400, right: 500, top: 100, bottom: 140, width: 100, height: 40 },
+      { width: 200, height: 100 },
+    )
+    render(<Single width='min-anchor' />)
+    const dialog = await screen.findByRole('dialog')
+    expect(dialog.style.minWidth).toBe('100px')
+    expect(dialog.style.width).toBe('')
+  })
+
   it('flips to top when there is no room below', async () => {
     mockLayout(
       { left: 400, right: 500, top: 700, bottom: 740, width: 100, height: 40 },
@@ -176,8 +227,9 @@ describe('Popover', () => {
     render(<Single />)
     const dialog = await screen.findByRole('dialog')
     expect(dialog.dataset.placement).toBe('top')
-    expect(dialog.style.maxHeight).toBe('384px')
-    expect(dialog.style.maxWidth).toBe('984px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('384px')
   })
 
   it('never floors the panel height above the room on a short viewport', async () => {
@@ -188,7 +240,9 @@ describe('Popover', () => {
     )
     render(<Single />)
     const dialog = await screen.findByRole('dialog')
-    expect(dialog.style.maxHeight).toBe('84px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('84px')
   })
 
   it('flips on the natural height of a capped panel', async () => {
@@ -200,7 +254,9 @@ describe('Popover', () => {
     render(<Single placement='top' />)
     const dialog = await screen.findByRole('dialog')
     expect(dialog.dataset.placement).toBe('bottom')
-    expect(dialog.style.maxHeight).toBe('404px')
+    expect(
+      dialog.style.getPropertyValue('--lido-app-ui-popover-available-height'),
+    ).toBe('404px')
   })
 
   it('scrolls the initially focused element into view', async () => {
@@ -293,6 +349,33 @@ describe('Popover', () => {
     expect(anchor).not.toHaveAttribute('aria-controls')
   })
 
+  it('matches anchor aria-haspopup to a menu panel role', () => {
+    const Menu = () => {
+      const ref = useRef<HTMLButtonElement>(null)
+      return (
+        <>
+          <button ref={ref} type='button' data-testid='anchor'>
+            anchor
+          </button>
+          <Popover
+            open
+            anchorRef={ref}
+            onClose={() => undefined}
+            role='menu'
+            aria-label='x'
+          >
+            body
+          </Popover>
+        </>
+      )
+    }
+    render(<Menu />)
+    expect(screen.getByTestId('anchor')).toHaveAttribute(
+      'aria-haspopup',
+      'menu',
+    )
+  })
+
   it('keeps anchor aria attributes the consumer set and an explicit id', async () => {
     const Own = () => {
       const ref = useRef<HTMLButtonElement>(null)
@@ -325,6 +408,19 @@ describe('Popover', () => {
     render(<Single aria-label={undefined} />)
     await screen.findByRole('dialog')
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('aria-label'))
+  })
+
+  it('warns about a missing name only once across reopen', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
+    const { rerender } = render(<Single aria-label={undefined} />)
+    await screen.findByRole('dialog')
+    rerender(<Single aria-label={undefined} open={false} />)
+    rerender(<Single aria-label={undefined} open />)
+    await screen.findByRole('dialog')
+    const calls = warn.mock.calls.filter(([m]) =>
+      String(m).includes('aria-label'),
+    )
+    expect(calls).toHaveLength(1)
   })
 
   it('forwards the ref to the panel and applies dataTestId.root', async () => {
@@ -410,5 +506,453 @@ describe('Popover', () => {
     expect(
       screen.getByRole('dialog', { name: 'Dark' }).closest('[data-lido-theme]'),
     ).toHaveAttribute('data-lido-theme', 'dark')
+  })
+
+  describe('non-modal focus out', () => {
+    const buttons = () => ({
+      anchor: screen.getByRole('button', { name: 'anchor' }),
+      outside: screen.getByRole('button', { name: 'outside' }),
+      inside: screen.getByRole('button', { name: 'inside' }),
+    })
+
+    it('closes a non-modal panel when focus moves from it to an outside element', async () => {
+      const user = userEvent.setup()
+      const spy = vi.fn()
+      render(<FocusOut modal={false} onClose={spy} />)
+      await screen.findByRole('dialog')
+      act(() => buttons().inside.focus())
+      await user.tab({ shift: true })
+      expect(buttons().outside).toHaveFocus()
+      expect(spy).toHaveBeenCalledTimes(1)
+    })
+
+    it('dismissible false keeps a non-modal panel open on focus out and reports the attempt', async () => {
+      const user = userEvent.setup()
+      const spy = vi.fn()
+      const onDismissAttempt = vi.fn()
+      render(
+        <FocusOut
+          modal={false}
+          onClose={spy}
+          dismissible={false}
+          onDismissAttempt={onDismissAttempt}
+        />,
+      )
+      await screen.findByRole('dialog')
+      act(() => buttons().inside.focus())
+      await user.tab({ shift: true })
+      expect(buttons().outside).toHaveFocus()
+      expect(spy).not.toHaveBeenCalled()
+      expect(onDismissAttempt).toHaveBeenCalledWith(
+        expect.objectContaining({ reason: 'focus-out' }),
+      )
+    })
+
+    it('keeps a non-modal panel open when focus moves within it', async () => {
+      const user = userEvent.setup()
+      const spy = vi.fn()
+      render(<FocusOut modal={false} onClose={spy} />)
+      await screen.findByRole('dialog')
+      act(() => buttons().inside.focus())
+      await user.tab()
+      expect(screen.getByRole('button', { name: 'second' })).toHaveFocus()
+      expect(spy).not.toHaveBeenCalled()
+    })
+
+    it('keeps a non-modal panel open when focus moves from it to the anchor', async () => {
+      const spy = vi.fn()
+      render(<FocusOut modal={false} onClose={spy} />)
+      await screen.findByRole('dialog')
+      act(() => buttons().inside.focus())
+      act(() => buttons().anchor.focus())
+      expect(spy).not.toHaveBeenCalled()
+    })
+
+    it('keeps a non-modal panel open when focus enters a nested portaled popover', async () => {
+      const spy = vi.fn()
+      const Nested = () => {
+        const ref = useRef<HTMLButtonElement>(null)
+        return (
+          <>
+            <button ref={ref} type='button'>
+              nested-anchor
+            </button>
+            <Popover
+              open
+              modal={false}
+              anchorRef={ref}
+              onClose={() => undefined}
+              aria-label='Inner'
+            >
+              <button type='button'>deep</button>
+            </Popover>
+          </>
+        )
+      }
+      const Outer = () => {
+        const ref = useRef<HTMLButtonElement>(null)
+        return (
+          <>
+            <button ref={ref} type='button'>
+              anchor
+            </button>
+            <button type='button'>outside</button>
+            <Popover
+              open
+              modal={false}
+              anchorRef={ref}
+              onClose={spy}
+              aria-label='Outer'
+            >
+              <button type='button'>inside</button>
+              <Nested />
+            </Popover>
+          </>
+        )
+      }
+      render(<Outer />)
+      await screen.findByRole('dialog', { name: 'Outer' })
+      const deep = await screen.findByRole('button', { name: 'deep' })
+      act(() => buttons().inside.focus())
+      act(() => deep.focus())
+      expect(spy).not.toHaveBeenCalled()
+      act(() => buttons().outside.focus())
+      expect(spy).toHaveBeenCalledTimes(1)
+    })
+
+    it('ignores focus moving elsewhere when the panel never had focus', async () => {
+      const spy = vi.fn()
+      render(<FocusOut modal={false} onClose={spy} />)
+      await screen.findByRole('dialog')
+      act(() => buttons().anchor.focus())
+      act(() => buttons().outside.focus())
+      expect(spy).not.toHaveBeenCalled()
+    })
+
+    it('does not close a modal panel on focus out', async () => {
+      const spy = vi.fn()
+      render(<FocusOut onClose={spy} />)
+      await screen.findByRole('dialog')
+      act(() => buttons().inside.focus())
+      act(() => buttons().outside.focus())
+      expect(spy).not.toHaveBeenCalled()
+    })
+
+    it('does not close a role tooltip panel on focus out', async () => {
+      const spy = vi.fn()
+      render(<FocusOut modal={false} role='tooltip' onClose={spy} />)
+      await screen.findByRole('tooltip')
+      act(() => buttons().inside.focus())
+      act(() => buttons().outside.focus())
+      expect(spy).not.toHaveBeenCalled()
+    })
+
+    it('still calls consumer onFocusCapture and onBlurCapture', async () => {
+      const onFocusCapture = vi.fn()
+      const onBlurCapture = vi.fn()
+      render(
+        <FocusOut
+          modal={false}
+          onFocusCapture={onFocusCapture}
+          onBlurCapture={onBlurCapture}
+        />,
+      )
+      await screen.findByRole('dialog')
+      act(() => buttons().inside.focus())
+      act(() => buttons().outside.focus())
+      expect(onFocusCapture).toHaveBeenCalled()
+      expect(onBlurCapture).toHaveBeenCalled()
+    })
+  })
+
+  describe('exit animation', () => {
+    afterEach(() => {
+      unstubMotion()
+      vi.useRealTimers()
+    })
+
+    it('stays mounted as closed, then unmounts after the transition', async () => {
+      stubMotion()
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      vi.useFakeTimers()
+      rerender(<Single open={false} />)
+      const dialog = screen.getByRole('dialog', { hidden: true })
+      expect(dialog).toHaveAttribute('data-state', 'closed')
+      expect(dialog).toHaveAttribute('data-motion', 'exit')
+      expect(dialog).toHaveAttribute('inert')
+      act(() => {
+        vi.advanceTimersByTime(200)
+      })
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('keeps the panel open when reopened during the exit', async () => {
+      stubMotion()
+      vi.useFakeTimers()
+      const { rerender } = render(<Single />)
+      rerender(<Single open={false} />)
+      rerender(<Single />)
+      act(() => {
+        vi.advanceTimersByTime(500)
+      })
+      expect(screen.getByRole('dialog')).toHaveAttribute('data-state', 'open')
+    })
+
+    it('keeps the same node on reopen during the exit', async () => {
+      stubMotion()
+      vi.useFakeTimers()
+      const { rerender } = render(<Single />)
+      const before = screen.getByRole('dialog')
+      rerender(<Single open={false} />)
+      rerender(<Single />)
+      expect(screen.getByRole('dialog')).toBe(before)
+    })
+
+    it('unmounts at once when there is no motion', async () => {
+      const { rerender } = render(<Single />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} />)
+      expect(screen.queryByRole('dialog', { hidden: true })).toBeNull()
+    })
+
+    it('moves focus to the anchor as soon as closing starts', async () => {
+      stubMotion()
+      render(<Demo />)
+      const anchor = openPopover()
+      const inside = await screen.findByText('inside')
+      expect(inside).toHaveFocus()
+      await userEvent.setup().keyboard('{Escape}')
+      expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute(
+        'data-state',
+        'closed',
+      )
+      expect(anchor).toHaveFocus()
+    })
+
+    it('releases Escape to the parent while closing', async () => {
+      stubMotion()
+      const onClose = vi.fn()
+      const { rerender } = render(<Single onClose={onClose} />)
+      await screen.findByRole('dialog')
+      rerender(<Single open={false} onClose={onClose} />)
+      fireEvent.keyDown(document, { key: 'Escape' })
+      expect(onClose).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('arrow', () => {
+    const anchorRect = {
+      left: 400,
+      right: 500,
+      top: 100,
+      bottom: 140,
+      width: 100,
+      height: 40,
+    }
+    const beakX = (dialog: HTMLElement) =>
+      dialog.style.getPropertyValue('--lido-app-ui-popover-beak-x')
+
+    it('renders the beak only with arrow', async () => {
+      const { unmount } = render(<Single />)
+      const dialog = await screen.findByRole('dialog')
+      expect(dialog.querySelector('[aria-hidden="true"]')).toBeNull()
+      expect(beakX(dialog)).toBe('')
+      unmount()
+      render(<Single arrow />)
+      const withArrow = await screen.findByRole('dialog')
+      expect(withArrow.querySelector('span[aria-hidden="true"]')).not.toBeNull()
+    })
+
+    it('centers the beak on the anchor with align center', async () => {
+      mockLayout(anchorRect, { width: 200, height: 100 })
+      render(<Single arrow align='center' />)
+      expect(beakX(await screen.findByRole('dialog'))).toBe('100px')
+    })
+
+    it('mirrors for align end and keeps right', async () => {
+      mockLayout(
+        { left: 400, right: 420, top: 100, bottom: 140, width: 20, height: 40 },
+        { width: 200, height: 100 },
+      )
+      render(<Single arrow align='end' />)
+      const dialog = await screen.findByRole('dialog')
+      expect(dialog.style.right).toBe('546px')
+      expect(dialog.style.left).toBe('')
+    })
+  })
+
+  it('uses aria-describedby instead of dialog wiring for role tooltip', async () => {
+    render(<Single role='tooltip' aria-label={undefined} />)
+    const anchor = screen.getByRole('button', { name: 'anchor' })
+    const tooltip = await screen.findByRole('tooltip')
+    expect(anchor).toHaveAttribute('aria-describedby', tooltip.id)
+    expect(anchor).not.toHaveAttribute('aria-haspopup')
+    expect(anchor).not.toHaveAttribute('aria-expanded')
+    expect(anchor).not.toHaveAttribute('aria-controls')
+  })
+
+  it('merges the tooltip id into an existing aria-describedby and restores it', async () => {
+    const Hinted = ({ open }: { open: boolean }) => {
+      const ref = useRef<HTMLButtonElement>(null)
+      return (
+        <>
+          <button ref={ref} type='button' aria-describedby='hint'>
+            anchor
+          </button>
+          <Popover
+            open={open}
+            anchorRef={ref}
+            onClose={() => undefined}
+            role='tooltip'
+          >
+            tip
+          </Popover>
+        </>
+      )
+    }
+    const { rerender } = render(<Hinted open />)
+    const anchor = screen.getByRole('button', { name: 'anchor' })
+    const tooltip = await screen.findByRole('tooltip')
+    expect(anchor).toHaveAttribute('aria-describedby', `hint ${tooltip.id}`)
+    rerender(<Hinted open={false} />)
+    expect(anchor).toHaveAttribute('aria-describedby', 'hint')
+  })
+
+  it('is never modal for role tooltip', async () => {
+    render(<Single role='tooltip' aria-label={undefined} />)
+    const tooltip = await screen.findByRole('tooltip')
+    expect(tooltip).not.toHaveAttribute('aria-modal')
+    expect(tooltip.contains(document.activeElement)).toBe(false)
+  })
+})
+
+describe('Popover focus return fallback', () => {
+  const Page = ({
+    showAnchor,
+    open,
+  }: {
+    showAnchor: boolean
+    open: boolean
+  }) => {
+    const ref = useRef<HTMLButtonElement>(null)
+    return (
+      <>
+        <div>
+          <button type='button'>before</button>
+          {showAnchor && (
+            <button ref={ref} type='button'>
+              anchor
+            </button>
+          )}
+          <button type='button'>after</button>
+        </div>
+        <Popover
+          open={open}
+          anchorRef={ref}
+          onClose={() => undefined}
+          aria-label='p'
+        >
+          <button type='button'>inside</button>
+        </Popover>
+      </>
+    )
+  }
+
+  it('returns focus near the anchor when the anchor left the page', async () => {
+    const { rerender } = render(<Page showAnchor open />)
+    const inside = await screen.findByText('inside')
+    inside.focus()
+    rerender(<Page showAnchor={false} open={false} />)
+    expect(screen.getByText('before')).toHaveFocus()
+  })
+})
+
+describe('Popover dismissal', () => {
+  it('passes escape-key and outside-press reasons', () => {
+    const onClose = vi.fn()
+    render(
+      <>
+        <button type='button'>outside</button>
+        <Single onClose={onClose} />
+      </>,
+    )
+    fireEvent.keyDown(document, { key: 'Escape' })
+    fireEvent.pointerDown(screen.getByText('outside'))
+    expect(onClose).toHaveBeenNthCalledWith(1, 'escape-key')
+    expect(onClose).toHaveBeenNthCalledWith(2, 'outside-press')
+  })
+
+  it('dismissible false keeps it open on Escape and outside press and reports attempts', () => {
+    const onClose = vi.fn()
+    const onDismissAttempt = vi.fn()
+    render(
+      <>
+        <button type='button'>outside</button>
+        <Single
+          onClose={onClose}
+          dismissible={false}
+          onDismissAttempt={onDismissAttempt}
+        />
+      </>,
+    )
+    fireEvent.keyDown(document, { key: 'Escape' })
+    fireEvent.pointerDown(screen.getByText('outside'))
+    expect(onClose).not.toHaveBeenCalled()
+    expect(onDismissAttempt).toHaveBeenNthCalledWith(
+      1,
+      expect.objectContaining({
+        reason: 'escape-key',
+        event: expect.any(KeyboardEvent),
+      }),
+    )
+    expect(onDismissAttempt).toHaveBeenNthCalledWith(
+      2,
+      expect.objectContaining({
+        reason: 'outside-press',
+        event: expect.any(Event),
+      }),
+    )
+  })
+
+  it('an anchor press is not a dismiss attempt', () => {
+    const onDismissAttempt = vi.fn()
+    render(<Single dismissible={false} onDismissAttempt={onDismissAttempt} />)
+    fireEvent.pointerDown(screen.getByText('anchor'))
+    expect(onDismissAttempt).not.toHaveBeenCalled()
+  })
+
+  it('Escape with dismissible false does not close a Modal underneath', () => {
+    const modalClose = vi.fn()
+    render(
+      <Modal withOverlay title='M' onClose={modalClose}>
+        <Single dismissible={false} />
+      </Modal>,
+    )
+    fireEvent.keyDown(document, { key: 'Escape' })
+    expect(modalClose).not.toHaveBeenCalled()
+  })
+})
+
+describe('Popover Android back', () => {
+  beforeEach(() => installCloseWatcher())
+  afterEach(uninstallCloseWatcher)
+
+  it('closes on Android back, and a popover in a modal takes back before the modal', () => {
+    const modalClose = vi.fn()
+    const popoverClose = vi.fn()
+    render(
+      <Modal withOverlay title='M' onClose={modalClose}>
+        <Single onClose={popoverClose} />
+      </Modal>,
+    )
+    back()
+    expect(popoverClose).toHaveBeenCalledWith('back')
+    expect(modalClose).not.toHaveBeenCalled()
+  })
+
+  it('role tooltip creates no CloseWatcher', () => {
+    render(<Single role='tooltip' />)
+    expect(FakeWatcher.all).toHaveLength(0)
   })
 })
