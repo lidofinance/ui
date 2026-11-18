@@ -1,0 +1,16 @@
+{
+  "badge": { "test": "covered by smoke render only" },
+  "colors": { "export": "token docs; tokens ship as CSS custom properties" },
+  "foundations": { "export": "Storybook foundation docs, not a component" },
+  "identicon": { "test": "covered by smoke render only" },
+  "recipes": {
+    "test": "story-only compositions",
+    "export": "story-only compositions"
+  },
+  "styles": {
+    "story": "global CSS layer",
+    "test": "global CSS layer",
+    "export": "global CSS layer, built as a rollup input"
+  },
+  "token-amount": { "test": "covered by smoke render only" }
+}

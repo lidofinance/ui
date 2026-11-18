@@ -1,23 +1,30 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
-  "globalDependencies": ["babel.config.json", "tsconfig.base.json"],
+  "globalDependencies": ["babel.config.json", "tsconfig.base.json", "package.json"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"],
-      "inputs": ["src/**", "styles/**", "scripts/**", "rollup.config.mjs", "postcss.config.js", "tsconfig.json", "tsconfig.production.json", "package.json"]
+      "inputs": ["src/**", "styles/**", "scripts/**", "assets/**", "rollup.config.mjs", "postcss.config.js", "tsconfig.json", "tsconfig.production.json", "package.json", "global.d.ts", "README.md"]
     },
     "build-storybook": {
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"],
-      "inputs": ["src/**", ".storybook/**", "$TURBO_ROOT$/storybook-shared/**"]
+      "inputs": ["src/**", "styles/**", "scripts/**", "assets/**", ".storybook/**", "postcss.config.js", "tsconfig.json", "package.json", "$TURBO_ROOT$/storybook-shared/**"]
     },
     "test": {
       "dependsOn": ["^build"]
     },
     "lint": {},
     "lint:css": {},
-    "types": {}
+    "types": {},
+    "check:coverage": {
+      "inputs": ["src/**", "scripts/check-coverage.mjs", "coverage-exemptions.json"]
+    },
+    "size": {
+      "dependsOn": ["build"],
+      "inputs": ["dist/**", "scripts/check-size.mjs", "size-budget.json"]
+    }
   }
 }

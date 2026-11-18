@@ -17,3 +17,6 @@ gh-pages
 **/.storybook/**/*.d.ts.map
 .claude/*
 !.claude/skills/**
+
+# Icons converter temp dir
+packages/lido-app-ui/src/icons/.components-build
