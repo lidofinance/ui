@@ -7,9 +7,19 @@ import { useEdgeFade } from './useEdgeFade'
 
 const Strip = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const { sync, onFocus } = useEdgeFade(ref)
+  useEdgeFade(ref)
   return (
-    <div ref={ref} data-testid='strip' onScroll={sync} onFocus={onFocus}>
+    <div ref={ref} data-testid='strip'>
+      <a href='#x'>x</a>
+    </div>
+  )
+}
+
+const RtlStrip = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  useEdgeFade(ref)
+  return (
+    <div ref={ref} data-testid='strip' style={{ direction: 'rtl' }}>
       <a href='#x'>x</a>
     </div>
   )
@@ -102,6 +112,36 @@ describe('useEdgeFade', () => {
         set: () => {},
       })
       expect(wheel(el, { deltaY: 40 }).defaultPrevented).toBe(false)
+    })
+  })
+
+  describe('rtl', () => {
+    it('toggles fade attributes from the negative scroll offset', () => {
+      render(<RtlStrip />)
+      const el = screen.getByTestId('strip')
+      stubWidths(el, 500, 200)
+      el.scrollLeft = 0
+      fireEvent.scroll(el)
+      expect(el).not.toHaveAttribute('data-fade-start')
+      expect(el).toHaveAttribute('data-fade-end')
+      el.scrollLeft = -100
+      fireEvent.scroll(el)
+      expect(el).toHaveAttribute('data-fade-start')
+      expect(el).toHaveAttribute('data-fade-end')
+      el.scrollLeft = -300
+      fireEvent.scroll(el)
+      expect(el).toHaveAttribute('data-fade-start')
+      expect(el).not.toHaveAttribute('data-fade-end')
+    })
+
+    it('maps wheel-down towards the inline end', () => {
+      render(<RtlStrip />)
+      const el = screen.getByTestId('strip')
+      stubWidths(el, 500, 200)
+      el.scrollLeft = 0
+      const event = wheel(el, { deltaY: 40 })
+      expect(el.scrollLeft).toBe(-40)
+      expect(event.defaultPrevented).toBe(true)
     })
   })
 

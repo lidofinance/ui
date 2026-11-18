@@ -1,4 +1,4 @@
 export * from './StoryContainer'
 export * from './StorySection'
 export * from './StoryBox'
-export * from './DemoRouter'
+export * from './ContainerWidths'

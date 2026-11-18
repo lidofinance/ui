@@ -26,9 +26,21 @@
   );
   /* stylelint-disable custom-property-no-missing-var-function -- transition property names */
   transition:
-    --lido-app-ui-fade-start 0.2s cubic-bezier(0.23, 1, 0.32, 1),
-    --lido-app-ui-fade-end 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    --lido-app-ui-fade-start var(--lido-app-ui-duration-base)
+      var(--lido-app-ui-easing-out),
+    --lido-app-ui-fade-end var(--lido-app-ui-duration-base)
+      var(--lido-app-ui-easing-out);
   /* stylelint-enable custom-property-no-missing-var-function */
+}
+
+.scrollFade:dir(rtl) {
+  mask-image: linear-gradient(
+    to left,
+    rgb(0 0 0 / calc(1 - var(--lido-app-ui-fade-start))) 13px,
+    rgb(0 0 0) 36px,
+    rgb(0 0 0) calc(100% - 36px),
+    rgb(0 0 0 / calc(1 - var(--lido-app-ui-fade-end))) calc(100% - 13px)
+  );
 }
 
 .scrollFade[data-fade-start] {

@@ -1,5 +1,5 @@
 import type { Decorator } from '@storybook/react'
-import { useGlobals } from 'storybook/internal/preview-api'
+import { useEffect, useGlobals } from 'storybook/internal/preview-api'
 import {
   CookieThemeProvider,
   ThemeName,
@@ -14,6 +14,39 @@ const backgrounds = {
 
 type StoryBackground = keyof typeof backgrounds
 
+type ParentWindow = Window & {
+  __STORYBOOK_PREVIEW__?: {
+    storyStoreValue?: {
+      userGlobals?: { get: () => { themeOverride?: string } }
+    }
+  }
+  __STORYBOOK_ADDONS_CHANNEL__?: {
+    on: (event: string, cb: (data: { globals: Globals }) => void) => void
+    off: (event: string, cb: (data: { globals: Globals }) => void) => void
+  }
+}
+
+type Globals = { themeOverride?: string }
+
+// `docs.story.inline: false` renders stories in nested iframes whose own
+// preview would otherwise emit its initial globals to the docs frame.
+const getDocsParent = (): ParentWindow | undefined =>
+  window.parent !== window && window.parent !== window.top
+    ? (window.parent as ParentWindow)
+    : undefined
+
+export const getInitialThemeOverride = (): string => {
+  try {
+    const parentTheme =
+      getDocsParent()?.__STORYBOOK_PREVIEW__?.storyStoreValue?.userGlobals?.get()
+        ?.themeOverride
+    if (parentTheme) return parentTheme
+  } catch {
+    // cross-origin parent, fall back to default
+  }
+  return 'light'
+}
+
 // Drives the theme from the toolbar's `themeOverride` global (see
 // preview.tsx). The in-canvas ThemeSwitcher flips that global instead of the
 // theme cookie, so it never drifts from the toolbar.
@@ -22,6 +55,25 @@ export const WithThemeProvider: Decorator = (
   { parameters, viewMode },
 ) => {
   const [{ themeOverride }, updateGlobals] = useGlobals()
+
+  useEffect(() => {
+    let channel: ParentWindow['__STORYBOOK_ADDONS_CHANNEL__']
+    try {
+      channel = getDocsParent()?.__STORYBOOK_ADDONS_CHANNEL__
+    } catch {
+      return
+    }
+    if (!channel) return
+
+    const onGlobalsUpdated = ({ globals }: { globals: Globals }) => {
+      if (globals.themeOverride && globals.themeOverride !== themeOverride) {
+        updateGlobals({ themeOverride: globals.themeOverride })
+      }
+    }
+    channel.on('globalsUpdated', onGlobalsUpdated)
+    return () => channel.off('globalsUpdated', onGlobalsUpdated)
+  }, [themeOverride, updateGlobals])
+
   const pinned =
     themeOverride === ThemeName.light || themeOverride === ThemeName.dark
   const fullscreen = parameters.layout === 'fullscreen'

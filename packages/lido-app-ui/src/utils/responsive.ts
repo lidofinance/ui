@@ -17,15 +17,15 @@ type ResponsiveObject<T> = {
   smDown?: T
   /** Applies at 400px and below. */
   xsDown?: T
-  /** Alias of `xlDown`: applies at 1280px and below. */
+  /** Alias of `xlDown`: applies at 1280px and below. @deprecated Use `xlDown`. */
   xl?: T
-  /** Alias of `lgDown`: applies at 1024px and below. */
+  /** Alias of `lgDown`: applies at 1024px and below. @deprecated Use `lgDown`. */
   lg?: T
-  /** Alias of `mdDown`: applies at 900px and below. */
+  /** Alias of `mdDown`: applies at 900px and below. @deprecated Use `mdDown`. */
   md?: T
-  /** Alias of `smDown`: applies at 600px and below. */
+  /** Alias of `smDown`: applies at 600px and below. @deprecated Use `smDown`. */
   sm?: T
-  /** Alias of `xsDown`: applies at 400px and below. */
+  /** Alias of `xsDown`: applies at 400px and below. @deprecated Use `xsDown`. */
   xs?: T
 }
 

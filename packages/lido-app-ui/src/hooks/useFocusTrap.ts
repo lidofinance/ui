@@ -1,34 +1,10 @@
 import { useEffect, useRef, type RefObject } from 'react'
 
 import { createLayerStack } from './overlayStack'
+import { restoreFocusTo, returnChain } from './focusReturn'
+import { getTabbable } from './tabbable'
 
 const listenTrapLayer = createLayerStack('keydown')
-
-const TABBABLE =
-  'a[href],area[href],button,input:not([type="hidden"]),select,textarea,summary,iframe,audio[controls],video[controls],[tabindex],[contenteditable]:not([contenteditable="false"])'
-
-// jsdom has no checkVisibility, and `display` isn't inherited, so walk up to the container.
-const isRendered = (el: HTMLElement, container: HTMLElement) => {
-  if (getComputedStyle(el).visibility === 'hidden') return false
-  for (
-    let node: HTMLElement | null = el;
-    node && node !== container;
-    node = node.parentElement
-  ) {
-    if (getComputedStyle(node).display === 'none') return false
-  }
-  return true
-}
-
-const getTabbable = (container: HTMLElement) =>
-  Array.from(container.querySelectorAll<HTMLElement>(TABBABLE)).filter(
-    (el) =>
-      !el.matches(':disabled') &&
-      !el.getAttribute('tabindex')?.trim().startsWith('-') &&
-      el.getAttribute('aria-hidden') !== 'true' &&
-      !el.closest('[inert]') &&
-      isRendered(el, container),
-  )
 
 const isGroupedRadio = (el: Element | null): el is HTMLInputElement =>
   el instanceof HTMLInputElement && el.type === 'radio' && el.name !== ''
@@ -61,9 +37,11 @@ export type FocusTrapOptions = {
   enabled?: boolean
   /** Element to focus on activate; defaults to focus already inside, then first tabbable, then the container. */
   initialFocus?: RefObject<HTMLElement | null>
-  /** Element to restore focus to; defaults to the active element at activation. */
+  /** Focused first on deactivate when it can take focus; then the opener, a tabbable near it, then its parent layer's opener. */
+  returnFocusTo?: RefObject<HTMLElement | null>
+  /** Opener to return focus to; defaults to the active element at activation. */
   returnFocus?: HTMLElement | null
-  /** Return focus to the previously focused element on deactivate. Default true. */
+  /** Return focus on deactivate. Default true. */
   restoreFocus?: boolean
 }
 
@@ -80,9 +58,11 @@ export const useFocusTrap = (
     const container = element
     if (!enabled || !container) return
 
-    const previous =
+    const chain = returnChain(
       optionsRef.current.returnFocus ??
-      (document.activeElement as HTMLElement | null)
+        (document.activeElement as HTMLElement | null),
+      container,
+    )
 
     const explicit = optionsRef.current.initialFocus?.current
     if (explicit) {
@@ -133,13 +113,11 @@ export const useFocusTrap = (
     const stopListening = listenTrapLayer(onKeyDown)
     return () => {
       stopListening()
-      if (
-        (optionsRef.current.restoreFocus ?? true) &&
-        previous &&
-        document.contains(previous)
-      ) {
-        previous.focus({ preventScroll: true })
-      }
+      if (optionsRef.current.restoreFocus ?? true)
+        restoreFocusTo(
+          [optionsRef.current.returnFocusTo?.current, ...chain()],
+          container,
+        )
     }
   }, [element, enabled])
 }
