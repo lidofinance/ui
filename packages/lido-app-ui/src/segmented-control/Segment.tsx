@@ -9,11 +9,13 @@ export type SegmentDataTestId = {
   content?: string
 }
 
+/** @deprecated Internal part of `SegmentedControl`; use `SegmentedControl`. */
 export type SegmentProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   active?: boolean
   dataTestId?: SegmentDataTestId
 }
 
+/** @deprecated Internal part of `SegmentedControl`; use `SegmentedControl`. */
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
   (
     {
@@ -31,7 +33,7 @@ export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
       type={type}
       role='tab'
       aria-selected={active}
-      className={cn(styles.segment, active && styles.active, className)}
+      className={cn(styles.segment, className)}
       data-testid={dataTestId?.root}
       {...rest}
     >
