@@ -14,7 +14,6 @@ const meta: Meta = {
     storyBackground: 'page',
     docs: {
       story: { inline: false, iframeHeight: 720 },
-      source: { type: 'code' },
       description: {
         component:
           'Loading, error and disclaimer content rendered inside the sidebar shell.',

@@ -127,7 +127,7 @@ export const sidebarFooterItems = (
 )
 
 export const SimpleCard = ({ title }: { title: string }) => (
-  <Card style={{ padding: 32 }}>
+  <Card>
     <Typography variant='h3'>{title}</Typography>
     <Typography variant='body'>Simple page content.</Typography>
   </Card>
@@ -215,7 +215,10 @@ export const storyParams = (story: string) => ({
   docs: { description: { story } },
 })
 
-export const topNavShell = (nav: ReactNode) => (
+export const topNavShell = (
+  nav: ReactNode,
+  { content, afterMain }: { content?: ReactNode; afterMain?: ReactNode } = {},
+) => (
   <Layout>
     <SkipLink />
     <Header actions={connectedActions}>
@@ -223,10 +226,9 @@ export const topNavShell = (nav: ReactNode) => (
       <HeaderNav>{nav}</HeaderNav>
     </Header>
     <Main>
-      <PageContent>
-        <SimpleCard title='Page title' />
-      </PageContent>
+      <PageContent>{content ?? <SimpleCard title='Page title' />}</PageContent>
     </Main>
+    {afterMain}
     <Footer aside={<Logo href='#' />} />
   </Layout>
 )
@@ -236,3 +238,42 @@ export const topNavItems = topNavLinks.map((label, i) => (
     {label}
   </NavLink>
 ))
+
+export const faqItems: { question: string; answer: ReactNode }[] = [
+  {
+    question: 'What is Lido?',
+    answer:
+      'Lido is a liquid staking protocol for Ethereum. Users stake ETH and receive stETH, a token that accrues staking rewards and stays usable across DeFi.',
+  },
+  {
+    question: 'How does Lido work?',
+    answer:
+      'Staked ETH is distributed across a set of professional node operators who run validators. Rewards are reflected in the stETH balance, so users do not run any infrastructure themselves.',
+  },
+  {
+    question: 'What security measures does the Lido protocol have in place?',
+    answer: (
+      <>
+        The protocol code is open source, audited multiple times and covered by
+        a bug bounty program. See the{' '}
+        <TextLink href='https://docs.lido.fi'>documentation</TextLink> for
+        details.
+      </>
+    ),
+  },
+  {
+    question: 'What are the risks of engaging with the Lido protocol?',
+    answer:
+      'Risks include smart contract bugs, validator penalties, stETH price deviation from ETH and governance risks. Staking is not risk-free.',
+  },
+  {
+    question: 'What is Lido staking APR for Ethereum?',
+    answer:
+      'The APR depends on network participation and consensus and execution layer rewards. The current value is shown on the staking page and changes over time.',
+  },
+  {
+    question: 'What fee is applied by Lido?',
+    answer:
+      'Lido applies a 10% fee on staking rewards, split between node operators and the DAO treasury. It is taken from rewards only, never from the principal.',
+  },
+]
