@@ -4,19 +4,17 @@ import React, { SVGProps } from 'react'
 
 export const IconLoaderCircle = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' fill='none' {...props}>
-      <circle
-        cx={12}
-        cy={12}
-        r={10}
+    <svg width={20} height={20} viewBox='0 0 20 20' fill='none' {...props}>
+      <path
+        d='M10 17.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15z'
         stroke='currentColor'
-        strokeOpacity={0.16}
-        strokeWidth={2}
+        strokeOpacity={0.25}
+        strokeWidth={1.5}
       />
       <path
-        d='M12 2a10 10 0 0110 10'
+        d='M10 2.5a7.5 7.5 0 017.5 7.5'
         stroke='currentColor'
-        strokeWidth={2}
+        strokeWidth={1.5}
         strokeLinecap='round'
       />
     </svg>

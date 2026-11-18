@@ -1,8 +1,8 @@
 // THIS FILE IS AUTO GENERATED
 
-export { BitGet } from './BitGet'
+export { Bitget } from './Bitget'
 export { Browser } from './Browser'
-export { WalletsMetamask } from './WalletsMetamask'
+export { Ledger } from './Ledger'
+export { Metamask } from './Metamask'
 export { Okx } from './Okx'
 export { WalletConnect } from './WalletConnect'
-export { Ledger } from './Ledger'

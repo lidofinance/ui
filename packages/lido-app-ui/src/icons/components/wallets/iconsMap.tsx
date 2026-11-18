@@ -1,18 +1,18 @@
 // THIS FILE IS AUTO GENERATED
 
-import { BitGet } from './BitGet'
+import { Bitget } from './Bitget'
 import { Browser } from './Browser'
-import { WalletsMetamask } from './WalletsMetamask'
+import { Ledger } from './Ledger'
+import { Metamask } from './Metamask'
 import { Okx } from './Okx'
 import { WalletConnect } from './WalletConnect'
-import { Ledger } from './Ledger'
 
-// Export a constant with all icons in this directory
+/** @deprecated Import the icon components directly. */
 export const WALLETS_ICONS_MAP = {
-  BitGet,
+  Bitget,
   Browser,
-  WalletsMetamask,
+  Ledger,
+  Metamask,
   Okx,
   WalletConnect,
-  Ledger,
 }

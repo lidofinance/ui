@@ -5,11 +5,9 @@ import React, { SVGProps } from 'react'
 export const Bitcoin = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      preserveAspectRatio='none'
-      overflow='visible'
-      width={23.997}
+      width={24}
       height={24}
-      viewBox='0 0 23.997 24'
+      viewBox='0 0 24 24'
       display='block'
       fill='none'
       {...props}

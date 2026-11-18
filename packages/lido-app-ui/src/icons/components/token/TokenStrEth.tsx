@@ -13,8 +13,6 @@ export const TokenStrEth = function (props: SVGProps<SVGSVGElement>) {
   const _id = useUniqueInlineId()
   return (
     <svg
-      preserveAspectRatio='none'
-      overflow='visible'
       width={24}
       height={24}
       viewBox='0 0 24 24'

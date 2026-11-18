@@ -2,7 +2,7 @@
 
 import React, { SVGProps } from 'react'
 
-export const WalletsMetamask = (props: SVGProps<SVGSVGElement>) => {
+export const Metamask = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={24} height={24} viewBox='0 0 24 24' fill='none' {...props}>
       <circle cx={12} cy={12} r={12} fill='#FFC48C' />

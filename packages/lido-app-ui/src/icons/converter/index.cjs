@@ -8,6 +8,7 @@ const { extname, resolve } = require('path')
 
 const SRC_DIR = resolve(__dirname, '../svg')
 const DEST_DIR = resolve(__dirname, '../components')
+const BUILD_DIR = resolve(__dirname, '../.components-build')
 const MAPS_FILE = resolve(__dirname, '../iconMaps.tsx')
 const ICONS_FILE = resolve(__dirname, '../allIcons.tsx')
 
@@ -67,6 +68,8 @@ const svgoConfig = (convertAllToCurrentColor, prefix) => {
             'xmlns:xlink',
             'xmlns',
             'data-name',
+            'preserveAspectRatio',
+            'overflow',
           ],
         },
       },
@@ -81,7 +84,7 @@ const upperFirst = (string) => {
 
 // Collapses runs of 2+ consecutive uppercase letters/digits (acronyms) down
 // to a single capitalized word, e.g. "KELP" -> "Kelp", "ETH" in "abcETH" -> "Eth".
-// Everything else keeps its original casing (e.g. "BitGet" is untouched).
+// Everything else keeps its original casing (e.g. "OpenSea" is untouched).
 const normalizeAcronyms = (word) => {
   return word.replace(/[A-Z0-9]{2,}/g, (match) =>
     upperFirst(match.toLowerCase()),
@@ -130,9 +133,8 @@ const readFolder = async (folder, basePath = '') => {
 const convertFiles = async () => {
   const svgData = await readFolder(SRC_DIR)
 
-  // Ensure the components directory exists and clear it
-  await fs.rm(DEST_DIR, { recursive: true, force: true })
-  await fs.mkdir(DEST_DIR, { recursive: true })
+  await fs.rm(BUILD_DIR, { recursive: true, force: true })
+  await fs.mkdir(BUILD_DIR, { recursive: true })
 
   // Keep track of all components for the index file
   const componentExports = []
@@ -155,7 +157,7 @@ const convertFiles = async () => {
       componentPath = dirNames.join('/')
     }
     const iconCategory = dirNames[0]?.toLowerCase() || 'root'
-    const replaceCurrentColor = ['logo', 'base'].includes(iconCategory)
+    const replaceCurrentColor = iconCategory === 'base'
 
     // Convert just the name to PascalCase for the component name
     let componentName = convertToPascalCase(name)
@@ -166,32 +168,15 @@ const convertFiles = async () => {
       case 'token':
         componentName = `Token${componentName}`
         break
-      case 'logo':
-        componentName = `${componentName}Logo`
-        break
-      case 'network':
-        componentName = `${componentName}Icon`
-        break
-      case 'lidoProject':
-        componentName = `Lido${componentName}`
-        break
     }
-    // Check if this component name already exists
-    // If it does, include the directory name to make it unique
-    if (componentNames.has(componentName)) {
-      // If there's a directory path, include it in the component name
-      if (componentPath) {
-        const uniqueNameBase = [...dirNames, name].join('_')
-        componentName = convertToPascalCase(uniqueNameBase)
-      } else {
-        // If there's no directory path, we need to make the name unique somehow
-        // This is a fallback, but shouldn't happen in practice
-        componentName = `${componentName}_${componentExports.length}`
-      }
+    const key = componentName.toLowerCase()
+    if (componentNames.has(key)) {
+      // Case-insensitive: macOS would write both to one file.
+      throw new Error(
+        `Duplicate icon name "${componentName}" (from ${path}); rename one of the SVGs.`,
+      )
     }
-
-    // Add the component name to the set of used names
-    componentNames.add(componentName)
+    componentNames.add(key)
 
     // Create the component code
     const componentCode = await transform(
@@ -219,8 +204,8 @@ const convertFiles = async () => {
 
     // Create the directory for the component if it doesn't exist
     const componentDir = componentPath
-      ? resolve(DEST_DIR, componentPath)
-      : DEST_DIR
+      ? resolve(BUILD_DIR, componentPath)
+      : BUILD_DIR
     await fs.mkdir(componentDir, { recursive: true })
 
     // Write the component file
@@ -283,14 +268,14 @@ const convertFiles = async () => {
       .join('\n')}\n\n`
 
     // Add the constant object with all icons
-    objectExportFileContent += `// Export a constant with all icons in this directory\n`
+    objectExportFileContent += `/** @deprecated Import the icon components directly. */\n`
     objectExportFileContent += `export const ${constName} = {\n`
     objectExportFileContent += components
       .map(({ componentName }) => `  ${componentName},`)
       .join('\n')
     objectExportFileContent += `\n}\n`
 
-    const dirIndexDir = resolve(DEST_DIR, directory)
+    const dirIndexDir = resolve(BUILD_DIR, directory)
     await fs.mkdir(dirIndexDir, { recursive: true })
     const dirIndexPath = resolve(dirIndexDir, 'index.tsx')
     const objectExportFilePath = resolve(dirIndexDir, 'iconsMap.tsx')
@@ -298,6 +283,9 @@ const convertFiles = async () => {
     await fs.writeFile(dirIndexPath, dirIndexContent)
     await fs.writeFile(objectExportFilePath, objectExportFileContent)
   }
+
+  await fs.rm(DEST_DIR, { recursive: true, force: true })
+  await fs.rename(BUILD_DIR, DEST_DIR)
 
   // Create the main index file that exports from sub-folder index files
   const uniqueDirectories = [
@@ -323,4 +311,8 @@ const convertFiles = async () => {
   await fs.writeFile(MAPS_FILE, mapsContent)
 }
 
-convertFiles()
+convertFiles().catch(async (error) => {
+  await fs.rm(BUILD_DIR, { recursive: true, force: true })
+  console.error(error)
+  process.exit(1)
+})

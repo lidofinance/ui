@@ -5,11 +5,9 @@ import React, { SVGProps } from 'react'
 export const TokenWEth = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      preserveAspectRatio='none'
-      overflow='visible'
-      width={24.06}
+      width={24}
       height={24}
-      viewBox='0 0 24.06 24'
+      viewBox='0 0 24 24'
       display='block'
       fill='none'
       {...props}

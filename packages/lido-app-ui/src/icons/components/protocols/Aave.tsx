@@ -5,8 +5,6 @@ import React, { SVGProps } from 'react'
 export const Aave = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      preserveAspectRatio='none'
-      overflow='visible'
       width={24}
       height={24}
       viewBox='0 0 24 24'

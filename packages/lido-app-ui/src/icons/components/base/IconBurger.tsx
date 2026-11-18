@@ -2,11 +2,9 @@
 
 import React, { SVGProps } from 'react'
 
-export const IconMenu = (props: SVGProps<SVGSVGElement>) => {
+export const IconBurger = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      preserveAspectRatio='none'
-      overflow='visible'
       width={20}
       height={20}
       viewBox='0 0 20 20'

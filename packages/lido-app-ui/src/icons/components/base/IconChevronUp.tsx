@@ -4,10 +4,10 @@ import React, { SVGProps } from 'react'
 
 export const IconChevronUp = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width={24} height={24} viewBox='0 0 24 24' fill='none' {...props}>
+    <svg width={20} height={20} viewBox='0 0 20 20' fill='none' {...props}>
       <path
+        d='M9.484 7.105l.46-.459.46.459 5 5-.92.92-4.54-4.54-4.54 4.54-.92-.92 5-5z'
         fill='currentColor'
-        d='M5.718 14.918a.4.4 0 010-.566l5.717-5.717a.8.8 0 011.13 0l5.718 5.717a.4.4 0 010 .566l-.565.565a.4.4 0 01-.566 0L12 10.33l-5.152 5.152a.4.4 0 01-.565 0l-.565-.565z'
       />
     </svg>
   )
