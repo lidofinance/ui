@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { ContainerWidths } from '../../.storybook/components'
 import { IconCheck } from '../icons'
 import { Badge } from '.'
 
@@ -36,6 +37,25 @@ export const WithoutIcon: Story = {
     docs: {
       description: {
         story: 'No `icon` passed — the icon slot is skipped entirely.',
+      },
+    },
+  },
+}
+
+export const NarrowWidths: Story = {
+  args: {
+    children: 'Distributed validator technology cluster',
+  },
+  render: (args) => (
+    <ContainerWidths widths={[160, 240, 320]}>
+      <Badge {...args} />
+    </ContainerWidths>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Long labels truncate with an ellipsis; the icon keeps its size.',
       },
     },
   },

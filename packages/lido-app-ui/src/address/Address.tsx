@@ -2,20 +2,25 @@ import { forwardRef, type ComponentPropsWithoutRef } from 'react'
 
 import cn from 'classnames'
 
-import { Copy } from '../copy'
+import { Copy, type CopyProps } from '../copy'
 import { Hex } from '../hex'
 import { Identicon } from '../identicon'
 import { Tooltip } from '../tooltip'
 import styles from './Address.module.css'
 
-export type AddressProps = ComponentPropsWithoutRef<'span'> & {
+export type AddressProps = Omit<ComponentPropsWithoutRef<'span'>, 'onCopy'> & {
   address: string
   symbols?: number
   identicon?: number
   tooltip?: boolean
   copy?: boolean
+  /** Called after the address is copied; needs `copy`. */
+  onCopy?: () => void
+  /** Accessible names; defaults are English. */
+  labels?: CopyProps['labels']
 }
 
+/** Trimmed hex with optional identicon, full-value tooltip, copy button and trailing slot; font is inherited. */
 export const Address = forwardRef<HTMLSpanElement, AddressProps>(
   (
     {
@@ -24,6 +29,8 @@ export const Address = forwardRef<HTMLSpanElement, AddressProps>(
       identicon,
       tooltip = false,
       copy = false,
+      onCopy,
+      labels,
       className,
       children,
       ...rest
@@ -53,7 +60,7 @@ export const Address = forwardRef<HTMLSpanElement, AddressProps>(
         ) : (
           hex
         )}
-        {copy ? <Copy text={address} /> : null}
+        {copy ? <Copy text={address} onCopy={onCopy} labels={labels} /> : null}
         {children}
       </span>
     )

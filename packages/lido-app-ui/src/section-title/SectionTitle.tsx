@@ -10,11 +10,16 @@ export type SectionTitleDataTestId = {
   title?: string
   subtitle?: string
   action?: string
+  tooltip?: string
+  tooltipContent?: string
 }
 
 export type SectionTitleSize = 'default' | 'large'
 
-export type SectionTitleProps = HTMLAttributes<HTMLDivElement> & {
+export type SectionTitleProps = Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'title'
+> & {
   title: ReactNode
   subtitle?: ReactNode
   /** Renders an info glyph next to the title; hovering it shows this content. */
@@ -53,7 +58,15 @@ export const SectionTitle = ({
           <Title className={styles.title} data-testid={dataTestId?.title}>
             {title}
           </Title>
-          {tooltip != null ? <InfoTooltip content={tooltip} /> : null}
+          {tooltip != null ? (
+            <InfoTooltip
+              content={tooltip}
+              dataTestId={{
+                root: dataTestId?.tooltip,
+                content: dataTestId?.tooltipContent,
+              }}
+            />
+          ) : null}
         </div>
         {subtitle != null ? (
           <p className={styles.subtitle} data-testid={dataTestId?.subtitle}>

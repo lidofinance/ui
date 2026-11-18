@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { StorySection } from '../../.storybook/components'
 import { IconLink } from '../icons'
-import { TextLink } from '../text-link'
 import { Typography } from '../typography'
 import { Address } from '.'
 
@@ -84,6 +83,27 @@ const explorerIcon: CSSProperties = {
   color: 'var(--lido-app-ui-color-icons-tertiary)',
 }
 
+export const CustomLabels: Story = {
+  render: () => (
+    <Typography variant='body' as='div'>
+      <Address
+        address={address}
+        copy
+        labels={{ copy: 'Copy address', copied: 'Address copied' }}
+      />
+    </Typography>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`labels` overrides the accessible names of the copy button (idle and copied).',
+      },
+    },
+  },
+}
+
 export const AdditionalContent: Story = {
   render: () => (
     <Typography variant='body' as='div'>
@@ -102,34 +122,6 @@ export const AdditionalContent: Story = {
         ))}
       </Address>
     </Typography>
-  ),
-  parameters: { controls: { disable: true } },
-}
-
-export const OperatorCardRow: Story = {
-  render: () => (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 4,
-        fontFamily: 'var(--lido-app-ui-font-family)',
-        fontSize: 'var(--lido-app-ui-font-size-label)',
-        fontWeight: 'var(--lido-app-ui-font-weight-medium)',
-        lineHeight: '20px',
-        color: 'var(--lido-app-ui-color-text-secondary)',
-      }}
-    >
-      Rewards:
-      <Address address={address} identicon={16} tooltip>
-        <TextLink
-          href={`https://etherscan.io/address/${address}`}
-          icon={<IconLink />}
-          aria-label='Open in explorer'
-          style={{ color: 'var(--lido-app-ui-color-icons-tertiary)' }}
-        />
-      </Address>
-    </div>
   ),
   parameters: { controls: { disable: true } },
 }

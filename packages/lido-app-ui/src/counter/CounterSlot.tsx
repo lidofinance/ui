@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 
+import { hasContent } from '../utils/hasContent'
 import { Counter } from './Counter'
 import styles from './CounterSlot.module.css'
 
@@ -9,9 +10,7 @@ type CounterSlotProps = {
 }
 
 export const CounterSlot = ({ children, dataTestId }: CounterSlotProps) => {
-  if (children == null || typeof children === 'boolean' || children === '') {
-    return null
-  }
+  if (!hasContent(children)) return null
 
   const content =
     typeof children === 'number' || typeof children === 'string' ? (

@@ -1,8 +1,8 @@
-import { forwardRef, type AnchorHTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
-import { Anchor, type AnchorProps } from '../link-provider/Anchor'
+import { ActionElement, type ActionElementProps } from '../utils'
 import styles from './TextLink.module.css'
 
 export type TextLinkVariant = 'primary' | 'secondary'
@@ -14,20 +14,25 @@ export type TextLinkDataTestId = {
   icon?: string
 }
 
-export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+type TextLinkOwnProps = {
   /** `secondary` is muted gray, blue on hover; for footers and meta links. */
   variant?: TextLinkVariant
   /** `inherit` takes font and display from the surrounding text so the link wraps with it; `body` is 14/24. */
   size?: TextLinkSize
   /** Trailing icon (e.g. arrow). */
   icon?: ReactNode
-  /** Drops the href and blocks clicks and keyboard focus. */
+  /** Link: drops the href and blocks clicks and keyboard focus. Button: native `disabled`. */
   disabled?: boolean
   dataTestId?: TextLinkDataTestId
-} & Pick<AnchorProps, 'external' | 'linkProps'>
+}
 
-/** Inline link, blue by default. Absolute `http(s)` URLs open in a new tab; `LinkProvider` sends relative hrefs to `component` and absolute ones to `externalComponent`. */
-export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
+export type TextLinkProps = TextLinkOwnProps & ActionElementProps
+
+/** Inline link, blue by default. Without `href` renders a `<button type="button">` styled as a link. Absolute `http(s)` URLs open in a new tab; `LinkProvider` sends relative hrefs to `component` and absolute ones to `externalComponent`. */
+export const TextLink = forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  TextLinkProps
+>(
   (
     {
       variant = 'primary',
@@ -41,7 +46,7 @@ export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
     },
     ref,
   ) => (
-    <Anchor
+    <ActionElement
       ref={ref}
       className={cn(
         styles.link,
@@ -64,7 +69,7 @@ export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
           {icon}
         </span>
       ) : null}
-    </Anchor>
+    </ActionElement>
   ),
 )
 

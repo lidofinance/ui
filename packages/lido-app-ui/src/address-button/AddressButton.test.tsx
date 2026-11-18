@@ -80,3 +80,12 @@ describe('AddressButton', () => {
     expect(onClick).not.toHaveBeenCalled()
   })
 })
+
+describe('AddressButton labels', () => {
+  it('uses a custom loading label', () => {
+    render(
+      <AddressButton address={ADDRESS} loading labels={{ loading: 'Lädt' }} />,
+    )
+    expect(screen.getByRole('button', { name: 'Lädt' })).toBeTruthy()
+  })
+})

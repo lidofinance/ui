@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 
 import { Address } from './Address'
 
@@ -43,10 +43,16 @@ describe('Address', () => {
   })
 
   it('shows the full address in a tooltip and drops the native title', () => {
-    const { container } = render(<Address address={address} tooltip />)
-    fireEvent.mouseEnter(screen.getByText('0x56f4...c12e'))
-    expect(screen.getByRole('tooltip').textContent).toBe(address)
-    expect(container.querySelector('[title]')).toBeNull()
+    vi.useFakeTimers()
+    try {
+      const { container } = render(<Address address={address} tooltip />)
+      fireEvent.pointerEnter(screen.getByText('0x56f4...c12e'))
+      act(() => vi.advanceTimersByTime(400))
+      expect(screen.getByRole('tooltip').textContent).toBe(address)
+      expect(container.querySelector('[title]')).toBeNull()
+    } finally {
+      vi.useRealTimers()
+    }
   })
 
   it('makes the tooltip trigger focusable and opens it on focus', () => {
@@ -64,5 +70,33 @@ describe('Address', () => {
     expect(container.querySelector('[title]')?.getAttribute('title')).toBe(
       address,
     )
+  })
+})
+
+describe('Address onCopy', () => {
+  it('calls onCopy after copying', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined)
+    Object.assign(navigator, { clipboard: { writeText } })
+    const onCopy = vi.fn()
+    render(<Address address={address} copy onCopy={onCopy} />)
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button'))
+    })
+    expect(writeText).toHaveBeenCalledWith(address)
+    expect(onCopy).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not forward onCopy to the root span', () => {
+    const onCopy = vi.fn()
+    const { container } = render(<Address address={address} onCopy={onCopy} />)
+    fireEvent.copy(container.firstElementChild as HTMLElement)
+    expect(onCopy).not.toHaveBeenCalled()
+  })
+})
+
+describe('Address labels', () => {
+  it('overrides the copy name', () => {
+    render(<Address address={address} copy labels={{ copy: 'Kopieren' }} />)
+    expect(screen.getByRole('button', { name: 'Kopieren' })).toBeTruthy()
   })
 })

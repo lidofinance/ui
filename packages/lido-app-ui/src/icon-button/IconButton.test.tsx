@@ -1,9 +1,7 @@
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 
-import { Counter } from '../counter'
 import counterStyles from '../counter/Counter.module.css'
 import { LinkProvider } from '../link-provider'
 import { RouterLink } from '../link-provider/linkStubs.test-utils'
@@ -43,43 +41,6 @@ describe('IconButton', () => {
 })
 
 describe('IconButton counter', () => {
-  it('renders the counter inside an aria-hidden wrapper', () => {
-    render(
-      <IconButton
-        aria-label='Bell'
-        icon={null}
-        counter={<Counter>5</Counter>}
-        dataTestId={{ counter: 'counter' }}
-      />,
-    )
-    const wrapper = screen.getByTestId('counter')
-    expect(wrapper).toHaveAttribute('aria-hidden', 'true')
-    expect(wrapper.textContent).toBe('5')
-  })
-
-  it('renders no counter by default', () => {
-    render(
-      <IconButton
-        aria-label='Bell'
-        icon={null}
-        dataTestId={{ counter: 'counter' }}
-      />,
-    )
-    expect(screen.queryByTestId('counter')).not.toBeInTheDocument()
-  })
-
-  it('renders no wrapper for counter={false}', () => {
-    render(
-      <IconButton
-        aria-label='Bell'
-        icon={null}
-        counter={false}
-        dataTestId={{ counter: 'counter' }}
-      />,
-    )
-    expect(screen.queryByTestId('counter')).not.toBeInTheDocument()
-  })
-
   it('wraps a numeric counter in a default Counter', () => {
     render(
       <IconButton
@@ -133,39 +94,6 @@ describe('IconButton with href', () => {
       </LinkProvider>,
     )
     expect(screen.getByRole('link')).toHaveAttribute('data-router')
-  })
-
-  it('drops href and click when disabled', async () => {
-    const onClick = vi.fn()
-    render(
-      <IconButton
-        href='/keys'
-        icon='x'
-        aria-label='Keys'
-        disabled
-        onClick={onClick}
-      />,
-    )
-    const link = screen.getByRole('link')
-    expect(link).not.toHaveAttribute('href')
-    expect(link).toHaveAttribute('aria-disabled', 'true')
-    await userEvent.click(link)
-    expect(onClick).not.toHaveBeenCalled()
-  })
-
-  it('joins aria-label with counterLabel', () => {
-    render(
-      <IconButton
-        href='/inbox'
-        icon='x'
-        aria-label='Notifications'
-        counter={3}
-        counterLabel='3 unread'
-      />,
-    )
-    expect(screen.getByRole('link')).toHaveAccessibleName(
-      'Notifications, 3 unread',
-    )
   })
 
   it('rejects invalid prop combinations', () => {

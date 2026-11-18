@@ -1,11 +1,18 @@
-import { forwardRef, type ButtonHTMLAttributes } from 'react'
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
 import { Address } from '../address'
-import { IconLoaderCircle } from '../icons'
+import { Spinner } from '../spinner'
 import surfaceStyles from '../utils/surface.module.css'
 import styles from './AddressButton.module.css'
+
+export type AddressButtonLabels = {
+  /** Text shown while `loading`. */
+  loading?: ReactNode
+}
+
+const DEFAULT_LABELS: Required<AddressButtonLabels> = { loading: 'Loading' }
 
 export type AddressButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -14,6 +21,8 @@ export type AddressButtonProps = Omit<
   address: string
   symbols?: number
   loading?: boolean
+  /** Built-in texts, for i18n. */
+  labels?: AddressButtonLabels
 }
 
 /** Pill button showing an identicon and the trimmed address. */
@@ -23,6 +32,7 @@ export const AddressButton = forwardRef<HTMLButtonElement, AddressButtonProps>(
       address,
       symbols,
       loading = false,
+      labels,
       disabled = false,
       className,
       type = 'button',
@@ -46,9 +56,9 @@ export const AddressButton = forwardRef<HTMLButtonElement, AddressButtonProps>(
       {loading ? (
         <>
           <span className={styles.slot} aria-hidden='true'>
-            <IconLoaderCircle className={styles.spinner} />
+            <Spinner size='sm' decorative />
           </span>
-          Loading
+          {labels?.loading ?? DEFAULT_LABELS.loading}
         </>
       ) : (
         <Address address={address} symbols={symbols} identicon={28} />

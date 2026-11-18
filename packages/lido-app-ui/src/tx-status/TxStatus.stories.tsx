@@ -71,7 +71,7 @@ export const AllStatuses: Story = {
         message='Confirm the transaction in your wallet. This can take a few minutes depending on network congestion — keep this window open and avoid refreshing the page until the transaction is fully processed.'
         amount={<TokenAmount symbol='stETH' amount='12.4218' />}
         footer={
-          <Stack gap={16}>
+          <Stack gap={16} style={{ width: '100%' }}>
             <Banner
               icon={<TokenIcon token='stETH' />}
               title='Add stETH to your wallet'

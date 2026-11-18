@@ -6,6 +6,12 @@ import { Disclaimer } from '.'
 const meta: Meta<typeof Disclaimer> = {
   title: 'Content & Data/Disclaimer',
   component: Disclaimer,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=5770-3247&m=dev',
+    },
+  },
 }
 
 export default meta

@@ -27,6 +27,7 @@ describe('Typography', () => {
     ['body', 'P'],
     ['description', 'P'],
     ['caption', 'P'],
+    ['inherit', 'SPAN'],
   ])('renders %s as <%s>', (variant, tag) => {
     const el = renderTypography(<Typography variant={variant}>T</Typography>)
     expect(el.tagName).toBe(tag)
@@ -94,5 +95,39 @@ describe('Typography', () => {
     for (const token of tokens) {
       expect(token.cssVar).toBe(`--lido-app-ui-color-text-${token.name}`)
     }
+  })
+
+  it('inherit applies weight and color but no font variant class', () => {
+    const el = renderTypography(
+      <Typography variant='inherit' weight='semibold' color='success'>
+        T
+      </Typography>,
+    )
+    expect(el).toHaveClass(
+      styles.inherit,
+      styles['weight-semibold'],
+      styles['color-success'],
+    )
+    expect(el).not.toHaveClass(styles.body)
+  })
+
+  it('inherit honours as', () => {
+    const el = renderTypography(
+      <Typography variant='inherit' as='h3'>
+        T
+      </Typography>,
+    )
+    expect(el.tagName).toBe('H3')
+    expect(el).toHaveClass(styles.inherit)
+  })
+
+  it('adds truncate class only when set', () => {
+    const el = renderTypography(<Typography truncate>T</Typography>)
+    expect(el).toHaveClass(styles.truncate)
+  })
+
+  it('has no truncate class by default', () => {
+    const el = renderTypography(<Typography>T</Typography>)
+    expect(el).not.toHaveClass(styles.truncate)
   })
 })

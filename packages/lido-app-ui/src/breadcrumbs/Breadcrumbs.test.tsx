@@ -1,7 +1,8 @@
+import { createRef } from 'react'
 import { useState } from 'react'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { Breadcrumbs } from './Breadcrumbs'
@@ -120,34 +121,60 @@ describe('Breadcrumbs', () => {
     })
   }
 
-  it('shows title only while label is truncated', () => {
-    render(
-      <Breadcrumbs
-        items={[{ label: 'Long label', href: '/' }, { label: 'Page' }]}
-      />,
-    )
-    const link = screen.getByRole('link', { name: 'Long label' })
-    stubWidths(link, 300, 100)
-    fireEvent.pointerOver(link)
-    expect(link).toHaveAttribute('title', 'Long label')
-    stubWidths(link, 100, 100)
-    fireEvent.pointerOver(link)
-    expect(link).not.toHaveAttribute('title')
-  })
+  describe('truncation tooltip', () => {
+    afterEach(() => vi.useRealTimers())
 
-  it('keeps consumer-provided title', () => {
-    render(
-      <Breadcrumbs
-        items={[
-          { label: 'Long label', href: '/', title: 'Custom' },
-          { label: 'Page' },
-        ]}
-      />,
-    )
-    const link = screen.getByRole('link', { name: 'Long label' })
-    stubWidths(link, 300, 100)
-    fireEvent.pointerOver(link)
-    expect(link).toHaveAttribute('title', 'Custom')
+    const renderTrail = (title?: string) =>
+      render(
+        <Breadcrumbs
+          items={[{ label: 'Long label', href: '/', title }, { label: 'Page' }]}
+        />,
+      )
+
+    it('shows the full label on hover while truncated', () => {
+      renderTrail()
+      const link = screen.getByRole('link', { name: 'Long label' })
+      stubWidths(link, 300, 100)
+      vi.useFakeTimers()
+      fireEvent.pointerEnter(link.parentElement!)
+      act(() => void vi.advanceTimersByTime(400))
+      expect(screen.getByRole('tooltip')).toHaveTextContent('Long label')
+    })
+
+    it('shows the full label on keyboard focus while truncated', async () => {
+      renderTrail()
+      const link = screen.getByRole('link', { name: 'Long label' })
+      stubWidths(link, 300, 100)
+      await userEvent.tab()
+      expect(await screen.findByRole('tooltip')).toHaveTextContent('Long label')
+      expect(screen.getByRole('link', { name: 'Long label' })).toBe(link)
+      expect(link).toHaveFocus()
+    })
+
+    it('shows the current page label while truncated', () => {
+      renderTrail()
+      const page = screen.getByText('Page')
+      stubWidths(page, 300, 100)
+      fireEvent.focus(page.parentElement!)
+      expect(screen.getByRole('tooltip')).toHaveTextContent('Page')
+    })
+
+    it('shows no tooltip when the label fits', () => {
+      renderTrail()
+      const link = screen.getByRole('link', { name: 'Long label' })
+      stubWidths(link, 100, 100)
+      fireEvent.focus(link)
+      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    })
+
+    it('keeps the consumer title and shows no tooltip', () => {
+      renderTrail('Custom')
+      const link = screen.getByRole('link', { name: 'Long label' })
+      stubWidths(link, 300, 100)
+      fireEvent.focus(link)
+      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+      expect(link).toHaveAttribute('title', 'Custom')
+    })
   })
 
   it('passes title, className and data attributes to current and inert items', () => {
@@ -351,5 +378,11 @@ describe('Breadcrumbs', () => {
       fire()
       expect(list.scrollLeft).toBe(500)
     })
+  })
+
+  it('forwards the ref to the nav', () => {
+    const ref = createRef<HTMLElement>()
+    render(<Breadcrumbs ref={ref} items={[{ label: 'A' }]} />)
+    expect(ref.current).toBe(screen.getByRole('navigation'))
   })
 })

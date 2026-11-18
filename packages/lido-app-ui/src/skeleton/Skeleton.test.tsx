@@ -1,3 +1,4 @@
+import { createRef } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { render } from '@testing-library/react'
 
@@ -64,5 +65,41 @@ describe('Skeleton', () => {
       <Skeleton variant='text' lines={lines} dataTestId={{ root: 'r' }} />,
     )
     expect(getByTestId('r')).toBeInTheDocument()
+  })
+
+  it('applies numeric width and height as px', () => {
+    const root = renderRoot(<Skeleton width={80} height={12} />)
+    expect(root.style.width).toBe('80px')
+    expect(root.style.height).toBe('12px')
+  })
+
+  it('accepts string width', () => {
+    const root = renderRoot(<Skeleton width='50%' />)
+    expect(root.style.width).toBe('50%')
+  })
+
+  it('style overrides width prop', () => {
+    const root = renderRoot(<Skeleton width={80} style={{ width: 100 }} />)
+    expect(root.style.width).toBe('100px')
+  })
+
+  it('multi-line text applies width but not height', () => {
+    const root = renderRoot(
+      <Skeleton variant='text' lines={2} width={120} height={40} />,
+    )
+    expect(root.style.width).toBe('120px')
+    expect(root.style.height).toBe('')
+  })
+
+  it('leaves style untouched without sizing props', () => {
+    const root = renderRoot(<Skeleton />)
+    expect(root.style.width).toBe('')
+  })
+
+  it('forwards the ref to the root span', () => {
+    const ref = createRef<HTMLSpanElement>()
+    render(<Skeleton ref={ref} />)
+    expect(ref.current).toBeInstanceOf(HTMLSpanElement)
+    expect(ref.current?.tagName).toBe('SPAN')
   })
 })

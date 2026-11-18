@@ -35,6 +35,6 @@ export const Badge = ({
         {icon}
       </span>
     )}
-    {children}
+    <span className={styles.label}>{children}</span>
   </span>
 )

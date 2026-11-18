@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { CloseButton, IconButton, type IconButtonProps } from '.'
 
-import {
-  DemoRouter,
-  StoryContainer,
-  StorySection,
-} from '../../.storybook/components'
+import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Counter, type CounterVariant } from '../counter'
 import { IconBell, IconCross, IconEtherscan } from '../icons'
 
@@ -169,29 +165,25 @@ export const WithCounter: Story = {
           />
         ))}
       </StorySection>
-      {(['outline', 'surface', 'ghost'] as const).map((variant) => (
-        <StorySection key={variant} title={variant}>
-          {(['default', 'error'] as const).map((counterVariant) =>
-            (
-              [
-                ['Default', {}],
-                ['Loading', { loading: true }],
-                ['Disabled', { disabled: true }],
-              ] as const
-            ).map(([label, state]) => (
-              <IconButton
-                key={`${counterVariant}-${label}`}
-                icon={<IconBell />}
-                variant={variant}
-                counter={<Counter variant={counterVariant}>3</Counter>}
-                aria-label='Notifications'
-                counterLabel='3 unread'
-                {...state}
-              />
-            )),
-          )}
-        </StorySection>
-      ))}
+      <StorySection title='states'>
+        {(
+          [
+            ['Default', {}],
+            ['Loading', { loading: true }],
+            ['Disabled', { disabled: true }],
+          ] as const
+        ).map(([label, state]) => (
+          <IconButton
+            key={label}
+            icon={<IconBell />}
+            variant='outline'
+            counter={<Counter variant='error'>3</Counter>}
+            aria-label={`Notifications (${label})`}
+            counterLabel='3 unread'
+            {...state}
+          />
+        ))}
+      </StorySection>
       <StorySection title='counter variants'>
         {counterVariants.map((counterVariant) => (
           <IconButton
@@ -263,18 +255,6 @@ export const AsLink: Story = {
           />
         ))}
       </StorySection>
-      <StorySection title='with counter'>
-        {['1', '12', '99+'].map((count) => (
-          <IconButton
-            key={count}
-            icon={<IconBell />}
-            href='#notifications'
-            aria-label='Notifications'
-            counter={count}
-            counterLabel={`${count} unread`}
-          />
-        ))}
-      </StorySection>
     </StoryContainer>
   ),
   parameters: {
@@ -302,41 +282,6 @@ export const External: Story = {
       description: {
         story:
           'Absolute `http(s)` URLs open in a new tab with `rel="noopener noreferrer"`; pass `target` to override.',
-      },
-    },
-  },
-}
-
-export const WithRouter: Story = {
-  render: () => (
-    <DemoRouter>
-      <StorySection>
-        <IconButton
-          icon={<IconBell />}
-          href='/notifications'
-          aria-label='In-app: /notifications'
-        />
-        <IconButton
-          icon={<IconBell />}
-          variant='surface'
-          href='/settings'
-          aria-label='In-app: /settings'
-        />
-        <IconButton
-          icon={<IconBell />}
-          variant='ghost'
-          href='https://lido.fi'
-          aria-label='External: lido.fi'
-        />
-      </StorySection>
-    </DemoRouter>
-  ),
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: {
-        story:
-          'Inside `LinkProvider`, in-app hrefs go to `component` and absolute URLs to `externalComponent`. Click a button to see which handled it; navigation is prevented in the demo.',
       },
     },
   },

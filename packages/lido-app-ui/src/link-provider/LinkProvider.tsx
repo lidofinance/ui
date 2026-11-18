@@ -7,7 +7,7 @@ import {
   type Ref,
 } from 'react'
 
-/** Augment via `declare module '@lidofinance/lido-app-ui'` to type router-only props (e.g. Next's `prefetch`), set per link with `linkProps`. */
+/** Augment via `declare module '@lidofinance/lido-app-ui'` to type router-only props (e.g. Next's `prefetch`), set per link with `linkProps`. @deprecated Set router options inside your `LinkProvider` component. */
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface LinkRouterProps {}
 

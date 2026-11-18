@@ -23,6 +23,7 @@ export type NavLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   icon?: ReactNode
   /** @deprecated Absolute http(s) URLs open in a new tab with the arrow automatically; pass `target` to override. */
   external?: boolean
+  /** @deprecated Set router options inside your `LinkProvider` component. */
   linkProps?: AnchorProps['linkProps']
   dataTestId?: NavLinkDataTestId
 }

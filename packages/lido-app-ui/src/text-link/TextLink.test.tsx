@@ -1,3 +1,4 @@
+import { createRef } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
@@ -116,5 +117,78 @@ describe('TextLink with LinkProvider', () => {
     const a = container.querySelector('a')
     expect(a).not.toHaveAttribute('data-router')
     expect(a).not.toHaveAttribute('href')
+  })
+})
+
+describe('TextLink as button', () => {
+  it('renders a button without href', () => {
+    render(<TextLink>More</TextLink>)
+    const el = screen.getByRole('button', { name: 'More' })
+    expect(el).toHaveAttribute('type', 'button')
+    expect(el).not.toHaveAttribute('href')
+  })
+
+  it('calls onClick', () => {
+    const onClick = vi.fn()
+    render(<TextLink onClick={onClick}>More</TextLink>)
+    fireEvent.click(screen.getByRole('button'))
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('is natively disabled', () => {
+    const onClick = vi.fn()
+    render(
+      <TextLink onClick={onClick} disabled>
+        More
+      </TextLink>,
+    )
+    const el = screen.getByRole('button')
+    expect(el).toBeDisabled()
+    fireEvent.click(el)
+    expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it('keeps variant, size and icon classes', () => {
+    render(
+      <TextLink variant='secondary' size='inherit' icon={<i />}>
+        More
+      </TextLink>,
+    )
+    const el = screen.getByRole('button')
+    expect(el).toHaveClass(
+      styles.link,
+      styles.secondary,
+      styles.inherit,
+      styles.withIcon,
+    )
+  })
+
+  it('does not route through LinkProvider', () => {
+    render(
+      <LinkProvider component={RouterLink}>
+        <TextLink>More</TextLink>
+      </LinkProvider>,
+    )
+    expect(screen.getByRole('button')).not.toHaveAttribute('data-router')
+  })
+
+  it('forwards the ref to the anchor', () => {
+    const ref = createRef<HTMLAnchorElement>()
+    render(
+      <TextLink ref={ref} href='/a'>
+        Link
+      </TextLink>,
+    )
+    expect(ref.current).toBe(screen.getByRole('link'))
+  })
+
+  it('forwards the ref to the button without href', () => {
+    const ref = createRef<HTMLButtonElement>()
+    render(
+      <TextLink ref={ref} onClick={() => {}}>
+        Link
+      </TextLink>,
+    )
+    expect(ref.current).toBe(screen.getByRole('button'))
   })
 })

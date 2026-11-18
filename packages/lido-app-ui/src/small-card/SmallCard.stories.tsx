@@ -1,8 +1,10 @@
+import type { ReactNode } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 import { IconArrowNarrowUpRight, IconBell } from '../icons'
 import { Tag } from '../tag'
-import { SmallCard } from '.'
+import { SmallCard, type SmallCardProps } from '.'
 
 const meta: Meta<typeof SmallCard> = {
   title: 'Cards/SmallCard',
@@ -22,11 +24,14 @@ const meta: Meta<typeof SmallCard> = {
   // kept out of each story's own code so the example stays just
   // `<SmallCard {...props} />`.
   decorators: [
-    (Story) => (
-      <div style={{ width: 248 }}>
+    (Story, { parameters }) =>
+      parameters.fixedWidth === false ? (
         <Story />
-      </div>
-    ),
+      ) : (
+        <div style={{ width: 248 }}>
+          <Story />
+        </div>
+      ),
   ],
   parameters: {
     storyBackground: 'page',
@@ -35,7 +40,8 @@ const meta: Meta<typeof SmallCard> = {
 }
 
 export default meta
-type Story = StoryObj<typeof meta>
+// A union of props breaks `StoryObj<typeof meta>` (args collapse to never).
+type Story = StoryObj<SmallCardProps>
 
 export const Basic: Story = {}
 
@@ -82,6 +88,65 @@ export const WithImage: Story = {
       description: {
         story:
           'With an `image` and a long title/description — both wrap instead of clipping, and the footer wraps multiple tags across rows.',
+      },
+    },
+  },
+}
+
+export const AsButton: Story = {
+  args: {
+    href: undefined,
+    icon: undefined,
+    onClick: fn(),
+    description: 'Opens setup instructions in a modal',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Without `href` the card renders a `<button type="button">` for in-app actions like opening a modal.',
+      },
+    },
+  },
+}
+
+export const Fill: Story = {
+  decorators: [
+    (Story: () => ReactNode) => (
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 248px)',
+          gap: 16,
+          width: 'max-content',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args: SmallCardProps) => (
+    <>
+      <SmallCard
+        {...args}
+        fill
+        description='Short description'
+        footer={<Tag variant='info'>Notification tool</Tag>}
+      />
+      <SmallCard
+        {...args}
+        fill
+        description="In today's fast-paced digital landscape, staying connected with your team and stakeholders is crucial. This integration allows for real-time updates and notifications."
+        footer={<Tag variant='active'>Lido</Tag>}
+      />
+    </>
+  ),
+  parameters: {
+    fixedWidth: false,
+    docs: {
+      description: {
+        story:
+          '`fill` stretches the card to the row height and pins the footer to the bottom, so a row of cards lines up.',
       },
     },
   },

@@ -2,28 +2,55 @@ import type { HTMLAttributes } from 'react'
 
 import cn from 'classnames'
 
+import { alignToCss, type StackAlign } from '../stack/Stack'
+import { spaceToCss, type Space } from '../utils'
 import styles from './Card.module.css'
 
 export type CardDataTestId = {
   root?: string
 }
 
+export type CardAlign = Exclude<StackAlign, 'baseline'>
+
 export type CardProps = HTMLAttributes<HTMLDivElement> & {
+  /** Cross-axis alignment of children; `stretch` makes tables and full-width buttons fill the card. */
+  align?: CardAlign
+  /** Uniform padding from the spacing scale in px; `0` makes a flush card. Defaults to 32, or 20 in a narrow container. */
+  padding?: Space
+  /** Gap between children from the spacing scale in px. Defaults to 32. */
+  gap?: Space
+  /** Clips overflowing children to the card's rounded corners (flush tables, images). */
+  clip?: boolean
   dataTestId?: CardDataTestId
 }
 
-/** Rounded, bordered surface that fills the width its parent gives it. */
+/** Rounded surface that fills the width its parent gives it and tightens its padding in narrow containers; needs a definite-width parent. */
 export const Card = ({
+  align,
+  padding,
+  gap,
+  clip = false,
   className,
+  style,
   children,
   dataTestId,
   ...rest
 }: CardProps) => (
   <div
-    className={cn(styles.card, className)}
+    className={cn(styles.card, clip && styles.clip, className)}
+    style={style}
     data-testid={dataTestId?.root}
     {...rest}
   >
-    {children}
+    <div
+      className={styles.content}
+      style={{
+        ...(align && { alignItems: alignToCss(align) }),
+        ...(padding !== undefined && { padding: spaceToCss(padding) }),
+        ...(gap !== undefined && { gap: spaceToCss(gap) }),
+      }}
+    >
+      {children}
+    </div>
   </div>
 )

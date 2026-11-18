@@ -39,6 +39,7 @@ export type TypographyVariant =
   | 'body'
   | 'description'
   | 'caption'
+  | 'inherit'
 
 /** @deprecated `richInput` → `amount`, `groupName` → `caption` */
 type DeprecatedTypographyVariant = 'richInput' | 'groupName'
@@ -48,12 +49,14 @@ export type TypographyDataTestId = {
 }
 
 export type TypographyProps = Omit<HTMLAttributes<HTMLElement>, 'color'> & {
-  /** Type style; also decides the default tag. */
+  /** Type style; also decides the default tag. `inherit` keeps the parent's font and only applies color/weight. */
   variant?: TypographyVariant | DeprecatedTypographyVariant
   /** Overrides the variant's font weight. */
   weight?: TypographyWeight
   /** Text color token; omit to inherit. */
   color?: TypographyColor
+  /** Single line with an ellipsis on overflow. */
+  truncate?: boolean
   /** Overrides the rendered tag without changing the style. */
   as?: ElementType
   dataTestId?: TypographyDataTestId
@@ -77,6 +80,7 @@ const variantTag: Record<TypographyVariant, ElementType> = {
   body: 'p',
   description: 'p',
   caption: 'p',
+  inherit: 'span',
 }
 
 /** Typed text in Manrope; use the shortcuts (`H1`, `Body`, ...) in app code and `Typography` when the variant is dynamic. The same styles ship as PostCSS mixins from `@lidofinance/lido-app-ui/styles`. */
@@ -84,6 +88,7 @@ export const Typography = ({
   variant = 'body',
   weight,
   color,
+  truncate = false,
   as,
   className,
   children,
@@ -100,6 +105,7 @@ export const Typography = ({
         styles[resolved],
         color && styles[`color-${color}`],
         weight && styles[`weight-${weight}`],
+        truncate && styles.truncate,
         className,
       )}
       data-testid={dataTestId?.root}
@@ -136,6 +142,7 @@ export const Description = (props: ShorthandProps) => (
   <Typography {...props} variant='description' />
 )
 
+/** Uppercase 12px overline; for plain 12px secondary text use `Description` with `color='secondary'`. */
 export const Caption = (props: ShorthandProps) => (
   <Typography {...props} variant='caption' />
 )

@@ -1,15 +1,38 @@
+import { forwardRef, useState, type MouseEvent } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DemoRouter, StorySection } from '../../.storybook/components'
+import { StorySection } from '../../.storybook/components'
 import { Breadcrumbs } from '../breadcrumbs'
 import { IconArrowNarrowUpRight, IconBell } from '../icons'
 import { NavLink } from '../nav-link'
 import { SmallCard } from '../small-card'
 import { TextLink } from '../text-link'
-import { LinkProvider } from './LinkProvider'
+import { LinkProvider, type LinkComponentProps } from './LinkProvider'
 
-const DemoLinks = ({ withProvider }: { withProvider: boolean }) => (
-  <DemoRouter withProvider={withProvider}>
+const createLink = (via: string) => {
+  const Link = forwardRef<HTMLAnchorElement, LinkComponentProps>(
+    ({ onClick, ...props }, ref) => (
+      // eslint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- children arrive via props; click only prevents navigation
+      <a
+        ref={ref}
+        {...props}
+        data-via={via}
+        onClick={(event) => {
+          onClick?.(event)
+          event.preventDefault()
+        }}
+      />
+    ),
+  )
+  Link.displayName = `Link(${via})`
+  return Link
+}
+
+const RouterLink = createLink('component')
+const ExternalLink = createLink('externalComponent')
+
+const links = (
+  <>
     <StorySection row={false} style={{ gap: 8 }}>
       <TextLink href='/keys'>In-app: /keys</TextLink>
       <TextLink href='keys?tab=1'>Relative with query: keys?tab=1</TextLink>
@@ -42,8 +65,15 @@ const DemoLinks = ({ withProvider }: { withProvider: boolean }) => (
         href='/keys'
       />
     </div>
-  </DemoRouter>
+  </>
 )
+
+const lastClick = (event: MouseEvent<HTMLElement>) => {
+  const anchor = (event.target as HTMLElement).closest('a')
+  if (!anchor) return null
+  event.preventDefault()
+  return `${anchor.dataset.via ?? 'plain <a>'} → ${anchor.getAttribute('href')}`
+}
 
 const meta: Meta<typeof LinkProvider> = {
   title: 'Navigation/LinkProvider',
@@ -57,7 +87,21 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
-  render: () => <DemoLinks withProvider />,
+  render: function Render() {
+    const [last, setLast] = useState('none yet')
+    return (
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- click delegation keeps demo links from navigating
+      <div
+        onClick={(event) => setLast(lastClick(event) ?? last)}
+        style={{ display: 'grid', gap: 24 }}
+      >
+        <LinkProvider component={RouterLink} externalComponent={ExternalLink}>
+          {links}
+        </LinkProvider>
+        <p>Last click: {last}</p>
+      </div>
+    )
+  },
   parameters: {
     docs: {
       description: {
@@ -69,7 +113,19 @@ export const Basic: Story = {
 }
 
 export const WithoutProvider: Story = {
-  render: () => <DemoLinks withProvider={false} />,
+  render: function Render() {
+    const [last, setLast] = useState('none yet')
+    return (
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- click delegation keeps demo links from navigating
+      <div
+        onClick={(event) => setLast(lastClick(event) ?? last)}
+        style={{ display: 'grid', gap: 24 }}
+      >
+        {links}
+        <p>Last click: {last}</p>
+      </div>
+    )
+  },
   parameters: {
     docs: {
       description: {

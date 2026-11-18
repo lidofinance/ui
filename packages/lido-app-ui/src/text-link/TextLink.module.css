@@ -7,6 +7,11 @@
   --local-color-hover: var(--lido-app-ui-color-text-active-hover);
 
   color: var(--local-color);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: inherit;
   text-decoration: none;
   cursor: pointer;
 }
@@ -44,7 +49,7 @@
   border-radius: 2px;
 }
 
-.link[aria-disabled='true'] {
+.link:is(:disabled, [aria-disabled='true']) {
   color: var(--lido-app-ui-color-text-disabled);
   pointer-events: none;
 }

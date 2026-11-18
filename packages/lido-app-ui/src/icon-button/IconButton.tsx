@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 import cn from 'classnames'
 
 import { CounterSlot } from '../counter/CounterSlot'
-import { IconLoaderCircle } from '../icons'
+import { Spinner } from '../spinner'
 import { ActionElement, joinAriaLabel } from '../utils'
 import surfaceStyles from '../utils/surface.module.css'
 import styles from './IconButton.module.css'
@@ -59,7 +59,7 @@ export const IconButton = forwardRef<
       {...rest}
     >
       {loading ? (
-        <IconLoaderCircle className={styles.spinner} aria-hidden='true' />
+        <Spinner size='sm' decorative />
       ) : (
         <span
           className={styles.icon}

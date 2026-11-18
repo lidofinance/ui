@@ -13,10 +13,12 @@ import { useCopy } from './useCopy'
 export type CopyProps = Omit<ComponentPropsWithoutRef<'button'>, 'children'> & {
   text: string
   onCopy?: () => void
+  /** Accessible names for the idle and copied states. */
+  labels?: { copy?: string; copied?: string }
 }
 
 export const Copy = forwardRef<HTMLButtonElement, CopyProps>(
-  ({ text, onCopy, onClick, className, ...rest }, ref) => {
+  ({ text, onCopy, labels, onClick, className, ...rest }, ref) => {
     const { copy, copied } = useCopy(text, { onCopy })
 
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -28,7 +30,9 @@ export const Copy = forwardRef<HTMLButtonElement, CopyProps>(
       <button
         ref={ref}
         type='button'
-        aria-label={copied ? 'Copied' : 'Copy'}
+        aria-label={
+          copied ? (labels?.copied ?? 'Copied') : (labels?.copy ?? 'Copy')
+        }
         data-copied={copied || undefined}
         className={cn(styles.root, className)}
         onClick={handleClick}

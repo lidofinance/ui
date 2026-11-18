@@ -3,8 +3,10 @@ import { forwardRef } from 'react'
 import cn from 'classnames'
 
 import { ActionElement, joinAriaLabel } from '../utils'
+// Before CounterSlot so Button.module.css is emitted before the counter's CSS
 import styles from './Button.module.css'
-import { ButtonContent } from './ButtonContent'
+import { CounterLabel, CounterSlot } from '../counter/CounterSlot'
+import { Spinner } from '../spinner'
 import type {
   ButtonAsButtonProps,
   ButtonAsLinkProps,
@@ -34,6 +36,7 @@ export const Button = forwardRef<
       children,
       variant = 'primary',
       size = 'big',
+      fullWidth = false,
       loading = false,
       disabled = false,
       iconLeft,
@@ -52,6 +55,7 @@ export const Button = forwardRef<
         styles.button,
         styles[variant],
         styles[size],
+        fullWidth && styles.fullWidth,
         loading && !disabled && styles.loading,
         className,
       )}
@@ -61,16 +65,33 @@ export const Button = forwardRef<
       disabled={disabled || loading}
       {...rest}
     >
-      <ButtonContent
-        loading={loading}
-        iconLeft={iconLeft}
-        iconRight={iconRight}
-        counter={counter}
-        counterLabel={counterLabel}
-        dataTestId={dataTestId}
-      >
+      {loading ? (
+        <Spinner className={styles.spinner} decorative />
+      ) : (
+        iconLeft != null && (
+          <span
+            className={styles.icon}
+            aria-hidden='true'
+            data-testid={dataTestId?.iconLeft}
+          >
+            {iconLeft}
+          </span>
+        )
+      )}
+      <span className={styles.content} data-testid={dataTestId?.content}>
         {children}
-      </ButtonContent>
+      </span>
+      {!loading && iconRight != null ? (
+        <span
+          className={styles.icon}
+          aria-hidden='true'
+          data-testid={dataTestId?.iconRight}
+        >
+          {iconRight}
+        </span>
+      ) : null}
+      <CounterSlot dataTestId={dataTestId?.counter}>{counter}</CounterSlot>
+      <CounterLabel>{counterLabel}</CounterLabel>
     </ActionElement>
   ),
 )
