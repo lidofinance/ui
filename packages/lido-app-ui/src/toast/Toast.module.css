@@ -1,0 +1,158 @@
+.toast {
+  --local-accent: var(--lido-app-ui-color-icons-default);
+  --local-icon: var(--lido-app-ui-color-icons-secondary);
+
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lido-app-ui-space-24);
+  width: 320px;
+  max-width: 100%;
+  padding: var(--lido-app-ui-space-16);
+  overflow: clip;
+  border-radius: var(--lido-app-ui-border-radius-dropdown);
+  background-color: var(--lido-app-ui-color-background-surface);
+  box-shadow: var(--lido-app-ui-shadow-default);
+  color: var(--lido-app-ui-color-text-default);
+}
+
+.success {
+  --local-accent: var(--lido-app-ui-color-icons-success);
+  --local-icon: var(--lido-app-ui-color-icons-success);
+
+  background-color: var(--lido-app-ui-color-tint-success);
+}
+
+.warning {
+  --local-accent: var(--lido-app-ui-color-icons-warning);
+  --local-icon: var(--lido-app-ui-color-icons-warning);
+
+  background-color: var(--lido-app-ui-color-tint-warning);
+}
+
+.error {
+  --local-accent: var(--lido-app-ui-color-icons-error);
+  --local-icon: var(--lido-app-ui-color-icons-error);
+
+  background-color: var(--lido-app-ui-color-tint-error);
+}
+
+.fluid {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.subheader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--lido-app-ui-space-4);
+  margin-bottom: var(--lido-app-ui-space-8);
+}
+
+.header {
+  display: flex;
+  gap: var(--lido-app-ui-space-8);
+  align-items: center;
+}
+
+.closable {
+  min-height: 36px;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--local-icon);
+}
+
+.icon > svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* IconWarning is a 24px viewBox with padding; scale so the triangle fills the 20px slot like the other status icons. */
+.warning .icon > svg {
+  flex-shrink: 0;
+  width: 27px;
+  height: 27px;
+  margin: -3.5px;
+}
+
+.title {
+  flex: 1;
+  min-width: 1px;
+  margin: 0;
+  overflow-wrap: anywhere;
+
+  @mixin font-body-large-semibold;
+}
+
+.body {
+  overflow-wrap: anywhere;
+
+  @mixin font-body;
+}
+
+/* stylelint-disable selector-max-type -- body is consumer markup */
+.body p {
+  margin: 0 0 var(--lido-app-ui-space-8);
+}
+
+.body p:last-child {
+  margin-bottom: 0;
+}
+
+.body ul {
+  margin: 0;
+  padding-inline-start: 21px;
+  list-style: disc;
+}
+/* stylelint-enable selector-max-type */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lido-app-ui-space-12);
+  align-items: flex-start;
+}
+
+.progress {
+  position: absolute;
+  inset: auto 0 0;
+  height: 4px;
+  background-color: var(--lido-app-ui-color-tint-neutral);
+  pointer-events: none;
+}
+
+.progressFill {
+  width: 100%;
+  height: 100%;
+  background-color: var(--local-accent);
+  transform-origin: left center;
+  animation: toast-progress var(--local-duration) linear forwards;
+  animation-play-state: var(--local-play-state, running);
+}
+
+[dir='rtl'] .progressFill {
+  transform-origin: right center;
+}
+
+@keyframes toast-progress {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressFill {
+    animation: none;
+  }
+}

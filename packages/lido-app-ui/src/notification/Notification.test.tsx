@@ -13,6 +13,15 @@ describe('Notification', () => {
     expect(ref.current).toBe(screen.getByTestId('n'))
   })
 
+  it('follows the ambient theme', () => {
+    const ref = createRef<HTMLDivElement>()
+    render(<Notification ref={ref} title='T' data-testid='n' />)
+    const el = screen.getByTestId('n')
+    expect(el.closest('[data-lido-theme]')).toBeNull()
+    expect(ref.current).toBe(el)
+    expect(el.parentElement).toBe(document.body.firstElementChild)
+  })
+
   it('defaults to role alert', () => {
     render(<Notification title='T' data-testid='n' />)
     expect(screen.getByTestId('n')).toHaveAttribute('role', 'alert')
@@ -43,14 +52,15 @@ describe('Notification', () => {
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
-  it('reserves close button space on the subheader row when present', () => {
+  it('places the dismiss button in the header row after the subheader and title', () => {
     render(
       <Notification title='T' subheader={<span>tag</span>} onClose={vi.fn()} />,
     )
-    const subheader = screen.getByText('tag').parentElement!
-    const wrapper = subheader.parentElement!
-    expect(wrapper).toHaveClass(styles.closable)
-    expect(wrapper.firstElementChild).toBe(subheader)
+    const head = screen.getByText('T').closest(`.${styles.head}`)!
+    expect(head.firstElementChild).toContainElement(screen.getByText('tag'))
+    expect(head.lastElementChild).toBe(
+      screen.getByRole('button', { name: 'Dismiss' }),
+    )
   })
 
   it.each([false, '', null])(
@@ -65,11 +75,32 @@ describe('Notification', () => {
         />,
       )
       expect(screen.queryByTestId('sub')).not.toBeInTheDocument()
-      const wrapper = screen.getByText('T').parentElement!
-      expect(wrapper).toHaveClass(styles.closable)
-      expect(wrapper.firstElementChild).toBe(screen.getByText('T'))
     },
   )
+
+  it('plain variant applies the plain class and defaults to role none', () => {
+    render(<Notification variant='plain' title='T' data-testid='n' />)
+    const root = screen.getByTestId('n')
+    expect(root).toHaveClass(styles.plain)
+    expect(root).toHaveAttribute('role', 'none')
+  })
+
+  it('plain variant allows an explicit role', () => {
+    render(
+      <Notification
+        variant='plain'
+        title='T'
+        role='listitem'
+        data-testid='n'
+      />,
+    )
+    expect(screen.getByTestId('n')).toHaveAttribute('role', 'listitem')
+  })
+
+  it('card variant has no plain class', () => {
+    render(<Notification title='T' data-testid='n' />)
+    expect(screen.getByTestId('n')).not.toHaveClass(styles.plain)
+  })
 
   it('renders no body or actions wrapper for false children and actions', () => {
     render(
@@ -97,5 +128,27 @@ describe('Notification', () => {
     expect(
       screen.getByRole('button', { name: 'Dismiss' }),
     ).toHaveAccessibleDescription('Your key got a strike')
+  })
+
+  it('applies the fluid class only when requested', () => {
+    const { rerender } = render(<Notification title='T' data-testid='n' />)
+    expect(screen.getByTestId('n')).not.toHaveClass(styles.fluid)
+    rerender(<Notification title='T' fluid data-testid='n' />)
+    expect(screen.getByTestId('n')).toHaveClass(styles.fluid)
+  })
+})
+
+describe('Notification labels', () => {
+  it('uses a custom close label', () => {
+    render(
+      <Notification
+        title='Saved'
+        onClose={() => {}}
+        labels={{ close: 'Schließen' }}
+      />,
+    )
+    expect(
+      screen.getByRole('button', { name: 'Schließen' }),
+    ).toBeInTheDocument()
   })
 })
