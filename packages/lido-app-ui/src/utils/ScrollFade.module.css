@@ -33,7 +33,8 @@
   /* stylelint-enable custom-property-no-missing-var-function */
 }
 
-.scrollFade:dir(rtl) {
+[dir='rtl'] .scrollFade,
+.scrollFade[dir='rtl'] {
   mask-image: linear-gradient(
     to left,
     rgb(0 0 0 / calc(1 - var(--lido-app-ui-fade-start))) 13px,

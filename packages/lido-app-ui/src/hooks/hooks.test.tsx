@@ -7,6 +7,7 @@ import { registerReturnLayer } from './focusReturn'
 import { Portal } from './Portal'
 import { useBodyScrollLock } from './useBodyScrollLock'
 import { useEscape } from './useEscape'
+import { getTabbable } from './tabbable'
 import { useFocusTrap } from './useFocusTrap'
 import { useOutsideClick } from './useOutsideClick'
 
@@ -111,6 +112,43 @@ describe('useFocusTrap tab order', () => {
     screen.getByText('last').focus()
     await tab()
     expect(document.activeElement).toBe(screen.getByText('first'))
+  })
+
+  it('skips content of a closed details but keeps its summary', () => {
+    render(
+      <Custom>
+        <button>first</button>
+        <details>
+          <summary>sum</summary>
+          <button>inside</button>
+        </details>
+        <button>last</button>
+      </Custom>,
+    )
+    expect(getTabbable(screen.getByText('first').parentElement!)).toEqual([
+      screen.getByText('first'),
+      screen.getByText('sum'),
+      screen.getByText('last'),
+    ])
+  })
+
+  it('orders positive tabindex before tabindex 0', async () => {
+    render(
+      <Custom>
+        <button tabIndex={0}>zero</button>
+        {/* eslint-disable-next-line jsx-a11y/tabindex-no-positive -- testing native tab order */}
+        <button tabIndex={1}>one</button>
+        <button tabIndex={0}>zero2</button>
+      </Custom>,
+    )
+    expect(getTabbable(screen.getByText('one').parentElement!)).toEqual([
+      screen.getByText('one'),
+      screen.getByText('zero'),
+      screen.getByText('zero2'),
+    ])
+    screen.getByText('zero2').focus()
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('one'))
   })
 
   it('skips inert subtrees', async () => {
