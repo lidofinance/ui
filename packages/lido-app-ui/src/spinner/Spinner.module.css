@@ -1,0 +1,42 @@
+.root {
+  /* Hosts resize via --spinner-size from a more specific selector (e.g. `.host .spinner`). */
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+}
+
+.sm {
+  --spinner-size: 16px;
+}
+
+.md {
+  --spinner-size: 24px;
+}
+
+.lg {
+  --spinner-size: 40px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  animation: spin 0.9s linear infinite;
+}
+
+.visuallyHidden {
+  @mixin visually-hidden;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    animation-duration: 4s;
+  }
+}
