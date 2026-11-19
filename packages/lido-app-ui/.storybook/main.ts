@@ -1,5 +1,7 @@
 import path from 'path'
 
+import { basePlugins } from '../postcss.config.js'
+
 const GLOBAL_CSS =
   /(styles[\\/][^\\/]+|lido-shared-ui[\\/]dist[\\/]index)\.css$/
 
@@ -34,20 +36,7 @@ export default {
   webpackFinal: async (config: any) => {
     const packageRoot = process.cwd()
 
-    const postcssOptions = {
-      plugins: {
-        '@csstools/postcss-global-data': {
-          files: [path.join(packageRoot, 'styles/breakpoints.css')],
-        },
-        'postcss-mixins': {
-          mixinsDir: path.join(packageRoot, 'styles'),
-        },
-        autoprefixer: {},
-        'postcss-import': {},
-        'postcss-nested': {},
-        'postcss-custom-media': { preserve: false },
-      },
-    }
+    const postcssOptions = { plugins: basePlugins }
 
     const customConfig = { ...config }
 
@@ -120,7 +109,7 @@ export default {
   framework: {
     name: '@storybook/react-webpack5',
     options: {
-      strictMode: false,
+      strictMode: true,
       builder: {
         useSWC: true,
       },

@@ -1,3 +1,4 @@
+import { createRef } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
@@ -8,7 +9,7 @@ import styles from './Tag.module.css'
 describe('Tag', () => {
   it('is a plain span without onClick or href', () => {
     render(<Tag>R</Tag>)
-    const tag = screen.getByText('R')
+    const tag = screen.getByText('R').parentElement as HTMLElement
     expect(tag.tagName).toBe('SPAN')
     expect(tag).not.toHaveClass(styles.interactive)
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
@@ -118,9 +119,52 @@ describe('Tag', () => {
     ).toHaveAccessibleDescription('Lido')
   })
 
+  it('renders info after the label without joining its accessible name', () => {
+    render(
+      <Tag onClose={() => undefined} info='Hint'>
+        Lido
+      </Tag>,
+    )
+    expect(screen.getByRole('img', { name: 'More info' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Remove' }),
+    ).toHaveAccessibleDescription('Lido')
+  })
+
+  it('does not render info on interactive tags', () => {
+    const { rerender } = render(
+      <Tag onClick={() => undefined} info='Hint'>
+        R
+      </Tag>,
+    )
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+    rerender(
+      <Tag href='/x' info='Hint'>
+        R
+      </Tag>,
+    )
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+    rerender(
+      <Tag disabled info='Hint'>
+        R
+      </Tag>,
+    )
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+  })
+
+  it('renders info on passive tags', () => {
+    render(<Tag info='Hint'>R</Tag>)
+    expect(screen.getByRole('img', { name: 'More info' })).toBeInTheDocument()
+  })
+
+  it('renders no info icon for info={false}', () => {
+    render(<Tag info={false}>R</Tag>)
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+  })
+
   it('applies the custom variant class', () => {
     render(<Tag variant='custom'>R</Tag>)
-    expect(screen.getByText('R')).toHaveClass(styles.custom)
+    expect(screen.getByText('R').parentElement).toHaveClass(styles.custom)
   })
 
   it('keeps a role=button span for custom with onClick', () => {
@@ -132,5 +176,34 @@ describe('Tag', () => {
     const tag = screen.getByRole('button', { name: 'R' })
     expect(tag.tagName).toBe('SPAN')
     expect(tag).toHaveClass(styles.custom, styles.interactive)
+  })
+})
+
+describe('Tag labels', () => {
+  it('uses a custom remove label', () => {
+    render(
+      <Tag onClose={() => undefined} labels={{ remove: 'Entfernen' }}>
+        R
+      </Tag>,
+    )
+    expect(
+      screen.getByRole('button', { name: 'Entfernen' }),
+    ).toBeInTheDocument()
+  })
+
+  it('forwards the ref to the root', () => {
+    const ref = createRef<HTMLElement>()
+    render(<Tag ref={ref}>Tag</Tag>)
+    expect(ref.current).toBe(screen.getByText('Tag').parentElement)
+  })
+
+  it('forwards the ref to the button when as=button', () => {
+    const ref = createRef<HTMLButtonElement>()
+    render(
+      <Tag ref={ref} as='button' onClick={() => {}}>
+        Tag
+      </Tag>,
+    )
+    expect(ref.current).toBe(screen.getByRole('button'))
   })
 })

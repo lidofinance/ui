@@ -61,3 +61,17 @@ describe('Copy', () => {
     expect(onCopy).not.toHaveBeenCalled()
   })
 })
+
+describe('Copy labels', () => {
+  it('uses custom copy and copied labels', async () => {
+    Object.assign(navigator, {
+      clipboard: { writeText: vi.fn().mockResolvedValue(undefined) },
+    })
+    render(<Copy text='abc' labels={{ copy: 'Kopieren', copied: 'Kopiert' }} />)
+    const button = screen.getByRole('button', { name: 'Kopieren' })
+    await act(async () => {
+      fireEvent.click(button)
+    })
+    expect(screen.getByRole('button', { name: 'Kopiert' })).toBeTruthy()
+  })
+})

@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { breakpointNames } from '../../.storybook/viewports'
 import { StoryContainer } from '../../.storybook/components'
 import { Grid } from '../grid'
-import { IconMenu } from '../icons'
+import { IconBurger } from '../icons'
 import { PageContent as PageContentLayout } from '../page-layout'
 import { breakpoints, breakpointWidths, type Breakpoint } from '../utils'
 import { PAGE_CONTENT_MAX, PAGE_GUTTER, PAGE_GUTTERS } from './layoutTokens'
@@ -293,7 +293,7 @@ const Diagram = ({
           }}
         >
           {burger && (
-            <IconMenu
+            <IconBurger
               aria-hidden
               width={20}
               height={20}

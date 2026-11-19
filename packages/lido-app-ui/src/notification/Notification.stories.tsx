@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import {
+  DarkThemeProvider,
+  LightThemeProvider,
+} from '@lidofinance/lido-shared-ui'
+
 import { Button } from '../button'
 import { Identicon } from '../identicon'
 import { Tag } from '../tag'
@@ -9,6 +14,12 @@ import { Notification } from '.'
 const meta: Meta<typeof Notification> = {
   title: 'Feedback & Overlays/Notification',
   component: Notification,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/?node-id=5118-22',
+    },
+  },
 }
 
 export default meta
@@ -106,6 +117,26 @@ export const OtherOperator: Story = {
   ),
 }
 
+export const Fluid: Story = {
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: '`fluid` fills the container instead of the fixed 320px width.',
+      },
+    },
+  },
+  render: () => (
+    <Notification
+      fluid
+      title='Unsupported chain'
+      actions={<Button size='small'>Switch network</Button>}
+    >
+      Connect to a supported network to continue.
+    </Notification>
+  ),
+}
+
 export const Dismissible: Story = {
   parameters: {
     controls: { disable: true },
@@ -163,6 +194,63 @@ export const LongHash: Story = {
       Transaction
       0x3a9f1c0b7e5d4a8c92f6b1d03e7a45c8d9f2b6a1e0c4d7385f9a2b6c1d0e8f47
       reverted.
+    </Notification>
+  ),
+}
+
+const themePanel = {
+  padding: 24,
+  background: 'var(--lido-app-ui-color-background-page)',
+}
+
+export const Themes: Story = {
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Follows the active theme through tokens; both themes are forced here side by side.',
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      {[LightThemeProvider, DarkThemeProvider].map((Theme, i) => (
+        <Theme key={i}>
+          <div style={themePanel}>
+            <Notification
+              subheader={<Tag icon={avatar}>CM#419</Tag>}
+              title='Your key got a strike'
+              actions={actions}
+              onClose={() => undefined}
+            >
+              {body}
+            </Notification>
+          </div>
+        </Theme>
+      ))}
+    </div>
+  ),
+}
+
+export const Plain: Story = {
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`variant="plain"` drops the card surface for lists on a panel (see the `Drawer` Notifications story). `subheader` takes the date as plain text; the role defaults to `none`.',
+      },
+    },
+  },
+  render: () => (
+    <Notification
+      variant='plain'
+      subheader='Jun 20, 2026'
+      title='Your key got a strike'
+      actions={<Button size='small'>View strikes</Button>}
+    >
+      {body}
     </Notification>
   ),
 }

@@ -34,6 +34,8 @@ yarn test              # turbo run test — vitest across all packages
 yarn lint              # turbo run lint — eslint across all packages
 yarn lint:css          # turbo run lint:css — stylelint across all packages
 yarn types             # turbo run types — tsc --noEmit across all packages
+yarn check:coverage    # turbo run check:coverage — every component folder has a story, test and export
+yarn size              # turbo run size — gzip dist entries vs size-budget.json (build first)
 yarn build-storybook   # turbo run build-storybook
 
 yarn storybook:ui       # Storybook for lido-ui, port 5555
@@ -72,12 +74,13 @@ Tests run on Vitest with `jsdom` + `@vitejs/plugin-react`. Linting is ESLint 9 f
 ## Architecture notes
 
 - **Build tool per package**: Rollup (`rollup.config.mjs`) compiles `src/index.ts` to `dist/cjs` and `dist/esm` (via `@rollup/plugin-babel`), then `tsc --project tsconfig.production.json` generates declaration files. In `lido-landing-ui`, `lido-app-ui` and `lido-shared-ui`, styles are extracted to a single `index.css` per package via `rollup-plugin-postcss` (CSS Modules enabled except for `styles/global.css`); `lido-ui` styles with styled-components instead.
+- **Browser targets**: each package has its own `browserslist` in `package.json` (no root one); `rollup.config.mjs` pins `BROWSERSLIST_CONFIG` to it because Babel and cssnano otherwise look it up from the repo root. `lido-app-ui` targets Chrome/Edge 111, Firefox 121, Safari/iOS 16.4; the other packages Chrome 100, Firefox 91, Safari 15. Explicit minimums, not moving queries.
 - **Token prefixes are per-package, not shared**: `lido-ui` and `lido-landing-ui` both publish `--lido-ui-*` variables under the same names with different values, so a product importing both CSS bundles gets whichever loaded last. `lido-app-ui` therefore namespaces its own layer as `--lido-app-ui-*`. When adding tokens to a package, stay inside that package's prefix rather than reaching for a "shared" one.
 - **Theming**: CSS custom properties (the package's prefix, see above) drive typography, colors, border radii, and light/dark visibility; consumers override them in their own CSS after importing the package's `index.css`. Two theme providers exist: `ThemeProvider` (static theme) and `CookieThemeProvider` (theme resolved from override → URL query → cookie → initial value → system preference → default), paired with `ThemeToggler` when a product supports switching themes. Shared theme logic (cookie handling, constants, theme provider primitives) lives in `lido-shared-ui/src/theme-css`.
 - **Typography** (`lido-landing-ui`, `lido-app-ui`) is consumed as PostCSS mixins via `postcss-mixins` pointed at `dist/styles`; `lido-landing-ui` also ships a plain `styles/typography.css`.
 - **Cross-package dependency direction**: `lido-shared-ui` is the only package with no internal dependencies; both `lido-landing-ui` and `lido-app-ui` build on top of it. `lido-ui` is independent of the others and not built on the shared foundation (consistent with it being legacy/deprecated). Keep this direction in mind when moving code between packages — shared primitives belong in `lido-shared-ui`, not the other way around.
 - **Releases**: all packages are versioned and published together by [multi-semantic-release](https://github.com/dhoulb/multi-semantic-release) (wraps `semantic-release`, using the Conventional Commits preset), which understands the dependency graph above — e.g. a breaking change in `lido-shared-ui` bumps the packages depending on it too. Publishing is triggered by CI on pushes to `main` (production channel) and `develop` (alpha channel, prerelease id `alpha`). Use `!` in a commit type (e.g. `feat!: ...`) to trigger a new major version. Full detail, known issues, and CI wiring are in `RELEASES.md`.
-- **CI** (`.github/workflows/test.yml`): security/docker/actions linters from `lidofinance/linters`, then, in parallel jobs, `yarn lint` + `yarn lint:css`, `yarn types`, `yarn test` and a `yarn build` smoke check, all gated behind a shared `cache-deps` job (node_modules keyed on `yarn.lock`, Turbo cache keyed on commit SHA).
+- **CI** (`.github/workflows/test.yml`): security/docker/actions linters from `lidofinance/linters`, then, in parallel jobs, `yarn lint` + `yarn lint:css`, `yarn check:coverage` (in the lint job), `yarn types`, `yarn test` and a `yarn build` smoke check followed by `yarn size`, all gated behind a shared `cache-deps` job (node_modules keyed on `yarn.lock`, Turbo cache keyed on commit SHA).
 
 ## Storybook conventions
 

@@ -105,6 +105,10 @@ export const BACKGROUND_ELEMENTS: ColorToken[] = [
   },
   { name: 'disabled', cssVar: '--lido-app-ui-color-background-disabled' },
   { name: 'skeleton', cssVar: '--lido-app-ui-color-background-skeleton' },
+  {
+    name: 'progress-track',
+    cssVar: '--lido-app-ui-color-background-progress-track',
+  },
   { name: 'page', cssVar: '--lido-app-ui-color-background-page' },
   { name: 'overlay', cssVar: '--lido-app-ui-color-background-overlay' },
 ]

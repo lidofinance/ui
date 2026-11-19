@@ -2,6 +2,7 @@
   position: relative;
   z-index: 1;
   display: inline-flex;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -14,12 +15,10 @@
   @mixin font-body-semibold;
 
   cursor: pointer;
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
-.segment:hover:not(:disabled, .active) {
+.segment:hover:not(:disabled, [aria-selected='true']) {
   background-color: var(--lido-app-ui-color-background-transparent-hover);
   color: var(--lido-app-ui-color-text-default);
 }
@@ -42,12 +41,18 @@
   outline-offset: 2px;
 }
 
-.active {
+.segment:where([aria-selected='true']) {
   border-radius: var(--lido-app-ui-border-radius-control);
   color: var(--lido-app-ui-color-text-default);
 }
 
 .content {
-  display: inline-flex;
-  align-items: center;
+  display: block;
+  max-width: 100%;
+
+  @mixin truncate;
+}
+
+.content > * {
+  vertical-align: middle;
 }

@@ -1,0 +1,8 @@
+.forceHover {
+  --lido-app-ui-color-icons-tertiary: var(--lido-app-ui-color-icons-default);
+}
+
+/* stylelint-disable-next-line selector-max-type -- header class is not exposed */
+.forceHover > button {
+  background-color: var(--lido-app-ui-color-background-transparent-hover);
+}

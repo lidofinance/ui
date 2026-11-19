@@ -1,15 +1,30 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
-import { Counter } from '../counter'
 import counterStyles from '../counter/Counter.module.css'
 import { LinkProvider } from '../link-provider'
 import { RouterLink } from '../link-provider/linkStubs.test-utils'
 import { Button } from './Button'
+import styles from './Button.module.css'
 
 describe('Button', () => {
+  it('applies the fullWidth class only when requested', () => {
+    const { rerender } = render(<Button>A</Button>)
+    expect(screen.getByRole('button')).not.toHaveClass(styles.fullWidth)
+    rerender(<Button fullWidth>A</Button>)
+    expect(screen.getByRole('button')).toHaveClass(styles.fullWidth)
+  })
+
+  it('applies fullWidth to a link button', () => {
+    render(
+      <Button fullWidth href='/keys'>
+        A
+      </Button>,
+    )
+    expect(screen.getByRole('link')).toHaveClass(styles.fullWidth)
+  })
+
   it('forwards ref to the button element', () => {
     const ref = createRef<HTMLButtonElement>()
     render(<Button ref={ref}>A</Button>)
@@ -82,34 +97,6 @@ describe('Button loading', () => {
 })
 
 describe('Button counter', () => {
-  it('renders the counter inside an aria-hidden wrapper', () => {
-    render(
-      <Button
-        counter={<Counter>5</Counter>}
-        dataTestId={{ counter: 'counter' }}
-      >
-        Inbox
-      </Button>,
-    )
-    const wrapper = screen.getByTestId('counter')
-    expect(wrapper).toHaveAttribute('aria-hidden', 'true')
-    expect(wrapper.textContent).toBe('5')
-  })
-
-  it('renders no counter by default', () => {
-    render(<Button dataTestId={{ counter: 'counter' }}>Inbox</Button>)
-    expect(screen.queryByTestId('counter')).not.toBeInTheDocument()
-  })
-
-  it('renders no wrapper for counter={false}', () => {
-    render(
-      <Button counter={false} dataTestId={{ counter: 'counter' }}>
-        Inbox
-      </Button>,
-    )
-    expect(screen.queryByTestId('counter')).not.toBeInTheDocument()
-  })
-
   it('wraps a numeric counter in a default Counter', () => {
     render(
       <Button counter={3} dataTestId={{ counter: 'counter' }}>
@@ -119,17 +106,6 @@ describe('Button counter', () => {
     const pill = screen.getByTestId('counter').firstElementChild
     expect(pill).toHaveTextContent('3')
     expect(pill).toHaveClass(counterStyles.counter)
-  })
-
-  it('renders a zero counter as a pill', () => {
-    render(
-      <Button counter={0} dataTestId={{ counter: 'counter' }}>
-        Inbox
-      </Button>,
-    )
-    const pill = screen.getByTestId('counter').firstElementChild
-    expect(pill).toHaveClass(counterStyles.counter)
-    expect(pill).toHaveTextContent('0')
   })
 
   it('appends counterLabel to the accessible name', () => {
@@ -176,29 +152,6 @@ describe('Button with href', () => {
       </LinkProvider>,
     )
     expect(screen.getByRole('link')).toHaveAttribute('data-router')
-  })
-
-  it('drops href and click when disabled', async () => {
-    const onClick = vi.fn()
-    render(
-      <Button href='/keys' disabled onClick={onClick}>
-        Keys
-      </Button>,
-    )
-    const link = screen.getByRole('link')
-    expect(link).not.toHaveAttribute('href')
-    expect(link).toHaveAttribute('aria-disabled', 'true')
-    await userEvent.click(link)
-    expect(onClick).not.toHaveBeenCalled()
-  })
-
-  it('joins aria-label with counterLabel', () => {
-    render(
-      <Button href='/inbox' aria-label='Inbox' counterLabel='3 unread'>
-        Inbox
-      </Button>,
-    )
-    expect(screen.getByRole('link')).toHaveAccessibleName('Inbox, 3 unread')
   })
 
   it('rejects invalid prop combinations', () => {

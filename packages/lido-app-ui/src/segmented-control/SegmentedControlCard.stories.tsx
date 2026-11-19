@@ -1,7 +1,12 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { ContainerWidths } from '../../.storybook/components'
+import { Button } from '../button'
+import { Counter } from '../counter'
 import { IconShield } from '../icons'
+import { Tag } from '../tag'
+import { VisuallyHidden } from '../visually-hidden'
 import { SegmentedControlCard, type SegmentCardItem } from '.'
 
 const items: SegmentCardItem[] = [
@@ -59,6 +64,35 @@ export const Basic: Story = {
   },
 }
 
+export const FocusOnError: Story = {
+  render: function Render() {
+    const [value, setValue] = useState('exit')
+    const ref = useRef<HTMLButtonElement>(null)
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <SegmentedControlCard
+          ref={ref}
+          items={items}
+          value={value}
+          onChange={setValue}
+        />
+        <Button size='small' onClick={() => ref.current?.focus()}>
+          Validate
+        </Button>
+      </div>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'The ref points at the selected card, so form libraries (react-hook-form `field.ref`) can focus the field on a validation error.',
+      },
+    },
+  },
+}
+
 export const WithDisabledItem: Story = {
   render: () => {
     const [value, setValue] = useState('eject')
@@ -78,6 +112,84 @@ export const WithDisabledItem: Story = {
       description: {
         story:
           'A disabled card stays visible but cannot be selected or take focus.',
+      },
+    },
+  },
+}
+
+export const NarrowContainers: Story = {
+  render: function Render() {
+    const [value, setValue] = useState('eject')
+    return (
+      <ContainerWidths>
+        <SegmentedControlCard items={items} value={value} onChange={setValue} />
+      </ContainerWidths>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Cards stack once the container cannot give each at least 212px.',
+      },
+    },
+  },
+}
+
+export const WithNodeTags: Story = {
+  render: function Render() {
+    const [value, setValue] = useState('eject')
+    return (
+      <SegmentedControlCard
+        items={[
+          {
+            ...items[0],
+            tag: (
+              <Counter variant='error'>
+                3<VisuallyHidden> pending requests</VisuallyHidden>
+              </Counter>
+            ),
+          },
+          { ...items[1], tag: <Tag variant='success'>Voluntary</Tag> },
+          { ...items[2], tag: 'Optional' },
+        ]}
+        value={value}
+        onChange={setValue}
+      />
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Strings and numbers get a neutral Tag; elements such as a `Counter` or a coloured `Tag` render as-is, without a second pill around them. Wrap an element in `<Tag variant="neutral">` to keep the pill.',
+      },
+    },
+  },
+}
+
+export const CustomStackAt: Story = {
+  args: { stackAt: 480 },
+  render: function Render(args) {
+    const [value, setValue] = useState('eject')
+    return (
+      <ContainerWidths>
+        <SegmentedControlCard
+          items={items}
+          stackAt={args.stackAt}
+          value={value}
+          onChange={setValue}
+        />
+      </ContainerWidths>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'With `stackAt={480}` the cards stack as soon as the control is narrower than 480px, instead of the default 212px per card.',
       },
     },
   },

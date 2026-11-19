@@ -22,7 +22,7 @@ export type HeaderProps = ComponentPropsWithoutRef<'header'> & {
   dataTestId?: HeaderDataTestId
 }
 
-/** App top bar shell (64px, bottom border, page-gutter padding): `children` fill the left, `actions` sit right. Only the last child shrinks, so put Breadcrumbs or HeaderNav last. `sticky` needs no `overflow: hidden/auto` ancestor and sets `scroll-padding-top` on `html` to `--lido-app-ui-header-height`; your own `html` rule wins. */
+/** App top bar shell (64px, bottom border, page-gutter padding): `children` fill the left, `actions` sit right. Only the last child shrinks, so put Breadcrumbs or HeaderNav last. `sticky` needs no `overflow: hidden/auto` ancestor and sets `--lido-app-ui-sticky-top` (read by FormLayout, drives `scroll-padding-top`) on `html` to `--lido-app-ui-header-height`; override it or `scroll-padding-top` on `html`. */
 export const Header = forwardRef<HTMLElement, HeaderProps>(
   ({ children, actions, sticky, className, dataTestId, ...rest }, ref) => (
     <header

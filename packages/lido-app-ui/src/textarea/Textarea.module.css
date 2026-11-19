@@ -1,0 +1,101 @@
+.root {
+  @mixin font-body-large;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--lido-app-ui-border-radius-card);
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  background-color: var(--lido-app-ui-color-background-default);
+  cursor: text;
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.root:hover {
+  background-color: var(--lido-app-ui-color-background-default-hover);
+}
+
+.root:has(.textarea:focus) {
+  border-color: var(--lido-app-ui-color-border-active);
+  background-color: var(--lido-app-ui-color-background-default-active);
+}
+
+.root.error {
+  border-color: var(--lido-app-ui-color-border-error);
+}
+
+.root.error .textarea {
+  color: var(--lido-app-ui-color-text-error);
+  caret-color: var(--lido-app-ui-color-text-error);
+}
+
+.root.disabled,
+.root.disabled:hover {
+  cursor: not-allowed;
+  background-color: var(--lido-app-ui-color-background-disabled);
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--lido-app-ui-color-text-default);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  resize: vertical;
+}
+
+.textarea.autosize {
+  overflow: hidden;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.textarea:disabled,
+.textarea:disabled::placeholder {
+  color: var(--lido-app-ui-color-text-secondary);
+  cursor: not-allowed;
+}
+
+.root.loading .textarea,
+.root.loading .textarea::placeholder {
+  color: transparent;
+  caret-color: transparent;
+}
+
+.root.loading {
+  cursor: default;
+}
+
+.skeleton {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 50%;
+  pointer-events: none;
+}
+
+.body {
+  display: block;
+  position: relative;
+}
+
+.counter {
+  align-self: flex-end;
+
+  @mixin font-description;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+}

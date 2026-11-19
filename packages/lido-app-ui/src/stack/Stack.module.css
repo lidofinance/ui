@@ -3,7 +3,8 @@
   display: flex;
 
   @mixin responsive-prop direction, flex-direction, column;
-  @mixin responsive-prop gap, gap, 0;
+  @mixin responsive-prop row-gap, row-gap, 0;
+  @mixin responsive-prop column-gap, column-gap, 0;
 }
 
 /* Zero specificity: a consumer class setting these on a Stack without the prop still wins. */
@@ -11,6 +12,13 @@
   @mixin responsive-prop align, align-items, normal;
   @mixin responsive-prop justify, justify-content, normal;
   @mixin responsive-prop wrap, flex-wrap, nowrap;
+}
+
+/* stylelint-disable-next-line selector-max-type -- reset must not touch as='p'/'fieldset' */
+:where(ul.root, ol.root) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .inline {

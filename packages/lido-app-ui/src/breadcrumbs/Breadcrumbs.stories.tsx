@@ -96,7 +96,7 @@ export const Overflow: Story = {
     docs: {
       description: {
         story:
-          'Row scrolls horizontally, starts at the current page, edges fade while more content is hidden. Labels longer than 22em are ellipsized and show the full text in a native tooltip.',
+          'Row scrolls horizontally, starts at the current page, edges fade while more content is hidden. Labels longer than 22em are ellipsized and show the full text in a tooltip on hover or focus.',
       },
     },
   },

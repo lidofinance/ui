@@ -1,14 +1,15 @@
 import {
-  useRef,
-  useState,
+  forwardRef,
+  useImperativeHandle,
   type ComponentPropsWithoutRef,
+  type CSSProperties,
   type ReactNode,
 } from 'react'
 
 import cn from 'classnames'
 
 import { SegmentCard, type SegmentCardDataTestId } from './SegmentCard'
-import { useIsomorphicLayoutEffect } from '../hooks'
+import { useRovingTabs, useSelectionIndicator } from '../hooks'
 import styles from './SegmentedControlCard.module.css'
 
 export type SegmentedControlCardDataTestId = {
@@ -20,6 +21,7 @@ export type SegmentCardItem = {
   title: ReactNode
   description?: ReactNode
   icon?: ReactNode
+  /** Strings and numbers get a neutral Tag; elements (incl. i18n like `<Trans>`) render as-is, so wrap them in `<Tag variant='neutral'>` to keep the pill. Must be non-interactive: the card is a `<button role="tab">`. */
   tag?: ReactNode
   disabled?: boolean
   dataTestId?: SegmentCardDataTestId
@@ -32,85 +34,99 @@ export type SegmentedControlCardProps = Omit<
   items: SegmentCardItem[]
   value: string
   onChange: (value: string) => void
+  /** Control width below which all cards stack (number = px); defaults to fitting each card at 212px. */
+  stackAt?: number | string
   dataTestId?: SegmentedControlCardDataTestId
 }
 
-/** Card variant of `SegmentedControl`: each option is a card with an icon, title, tag and description instead of a compact pill. */
-export const SegmentedControlCard = ({
-  items,
-  value,
-  onChange,
-  className,
-  dataTestId,
-  ...rest
-}: SegmentedControlCardProps) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const activeButtonRef = useRef<HTMLButtonElement>(null)
-  const selectionRef = useRef<HTMLDivElement>(null)
-  // Skip the transition on the first measurement so the highlight doesn't fly in from 0,0.
-  const [animated, setAnimated] = useState(false)
+/** Card variant of `SegmentedControl`: each option is a card with an icon, title, tag and description instead of a compact pill. The ref points to the current tab stop (selected or first enabled tab). */
+export const SegmentedControlCard = forwardRef<
+  HTMLButtonElement,
+  SegmentedControlCardProps
+>(
+  (
+    {
+      items,
+      value,
+      onChange,
+      stackAt,
+      className,
+      style,
+      dataTestId,
+      onKeyDown,
+      ...rest
+    },
+    ref,
+  ) => {
+    const { containerRef, activeRef, indicatorRef } = useSelectionIndicator(
+      'both',
+      value,
+      [items],
+    )
+    const roving = useRovingTabs(
+      containerRef,
+      items,
+      value,
+      onChange,
+      onKeyDown,
+    )
 
-  useIsomorphicLayoutEffect(() => {
-    const updateSelection = () => {
-      const button = activeButtonRef.current
-      const container = containerRef.current
-      const selection = selectionRef.current
-      if (!button || !container || !selection) return
+    useImperativeHandle(
+      ref,
+      () =>
+        containerRef.current?.querySelector<HTMLButtonElement>(
+          '[role=tab][tabindex="0"]',
+        ) as HTMLButtonElement,
+    )
 
-      const buttonRect = button.getBoundingClientRect()
-      const containerRect = container.getBoundingClientRect()
-      const style = getComputedStyle(container)
-      const borderLeft = parseFloat(style.borderLeftWidth) || 0
-      const borderTop = parseFloat(style.borderTopWidth) || 0
-      const x = buttonRect.left - containerRect.left - borderLeft
-      const y = buttonRect.top - containerRect.top - borderTop
-
-      selection.style.width = `${buttonRect.width}px`
-      selection.style.height = `${buttonRect.height}px`
-      selection.style.transform = `translate(${x}px, ${y}px)`
-    }
-
-    updateSelection()
-    setAnimated(true)
-
-    window.addEventListener('resize', updateSelection)
-    return () => {
-      window.removeEventListener('resize', updateSelection)
-    }
-  }, [value, items])
-
-  return (
-    <div
-      ref={containerRef}
-      role='tablist'
-      className={cn(styles.segmentedControlCard, className)}
-      data-testid={dataTestId?.root}
-      {...rest}
-    >
+    return (
+      // eslint-disable-next-line jsx-a11y/interactive-supports-focus -- focus lives on the roving tabs
       <div
-        ref={selectionRef}
-        aria-hidden='true'
-        className={cn(styles.selection, animated && styles.animated)}
-      />
-      {items.map((item) => {
-        const active = item.value === value
-        return (
-          <SegmentCard
-            key={item.value}
-            ref={active ? activeButtonRef : undefined}
-            active={active}
-            disabled={item.disabled}
-            icon={item.icon}
-            title={item.title}
-            tag={item.tag}
-            description={item.description}
-            dataTestId={item.dataTestId}
-            onClick={() => {
-              if (item.value !== value) onChange(item.value)
-            }}
-          />
-        )
-      })}
-    </div>
-  )
-}
+        ref={containerRef}
+        role='tablist'
+        className={cn(styles.segmentedControlCard, className)}
+        style={
+          {
+            ...style,
+            '--local-count': items.length,
+            ...(stackAt != null && {
+              '--local-stack-at-outer':
+                typeof stackAt === 'number' ? `${stackAt}px` : stackAt,
+            }),
+          } as CSSProperties
+        }
+        data-testid={dataTestId?.root}
+        {...rest}
+        onKeyDown={roving.onKeyDown}
+      >
+        <div
+          ref={indicatorRef}
+          aria-hidden='true'
+          className={styles.selection}
+        />
+        {items.map((item) => {
+          const active = item.value === value
+          return (
+            <SegmentCard
+              key={item.value}
+              ref={active ? activeRef : undefined}
+              active={active}
+              disabled={item.disabled}
+              tabIndex={roving.getTabIndex(item.value)}
+              icon={item.icon}
+              title={item.title}
+              tag={item.tag}
+              description={item.description}
+              dataTestId={item.dataTestId}
+              onClick={() => {
+                if (item.value !== value) onChange(item.value)
+              }}
+            />
+          )
+        })}
+      </div>
+    )
+  },
+)
+
+SegmentedControlCard.displayName = 'SegmentedControlCard'

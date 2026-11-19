@@ -5,13 +5,17 @@ import { useState, type CSSProperties } from 'react'
 import { StorySection } from '../../.storybook/components'
 import { Button } from '../button'
 import { Card } from '../card'
-import { Typography } from '../typography'
+import { Body, Description, Typography } from '../typography'
 import { Skeleton } from './Skeleton'
 
 const meta: Meta<typeof Skeleton> = {
   title: 'Content & Data/Skeleton',
   component: Skeleton,
-  args: { variant: 'block', style: { width: 160 } },
+  args: { variant: 'block', width: 160 },
+  argTypes: {
+    width: { control: 'text' },
+    height: { control: 'text' },
+  },
 }
 
 export default meta
@@ -22,8 +26,8 @@ export const Basic: Story = {}
 export const Variants: Story = {
   render: () => (
     <StorySection>
-      <Skeleton variant='text' style={{ width: 120 }} />
-      <Skeleton variant='block' style={{ width: 160 }} />
+      <Skeleton variant='text' width={120} />
+      <Skeleton variant='block' width={160} />
       <Skeleton variant='circle' />
     </StorySection>
   ),
@@ -31,8 +35,30 @@ export const Variants: Story = {
 }
 
 export const TextLines: Story = {
-  render: () => <Skeleton variant='text' lines={3} style={{ width: 240 }} />,
+  render: () => <Skeleton variant='text' lines={3} width={240} />,
   parameters: { controls: { disable: true } },
+}
+
+export const Inline: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <Body>
+        Bond balance: <Skeleton variant='text' width={64} /> ETH
+      </Body>
+      <Description color='secondary'>
+        Updated <Skeleton variant='text' width='4em' /> ago
+      </Description>
+    </div>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Text variant sits inline and follows the surrounding font size; use it instead of a local short-skeleton wrapper.',
+      },
+    },
+  },
 }
 
 export const Fill: Story = {
@@ -47,9 +73,9 @@ export const Fill: Story = {
 export const InCard: Story = {
   render: () => (
     <Card style={{ width: 340 }}>
-      <Skeleton variant='circle' style={{ width: 48 }} />
+      <Skeleton variant='circle' width={48} />
       <Skeleton variant='text' lines={2} />
-      <Skeleton variant='block' style={{ height: 120 }} />
+      <Skeleton variant='block' height={120} />
     </Card>
   ),
   parameters: {

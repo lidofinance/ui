@@ -2,10 +2,14 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import cn from 'classnames'
 import { InfoTooltip } from '../info-tooltip'
+import { hasContent } from '../utils/hasContent'
 
 import styles from './DataList.module.css'
 
-export type DetailRowValue = ReactNode | { from: ReactNode; to: ReactNode }
+export type DataListRowValue = ReactNode | { from: ReactNode; to: ReactNode }
+
+/** @deprecated Use `DataListRowValue`. */
+export type DetailRowValue = DataListRowValue
 
 export type DataListRowDataTestId = {
   root?: string
@@ -13,11 +17,15 @@ export type DataListRowDataTestId = {
   value?: string
   icon?: string
   description?: string
+  info?: string
+  infoContent?: string
+  descriptionInfo?: string
+  descriptionInfoContent?: string
 }
 
-export type DetailRowProps = ComponentPropsWithoutRef<'div'> & {
+export type DataListRowProps = ComponentPropsWithoutRef<'div'> & {
   label: ReactNode
-  value: DetailRowValue
+  value: DataListRowValue
   icon?: ReactNode
   info?: ReactNode
   infoFaint?: boolean
@@ -26,8 +34,11 @@ export type DetailRowProps = ComponentPropsWithoutRef<'div'> & {
   dataTestId?: DataListRowDataTestId
 }
 
+/** @deprecated Use `DataListRowProps`. */
+export type DetailRowProps = DataListRowProps
+
 const isChangeValue = (
-  value: DetailRowValue,
+  value: DataListRowValue,
 ): value is { from: ReactNode; to: ReactNode } =>
   typeof value === 'object' &&
   value !== null &&
@@ -46,7 +57,7 @@ export const DataListRow = ({
   className,
   dataTestId,
   ...rest
-}: DetailRowProps) => (
+}: DataListRowProps) => (
   <div
     className={cn(styles.row, className)}
     data-testid={dataTestId?.root}
@@ -65,6 +76,10 @@ export const DataListRow = ({
         {info ? (
           <InfoTooltip
             content={info}
+            dataTestId={{
+              root: dataTestId?.info,
+              content: dataTestId?.infoContent,
+            }}
             className={cn(infoFaint && styles.infoFaint)}
           />
         ) : null}
@@ -83,7 +98,7 @@ export const DataListRow = ({
         </span>
       )}
     </span>
-    {description ? (
+    {hasContent(description) ? (
       <span className={styles.descriptionRow}>
         <span
           className={styles.description}
@@ -92,7 +107,14 @@ export const DataListRow = ({
           {description}
         </span>
         {descriptionInfo ? (
-          <InfoTooltip content={descriptionInfo} tone='tertiary' />
+          <InfoTooltip
+            content={descriptionInfo}
+            tone='tertiary'
+            dataTestId={{
+              root: dataTestId?.descriptionInfo,
+              content: dataTestId?.descriptionInfoContent,
+            }}
+          />
         ) : null}
       </span>
     ) : null}

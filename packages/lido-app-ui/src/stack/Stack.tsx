@@ -3,6 +3,7 @@ import { forwardRef, type ElementType, type HTMLAttributes } from 'react'
 import cn from 'classnames'
 
 import {
+  mergeResponsive,
   responsiveVars,
   spaceToCss,
   type PolymorphicComponent,
@@ -48,6 +49,10 @@ type StackOwnProps = {
   direction?: Responsive<StackDirection>
   /** Gap from the spacing scale in px. Per-breakpoint, desktop-first (see breakpointWidths). */
   gap?: Responsive<Space>
+  /** Overrides `gap` for rows, merged per breakpoint key: keys you omit keep `gap`'s value. */
+  rowGap?: Responsive<Space>
+  /** Overrides `gap` for columns, merged per breakpoint key: keys you omit keep `gap`'s value. */
+  columnGap?: Responsive<Space>
   /** Cross-axis alignment, per-breakpoint, desktop-first (see breakpointWidths). */
   align?: Responsive<StackAlign>
   /** Main-axis distribution, per-breakpoint, desktop-first (see breakpointWidths). */
@@ -68,13 +73,15 @@ export type StackProps<E extends ElementType = never> = [E] extends [never]
   ? StackImplProps
   : PolymorphicProps<E, StackOwnProps>
 
-/** Flex container; `direction`, `gap`, `align`, `justify` and `wrap` take a value or a desktop-first per-breakpoint object like `{ base: 'row', smDown: 'column' }`, where `smDown` applies at `breakpointWidths.sm` (600px) and below. */
+/** Flex container; `direction`, `gap` (plus `rowGap`/`columnGap`), `align`, `justify` and `wrap` take a value or a desktop-first per-breakpoint object like `{ base: 'row', smDown: 'column' }`, where `smDown` applies at `breakpointWidths.sm` (600px) and below. */
 export const Stack = forwardRef<HTMLElement, StackImplProps>(
   (
     {
       as: Component = 'div',
       direction,
       gap,
+      rowGap,
+      columnGap,
       align,
       justify,
       wrap,
@@ -97,7 +104,12 @@ export const Stack = forwardRef<HTMLElement, StackImplProps>(
       )}
       style={{
         ...responsiveVars('direction', direction, String),
-        ...responsiveVars('gap', gap, spaceToCss),
+        ...responsiveVars('rowGap', mergeResponsive(gap, rowGap), spaceToCss),
+        ...responsiveVars(
+          'columnGap',
+          mergeResponsive(gap, columnGap),
+          spaceToCss,
+        ),
         ...responsiveVars('align', align, alignToCss),
         ...responsiveVars('justify', justify, justifyToCss),
         ...responsiveVars('wrap', wrap, (value) => (value ? 'wrap' : 'nowrap')),

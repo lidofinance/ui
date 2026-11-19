@@ -15,9 +15,7 @@
   color: var(--lido-app-ui-color-text-default);
   white-space: nowrap;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .button:disabled:not(.loading) {
@@ -46,19 +44,6 @@
   width: 28px;
   height: 28px;
   color: var(--lido-app-ui-color-icons-secondary);
-}
-
-.spinner {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  animation: spin 0.9s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .button:focus-visible {

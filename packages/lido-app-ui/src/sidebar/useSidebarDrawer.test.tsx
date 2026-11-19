@@ -1,5 +1,11 @@
-import { describe, expect, it } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
+import {
+  act,
+  fireEvent,
+  render,
+  renderHook,
+  screen,
+} from '@testing-library/react'
 
 import { Sidebar } from './Sidebar'
 import { SidebarToggle } from './SidebarToggle'
@@ -31,5 +37,26 @@ describe('useSidebarDrawer', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Close menu' }))
     expect(toggle.getAttribute('aria-expanded')).toBe('false')
     expect(sidebar.getAttribute('data-open')).toBe('false')
+  })
+
+  it('keeps setOpen, sidebarProps.onClose and toggleProps.onClick stable across renders', () => {
+    const { result, rerender } = renderHook(() => useSidebarDrawer())
+    const { setOpen, sidebarProps, toggleProps } = result.current
+    act(() => toggleProps.onClick())
+    rerender()
+    expect(result.current.open).toBe(true)
+    expect(result.current.setOpen).toBe(setOpen)
+    expect(result.current.sidebarProps.onClose).toBe(sidebarProps.onClose)
+    expect(result.current.toggleProps.onClick).toBe(toggleProps.onClick)
+  })
+
+  it('stays put when controlled and reports changes', () => {
+    const onOpenChange = vi.fn()
+    const { result } = renderHook(() =>
+      useSidebarDrawer({ open: false, onOpenChange }),
+    )
+    act(() => result.current.toggleProps.onClick())
+    expect(onOpenChange).toHaveBeenCalledWith(true)
+    expect(result.current.open).toBe(false)
   })
 })

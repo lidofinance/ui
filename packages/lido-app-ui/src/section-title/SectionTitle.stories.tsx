@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { ContainerWidths } from '../../.storybook/components'
 import { Button } from '../button'
 import { SectionTitle } from '.'
 
@@ -99,5 +100,30 @@ export const LargeSize: Story = {
     title: 'Tools',
     subtitle: undefined,
     action: <Button size='small'>All</Button>,
+  },
+}
+
+export const NarrowContainers: Story = {
+  render: (args) => (
+    <ContainerWidths>
+      <SectionTitle
+        {...args}
+        title='Choose a token to claim for your Rewards Address'
+        tooltip='Splitter addresses receive stETH.'
+        action={
+          <Button variant='outline' size='small'>
+            Learn more
+          </Button>
+        }
+      />
+    </ContainerWidths>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Long titles wrap instead of overflowing; the action keeps its size.',
+      },
+    },
   },
 }

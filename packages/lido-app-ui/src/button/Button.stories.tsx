@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button, type ButtonProps, type ButtonVariant } from '.'
 
-import {
-  DemoRouter,
-  StoryContainer,
-  StorySection,
-} from '../../.storybook/components'
+import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Counter, type CounterVariant } from '../counter'
 import { IconArrowNarrowUpRight, IconInfo } from '../icons'
 
@@ -149,30 +145,25 @@ const counterVariants: CounterVariant[] = [
 export const WithCounter: Story = {
   render: () => (
     <StoryContainer>
-      {variants.map((variant) => (
-        <StorySection key={variant} title={variant}>
-          {(['big', 'small'] as const).map((size) =>
-            (
-              [
-                ['Default', {}],
-                ['Loading', { loading: true }],
-                ['Disabled', { disabled: true }],
-              ] as const
-            ).map(([label, state]) => (
-              <Button
-                key={`${size}-${label}`}
-                variant={variant}
-                size={size}
-                counter={<Counter variant='error'>3</Counter>}
-                counterLabel='3 unread'
-                {...state}
-              >
-                {label}
-              </Button>
-            )),
-          )}
-        </StorySection>
-      ))}
+      <StorySection title='states'>
+        {(
+          [
+            ['Default', {}],
+            ['Loading', { loading: true }],
+            ['Disabled', { disabled: true }],
+          ] as const
+        ).map(([label, state]) => (
+          <Button
+            key={label}
+            variant='outline'
+            counter={<Counter variant='error'>3</Counter>}
+            counterLabel='3 unread'
+            {...state}
+          >
+            {label}
+          </Button>
+        ))}
+      </StorySection>
       <StorySection title='counter variants'>
         {counterVariants.map((counterVariant) => (
           <Button
@@ -198,18 +189,45 @@ export const WithCounter: Story = {
   },
 }
 
+export const FullWidth: Story = {
+  render: () => (
+    <StoryContainer>
+      <div style={{ width: 320 }}>
+        <StorySection title='button'>
+          <Button fullWidth>Continue</Button>
+          <Button fullWidth variant='outline' size='small'>
+            Cancel
+          </Button>
+        </StorySection>
+        <StorySection title='link'>
+          <Button fullWidth href='#keys' variant='subtle'>
+            View keys
+          </Button>
+        </StorySection>
+      </div>
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`fullWidth` makes the button (or link button) fill its container; content stays centered.',
+      },
+    },
+  },
+}
+
 export const AsLink: Story = {
   render: () => (
     <StoryContainer>
-      {(['big', 'small'] as const).map((size) => (
-        <StorySection key={size} title={size}>
-          {variants.map((variant) => (
-            <Button key={variant} variant={variant} size={size} href='#keys'>
-              {variant}
-            </Button>
-          ))}
-        </StorySection>
-      ))}
+      <StorySection title='variants'>
+        {variants.map((variant) => (
+          <Button key={variant} variant={variant} href='#keys'>
+            {variant}
+          </Button>
+        ))}
+      </StorySection>
       <StorySection title='disabled'>
         {variants.map((variant) => (
           <Button key={variant} variant={variant} href='#keys' disabled>
@@ -246,35 +264,6 @@ export const External: Story = {
       description: {
         story:
           'Absolute `http(s)` URLs open in a new tab with `rel="noopener noreferrer"`; pass `target` to override. An up-right arrow marks an outbound link.',
-      },
-    },
-  },
-}
-
-export const WithRouter: Story = {
-  render: () => (
-    <DemoRouter>
-      <StorySection>
-        <Button href='/keys'>In-app: /keys</Button>
-        <Button href='/settings' variant='outline'>
-          In-app: /settings
-        </Button>
-        <Button
-          href='https://lido.fi'
-          variant='subtle'
-          iconRight={<IconArrowNarrowUpRight />}
-        >
-          External: lido.fi
-        </Button>
-      </StorySection>
-    </DemoRouter>
-  ),
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: {
-        story:
-          'Inside `LinkProvider`, in-app hrefs go to `component` and absolute URLs to `externalComponent`. Click a button to see which handled it; navigation is prevented in the demo.',
       },
     },
   },

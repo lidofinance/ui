@@ -41,6 +41,8 @@ export const Basic: Story = {
   argTypes: {
     direction: { control: 'select', options: directions },
     gap: { control: 'select', options: spaces },
+    rowGap: { control: 'select', options: spaces },
+    columnGap: { control: 'select', options: spaces },
     align: { control: 'select', options: aligns },
     justify: { control: 'select', options: justifies },
   },
@@ -177,4 +179,46 @@ export const Wrap: Story = {
     controls: { disable: true },
     docs: { description: { story: '`wrap` lets items flow onto new lines.' } },
   },
+}
+
+export const RowAndColumnGap: Story = {
+  render: () => (
+    <Stack
+      direction='row'
+      wrap
+      rowGap={8}
+      columnGap={24}
+      style={{ maxWidth: 360 }}
+    >
+      {items(8)}
+    </Stack>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`rowGap` and `columnGap` override `gap` per axis, e.g. a wrapping legend with wide column spacing and tight rows.',
+      },
+    },
+  },
+}
+
+export const AsList: Story = {
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          "`as='ul'` or `'ol'` renders a list without bullets, indent or margins. Keep `role='list'` so Safari retains list semantics once bullets are removed.",
+      },
+    },
+  },
+  render: () => (
+    <Stack as='ul' role='list' gap={8}>
+      {items().map((item, i) => (
+        <li key={i}>{item}</li>
+      ))}
+    </Stack>
+  ),
 }

@@ -1,3 +1,4 @@
+import { createRef } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
@@ -112,5 +113,11 @@ describe('ErrorPage', () => {
     expect(screen.getByTestId('title').textContent).toBe('Page not found')
     expect(screen.getByTestId('description').tagName).toBe('P')
     expect(screen.getByTestId('action').textContent).toBe('A')
+  })
+
+  it('forwards the ref to the root', () => {
+    const ref = createRef<HTMLDivElement>()
+    render(<ErrorPage ref={ref} code='404' dataTestId={{ root: 'root' }} />)
+    expect(ref.current).toBe(screen.getByTestId('root'))
   })
 })

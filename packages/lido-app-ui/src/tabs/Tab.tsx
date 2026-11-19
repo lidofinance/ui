@@ -8,11 +8,13 @@ export type TabDataTestId = {
   root?: string
 }
 
+/** @deprecated Internal part of `Tabs`; use `Tabs`. */
 export type TabProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   active?: boolean
   dataTestId?: TabDataTestId
 }
 
+/** @deprecated Internal part of `Tabs`; use `Tabs`. */
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(
   (
     {
@@ -30,7 +32,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
       type={type}
       role='tab'
       aria-selected={active}
-      className={cn(styles.tab, active && styles.active, className)}
+      className={cn(styles.tab, className)}
       data-testid={dataTestId?.root}
       {...rest}
     >

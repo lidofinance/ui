@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Accordion } from '.'
 
-import { StoryContainer } from '../../.storybook/components'
+import { ContainerWidths, StoryContainer } from '../../.storybook/components'
 
 const meta: Meta<typeof Accordion> = {
   title: 'Content & Data/Accordion',
@@ -47,6 +47,27 @@ export const List: Story = {
       description: {
         story:
           'Stacked accordions with no gap — each divider comes from the accordion below it, so the last item drops `border`.',
+      },
+    },
+  },
+}
+
+export const NarrowContainers: Story = {
+  render: (args) => (
+    <ContainerWidths>
+      <Accordion
+        {...args}
+        title='How do rewards and withdrawals work for node operators?'
+        defaultExpanded
+      />
+    </ContainerWidths>
+  ),
+  parameters: {
+    controls: { disable: true },
+    layout: 'padded',
+    docs: {
+      description: {
+        story: 'Long titles wrap inside the accordion at narrow widths.',
       },
     },
   },

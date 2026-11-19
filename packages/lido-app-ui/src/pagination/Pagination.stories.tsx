@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+import { userEvent, within } from '@storybook/test'
 
 import { StoryContainer, StorySection } from '../../.storybook/components'
 import { Pagination } from '.'
@@ -12,12 +13,19 @@ const meta: Meta<typeof Pagination> = {
     pageCount: 879,
     pageSize: 10,
   },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=5162-1662&m=dev',
+    },
+  },
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
+  parameters: { docs: { source: { type: 'code' } } },
   render: function Render(args) {
     const [page, setPage] = useState(args.page)
     const [pageSize, setPageSize] = useState(args.pageSize)
@@ -36,6 +44,32 @@ export const Basic: Story = {
         />
       </div>
     )
+  },
+}
+
+export const PageSizeOpen: Story = {
+  play: async ({ canvasElement }) => {
+    await userEvent.click(within(canvasElement).getByRole('combobox'))
+  },
+  render: function Render() {
+    const [pageSize, setPageSize] = useState(10)
+    return (
+      <div style={{ width: 400, height: 220 }}>
+        <Pagination
+          page={1}
+          pageCount={879}
+          pageSize={pageSize}
+          onPageChange={() => undefined}
+          onPageSizeChange={setPageSize}
+        />
+      </div>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: { story: 'Page-size list open, numbers right-aligned.' },
+    },
   },
 }
 

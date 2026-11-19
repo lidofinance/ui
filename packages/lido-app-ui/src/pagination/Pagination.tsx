@@ -14,7 +14,7 @@ import cn from 'classnames'
 import { IconButton } from '../icon-button'
 import { IconChevronLeft, IconChevronRight } from '../icons'
 import { Input } from '../input'
-import { TokenSelector } from '../token-selector'
+import { Select } from '../select'
 import styles from './Pagination.module.css'
 
 export type PaginationLabels = {
@@ -104,7 +104,11 @@ export const Pagination = ({
   }
 
   const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Escape') cancelledRef.current = true
+    if (event.key === 'Escape') {
+      cancelledRef.current = true
+      // Claims the key so an enclosing dialog's Escape layer stays open.
+      if (draft !== null) event.preventDefault()
+    }
     if (event.key === 'Enter' || event.key === 'Escape') {
       event.currentTarget.blur()
     }
@@ -121,7 +125,7 @@ export const Pagination = ({
       : pageSizeOptions
   ).map((size) => ({
     value: String(size),
-    label: <span className={styles.pageSizeLabel}>{size}</span>,
+    label: size,
   }))
 
   const fieldStyle = {
@@ -138,8 +142,9 @@ export const Pagination = ({
         <div className={styles.group}>
           <span className={styles.text}>{text.show}</span>
           <span className={styles.pageSize}>
-            <TokenSelector
+            <Select
               size='small'
+              optionAlign='end'
               options={sizeOptions}
               value={String(pageSize)}
               listLabel={text.pageSize}
@@ -151,11 +156,12 @@ export const Pagination = ({
         </div>
       ) : null}
       <div className={styles.group}>
+        {/* aria-disabled, not disabled: a native-disabled button drops keyboard focus to body when the click that reached the edge disables it. */}
         <IconButton
           variant='ghost'
           icon={<IconChevronLeft />}
           aria-label={text.previous}
-          disabled={page <= 1}
+          aria-disabled={page <= 1 || undefined}
           onClick={() => goTo(page - 1)}
           dataTestId={{ root: dataTestId?.previous }}
         />
@@ -180,7 +186,7 @@ export const Pagination = ({
           variant='ghost'
           icon={<IconChevronRight />}
           aria-label={text.next}
-          disabled={page >= lastPage}
+          aria-disabled={page >= lastPage || undefined}
           onClick={() => goTo(page + 1)}
           dataTestId={{ root: dataTestId?.next }}
         />

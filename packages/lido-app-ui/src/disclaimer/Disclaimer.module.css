@@ -3,7 +3,7 @@
 
   margin: auto 0 0;
   text-wrap: pretty;
-  color: var(--lido-app-ui-color-text-secondary);
+  color: var(--lido-app-ui-color-text-tertiary);
 }
 
 .root :any-link {

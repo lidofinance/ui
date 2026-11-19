@@ -13,6 +13,7 @@ export type SegmentCardDataTestId = {
   description?: string
 }
 
+/** @deprecated Internal part of `SegmentedControlCard`; use `SegmentedControlCard`. */
 export type SegmentCardProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'title'
@@ -20,11 +21,13 @@ export type SegmentCardProps = Omit<
   active?: boolean
   icon?: ReactNode
   title: ReactNode
+  /** Strings and numbers get a neutral Tag; other nodes render as-is and must be non-interactive, because the card is a `<button role="tab">`. */
   tag?: ReactNode
   description?: ReactNode
   dataTestId?: SegmentCardDataTestId
 }
 
+/** @deprecated Internal part of `SegmentedControlCard`; use `SegmentedControlCard`. */
 export const SegmentCard = forwardRef<HTMLButtonElement, SegmentCardProps>(
   (
     {
@@ -47,7 +50,7 @@ export const SegmentCard = forwardRef<HTMLButtonElement, SegmentCardProps>(
       role='tab'
       aria-selected={active}
       disabled={disabled}
-      className={cn(styles.card, active && styles.active, className)}
+      className={cn(styles.card, className)}
       data-testid={dataTestId?.root}
       {...rest}
     >
@@ -63,20 +66,18 @@ export const SegmentCard = forwardRef<HTMLButtonElement, SegmentCardProps>(
         ) : null}
         <span className={styles.title} data-testid={dataTestId?.title}>
           <span className={styles.titleText}>{title}</span>
-          {tag != null ? (
+          {typeof tag === 'string' || typeof tag === 'number' ? (
             <Tag
               variant='neutral'
+              className={styles.tag}
               dataTestId={{ root: dataTestId?.tag }}
-              style={
-                disabled
-                  ? ({
-                      '--local-text': 'var(--lido-app-ui-color-text-disabled)',
-                    } as React.CSSProperties)
-                  : undefined
-              }
             >
               {tag}
             </Tag>
+          ) : tag != null && typeof tag !== 'boolean' ? (
+            <span className={styles.tagNode} data-testid={dataTestId?.tag}>
+              {tag}
+            </span>
           ) : null}
         </span>
         {description != null ? (

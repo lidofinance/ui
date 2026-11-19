@@ -1,3 +1,4 @@
+import { createRef } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
@@ -28,5 +29,11 @@ describe('Disclaimer', () => {
     render(<Disclaimer>Custom note</Disclaimer>)
     expect(screen.getByText('Custom note').tagName).toBe('P')
     expect(screen.queryByRole('link')).not.toBeInTheDocument()
+  })
+
+  it('forwards the ref to the root', () => {
+    const ref = createRef<HTMLElement>()
+    render(<Disclaimer ref={ref}>Note</Disclaimer>)
+    expect(ref.current).toBe(screen.getByText('Note'))
   })
 })

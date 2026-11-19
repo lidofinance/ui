@@ -1,13 +1,23 @@
 import { useCallback, useEffect } from 'react'
-import type { FocusEvent, RefObject } from 'react'
+import type { RefObject } from 'react'
 
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
+import { useResizeObserver } from './useResizeObserver'
 
+const isRtl = (el: HTMLElement) => getComputedStyle(el).direction === 'rtl'
+
+/** Scrolls a horizontal strip to its inline end (the right in LTR, the left in RTL). */
+export const scrollToInlineEnd = (el: HTMLElement) => {
+  el.scrollLeft = isRtl(el) ? -el.scrollWidth : el.scrollWidth
+}
+
+// RTL reports scrollLeft from 0 down to -(scrollWidth - clientWidth).
 const syncFade = (el: HTMLElement) => {
-  el.toggleAttribute('data-fade-start', el.scrollLeft > 0)
+  const offset = Math.abs(el.scrollLeft)
+  el.toggleAttribute('data-fade-start', offset > 0)
   el.toggleAttribute(
     'data-fade-end',
-    el.scrollLeft < el.scrollWidth - el.clientWidth - 1,
+    offset < el.scrollWidth - el.clientWidth - 1,
   )
 }
 
@@ -17,15 +27,8 @@ export const useEdgeFade = (ref: RefObject<HTMLElement>) => {
     if (ref.current) syncFade(ref.current)
   }, [ref])
 
-  useIsomorphicLayoutEffect(() => {
-    const el = ref.current
-    if (!el) return
-    syncFade(el)
-    if (typeof ResizeObserver === 'undefined') return
-    const observer = new ResizeObserver(() => syncFade(el))
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [ref])
+  useIsomorphicLayoutEffect(sync, [sync])
+  useResizeObserver(ref, sync)
 
   useEffect(() => {
     const el = ref.current
@@ -35,19 +38,25 @@ export const useEdgeFade = (ref: RefObject<HTMLElement>) => {
       if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return
       if (el.scrollWidth <= el.clientWidth) return
       const before = el.scrollLeft
-      el.scrollLeft += e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY
+      const delta = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY
+      el.scrollLeft += isRtl(el) ? -delta : delta
       if (el.scrollLeft !== before) e.preventDefault()
     }
+    // keyboard only: scrolling on mouse focus would retarget the click away from the link
+    const onFocusIn = (e: FocusEvent) => {
+      const target = e.target as HTMLElement
+      if (target === el || !target.matches(':focus-visible')) return
+      target.scrollIntoView?.({ block: 'nearest', inline: 'nearest' })
+    }
     el.addEventListener('wheel', onWheel, { passive: false })
-    return () => el.removeEventListener('wheel', onWheel)
-  }, [ref])
+    el.addEventListener('scroll', sync, { passive: true })
+    el.addEventListener('focusin', onFocusIn)
+    return () => {
+      el.removeEventListener('wheel', onWheel)
+      el.removeEventListener('scroll', sync)
+      el.removeEventListener('focusin', onFocusIn)
+    }
+  }, [ref, sync])
 
-  // keyboard only: scrolling on mouse focus would retarget the click away from the link
-  const onFocus = useCallback((e: FocusEvent<HTMLElement>) => {
-    const target = e.target as HTMLElement
-    if (target === e.currentTarget || !target.matches(':focus-visible')) return
-    target.scrollIntoView?.({ block: 'nearest', inline: 'nearest' })
-  }, [])
-
-  return { sync, onFocus }
+  return { sync }
 }

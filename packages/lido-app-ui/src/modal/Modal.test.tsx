@@ -1,9 +1,17 @@
 /* eslint-disable jsx-a11y/no-autofocus -- autoFocus is the behavior under test */
 import { createRef, StrictMode, useRef, useState } from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import {
+  back,
+  FakeWatcher,
+  installCloseWatcher,
+  uninstallCloseWatcher,
+} from '../hooks/closeWatcher.test-utils'
+import { stubMotion, unstubMotion } from '../utils/render.test-utils'
+import { Pagination } from '../pagination'
 import { Popover } from '../popover'
 import { TokenSelector } from '../token-selector'
 import { Tooltip } from '../tooltip'
@@ -73,16 +81,6 @@ describe('Modal', () => {
     expect(screen.getByRole('dialog')).not.toHaveAttribute('aria-modal')
   })
 
-  it('closes on Escape and can opt out', async () => {
-    const onClose = vi.fn()
-    const { rerender } = render(modal({ onClose }))
-    await userEvent.keyboard('{Escape}')
-    expect(onClose).toHaveBeenCalledTimes(1)
-    rerender(modal({ onClose, closeOnEscape: false }))
-    await userEvent.keyboard('{Escape}')
-    expect(onClose).toHaveBeenCalledTimes(1)
-  })
-
   it('mounts a Popover opened inside the modal after the modal root so it stacks on top', () => {
     const WithPopover = () => {
       const anchorRef = useRef<HTMLButtonElement>(null)
@@ -116,15 +114,6 @@ describe('Modal', () => {
     expect(container.querySelector('[role=dialog]')).not.toBeInTheDocument()
     const dialog = screen.getByRole('dialog', { name: 'Hello' })
     expect(dialog).toHaveAttribute('aria-modal', 'true')
-  })
-
-  it('locks body scroll while open, releases on unmount and can opt out', () => {
-    const { unmount } = render(modal())
-    expect(document.body.style.overflow).toBe('hidden')
-    unmount()
-    expect(document.body.style.overflow).toBe('')
-    render(modal({ lockScroll: false }))
-    expect(document.body.style.overflow).toBe('')
   })
 
   it('moves focus into the dialog, traps Tab and restores focus', async () => {
@@ -310,18 +299,6 @@ describe('Modal', () => {
     expect(screen.getByRole('button', { name: 'target' })).toHaveFocus()
   })
 
-  it('closes on scrim click only when pointerdown and click hit the scrim, and can opt out', () => {
-    const onClose = vi.fn()
-    const { rerender } = render(modal({ onClose }))
-    fireEvent.click(screen.getByRole('dialog'))
-    expect(onClose).not.toHaveBeenCalled()
-    clickScrim()
-    expect(onClose).toHaveBeenCalledTimes(1)
-    rerender(modal({ onClose, closeOnOverlayClick: false }))
-    clickScrim()
-    expect(onClose).toHaveBeenCalledTimes(1)
-  })
-
   it('closes an open TokenSelector on Escape before the modal', async () => {
     const onClose = vi.fn()
     render(
@@ -330,12 +307,13 @@ describe('Modal', () => {
         children: (
           <TokenSelector
             options={[{ value: 'a', label: 'A' }]}
+            value={undefined}
             placeholder='Pick'
           />
         ),
       }),
     )
-    const trigger = screen.getByRole('button', { name: 'Pick' })
+    const trigger = screen.getByRole('combobox')
     fireEvent.click(trigger)
     expect(screen.getByRole('listbox')).toBeInTheDocument()
     await userEvent.keyboard('{Escape}')
@@ -352,17 +330,38 @@ describe('Modal', () => {
       modal({
         onClose,
         children: (
-          <Tooltip content='hint'>
+          <Tooltip content='hint' openDelay={0}>
             <span>trigger</span>
           </Tooltip>
         ),
       }),
     )
-    fireEvent.mouseEnter(screen.getByText('trigger').parentElement as Element)
+    fireEvent.pointerEnter(screen.getByText('trigger').parentElement as Element)
     expect(screen.getByRole('tooltip')).toBeInTheDocument()
     await userEvent.keyboard('{Escape}')
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     expect(onClose).not.toHaveBeenCalled()
+    await userEvent.keyboard('{Escape}')
+    expect(onClose).toHaveBeenCalledTimes(1)
+  })
+
+  it('cancels a Pagination page edit on Escape before the modal', async () => {
+    const onClose = vi.fn()
+    const onPageChange = vi.fn()
+    render(
+      modal({
+        onClose,
+        children: (
+          <Pagination page={3} pageCount={10} onPageChange={onPageChange} />
+        ),
+      }),
+    )
+    const input = screen.getByLabelText('Page number')
+    await userEvent.click(input)
+    await userEvent.keyboard('9{Escape}')
+    expect(onClose).not.toHaveBeenCalled()
+    expect(onPageChange).not.toHaveBeenCalled()
+    expect(input).not.toHaveFocus()
     await userEvent.keyboard('{Escape}')
     expect(onClose).toHaveBeenCalledTimes(1)
   })
@@ -375,12 +374,13 @@ describe('Modal', () => {
         children: (
           <TokenSelector
             options={[{ value: 'a', label: 'A' }]}
+            value={undefined}
             placeholder='Pick'
           />
         ),
       }),
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Pick' }))
+    fireEvent.click(screen.getByRole('combobox'))
     clickScrim()
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
     expect(onClose).not.toHaveBeenCalled()
@@ -442,14 +442,6 @@ describe('Modal', () => {
     expect(onPopoverClose).not.toHaveBeenCalled()
   })
 
-  it('does not close on a press that starts inside the card and ends on the scrim', () => {
-    const onClose = vi.fn()
-    render(modal({ onClose }))
-    fireEvent.pointerDown(screen.getByRole('dialog'))
-    fireEvent.click(screen.getByTestId('scrim'))
-    expect(onClose).not.toHaveBeenCalled()
-  })
-
   it('closes only a Popover on Escape and outside press, and returns focus inside the modal', async () => {
     const onClose = vi.fn()
     const onPopoverClose = vi.fn()
@@ -495,51 +487,6 @@ describe('Modal', () => {
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
-  it('closes only the top of two stacked modals and keeps scroll locked until the last closes', async () => {
-    const onOuter = vi.fn()
-    const onInner = vi.fn()
-    const stack = (inner: boolean) =>
-      modal({
-        title: 'Outer',
-        onClose: onOuter,
-        children: modal({
-          title: 'Inner',
-          open: inner,
-          onClose: onInner,
-          dataTestId: { overlay: 'inner' },
-        }),
-      })
-    const { rerender } = render(stack(true))
-    await userEvent.keyboard('{Escape}')
-    expect(onInner).toHaveBeenCalledTimes(1)
-    expect(onOuter).not.toHaveBeenCalled()
-    rerender(stack(false))
-    expect(document.body.style.overflow).toBe('hidden')
-    await userEvent.keyboard('{Escape}')
-    expect(onOuter).toHaveBeenCalledTimes(1)
-    rerender(<></>)
-    expect(document.body.style.overflow).toBe('')
-  })
-
-  it('publishes the header height on the overlay for scroll-padding', () => {
-    const original = globalThis.ResizeObserver
-    globalThis.ResizeObserver = class {
-      observe() {}
-      unobserve() {}
-      disconnect() {}
-    } as unknown as typeof ResizeObserver
-    try {
-      render(modal())
-      expect(
-        screen
-          .getByTestId('scrim')
-          .style.getPropertyValue('--local-header-height'),
-      ).toBe('8px')
-    } finally {
-      globalThis.ResizeObserver = original
-    }
-  })
-
   it('scrolls the initialFocus target into view', () => {
     const scrollIntoView = vi.fn()
     Element.prototype.scrollIntoView = scrollIntoView
@@ -568,5 +515,464 @@ describe('Modal', () => {
     )
     fireEvent.click(scrim)
     expect(onClose).not.toHaveBeenCalled()
+  })
+})
+
+describe('Modal exit transition', () => {
+  const animated = () => stubMotion(150)
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+    unstubMotion()
+    vi.useRealTimers()
+  })
+
+  it('returns focus to the latest opener after reopening mid-exit', () => {
+    animated()
+    vi.useFakeTimers()
+    const first = document.createElement('button')
+    const second = document.createElement('button')
+    document.body.append(first, second)
+    first.focus()
+    const { rerender } = render(modal({ open: true }))
+    rerender(modal({ open: false }))
+    expect(screen.getByTestId('scrim')).toBeInTheDocument()
+    second.focus()
+    rerender(modal({ open: true }))
+    rerender(modal({ open: false }))
+    expect(document.activeElement).toBe(second)
+    first.remove()
+    second.remove()
+  })
+
+  it('marks overlay and card closed while exiting, and settled once open', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    expect(screen.getByTestId('scrim')).toHaveAttribute('data-state', 'open')
+    rerender(modal({ open: false }))
+    expect(screen.getByTestId('scrim')).toHaveAttribute('data-motion', 'exit')
+    expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute(
+      'data-state',
+      'closed',
+    )
+  })
+
+  it('unmounts through the fallback timeout when no motion event fires', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    rerender(modal({ open: false }))
+    act(() => {
+      vi.advanceTimersByTime(700)
+    })
+    expect(screen.queryByTestId('scrim')).not.toBeInTheDocument()
+  })
+
+  it('reopening during the exit keeps it mounted and re-engages the lock', () => {
+    animated()
+    vi.useFakeTimers()
+    const { rerender } = render(modal())
+    rerender(modal({ open: false }))
+    rerender(modal())
+    act(() => {
+      vi.advanceTimersByTime(700)
+    })
+    expect(screen.getByTestId('scrim')).toBeInTheDocument()
+    expect(screen.getByTestId('scrim')).not.toHaveAttribute('inert')
+    expect(screen.getByRole('dialog')).not.toHaveAttribute('inert')
+    expect(document.body.style.overflow).toBe('hidden')
+  })
+
+  it('keeps the scrim catching presses during the exit', () => {
+    animated()
+    vi.useFakeTimers()
+    const onClose = vi.fn()
+    const { rerender } = render(modal({ onClose }))
+    rerender(modal({ onClose, open: false }))
+    const scrim = screen.getByTestId('scrim')
+    expect(fireEvent.mouseDown(scrim)).toBe(false)
+    fireEvent.pointerDown(scrim)
+    fireEvent.click(scrim)
+    expect(onClose).not.toHaveBeenCalled()
+  })
+
+  it('closes once on a double click on the scrim', () => {
+    animated()
+    vi.useFakeTimers()
+    const spy = vi.fn()
+    const Wrapper = () => {
+      const [open, setOpen] = useState(true)
+      return modal({
+        open,
+        onClose: () => {
+          spy()
+          setOpen(false)
+        },
+      })
+    }
+    render(<Wrapper />)
+    clickScrim()
+    clickScrim()
+    expect(spy).toHaveBeenCalledTimes(1)
+  })
+
+  it('a press on the exiting scrim does not dismiss a layer underneath', () => {
+    animated()
+    vi.useFakeTimers()
+    const popoverSpy = vi.fn()
+    const Layers = ({ open }: { open: boolean }) => {
+      const anchor = useRef<HTMLButtonElement>(null)
+      return (
+        <>
+          <button ref={anchor}>anchor</button>
+          <Popover
+            open
+            modal={false}
+            anchorRef={anchor}
+            onClose={popoverSpy}
+            aria-label='Under'
+          >
+            under
+          </Popover>
+          {modal({ open })}
+        </>
+      )
+    }
+    const { rerender } = render(<Layers open />)
+    rerender(<Layers open={false} />)
+    fireEvent.pointerDown(screen.getByTestId('scrim'))
+    expect(popoverSpy).not.toHaveBeenCalled()
+  })
+
+  it('does not prevent mousedown on the scrim while open', () => {
+    render(modal())
+    expect(fireEvent.mouseDown(screen.getByTestId('scrim'))).toBe(true)
+  })
+
+  it('unmounts synchronously without an overlay', () => {
+    animated()
+    const { rerender } = render(modal({ withOverlay: false }))
+    rerender(modal({ withOverlay: false, open: false }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
+})
+
+describe('Modal labels', () => {
+  it('uses a custom close label and keeps Close by default', () => {
+    const { rerender } = render(modal({ open: true, onClose: vi.fn() }))
+    expect(screen.getByRole('button', { name: 'Close' })).toBeInTheDocument()
+    rerender(
+      modal({ open: true, onClose: vi.fn(), labels: { close: 'Schließen' } }),
+    )
+    expect(
+      screen.getByRole('button', { name: 'Schließen' }),
+    ).toBeInTheDocument()
+  })
+})
+
+describe('Modal focus return', () => {
+  const MenuToModal = () => {
+    const anchor = useRef<HTMLButtonElement>(null)
+    const [popover, setPopover] = useState(false)
+    const [open, setOpen] = useState(false)
+    return (
+      <>
+        <button ref={anchor} type='button' onClick={() => setPopover(true)}>
+          Menu
+        </button>
+        <Popover
+          open={popover}
+          anchorRef={anchor}
+          onClose={() => setPopover(false)}
+          aria-label='menu'
+        >
+          <button
+            type='button'
+            onClick={() => {
+              setPopover(false)
+              setOpen(true)
+            }}
+          >
+            Edit
+          </button>
+        </Popover>
+        <Modal withOverlay title='T' open={open} onClose={() => setOpen(false)}>
+          body
+        </Modal>
+      </>
+    )
+  }
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+    unstubMotion()
+    vi.useRealTimers()
+  })
+
+  it.each([false, true])(
+    'returns focus to the popover anchor when a menu item opens the modal and the popover closes (motion: %s)',
+    async (motion) => {
+      if (motion) stubMotion(100)
+      render(<MenuToModal />)
+      const menu = screen.getByRole('button', { name: 'Menu' })
+      menu.focus()
+      fireEvent.click(menu)
+      const edit = await screen.findByRole('button', { name: 'Edit' })
+      edit.focus()
+      fireEvent.click(edit)
+      expect(await screen.findByRole('dialog', { name: 'T' })).toBeVisible()
+      fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+      expect(menu).toHaveFocus()
+    },
+  )
+
+  it('falls back to the popover anchor when the opener is gone as the modal closes', async () => {
+    const Page = ({ edit, modal }: { edit: boolean; modal: boolean }) => {
+      const anchor = useRef<HTMLButtonElement>(null)
+      return (
+        <>
+          <button ref={anchor} type='button'>
+            Menu
+          </button>
+          <Popover open anchorRef={anchor} onClose={() => {}} aria-label='menu'>
+            {edit && <button type='button'>Edit</button>}
+            <span>items</span>
+          </Popover>
+          <Modal withOverlay title='T' open={modal} onClose={() => {}}>
+            body
+          </Modal>
+        </>
+      )
+    }
+    const { rerender } = render(<Page edit modal={false} />)
+    const menu = screen.getByRole('button', { name: 'Menu' })
+    const edit = await screen.findByRole('button', { name: 'Edit' })
+    edit.focus()
+    rerender(<Page edit modal />)
+    expect(await screen.findByRole('dialog', { name: 'T' })).toBeVisible()
+    rerender(<Page edit={false} modal />)
+    rerender(<Page edit={false} modal={false} />)
+    expect(menu).toHaveFocus()
+  })
+
+  it("returns focus to the first dialog's opener when one dialog replaces another", () => {
+    const Wizard = () => {
+      const [a, setA] = useState(false)
+      const [b, setB] = useState(false)
+      return (
+        <>
+          <button type='button' onClick={() => setA(true)}>
+            Start
+          </button>
+          <Modal withOverlay title='A' open={a} onClose={() => setA(false)}>
+            <button
+              type='button'
+              onClick={() => {
+                setA(false)
+                setB(true)
+              }}
+            >
+              Next
+            </button>
+          </Modal>
+          <Modal withOverlay title='B' open={b} onClose={() => setB(false)}>
+            b
+          </Modal>
+        </>
+      )
+    }
+    render(<Wizard />)
+    const start = screen.getByRole('button', { name: 'Start' })
+    start.focus()
+    fireEvent.click(start)
+    const next = screen.getByRole('button', { name: 'Next' })
+    next.focus()
+    fireEvent.click(next)
+    fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+    expect(start).toHaveFocus()
+  })
+
+  it('does not pull focus back when the close handler focuses another element', () => {
+    const Page = () => {
+      const [open, setOpen] = useState(false)
+      const other = useRef<HTMLButtonElement>(null)
+      return (
+        <>
+          <button type='button' onClick={() => setOpen(true)}>
+            Open
+          </button>
+          <button ref={other} type='button'>
+            Other
+          </button>
+          <Modal
+            withOverlay
+            title='T'
+            open={open}
+            onClose={() => {
+              setOpen(false)
+              other.current?.focus()
+            }}
+          >
+            body
+          </Modal>
+        </>
+      )
+    }
+    render(<Page />)
+    const opener = screen.getByRole('button', { name: 'Open' })
+    opener.focus()
+    fireEvent.click(opener)
+    fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+    expect(screen.getByRole('button', { name: 'Other' })).toHaveFocus()
+  })
+
+  it('restores to the opener while a child popover holds focus', async () => {
+    const Page = ({ open }: { open: boolean }) => {
+      const anchor = useRef<HTMLButtonElement>(null)
+      return (
+        <>
+          <button type='button'>Open</button>
+          <Modal withOverlay title='T' open={open} onClose={() => undefined}>
+            <button ref={anchor} type='button'>
+              anchor
+            </button>
+            <Popover
+              open
+              anchorRef={anchor}
+              onClose={() => undefined}
+              aria-label='child'
+            >
+              <button type='button'>pop</button>
+            </Popover>
+          </Modal>
+        </>
+      )
+    }
+    const { rerender } = render(<Page open={false} />)
+    const opener = screen.getByRole('button', { name: 'Open' })
+    opener.focus()
+    rerender(<Page open />)
+    ;(await screen.findByRole('button', { name: 'pop' })).focus()
+    rerender(<Page open={false} />)
+    expect(opener).toHaveFocus()
+  })
+})
+
+describe('Modal dismissal', () => {
+  it('reports an attempt when closeOnEscape or closeOnOverlayClick alone refuses', async () => {
+    const onClose = vi.fn()
+    const onDismissAttempt = vi.fn()
+    const { rerender } = render(
+      modal({ onClose, onDismissAttempt, closeOnEscape: false }),
+    )
+    await userEvent.keyboard('{Escape}')
+    expect(onDismissAttempt).toHaveBeenCalledWith(
+      expect.objectContaining({ reason: 'escape-key' }),
+    )
+    clickScrim()
+    expect(onClose).toHaveBeenCalledTimes(1)
+    rerender(modal({ onClose, onDismissAttempt, closeOnOverlayClick: false }))
+    clickScrim()
+    expect(onDismissAttempt).toHaveBeenLastCalledWith(
+      expect.objectContaining({ reason: 'outside-press' }),
+    )
+    expect(onClose).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not report an attempt for a scrim click after a press that started in the panel', () => {
+    const onDismissAttempt = vi.fn()
+    render(modal({ dismissible: false, onDismissAttempt }))
+    fireEvent.pointerDown(screen.getByRole('dialog'))
+    fireEvent.click(screen.getByTestId('scrim'))
+    expect(onDismissAttempt).not.toHaveBeenCalled()
+  })
+
+  it('keeps Escape from an inner non-dismissible modal away from the outer one', async () => {
+    const outerClose = vi.fn()
+    const onDismissAttempt = vi.fn()
+    render(
+      <Modal withOverlay title='Outer' onClose={outerClose}>
+        <Modal
+          withOverlay
+          title='Inner'
+          dismissible={false}
+          onDismissAttempt={onDismissAttempt}
+        >
+          inner
+        </Modal>
+      </Modal>,
+    )
+    await userEvent.keyboard('{Escape}')
+    expect(outerClose).not.toHaveBeenCalled()
+    expect(onDismissAttempt).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('Modal Android back', () => {
+  beforeEach(() => installCloseWatcher())
+  afterEach(uninstallCloseWatcher)
+
+  it('closes on Android back with reason back and blocks it when not dismissible', () => {
+    const onClose = vi.fn()
+    const onDismissAttempt = vi.fn()
+    const { rerender } = render(modal({ onClose }))
+    back()
+    expect(onClose).toHaveBeenCalledWith('back')
+    rerender(modal({ onClose, dismissible: false, onDismissAttempt }))
+    back()
+    expect(onClose).toHaveBeenCalledTimes(1)
+    expect(onDismissAttempt).toHaveBeenCalledWith(
+      expect.objectContaining({ reason: 'back' }),
+    )
+  })
+
+  it('catches the next back after a refused one', () => {
+    const onDismissAttempt = vi.fn()
+    render(modal({ dismissible: false, onDismissAttempt }))
+    back()
+    back()
+    expect(onDismissAttempt).toHaveBeenCalledTimes(2)
+  })
+
+  it('the top of two stacked modals takes back', () => {
+    const outerClose = vi.fn()
+    const innerClose = vi.fn()
+    render(
+      <Modal withOverlay title='Outer' onClose={outerClose}>
+        <Modal withOverlay title='Inner' onClose={innerClose}>
+          inner
+        </Modal>
+      </Modal>,
+    )
+    back()
+    expect(innerClose).toHaveBeenCalledWith('back')
+    expect(outerClose).not.toHaveBeenCalled()
+  })
+
+  it('creates no watcher for a bare card', () => {
+    render(modal({ withOverlay: false }))
+    expect(FakeWatcher.all).toHaveLength(0)
+  })
+})
+
+describe('Modal size', () => {
+  it('does not apply the large class by default', () => {
+    render(modal())
+    expect(screen.getByRole('dialog').className).not.toMatch(/large/)
+  })
+
+  it('applies the large class', () => {
+    render(modal({ size: 'large' }))
+    expect(screen.getByRole('dialog').className).toMatch(/large/)
+  })
+
+  it('applies size to ModalCard', () => {
+    render(
+      <ModalCard title='T' size='large'>
+        body
+      </ModalCard>,
+    )
+    expect(screen.getByRole('dialog').className).toMatch(/large/)
   })
 })

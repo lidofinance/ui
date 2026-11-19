@@ -22,13 +22,17 @@ function Widget() {
   return (
     <>
       <RichInput label='Amount' placeholder='0' />
-      <Button variant='black'>Supply</Button>
+      <Button variant='primary'>Supply</Button>
     </>
   )
 }
 ```
 
 Theme providers (`ThemeProvider`, `CookieThemeProvider`) are re-exported from `@lidofinance/lido-shared-ui`. The color tokens follow the `data-lido-theme` attribute they set, so switching to the dark theme restyles these components. `ThemeSwitcher` is the app-ui-styled theme toggle, since the shared `ThemeToggler` relies on `--lido-ui-*` tokens that app-ui doesn't define. `ThemeSwitcher` needs `CookieThemeProvider`; the static `ThemeProvider` has no toggle, so the switcher renders but clicking does nothing. In SSR apps pass the request cookie as `initialThemeName` so the label is right on first paint (the icon already follows `data-lido-theme` in CSS).
+
+Set `color: var(--lido-app-ui-color-text-default)` and `font-family: var(--lido-app-ui-font-family)` on `body`: app-ui sets no default text color.
+
+Optional mono font: `--lido-app-ui-font-family-mono` (system stack by default) is for keys and hashes (the Operators design renders them in Manrope, so this is opt-in). To use a webfont, load it yourself and override the token on `:root`. See the Foundations/Setup story for the full setup.
 
 ## Router links
 
@@ -42,7 +46,7 @@ import { LinkProvider } from '@lidofinance/lido-app-ui'
 ;<LinkProvider component={NextLink}>{children}</LinkProvider>
 ```
 
-Next.js 12 — `next/link` needs an `<a>` child, so wrap it once at module level. Router-only props set per link with `linkProps` are split out so they don't land on the `<a>`; this requires the `LinkRouterProps` augmentation shown below:
+Next.js 12 — `next/link` needs an `<a>` child, so wrap it once at module level. Router-only options (e.g. `prefetch`) are set here, on the component you give to `LinkProvider`:
 
 ```tsx
 import { forwardRef } from 'react'
@@ -51,8 +55,8 @@ import NextLink from 'next/link'
 import { LinkProvider, type LinkComponentProps } from '@lidofinance/lido-app-ui'
 
 const AppLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
-  ({ href, prefetch, replace, scroll, ...rest }, ref) => (
-    <NextLink href={href} prefetch={prefetch} replace={replace} scroll={scroll}>
+  ({ href, ...rest }, ref) => (
+    <NextLink href={href} prefetch={false}>
       <a ref={ref} {...rest} />
     </NextLink>
   ),
@@ -79,19 +83,7 @@ const AppLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
 )
 ```
 
-Router-only options such as `prefetch` are typed by augmenting `LinkRouterProps` once, then set per link with `linkProps`. They reach only the `LinkProvider` components, never a plain `<a>`:
-
-```tsx
-declare module '@lidofinance/lido-app-ui' {
-  interface LinkRouterProps {
-    prefetch?: boolean
-    replace?: boolean
-    scroll?: boolean
-  }
-}
-
-;<SmallCard href='/keys' title='Keys' linkProps={{ prefetch: false }} />
-```
+Router-only options such as `prefetch` apply to every link: set them inside your `LinkProvider` component. The per-link `linkProps` prop and the `LinkRouterProps` augmentation are deprecated.
 
 ## Typography
 
@@ -116,7 +108,7 @@ Deprecated aliases: `GroupName` (use `Caption`), variants `richInput` (use `amou
 
 ## Customization
 
-Override any token after importing the stylesheet. Non-color tokens (radii, typography, z-index, spacing) are theme-independent and live on `:root`. Color tokens and `--lido-app-ui-shadow-default` (it reads color tokens) are redeclared on every theme scope, so override them on `:root, [data-lido-theme]` or per theme, not on `:root` alone:
+Override any token after importing the stylesheet. Non-color tokens (radii, typography, z-index, spacing) are theme-independent and live on `:root`. Color tokens and `--lido-app-ui-shadow-default` and `--lido-app-ui-shadow-default-filter` (they read color tokens) are redeclared on every theme scope, so override them on `:root, [data-lido-theme]` or per theme, not on `:root` alone:
 
 ```css
 :root {
@@ -133,7 +125,7 @@ Override any token after importing the stylesheet. Non-color tokens (radii, typo
 }
 ```
 
-The typography mixins and breakpoint definitions are published too, for products running `postcss-mixins` / `postcss-custom-media`:
+The typography and motion mixins (`typography-mixins.css`, `motion-mixins.css`) and breakpoint definitions are published too under `@lidofinance/lido-app-ui/styles/*`, for products running `postcss-mixins` / `postcss-custom-media`. `mixinsDir` picks up both mixin files. The motion mixins use nested rules, so keep `postcss-nested` (or target browsers with native CSS nesting):
 
 ```js
 // postcss.config.mjs
@@ -151,10 +143,17 @@ export default {
       files: [path.join(stylesDir, 'breakpoints.css')],
     },
     'postcss-mixins': { mixinsDir: stylesDir },
+    'postcss-nested': {},
     'postcss-custom-media': { preserve: false },
   },
 }
 ```
+
+## Motion
+
+Durations, easings and amplitudes are tokens: enter `--lido-app-ui-duration-{fast,base,slow}`, exit `-exit` variants (shorter), `--lido-app-ui-easing-*`, `--lido-app-ui-motion-{shift,shift-lg,scale}`, `--lido-app-ui-transition-colors`. Override them on `:root` to retune.
+
+Custom components can reuse the mixins (`motion-fade`, `motion-pop`, `motion-slide`, `motion-scrim`, `motion-collapse`, `motion-press`; see the `postcss-mixins` setup above) on elements keyed by `data-state` (`open` / `closed`) and `data-motion` (`enter` / `exit`). Mixins respect `prefers-reduced-motion`.
 
 ## Layout
 
@@ -176,9 +175,13 @@ In CSS use `@media (--lido-app-ui-breakpoint-md-down)`. Responsive props such as
 <Stack gap={{ base: 24, smDown: 12 }}>{children}</Stack>
 ```
 
+For `@container`, which `postcss-custom-media` doesn't resolve, use raw values such as `@container (width <= 400px)`.
+
+`Banner`, `Card` and `EmptyState` size their layout to their own width via container queries, so give them a definite-width parent; in a shrink-to-fit parent they collapse.
+
 Page shells align to the page gutter, which shrinks on narrow screens: `padding-inline: var(--lido-app-ui-page-gutter)`.
 
-Popovers, tooltips and modals with `withOverlay` portal to `<body>` and stack by `--lido-app-ui-z-index-*`: header 250, popover and modal 1000, toast 1050, tooltip 1100. Keep your own app chrome below 1000. `Modal` `inertOthers` makes the rest of `<body>` inert; mark body-level toast or live-region roots with `data-lido-overlay-keep` to keep them live.
+Popovers, tooltips, drawers and modals with `withOverlay` portal to `<body>` and stack by `--lido-app-ui-z-index-*`: header 250, drawer, popover and modal 1000, toast 1050, tooltip 1100. Keep your own app chrome below 1000. `Modal` `inertOthers` makes the rest of `<body>` inert; mark body-level toast or live-region roots with `data-lido-overlay-keep` to keep them live.
 
 ## More
 

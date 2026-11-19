@@ -33,12 +33,20 @@
   max-width: calc(100% - 32px);
 }
 
+.item > .tooltip {
+  @mixin font-body-large-semibold;
+
+  display: flex;
+  min-width: 0;
+  max-width: min(22em, 100%);
+}
+
 .label {
   @mixin font-body-large-semibold;
 
   --local-color: var(--lido-app-ui-color-text-secondary);
 
-  max-width: min(22em, 100%);
+  min-width: 0;
   overflow: hidden;
   color: var(--local-color);
   text-overflow: ellipsis;
@@ -52,7 +60,7 @@
   background: none;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .link:hover,
@@ -67,8 +75,6 @@
 
 .current {
   --local-color: var(--lido-app-ui-color-text-default);
-
-  min-width: 0;
 }
 
 .separator {

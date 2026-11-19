@@ -24,7 +24,6 @@ const meta: Meta = {
     storyBackground: 'page',
     docs: {
       story: { inline: false, iframeHeight: 720 },
-      source: { type: 'code' },
       description: {
         component:
           'App shell without a Sidebar: `Layout` > `Header` (logo + `HeaderNav`) + `Main` > `PageContent` + `Footer`.',

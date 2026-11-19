@@ -2,11 +2,11 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { StoryContainer } from '../../.storybook/components'
-import { TokenSteth } from '../icons'
+import { TokenStEth } from '../icons'
 import { TokenSelector } from '../token-selector'
 import { RichInput } from '.'
 
-const stethOptions = [{ value: 'stETH', label: 'stETH', icon: <TokenSteth /> }]
+const stethOptions = [{ value: 'stETH', label: 'stETH', icon: <TokenStEth /> }]
 
 const tokenSelector = (
   <TokenSelector single value='stETH' options={stethOptions} />
@@ -38,6 +38,9 @@ const meta: Meta<typeof RichInput> = {
     loading: {
       control: { type: 'boolean' },
     },
+    decimals: {
+      control: { type: 'number', min: 0 },
+    },
     tokenSelector: {
       control: false,
       table: { defaultValue: { summary: 'TokenSelector' } },
@@ -53,6 +56,10 @@ const meta: Meta<typeof RichInput> = {
         'top-right',
         'bottom-left',
         'bottom-right',
+        'top-start',
+        'top-end',
+        'bottom-start',
+        'bottom-end',
       ],
     },
   },
@@ -82,9 +89,10 @@ export const Basic: Story = {
   },
   parameters: {
     docs: {
+      source: { type: 'code' },
       description: {
         story:
-          'Fully wired: type an amount and the fiat line follows, or hit Max to fill the balance. Letters are stripped out, and a second decimal point is ignored.',
+          'Fully wired: type an amount and the fiat line follows, or hit Max to fill the balance. Letters are stripped out, and a second decimal point is ignored. Pasted amounts are normalised: with both "," and "." the last one is the decimal point, a lone "," is the decimal point unless the value looks like US grouping (1,000 / 1,234,567), and grouping separators are removed.',
       },
     },
   },
@@ -109,8 +117,14 @@ export const States: Story = {
       <RichInput
         label='Error'
         defaultValue='99'
-        error
-        errorText='Amount exceeds your balance'
+        error='Amount exceeds your balance'
+        balance='Balance: 12.4218'
+        tokenSelector={tokenSelector}
+      />
+      <RichInput
+        label='Description'
+        description='Minimum deposit is 0.01 ETH.'
+        placeholder='0'
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}
       />
@@ -130,7 +144,7 @@ export const States: Story = {
       />
       <RichInput
         label='With label tooltip'
-        labelTooltip='The amount you want to deposit.'
+        tooltip='The amount you want to deposit.'
         placeholder='0'
         balance='Balance: 12.4218'
         tokenSelector={tokenSelector}
@@ -163,6 +177,13 @@ export const States: Story = {
         lockedTooltip='Amount is fixed by the bond curve.'
         tokenSelector={smallTokenSelector}
       />
+      <RichInput
+        defaultValue='12'
+        locked
+        lockedTooltip='Amount is fixed by the bond curve.'
+        tokenSelector={smallTokenSelector}
+      />
+      <RichInput defaultValue='12' locked tokenSelector={smallTokenSelector} />
     </StoryContainer>
   ),
   parameters: {
@@ -175,6 +196,45 @@ export const States: Story = {
       description: {
         story:
           'The Max tooltip opens bottom-left because the field usually sits inside a Modal, which clips anything above it.',
+      },
+    },
+  },
+}
+
+export const Precision: Story = {
+  render: function Render() {
+    const [amount, setAmount] = useState('')
+    const [validators, setValidators] = useState('')
+
+    return (
+      <StoryContainer gap={24} style={{ maxWidth: 460 }}>
+        <RichInput
+          label='Amount (2 decimals)'
+          placeholder='0'
+          decimals={2}
+          value={amount}
+          onChange={(event) => setAmount(event.target.value)}
+          balance='Balance: 12.4218'
+          tokenSelector={tokenSelector}
+        />
+        <RichInput
+          label='Validators'
+          placeholder='0'
+          decimals={0}
+          value={validators}
+          onChange={(event) => setValidators(event.target.value)}
+          showMaxButton={false}
+        />
+      </StoryContainer>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      source: { type: 'code' },
+      description: {
+        story:
+          'Cap the fraction with `decimals`: extra digits are dropped as you type or paste; `0` accepts whole numbers only and opens a numeric keyboard.',
       },
     },
   },

@@ -5,8 +5,6 @@ import React, { SVGProps } from 'react'
 export const IconRemove = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      preserveAspectRatio='none'
-      overflow='visible'
       width={20}
       height={20}
       viewBox='0 0 20 20'

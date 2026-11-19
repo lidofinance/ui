@@ -1,11 +1,13 @@
-import { StrictMode, useState, type ReactNode } from 'react'
+import { StrictMode, useState, type ReactNode, type RefObject } from 'react'
 import { fireEvent, render, renderHook, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
+import { registerReturnLayer } from './focusReturn'
 import { Portal } from './Portal'
 import { useBodyScrollLock } from './useBodyScrollLock'
 import { useEscape } from './useEscape'
+import { getTabbable } from './tabbable'
 import { useFocusTrap } from './useFocusTrap'
 import { useOutsideClick } from './useOutsideClick'
 
@@ -110,6 +112,43 @@ describe('useFocusTrap tab order', () => {
     screen.getByText('last').focus()
     await tab()
     expect(document.activeElement).toBe(screen.getByText('first'))
+  })
+
+  it('skips content of a closed details but keeps its summary', () => {
+    render(
+      <Custom>
+        <button>first</button>
+        <details>
+          <summary>sum</summary>
+          <button>inside</button>
+        </details>
+        <button>last</button>
+      </Custom>,
+    )
+    expect(getTabbable(screen.getByText('first').parentElement!)).toEqual([
+      screen.getByText('first'),
+      screen.getByText('sum'),
+      screen.getByText('last'),
+    ])
+  })
+
+  it('orders positive tabindex before tabindex 0', async () => {
+    render(
+      <Custom>
+        <button tabIndex={0}>zero</button>
+        {/* eslint-disable-next-line jsx-a11y/tabindex-no-positive -- testing native tab order */}
+        <button tabIndex={1}>one</button>
+        <button tabIndex={0}>zero2</button>
+      </Custom>,
+    )
+    expect(getTabbable(screen.getByText('one').parentElement!)).toEqual([
+      screen.getByText('one'),
+      screen.getByText('zero'),
+      screen.getByText('zero2'),
+    ])
+    screen.getByText('zero2').focus()
+    await tab()
+    expect(document.activeElement).toBe(screen.getByText('one'))
   })
 
   it('skips inert subtrees', async () => {
@@ -394,9 +433,11 @@ describe('useBodyScrollLock', () => {
   })
 
   it('compensates the width gained by hiding the scrollbar and restores on unlock', () => {
-    const widths = [1265, 1280]
     vi.spyOn(document.body, 'getBoundingClientRect').mockImplementation(
-      () => ({ width: widths.shift() }) as DOMRect,
+      () =>
+        ({
+          width: document.body.style.overflow === 'hidden' ? 1280 : 1265,
+        }) as DOMRect,
     )
     const html = document.documentElement
     document.body.style.paddingRight = '4px'
@@ -583,5 +624,146 @@ describe('nested overlays', () => {
     screen.getByText('inner-b').focus()
     await tab()
     expect(document.activeElement).toBe(screen.getByText('inner-c'))
+  })
+})
+
+describe('useFocusTrap focus return', () => {
+  const Harness = ({
+    active,
+    returnFocusTo,
+  }: {
+    active: boolean
+    returnFocusTo?: RefObject<HTMLElement | null>
+  }) => {
+    const [el, setEl] = useState<HTMLDivElement | null>(null)
+    useFocusTrap(el, { enabled: active, returnFocusTo })
+    return (
+      <>
+        <div data-testid='row'>
+          <button>a</button>
+          <button>b</button>
+          <button>c</button>
+        </div>
+        <button>outside</button>
+        <div ref={setEl}>
+          <button>inside</button>
+        </div>
+      </>
+    )
+  }
+
+  it("falls back to a tabbable in the opener's container when the opener was removed", () => {
+    const { rerender } = render(<Harness active={false} />)
+    const b = screen.getByText('b')
+    b.focus()
+    rerender(<Harness active />)
+    b.remove()
+    rerender(<Harness active={false} />)
+    expect(document.activeElement).toBe(screen.getByText('a'))
+  })
+
+  it('moves past a disabled opener to the tabbable after it', () => {
+    const { rerender } = render(<Harness active={false} />)
+    const b = screen.getByText('b')
+    b.focus()
+    rerender(<Harness active />)
+    b.setAttribute('disabled', '')
+    rerender(<Harness active={false} />)
+    expect(document.activeElement).toBe(screen.getByText('c'))
+  })
+
+  it('leaves focus on body when activated from body', () => {
+    const { rerender } = render(<Harness active={false} />)
+    document.body.focus()
+    rerender(<Harness active />)
+    rerender(<Harness active={false} />)
+    expect(screen.getByTestId('row')).not.toContainElement(
+      document.activeElement as HTMLElement,
+    )
+    expect(document.activeElement).not.toBe(screen.getByText('outside'))
+  })
+
+  it('keeps focus the app moved outside the trap before deactivate', () => {
+    const { rerender } = render(<Harness active={false} />)
+    screen.getByText('a').focus()
+    rerender(<Harness active />)
+    screen.getByText('outside').focus()
+    rerender(<Harness active={false} />)
+    expect(document.activeElement).toBe(screen.getByText('outside'))
+  })
+
+  it('focuses returnFocusTo before the opener on deactivate', () => {
+    const target = { current: null as HTMLElement | null }
+    const { rerender } = render(
+      <Harness active={false} returnFocusTo={target} />,
+    )
+    target.current = screen.getByText('outside')
+    screen.getByText('a').focus()
+    rerender(<Harness active returnFocusTo={target} />)
+    rerender(<Harness active={false} returnFocusTo={target} />)
+    expect(document.activeElement).toBe(screen.getByText('outside'))
+  })
+
+  it('uses the opener when returnFocusTo is gone', () => {
+    const gone = document.createElement('button')
+    const target = { current: gone }
+    const { rerender } = render(
+      <Harness active={false} returnFocusTo={target} />,
+    )
+    screen.getByText('a').focus()
+    rerender(<Harness active returnFocusTo={target} />)
+    rerender(<Harness active={false} returnFocusTo={target} />)
+    expect(document.activeElement).toBe(screen.getByText('a'))
+  })
+
+  it('skips the trap container when picking a tabbable after a disabled opener', () => {
+    const InTree = ({ active }: { active: boolean }) => {
+      const [el, setEl] = useState<HTMLDivElement | null>(null)
+      useFocusTrap(el, { enabled: active })
+      return (
+        <div>
+          <button>a</button>
+          <button>b</button>
+          <div ref={setEl}>
+            <button>inside</button>
+          </div>
+        </div>
+      )
+    }
+    const { rerender } = render(<InTree active={false} />)
+    const b = screen.getByText('b')
+    b.focus()
+    rerender(<InTree active />)
+    b.setAttribute('disabled', '')
+    rerender(<InTree active={false} />)
+    expect(document.activeElement).toBe(screen.getByText('a'))
+  })
+
+  it("falls back to the opener's registered layer targets when the opener is gone", () => {
+    const Layered = ({ active }: { active: boolean }) => {
+      const [el, setEl] = useState<HTMLDivElement | null>(null)
+      useFocusTrap(el, { enabled: active })
+      return (
+        <>
+          <button>anchor</button>
+          <div ref={setEl}>
+            <button>trapped</button>
+          </div>
+        </>
+      )
+    }
+    const { rerender } = render(<Layered active={false} />)
+    const panel = document.createElement('div')
+    const inPanel = document.createElement('button')
+    panel.appendChild(inPanel)
+    document.body.appendChild(panel)
+    const anchor = screen.getByText('anchor')
+    const unregister = registerReturnLayer(panel, () => [anchor])
+    inPanel.focus()
+    rerender(<Layered active />)
+    panel.remove()
+    rerender(<Layered active={false} />)
+    unregister()
+    expect(document.activeElement).toBe(anchor)
   })
 })

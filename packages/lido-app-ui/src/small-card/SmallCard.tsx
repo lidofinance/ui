@@ -1,8 +1,9 @@
-import { forwardRef, type AnchorHTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
-import { Anchor, type AnchorProps } from '../link-provider/Anchor'
+import type { AnchorProps } from '../link-provider/Anchor'
+import { ActionElement, type ActionElementProps } from '../utils'
 import styles from './SmallCard.module.css'
 
 export type SmallCardDataTestId = {
@@ -15,10 +16,7 @@ export type SmallCardDataTestId = {
   footer?: string
 }
 
-export type SmallCardProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  'title'
-> & {
+type SmallCardOwnProps = {
   /** Fixed-height (120px) media slot above the header — an image or illustration. */
   image?: ReactNode
   logo?: ReactNode
@@ -28,11 +26,24 @@ export type SmallCardProps = Omit<
   description?: ReactNode
   /** Arbitrary content below the description — wraps in a row, e.g. a list of `Tag`s. */
   footer?: ReactNode
+  /** Stretches to the parent's height and pins `footer` to the bottom; for equal-height cards in a row or grid. */
+  fill?: boolean
   dataTestId?: SmallCardDataTestId
-} & Pick<AnchorProps, 'external' | 'linkProps'>
+}
 
-/** Clickable card that always renders as a link: optional `image`, `logo`, title with trailing `icon`, `description` and `footer`; title and description wrap instead of truncating. */
-export const SmallCard = forwardRef<HTMLAnchorElement, SmallCardProps>(
+export type SmallCardProps = SmallCardOwnProps &
+  (
+    | (Omit<AnchorProps, 'title' | 'href'> & { href: string })
+    | (Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'title'> & {
+        href?: undefined
+      })
+  )
+
+/** Clickable card: a link with `href`, otherwise a `<button type="button">`; optional `image`, `logo`, title with trailing `icon`, `description` and `footer`; title and description wrap instead of truncating. */
+export const SmallCard = forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  SmallCardProps
+>(
   (
     {
       image,
@@ -41,25 +52,26 @@ export const SmallCard = forwardRef<HTMLAnchorElement, SmallCardProps>(
       title,
       description,
       footer,
+      fill = false,
       className,
       dataTestId,
       ...rest
     },
     ref,
   ) => (
-    <Anchor
+    <ActionElement
       ref={ref}
-      className={cn(styles.card, className)}
+      className={cn(styles.card, fill && styles.fill, className)}
       data-testid={dataTestId?.root}
-      {...rest}
+      {...(rest as ActionElementProps)}
     >
-      <div className={styles.content}>
+      <span className={styles.content}>
         {image != null ? (
-          <div className={styles.image} data-testid={dataTestId?.image}>
+          <span className={styles.image} data-testid={dataTestId?.image}>
             {image}
-          </div>
+          </span>
         ) : null}
-        <div className={styles.header}>
+        <span className={styles.header}>
           {logo != null ? (
             <span className={styles.logo} data-testid={dataTestId?.logo}>
               {logo}
@@ -77,22 +89,22 @@ export const SmallCard = forwardRef<HTMLAnchorElement, SmallCardProps>(
               {icon}
             </span>
           ) : null}
-        </div>
+        </span>
         {description != null ? (
-          <p
+          <span
             className={styles.description}
             data-testid={dataTestId?.description}
           >
             {description}
-          </p>
+          </span>
         ) : null}
-      </div>
+      </span>
       {footer != null ? (
-        <div className={styles.footer} data-testid={dataTestId?.footer}>
+        <span className={styles.footer} data-testid={dataTestId?.footer}>
           {footer}
-        </div>
+        </span>
       ) : null}
-    </Anchor>
+    </ActionElement>
   ),
 )
 

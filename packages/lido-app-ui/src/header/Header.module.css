@@ -21,10 +21,12 @@
   z-index: var(--lido-app-ui-z-index-header);
 }
 
-/* Zero specificity, so an app's own `html { scroll-padding-top }` wins. */
+/* Zero specificity, so an app's own `html` rule wins. */
 /* stylelint-disable-next-line selector-max-type, selector-pseudo-class-no-unknown */
 :where(:global(html):has(.sticky)) {
-  scroll-padding-top: var(--lido-app-ui-header-height);
+  --lido-app-ui-sticky-top: var(--lido-app-ui-header-height);
+
+  scroll-padding-top: var(--lido-app-ui-sticky-top);
 }
 
 .content {

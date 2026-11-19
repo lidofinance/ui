@@ -1,14 +1,16 @@
-import {
-  useRef,
-  useState,
-  type ComponentPropsWithoutRef,
-  type ReactNode,
-} from 'react'
+import { type ComponentPropsWithoutRef, type ReactNode, useId } from 'react'
 
 import cn from 'classnames'
 
 import { Tab, type TabDataTestId } from './Tab'
-import { useIsomorphicLayoutEffect } from '../hooks'
+import {
+  useEdgeFade,
+  useIsomorphicLayoutEffect,
+  useRovingTabs,
+  useSelectionIndicator,
+} from '../hooks'
+import { scrollIntoCenter } from '../utils/dom'
+import { getTabId } from './tabIds'
 import styles from './Tabs.module.css'
 
 export type TabsDataTestId = {
@@ -20,6 +22,8 @@ export type TabItem = {
   label: ReactNode
   disabled?: boolean
   dataTestId?: TabDataTestId
+  /** Id of the panel this tab controls; sets aria-controls. Keep that panel mounted (e.g. `hidden`) while set. */
+  panelId?: string
 }
 
 export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
@@ -29,66 +33,58 @@ export type TabsProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   dataTestId?: TabsDataTestId
 }
 
-/** Row of text tabs with an underline on the active item; controlled via `value`. */
+/** Row of text tabs with an underline on the active item; controlled via `value`. Scrolls with an edge fade when it does not fit. Pass `id` to link panels via `getTabPanelProps`. */
 export const Tabs = ({
   items,
   value,
   onChange,
   className,
   dataTestId,
+  onKeyDown,
+  id,
   ...rest
 }: TabsProps) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const activeButtonRef = useRef<HTMLButtonElement>(null)
-  const selectionRef = useRef<HTMLDivElement>(null)
-  // Skip the transition on the first measurement so the bar doesn't fly in from 0,0.
-  const [animated, setAnimated] = useState(false)
+  const autoId = useId()
+  const tabsId = id ?? autoId
+  const { containerRef, activeRef, indicatorRef } = useSelectionIndicator(
+    'x',
+    value,
+    [items],
+  )
+  const roving = useRovingTabs(containerRef, items, value, onChange, onKeyDown)
+
+  const { sync } = useEdgeFade(containerRef)
+
+  useIsomorphicLayoutEffect(sync, [items, sync])
 
   useIsomorphicLayoutEffect(() => {
-    const updateSelection = () => {
-      const button = activeButtonRef.current
-      const container = containerRef.current
-      const selection = selectionRef.current
-      if (!button || !container || !selection) return
-
-      const buttonRect = button.getBoundingClientRect()
-      const containerRect = container.getBoundingClientRect()
-      const x = buttonRect.left - containerRect.left
-
-      selection.style.width = `${buttonRect.width}px`
-      selection.style.transform = `translateX(${x}px)`
-    }
-
-    updateSelection()
-    setAnimated(true)
-
-    window.addEventListener('resize', updateSelection)
-    return () => {
-      window.removeEventListener('resize', updateSelection)
-    }
-  }, [value, items])
+    if (containerRef.current)
+      scrollIntoCenter(containerRef.current, activeRef.current)
+  }, [value])
 
   return (
+    // eslint-disable-next-line jsx-a11y/interactive-supports-focus -- focus lives on the roving tabs
     <div
       ref={containerRef}
+      id={id}
       role='tablist'
       className={cn(styles.tabs, className)}
       data-testid={dataTestId?.root}
       {...rest}
+      onKeyDown={roving.onKeyDown}
     >
-      <div
-        ref={selectionRef}
-        aria-hidden='true'
-        className={cn(styles.selection, animated && styles.animated)}
-      />
+      <div ref={indicatorRef} aria-hidden='true' className={styles.selection} />
       {items.map((item) => {
         const active = item.value === value
         return (
           <Tab
             key={item.value}
-            ref={active ? activeButtonRef : undefined}
+            ref={active ? activeRef : undefined}
+            id={getTabId(tabsId, item.value)}
+            aria-controls={item.panelId}
             active={active}
             disabled={item.disabled}
+            tabIndex={roving.getTabIndex(item.value)}
             dataTestId={item.dataTestId}
             onClick={() => {
               if (item.value !== value) onChange(item.value)

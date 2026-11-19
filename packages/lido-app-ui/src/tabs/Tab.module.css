@@ -16,7 +16,7 @@
   color: var(--lido-app-ui-color-text-default);
 }
 
-.tab.active {
+.tab[aria-selected='true'] {
   color: var(--lido-app-ui-color-text-default);
 }
 
@@ -27,5 +27,5 @@
 
 .tab:focus-visible {
   outline: 2px solid var(--lido-app-ui-color-border-active);
-  outline-offset: 2px;
+  outline-offset: -2px;
 }

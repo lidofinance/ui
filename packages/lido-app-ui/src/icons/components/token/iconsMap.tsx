@@ -16,7 +16,6 @@ import { TokenMellowPoints } from './TokenMellowPoints'
 import { TokenObol } from './TokenObol'
 import { TokenPtSrUsde } from './TokenPtSrUsde'
 import { TokenSsv } from './TokenSsv'
-import { TokenSteth } from './TokenSteth'
 import { TokenSyrupUsdc } from './TokenSyrupUsdc'
 import { TokenTree } from './TokenTree'
 import { TokenUsdc } from './TokenUsdc'
@@ -25,24 +24,28 @@ import { TokenUsdm } from './TokenUsdm'
 import { TokenUsdt } from './TokenUsdt'
 import { TokenUsdy } from './TokenUsdy'
 import { TokenUsde } from './TokenUsde'
-import { TokenWsteth } from './TokenWsteth'
+import { TokenWethBinance } from './TokenWethBinance'
 import { TokenYfi } from './TokenYfi'
 import { TokenAUsd } from './TokenAUsd'
+import { TokenCbEth } from './TokenCbEth'
 import { TokenEarnEth } from './TokenEarnEth'
 import { TokenEarnUsd } from './TokenEarnUsd'
 import { TokenFrxUsd } from './TokenFrxUsd'
 import { TokenLlEth } from './TokenLlEth'
 import { TokenMsUsd } from './TokenMsUsd'
 import { TokenPyUsd } from './TokenPyUsd'
+import { TokenREth } from './TokenREth'
 import { TokenRsEth } from './TokenRsEth'
 import { TokenSpUsdg } from './TokenSpUsdg'
 import { TokenSrUsde } from './TokenSrUsde'
+import { TokenStEth } from './TokenStEth'
 import { TokenStrEth } from './TokenStrEth'
 import { TokenSyrupUsdg } from './TokenSyrupUsdg'
 import { TokenSyrupUsdt } from './TokenSyrupUsdt'
 import { TokenWEth } from './TokenWEth'
+import { TokenWstEth } from './TokenWstEth'
 
-// Export a constant with all icons in this directory
+/** @deprecated Import the icon components directly. */
 export const TOKEN_ICONS_MAP = {
   TokenAave,
   TokenBtc,
@@ -60,7 +63,6 @@ export const TOKEN_ICONS_MAP = {
   TokenObol,
   TokenPtSrUsde,
   TokenSsv,
-  TokenSteth,
   TokenSyrupUsdc,
   TokenTree,
   TokenUsdc,
@@ -69,20 +71,24 @@ export const TOKEN_ICONS_MAP = {
   TokenUsdt,
   TokenUsdy,
   TokenUsde,
-  TokenWsteth,
+  TokenWethBinance,
   TokenYfi,
   TokenAUsd,
+  TokenCbEth,
   TokenEarnEth,
   TokenEarnUsd,
   TokenFrxUsd,
   TokenLlEth,
   TokenMsUsd,
   TokenPyUsd,
+  TokenREth,
   TokenRsEth,
   TokenSpUsdg,
   TokenSrUsde,
+  TokenStEth,
   TokenStrEth,
   TokenSyrupUsdg,
   TokenSyrupUsdt,
   TokenWEth,
+  TokenWstEth,
 }

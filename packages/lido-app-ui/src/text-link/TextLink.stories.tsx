@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 import { StorySection } from '../../.storybook/components'
 import { IconArrowRight } from '../icons'
-import { TextLink } from '.'
+import { TextLink, type TextLinkProps } from '.'
 
 const meta: Meta<typeof TextLink> = {
   title: 'Buttons/TextLink',
@@ -29,7 +30,8 @@ const meta: Meta<typeof TextLink> = {
 }
 
 export default meta
-type Story = StoryObj<typeof meta>
+// A union of props breaks `StoryObj<typeof meta>` (args collapse to never).
+type Story = StoryObj<TextLinkProps>
 
 export const Basic: Story = {}
 
@@ -82,6 +84,32 @@ export const InText: Story = {
       description: {
         story:
           '`size="inherit"` lets the link take the paragraph font and wrap with the text.',
+      },
+    },
+  },
+}
+
+export const AsButton: Story = {
+  render: () => (
+    <StorySection>
+      <TextLink onClick={fn()}>Show all keys</TextLink>
+      <TextLink variant='secondary' onClick={fn()}>
+        Reset filters
+      </TextLink>
+      <TextLink onClick={fn()} icon={<IconArrowRight />}>
+        Open details
+      </TextLink>
+      <TextLink onClick={fn()} disabled>
+        Disabled
+      </TextLink>
+    </StorySection>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Without `href` TextLink renders a `<button type="button">` for in-page actions (open a modal, expand a list); same look as the link.',
       },
     },
   },

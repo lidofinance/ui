@@ -1,7 +1,7 @@
 .accordion {
   width: 100%;
   border-bottom: 1px solid var(--lido-app-ui-color-border-default);
-  transition: border-bottom-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
 .accordion.borderless {
@@ -49,21 +49,49 @@
   width: 24px;
   height: 24px;
   color: var(--lido-app-ui-color-icons-secondary);
+  transition: transform var(--lido-app-ui-duration-fast-exit)
+    var(--lido-app-ui-easing-exit);
+}
+
+.header[aria-expanded='true'] .chevron {
+  transform: rotate(180deg);
+  transition-duration: var(--lido-app-ui-duration-fast);
+  transition-timing-function: var(--lido-app-ui-easing-out);
 }
 
 .contentWrapper {
   display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.25s ease;
-}
-
-.contentWrapper.expanded {
   grid-template-rows: 1fr;
+  transition: grid-template-rows var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
 }
 
-.content {
-  overflow: hidden;
+/* Clip only while moving or collapsed so focus rings stay visible at rest; `none` isn't interpolable, so a delayed flip needs a huge inset. */
+.contentWrapper > * {
   min-height: 0;
+  clip-path: inset(-100vmax);
+  opacity: 1;
+  transition:
+    opacity var(--lido-app-ui-duration-base) var(--lido-app-ui-easing-out),
+    visibility 0s,
+    clip-path 0s linear var(--lido-app-ui-duration-base);
+  visibility: visible;
+}
+
+.header[aria-expanded='false'] + .contentWrapper {
+  grid-template-rows: 0fr;
+  transition-duration: var(--lido-app-ui-duration-base-exit);
+  transition-timing-function: var(--lido-app-ui-easing-exit);
+}
+
+.header[aria-expanded='false'] + .contentWrapper > * {
+  clip-path: inset(0);
+  opacity: 0;
+  transition:
+    opacity var(--lido-app-ui-duration-base-exit) var(--lido-app-ui-easing-out),
+    visibility 0s linear var(--lido-app-ui-duration-base-exit),
+    clip-path 0s;
+  visibility: hidden;
 }
 
 .contentInner {
@@ -73,4 +101,32 @@
 
   color: var(--lido-app-ui-color-text-secondary);
   word-break: break-word;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron,
+  .contentWrapper {
+    transition: none;
+  }
+
+  .contentWrapper > * {
+    transition:
+      opacity var(--lido-app-ui-duration-fast) var(--lido-app-ui-easing-out),
+      visibility 0s,
+      clip-path 0s;
+  }
+
+  /* Height snaps after the fade-out. */
+  .header[aria-expanded='false'] + .contentWrapper {
+    transition: grid-template-rows 0s linear
+      var(--lido-app-ui-duration-fast-exit);
+  }
+
+  .header[aria-expanded='false'] + .contentWrapper > * {
+    transition:
+      opacity var(--lido-app-ui-duration-fast-exit)
+        var(--lido-app-ui-easing-out),
+      visibility 0s linear var(--lido-app-ui-duration-fast-exit),
+      clip-path 0s;
+  }
 }

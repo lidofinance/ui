@@ -11,6 +11,7 @@ import {
 import cn from 'classnames'
 
 import { IconCross } from '../icons'
+import { InfoTooltip } from '../info-tooltip'
 import { ActionElement, type ActionElementProps } from '../utils'
 import styles from './Tag.module.css'
 
@@ -29,9 +30,18 @@ export type TagDataTestId = {
   root?: string
   icon?: string
   closeButton?: string
+  info?: string
+  infoContent?: string
 }
 
 export type TagIconPosition = 'left' | 'right'
+
+export type TagLabels = {
+  /** Accessible name of the close button. */
+  remove?: string
+}
+
+const DEFAULT_LABELS: Required<TagLabels> = { remove: 'Remove' }
 
 export type TagProps = Omit<HTMLAttributes<HTMLSpanElement>, 'onClick'> & {
   /** `custom` takes colors from the `--lido-app-ui-tag-*` CSS vars. */
@@ -40,8 +50,12 @@ export type TagProps = Omit<HTMLAttributes<HTMLSpanElement>, 'onClick'> & {
   active?: boolean
   icon?: ReactNode
   iconPosition?: TagIconPosition
+  /** Info icon with a tooltip after the label. Passive tags only; for href/onClick/disabled, wrap the Tag in Tooltip. */
+  info?: ReactNode
   /** Renders a trailing close button when set. */
   onClose?: () => void
+  /** Built-in texts, for i18n. */
+  labels?: TagLabels
   /** Renders a link (`<a>` via LinkProvider) instead of a span. */
   href?: string
   /** Click handler; a span with it becomes a keyboard-operable `role="button"`, except with `onClose` where it stays passive. */
@@ -61,7 +75,9 @@ export const Tag = forwardRef<HTMLElement, TagProps>(
       active = false,
       icon,
       iconPosition = 'left',
+      info,
       onClose,
+      labels,
       href,
       onClick,
       disabled,
@@ -100,13 +116,25 @@ export const Tag = forwardRef<HTMLElement, TagProps>(
     const content = (
       <>
         {iconPosition === 'left' ? iconElement : null}
-        {onClose ? <span id={labelId}>{children}</span> : children}
+        <span id={onClose ? labelId : undefined} className={styles.label}>
+          {children}
+        </span>
         {iconPosition === 'right' ? iconElement : null}
+        {info && !isAction && !isSpanAction ? (
+          <InfoTooltip
+            content={info}
+            tone='inherit'
+            dataTestId={{
+              root: dataTestId?.info,
+              content: dataTestId?.infoContent,
+            }}
+          />
+        ) : null}
         {onClose ? (
           <button
             type='button'
             className={styles.closeButton}
-            aria-label='Remove'
+            aria-label={labels?.remove ?? DEFAULT_LABELS.remove}
             aria-describedby={labelId}
             onClick={(event) => {
               event.stopPropagation()

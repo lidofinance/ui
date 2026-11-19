@@ -7,16 +7,14 @@ export const Uniswap = function (props: SVGProps<SVGSVGElement>) {
   const _id = useUniqueInlineId()
   return (
     <svg
-      preserveAspectRatio='none'
-      overflow='visible'
       width={24}
-      height={24.001}
-      viewBox='0 0 24 24.001'
+      height={24}
+      viewBox='0 0 24 24'
       display='block'
       fill='none'
       {...props}
     >
-      <rect width={24} height={24.001} rx={12} fill={`url(#${_id})`} />
+      <rect width={24} height={24} rx={12} fill={`url(#${_id})`} />
       <g fill='#FF007A'>
         <path
           fillRule='evenodd'

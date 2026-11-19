@@ -3,7 +3,7 @@ import { forwardRef, useContext, type MouseEvent } from 'react'
 import cn from 'classnames'
 
 import { IconButton, type IconButtonAsButtonProps } from '../icon-button'
-import { IconMenu } from '../icons'
+import { IconBurger } from '../icons'
 import { SidebarContext } from './SidebarContext'
 import styles from './SidebarToggle.module.css'
 
@@ -33,7 +33,7 @@ export const SidebarToggle = forwardRef<HTMLButtonElement, SidebarToggleProps>(
       <IconButton
         ref={ref}
         variant='ghost'
-        icon={<IconMenu />}
+        icon={<IconBurger />}
         aria-label={ariaLabel}
         {...toggleProps}
         {...rest}

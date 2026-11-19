@@ -1,0 +1,24 @@
+.root {
+  position: sticky;
+  bottom: calc(
+    var(--lido-app-ui-viewport-inset) + env(safe-area-inset-bottom, 0px)
+  );
+  z-index: var(--lido-app-ui-z-index-fab);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 0;
+
+  /* rests one inset above the next sibling without adding page height */
+  margin-block: calc(-1 * var(--lido-app-ui-viewport-inset))
+    var(--lido-app-ui-viewport-inset);
+  padding-inline-end: calc(
+    var(--lido-app-ui-viewport-inset) + env(safe-area-inset-right, 0px)
+  );
+  pointer-events: none;
+}
+
+.fab {
+  pointer-events: auto;
+  box-shadow: var(--lido-app-ui-shadow-default);
+}

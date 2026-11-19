@@ -34,6 +34,12 @@
   @mixin font-caption;
 }
 
+.inherit {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
 .weight-thin {
   font-weight: var(--lido-app-ui-font-weight-thin);
 }
@@ -96,4 +102,14 @@
 
 .color-disabled {
   color: var(--lido-app-ui-color-text-disabled);
+}
+
+.truncate {
+  @mixin truncate;
+}
+
+.inherit.truncate {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
 }

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { StoryContainer } from '../../.storybook/components'
 import { IconInfo, IconSearch } from '../icons'
+import { Tag } from '../tag'
 import { Input } from '.'
 
 const meta: Meta<typeof Input> = {
@@ -64,6 +65,60 @@ export const WithIcon: Story = {
     docs: {
       description: {
         story: 'Leading icon on both sizes.',
+      },
+    },
+  },
+}
+
+export const WithTrailing: Story = {
+  render: () => (
+    <StoryContainer gap={16} style={{ maxWidth: 400 }}>
+      <Input
+        label='Manager Address'
+        defaultValue='0xc0ffee254729296a45a3885639AC7E10F9d54979'
+        trailing={<Tag variant='success'>Connected wallet</Tag>}
+      />
+      <Input
+        placeholder='Address'
+        trailing={
+          <Tag as='button' onClick={() => {}}>
+            Paste
+          </Tag>
+        }
+      />
+      <Input
+        placeholder='Message'
+        trailing={
+          <>
+            <Tag as='button' variant='action' onClick={() => {}}>
+              Sign
+            </Tag>
+            <Tag as='button' onClick={() => {}}>
+              Clear
+            </Tag>
+          </>
+        }
+      />
+      <div style={{ maxWidth: 240 }}>
+        <Input
+          size='small'
+          placeholder='Search'
+          icon={<IconSearch />}
+          trailing={<Tag variant='success'>Connected</Tag>}
+        />
+      </div>
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/9q8Bp7XHM2XGipfpLI63s1/Operators?node-id=282-148103&m=dev',
+    },
+    docs: {
+      description: {
+        story:
+          'Trailing slot after the value: a status tag, or an interactive tag that stays clickable.',
       },
     },
   },

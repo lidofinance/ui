@@ -1,13 +1,10 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
-import {
-  IconCheck,
-  IconCross,
-  IconExclamation,
-  IconLoaderCircle,
-} from '../icons'
+import { IconCheck, IconCross, IconExclamation } from '../icons'
 import cn from 'classnames'
 
+import { Spinner } from '../spinner'
+import { hasContent } from '../utils/hasContent'
 import styles from './TxStatus.module.css'
 
 export type TxStatusVariant = 'loading' | 'success' | 'error' | 'warning'
@@ -32,7 +29,7 @@ export type TxStatusProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
 }
 
 const graphicByStatus: Record<TxStatusVariant, ReactNode> = {
-  loading: <IconLoaderCircle className={styles.spinner} />,
+  loading: <Spinner className={styles.spinner} decorative />,
   success: (
     <span className={cn(styles.circle, styles.circleSuccess)}>
       <IconCheck className={styles.circleIcon} />
@@ -72,12 +69,12 @@ export const TxStatus = ({
         <span className={styles.title} data-testid={dataTestId?.title}>
           {title}
         </span>
-        {amount ? (
+        {hasContent(amount) ? (
           <div className={styles.amount} data-testid={dataTestId?.amount}>
             {amount}
           </div>
         ) : null}
-        {message ? (
+        {hasContent(message) ? (
           <div className={styles.message} data-testid={dataTestId?.message}>
             {message}
           </div>

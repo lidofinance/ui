@@ -15,13 +15,17 @@ describe('Stack', () => {
     const el = renderStack()
     expect(el.tagName).toBe('DIV')
     expect(el.style.getPropertyValue('--local-direction')).toBe('')
-    expect(el.style.getPropertyValue('--local-gap')).toBe('')
+    expect(el.style.getPropertyValue('--local-row-gap')).toBe('')
+    expect(el.style.getPropertyValue('--local-column-gap')).toBe('')
   })
 
   it('sets vars for plain values', () => {
     const el = renderStack({ direction: 'row', gap: 16 })
     expect(el.style.getPropertyValue('--local-direction')).toBe('row')
-    expect(el.style.getPropertyValue('--local-gap')).toBe(
+    expect(el.style.getPropertyValue('--local-row-gap')).toBe(
+      'var(--lido-app-ui-space-16, 16px)',
+    )
+    expect(el.style.getPropertyValue('--local-column-gap')).toBe(
       'var(--lido-app-ui-space-16, 16px)',
     )
   })
@@ -32,10 +36,29 @@ describe('Stack', () => {
       gap: { base: 24, md: 8 },
     })
     expect(el.style.getPropertyValue('--local-direction-sm')).toBe('column')
-    expect(el.style.getPropertyValue('--local-gap-md')).toBe(
+    expect(el.style.getPropertyValue('--local-row-gap-md')).toBe(
       'var(--lido-app-ui-space-8, 8px)',
     )
-    expect(el.style.getPropertyValue('--local-gap-sm')).toBe('')
+    expect(el.style.getPropertyValue('--local-row-gap-sm')).toBe('')
+  })
+
+  it('sets rowGap and columnGap independently', () => {
+    const el = renderStack({ rowGap: 8, columnGap: 24 })
+    expect(el.style.getPropertyValue('--local-row-gap')).toBe(
+      'var(--lido-app-ui-space-8, 8px)',
+    )
+    expect(el.style.getPropertyValue('--local-column-gap')).toBe(
+      'var(--lido-app-ui-space-24, 24px)',
+    )
+  })
+
+  it('merges rowGap into gap per breakpoint key', () => {
+    const el = renderStack({ gap: { base: 8, sm: 4 }, rowGap: 16 })
+    const get = (name: string) => el.style.getPropertyValue(name)
+    expect(get('--local-row-gap')).toBe('var(--lido-app-ui-space-16, 16px)')
+    expect(get('--local-row-gap-sm')).toBe('var(--lido-app-ui-space-4, 4px)')
+    expect(get('--local-column-gap')).toBe('var(--lido-app-ui-space-8, 8px)')
+    expect(get('--local-column-gap-sm')).toBe('var(--lido-app-ui-space-4, 4px)')
   })
 
   it('accepts *Down keys as aliases', () => {

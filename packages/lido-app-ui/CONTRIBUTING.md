@@ -19,6 +19,7 @@ src/my-component/
   MyComponent.tsx
   MyComponent.module.css
   MyComponent.stories.tsx
+  MyComponent.test.tsx
   index.ts
 ```
 
@@ -26,6 +27,11 @@ src/my-component/
 - File names: PascalCase, matching the exported component name.
 - A component made of several parts (e.g. `DataList` + `DataListRow`) lives in
   one folder, one file per part, all re-exported from that folder's `index.ts`.
+- CI (`check:coverage`) fails a folder that lacks a story, a `*.test.tsx` or a
+  barrel export unless it is listed in `coverage-exemptions.json`.
+- CI (`size`) checks the gzip size of each `dist` entry against
+  `size-budget.json`; after an intended growth run `yarn workspace
+  @lidofinance/lido-app-ui size --update` and commit the file.
 
 ## Component code
 
@@ -140,6 +146,7 @@ Run these scoped to what you touched, not the whole monorepo:
 yarn workspace @lidofinance/lido-app-ui lint
 yarn workspace @lidofinance/lido-app-ui types
 yarn workspace @lidofinance/lido-app-ui test
+yarn turbo run check:coverage size --filter=@lidofinance/lido-app-ui
 ```
 
 Check the component in Storybook (`yarn storybook:widget`, port `5557`)

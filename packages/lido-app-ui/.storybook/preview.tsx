@@ -1,4 +1,7 @@
-import { WithThemeProvider } from './components/WithThemeProvider'
+import {
+  getInitialThemeOverride,
+  WithThemeProvider,
+} from './components/WithThemeProvider'
 import { iconArgs } from './iconControl'
 import { slotControls } from './slotControls'
 import { viewports } from './viewports'
@@ -13,7 +16,7 @@ export default {
     actions: { disable: true },
     controls: { hideNoControlsWarning: true },
     docs: {
-      source: { type: 'dynamic' },
+      source: { type: 'auto' },
     },
     viewport: { options: viewports },
   },
@@ -23,7 +26,7 @@ export default {
     dataTestId: { table: { disable: true } },
   },
   initialGlobals: {
-    themeOverride: 'light',
+    themeOverride: getInitialThemeOverride(),
   },
   globalTypes: {
     themeOverride: {

@@ -2,6 +2,7 @@ import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
 
 import cn from 'classnames'
 
+import { hasContent } from '../utils/hasContent'
 import styles from './ErrorPage.module.css'
 
 export type ErrorPageCode = '404' | '500'
@@ -42,9 +43,6 @@ const presets: Record<ErrorPageCode, { title: string; description: string }> = {
 const isPresetCode = (code?: string): code is ErrorPageCode =>
   code === '404' || code === '500'
 
-const isEmpty = (node: ReactNode) =>
-  node == null || node === '' || typeof node === 'boolean'
-
 /** Centered 404 / 500 block with its own page gutters; render it directly in the page, not inside a container that already adds them. */
 export const ErrorPage = forwardRef<HTMLDivElement, ErrorPageProps>(
   (
@@ -64,28 +62,26 @@ export const ErrorPage = forwardRef<HTMLDivElement, ErrorPageProps>(
         data-testid={dataTestId?.root}
         {...rest}
       >
-        <div className={styles.inner}>
+        <div className={styles.content}>
           {codeStr != null ? (
-            <div className={styles.code} data-testid={dataTestId?.code}>
+            <span className={styles.code} data-testid={dataTestId?.code}>
               {codeStr}
-            </div>
+            </span>
           ) : null}
-          <div className={styles.text}>
-            {!isEmpty(resolvedTitle) ? (
-              <h1 className={styles.title} data-testid={dataTestId?.title}>
-                {resolvedTitle}
-              </h1>
-            ) : null}
-            {!isEmpty(resolvedDescription) ? (
-              <p
-                className={styles.description}
-                data-testid={dataTestId?.description}
-              >
-                {resolvedDescription}
-              </p>
-            ) : null}
-          </div>
-          {action != null ? (
+          {hasContent(resolvedTitle) ? (
+            <h1 className={styles.title} data-testid={dataTestId?.title}>
+              {resolvedTitle}
+            </h1>
+          ) : null}
+          {hasContent(resolvedDescription) ? (
+            <p
+              className={styles.description}
+              data-testid={dataTestId?.description}
+            >
+              {resolvedDescription}
+            </p>
+          ) : null}
+          {hasContent(action) ? (
             <div className={styles.action} data-testid={dataTestId?.action}>
               {action}
             </div>

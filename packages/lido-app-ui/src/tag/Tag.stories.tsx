@@ -2,8 +2,8 @@ import type { CSSProperties } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { StorySection } from '../../.storybook/components'
-import { IconInfo } from '../icons'
+import { ContainerWidths, StorySection } from '../../.storybook/components'
+import { IconInfo, IconWarning } from '../icons'
 import { Tag } from '.'
 
 const meta: Meta<typeof Tag> = {
@@ -111,6 +111,32 @@ export const WithIcon: Story = {
   },
 }
 
+export const WithInfo: Story = {
+  render: () => (
+    <StorySection>
+      <Tag
+        variant='warning'
+        icon={<IconWarning />}
+        info='Operators need at least 3 more keys to reach the next tier.'
+      >
+        Add 3 more keys
+      </Tag>
+      <Tag variant='success' info='All keys are deposited.'>
+        Enough keys
+      </Tag>
+    </StorySection>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'The info icon inherits the tag colour. Interactive tags (`href`, `onClick`, `disabled`) do not render it.',
+      },
+    },
+  },
+}
+
 export const Removable: Story = {
   render: () => (
     <StorySection>
@@ -143,6 +169,36 @@ export const Removable: Story = {
     docs: {
       description: {
         story: '`onClose` renders a close button and makes the tag removable.',
+      },
+    },
+  },
+}
+
+const LONG_LABEL = 'Distributed validator technology cluster'
+
+export const NarrowWidths: Story = {
+  render: () => (
+    <ContainerWidths widths={[160, 240, 320]}>
+      <StorySection
+        style={{ flexDirection: 'column', alignItems: 'flex-start' }}
+      >
+        <Tag>{LONG_LABEL}</Tag>
+        <Tag icon={<IconInfo />}>{LONG_LABEL}</Tag>
+        <Tag icon={<IconInfo />} onClose={() => undefined}>
+          {LONG_LABEL}
+        </Tag>
+        <Tag icon={<IconInfo />} iconPosition='right' onClose={() => undefined}>
+          {LONG_LABEL}
+        </Tag>
+      </StorySection>
+    </ContainerWidths>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Long labels truncate with an ellipsis; the icon and close button keep their size.',
       },
     },
   },

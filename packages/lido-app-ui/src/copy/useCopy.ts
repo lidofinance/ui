@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 export type UseCopyOptions = {
   onCopy?: () => void
+  /** @deprecated Will be removed; the "copied" flag resets after a fixed delay. */
   timeout?: number
 }
 

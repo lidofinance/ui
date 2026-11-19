@@ -13,6 +13,8 @@
     "lint": "turbo run lint",
     "lint:css": "turbo run lint:css",
     "types": "turbo run types",
+    "check:coverage": "turbo run check:coverage",
+    "size": "turbo run size",
     "build-storybook": "turbo run build-storybook",
     "storybook:ui": "yarn workspace @lidofinance/lido-ui dev",
     "storybook:landing": "yarn workspace @lidofinance/lido-landing-ui dev",

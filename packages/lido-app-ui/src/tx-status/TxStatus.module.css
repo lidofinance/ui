@@ -22,16 +22,9 @@
 }
 
 .spinner {
-  width: 64px;
-  height: 64px;
-  color: var(--lido-app-ui-color-icons-active);
-  animation: spin 0.9s linear infinite;
-}
+  --spinner-size: 64px;
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  color: var(--lido-app-ui-color-icons-active);
 }
 
 .circle {

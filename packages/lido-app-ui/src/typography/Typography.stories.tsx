@@ -5,6 +5,7 @@ import {
   Body,
   Description,
   H2,
+  H3,
   Typography,
   typographyColors,
   typographyWeights,
@@ -37,6 +38,7 @@ const meta: Meta<typeof Typography> = {
         'body',
         'description',
         'caption',
+        'inherit',
       ],
       control: { type: 'select' },
     },
@@ -57,6 +59,7 @@ const meta: Meta<typeof Typography> = {
         type: { summary: typographyColors.map((c) => `'${c}'`).join(' | ') },
       },
     },
+    truncate: { control: 'boolean' },
     children: { control: { type: 'text' } },
   },
 }
@@ -195,7 +198,7 @@ export const Scale: Story = {
     docs: {
       description: {
         story:
-          'The whole scale: variant, shortcut, PostCSS mixin, size/line-height.',
+          'The whole scale: variant, shortcut, PostCSS mixin, size/line-height. `Caption` is the uppercase overline; for plain 12px secondary text use `Description` with `color="secondary"`.',
       },
     },
   },
@@ -270,6 +273,59 @@ export const PolymorphicTag: Story = {
       description: {
         story:
           'Use `as` when the visual weight and the document outline disagree — heading styles inside a card that should not be an `<h2>`.',
+      },
+    },
+  },
+}
+
+export const Inherit: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <Body>
+        Fee{' '}
+        <Typography variant='inherit' weight='semibold' color='success'>
+          0.5%
+        </Typography>{' '}
+        per frame
+      </Body>
+      <H3>
+        Fee{' '}
+        <Typography variant='inherit' weight='semibold' color='success'>
+          0.5%
+        </Typography>{' '}
+        per frame
+      </H3>
+    </div>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          "Colour/weight only; the span adopts each parent's font. Replaces local `font: inherit` hacks.",
+      },
+    },
+  },
+}
+
+export const Truncate: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div style={{ width: 200 }}>
+        <Body truncate>0x1234567890abcdef1234567890abcdef12345678</Body>
+      </div>
+      <div style={{ display: 'flex', gap: 8, width: 200 }}>
+        <Body truncate>A very long operator name that does not fit</Body>
+        <Body>12</Body>
+      </div>
+    </div>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Needs a width limit from the parent; inside flex rows the item must be allowed to shrink (truncate sets `min-width: 0`).',
       },
     },
   },

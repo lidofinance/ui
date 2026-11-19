@@ -1,32 +1,21 @@
-import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import cn from 'classnames'
 
 import { Breadcrumbs } from '../breadcrumbs'
-import { Button } from '../button'
 import { Footer } from '../footer'
 import { Header } from '../header'
 import { Hidden } from '../hidden'
 import { Logo } from '../logo'
 import {
-  SidebarShell,
   SimpleCard,
   connectedActions,
   connectedSidebarGroups,
   footerLinks,
-  mobileActions,
   storyParams,
 } from '../recipes/fixtures'
-import {
-  Sidebar,
-  SidebarInset,
-  SidebarLayout,
-  SidebarToggle,
-  useSidebar,
-} from '../sidebar'
+import { Sidebar, SidebarInset, SidebarLayout, SidebarToggle } from '../sidebar'
 import { SkipLink } from '../skip-link'
 import { Stack } from '../stack'
-import { breakpointWidths } from '../utils'
 import { Layout } from './Layout'
 import styles from './LayoutHelpers.stories.module.css'
 import { Main } from './Main'
@@ -47,7 +36,7 @@ const meta: Meta = {
       story: { inline: false, iframeHeight: 720 },
       description: {
         component: [
-          'Shell helpers that nest into the page frame. `Layout` is the root column; `SidebarLayout` is the row that owns the drawer state (`Sidebar` must be its direct child); `SidebarInset` is the column next to the Sidebar; `Main` is the `SkipLink` target and grows to push the Footer down. The left of `Header` is a `Stack` of `SidebarToggle`, a `Logo` (`Hidden above="lg"`) and `Breadcrumbs` (`Hidden below="lg"`); at `lg` and below the breadcrumbs repeat in content inside `Hidden above="lg"`. Read the drawer state anywhere inside with `useSidebar()`.',
+          'Shell helpers that nest into the page frame. `Layout` is the root column; `SidebarLayout` is the row that owns the drawer state (`Sidebar` must be its direct child); `SidebarInset` is the column next to the Sidebar; `Main` is the `SkipLink` target and grows to push the Footer down. The left of `Header` is a `Stack` of `SidebarToggle`, a `Logo` (`Hidden above="lg"`) and `Breadcrumbs` (`Hidden below="lg"`); at `lg` and below the breadcrumbs repeat in content inside `Hidden above="lg"`.',
           'Apps without a sidebar use `Layout` > `Header` + `Main` + `Footer`.',
           '```\nLayout\n├─ banner (optional)\n└─ SidebarLayout\n   ├─ Sidebar\n   └─ SidebarInset\n      ├─ Header\n      │  └─ Stack (SidebarToggle, logo, breadcrumbs)\n      ├─ Main\n      │  └─ PageContent\n      │     └─ Breadcrumbs (lg and below)\n      └─ Footer\n```',
         ].join('\n\n'),
@@ -118,78 +107,5 @@ export const TopNavAnatomy: Story = {
       </Main>
       <Footer {...region('Footer', 'component')}>{footerLinks}</Footer>
     </Layout>
-  ),
-}
-
-const OpenMenuButton = () => {
-  const sidebar = useSidebar()
-  return (
-    <Button size='small' onClick={() => sidebar?.setOpen(true)}>
-      Open menu from content
-    </Button>
-  )
-}
-
-const ControlledDrawerDemo = () => {
-  const [open, setOpen] = useState(false)
-  return (
-    <Layout>
-      <SkipLink />
-      <SidebarLayout open={open} onOpenChange={setOpen}>
-        <Sidebar logo={<Logo product='Operators' href='#' />}>
-          {connectedSidebarGroups}
-        </Sidebar>
-        <SidebarInset>
-          <Header actions={connectedActions}>
-            <Stack direction='row' align='center' gap={12} grow>
-              <SidebarToggle />
-              <Hidden above='lg'>
-                <Logo variant='compact' product='Operators' href='#' />
-              </Hidden>
-              <Hidden below='lg'>
-                <Breadcrumbs items={[{ label: 'Dashboard' }]} />
-              </Hidden>
-            </Stack>
-          </Header>
-          <Main>
-            <PageContent>
-              <SimpleCard title={`Drawer is ${open ? 'open' : 'closed'}`} />
-              <OpenMenuButton />
-            </PageContent>
-          </Main>
-          <Footer>{footerLinks}</Footer>
-        </SidebarInset>
-      </SidebarLayout>
-    </Layout>
-  )
-}
-
-export const ControlledDrawer: Story = {
-  parameters: storyParams(
-    '`open` and `onOpenChange` on `SidebarLayout` drive the drawer from app state; `useSidebar()` lets any child open it.',
-  ),
-  globals: { viewport: { value: 'lg-down', isRotated: false } },
-  render: () => <ControlledDrawerDemo />,
-}
-
-const protocolCrumbs = [{ label: 'Protocol' }, { label: 'Overview' }]
-
-export const SidebarHeader: Story = {
-  parameters: storyParams(
-    `Compose the left of \`Header\` with \`Stack\`: \`SidebarToggle\`, \`Logo\` in \`Hidden above="lg"\`, then breadcrumbs in \`Hidden below="lg"\`. Shown at ${breakpointWidths.md + 1}px: at \`lg\` (${breakpointWidths.lg}, the sidebar breakpoint) and below the toggle opens the drawer, the logo stands in for the Sidebar logo hidden inside it, and the breadcrumbs move into \`PageContent\`. Above \`lg\` only the breadcrumbs show (see Sidebar Anatomy).`,
-  ),
-  globals: { viewport: { value: 'md-up', isRotated: false } },
-  render: () => (
-    <SidebarShell breadcrumbs={protocolCrumbs} actions={connectedActions} />
-  ),
-}
-
-export const MobileBreadcrumbs: Story = {
-  parameters: storyParams(
-    'At `lg` and below the Header hides the breadcrumbs, so repeat them first in `PageContent` inside `Hidden above="lg"`.',
-  ),
-  globals: { viewport: { value: 'px375', isRotated: false } },
-  render: () => (
-    <SidebarShell breadcrumbs={protocolCrumbs} actions={mobileActions} />
   ),
 }

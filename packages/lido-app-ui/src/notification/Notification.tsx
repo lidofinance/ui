@@ -6,7 +6,6 @@ import {
   type ReactNode,
 } from 'react'
 
-import { ThemeName, ThemeProvider } from '@lidofinance/lido-shared-ui'
 import cn from 'classnames'
 
 import { IconButton } from '../icon-button'
@@ -22,6 +21,13 @@ export type NotificationDataTestId = {
   closeButton?: string
 }
 
+export type NotificationLabels = {
+  /** Accessible name of the dismiss button. */
+  close?: string
+}
+
+export type NotificationVariant = 'card' | 'plain'
+
 export type NotificationProps = Omit<
   ComponentPropsWithoutRef<'div'>,
   'title'
@@ -31,17 +37,25 @@ export type NotificationProps = Omit<
   /** Slot above the title, usually a `Tag`. */
   subheader?: ReactNode
   actions?: ReactNode
+  /** `card` is the bordered, elevated card; `plain` has no surface and is meant for lists on a panel (`subheader` then holds a date). Default `card`. */
+  variant?: NotificationVariant
+  /** Fills the container width instead of the fixed 320px. Always on for `plain`. */
+  fluid?: boolean
   /** Renders a dismiss button when set. A plain `() => void` handler is fine; the click event is rarely needed. */
   onClose?: MouseEventHandler<HTMLButtonElement>
+  /** Built-in texts, for i18n. */
+  labels?: NotificationLabels
   dataTestId?: NotificationDataTestId
-  /** Defaults to `alert`, which is assertive (`undefined` also gives `alert`). Pass `none` inside a toast container that announces for you. */
+  /** Defaults to `alert` (assertive) for `card` and `none` for `plain`. Pass `none` inside a live region that announces for you. */
   role?: ComponentPropsWithoutRef<'div'>['role']
 }
+
+const DEFAULT_LABELS: Required<NotificationLabels> = { close: 'Dismiss' }
 
 const isEmpty = (node: ReactNode) =>
   node == null || node === false || node === ''
 
-/** Dark toast that stays dark in both themes; `subheader` slots a `Tag`, `actions` takes small `Button`s, `onClose` adds a dismiss button. */
+/** Themed notification card; `subheader` slots a `Tag`, `actions` takes small `Button`s, `onClose` adds a dismiss button. */
 export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
   (
     {
@@ -50,7 +64,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
       subheader,
       actions,
       onClose,
-      role = 'alert',
+      labels,
+      variant = 'card',
+      fluid = false,
+      role = variant === 'plain' ? 'none' : 'alert',
       className,
       dataTestId,
       ...rest
@@ -60,54 +77,61 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
     const titleId = useId()
 
     return (
-      <ThemeProvider themeName={ThemeName.dark}>
-        <div
-          ref={ref}
-          role={role}
-          className={cn(styles.notification, className)}
-          data-testid={dataTestId?.root}
-          {...rest}
-        >
-          <div className={cn(styles.content, onClose && styles.closable)}>
-            {!isEmpty(subheader) ? (
-              <div
-                className={styles.subheader}
-                data-testid={dataTestId?.subheader}
+      <div
+        ref={ref}
+        role={role}
+        className={cn(
+          styles.notification,
+          variant === 'plain' && styles.plain,
+          fluid && styles.fluid,
+          className,
+        )}
+        data-testid={dataTestId?.root}
+        {...rest}
+      >
+        <div className={styles.content}>
+          <div className={styles.head}>
+            <div className={styles.headText}>
+              {!isEmpty(subheader) ? (
+                <div
+                  className={styles.subheader}
+                  data-testid={dataTestId?.subheader}
+                >
+                  {subheader}
+                </div>
+              ) : null}
+              <p
+                id={titleId}
+                className={styles.title}
+                data-testid={dataTestId?.title}
               >
-                {subheader}
-              </div>
-            ) : null}
-            <p
-              id={titleId}
-              className={styles.title}
-              data-testid={dataTestId?.title}
-            >
-              {title}
-            </p>
-            {!isEmpty(children) ? (
-              <div className={styles.body} data-testid={dataTestId?.body}>
-                {children}
-              </div>
+                {title}
+              </p>
+            </div>
+            {onClose ? (
+              <IconButton
+                variant='ghost'
+                aria-label={labels?.close ?? DEFAULT_LABELS.close}
+                aria-describedby={titleId}
+                icon={<IconCross />}
+                className={styles.close}
+                onClick={onClose}
+                dataTestId={{ root: dataTestId?.closeButton }}
+              />
             ) : null}
           </div>
-          {!isEmpty(actions) ? (
-            <div className={styles.actions} data-testid={dataTestId?.actions}>
-              {actions}
+          {!isEmpty(children) ? (
+            <div className={styles.body} data-testid={dataTestId?.body}>
+              {children}
             </div>
           ) : null}
-          {onClose ? (
-            <IconButton
-              variant='ghost'
-              aria-label='Dismiss'
-              aria-describedby={titleId}
-              icon={<IconCross />}
-              className={styles.close}
-              onClick={onClose}
-              dataTestId={{ root: dataTestId?.closeButton }}
-            />
-          ) : null}
         </div>
-      </ThemeProvider>
+        {!isEmpty(actions) ? (
+          <div className={styles.actions} data-testid={dataTestId?.actions}>
+            {actions}
+          </div>
+        ) : null}
+      </div>
     )
   },
 )

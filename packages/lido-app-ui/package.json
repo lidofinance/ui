@@ -31,15 +31,26 @@
   "files": [
     "dist"
   ],
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 121",
+    "safari >= 16.4",
+    "ios_saf >= 16.4"
+  ],
   "scripts": {
-    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json && cp dist/esm/index.css dist/index.css && cp README.md dist/README.md",
+    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.production.json && node ../lido-shared-ui/scripts/add-dts-extensions.cjs dist/types && cp dist/esm/index.css dist/index.css",
     "dev": "storybook dev -p 5557",
     "build-storybook": "storybook build --output-dir storybook-static",
+    "test-storybook": "test-storybook",
+    "test-storybook:ci": "concurrently -k -s first -n SB,TEST \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:127.0.0.1:6006 && test-storybook --url http://127.0.0.1:6006 --maxWorkers=2\"",
     "test": "vitest run --passWithNoTests",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "lint:css": "stylelint '**/*.css'",
     "types": "tsc --noEmit",
+    "size": "node scripts/check-size.mjs",
+    "check:coverage": "node scripts/check-coverage.mjs",
     "icons:convert": "node ./src/icons/converter/index.cjs"
   },
   "peerDependencies": {
@@ -69,6 +80,7 @@
     "@storybook/react": "8.6.12",
     "@storybook/react-webpack5": "8.6.12",
     "@storybook/test": "8.6.12",
+    "@storybook/test-runner": "0.22.1",
     "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "8.1.0",
     "@svgr/plugin-prettier": "8.1.0",
@@ -81,9 +93,14 @@
     "@types/react-dom": "18.2.9",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "10.4.21",
+    "axe-core": "4.14.0",
+    "axe-playwright": "2.2.2",
     "babel-plugin-react-inline-svg-unique-id": "1.5.0",
+    "concurrently": "9.1.2",
+    "esbuild": "0.25.12",
+    "http-server": "14.1.1",
     "jsdom": "^25.0.0",
-    "postcss-custom-media": "11.0.5",
+    "playwright": "1.65.1",
     "postcss-import": "16.1.0",
     "postcss-loader": "8.1.1",
     "postcss-mixins": "11.0.3",
@@ -96,7 +113,8 @@
     "rollup-plugin-postcss": "4.0.2",
     "storybook": "8.6.19",
     "tslib": "2.3.1",
-    "vitest": "^3.0.0"
+    "vitest": "^3.0.0",
+    "wait-on": "8.0.3"
   },
   "publishConfig": {
     "provenance": true,

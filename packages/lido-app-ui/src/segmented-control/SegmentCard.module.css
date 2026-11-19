@@ -18,10 +18,10 @@
   background-color: var(--lido-app-ui-color-background-default);
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: var(--lido-app-ui-transition-colors);
 }
 
-.card:hover:not(:disabled, .active) {
+.card:hover:not(:disabled, [aria-selected='true']) {
   background-color: var(--lido-app-ui-color-background-default-hover);
 }
 
@@ -91,4 +91,17 @@
 
 .card:disabled .description {
   color: var(--lido-app-ui-color-text-disabled);
+}
+
+.card:disabled .tag {
+  --local-text: var(--lido-app-ui-color-text-disabled);
+}
+
+.tagNode {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.card:disabled .tagNode {
+  opacity: 0.5;
 }

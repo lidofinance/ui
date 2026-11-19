@@ -1,15 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { StoryContainer, StorySection } from '../../.storybook/components'
+import {
+  ContainerWidths,
+  StoryContainer,
+  StorySection,
+} from '../../.storybook/components'
 
 import { Button } from '../button'
-import { TokenSteth } from '../icons'
+import { TokenStEth } from '../icons'
 import { Banner } from '.'
 
 const meta: Meta<typeof Banner> = {
   title: 'Banners/Banner',
   component: Banner,
   args: {
-    icon: <TokenSteth />,
+    icon: <TokenStEth />,
     title: 'Add stETH to your wallet',
     description: 'to track your supply balance',
     action: (
@@ -49,7 +53,7 @@ export const Minimal: Story = {
       <StorySection title='No button'>
         <Banner
           {...args}
-          icon={<TokenSteth />}
+          icon={<TokenStEth />}
           title={args.title ?? 'Add stETH to your wallet'}
         />
       </StorySection>
@@ -66,5 +70,13 @@ export const Minimal: Story = {
         />
       </StorySection>
     </StoryContainer>
+  ),
+}
+
+export const NarrowContainers: Story = {
+  render: (args) => (
+    <ContainerWidths widths={[240, 320, 360, 400]}>
+      <Banner {...args} title={args.title} />
+    </ContainerWidths>
   ),
 }

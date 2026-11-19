@@ -1,28 +1,34 @@
 // THIS FILE IS AUTO GENERATED
 
+import { Arbitrum } from './Arbitrum'
 import { Avalanche } from './Avalanche'
+import { Base } from './Base'
 import { Bitcoin } from './Bitcoin'
 import { Ethereum } from './Ethereum'
+import { Linea } from './Linea'
 import { Mantle } from './Mantle'
 import { MegaEth } from './MegaEth'
-import { Metamask } from './Metamask'
 import { Monad } from './Monad'
 import { Optimism } from './Optimism'
 import { Plasma } from './Plasma'
+import { Polkadot } from './Polkadot'
 import { Robinhood } from './Robinhood'
-import { Base } from './Base'
+import { Unichain } from './Unichain'
 
-// Export a constant with all icons in this directory
+/** @deprecated Import the icon components directly. */
 export const CHAINS_ICONS_MAP = {
+  Arbitrum,
   Avalanche,
+  Base,
   Bitcoin,
   Ethereum,
+  Linea,
   Mantle,
   MegaEth,
-  Metamask,
   Monad,
   Optimism,
   Plasma,
+  Polkadot,
   Robinhood,
-  Base,
+  Unichain,
 }

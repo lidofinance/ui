@@ -14,7 +14,7 @@ export type AnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   external?: boolean
   /** Renders an href-less `role='link'` with `aria-disabled`, and drops `onClick`. */
   disabled?: boolean
-  /** Router-only props (e.g. `prefetch`), passed to `LinkProvider` components and never to a plain `<a>`. */
+  /** Router-only props (e.g. `prefetch`), passed to `LinkProvider` components and never to a plain `<a>`. @deprecated Set router options inside your `LinkProvider` component. */
   linkProps?: LinkRouterProps
 }
 

@@ -1,11 +1,7 @@
-import {
-  useId,
-  useState,
-  type ComponentPropsWithoutRef,
-  type ReactNode,
-} from 'react'
+import { useId, type ComponentPropsWithoutRef, type ReactNode } from 'react'
 
-import { IconChevronDown, IconChevronUp } from '../icons'
+import { useControllableState } from '../hooks'
+import { IconChevronDown } from '../icons'
 import cn from 'classnames'
 
 import styles from './Accordion.module.css'
@@ -32,7 +28,7 @@ export type AccordionProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
 export const Accordion = ({
   title,
   border = true,
-  defaultExpanded = false,
+  defaultExpanded,
   expanded,
   onExpandedChange,
   children,
@@ -40,16 +36,17 @@ export const Accordion = ({
   dataTestId,
   ...rest
 }: AccordionProps) => {
-  const [uncontrolledExpanded, setUncontrolledExpanded] =
-    useState(defaultExpanded)
-  const isExpanded = expanded ?? uncontrolledExpanded
+  const [expandedState, setExpanded] = useControllableState({
+    value: expanded,
+    defaultValue: defaultExpanded,
+    onChange: onExpandedChange,
+    name: 'Accordion',
+    prop: 'expanded',
+  })
+  const isExpanded = expandedState ?? false
   const contentId = useId()
 
-  const handleToggle = () => {
-    const next = !isExpanded
-    if (expanded == null) setUncontrolledExpanded(next)
-    onExpandedChange?.(next)
-  }
+  const handleToggle = () => setExpanded(!isExpanded)
 
   return (
     <div
@@ -71,16 +68,11 @@ export const Accordion = ({
           {title}
         </span>
         <span className={styles.chevron} aria-hidden='true'>
-          {isExpanded ? <IconChevronUp /> : <IconChevronDown />}
+          <IconChevronDown width={24} height={24} />
         </span>
       </button>
-      <div
-        id={contentId}
-        className={cn(styles.contentWrapper, {
-          [styles.expanded]: isExpanded,
-        })}
-      >
-        <div className={styles.content}>
+      <div id={contentId} className={styles.contentWrapper}>
+        <div>
           <div
             className={styles.contentInner}
             data-testid={dataTestId?.content}

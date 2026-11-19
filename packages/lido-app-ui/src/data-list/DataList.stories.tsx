@@ -1,16 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { DataList, DataListRow } from '.'
 
-import { TokenSteth } from '../icons'
+import { ContainerWidths } from '../../.storybook/components'
+import { TokenStEth } from '../icons'
 
 const meta: Meta<typeof DataList> = {
   title: 'Content & Data/DataList',
   component: DataList,
   args: {
     divided: true,
+    flush: false,
   },
   argTypes: {
     divided: { control: { type: 'boolean' } },
+    flush: { control: { type: 'boolean' } },
   },
   parameters: {
     layout: 'padded',
@@ -43,7 +46,7 @@ export const RowVariants: Story = {
         <DataListRow label='Plain value' value='1,204,882' />
         <DataListRow
           label='With leading icon'
-          icon={<TokenSteth width={20} height={20} />}
+          icon={<TokenStEth width={20} height={20} />}
           value='12.4218 stETH'
         />
         <DataListRow
@@ -60,7 +63,7 @@ export const RowVariants: Story = {
         <DataListRow label='Change' value={{ from: '2.10%', to: '3.24%' }} />
         <DataListRow
           label='Removal fee'
-          icon={<TokenSteth width={16} height={16} />}
+          icon={<TokenStEth width={16} height={16} />}
           value='0.2 stETH'
           info='Charged when removing this validator.'
           description='Will be deducted from your bond balance'
@@ -99,6 +102,52 @@ export const Divided: Story = {
     docs: {
       description: {
         story: 'Pass `divided` to draw a hairline between rows.',
+      },
+    },
+  },
+}
+
+export const NarrowContainers: Story = {
+  render: () => (
+    <ContainerWidths>
+      <DataList divided>
+        <DataListRow
+          label='Reward address'
+          value='0x1234567890abcdef1234567890abcdef12345678'
+        />
+        <DataListRow
+          label='Estimated monthly rewards'
+          value='1,234.5678 stETH'
+        />
+      </DataList>
+    </ContainerWidths>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: 'The value wraps below the label at narrow widths.',
+      },
+    },
+  },
+}
+
+export const Flush: Story = {
+  args: { flush: true },
+  render: (args) => (
+    <div style={{ maxWidth: 460 }}>
+      <DataList {...args}>
+        <DataListRow label='Exchange rate' value='1 stETH = 1 ETH' />
+        <DataListRow label='Max transaction cost' value='$2.41' />
+      </DataList>
+    </div>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'No inner padding, for lists inside a container that already pads.',
       },
     },
   },
