@@ -1,55 +1,155 @@
 name: Publish Alpha
 
-on:
-  push:
-    branches:
-      - develop
-  workflow_dispatch:
+# Manual alpha-style prerelease of a release-alpha-* branch, released by
+# multi-semantic-release (`yarn release`, i.e. msr-summary-test) with the root `release`
+# config: version, dist-tag (channel = branch name without `release-`), git tags and
+# GitHub releases all come from semantic-release.
+#
+# `dry-run` shows what would be published (versions, tags, summary) before the manual
+# approval of the `production` environment; `publish` then releases the same commit.
+#
+# Trust model: branch code (release config, plugins, build scripts) runs in the same
+# job as NPM_TOKEN, as it does for `develop`. Keep the `production` environment
+# restricted to `main` with required reviewers, and review the diff that `guard` prints.
+#
+# Must be run from `main` (workflow file comes from main). `guard` pins the branch to a
+# commit SHA and both jobs fail if the branch has moved since.
 
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch to release, must match release-alpha-* (e.g. release-alpha-breakpoints)
+        required: true
+        type: string
+        default: release-alpha-test
+
+# Serialize runs per branch only, so one run waiting for approval does not block
+# releases of other branches.
 concurrency:
-  group: publish-alpha
+  group: publish-alpha-${{ inputs.ref }}
   cancel-in-progress: false
 
 permissions: {}
 
 jobs:
-  # Gate the whole alpha publish before the dry-run: a prerelease branch must
-  # have main merged in, or semantic-release (which only sees tags merged into
-  # the branch) computes a version below the latest stable. gh api needs no
-  # checkout and works on private repos via GITHUB_TOKEN.
   guard:
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    outputs:
+      sha: ${{ steps.pin.outputs.sha }}
+      tag: ${{ steps.pin.outputs.tag }}
     steps:
-      - name: Ensure develop is not behind main
+      - name: Validate branch, pin commit, ensure it is not behind main
+        id: pin
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
+          REF: ${{ inputs.ref }}
         run: |
           set -euo pipefail
-          behind=$(gh api "repos/$REPOSITORY/compare/develop...main" --jq '.ahead_by')
-          # Fail closed: a non-numeric result (API error / unexpected body) must
-          # block the publish, not silently pass the guard.
+          # Only release-alpha-<name> branches (lowercase letters, digits, dashes).
+          # This also keeps the derived prerelease id / dist-tag valid.
+          if ! [[ "$REF" =~ ^release-alpha-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+            echo "::error::branch '$REF' does not match release-alpha-*"
+            exit 1
+          fi
+          # Must be a branch (not a tag); pin its current commit.
+          sha=$(gh api "repos/$REPOSITORY/git/ref/heads/$REF" --jq '.object.sha')
+          if ! [[ "$sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::could not resolve branch '$REF' (got: '$sha')"
+            exit 1
+          fi
+          # Keep the version above the latest stable: the branch must contain main.
+          behind=$(gh api "repos/$REPOSITORY/compare/$sha...main" --jq '.ahead_by')
           if ! [[ "$behind" =~ ^[0-9]+$ ]]; then
-            echo "::error::could not compare develop vs main (got: '$behind')"
+            echo "::error::could not compare $REF vs main (got: '$behind')"
             exit 1
           fi
           if [ "$behind" -gt 0 ]; then
-            echo "::error::develop is behind main by $behind commit(s) — merge main into develop before an alpha release"
+            echo "::error::$REF is behind main by $behind commit(s) — merge main into it first"
             exit 1
           fi
+          tag="${REF#release-}"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+          # What the approver has to review: everything the branch changes vs main
+          # (the compare API returns at most 300 files).
+          files=$(gh api "repos/$REPOSITORY/compare/main...$sha" --jq '.files[].filename | gsub("[`\n\r]"; "?")')
+          total=$(printf '%s\n' "$files" | grep -c . || true)
+          sensitive=$(printf '%s\n' "$files" | grep -E '(^|/)(package\.json|yarn\.lock|\.yarnrc\.yml|\.npmrc|turbo\.json)$|^\.github/|^\.yarn/|rollup\.config|postcss\.config' || true)
+          {
+            echo "### Alpha release"
+            echo "- branch: \`$REF\`"
+            echo "- commit: https://github.com/$REPOSITORY/commit/$sha"
+            echo "- diff vs main: https://github.com/$REPOSITORY/compare/main...$sha ($total files)"
+            echo "- dist-tag: \`$tag\`"
+            if [ "$total" -ge 300 ]; then
+              echo "- **file list truncated at 300 files, review the full diff**"
+            fi
+            if [ -n "$sensitive" ]; then
+              echo ""
+              echo "#### Changed files that can affect the build or the published package"
+              printf '%s\n' "$sensitive" | while IFS= read -r f; do echo "- \`$f\`"; done
+            fi
+            echo ""
+            echo "Review the diff above before approving the \`production\` deployment."
+          } >> "$GITHUB_STEP_SUMMARY"
 
   dry-run:
+    name: Dry run ${{ needs.guard.outputs.tag }}
     needs: guard
-    uses: ./.github/workflows/_dry-run.yml
+    runs-on: ubuntu-latest
+    environment: npm-dry-run
     permissions:
+      # semantic-release checks push access (`git push --dry-run`) even in dry-run mode
       contents: write
-    secrets: inherit
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check the branch has not moved
+        env:
+          SHA: ${{ needs.guard.outputs.sha }}
+        run: '[ "$(git rev-parse HEAD)" = "$SHA" ] || { echo "::error::branch moved after guard ($(git rev-parse HEAD) != $SHA)"; exit 1; }'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .nvmrc
+
+      - run: yarn install --immutable
+
+      - run: yarn build
+
+      - name: Dry Run Release
+        env:
+          REF: ${{ inputs.ref }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -euo pipefail
+          # semantic-release takes the branch from GITHUB_REF, which is refs/heads/main
+          # for this run. Left as is it would treat the checked-out branch as `main`
+          # and release a STABLE version to `latest`. Point it at the real branch.
+          export GITHUB_REF="refs/heads/$REF"
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          yarn release --dry-run
 
   publish:
-    needs: dry-run
+    name: Publish ${{ needs.guard.outputs.tag }} @ ${{ needs.guard.outputs.sha }}
+    needs: [guard, dry-run]
     runs-on: ubuntu-latest
     environment: production
     permissions:
@@ -57,12 +157,17 @@ jobs:
       id-token: write
     env:
       NODE_OPTIONS: --max_old_space_size=4096
-
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          ref: ${{ inputs.ref }}
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Check the branch has not moved
+        env:
+          SHA: ${{ needs.guard.outputs.sha }}
+        run: '[ "$(git rev-parse HEAD)" = "$SHA" ] || { echo "::error::branch moved after guard ($(git rev-parse HEAD) != $SHA)"; exit 1; }'
 
       - name: Enable Corepack
         run: corepack enable
@@ -88,10 +193,13 @@ jobs:
 
       - name: Release
         env:
+          REF: ${{ inputs.ref }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          set -euo pipefail
+          export GITHUB_REF="refs/heads/$REF"
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           echo "provenance=true" >> ~/.npmrc
           yarn release
