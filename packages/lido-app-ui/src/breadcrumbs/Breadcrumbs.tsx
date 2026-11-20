@@ -7,6 +7,7 @@ import {
   useEdgeFade,
   useIsomorphicLayoutEffect,
   useResizeObserver,
+  useScrollableRegion,
 } from '../hooks'
 import { scrollToInlineEnd } from '../hooks/useEdgeFade'
 import { IconChevronRight } from '../icons'
@@ -84,6 +85,7 @@ const BreadcrumbsTrail = forwardRef<HTMLElement, BreadcrumbsProps>(
     const listRef = useRef<HTMLOListElement>(null)
 
     const { sync } = useEdgeFade(listRef)
+    const listTabIndex = useScrollableRegion(listRef)
     const trailRef = useRef<string>()
     const hiddenRef = useRef<boolean>()
 
@@ -123,6 +125,7 @@ const BreadcrumbsTrail = forwardRef<HTMLElement, BreadcrumbsProps>(
         <ol
           ref={listRef}
           className={styles.list}
+          tabIndex={listTabIndex}
           data-testid={dataTestId?.list}
         >
           {items.map(

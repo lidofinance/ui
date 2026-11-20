@@ -114,7 +114,14 @@ export const ForcedHorizontal: Story = {
   args: { orientation: 'horizontal' },
   render: function Render(args) {
     return (
-      <div style={{ width: 280, overflowX: 'auto' }}>
+      // Focusable so the overflowing strip scrolls from the keyboard too.
+      <div
+        role='region'
+        aria-label='Steps'
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+        tabIndex={0}
+        style={{ width: 280, overflowX: 'auto' }}
+      >
         <Steps
           current={args.current}
           steps={args.steps}

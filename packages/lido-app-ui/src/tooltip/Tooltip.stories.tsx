@@ -13,6 +13,10 @@ const meta: Meta<typeof Tooltip> = {
     position: 'top',
     width: 320,
     children: <IconInfo />,
+    // A non-interactive trigger needs tabIndex and a name to be reachable from the keyboard.
+    tabIndex: 0,
+    role: 'img',
+    'aria-label': 'More info',
   },
   argTypes: {
     position: {

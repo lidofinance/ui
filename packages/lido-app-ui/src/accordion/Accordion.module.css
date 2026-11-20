@@ -46,8 +46,8 @@
 .chevron {
   display: flex;
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: var(--lido-app-ui-color-icons-secondary);
   transition: transform var(--lido-app-ui-duration-fast-exit)
     var(--lido-app-ui-easing-exit);

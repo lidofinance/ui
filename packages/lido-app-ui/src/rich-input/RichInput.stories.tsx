@@ -9,10 +9,6 @@ import { RichInput } from '.'
 const stethOptions = [{ value: 'stETH', label: 'stETH', icon: <TokenStEth /> }]
 
 const tokenSelector = (
-  <TokenSelector single value='stETH' options={stethOptions} />
-)
-
-const smallTokenSelector = (
   <TokenSelector single size='small' value='stETH' options={stethOptions} />
 )
 
@@ -23,7 +19,7 @@ const meta: Meta<typeof RichInput> = {
     label: 'Amount',
     placeholder: '0',
     secondaryValue: '$0.00',
-    balance: 'Balance: 12.4218',
+    balance: '14.2142 stETH',
     showMaxButton: true,
     maxTooltip: 'Leaves a small amount of ETH to cover gas.',
     tokenSelector,
@@ -81,7 +77,7 @@ export const Basic: Story = {
           {...args}
           value={value}
           onChange={(event) => setValue(event.target.value)}
-          onMaxClick={() => setValue('12.4218')}
+          onMaxClick={() => setValue('14.2142')}
           secondaryValue={`$${(Number(value || 0) * 3120).toFixed(2)}`}
         />
       </div>
@@ -104,41 +100,41 @@ export const States: Story = {
       <RichInput
         label='Empty'
         placeholder='0'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         tokenSelector={tokenSelector}
       />
       <RichInput
         label='Filled'
         defaultValue='4.2'
         secondaryValue='$13,104.00'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         tokenSelector={tokenSelector}
       />
       <RichInput
         label='Error'
         defaultValue='99'
         error='Amount exceeds your balance'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         tokenSelector={tokenSelector}
       />
       <RichInput
         label='Description'
         description='Minimum deposit is 0.01 ETH.'
         placeholder='0'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         tokenSelector={tokenSelector}
       />
       <RichInput
         label='Max with tooltip'
         defaultValue='12.4218'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         maxTooltip='Leaves a small amount of ETH to cover gas.'
         tokenSelector={tokenSelector}
       />
       <RichInput
         label='Max disabled'
         defaultValue='4.2'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         tokenSelector={tokenSelector}
         maxDisabled
       />
@@ -146,14 +142,14 @@ export const States: Story = {
         label='With label tooltip'
         tooltip='The amount you want to deposit.'
         placeholder='0'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         tokenSelector={tokenSelector}
       />
       <RichInput label='No bottom row' placeholder='0' showMaxButton={false} />
       <RichInput
         label='Disabled'
         placeholder='0'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         tokenSelector={tokenSelector}
         disabled
       />
@@ -161,29 +157,29 @@ export const States: Story = {
         label='You receive'
         loading
         secondaryValue='$13,104.00'
-        balance='Balance: 12.4218'
+        balance='14.2142 stETH'
         tokenSelector={tokenSelector}
       />
       <RichInput
         label='Locked'
         defaultValue='12'
         locked
-        tokenSelector={smallTokenSelector}
+        tokenSelector={tokenSelector}
       />
       <RichInput
         label='Locked with tooltip'
         defaultValue='12'
         locked
         lockedTooltip='Amount is fixed by the bond curve.'
-        tokenSelector={smallTokenSelector}
+        tokenSelector={tokenSelector}
       />
       <RichInput
         defaultValue='12'
         locked
         lockedTooltip='Amount is fixed by the bond curve.'
-        tokenSelector={smallTokenSelector}
+        tokenSelector={tokenSelector}
       />
-      <RichInput defaultValue='12' locked tokenSelector={smallTokenSelector} />
+      <RichInput defaultValue='12' locked tokenSelector={tokenSelector} />
     </StoryContainer>
   ),
   parameters: {
@@ -214,7 +210,7 @@ export const Precision: Story = {
           decimals={2}
           value={amount}
           onChange={(event) => setAmount(event.target.value)}
-          balance='Balance: 12.4218'
+          balance='14.2142 stETH'
           tokenSelector={tokenSelector}
         />
         <RichInput
