@@ -7,6 +7,7 @@
   padding: 16px;
   border-radius: var(--lido-app-ui-border-radius-lg);
   background-color: var(--lido-app-ui-color-background-default);
+  color: var(--lido-app-ui-color-text-default);
   text-decoration: none;
   cursor: pointer;
   transition: var(--lido-app-ui-transition-colors);
@@ -18,7 +19,6 @@ button.card {
   margin: 0;
   border: 0;
   font: inherit;
-  color: inherit;
   text-align: start;
 }
 
@@ -73,6 +73,10 @@ button.card {
 .logo {
   display: flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  top: 1px;
+  position: relative;
   width: 24px;
   height: 24px;
   overflow: hidden;
@@ -94,6 +98,8 @@ button.card {
   flex-shrink: 0;
   width: 20px;
   height: 20px;
+  top: 1px;
+  position: relative;
   color: var(--lido-app-ui-color-icons-secondary);
 }
 

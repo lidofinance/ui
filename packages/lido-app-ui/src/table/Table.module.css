@@ -16,6 +16,11 @@
   overflow: auto;
 }
 
+.scroller:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: -2px;
+}
+
 .table {
   width: 100%;
   border-collapse: separate;

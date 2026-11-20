@@ -1,6 +1,7 @@
 import { createRef, forwardRef, useState, type ReactNode } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, fireEvent, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import {
   back,
@@ -49,6 +50,23 @@ const RouterLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(
 RouterLink.displayName = 'RouterLink'
 
 describe('SidebarItem', () => {
+  it('reaches enabled items with Tab and skips disabled ones', async () => {
+    const user = userEvent.setup()
+    render(
+      <SidebarGroup label='Operator'>
+        <SidebarItem href='#a'>Dashboard</SidebarItem>
+        <SidebarItem href='#b' disabled>
+          Surveys
+        </SidebarItem>
+        <SidebarItem onClick={() => {}}>Keys</SidebarItem>
+      </SidebarGroup>,
+    )
+    await user.tab()
+    expect(screen.getByRole('link', { name: 'Dashboard' })).toHaveFocus()
+    await user.tab()
+    expect(screen.getByRole('button', { name: 'Keys' })).toHaveFocus()
+  })
+
   it('renders a link, spreads rest and forwards ref', () => {
     const ref = createRef<HTMLAnchorElement | HTMLButtonElement>()
     render(

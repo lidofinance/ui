@@ -56,7 +56,7 @@ export const Basic: Story = {
     },
   },
   render: (args) => (
-    <div style={{ width: 750 }}>
+    <div style={{ width: '100%', maxWidth: 750 }}>
       <Card {...args}>
         <SectionTitle
           size='large'
@@ -79,19 +79,21 @@ export const Basic: Story = {
 export const Variants: Story = {
   render: () => (
     <StoryContainer gap={16}>
-      <div style={{ width: 420 }}>
+      <div style={{ width: '100%', maxWidth: 420 }}>
         <Card>
           <strong>Card title</strong>
           <Input placeholder='Placeholder' />
           <Button>Button</Button>
         </Card>
       </div>
-      <div style={{ width: 800 }}>
+      <div style={{ width: '100%', maxWidth: 800 }}>
         <Card>
           <div
             style={{
               display: 'flex',
               flexDirection: 'row',
+              flexWrap: 'wrap',
+              gap: 24,
               width: '100%',
               justifyContent: 'space-between',
             }}
@@ -128,7 +130,7 @@ export const Variants: Story = {
 
 export const Stretch: Story = {
   render: () => (
-    <div style={{ width: 560 }}>
+    <div style={{ width: '100%', maxWidth: 560 }}>
       <Card align='stretch'>
         <SectionTitle title='Your keys' subtitle='Uploaded validator keys.' />
         <Table rows={keyRows} rowKey={(row) => row.id} columns={keyColumns} />
@@ -148,7 +150,7 @@ export const Stretch: Story = {
 
 export const Flush: Story = {
   render: () => (
-    <div style={{ width: 560 }}>
+    <div style={{ width: '100%', maxWidth: 560 }}>
       <Card padding={0} gap={0} clip align='stretch'>
         <Table rows={keyRows} rowKey={(row) => row.id} columns={keyColumns} />
       </Card>
@@ -168,7 +170,7 @@ export const Spacing: Story = {
   render: () => (
     <StoryContainer gap={16}>
       {([{ padding: 16, gap: 8 }, {}] as const).map((props, i) => (
-        <div key={i} style={{ width: 360 }}>
+        <div key={i} style={{ width: '100%', maxWidth: 360 }}>
           <Card {...props}>
             <SectionTitle title={i === 0 ? 'Compact card' : 'Default card'} />
             <Input placeholder='Placeholder' />

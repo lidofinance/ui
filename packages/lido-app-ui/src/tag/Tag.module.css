@@ -22,6 +22,8 @@
 
 .label {
   @mixin truncate;
+
+  padding-inline: 4px;
 }
 
 .interactive {

@@ -8,7 +8,7 @@
   align-items: center;
   gap: 20px;
   box-sizing: border-box;
-  padding: 16px;
+  padding: 15px;
   border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-md);
   background-color: var(--lido-app-ui-color-background-default);
