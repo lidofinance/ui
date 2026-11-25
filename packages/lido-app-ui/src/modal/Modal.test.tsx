@@ -487,6 +487,19 @@ describe('Modal', () => {
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
+  it('toggles data-scrolled on the card as the body scrolls', () => {
+    render(modal({ dataTestId: { overlay: 'scrim', body: 'body' } }))
+    const card = screen.getByRole('dialog')
+    const body = screen.getByTestId('body')
+    expect(card).not.toHaveAttribute('data-scrolled')
+    body.scrollTop = 10
+    fireEvent.scroll(body)
+    expect(card).toHaveAttribute('data-scrolled')
+    body.scrollTop = 0
+    fireEvent.scroll(body)
+    expect(card).not.toHaveAttribute('data-scrolled')
+  })
+
   it('scrolls the initialFocus target into view', () => {
     const scrollIntoView = vi.fn()
     Element.prototype.scrollIntoView = scrollIntoView
@@ -953,6 +966,20 @@ describe('Modal Android back', () => {
   it('creates no watcher for a bare card', () => {
     render(modal({ withOverlay: false }))
     expect(FakeWatcher.all).toHaveLength(0)
+  })
+})
+
+describe('Modal scroll', () => {
+  it('does not apply the scrollOverlay class by default', () => {
+    render(modal())
+    expect(screen.getByRole('dialog').className).not.toMatch(
+      /cardScrollOverlay/,
+    )
+  })
+
+  it('applies the scrollOverlay class', () => {
+    render(modal({ scroll: 'overlay' }))
+    expect(screen.getByRole('dialog').className).toMatch(/cardScrollOverlay/)
   })
 })
 

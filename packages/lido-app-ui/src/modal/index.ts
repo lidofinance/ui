@@ -5,5 +5,6 @@ export type {
   ModalCloseReason,
   ModalDataTestId,
   ModalLabels,
+  ModalScroll,
   ModalSize,
 } from './Modal'

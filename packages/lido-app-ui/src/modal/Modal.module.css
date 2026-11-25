@@ -1,10 +1,12 @@
 .overlay {
+  --local-overlay-padding: 16px;
+
   position: fixed;
   inset: 0;
   z-index: var(--lido-app-ui-z-index-modal);
   display: flex;
   overflow-y: auto;
-  padding: 16px;
+  padding: var(--local-overlay-padding);
 
   @mixin motion-scrim var(--lido-app-ui-duration-base),
     var(--lido-app-ui-duration-base-exit);
@@ -78,6 +80,56 @@
   flex-direction: column;
 }
 
+.body::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  flex-shrink: 0;
+  height: 24px;
+  margin: 0 calc(-1 * var(--local-padding)) -24px;
+  background: linear-gradient(
+    var(--lido-app-ui-color-background-surface),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity var(--lido-app-ui-duration-base)
+      var(--lido-app-ui-easing-out);
+  }
+}
+
+.card[data-scrolled] .body::before {
+  opacity: 1;
+}
+
+.overlay .body {
+  flex: 0 1 auto;
+  min-height: 0;
+  margin: -4px calc(-1 * var(--local-padding)) calc(-1 * var(--local-padding));
+  padding: 4px var(--local-padding) var(--local-padding);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Zero specificity so a consumer's flex (e.g. under bodyFill) still wins. */
+:where(.overlay .body) > * {
+  flex-shrink: 0;
+}
+
+@media (--lido-app-ui-breakpoint-sm-up) {
+  /* Capped so the body scrolls under a pinned header. */
+  .overlay .card:not(.cardScrollOverlay) {
+    max-height: calc(100dvh - 2 * var(--local-overlay-padding));
+  }
+
+  .overlay .cardScrollOverlay .body {
+    overflow: visible;
+  }
+}
+
 /* At 600 and below the modal goes full-screen (no scrim, square corners) when it
    owns the overlay — matches the mobile macet, which is full-screen, not a
    bottom-sheet. The bare card (no overlay) just fills its container's width. */
@@ -101,20 +153,6 @@
     height: 100dvh;
     border: none;
     border-radius: 0;
-  }
-
-  .overlay .body {
-    flex: 0 1 auto;
-    min-height: 0;
-    margin: -4px calc(-1 * var(--local-padding)) calc(-1 * var(--local-padding));
-    padding: 4px var(--local-padding) var(--local-padding);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-
-  /* Zero specificity so a consumer's flex (e.g. under bodyFill) still wins. */
-  :where(.overlay .body) > * {
-    flex-shrink: 0;
   }
 
   .overlay .cardBodyFill .body {

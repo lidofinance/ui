@@ -58,6 +58,11 @@ const meta: Meta<typeof Modal> = {
       options: ['default', 'large'],
       table: { defaultValue: { summary: 'default' } },
     },
+    scroll: {
+      control: { type: 'radio' },
+      options: ['body', 'overlay'],
+      table: { defaultValue: { summary: 'body' } },
+    },
   },
   parameters: {
     layout: 'padded',
@@ -336,6 +341,60 @@ export const Large: Story = {
       description: {
         story:
           '`size="large"` widens the card to 680px for wide content (tables, key lists); still full-screen at `sm` and below.',
+      },
+    },
+  },
+}
+
+export const LongContentDesktop: Story = {
+  tags: ['!autodocs'],
+  render: function Render(args) {
+    const [open, setOpen] = useState(false)
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open modal</Button>
+        <Modal
+          withOverlay
+          scroll={args.scroll}
+          open={open}
+          onClose={() => setOpen(false)}
+          title='Select node operator'
+          subtitle='Pick one to continue'
+        >
+          <DataList>
+            {Array.from({ length: 20 }, (_, i) => (
+              <DataListRow
+                key={i}
+                label={`Operator ${i + 1}`}
+                value={`${(i + 1) * 12} keys`}
+              />
+            ))}
+          </DataList>
+        </Modal>
+      </>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'The card caps at the viewport height; the body scrolls inside it and the header with Close stays pinned, with a fade under the header once scrolled.',
+      },
+    },
+  },
+}
+
+export const ScrollOverlay: Story = {
+  ...LongContentDesktop,
+  args: { scroll: 'overlay' },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`scroll="overlay"` grows the card with its content and scrolls the whole overlay on desktop; mobile still scrolls the body.',
       },
     },
   },
