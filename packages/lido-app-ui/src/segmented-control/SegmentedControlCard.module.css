@@ -5,7 +5,6 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   gap: 4px;
   box-sizing: border-box;
   padding: 4px;
