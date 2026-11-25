@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
+import type { MessageBoxVariant } from '../message-box'
 import cn from 'classnames'
 
 import styles from './Banner.module.css'
@@ -12,7 +13,11 @@ export type BannerDataTestId = {
   action?: string
 }
 
+export type BannerVariant = MessageBoxVariant
+
 export type BannerProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
+  /** `default` neutral, `info` blue, `warning` orange, `error` red, `success` green. */
+  variant?: BannerVariant
   icon?: ReactNode
   title: ReactNode
   description?: ReactNode
@@ -22,6 +27,7 @@ export type BannerProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
 
 /** Compact card row: icon, title and description, with an optional `action` slot on the right (usually a `Button`). Needs a definite-width parent (it fills it). */
 export const Banner = ({
+  variant = 'default',
   icon,
   title,
   description,
@@ -31,7 +37,7 @@ export const Banner = ({
   ...rest
 }: BannerProps) => (
   <div
-    className={cn(styles.banner, className)}
+    className={cn(styles.banner, styles[variant], className)}
     data-testid={dataTestId?.root}
     {...rest}
   >

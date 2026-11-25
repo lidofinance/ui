@@ -1,4 +1,9 @@
 .banner {
+  --local-bg: var(--lido-app-ui-color-background-default);
+  --local-border: var(--lido-app-ui-color-border-default);
+  --local-title-color: var(--lido-app-ui-color-text-default);
+  --local-description-color: var(--lido-app-ui-color-text-secondary);
+
   container-type: inline-size;
   width: 100%;
 }
@@ -9,11 +14,43 @@
   gap: 20px;
   box-sizing: border-box;
   padding: 15px;
-  border: 1px solid var(--lido-app-ui-color-border-default);
+  border: 1px solid var(--local-border);
   border-radius: var(--lido-app-ui-border-radius-md);
-  background-color: var(--lido-app-ui-color-background-default);
+  background-color: var(--local-bg);
   font-family: var(--lido-app-ui-font-family);
   min-height: 80px;
+}
+
+.info {
+  --local-border: var(--lido-app-ui-color-border-info);
+  --local-bg: var(--lido-app-ui-color-tint-info);
+  --local-icon-color: var(--lido-app-ui-color-icons-info);
+  --local-title-color: var(--lido-app-ui-color-text-info);
+  --local-description-color: var(--lido-app-ui-color-text-info);
+}
+
+.warning {
+  --local-border: var(--lido-app-ui-color-border-warning);
+  --local-bg: var(--lido-app-ui-color-tint-warning);
+  --local-icon-color: var(--lido-app-ui-color-icons-warning);
+  --local-title-color: var(--lido-app-ui-color-text-warning);
+  --local-description-color: var(--lido-app-ui-color-text-warning);
+}
+
+.error {
+  --local-border: var(--lido-app-ui-color-border-error);
+  --local-bg: var(--lido-app-ui-color-tint-error);
+  --local-icon-color: var(--lido-app-ui-color-icons-error);
+  --local-title-color: var(--lido-app-ui-color-text-error);
+  --local-description-color: var(--lido-app-ui-color-text-error);
+}
+
+.success {
+  --local-border: var(--lido-app-ui-color-border-success);
+  --local-bg: var(--lido-app-ui-color-tint-success);
+  --local-icon-color: var(--lido-app-ui-color-icons-success);
+  --local-title-color: var(--lido-app-ui-color-text-success);
+  --local-description-color: var(--lido-app-ui-color-text-success);
 }
 
 .content {
@@ -29,6 +66,7 @@
   flex-shrink: 0;
   width: 32px;
   height: 32px;
+  color: var(--local-icon-color);
 }
 
 .icon svg {
@@ -48,7 +86,7 @@
 
   @mixin font-body-semibold;
 
-  color: var(--lido-app-ui-color-text-default);
+  color: var(--local-title-color);
   word-break: break-word;
 }
 
@@ -57,7 +95,7 @@
 
   @mixin font-body;
 
-  color: var(--lido-app-ui-color-text-secondary);
+  color: var(--local-description-color);
   word-break: break-word;
 }
 
