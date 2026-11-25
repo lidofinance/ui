@@ -63,6 +63,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const fallbackId = useId()
     const inputId = id ?? fallbackId
     const { hasError } = resolveFieldError(error)
+    const isReadOnly = loading || readOnly
 
     return (
       <Field
@@ -97,7 +98,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 id={inputId}
                 className={styles.input}
                 disabled={disabled}
-                readOnly={loading || readOnly}
+                readOnly={isReadOnly}
+                tabIndex={isReadOnly ? -1 : undefined}
                 aria-busy={loading || undefined}
                 aria-invalid={hasError || undefined}
                 aria-describedby={getFieldDescribedBy(

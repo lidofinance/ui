@@ -131,6 +131,7 @@ export const States: Story = {
       <Input defaultValue='Text' />
       <Input defaultValue='Text' error />
       <Input placeholder='Disabled' disabled />
+      <Input defaultValue='Read-only' readOnly />
       <Input defaultValue='Text' loading />
       <Input defaultValue='Text' loading icon={<IconInfo />} />
       <StoryContainer gap={16} style={{ maxWidth: 240 }}>
@@ -143,7 +144,7 @@ export const States: Story = {
     controls: { disable: true },
     docs: {
       description: {
-        story: 'Empty, filled, error, disabled and loading.',
+        story: 'Empty, filled, error, disabled, read-only and loading.',
       },
     },
   },

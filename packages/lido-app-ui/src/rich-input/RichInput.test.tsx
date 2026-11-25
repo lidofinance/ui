@@ -74,6 +74,24 @@ describe('RichInput locked', () => {
     expect(screen.getByRole('textbox')).toHaveAttribute('readonly')
   })
 
+  it('drops out of the tab order', () => {
+    render(<RichInput locked />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('tabindex', '-1')
+  })
+
+  it('has no tabindex when editable', () => {
+    render(<RichInput />)
+    expect(screen.getByRole('textbox')).not.toHaveAttribute('tabindex')
+  })
+
+  it('does not focus the input when the card padding is clicked', () => {
+    const { container } = render(
+      <RichInput label='Amount' locked dataTestId={{ input: 'input' }} />,
+    )
+    fireEvent.click(container.querySelector('label')!.closest('div')!)
+    expect(document.activeElement).not.toBe(screen.getByTestId('input'))
+  })
+
   it('hides Max', () => {
     render(<RichInput locked />)
     expect(screen.queryByRole('button', { name: 'Max' })).toBeNull()

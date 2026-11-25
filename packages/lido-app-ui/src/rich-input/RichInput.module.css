@@ -31,7 +31,7 @@
   border-color: var(--lido-app-ui-color-border-error);
 }
 
-.card:has(.input:focus) {
+.card:has(.input:focus:not(:read-only)) {
   border-color: var(--lido-app-ui-color-border-active);
   background-color: var(--lido-app-ui-color-background-default-active);
 }

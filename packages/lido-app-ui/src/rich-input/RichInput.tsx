@@ -82,7 +82,7 @@ export type RichInputProps = InputHTMLAttributes<HTMLInputElement> & {
 
 const noop = () => undefined
 
-/** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max; `locked` makes it read-only without Max; `loading` shows a skeleton for the amount and hides the fiat line. */
+/** Amount field for supply and borrow forms: token picker, fiat equivalent, balance and a Max shortcut in one card; input is filtered to decimals as you type. `disabled` dims the card and hides Max; `locked` makes it read-only and unfocusable by Tab, without Max; `loading` shows a skeleton for the amount and hides the fiat line. */
 export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
   (
     {
@@ -107,6 +107,7 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
       labels,
       loading,
       readOnly,
+      tabIndex,
       decimals,
       dataTestId,
       'aria-describedby': ariaDescribedBy,
@@ -123,6 +124,7 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
     const setRefs = useMergedRef(inputRef, ref)
 
     const { hasError } = resolveFieldError(error)
+    const isReadOnly = locked || loading || readOnly
     const showMax = showMaxButton && !disabled && !locked && !loading
     const showSecondary = secondaryValue != null && !loading
     const hasBottomRow = showSecondary || balance != null || showMax
@@ -157,7 +159,7 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
     }
 
     const handleRootClick = (event: MouseEvent<HTMLDivElement>) => {
-      if (!(event.target instanceof Element)) return
+      if (isReadOnly || !(event.target instanceof Element)) return
       if (
         event.target.closest(
           'button, input, label, [role="listbox"], [tabindex]',
@@ -247,7 +249,8 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
                 id={inputId}
                 className={styles.input}
                 disabled={disabled}
-                readOnly={locked || loading || readOnly}
+                readOnly={isReadOnly}
+                tabIndex={tabIndex ?? (isReadOnly ? -1 : undefined)}
                 aria-busy={loading || ariaBusy || undefined}
                 aria-invalid={hasError || ariaInvalid || undefined}
                 aria-describedby={getFieldDescribedBy(

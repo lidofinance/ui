@@ -146,6 +146,11 @@ describe('Textarea', () => {
     expect(screen.getByRole('textbox')).toHaveAttribute('readonly')
   })
 
+  it('drops out of the tab order when readOnly', () => {
+    render(<Textarea readOnly />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('tabindex', '-1')
+  })
+
   it('has no busy state by default', () => {
     render(<Textarea />)
     const textarea = screen.getByRole('textbox')
