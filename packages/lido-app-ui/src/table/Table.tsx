@@ -7,10 +7,12 @@ import {
   type ReactElement,
   type ReactNode,
   type Ref,
+  useRef,
 } from 'react'
 
 import cn from 'classnames'
 
+import { useScrollableRegion } from '../hooks'
 import { IconChevronDown, IconChevronsUpDown, IconChevronUp } from '../icons'
 import { InfoTooltip } from '../info-tooltip'
 import styles from './Table.module.css'
@@ -338,6 +340,8 @@ const TableInner = <Row,>(
 ) => {
   const isFixed = fixed ?? columns.some((column) => column.width != null)
   const isEmpty = rows.length === 0 && emptyState != null
+  const scrollerRef = useRef<HTMLDivElement>(null)
+  const scrollerTabIndex = useScrollableRegion(scrollerRef)
 
   return (
     <div
@@ -352,7 +356,9 @@ const TableInner = <Row,>(
         </div>
       ) : null}
       <div
+        ref={scrollerRef}
         className={styles.scroller}
+        tabIndex={scrollerTabIndex}
         style={maxHeight != null ? { maxHeight } : undefined}
         data-testid={dataTestId?.scroller}
       >

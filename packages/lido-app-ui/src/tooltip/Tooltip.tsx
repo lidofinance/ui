@@ -476,19 +476,22 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
         {children}
         {open || present ? (
           <Portal>
-            <ThemeProvider themeName={ThemeName.dark}>
-              <TooltipBubble
-                id={tooltipId}
-                open={open}
-                onExited={onExited}
-                anchorRef={anchorRef}
-                position={position}
-                width={width}
-                dataTestId={dataTestId?.content}
-              >
-                {content}
-              </TooltipBubble>
-            </ThemeProvider>
+            {/* Resolves the shadow in the page theme before the bubble switches to dark. */}
+            <span className={styles.pageTheme}>
+              <ThemeProvider themeName={ThemeName.dark}>
+                <TooltipBubble
+                  id={tooltipId}
+                  open={open}
+                  onExited={onExited}
+                  anchorRef={anchorRef}
+                  position={position}
+                  width={width}
+                  dataTestId={dataTestId?.content}
+                >
+                  {content}
+                </TooltipBubble>
+              </ThemeProvider>
+            </span>
           </Portal>
         ) : null}
       </span>

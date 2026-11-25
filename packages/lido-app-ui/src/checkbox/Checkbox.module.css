@@ -64,7 +64,6 @@
 
 .input:checked,
 .inputIndeterminate {
-  border-color: transparent;
   background-color: var(--lido-app-ui-color-background-surface-selected);
   transition:
     background-color var(--lido-app-ui-duration-fast)

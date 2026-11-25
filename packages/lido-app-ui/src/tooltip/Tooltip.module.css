@@ -4,6 +4,13 @@
   font-family: var(--lido-app-ui-font-family);
 }
 
+/* var() in a custom property resolves where declared, so this keeps the page theme's shadow */
+.pageTheme {
+  --local-page-shadow: var(--lido-app-ui-shadow-default);
+
+  display: contents;
+}
+
 .content {
   position: fixed;
   z-index: var(--lido-app-ui-z-index-tooltip);
@@ -17,7 +24,7 @@
   border: 1px solid var(--lido-app-ui-color-border-default);
   border-radius: var(--lido-app-ui-border-radius-tooltip);
   background-color: var(--lido-app-ui-color-background-page);
-  box-shadow: var(--lido-app-ui-shadow-default);
+  box-shadow: var(--local-page-shadow, var(--lido-app-ui-shadow-default));
   color: var(--lido-app-ui-color-text-default);
 
   @mixin font-body;

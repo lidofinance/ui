@@ -8,8 +8,12 @@
 
 .root :any-link {
   font: inherit;
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 2px;
+}
+
+.root :any-link:is(:hover, :focus-visible) {
+  text-decoration: underline;
 }
 
 /* stylelint-disable selector-max-type -- children are consumer markup */

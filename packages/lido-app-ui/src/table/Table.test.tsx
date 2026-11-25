@@ -52,6 +52,24 @@ describe('Table', () => {
     expect(screen.getByTestId('scroller').querySelector('table')).not.toBeNull()
   })
 
+  it('makes an overflowing scroller keyboard-focusable', () => {
+    vi.spyOn(HTMLElement.prototype, 'scrollWidth', 'get').mockReturnValue(800)
+    vi.spyOn(HTMLElement.prototype, 'clientWidth', 'get').mockReturnValue(400)
+    try {
+      render(
+        <Table
+          columns={[{ key: 'name', header: 'Name' }]}
+          rows={rows}
+          rowKey={(row) => row.id}
+          dataTestId={{ scroller: 'scroller' }}
+        />,
+      )
+      expect(screen.getByTestId('scroller')).toHaveAttribute('tabindex', '0')
+    } finally {
+      vi.restoreAllMocks()
+    }
+  })
+
   it('calls onSortChange and reflects aria-sort on the sortable header', async () => {
     const onSortChange = vi.fn()
     render(

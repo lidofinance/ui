@@ -221,7 +221,10 @@ export const LongBreadcrumbs: Story = {
         'Keys',
         'Upload keys',
         'Confirmation',
-      ].map((label) => ({ label }))}
+      ].map((label, index, all) =>
+        // Ancestors are links, as in a real trail; the current page is not.
+        index < all.length - 1 ? { label, href: '#' } : { label },
+      )}
     />
   ),
 }

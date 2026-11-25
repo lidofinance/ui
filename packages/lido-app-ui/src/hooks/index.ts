@@ -20,6 +20,7 @@ export { useOpenerElement } from './useOpenerElement'
 export { useOutsideClick } from './useOutsideClick'
 export { useResizeObserver } from './useResizeObserver'
 export { useRovingTabs } from './useRovingTabs'
+export { useScrollableRegion } from './useScrollableRegion'
 export { useSelectionIndicator } from './useSelectionIndicator'
 export { usePresence } from './usePresence'
 export type {
