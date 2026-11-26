@@ -122,7 +122,7 @@ export const NarrowContainers: Story = {
     docs: {
       description: {
         story:
-          'Long titles wrap instead of overflowing; the action keeps its size.',
+          'Long titles wrap instead of overflowing; the action keeps its size and moves to its own row once the title column would get narrower than 10rem.',
       },
     },
   },
