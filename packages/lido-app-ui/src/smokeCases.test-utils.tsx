@@ -34,9 +34,11 @@ import { Notification } from './notification'
 import { FormLayout, Layout, Main, PageContent } from './page-layout'
 import { Pagination } from './pagination'
 import { Popover } from './popover'
+import { PositionCard, PositionCardStatus } from './position-card'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
 import { SectionTitle } from './section-title'
+import { SecurityNote } from './security-note'
 import {
   Segment,
   SegmentCard,
@@ -64,6 +66,7 @@ import { Tag } from './tag'
 import { TextLink } from './text-link'
 import { ThemeSwitcher } from './theme-switcher'
 import { TokenAmount } from './token-amount'
+import { TokenChainSelector } from './token-chain-selector'
 import { TokenSelector } from './token-selector'
 import { Tooltip } from './tooltip'
 import { TxStatus } from './tx-status'
@@ -253,9 +256,34 @@ export const smokeCases: Array<[string, () => JSX.Element]> = [
       </Popover>
     ),
   ],
+  [
+    'PositionCard',
+    () => (
+      <PositionCard
+        label='Staked position'
+        value='1 ETH'
+        aside='2.3% APR'
+        onClick={() => {}}
+        footer={
+          <PositionCardStatus action='Claim' onClick={() => {}}>
+            1 ETH withdrawal ready.
+          </PositionCardStatus>
+        }
+      />
+    ),
+  ],
+  [
+    'PositionCardStatus',
+    () => (
+      <PositionCardStatus action='Claim' href='/claim'>
+        1 ETH withdrawal ready.
+      </PositionCardStatus>
+    ),
+  ],
   ['RadioButton', () => <RadioButton label='Option' />],
   ['RichInput', () => <RichInput label='Amount' error='Too much' />],
   ['SectionTitle', () => <SectionTitle title='Choose a token' />],
+  ['SecurityNote', () => <SecurityNote />],
   ['Segment', () => <Segment active>Tab</Segment>],
   [
     'SegmentedControl',
@@ -331,6 +359,22 @@ export const smokeCases: Array<[string, () => JSX.Element]> = [
   ['TextLink', () => <TextLink href='https://lido.fi'>Link</TextLink>],
   ['ThemeSwitcher', () => <ThemeSwitcher />],
   ['TokenAmount', () => <TokenAmount symbol='stETH' amount='1.0' />],
+  [
+    'TokenChainSelector',
+    () => (
+      <TokenChainSelector
+        tokens={[
+          {
+            value: 'ETH:ethereum',
+            label: 'ETH',
+            icon: null,
+            chain: 'ethereum',
+          },
+        ]}
+        chains={[{ value: 'ethereum', label: 'Ethereum', icon: null }]}
+      />
+    ),
+  ],
   [
     'TokenSelector',
     () => (
