@@ -13,6 +13,7 @@ const meta: Meta<typeof Banner> = {
   title: 'Banners/Banner',
   component: Banner,
   args: {
+    variant: 'default',
     icon: <TokenStEth />,
     title: 'Add stETH to your wallet',
     description: 'to track your supply balance',
@@ -23,6 +24,10 @@ const meta: Meta<typeof Banner> = {
     ),
   },
   argTypes: {
+    variant: {
+      options: ['default', 'info', 'warning', 'error', 'success'],
+      control: { type: 'inline-radio' },
+    },
     title: { control: { type: 'text' } },
     description: { control: { type: 'text' } },
   },
@@ -79,4 +84,45 @@ export const NarrowContainers: Story = {
       <Banner {...args} title={args.title} />
     </ContainerWidths>
   ),
+}
+
+export const Variants: Story = {
+  render: (args) => (
+    <StoryContainer gap={16}>
+      <Banner {...args} title={args.title} />
+      <Banner
+        {...args}
+        variant='info'
+        title='Rewards are distributed daily'
+        description='Your balance updates automatically'
+      />
+      <Banner
+        {...args}
+        variant='warning'
+        title='Position close to liquidation'
+        description='Add collateral or repay part of the loan'
+        action={
+          <Button variant='outline' size='small'>
+            Add collateral
+          </Button>
+        }
+      />
+      <Banner
+        {...args}
+        variant='error'
+        title='Transaction failed'
+        description='The transaction was rejected in your wallet'
+      />
+      <Banner
+        {...args}
+        variant='success'
+        title='Deposit confirmed'
+        description='Your stETH is now earning rewards'
+        action={undefined}
+      />
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+  },
 }

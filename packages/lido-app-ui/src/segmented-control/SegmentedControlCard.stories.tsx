@@ -117,6 +117,34 @@ export const WithDisabledItem: Story = {
   },
 }
 
+export const UnevenDescriptions: Story = {
+  render: function Render() {
+    const [value, setValue] = useState('eject')
+    return (
+      <div style={{ width: '680px' }}>
+        <SegmentedControlCard
+          items={[
+            { ...items[0], description: 'Force a withdrawal from the EL' },
+            items[1],
+            { ...items[2], description: undefined },
+          ]}
+          value={value}
+          onChange={setValue}
+        />
+      </div>
+    )
+  },
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Cards in a row share the tallest card’s height, so the selection fills the row whichever card is selected.',
+      },
+    },
+  },
+}
+
 export const NarrowContainers: Story = {
   render: function Render() {
     const [value, setValue] = useState('eject')

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { Banner } from './Banner'
+import styles from './Banner.module.css'
 
 describe('Banner', () => {
   it('accepts a ReactNode title', () => {
@@ -36,5 +37,10 @@ describe('Banner', () => {
     render(<Banner title='T' dataTestId={{ icon: 'icon', action: 'action' }} />)
     expect(screen.queryByTestId('icon')).toBeNull()
     expect(screen.queryByTestId('action')).toBeNull()
+  })
+
+  it('applies the variant class on the root', () => {
+    render(<Banner title='T' variant='warning' data-testid='root' />)
+    expect(screen.getByTestId('root')).toHaveClass(styles.warning)
   })
 })

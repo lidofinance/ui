@@ -34,6 +34,8 @@ export type ModalLabels = {
 
 export type ModalSize = 'default' | 'large'
 
+export type ModalScroll = 'body' | 'overlay'
+
 export type ModalProps = Omit<
   ComponentPropsWithoutRef<'div'>,
   'title' | 'children'
@@ -53,6 +55,8 @@ export type ModalProps = Omit<
   bodyFill?: boolean
   /** Card width: `default` 500px, `large` 680px; full-width on mobile either way. */
   size?: ModalSize
+  /** Desktop overflow: `body` caps the card at the viewport and scrolls the body under a pinned header; `overlay` grows the card and scrolls the whole overlay. Mobile always scrolls the body. */
+  scroll?: ModalScroll
   /** Opt out of body scroll lock (overlay only). Default true. */
   lockScroll?: boolean
   /** Opt out of Escape-to-close (overlay only); refused presses reach `onDismissAttempt`. Default true. For a locked dialog use `dismissible={false}` (also blocks Android back). */
@@ -82,6 +86,7 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
       labels,
       bodyFill = false,
       size = 'default',
+      scroll = 'body',
       children,
       className,
       dataTestId,
@@ -92,6 +97,7 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
   ) => {
     const titleId = useId()
     const subtitleId = useId()
+    const [scrolled, setScrolled] = useState(false)
     const [cardEl, setCardEl] = useState<HTMLDivElement | null>(null)
     const panelRef = layer?.panelRef
     const setCard = useCallback(
@@ -113,11 +119,13 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
         data-testid={dataTestId?.root}
         {...rest}
         {...layer?.motionProps}
+        data-scrolled={scrolled || undefined}
         ref={setCard}
         className={cn(
           styles.card,
           size === 'large' && styles.large,
           bodyFill && styles.cardBodyFill,
+          scroll === 'overlay' && styles.cardScrollOverlay,
           className,
         )}
       >
@@ -150,7 +158,11 @@ const ModalDialog = forwardRef<HTMLDivElement, ModalDialogProps>(
             </p>
           ) : null}
         </div>
-        <div className={styles.body} data-testid={dataTestId?.body}>
+        <div
+          className={styles.body}
+          data-testid={dataTestId?.body}
+          onScroll={(e) => setScrolled(e.currentTarget.scrollTop > 0)}
+        >
           {children}
         </div>
       </div>
