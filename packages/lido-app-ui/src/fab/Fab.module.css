@@ -1,8 +1,9 @@
 .root {
+  @mixin responsive-prop bottom-offset, --local-bottom,
+    var(--lido-app-ui-viewport-inset);
+
   position: sticky;
-  bottom: calc(
-    var(--lido-app-ui-viewport-inset) + env(safe-area-inset-bottom, 0px)
-  );
+  bottom: calc(var(--local-bottom) + env(safe-area-inset-bottom, 0px));
   z-index: var(--lido-app-ui-z-index-fab);
   display: flex;
   align-items: flex-end;

@@ -6,6 +6,10 @@
   background-color: var(--lido-app-ui-color-background-surface);
 }
 
+.radiusXl {
+  border-radius: var(--lido-app-ui-border-radius-xl);
+}
+
 .clip {
   overflow: hidden;
 }

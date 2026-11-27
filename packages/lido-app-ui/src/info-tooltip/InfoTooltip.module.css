@@ -1,8 +1,16 @@
 .root {
   display: inline-flex;
+  transition: var(--lido-app-ui-transition-colors);
   flex-shrink: 0;
   align-items: center;
   border-radius: var(--lido-app-ui-border-radius-xs);
+}
+
+/* 4px hit-area margin around the icon (20/24/28px frames in the design), without affecting layout */
+.root::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
 }
 
 .root:focus {
@@ -26,16 +34,29 @@
   color: inherit;
 }
 
+.secondary:hover {
+  color: var(--lido-app-ui-color-icons-default);
+}
+
+.tertiary:hover {
+  color: var(--lido-app-ui-color-icons-secondary);
+}
+
 .root > svg {
   display: block;
 }
 
-.size16 > svg {
+.sm > svg {
+  width: 12px;
+  height: 12px;
+}
+
+.md > svg {
   width: 16px;
   height: 16px;
 }
 
-.size20 > svg {
+.xl > svg {
   width: 20px;
   height: 20px;
 }

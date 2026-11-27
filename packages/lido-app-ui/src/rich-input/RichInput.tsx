@@ -205,7 +205,7 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
                   {tooltip != null ? (
                     <InfoTooltip
                       content={tooltip}
-                      size={20}
+                      size='xl'
                       dataTestId={{
                         root: dataTestId?.tooltip,
                         content: dataTestId?.tooltipContent,
@@ -218,7 +218,7 @@ export const RichInput = forwardRef<HTMLInputElement, RichInputProps>(
                 lockedTooltip != null ? (
                   <InfoTooltip
                     icon={<IconLockKeyhole aria-hidden='true' />}
-                    size={20}
+                    size='xl'
                     aria-label={labels?.locked ?? DEFAULT_LABELS.locked}
                     content={lockedTooltip}
                     className={styles.lock}

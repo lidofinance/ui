@@ -18,6 +18,14 @@ const meta: Meta<typeof Fab> = {
   render: (args) => <DemoPage fab={<Fab {...args} />} />,
   argTypes: {
     disabled: { control: { type: 'boolean' } },
+    bottomOffset: {
+      control: { type: 'number', min: 0, step: 4 },
+      table: { defaultValue: { summary: '20' } },
+    },
+    mobileBottomOffset: {
+      control: { type: 'number', min: 0, step: 4 },
+      table: { defaultValue: { summary: '12' } },
+    },
     href: { control: { type: 'text' } },
     type: { table: { disable: true } },
     linkProps: { table: { disable: true } },
@@ -52,6 +60,18 @@ const DemoPage = ({ fab }: { fab: ReactNode }) => (
 )
 
 export const Basic: Story = {}
+
+export const BottomOffset: Story = {
+  args: { bottomOffset: 96, mobileBottomOffset: 72 },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          '`bottomOffset` lifts the floating button, e.g. above a fixed bottom bar or a cookie banner. It applies at every width; `mobileBottomOffset` overrides it at 600px and below. At the page end it still rests one viewport inset above the `Footer`.',
+      },
+    },
+  },
+}
 
 export const AsLink: Story = {
   args: { href: '#faq' },

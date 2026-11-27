@@ -1,13 +1,15 @@
 .root {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 20px;
   width: 100%;
 }
 
+/* The basis is the narrowest the title column gets before `action` wraps onto its own row. */
 .left {
   display: flex;
-  flex: 1 1 0%;
+  flex: 1 1 10rem;
   flex-direction: column;
   gap: 4px;
   min-width: 0;

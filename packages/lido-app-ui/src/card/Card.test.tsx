@@ -81,6 +81,17 @@ describe('Card', () => {
     expect(screen.getByTestId('root')).toHaveClass(styles.clip)
   })
 
+  it("uses the lg radius by default and the xl one with radius='xl'", () => {
+    const { rerender } = render(<Card dataTestId={{ root: 'root' }}>x</Card>)
+    expect(screen.getByTestId('root')).not.toHaveClass(styles.radiusXl)
+    rerender(
+      <Card radius='xl' dataTestId={{ root: 'root' }}>
+        x
+      </Card>,
+    )
+    expect(screen.getByTestId('root')).toHaveClass(styles.radiusXl)
+  })
+
   it('puts children in the inner content element and style on the root', () => {
     render(
       <Card style={{ color: 'red' }} dataTestId={{ root: 'root' }}>

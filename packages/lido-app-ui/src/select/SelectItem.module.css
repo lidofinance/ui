@@ -16,6 +16,7 @@
   font-family: var(--lido-app-ui-font-family);
   text-align: left;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition: var(--lido-app-ui-transition-colors);
 }
 

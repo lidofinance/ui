@@ -29,6 +29,7 @@
 .interactive {
   margin: 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   text-decoration: none;
 }
 
@@ -76,6 +77,7 @@
   border-radius: 50%;
   color: inherit;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .closeButton svg {

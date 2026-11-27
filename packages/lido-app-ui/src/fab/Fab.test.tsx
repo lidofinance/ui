@@ -31,6 +31,32 @@ describe('Fab', () => {
     expect(screen.getByTestId('fab-icon')).toBeInTheDocument()
   })
 
+  it('sets the bottom offset vars on the floating wrapper only when given', () => {
+    const { rerender } = render(<Fab icon='?' aria-label='Help' />)
+    const wrapper = () => screen.getByRole('button').parentElement!
+    expect(wrapper().style.getPropertyValue('--local-bottom-offset')).toBe('')
+    rerender(<Fab bottomOffset={96} icon='?' aria-label='Help' />)
+    expect(wrapper().style.getPropertyValue('--local-bottom-offset')).toBe(
+      '96px',
+    )
+  })
+
+  it('sets a separate mobile bottom offset', () => {
+    render(
+      <Fab
+        bottomOffset={96}
+        mobileBottomOffset={72}
+        icon='?'
+        aria-label='Help'
+      />,
+    )
+    const wrapper = screen.getByRole('button').parentElement!
+    expect(wrapper.style.getPropertyValue('--local-bottom-offset')).toBe('96px')
+    expect(wrapper.style.getPropertyValue('--local-bottom-offset-sm')).toBe(
+      '72px',
+    )
+  })
+
   it('forwards ref', () => {
     const ref = createRef<HTMLButtonElement>()
     render(<Fab ref={ref} icon='?' aria-label='Help' />)
