@@ -10,6 +10,7 @@
   color: var(--lido-app-ui-color-text-default);
   text-decoration: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition: var(--lido-app-ui-transition-colors);
 }
 

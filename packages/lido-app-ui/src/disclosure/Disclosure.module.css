@@ -21,6 +21,7 @@
   color: var(--lido-app-ui-color-text-default);
   text-align: start;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition: var(--lido-app-ui-transition-colors);
 
   @mixin font-body-large-semibold;

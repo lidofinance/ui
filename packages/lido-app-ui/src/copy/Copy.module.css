@@ -9,6 +9,7 @@
   font: inherit;
   vertical-align: middle;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition: var(--lido-app-ui-transition-colors);
 }
 

@@ -33,6 +33,7 @@
   border-radius: var(--lido-app-ui-border-radius-sm);
   background: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hit:focus-visible {

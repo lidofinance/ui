@@ -5,6 +5,7 @@
   box-sizing: border-box;
   padding: var(--lido-app-ui-space-16) var(--lido-app-ui-space-20);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition: var(--lido-app-ui-transition-colors);
 }
 
