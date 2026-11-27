@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { StoryContainer, StorySection } from '../../.storybook/components'
 import { IconLockKeyhole } from '../icons'
 import { InfoTooltip } from '.'
 
@@ -11,7 +12,11 @@ const meta: Meta<typeof InfoTooltip> = {
     content: 'Splitter addresses receive stETH.',
   },
   argTypes: {
-    size: { control: { type: 'inline-radio' }, options: [16, 20] },
+    size: {
+      control: { type: 'inline-radio' },
+      options: ['sm', 'md', 'xl'],
+      table: { defaultValue: { summary: 'md' } },
+    },
     tone: {
       control: { type: 'inline-radio' },
       options: ['secondary', 'tertiary', 'inherit'],
@@ -36,6 +41,10 @@ const meta: Meta<typeof InfoTooltip> = {
   },
   parameters: {
     layout: 'centered',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=6568-23189&m=dev',
+    },
     docs: {
       description: {
         component:
@@ -50,8 +59,32 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {}
 
-export const Size20: Story = {
-  args: { size: 20 },
+export const Sizes: Story = {
+  render: (args) => (
+    <StoryContainer>
+      {(['secondary', 'tertiary'] as const).map((tone) => (
+        <StorySection key={tone} title={tone}>
+          {(['sm', 'md', 'xl'] as const).map((size) => (
+            <InfoTooltip
+              key={size}
+              content={args.content}
+              size={size}
+              tone={tone}
+            />
+          ))}
+        </StorySection>
+      ))}
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { include: ['content'] },
+    docs: {
+      description: {
+        story:
+          '`sm` 12px, `md` 16px (default), `xl` 20px. The hit area extends 4px around the icon (20, 24 and 28px) without changing layout. Hover darkens the icon one step: secondary to default, tertiary to secondary. Numeric `16`/`20` still work as deprecated aliases of `md`/`xl`.',
+      },
+    },
+  },
 }
 
 export const TertiaryTone: Story = {
@@ -88,7 +121,7 @@ export const RichContent: Story = {
 export const CustomIcon: Story = {
   args: {
     icon: <IconLockKeyhole />,
-    size: 20,
+    size: 'xl',
     'aria-label': 'Locked',
     content: 'Amount is fixed by the bond curve.',
   },

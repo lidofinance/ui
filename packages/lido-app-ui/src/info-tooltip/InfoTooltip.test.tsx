@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { resetTooltipGroup } from '../tooltip/tooltipGroup'
 import { InfoTooltip } from './InfoTooltip'
+import styles from './InfoTooltip.module.css'
 
 beforeEach(() => resetTooltipGroup())
 
@@ -22,6 +23,20 @@ describe('InfoTooltip', () => {
     render(<InfoTooltip content='Help' icon={<svg data-testid='custom' />} />)
     expect(screen.getByTestId('custom')).toBeTruthy()
     expect(screen.getByRole('img').querySelectorAll('svg')).toHaveLength(1)
+  })
+
+  it('applies the size class, md by default', () => {
+    const { rerender } = render(<InfoTooltip content='Help' />)
+    expect(screen.getByRole('img')).toHaveClass(styles.md)
+    rerender(<InfoTooltip content='Help' size='sm' />)
+    expect(screen.getByRole('img')).toHaveClass(styles.sm)
+  })
+
+  it('maps deprecated numeric sizes to md and xl', () => {
+    const { rerender } = render(<InfoTooltip content='Help' size={16} />)
+    expect(screen.getByRole('img')).toHaveClass(styles.md)
+    rerender(<InfoTooltip content='Help' size={20} />)
+    expect(screen.getByRole('img')).toHaveClass(styles.xl)
   })
 
   it('inherit tone applies the inherit class', () => {
