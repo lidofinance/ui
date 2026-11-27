@@ -4,16 +4,9 @@ import React, { SVGProps } from 'react'
 
 export const MegaEth = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={24}
-      height={24}
-      viewBox='0 0 24 24'
-      display='block'
-      fill='none'
-      {...props}
-    >
+    <svg width={24} height={24} viewBox='0 0 24 24' fill='none' {...props}>
       <path
-        d='M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12z'
+        d='M0 12c0-3.728 0-5.591.609-7.061a8 8 0 014.33-4.33C6.409 0 8.272 0 12 0c3.727 0 5.591 0 7.061.609a8 8 0 014.33 4.33C24 6.409 24 8.272 24 12c0 3.727 0 5.591-.609 7.061a8 8 0 01-4.33 4.33C17.591 24 15.727 24 12 24c-3.728 0-5.591 0-7.061-.609a8 8 0 01-4.33-4.33C0 17.591 0 15.727 0 12z'
         fill='#E0D9D9'
       />
       <g fill='#19191A'>
