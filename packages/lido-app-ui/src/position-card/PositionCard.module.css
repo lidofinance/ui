@@ -1,0 +1,209 @@
+.root {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-card);
+  background-color: var(--lido-app-ui-color-background-surface);
+  color: var(--lido-app-ui-color-text-default);
+  font-family: var(--lido-app-ui-font-family);
+}
+
+/* Figma's 12px/16px inset includes the card's 1px border (inside stroke). */
+.main {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--lido-app-ui-space-12);
+  width: 100%;
+  min-height: 70px;
+  margin: 0;
+  padding: 11px 15px;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.interactive {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.interactive:hover {
+  background-color: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.interactive:active,
+.interactive[aria-expanded='true'] {
+  background-color: var(--lido-app-ui-color-background-transparent-pressed);
+}
+
+/* Inset: the card's `overflow: hidden` would clip an outside ring. */
+.interactive:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: -2px;
+  border-radius: var(--lido-app-ui-border-radius-card);
+}
+
+.details {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: var(--lido-app-ui-space-2);
+  min-width: 0;
+}
+
+.label {
+  @mixin font-description;
+  @mixin truncate;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.chevron {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  color: var(--lido-app-ui-color-icons-secondary);
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--lido-app-ui-space-8);
+  min-width: 0;
+}
+
+.value {
+  flex-shrink: 0;
+  max-width: 100%;
+
+  @mixin font-body-large-semibold;
+  @mixin truncate;
+}
+
+.noPosition .value {
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.secondaryValue {
+  @mixin font-description;
+  @mixin truncate;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.disconnected .valueRow {
+  gap: var(--lido-app-ui-space-12);
+}
+
+.disconnected .secondaryValue {
+  @mixin font-body-large;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.aside {
+  flex-shrink: 0;
+
+  @mixin font-body-semibold;
+
+  white-space: nowrap;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  position: relative;
+}
+
+/* Divider sits 32px in from the card edges (the card's 1px border counts). */
+.status::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 31px;
+  left: 31px;
+  height: 1px;
+  background-color: var(--lido-app-ui-color-border-default);
+  pointer-events: none;
+}
+
+/* The whole row is the hit area and takes the hover/pressed shade edge to edge. */
+.statusAction {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--lido-app-ui-space-8);
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 15px;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.statusAction:hover {
+  background-color: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.statusAction:active {
+  background-color: var(--lido-app-ui-color-background-transparent-pressed);
+}
+
+/* Inset: the card's `overflow: hidden` would clip an outside ring. */
+.statusAction:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: -2px;
+}
+
+.statusText {
+  display: flex;
+  flex: 1 1 0%;
+  align-items: baseline;
+  gap: var(--lido-app-ui-space-8);
+  min-width: 0;
+
+  @mixin font-description;
+}
+
+.statusMessage {
+  @mixin truncate;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.statusCta {
+  flex-shrink: 0;
+  font-weight: var(--lido-app-ui-font-weight-semibold);
+  color: var(--lido-app-ui-color-text-active);
+}
+
+.statusArrow {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--lido-app-ui-color-icons-tertiary);
+}

@@ -34,6 +34,7 @@ import { Notification } from './notification'
 import { FormLayout, Layout, Main, PageContent } from './page-layout'
 import { Pagination } from './pagination'
 import { Popover } from './popover'
+import { PositionCard, PositionCardStatus } from './position-card'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
 import { SectionTitle } from './section-title'
@@ -251,6 +252,30 @@ export const smokeCases: Array<[string, () => JSX.Element]> = [
       >
         Content
       </Popover>
+    ),
+  ],
+  [
+    'PositionCard',
+    () => (
+      <PositionCard
+        label='Staked position'
+        value='1 ETH'
+        aside='2.3% APR'
+        onClick={() => {}}
+        footer={
+          <PositionCardStatus action='Claim' onClick={() => {}}>
+            1 ETH withdrawal ready.
+          </PositionCardStatus>
+        }
+      />
+    ),
+  ],
+  [
+    'PositionCardStatus',
+    () => (
+      <PositionCardStatus action='Claim' href='/claim'>
+        1 ETH withdrawal ready.
+      </PositionCardStatus>
     ),
   ],
   ['RadioButton', () => <RadioButton label='Option' />],
