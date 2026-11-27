@@ -15,10 +15,19 @@ const meta: Meta<typeof Card> = {
   argTypes: {
     padding: { control: 'select', options: spaces },
     gap: { control: 'select', options: spaces },
+    radius: {
+      control: 'radio',
+      options: ['lg', 'xl'],
+      table: { defaultValue: { summary: 'lg' } },
+    },
     clip: { control: 'boolean' },
   },
   parameters: {
     storyBackground: 'page',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/1SFw8VIyvedXmg9s4vCinh/Interface-Design-System?node-id=4008-10649&m=dev',
+    },
   },
 }
 
@@ -185,6 +194,34 @@ export const Spacing: Story = {
       description: {
         story:
           '`padding` and `gap` take values from the spacing scale; the default is 32 for both.',
+      },
+    },
+  },
+}
+
+export const Radius: Story = {
+  render: () => (
+    <StoryContainer gap={16}>
+      {(['lg', 'xl'] as const).map((radius) => (
+        <div key={radius} style={{ width: '100%', maxWidth: 360 }}>
+          <Card radius={radius}>
+            <SectionTitle
+              title={`radius='${radius}'`}
+              subtitle={radius === 'lg' ? '20px, default' : '32px'}
+            />
+            <Input placeholder='Placeholder' />
+            <Button>Button</Button>
+          </Card>
+        </div>
+      ))}
+    </StoryContainer>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          '`radius` picks the corner radius token: `lg` 20px (default) or `xl` 32px.',
       },
     },
   },

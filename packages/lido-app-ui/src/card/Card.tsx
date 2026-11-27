@@ -12,6 +12,9 @@ export type CardDataTestId = {
 
 export type CardAlign = Exclude<StackAlign, 'baseline'>
 
+/** Corner radius token: `lg` 20px, `xl` 32px. */
+export type CardRadius = 'lg' | 'xl'
+
 export type CardProps = HTMLAttributes<HTMLDivElement> & {
   /** Cross-axis alignment of children; `stretch` makes tables and full-width buttons fill the card. */
   align?: CardAlign
@@ -19,6 +22,8 @@ export type CardProps = HTMLAttributes<HTMLDivElement> & {
   padding?: Space
   /** Gap between children from the spacing scale in px. Defaults to 32. */
   gap?: Space
+  /** Corner radius: `lg` 20px, `xl` 32px. Defaults to `lg`. */
+  radius?: CardRadius
   /** Clips overflowing children to the card's rounded corners (flush tables, images). */
   clip?: boolean
   dataTestId?: CardDataTestId
@@ -29,6 +34,7 @@ export const Card = ({
   align,
   padding,
   gap,
+  radius = 'lg',
   clip = false,
   className,
   style,
@@ -37,7 +43,12 @@ export const Card = ({
   ...rest
 }: CardProps) => (
   <div
-    className={cn(styles.card, clip && styles.clip, className)}
+    className={cn(
+      styles.card,
+      radius === 'xl' && styles.radiusXl,
+      clip && styles.clip,
+      className,
+    )}
     style={style}
     data-testid={dataTestId?.root}
     {...rest}
