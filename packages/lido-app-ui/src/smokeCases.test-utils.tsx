@@ -38,6 +38,7 @@ import { PositionCard, PositionCardStatus } from './position-card'
 import { RadioButton } from './radio-button'
 import { RichInput } from './rich-input'
 import { SectionTitle } from './section-title'
+import { SecurityNote } from './security-note'
 import {
   Segment,
   SegmentCard,
@@ -281,6 +282,7 @@ export const smokeCases: Array<[string, () => JSX.Element]> = [
   ['RadioButton', () => <RadioButton label='Option' />],
   ['RichInput', () => <RichInput label='Amount' error='Too much' />],
   ['SectionTitle', () => <SectionTitle title='Choose a token' />],
+  ['SecurityNote', () => <SecurityNote />],
   ['Segment', () => <Segment active>Tab</Segment>],
   [
     'SegmentedControl',
