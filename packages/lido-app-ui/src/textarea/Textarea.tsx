@@ -102,6 +102,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     }, [autosize, resize])
 
     const { hasError } = resolveFieldError(error)
+    const isReadOnly = loading || readOnly
 
     const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
       setUncontrolledLength(event.target.value.length)
@@ -145,7 +146,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               defaultValue={defaultValue}
               maxLength={maxLength}
               disabled={disabled}
-              readOnly={loading || readOnly}
+              readOnly={isReadOnly}
+              tabIndex={isReadOnly ? -1 : undefined}
               aria-busy={loading || undefined}
               aria-invalid={hasError || undefined}
               aria-describedby={describedBy}

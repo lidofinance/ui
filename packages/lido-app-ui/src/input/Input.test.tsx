@@ -22,12 +22,29 @@ describe('Input loading', () => {
     expect(screen.getByRole('textbox')).toHaveAttribute('readonly')
   })
 
+  it('drops out of the tab order', () => {
+    render(<Input loading />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('tabindex', '-1')
+  })
+
   it('has no busy state or skeleton by default', () => {
     const { container } = render(<Input defaultValue='1' />)
     const input = screen.getByRole('textbox')
     expect(input).not.toHaveAttribute('aria-busy')
     expect(input).not.toHaveAttribute('readonly')
     expect(container.querySelector('[aria-hidden="true"]')).toBeNull()
+  })
+})
+
+describe('Input readOnly', () => {
+  it('drops out of the tab order', () => {
+    render(<Input readOnly />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('tabindex', '-1')
+  })
+
+  it('keeps an explicit tabIndex', () => {
+    render(<Input readOnly tabIndex={0} />)
+    expect(screen.getByRole('textbox')).toHaveAttribute('tabindex', '0')
   })
 })
 
