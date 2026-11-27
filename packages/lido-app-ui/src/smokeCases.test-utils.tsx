@@ -66,6 +66,7 @@ import { Tag } from './tag'
 import { TextLink } from './text-link'
 import { ThemeSwitcher } from './theme-switcher'
 import { TokenAmount } from './token-amount'
+import { TokenChainSelector } from './token-chain-selector'
 import { TokenSelector } from './token-selector'
 import { Tooltip } from './tooltip'
 import { TxStatus } from './tx-status'
@@ -358,6 +359,22 @@ export const smokeCases: Array<[string, () => JSX.Element]> = [
   ['TextLink', () => <TextLink href='https://lido.fi'>Link</TextLink>],
   ['ThemeSwitcher', () => <ThemeSwitcher />],
   ['TokenAmount', () => <TokenAmount symbol='stETH' amount='1.0' />],
+  [
+    'TokenChainSelector',
+    () => (
+      <TokenChainSelector
+        tokens={[
+          {
+            value: 'ETH:ethereum',
+            label: 'ETH',
+            icon: null,
+            chain: 'ethereum',
+          },
+        ]}
+        chains={[{ value: 'ethereum', label: 'Ethereum', icon: null }]}
+      />
+    ),
+  ],
   [
     'TokenSelector',
     () => (

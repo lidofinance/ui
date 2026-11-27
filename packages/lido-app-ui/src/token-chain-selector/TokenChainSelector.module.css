@@ -1,0 +1,248 @@
+.root {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--lido-app-ui-color-border-default);
+  border-radius: var(--lido-app-ui-border-radius-dropdown);
+  background-color: var(--lido-app-ui-color-background-surface);
+  box-shadow: var(--lido-app-ui-shadow-default);
+  color: var(--lido-app-ui-color-text-default);
+  font-family: var(--lido-app-ui-font-family);
+}
+
+.chainsBar {
+  position: relative;
+  flex-shrink: 0;
+  padding: var(--lido-app-ui-space-12);
+  background-color: var(--lido-app-ui-color-background-default);
+}
+
+.chains {
+  /* stylelint-disable-next-line value-keyword-case */
+  composes: scrollFade from '../utils/ScrollFade.module.css';
+  display: flex;
+  gap: var(--lido-app-ui-space-8);
+
+  /* Room for the focus ring inside the scroll clip. */
+  margin: -4px;
+  padding: 4px;
+}
+
+.chain {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0 var(--lido-app-ui-space-6);
+  border: 1px solid transparent;
+  border-radius: var(--lido-app-ui-border-radius-sm);
+  background-color: transparent;
+  color: var(--lido-app-ui-color-text-default);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.chainText {
+  @mixin font-body-semibold;
+}
+
+.chain:hover:not(.chainSelected) {
+  background-color: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.chainSelected {
+  border-color: var(--lido-app-ui-color-icons-active);
+  background-color: var(--lido-app-ui-color-background-surface-active);
+}
+
+.chain:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.chainIcon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+}
+
+.chainIcon svg,
+.tokenGlyph svg,
+.tokenBadge svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Shown only while chains overflow past the inline end. */
+.scrollNext {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 var(--lido-app-ui-space-12) 0 var(--lido-app-ui-space-4);
+  border: 0;
+  background: none;
+  color: var(--lido-app-ui-color-icons-secondary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--lido-app-ui-duration-base)
+    var(--lido-app-ui-easing-out);
+}
+
+.scrollNext svg {
+  width: 20px;
+  height: 20px;
+}
+
+[dir='rtl'] .scrollNext svg {
+  transform: scaleX(-1);
+}
+
+.chains[data-fade-end] + .scrollNext {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--lido-app-ui-space-4);
+  min-height: 0;
+  padding: var(--lido-app-ui-space-12);
+  overflow-y: auto;
+}
+
+.caption {
+  margin: 0;
+  padding: var(--lido-app-ui-space-8) var(--lido-app-ui-space-16);
+
+  @mixin font-caption;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lido-app-ui-space-4);
+}
+
+/* Figma's 16px inset includes the 1px border (inside stroke). */
+.option {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--lido-app-ui-space-12);
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: var(--lido-app-ui-border-radius-dropdown-item);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--lido-app-ui-transition-colors);
+}
+
+.option:hover:not(.optionDisabled) {
+  background-color: var(--lido-app-ui-color-background-transparent-hover);
+}
+
+.optionSelected {
+  border-color: var(--lido-app-ui-color-border-active);
+  background-color: var(--lido-app-ui-color-background-surface-active);
+}
+
+.optionSelected:hover:not(.optionDisabled) {
+  background-color: var(--lido-app-ui-color-background-surface-active-hover);
+}
+
+.optionDisabled {
+  color: var(--lido-app-ui-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--lido-app-ui-color-border-active);
+  outline-offset: 2px;
+}
+
+.tokenIcon {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.tokenGlyph {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+}
+
+.optionDisabled .tokenIcon {
+  opacity: 0.4;
+}
+
+.tokenBadge {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+}
+
+.tokenName,
+.amount {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.amount {
+  align-items: flex-end;
+  text-align: end;
+}
+
+.primary {
+  max-width: 100%;
+
+  @mixin font-body-semibold;
+  @mixin truncate;
+}
+
+.secondary {
+  max-width: 100%;
+
+  @mixin font-description;
+  @mixin truncate;
+
+  color: var(--lido-app-ui-color-text-secondary);
+}
+
+.optionDisabled .secondary {
+  color: inherit;
+}
+
+.empty {
+  margin: 0;
+  padding: var(--lido-app-ui-space-16);
+
+  @mixin font-body;
+
+  color: var(--lido-app-ui-color-text-tertiary);
+  text-align: center;
+}

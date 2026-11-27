@@ -1,0 +1,8 @@
+/* Story-only: the panel brings its own chrome, so the popover around it stays bare. */
+.bare {
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
